@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Python基础 编程章法2 | Puppet</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="[TOC] 今天继续分享一下自己的近期心得： python之禅 1Python 3.10.11 | packaged by Anaconda, Inc. | (main, Apr 20 2023, 18:56:50) [MSC v.1916 64 bit (AMD64)] on win32 2Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information. 3&gt;&gt;&gt; import this 4The Zen of Python, by Tim Peters 5 6Beautiful is better than ugly.">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python基础 编程章法2"/>
+<meta name="twitter:description" content="[TOC] 今天继续分享一下自己的近期心得： python之禅 1Python 3.10.11 | packaged by Anaconda, Inc. | (main, Apr 20 2023, 18:56:50) [MSC v.1916 64 bit (AMD64)] on win32 2Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information. 3&gt;&gt;&gt; import this 4The Zen of Python, by Tim Peters 5 6Beautiful is better than ugly."/>
+
+  <meta property="og:title" content="Python基础 编程章法2" />
+<meta property="og:description" content="[TOC] 今天继续分享一下自己的近期心得： python之禅 1Python 3.10.11 | packaged by Anaconda, Inc. | (main, Apr 20 2023, 18:56:50) [MSC v.1916 64 bit (AMD64)] on win32 2Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information. 3&gt;&gt;&gt; import this 4The Zen of Python, by Tim Peters 5 6Beautiful is better than ugly." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-23T00:37:34+08:00" />
+<meta property="article:modified_time" content="2023-11-23T00:37:34+08:00" />
+
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Puppet</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="/series/themes-guide/" title="Guide">Guide</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+          <li><a href="https://github.com/zhenda-hub/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+          </div>
+          <h1>Python基础 编程章法2</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Puppet 
+            on Thu, Nov 23, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <p>[TOC]
+今天继续分享一下自己的近期心得：</p>
+<h2 id="python之禅">python之禅<a class="anchorjs-link" href="#python%e4%b9%8b%e7%a6%85"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>Python <span style="color:#bd93f9">3.10.11</span> <span style="color:#ff79c6">|</span> packaged by Anaconda, Inc<span style="color:#ff79c6">.</span> <span style="color:#ff79c6">|</span> (main, Apr <span style="color:#bd93f9">20</span> <span style="color:#bd93f9">2023</span>, <span style="color:#bd93f9">18</span>:<span style="color:#bd93f9">56</span>:<span style="color:#bd93f9">50</span>) [MSC v<span style="color:#bd93f9">.1916</span> <span style="color:#bd93f9">64</span> bit (AMD64)] on win32
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#ff79c6">import</span> this
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>The Zen of Python, by Tim Peters
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Beautiful <span style="color:#ff79c6">is</span> better than ugly<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Explicit <span style="color:#ff79c6">is</span> better than implicit<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>Simple <span style="color:#ff79c6">is</span> better than <span style="color:#8be9fd;font-style:italic">complex</span><span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Complex <span style="color:#ff79c6">is</span> better than complicated<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>Flat <span style="color:#ff79c6">is</span> better than nested<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Sparse <span style="color:#ff79c6">is</span> better than dense<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>Readability counts<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>Special cases aren<span style="color:#f1fa8c">&#39;t special enough to break the rules.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>Although practicality beats purity<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>Errors should never <span style="color:#ff79c6">pass</span> silently<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>Unless explicitly silenced<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>In the face of ambiguity, refuse the temptation to guess<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>There should be one<span style="color:#ff79c6">--</span> <span style="color:#ff79c6">and</span> preferably only one <span style="color:#ff79c6">--</span>obvious way to do it<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>Although that way may <span style="color:#ff79c6">not</span> be obvious at first unless you<span style="color:#f1fa8c">&#39;re Dutch.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>Now <span style="color:#ff79c6">is</span> better than never<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>Although never <span style="color:#ff79c6">is</span> often better than <span style="color:#ff79c6">*</span>right<span style="color:#ff79c6">*</span> now<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>If the implementation <span style="color:#ff79c6">is</span> hard to explain, it<span style="color:#f1fa8c">&#39;s a bad idea.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>If the implementation <span style="color:#ff79c6">is</span> easy to explain, it may be a good idea<span style="color:#ff79c6">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>Namespaces are one honking great idea <span style="color:#ff79c6">--</span> let<span style="color:#f1fa8c">&#39;s do more of those!</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</span></span></code></pre></div><p>其中有两句很有启发：</p>
+<ol>
+<li>
+<p><strong>If the implementation is hard to explain, it&rsquo;s a bad idea. 如果代码实现很难解释，则是一个糟糕的想法。</strong></p>
+<p>编写代码，思路先行。没有思路，或思路混乱的话，写出来的代码注定是问题重重。
+我们可以<strong>先写注释，后写代码</strong>。这样思路会清晰</p>
+</li>
+<li>
+<p><strong>Simple is better than complex. 简洁好于复杂。</strong></p>
+<p>有时候我们会遇到复杂多变的业务逻辑，但是能把复杂的业务逻辑用尽量简单的代码写出来（也需要考虑代码可读性），才是高手。这可能不是很容易，但这是我们需要追求的目标。</p>
+</li>
+</ol>
+<h2 id="对于单一职责和复用性的思考">对于单一职责和复用性的思考<a class="anchorjs-link" href="#%e5%af%b9%e4%ba%8e%e5%8d%95%e4%b8%80%e8%81%8c%e8%b4%a3%e5%92%8c%e5%a4%8d%e7%94%a8%e6%80%a7%e7%9a%84%e6%80%9d%e8%80%83"></a></h2><p>这两个原则都很重要，但是又有一些矛盾，我们应该怎么遵循它们呢？
+单一职责的优势： 代码简单明确，易于维护
+复用性的优势：提高开发效率，避免重复造轮子</p>
+<p>有时候我们想自己编写一套可复用代码，方便开发人员的使用。 但是这需要对业务逻辑充分理解并合理的拆分， 横向对比各各框架，选择最适合的，还需要考虑后续的功能迭代和维护。因此这不是一件容易的事情。如果写的通用代码被广泛使用后，发现有更好的实现方式或通用功能设计不是很合理，需要迭代，那么迭代成本通常是很大的。而且编写通用的代码，可能不适应复杂多变的业务。会成为累赘。因此<strong>不要急于提高复用性， 谨防过度设计</strong></p>
+<p>建议项目初期<strong>优先遵循单一职责</strong>编写代码，经过深思熟虑后，再<strong>慢慢提炼出可复用的代码</strong></p>
+<p>其实，复用性是重构追求的一个要点，<strong>项目需要不断的，小步的，缓慢进行。才能成为优质的项目</strong></p>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/" data-toggle="tooltip" data-placement="top" title="Python基础 编程章法">
+              Previous<br>
+              <span>Python基础 编程章法</span>
+            </a>
+          </li>
+          
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/documentation/">documentation</a>
+    
+    <a href="/tags/emoji/">emoji</a>
+    
+    <a href="/tags/guide/">guide</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+    <a href="/tags/privacy/">privacy</a>
+    
+    <a href="/tags/shortcodes/">shortcodes</a>
+    
+    <a href="/tags/text/">text</a>
+    
+  </div>
+</section>
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center"></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; Puppet 2023  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

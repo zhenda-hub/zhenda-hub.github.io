@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Python基础 编程章法 | Puppet</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="对于初学者，学习完了各种基础之后，开始真正编程时，会发现写的代码有点乱，没有规范，逻辑，这样是不行的。需要一套方法论才可以更好的实践 今天我分">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python基础 编程章法"/>
+<meta name="twitter:description" content="对于初学者，学习完了各种基础之后，开始真正编程时，会发现写的代码有点乱，没有规范，逻辑，这样是不行的。需要一套方法论才可以更好的实践 今天我分"/>
+
+  <meta property="og:title" content="Python基础 编程章法" />
+<meta property="og:description" content="对于初学者，学习完了各种基础之后，开始真正编程时，会发现写的代码有点乱，没有规范，逻辑，这样是不行的。需要一套方法论才可以更好的实践 今天我分" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-23T00:31:29+08:00" />
+<meta property="article:modified_time" content="2023-11-23T00:31:29+08:00" />
+
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Puppet</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="/series/themes-guide/" title="Guide">Guide</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+          <li><a href="https://github.com/zhenda-hub/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+          </div>
+          <h1>Python基础 编程章法</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Puppet 
+            on Thu, Nov 23, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <p>对于初学者，学习完了各种基础之后，开始真正编程时，会发现写的代码有点乱，没有规范，逻辑，这样是不行的。需要一套方法论才可以更好的实践</p>
+<p>今天我分享一下自己的套路：</p>
+<h2 id="优秀代码的特质">优秀代码的特质<a class="anchorjs-link" href="#%e4%bc%98%e7%a7%80%e4%bb%a3%e7%a0%81%e7%9a%84%e7%89%b9%e8%b4%a8"></a></h2><ol>
+<li>高内聚，低耦合</li>
+<li>可扩展</li>
+<li>可读性</li>
+<li>可测试</li>
+</ol>
+<hr>
+<h3 id="心得分享">心得分享<a class="anchorjs-link" href="#%e5%bf%83%e5%be%97%e5%88%86%e4%ba%ab"></a></h3><p>记得有一句名言：程序 = 数据结构 + 算法。</p>
+<p>数据结构用（类的属性， 变量）来承载， 算法用（类的方法， 函数）来承载。</p>
+<p>这些__相互关联的__数据结构和算法结合起来, 形成了编程的__函数__，<strong>类</strong>。</p>
+<p>因此函数和类是可以__随时转化__的。本质都是__输入数据结构-&gt;算法-&gt;输出数据结构__。</p>
+<p><strong>当一个函数很复杂，可以拆分成类。当一个类很复杂可以拆分成多个类</strong>.</p>
+<p>几千行的函数-&gt;几百行的函数组成的类-&gt; 几十行的函数组成的多个类</p>
+<p>这是一个慢慢变优秀的过程</p>
+<h2 id="代码设计">代码设计<a class="anchorjs-link" href="#%e4%bb%a3%e7%a0%81%e8%ae%be%e8%ae%a1"></a></h2><p>高内聚，低耦合。尽可能的精细化设计，减少相互干扰</p>
+<p>有一个solid5原则将的很具体，但是个人认为只要掌握了以下两条就够了，这两条原则对于函数和类，都是适用的。</p>
+<h3 id="开闭原则">开闭原则<a class="anchorjs-link" href="#%e5%bc%80%e9%97%ad%e5%8e%9f%e5%88%99"></a></h3><p>开闭原则（Open-Closed Principle，OCP）：一个软件实体（如类、模块和函数）应该对扩展开放，对修改关闭。</p>
+<p>通俗的说，就是不去修改类或函数，而是添加类或函数</p>
+<h3 id="单一职责原则">单一职责原则<a class="anchorjs-link" href="#%e5%8d%95%e4%b8%80%e8%81%8c%e8%b4%a3%e5%8e%9f%e5%88%99"></a></h3><p>单一职责原则（Single Responsibility Principle）：一个类或函数只负责一件事。如果一个类或函数承担多个职责，那么它就会变得耦合起来。一个职责的变更会导致另一职责的变更。</p>
+<p>通俗的说，就是设计类或函数，功能要尽量单一，减少耦合</p>
+<h2 id="从0到1的项目开发逻辑">从0到1的项目开发逻辑<a class="anchorjs-link" href="#%e4%bb%8e0%e5%88%b01%e7%9a%84%e9%a1%b9%e7%9b%ae%e5%bc%80%e5%8f%91%e9%80%bb%e8%be%91"></a></h2><p>需求-&gt;划分模块-&gt;类-&gt;梳理各个模块之间的联系-&gt;串通流程</p>
+<p>这里强烈推荐<a href="https://time.geekbang.org/column/intro/100039001?tab=catalog" target="_blank">设计模式之美 (geekbang.org)</a></p>
+<h2 id="项目文件结构推荐">项目文件结构推荐<a class="anchorjs-link" href="#%e9%a1%b9%e7%9b%ae%e6%96%87%e4%bb%b6%e7%bb%93%e6%9e%84%e6%8e%a8%e8%8d%90"></a></h2><p>src：源代码</p>
+<p>tests：测试用例</p>
+<p>out：输出</p>
+<p>resources：输入</p>
+<p>main.py：启动文件</p>
+<h2 id="命名规范">命名规范<a class="anchorjs-link" href="#%e5%91%bd%e5%90%8d%e8%a7%84%e8%8c%83"></a></h2><p>下划线命名 show_image()</p>
+<p>驼峰命名 showImage()</p>
+<p>具体需要按照项目的要求指定统一的命名规范</p>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/posts/first/" data-toggle="tooltip" data-placement="top" title="First">
+              Previous<br>
+              <span>First</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/" data-toggle="tooltip" data-placement="top" title="Python基础 编程章法2">
+              Next<br>
+              <span>Python基础 编程章法2</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/documentation/">documentation</a>
+    
+    <a href="/tags/emoji/">emoji</a>
+    
+    <a href="/tags/guide/">guide</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+    <a href="/tags/privacy/">privacy</a>
+    
+    <a href="/tags/shortcodes/">shortcodes</a>
+    
+    <a href="/tags/text/">text</a>
+    
+  </div>
+</section>
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center"></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; Puppet 2023  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>
