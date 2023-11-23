@@ -198,31 +198,31 @@
               post-container">
         <p>[TOC]
 今天继续分享一下自己的近期心得：</p>
-<h2 id="python之禅">python之禅<a class="anchorjs-link" href="#python%e4%b9%8b%e7%a6%85"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>Python <span style="color:#bd93f9">3.10.11</span> <span style="color:#ff79c6">|</span> packaged by Anaconda, Inc<span style="color:#ff79c6">.</span> <span style="color:#ff79c6">|</span> (main, Apr <span style="color:#bd93f9">20</span> <span style="color:#bd93f9">2023</span>, <span style="color:#bd93f9">18</span>:<span style="color:#bd93f9">56</span>:<span style="color:#bd93f9">50</span>) [MSC v<span style="color:#bd93f9">.1916</span> <span style="color:#bd93f9">64</span> bit (AMD64)] on win32
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Type <span style="color:#f1fa8c">&#34;help&#34;</span>, <span style="color:#f1fa8c">&#34;copyright&#34;</span>, <span style="color:#f1fa8c">&#34;credits&#34;</span> <span style="color:#ff79c6">or</span> <span style="color:#f1fa8c">&#34;license&#34;</span> <span style="color:#ff79c6">for</span> more information<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#ff79c6">&gt;&gt;&gt;</span> <span style="color:#ff79c6">import</span> this
+<h2 id="python之禅">python之禅<a class="anchorjs-link" href="#python%e4%b9%8b%e7%a6%85"></a></h2><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>Python 3.10.11 | packaged by Anaconda, Inc. | <span style="color:#000">(</span>main, Apr <span style="color:#1c01ce">20</span> 2023, 18:56:50<span style="color:#000">)</span> <span style="color:#000">[</span>MSC v.1916 <span style="color:#1c01ce">64</span> bit <span style="color:#000">(</span>AMD64<span style="color:#000">)]</span> on win32
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>Type <span style="color:#c41a16">&#34;help&#34;</span>, <span style="color:#c41a16">&#34;copyright&#34;</span>, <span style="color:#c41a16">&#34;credits&#34;</span> or <span style="color:#c41a16">&#34;license&#34;</span> <span style="color:#a90d91">for</span> more information.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>&gt;&gt;&gt; import this
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>The Zen of Python, by Tim Peters
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Beautiful <span style="color:#ff79c6">is</span> better than ugly<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Explicit <span style="color:#ff79c6">is</span> better than implicit<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>Simple <span style="color:#ff79c6">is</span> better than <span style="color:#8be9fd;font-style:italic">complex</span><span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Complex <span style="color:#ff79c6">is</span> better than complicated<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>Flat <span style="color:#ff79c6">is</span> better than nested<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Sparse <span style="color:#ff79c6">is</span> better than dense<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>Readability counts<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>Special cases aren<span style="color:#f1fa8c">&#39;t special enough to break the rules.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>Although practicality beats purity<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>Errors should never <span style="color:#ff79c6">pass</span> silently<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>Unless explicitly silenced<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>In the face of ambiguity, refuse the temptation to guess<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>There should be one<span style="color:#ff79c6">--</span> <span style="color:#ff79c6">and</span> preferably only one <span style="color:#ff79c6">--</span>obvious way to do it<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>Although that way may <span style="color:#ff79c6">not</span> be obvious at first unless you<span style="color:#f1fa8c">&#39;re Dutch.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>Now <span style="color:#ff79c6">is</span> better than never<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>Although never <span style="color:#ff79c6">is</span> often better than <span style="color:#ff79c6">*</span>right<span style="color:#ff79c6">*</span> now<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>If the implementation <span style="color:#ff79c6">is</span> hard to explain, it<span style="color:#f1fa8c">&#39;s a bad idea.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>If the implementation <span style="color:#ff79c6">is</span> easy to explain, it may be a good idea<span style="color:#ff79c6">.</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>Namespaces are one honking great idea <span style="color:#ff79c6">--</span> let<span style="color:#f1fa8c">&#39;s do more of those!</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#ff79c6">&gt;&gt;&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>Beautiful is better than ugly.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>Explicit is better than implicit.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>Simple is better than complex.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>Complex is better than complicated.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>Flat is better than nested.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>Sparse is better than dense.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>Readability counts.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>Special cases aren<span style="color:#c41a16">&#39;t special enough to break the rules.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span><span style="color:#c41a16">Although practicality beats purity.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="color:#c41a16">Errors should never pass silently.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#c41a16">Unless explicitly silenced.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#c41a16">In the face of ambiguity, refuse the temptation to guess.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span><span style="color:#c41a16">There should be one-- and preferably only one --obvious way to do it.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#c41a16">Although that way may not be obvious at first unless you&#39;</span>re Dutch.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>Now is better than never.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>Although never is often better than *right* now.
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>If the implementation is hard to explain, it<span style="color:#c41a16">&#39;s a bad idea.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#c41a16">If the implementation is easy to explain, it may be a good idea.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="color:#c41a16">Namespaces are one honking great idea -- let&#39;</span>s <span style="color:#a90d91">do</span> more of those!
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>&gt;&gt;&gt;
 </span></span></code></pre></div><p>其中有两句很有启发：</p>
 <ol>
 <li>
@@ -253,6 +253,13 @@
             </a>
           </li>
           
+          
+          <li class="next">
+            <a href="/posts/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/" data-toggle="tooltip" data-placement="top" title="Python基础 虚拟环境管理 Anaconda">
+              Next<br>
+              <span>Python基础 虚拟环境管理 Anaconda</span>
+            </a>
+          </li>
           
         </ul>
         <hr style="visibility: hidden;" />
@@ -343,7 +350,7 @@
         <ul class="list-inline text-center"></ul>
 
         <p class="copyright text-muted">
-          Copyright &copy; Puppet 2023  
+          Copyright © 2023. All Rights Reserved. Zhenda 版权所有  
           <br>
           Powered by <a href="https://gohugo.io">Hugo</a>
         </p>

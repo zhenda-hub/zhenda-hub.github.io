@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Python基础 虚拟环境管理 Anaconda | Puppet</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="python虚拟环境的必要性背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python基础 虚拟环境管理 Anaconda"/>
+<meta name="twitter:description" content="python虚拟环境的必要性背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正"/>
+
+  <meta property="og:title" content="Python基础 虚拟环境管理 Anaconda" />
+<meta property="og:description" content="python虚拟环境的必要性背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-23T21:49:57+08:00" />
+<meta property="article:modified_time" content="2023-11-23T21:49:57+08:00" />
+
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Puppet</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="/series/themes-guide/" title="Guide">Guide</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+          <li><a href="https://github.com/zhenda-hub/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+          </div>
+          <h1>Python基础 虚拟环境管理 Anaconda</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Puppet 
+            on Thu, Nov 23, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h3 id="python虚拟环境的必要性">python虚拟环境的必要性<a class="anchorjs-link" href="#python%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83%e7%9a%84%e5%bf%85%e8%a6%81%e6%80%a7"></a></h3><p>背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正常执行。</p>
+<p>痛点：</p>
+<ol>
+<li>只使用一个环境运行所有python项目时，会出现版本不兼容的问题。</li>
+<li>当第三方库很多，不便于项目迁移和部署。</li>
+</ol>
+<p>方案：使用python虚拟环境。</p>
+<h3 id="python虚拟环境的基本原理">python虚拟环境的基本原理<a class="anchorjs-link" href="#python%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%8e%9f%e7%90%86"></a></h3><ol>
+<li>python程序和一般电脑上的程序不同，一般程序只能安装一次，但是python程序可以 <strong>多次安装在系统的不同位置，不同位置的python程序可以安装各自的第三方包</strong></li>
+<li>使用运行python程序中的activate文件，可以修改 <strong>操作系统的环境变量</strong>(让操作系统知道我们想用的程序在哪)，来使用不同位置的python程序</li>
+</ol>
+<hr>
+<p>管理python虚拟环境方法很多，我们在此分享知名的anaconda</p>
+<h3 id="conda重要命令汇总">conda重要命令汇总<a class="anchorjs-link" href="#conda%e9%87%8d%e8%a6%81%e5%91%bd%e4%bb%a4%e6%b1%87%e6%80%bb"></a></h3><h4 id="虚拟环境管理">虚拟环境管理<a class="anchorjs-link" href="#%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83%e7%ae%a1%e7%90%86"></a></h4><ol>
+<li>查看所有环境和当前环境(前面有*标记的)： <strong>conda info &ndash;envs</strong></li>
+<li>切换并进入环境： <strong>conda activate 环境名</strong></li>
+<li>退出环境： conda deactivate</li>
+<li>创建指定版本的python环境： <strong>conda create &ndash;name 环境名 python=3.9</strong></li>
+<li>删除环境：<strong>conda remove &ndash;name 环境名 &ndash;all</strong></li>
+</ol>
+<h4 id="环境中的包管理">环境中的包管理<a class="anchorjs-link" href="#%e7%8e%af%e5%a2%83%e4%b8%ad%e7%9a%84%e5%8c%85%e7%ae%a1%e7%90%86"></a></h4><ol>
+<li>查看包的信息： <strong>conda list</strong></li>
+<li>安装包： conda install 包名.  安装了pip之后可以使用：<strong>pip install 包名</strong></li>
+<li>卸载包： conda remove 包名</li>
+<li>更新所有包到最新的兼容版本： <strong>conda update &ndash;all</strong></li>
+</ol>
+<h4 id="导入导出环境包">导入导出环境包<a class="anchorjs-link" href="#%e5%af%bc%e5%85%a5%e5%af%bc%e5%87%ba%e7%8e%af%e5%a2%83%e5%8c%85"></a></h4><ol>
+<li>导出当前环境的包：<strong>conda env export &gt; freeze.yml</strong></li>
+<li>导入, 注意防止环境名重复：<strong>conda env create -f freeze.yml</strong></li>
+</ol>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/" data-toggle="tooltip" data-placement="top" title="Python基础 编程章法2">
+              Previous<br>
+              <span>Python基础 编程章法2</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/" data-toggle="tooltip" data-placement="top" title="Python基础 类">
+              Next<br>
+              <span>Python基础 类</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/documentation/">documentation</a>
+    
+    <a href="/tags/emoji/">emoji</a>
+    
+    <a href="/tags/guide/">guide</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+    <a href="/tags/privacy/">privacy</a>
+    
+    <a href="/tags/shortcodes/">shortcodes</a>
+    
+    <a href="/tags/text/">text</a>
+    
+  </div>
+</section>
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center"></ul>
+
+        <p class="copyright text-muted">
+          Copyright © 2023. All Rights Reserved. Zhenda 版权所有  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

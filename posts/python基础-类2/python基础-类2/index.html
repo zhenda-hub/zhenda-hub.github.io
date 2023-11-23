@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Python基础 类2 | Puppet</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="这次我们补充说明 类的关系 这一非常重要的概念 类之间的关系has关系： 使用依赖依赖：当B类 has A类时，在 B类中 使用 A类的对象 特点：通过A类对象，使">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python基础 类2"/>
+<meta name="twitter:description" content="这次我们补充说明 类的关系 这一非常重要的概念 类之间的关系has关系： 使用依赖依赖：当B类 has A类时，在 B类中 使用 A类的对象 特点：通过A类对象，使"/>
+
+  <meta property="og:title" content="Python基础 类2" />
+<meta property="og:description" content="这次我们补充说明 类的关系 这一非常重要的概念 类之间的关系has关系： 使用依赖依赖：当B类 has A类时，在 B类中 使用 A类的对象 特点：通过A类对象，使" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-23T22:49:27+08:00" />
+<meta property="article:modified_time" content="2023-11-23T22:49:27+08:00" />
+
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Puppet</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="/series/themes-guide/" title="Guide">Guide</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+          <li><a href="https://github.com/zhenda-hub/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+          </div>
+          <h1>Python基础 类2</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Puppet 
+            on Thu, Nov 23, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <p>这次我们补充说明 <strong>类的关系</strong> 这一非常重要的概念</p>
+<h2 id="类之间的关系">类之间的关系<a class="anchorjs-link" href="#%e7%b1%bb%e4%b9%8b%e9%97%b4%e7%9a%84%e5%85%b3%e7%b3%bb"></a></h2><h3 id="has关系-使用依赖">has关系： 使用依赖<a class="anchorjs-link" href="#has%e5%85%b3%e7%b3%bb-%e4%bd%bf%e7%94%a8%e4%be%9d%e8%b5%96"></a></h3><p>依赖：当B类 has A类时，在 <strong>B类中</strong> 使用 <strong>A类的对象</strong></p>
+<p>特点：通过A类对象，使用A类所有东西。</p>
+<p>举例说明：人有手，有脚，但手不是人，脚也不是人，只是人的一部分</p>
+<p>再比如： 一个班级， 可以有很多学生，它们之间的关系就应该是依赖的关系</p>
+<p>再比如： 一个人， 可以有一个电脑，人可以使用电脑做各种事情。人和电脑之间的关系就应该是依赖的关系</p>
+<p>这种思想经常使用，甚至 <strong>比人们耳熟能详的继承，多态， 还要重要！！</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#a90d91">class</span> <span style="color:#3f6e75">Computer</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>, <span style="color:#000">brand</span>) <span style="color:#000">-&gt;</span> <span style="color:#a90d91">None</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">brand</span> <span style="color:#000">=</span> <span style="color:#000">brand</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">run_game</span>(<span style="color:#5b269a">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>        <span style="color:#a90d91">print</span>(<span style="color:#c41a16">&#39;运行lol&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">run_ide</span>(<span style="color:#5b269a">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        <span style="color:#a90d91">print</span>(<span style="color:#c41a16">&#39;运行vscode&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#a90d91">class</span> <span style="color:#3f6e75">People</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>, <span style="color:#000">name</span>, <span style="color:#000">computer</span>: <span style="color:#000">Computer</span>) <span style="color:#000">-&gt;</span> <span style="color:#a90d91">None</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">name</span> <span style="color:#000">=</span> <span style="color:#000">name</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">computer</span> <span style="color:#000">=</span> <span style="color:#000">computer</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">write_code</span>(<span style="color:#5b269a">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>        <span style="color:#a90d91">print</span>(<span style="color:#c41a16">f</span><span style="color:#c41a16">&#39;</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">name</span><span style="color:#c41a16">}</span><span style="color:#c41a16">使用</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">computer</span><span style="color:#000">.</span><span style="color:#000">brand</span><span style="color:#c41a16">}</span><span style="color:#c41a16">&#39;</span>)  <span style="color:#177500"># 调用属性的属性</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">computer</span><span style="color:#000">.</span><span style="color:#000">run_ide</span>()  <span style="color:#177500"># 调用属性的方法</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>        <span style="color:#a90d91">print</span>(<span style="color:#c41a16">&#39;开始写代码&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#a90d91">if</span> <span style="color:#000">__name__</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>    <span style="color:#000">computer</span> <span style="color:#000">=</span> <span style="color:#000">Computer</span>(<span style="color:#c41a16">&#39;机械革命&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>    <span style="color:#000">zhangsan</span> <span style="color:#000">=</span> <span style="color:#000">People</span>(<span style="color:#c41a16">&#39;张三&#39;</span>, <span style="color:#000">computer</span>)  <span style="color:#177500"># 把电脑对象作为属性传入， 依赖</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>    <span style="color:#000">zhangsan</span><span style="color:#000">.</span><span style="color:#000">write_code</span>()
+</span></span></code></pre></div><p><strong>运行结果:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:<span style="color:#c41a16">\U</span>sers<span style="color:#c41a16">\a</span>7935<span style="color:#c41a16">\P</span>ycharmProjects<span style="color:#c41a16">\p</span>ythonProject&gt;python chap12_类/has-a2.py
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>张三使用机械革命
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>运行vscode
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>开始写代码
+</span></span></code></pre></div><p><strong>源码分析：</strong></p>
+<p>requests库中的Session使用依赖：</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/1.jpg" data-action="zoom" alt="Session依赖"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p>openpyxl库中的Workbook使用依赖：</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/WorkBook%e4%be%9d%e8%b5%96.jpg" data-action="zoom" alt="WorkBook依赖"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p>openpyxl库中的Worksheet使用依赖：</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/WorkSheet%e4%be%9d%e8%b5%96.jpg" data-action="zoom" alt="WorkSheet依赖"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/Worksheet%e4%be%9d%e8%b5%963.jpg" data-action="zoom" alt="Worksheet依赖3"  class="lazyload">
+  </a>
+  
+</figure></p>
+<h3 id="is关系-使用继承">is关系： 使用继承<a class="anchorjs-link" href="#is%e5%85%b3%e7%b3%bb-%e4%bd%bf%e7%94%a8%e7%bb%a7%e6%89%bf"></a></h3><h4 id="创建不同对象">创建不同对象<a class="anchorjs-link" href="#%e5%88%9b%e5%bb%ba%e4%b8%8d%e5%90%8c%e5%af%b9%e8%b1%a1"></a></h4><p>当这种is关系的 <strong>属性和方法一样</strong>,  我们无需创建一个类，通过创建不同的对象就可以实现</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#a90d91">class</span> <span style="color:#3f6e75">People</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>, <span style="color:#000">name</span>, <span style="color:#000">age</span>) <span style="color:#000">-&gt;</span> <span style="color:#a90d91">None</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">name</span> <span style="color:#000">=</span> <span style="color:#000">name</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">age</span> <span style="color:#000">=</span> <span style="color:#000">age</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__str__</span>(<span style="color:#5b269a">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        <span style="color:#a90d91">return</span> <span style="color:#c41a16">f</span><span style="color:#c41a16">&#39;我是</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">name</span><span style="color:#c41a16">}</span><span style="color:#c41a16">, 今天</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">age</span><span style="color:#c41a16">}</span><span style="color:#c41a16">岁&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#a90d91">if</span> <span style="color:#000">__name__</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    <span style="color:#000">zhangsan</span> <span style="color:#000">=</span> <span style="color:#000">People</span>(<span style="color:#c41a16">&#39;小张&#39;</span>, <span style="color:#1c01ce">14</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    <span style="color:#a90d91">print</span>(<span style="color:#000">zhangsan</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    <span style="color:#000">lisi</span> <span style="color:#000">=</span> <span style="color:#000">People</span>(<span style="color:#c41a16">&#39;老李&#39;</span>, <span style="color:#1c01ce">41</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    <span style="color:#a90d91">print</span>(<span style="color:#000">lisi</span>)
+</span></span></code></pre></div><p><strong>运行结果:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:<span style="color:#c41a16">\U</span>sers<span style="color:#c41a16">\a</span>7935<span style="color:#c41a16">\P</span>ycharmProjects<span style="color:#c41a16">\p</span>ythonProject&gt;python chap12_类/is-a2.py
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>我是小张, 今天14岁
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>我是老李, 今天41岁
+</span></span></code></pre></div><h4 id="继承">继承<a class="anchorjs-link" href="#%e7%bb%a7%e6%89%bf"></a></h4><p>概念：B类继承了A类，那么B称为A的子类，A称为B的父类。B类实例化的对象可以使用A类的属性和方法</p>
+<p>特点：</p>
+<ol>
+<li>子类 <strong>自动实现了父类的方法</strong>。无需手动实现</li>
+<li>子列要想继承父类的属性，需要在__init__()中 调用super().__init__()</li>
+</ol>
+<p>使用继承的条件：</p>
+<ol>
+<li>两个类之间是is关系</li>
+<li>子类需要 <strong>扩展父类的属性，方法</strong></li>
+</ol>
+<p>我们可以把那个 <strong>宽泛，笼统的类</strong> 当作父类，另一个 <strong>具体详细的类</strong> 当作子类。</p>
+<h4 id="扩展属性方法">扩展属性，方法<a class="anchorjs-link" href="#%e6%89%a9%e5%b1%95%e5%b1%9e%e6%80%a7%e6%96%b9%e6%b3%95"></a></h4><p>例如我们有一个需求：现有一个People类，需要创建一个会游泳的People类。</p>
+<p>需求分析：因为会游泳的人也是人，符合条件1；因为不是每个人都会游泳，需要对人类进行扩展，符合条件2。</p>
+<p>下面开始实现：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#a90d91">class</span> <span style="color:#3f6e75">People</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>, <span style="color:#000">name</span>, <span style="color:#000">age</span>) <span style="color:#000">-&gt;</span> <span style="color:#a90d91">None</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">name</span> <span style="color:#000">=</span> <span style="color:#000">name</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">age</span> <span style="color:#000">=</span> <span style="color:#000">age</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__str__</span>(<span style="color:#5b269a">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        <span style="color:#a90d91">return</span> <span style="color:#c41a16">f</span><span style="color:#c41a16">&#39;我是</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">name</span><span style="color:#c41a16">}</span><span style="color:#c41a16">, 今天</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">age</span><span style="color:#c41a16">}</span><span style="color:#c41a16">岁&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#a90d91">class</span> <span style="color:#3f6e75">PeopleSwimmable</span>(<span style="color:#000">People</span>):  <span style="color:#177500"># 继承语法</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">swim</span>(<span style="color:#5b269a">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        <span style="color:#a90d91">print</span>(<span style="color:#c41a16">f</span><span style="color:#c41a16">&#39;</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">name</span><span style="color:#c41a16">}</span><span style="color:#c41a16">在游泳&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#a90d91">if</span> <span style="color:#000">__name__</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    <span style="color:#000">zhangsan</span> <span style="color:#000">=</span> <span style="color:#000">People</span>(<span style="color:#c41a16">&#39;小张&#39;</span>, <span style="color:#1c01ce">14</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    <span style="color:#a90d91">print</span>(<span style="color:#000">zhangsan</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>    <span style="color:#000">lisi</span> <span style="color:#000">=</span> <span style="color:#000">People</span>(<span style="color:#c41a16">&#39;老李&#39;</span>, <span style="color:#1c01ce">41</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    <span style="color:#a90d91">print</span>(<span style="color:#000">lisi</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    <span style="color:#000">wangwu</span> <span style="color:#000">=</span> <span style="color:#000">PeopleSwimmable</span>(<span style="color:#c41a16">&#39;老王&#39;</span>, <span style="color:#1c01ce">61</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    <span style="color:#a90d91">print</span>(<span style="color:#000">wangwu</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    <span style="color:#000">wangwu</span><span style="color:#000">.</span><span style="color:#000">swim</span>()
+</span></span></code></pre></div><p><strong>运行结果:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>C:<span style="color:#c41a16">\U</span>sers<span style="color:#c41a16">\a</span>7935<span style="color:#c41a16">\P</span>ycharmProjects<span style="color:#c41a16">\p</span>ythonProject&gt;python chap12_类/is-a3.py
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>我是小张, 今天14岁
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>我是老李, 今天41岁
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>我是老王, 今天61岁
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>老王在游泳
+</span></span></code></pre></div><p><strong>源码分析：</strong></p>
+<p>openpyxl库中的Cell使用继承，扩展属性，方法：</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/Cell%e6%89%a9%e5%b1%95.jpg" data-action="zoom" alt="Cell扩展"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p>requests库中的Request使用继承，扩展属性，方法：</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/request%e6%89%a9%e5%b1%95.jpg" data-action="zoom" alt="request扩展"  class="lazyload">
+  </a>
+  
+</figure></p>
+<h4 id="多态">多态<a class="anchorjs-link" href="#%e5%a4%9a%e6%80%81"></a></h4><p>多态：同一个方法，不同类创建的对象来调用，结果不同</p>
+<h5 id="重写">重写<a class="anchorjs-link" href="#%e9%87%8d%e5%86%99"></a></h5><p>重写：是实现多态的非常重要的方式。在子类中，创建父类的 <strong>同名方法</strong>， <strong>修改</strong> 其实现内容。</p>
+<p>注意： <strong>子类重写__init__()方法</strong>，添加新的属性， <strong>需要调用父类的__init__()方法</strong> 来初始化从父类继承来的属性，否则父类属性无法使用。下面为调用的两种方法：</p>
+<ol>
+<li>super().__init__()</li>
+<li>父类名.__init__(self, )</li>
+</ol>
+<h5 id="里氏替换原则针对is关系防止滥用多态">里氏替换原则：针对is关系，防止滥用多态<a class="anchorjs-link" href="#%e9%87%8c%e6%b0%8f%e6%9b%bf%e6%8d%a2%e5%8e%9f%e5%88%99%e9%92%88%e5%af%b9is%e5%85%b3%e7%b3%bb%e9%98%b2%e6%ad%a2%e6%bb%a5%e7%94%a8%e5%a4%9a%e6%80%81"></a></h5><p>概念： <strong>子类对象</strong> 可以替换任意的 <strong>父类对象</strong>， <strong>程序执行</strong> 不受影响</p>
+<p>实际使用：重写需要保证函数的 <strong>宽进严出</strong>, 参数可以更加宽泛，返回值必须更加严格</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#a90d91">class</span> <span style="color:#3f6e75">Hero</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>, <span style="color:#000">hp</span><span style="color:#000">=</span><span style="color:#1c01ce">100</span>, <span style="color:#000">money</span><span style="color:#000">=</span><span style="color:#1c01ce">1000</span>) <span style="color:#000">-&gt;</span> <span style="color:#a90d91">None</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">hp</span> <span style="color:#000">=</span> <span style="color:#000">hp</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">money</span> <span style="color:#000">=</span> <span style="color:#000">money</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__str__</span>(<span style="color:#5b269a">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>        <span style="color:#a90d91">return</span> <span style="color:#c41a16">f</span><span style="color:#c41a16">&#39;我是</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">__class__</span><span style="color:#000">.</span><span style="color:#000">__name__</span><span style="color:#c41a16">}</span><span style="color:#c41a16">, 现在血量</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">hp</span><span style="color:#c41a16">}</span><span style="color:#c41a16">, 拥有金钱</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">money</span><span style="color:#c41a16">}</span><span style="color:#c41a16">&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span><span style="color:#a90d91">class</span> <span style="color:#3f6e75">Jax</span>(<span style="color:#000">Hero</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>, <span style="color:#000">owner</span>, <span style="color:#000">hp</span><span style="color:#000">=</span><span style="color:#1c01ce">100</span>, <span style="color:#000">money</span><span style="color:#000">=</span><span style="color:#1c01ce">1000</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">owner</span> <span style="color:#000">=</span> <span style="color:#000">owner</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        <span style="color:#a90d91">super</span>()<span style="color:#000">.</span><span style="color:#000">__init__</span>(<span style="color:#000">hp</span>, <span style="color:#000">money</span>)  <span style="color:#177500"># super().__init__()</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__str__</span>(<span style="color:#5b269a">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>        <span style="color:#a90d91">return</span> <span style="color:#a90d91">super</span>()<span style="color:#000">.</span><span style="color:#000">__str__</span>() <span style="color:#000">+</span> <span style="color:#c41a16">f</span><span style="color:#c41a16">&#39;, 玩家是</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">owner</span><span style="color:#c41a16">}</span><span style="color:#c41a16">&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#a90d91">class</span> <span style="color:#3f6e75">Zed</span>(<span style="color:#000">Hero</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>, <span style="color:#000">owner</span>, <span style="color:#000">hp</span><span style="color:#000">=</span><span style="color:#1c01ce">100</span>, <span style="color:#000">money</span><span style="color:#000">=</span><span style="color:#1c01ce">1000</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>        <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">owner</span> <span style="color:#000">=</span> <span style="color:#000">owner</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>        <span style="color:#000">Hero</span><span style="color:#000">.</span><span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>, <span style="color:#000">hp</span>, <span style="color:#000">money</span>)  <span style="color:#177500"># 父类名.__init__(self, )</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    <span style="color:#a90d91">def</span> <span style="color:#000">__str__</span>(<span style="color:#5b269a">self</span>):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>        <span style="color:#a90d91">return</span> <span style="color:#a90d91">super</span>()<span style="color:#000">.</span><span style="color:#000">__str__</span>() <span style="color:#000">+</span> <span style="color:#c41a16">f</span><span style="color:#c41a16">&#39;, 玩家是</span><span style="color:#c41a16">{</span><span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">owner</span><span style="color:#c41a16">}</span><span style="color:#c41a16">&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#a90d91">if</span> <span style="color:#000">__name__</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    <span style="color:#000">hero</span> <span style="color:#000">=</span> <span style="color:#000">Hero</span>()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>    <span style="color:#a90d91">print</span>(<span style="color:#000">hero</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>    <span style="color:#000">jax</span> <span style="color:#000">=</span> <span style="color:#000">Jax</span>(<span style="color:#c41a16">&#39;uzi&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>    <span style="color:#a90d91">print</span>(<span style="color:#000">jax</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>    <span style="color:#000">zed</span> <span style="color:#000">=</span> <span style="color:#000">Zed</span>(<span style="color:#c41a16">&#39;faker&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>    <span style="color:#a90d91">print</span>(<span style="color:#000">zed</span>)
+</span></span></code></pre></div><p><strong>运行结果:</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>我是Hero, 现在血量100, 拥有金钱1000
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>我是Jax, 现在血量100, 拥有金钱1000, 玩家是uzi
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>我是Zed, 现在血量100, 拥有金钱1000, 玩家是faker
+</span></span></code></pre></div><h5 id="源码分析">源码分析<a class="anchorjs-link" href="#%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90"></a></h5><p>matplotlib库中的Axes3D使用重写：</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/Axes3D%e7%bb%a7%e6%89%bf.jpg" data-action="zoom" alt="Axes3D继承"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/Axes%e9%87%8d%e5%86%99.jpg" data-action="zoom" alt="Axes重写"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/Axes3d%e9%87%8d%e5%86%99.jpg" data-action="zoom" alt="Axes3d重写"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p>Axes3D的scatter()的参数添加了‘zs’, &lsquo;zdir&rsquo;等， 并且添加了 <strong>默认值</strong>。不需要调用时传参。因此可以使用子类实例替换父类实例</p>
+<p>它们的返回值均为：`~matplotlib.collections.PathCollection`</p>
+<p>sympy库中的LinearEntity2D使用重写：</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/LinearEntity2D%e9%87%8d%e5%86%99.jpg" data-action="zoom" alt="LinearEntity2D重写"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/LinearEntity%e9%87%8d%e5%86%99.jpg" data-action="zoom" alt="LinearEntity重写"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="../imgs/LinearEntity2D%e9%87%8d%e5%86%992.jpg" data-action="zoom" alt="LinearEntity2D重写2"  class="lazyload">
+  </a>
+  
+</figure></p>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/" data-toggle="tooltip" data-placement="top" title="Python基础 类">
+              Previous<br>
+              <span>Python基础 类</span>
+            </a>
+          </li>
+          
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/documentation/">documentation</a>
+    
+    <a href="/tags/emoji/">emoji</a>
+    
+    <a href="/tags/guide/">guide</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+    <a href="/tags/privacy/">privacy</a>
+    
+    <a href="/tags/shortcodes/">shortcodes</a>
+    
+    <a href="/tags/text/">text</a>
+    
+  </div>
+</section>
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center"></ul>
+
+        <p class="copyright text-muted">
+          Copyright © 2023. All Rights Reserved. Zhenda 版权所有  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.73a6a8d8df45293e042d15867416f603045bbeb98406731e5022d6c60388cd9d.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>
