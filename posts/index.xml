@@ -2,95 +2,109 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Puppet</title>
-    <link>https://zhenda-hub.github.io/posts/</link>
+    <link>http://localhost:1313/subdir/posts/</link>
     <description>Recent content in Posts on Puppet</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
-    <lastBuildDate>Thu, 23 Nov 2023 22:49:27 +0800</lastBuildDate>
-    <atom:link href="https://zhenda-hub.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Nov 2023 11:48:21 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/subdir/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pyqt5指南</title>
+      <link>http://localhost:1313/subdir/posts/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate>
+      <guid>http://localhost:1313/subdir/posts/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</guid>
+      <description>使用python我们也可以开发桌面应用（在pc上运行的软件，pyqt5好像还不支持手机app）平时做做小工具还是挺方便的。这次我们一起学习一</description>
+    </item>
+    <item>
+      <title>Linux系统操作</title>
+      <link>http://localhost:1313/subdir/posts/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Sat, 25 Nov 2023 11:29:37 +0800</pubDate>
+      <guid>http://localhost:1313/subdir/posts/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/</guid>
+      <description>[toc] 文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性li</description>
+    </item>
     <item>
       <title>Python基础 类2</title>
-      <link>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/</link>
+      <link>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/</link>
       <pubDate>Thu, 23 Nov 2023 22:49:27 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/</guid>
+      <guid>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/</guid>
       <description>这次我们补充说明 类的关系 这一非常重要的概念 类之间的关系has关系： 使用依赖依赖：当B类 has A类时，在 B类中 使用 A类的对象 特点：通过A类对象，使</description>
     </item>
     <item>
       <title>Python基础 类</title>
-      <link>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/</link>
+      <link>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/</link>
       <pubDate>Thu, 23 Nov 2023 21:54:28 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/</guid>
+      <guid>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/</guid>
       <description>一：概念阐述面向对象因为提高了代码的复用性，开发效率高，而且便于扩展迭代，所以成为了主流的开发思想。其中的核心概念就是类，在面向对象的思想中</description>
     </item>
     <item>
       <title>Python基础 虚拟环境管理 Anaconda</title>
-      <link>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/</link>
+      <link>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/</link>
       <pubDate>Thu, 23 Nov 2023 21:49:57 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/</guid>
+      <guid>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/</guid>
       <description>python虚拟环境的必要性背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正</description>
     </item>
     <item>
       <title>Python基础 编程章法2</title>
-      <link>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/</link>
+      <link>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/</link>
       <pubDate>Thu, 23 Nov 2023 00:37:34 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/</guid>
+      <guid>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/</guid>
       <description>[TOC] 今天继续分享一下自己的近期心得： python之禅 1Python 3.10.11 | packaged by Anaconda, Inc. | (main, Apr 20 2023, 18:56:50) [MSC v.1916 64 bit (AMD64)] on win32 2Type &amp;#34;help&amp;#34;, &amp;#34;copyright&amp;#34;, &amp;#34;credits&amp;#34; or &amp;#34;license&amp;#34; for more information. 3&amp;gt;&amp;gt;&amp;gt; import this 4The Zen of Python, by Tim Peters 5 6Beautiful is better than ugly.</description>
     </item>
     <item>
       <title>Python基础 编程章法</title>
-      <link>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/</link>
+      <link>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/</link>
       <pubDate>Thu, 23 Nov 2023 00:31:29 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/</guid>
+      <guid>http://localhost:1313/subdir/posts/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/</guid>
       <description>对于初学者，学习完了各种基础之后，开始真正编程时，会发现写的代码有点乱，没有规范，逻辑，这样是不行的。需要一套方法论才可以更好的实践 今天我分</description>
     </item>
     <item>
       <title>First</title>
-      <link>https://zhenda-hub.github.io/posts/first/</link>
+      <link>http://localhost:1313/subdir/posts/first/</link>
       <pubDate>Thu, 23 Nov 2023 00:03:40 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/first/</guid>
+      <guid>http://localhost:1313/subdir/posts/first/</guid>
       <description>我的第一篇个人博客</description>
     </item>
     <item>
       <title>Puppet - Getting Started</title>
-      <link>https://zhenda-hub.github.io/posts/getting-started/</link>
+      <link>http://localhost:1313/subdir/posts/getting-started/</link>
       <pubDate>Tue, 09 Aug 2022 15:38:30 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/getting-started/</guid>
+      <guid>http://localhost:1313/subdir/posts/getting-started/</guid>
       <description>&lt;p&gt;Puppet is a responsive, simple and clean &lt;a href=&#34;https://gohugo.io/&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; theme based on the &lt;a href=&#34;https://github.com/Huxpro/huxpro.github.io&#34; target=&#34;_blank&#34;&gt;Huxblog Jekyll theme&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://zhenda-hub.github.io/posts/markdown-syntax/</link>
+      <link>http://localhost:1313/subdir/posts/markdown-syntax/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/markdown-syntax/</guid>
+      <guid>http://localhost:1313/subdir/posts/markdown-syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Rich Content</title>
-      <link>https://zhenda-hub.github.io/posts/rich-content/</link>
+      <link>http://localhost:1313/subdir/posts/rich-content/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/rich-content/</guid>
+      <guid>http://localhost:1313/subdir/posts/rich-content/</guid>
       <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes&#34; target=&#34;_blank&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34; target=&#34;_blank&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Placeholder Text</title>
-      <link>https://zhenda-hub.github.io/posts/placeholder-text/</link>
+      <link>http://localhost:1313/subdir/posts/placeholder-text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/placeholder-text/</guid>
+      <guid>http://localhost:1313/subdir/posts/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Math Typesetting</title>
-      <link>https://zhenda-hub.github.io/posts/math-typesetting/</link>
+      <link>http://localhost:1313/subdir/posts/math-typesetting/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/math-typesetting/</guid>
+      <guid>http://localhost:1313/subdir/posts/math-typesetting/</guid>
       <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Emoji Support</title>
-      <link>https://zhenda-hub.github.io/posts/emoji-support/</link>
+      <link>http://localhost:1313/subdir/posts/emoji-support/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/emoji-support/</guid>
+      <guid>http://localhost:1313/subdir/posts/emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
   </channel>

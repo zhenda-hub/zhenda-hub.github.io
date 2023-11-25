@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>documentation on Puppet</title>
-    <link>https://zhenda-hub.github.io/tags/documentation/</link>
+    <link>http://localhost:1313/subdir/tags/documentation/</link>
     <description>Recent content in documentation on Puppet</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
     <lastBuildDate>Tue, 09 Aug 2022 15:38:30 +0800</lastBuildDate>
-    <atom:link href="https://zhenda-hub.github.io/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/subdir/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Puppet - Getting Started</title>
-      <link>https://zhenda-hub.github.io/posts/getting-started/</link>
+      <link>http://localhost:1313/subdir/posts/getting-started/</link>
       <pubDate>Tue, 09 Aug 2022 15:38:30 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/getting-started/</guid>
+      <guid>http://localhost:1313/subdir/posts/getting-started/</guid>
       <description>&lt;p&gt;Puppet is a responsive, simple and clean &lt;a href=&#34;https://gohugo.io/&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; theme based on the &lt;a href=&#34;https://github.com/Huxpro/huxpro.github.io&#34; target=&#34;_blank&#34;&gt;Huxblog Jekyll theme&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

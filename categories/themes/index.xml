@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>themes on Puppet</title>
-    <link>https://zhenda-hub.github.io/categories/themes/</link>
+    <link>http://localhost:1313/subdir/categories/themes/</link>
     <description>Recent content in themes on Puppet</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
     <lastBuildDate>Wed, 11 Mar 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://zhenda-hub.github.io/categories/themes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/subdir/categories/themes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://zhenda-hub.github.io/posts/markdown-syntax/</link>
+      <link>http://localhost:1313/subdir/posts/markdown-syntax/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/markdown-syntax/</guid>
+      <guid>http://localhost:1313/subdir/posts/markdown-syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
   </channel>
