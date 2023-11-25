@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Puppet</title>
+    <title>Posts on Zhenda&#39;s Blog</title>
     <link>https://zhenda-hub.github.io/posts/</link>
-    <description>Recent content in Posts on Puppet</description>
+    <description>Recent content in Posts on Zhenda&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
@@ -21,7 +21,7 @@
       <link>https://zhenda-hub.github.io/posts/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Sat, 25 Nov 2023 11:29:37 +0800</pubDate>
       <guid>https://zhenda-hub.github.io/posts/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/</guid>
-      <description>[toc] 文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性li</description>
+      <description>文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性lin</description>
     </item>
     <item>
       <title>Python基础 类2</title>

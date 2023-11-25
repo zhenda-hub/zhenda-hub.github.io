@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Puppet</title>
+    <title>Tags on Zhenda&#39;s Blog</title>
     <link>https://zhenda-hub.github.io/tags/</link>
-    <description>Recent content in Tags on Puppet</description>
+    <description>Recent content in Tags on Zhenda&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
-    <lastBuildDate>Tue, 09 Aug 2022 15:38:30 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Nov 2023 11:48:21 +0800</lastBuildDate>
     <atom:link href="https://zhenda-hub.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>markdown</title>
+      <link>https://zhenda-hub.github.io/tags/markdown/</link>
+      <pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate>
+      <guid>https://zhenda-hub.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>privacy</title>
+      <link>https://zhenda-hub.github.io/tags/privacy/</link>
+      <pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate>
+      <guid>https://zhenda-hub.github.io/tags/privacy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://zhenda-hub.github.io/tags/python/</link>
+      <pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate>
+      <guid>https://zhenda-hub.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>shortcodes</title>
+      <link>https://zhenda-hub.github.io/tags/shortcodes/</link>
+      <pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate>
+      <guid>https://zhenda-hub.github.io/tags/shortcodes/</guid>
+      <description></description>
+    </item>
     <item>
       <title>documentation</title>
       <link>https://zhenda-hub.github.io/tags/documentation/</link>
@@ -35,27 +63,6 @@
       <link>https://zhenda-hub.github.io/tags/html/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
       <guid>https://zhenda-hub.github.io/tags/html/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>markdown</title>
-      <link>https://zhenda-hub.github.io/tags/markdown/</link>
-      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://zhenda-hub.github.io/tags/markdown/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>privacy</title>
-      <link>https://zhenda-hub.github.io/tags/privacy/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://zhenda-hub.github.io/tags/privacy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>shortcodes</title>
-      <link>https://zhenda-hub.github.io/tags/shortcodes/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://zhenda-hub.github.io/tags/shortcodes/</guid>
       <description></description>
     </item>
     <item>

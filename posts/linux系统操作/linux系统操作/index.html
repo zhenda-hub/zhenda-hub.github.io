@@ -8,17 +8,17 @@
 
   
     
-  <title>Linux系统操作 | Puppet</title>
-  <meta name="author" content="Puppet">
-  <meta name="description" content="[toc] 文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性li">
+  <title>Linux系统操作 | Zhenda&#39;s Blog</title>
+  <meta name="author" content="Zhenda">
+  <meta name="description" content="文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性lin">
   <meta name="keywords" content="blog,developer,personal">
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux系统操作"/>
-<meta name="twitter:description" content="[toc] 文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性li"/>
+<meta name="twitter:description" content="文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性lin"/>
 
   <meta property="og:title" content="Linux系统操作" />
-<meta property="og:description" content="[toc] 文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性li" />
+<meta property="og:description" content="文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性lin" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zhenda-hub.github.io/posts/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-11-25T11:29:37+08:00" />
@@ -48,6 +48,8 @@
 
 
 <body ontouchstart="">
+  
+  
   <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
   <div class="container-fluid">
     
@@ -58,7 +60,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Puppet</a>
+      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Zhenda&#39;s Blog</a>
     </div>
     
     <div id="huxblog_navbar">
@@ -174,7 +176,7 @@
           <h1>Linux系统操作</h1>
           <h2 class="subheading"></h2>
           <span class="meta">
-            Posted by  Puppet 
+            Posted by  Zhenda 
             on Sat, Nov 25, 2023
           </span>
         </div>
@@ -196,7 +198,7 @@
               col-lg-8 col-lg-offset-2
               col-md-10 col-md-offset-1
               post-container">
-        <p>[toc]</p>
+        <!-- [toc] -->
 <h2 id="文章目的">文章目的<a class="anchorjs-link" href="#%e6%96%87%e7%ab%a0%e7%9b%ae%e7%9a%84"></a></h2><p>希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片</p>
 <h2 id="linux的必要性">linux的必要性<a class="anchorjs-link" href="#linux%e7%9a%84%e5%bf%85%e8%a6%81%e6%80%a7"></a></h2><p>linux是一个稳定， 安全， 开源，免费的操作系统内核。 支持多用户同时使用。成为了各大公司服务器的首选。</p>
 <p>掌握Linux可以提高技术就业竞争力。许多IT岗位将熟练使用Linux作为必备技能。</p>
@@ -221,13 +223,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="初级阶段">初级阶段<a class="anchorjs-link" href="#%e5%88%9d%e7%ba%a7%e9%98%b6%e6%ae%b5"></a></h2><h3 id="终端shell-和-命令">终端，shell 和 命令<a class="anchorjs-link" href="#%e7%bb%88%e7%ab%afshell-%e5%92%8c-%e5%91%bd%e4%bb%a4"></a></h3><p>终端：一个供用户输入的黑框
-shell：一个命令解释器，它不仅仅是提供了<strong>命令解释</strong>的功能，还<strong>允许用户编写脚本</strong>，将多个命令组合在一起以完成更复杂的任务。</p>
+<h2 id="初级阶段">初级阶段<a class="anchorjs-link" href="#%e5%88%9d%e7%ba%a7%e9%98%b6%e6%ae%b5"></a></h2><h3 id="终端shell-和-命令">终端，shell 和 命令<a class="anchorjs-link" href="#%e7%bb%88%e7%ab%afshell-%e5%92%8c-%e5%91%bd%e4%bb%a4"></a></h3><p>终端：一个供用户输入的黑框</p>
+<p>shell：一个命令解释器，它不仅仅是提供了<strong>命令解释</strong>的功能，还<strong>允许用户编写脚本</strong>，将多个命令组合在一起以完成更复杂的任务。</p>
 <p>用户与Linux系统交互的基本原理：用户使用终端（Terminal）通过<strong>命令或脚本</strong>与Shell进行通信， shell与操作系统进行通信</p>
 <p>常见的linux shell包括： bash(默认shell), zsh, fish, csh, dash</p>
 <p>bash的配置文件： ~/.bashrc</p>
-<p>命令：操作系统中提供的工具（可执行文件），供用户使用。
-命令学习手册： man 命令。 可以查看命令的作用和相关参数</p>
+<p>命令：操作系统中提供的工具（可执行文件），供用户使用。</p>
+<p>命令学习手册： man 命令。 可以查看命令的作用和相关参数</p>
 <p>命令的优势</p>
 <ul>
 <li>相比于图形界面GUI，命令可以更方便的通过脚本，自动化执行一系列的操作</li>
@@ -391,8 +393,8 @@ shell：一个命令解释器，它不仅仅是提供了<strong>命令解释</st
 </ul>
 <h3 id="软件安装">软件安装<a class="anchorjs-link" href="#%e8%bd%af%e4%bb%b6%e5%ae%89%e8%a3%85"></a></h3><p>&hellip;</p>
 <h2 id="高级阶段">高级阶段<a class="anchorjs-link" href="#%e9%ab%98%e7%ba%a7%e9%98%b6%e6%ae%b5"></a></h2><h3 id="用户管理">用户管理<a class="anchorjs-link" href="#%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86"></a></h3><p>linux系统支持多用户同时使用。可以为每个用户设置群组， 通过群组间接进行权限控制</p>
-<p>超级用户 root, 拥有最高权限
-普通用户, 拥有有限的权限</p>
+<p>超级用户 root, 拥有最高权限</p>
+<p>普通用户, 拥有有限的权限</p>
 <p>sudo命令 提升权限 visudo</p>
 <p>文件信息</p>
 <ul>
@@ -473,6 +475,20 @@ shell：一个命令解释器，它不仅仅是提供了<strong>命令解释</st
       
       
       
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
       
       <div class="
               col-lg-8 col-lg-offset-2
@@ -502,6 +518,8 @@ shell：一个命令解释器，它不仅仅是提供了<strong>命令解释</st
     <a href="/tags/markdown/">markdown</a>
     
     <a href="/tags/privacy/">privacy</a>
+    
+    <a href="/tags/python/">Python</a>
     
     <a href="/tags/shortcodes/">shortcodes</a>
     
@@ -554,6 +572,56 @@ shell：一个命令解释器，它不仅仅是提供了<strong>命令解释</st
 
 
 
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
 
 
 

@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Series on Puppet</title>
+    <title>Series on Zhenda&#39;s Blog</title>
     <link>https://zhenda-hub.github.io/series/</link>
-    <description>Recent content in Series on Puppet</description>
+    <description>Recent content in Series on Zhenda&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
-    <lastBuildDate>Tue, 09 Aug 2022 15:38:30 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 25 Nov 2023 11:48:21 +0800</lastBuildDate>
     <atom:link href="https://zhenda-hub.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fffsss</title>
+      <link>https://zhenda-hub.github.io/series/fffsss/</link>
+      <pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate>
+      <guid>https://zhenda-hub.github.io/series/fffsss/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Themes Guide</title>
       <link>https://zhenda-hub.github.io/series/themes-guide/</link>
-      <pubDate>Tue, 09 Aug 2022 15:38:30 +0800</pubDate>
+      <pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate>
       <guid>https://zhenda-hub.github.io/series/themes-guide/</guid>
       <description></description>
     </item>

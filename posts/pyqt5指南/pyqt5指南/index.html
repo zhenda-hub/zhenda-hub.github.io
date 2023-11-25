@@ -8,8 +8,8 @@
 
   
     
-  <title>Pyqt5指南 | Puppet</title>
-  <meta name="author" content="Puppet">
+  <title>Pyqt5指南 | Zhenda&#39;s Blog</title>
+  <meta name="author" content="Zhenda">
   <meta name="description" content="使用python我们也可以开发桌面应用（在pc上运行的软件，pyqt5好像还不支持手机app）平时做做小工具还是挺方便的。这次我们一起学习一">
   <meta name="keywords" content="blog,developer,personal">
 
@@ -23,6 +23,8 @@
 <meta property="og:url" content="https://zhenda-hub.github.io/posts/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-11-25T11:48:21+08:00" />
 <meta property="article:modified_time" content="2023-11-25T11:48:21+08:00" />
+<meta property="og:see_also" content="https://zhenda-hub.github.io/posts/getting-started/" /><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/markdown-syntax/" />
+
 
 
 
@@ -48,6 +50,8 @@
 
 
 <body ontouchstart="">
+  
+  
   <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
   <div class="container-fluid">
     
@@ -58,7 +62,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Puppet</a>
+      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Zhenda&#39;s Blog</a>
     </div>
     
     <div id="huxblog_navbar">
@@ -170,11 +174,19 @@
         <div class="post-heading">
           <div class="tags">
             
+            <a class="tag" href="/tags/shortcodes/" title="shortcodes">shortcodes</a>
+            
+            <a class="tag" href="/tags/privacy/" title="privacy">privacy</a>
+            
+            <a class="tag" href="/tags/markdown/" title="markdown">markdown</a>
+            
+            <a class="tag" href="/tags/python/" title="Python">Python</a>
+            
           </div>
           <h1>Pyqt5指南</h1>
-          <h2 class="subheading"></h2>
+          <h2 class="subheading">A brief description of Hugo Shortcodes</h2>
           <span class="meta">
-            Posted by  Puppet 
+            Posted by  Zhenda 
             on Sat, Nov 25, 2023
           </span>
         </div>
@@ -346,6 +358,20 @@
       
       
       
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
       
       <div class="
               col-lg-8 col-lg-offset-2
@@ -375,6 +401,8 @@
     <a href="/tags/markdown/">markdown</a>
     
     <a href="/tags/privacy/">privacy</a>
+    
+    <a href="/tags/python/">Python</a>
     
     <a href="/tags/shortcodes/">shortcodes</a>
     
@@ -427,6 +455,56 @@
 
 
 
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
 
 
 
