@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gui on Zhenda&#39;s Blog</title>
+    <link>https://zhenda-hub.github.io/tags/gui/</link>
+    <description>Recent content in gui on Zhenda&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
+    <lastBuildDate>Sat, 25 Nov 2023 11:48:21 +0800</lastBuildDate>
+    <atom:link href="https://zhenda-hub.github.io/tags/gui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pyqt5指南</title>
+      <link>https://zhenda-hub.github.io/posts/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate>
+      <guid>https://zhenda-hub.github.io/posts/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</guid>
+      <description>使用python我们也可以开发桌面应用（在pc上运行的软件，pyqt5好像还不支持手机app）平时做做小工具还是挺方便的。这次我们一起学习一</description>
+    </item>
+  </channel>
+</rss>

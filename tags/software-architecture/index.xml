@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Zhenda&#39;s Blog</title>
-    <link>https://zhenda-hub.github.io/tags/python/</link>
-    <description>Recent content in Python on Zhenda&#39;s Blog</description>
+    <title>Software Architecture on Zhenda&#39;s Blog</title>
+    <link>https://zhenda-hub.github.io/tags/software-architecture/</link>
+    <description>Recent content in Software Architecture on Zhenda&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
-    <lastBuildDate>Sat, 25 Nov 2023 11:48:21 +0800</lastBuildDate>
-    <atom:link href="https://zhenda-hub.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Pyqt5指南</title>
-      <link>https://zhenda-hub.github.io/posts/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</guid>
-      <description>使用python我们也可以开发桌面应用（在pc上运行的软件，pyqt5好像还不支持手机app）平时做做小工具还是挺方便的。这次我们一起学习一</description>
-    </item>
+    <lastBuildDate>Thu, 23 Nov 2023 22:49:27 +0800</lastBuildDate>
+    <atom:link href="https://zhenda-hub.github.io/tags/software-architecture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python基础 类2</title>
       <link>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/</link>
@@ -29,13 +22,6 @@
       <pubDate>Thu, 23 Nov 2023 21:54:28 +0800</pubDate>
       <guid>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/</guid>
       <description>一：概念阐述面向对象因为提高了代码的复用性，开发效率高，而且便于扩展迭代，所以成为了主流的开发思想。其中的核心概念就是类，在面向对象的思想中</description>
-    </item>
-    <item>
-      <title>Python基础 虚拟环境管理 Anaconda</title>
-      <link>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/</link>
-      <pubDate>Thu, 23 Nov 2023 21:49:57 +0800</pubDate>
-      <guid>https://zhenda-hub.github.io/posts/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/</guid>
-      <description>python虚拟环境的必要性背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正</description>
     </item>
     <item>
       <title>Python基础 编程章法2</title>

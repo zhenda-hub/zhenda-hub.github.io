@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Zhenda&#39;s Blog</title>
+    <link>https://zhenda-hub.github.io/tags/linux/</link>
+    <description>Recent content in linux on Zhenda&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
+    <lastBuildDate>Sat, 25 Nov 2023 11:29:37 +0800</lastBuildDate>
+    <atom:link href="https://zhenda-hub.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux系统教程</title>
+      <link>https://zhenda-hub.github.io/posts/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Sat, 25 Nov 2023 11:29:37 +0800</pubDate>
+      <guid>https://zhenda-hub.github.io/posts/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/</guid>
+      <description>文章目的希望linux初学者可以通过本章内容，快速入门linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片 linux的必要性lin</description>
+    </item>
+  </channel>
+</rss>
