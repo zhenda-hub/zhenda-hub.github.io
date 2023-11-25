@@ -2,74 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Puppet</title>
-    <link>http://localhost:1313/subdir/tags/</link>
+    <link>https://zhenda-hub.github.io/tags/</link>
     <description>Recent content in Tags on Puppet</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
     <lastBuildDate>Tue, 09 Aug 2022 15:38:30 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/subdir/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://zhenda-hub.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>documentation</title>
-      <link>http://localhost:1313/subdir/tags/documentation/</link>
+      <link>https://zhenda-hub.github.io/tags/documentation/</link>
       <pubDate>Tue, 09 Aug 2022 15:38:30 +0800</pubDate>
-      <guid>http://localhost:1313/subdir/tags/documentation/</guid>
+      <guid>https://zhenda-hub.github.io/tags/documentation/</guid>
       <description></description>
     </item>
     <item>
       <title>guide</title>
-      <link>http://localhost:1313/subdir/tags/guide/</link>
+      <link>https://zhenda-hub.github.io/tags/guide/</link>
       <pubDate>Tue, 09 Aug 2022 15:38:30 +0800</pubDate>
-      <guid>http://localhost:1313/subdir/tags/guide/</guid>
+      <guid>https://zhenda-hub.github.io/tags/guide/</guid>
       <description></description>
     </item>
     <item>
       <title>css</title>
-      <link>http://localhost:1313/subdir/tags/css/</link>
+      <link>https://zhenda-hub.github.io/tags/css/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/subdir/tags/css/</guid>
+      <guid>https://zhenda-hub.github.io/tags/css/</guid>
       <description></description>
     </item>
     <item>
       <title>html</title>
-      <link>http://localhost:1313/subdir/tags/html/</link>
+      <link>https://zhenda-hub.github.io/tags/html/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/subdir/tags/html/</guid>
+      <guid>https://zhenda-hub.github.io/tags/html/</guid>
       <description></description>
     </item>
     <item>
       <title>markdown</title>
-      <link>http://localhost:1313/subdir/tags/markdown/</link>
+      <link>https://zhenda-hub.github.io/tags/markdown/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/subdir/tags/markdown/</guid>
+      <guid>https://zhenda-hub.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>privacy</title>
-      <link>http://localhost:1313/subdir/tags/privacy/</link>
+      <link>https://zhenda-hub.github.io/tags/privacy/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/subdir/tags/privacy/</guid>
+      <guid>https://zhenda-hub.github.io/tags/privacy/</guid>
       <description></description>
     </item>
     <item>
       <title>shortcodes</title>
-      <link>http://localhost:1313/subdir/tags/shortcodes/</link>
+      <link>https://zhenda-hub.github.io/tags/shortcodes/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/subdir/tags/shortcodes/</guid>
+      <guid>https://zhenda-hub.github.io/tags/shortcodes/</guid>
       <description></description>
     </item>
     <item>
       <title>text</title>
-      <link>http://localhost:1313/subdir/tags/text/</link>
+      <link>https://zhenda-hub.github.io/tags/text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/subdir/tags/text/</guid>
+      <guid>https://zhenda-hub.github.io/tags/text/</guid>
       <description></description>
     </item>
     <item>
       <title>emoji</title>
-      <link>http://localhost:1313/subdir/tags/emoji/</link>
+      <link>https://zhenda-hub.github.io/tags/emoji/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/subdir/tags/emoji/</guid>
+      <guid>https://zhenda-hub.github.io/tags/emoji/</guid>
       <description></description>
     </item>
   </channel>

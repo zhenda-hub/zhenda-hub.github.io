@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>text on Puppet</title>
-    <link>http://localhost:1313/subdir/tags/text/</link>
+    <link>https://zhenda-hub.github.io/tags/text/</link>
     <description>Recent content in text on Puppet</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023. All Rights Reserved. Zhenda 版权所有</copyright>
     <lastBuildDate>Sat, 09 Mar 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/subdir/tags/text/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://zhenda-hub.github.io/tags/text/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Placeholder Text</title>
-      <link>http://localhost:1313/subdir/posts/placeholder-text/</link>
+      <link>https://zhenda-hub.github.io/posts/placeholder-text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/subdir/posts/placeholder-text/</guid>
+      <guid>https://zhenda-hub.github.io/posts/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
     </item>
   </channel>
