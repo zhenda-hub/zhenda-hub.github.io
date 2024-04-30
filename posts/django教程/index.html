@@ -8,21 +8,21 @@
 
   
     
-  <title>Emoji Support | Zhenda&#39;s Blog</title>
+  <title>Django教程 | Zhenda&#39;s Blog</title>
   <meta name="author" content="Zhenda">
-  <meta name="description" content="Guide to emoji usage in Hugo">
+  <meta name="description" content="Django 教程[toc] http 4 种请求和传参方式网站开发逻辑梳理初级阶段，使用 admin 后台快速建站 model admin 直接编写后台逻辑和前台模板页面 url view FBV CBV template form view 之上的逻辑中">
   <meta name="keywords" content="blog,developer,personal">
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Emoji Support"/>
-<meta name="twitter:description" content="Guide to emoji usage in Hugo"/>
+<meta name="twitter:title" content="Django教程"/>
+<meta name="twitter:description" content="Django 教程[toc] http 4 种请求和传参方式网站开发逻辑梳理初级阶段，使用 admin 后台快速建站 model admin 直接编写后台逻辑和前台模板页面 url view FBV CBV template form view 之上的逻辑中"/>
 
-  <meta property="og:title" content="Emoji Support" />
-<meta property="og:description" content="Guide to emoji usage in Hugo" />
+  <meta property="og:title" content="Django教程" />
+<meta property="og:description" content="Django 教程[toc] http 4 种请求和传参方式网站开发逻辑梳理初级阶段，使用 admin 后台快速建站 model admin 直接编写后台逻辑和前台模板页面 url view FBV CBV template form view 之上的逻辑中" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zhenda-hub.github.io/posts/emoji-support/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-03-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-03-05T00:00:00+00:00" />
+<meta property="og:url" content="https://zhenda-hub.github.io/posts/django%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-30T14:07:14+08:00" />
+<meta property="article:modified_time" content="2024-04-30T14:07:14+08:00" />
 
 
   <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
@@ -47,6 +47,8 @@
 
 
 <body ontouchstart="">
+  
+  
   <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
   <div class="container-fluid">
     
@@ -169,14 +171,14 @@
         <div class="post-heading">
           <div class="tags">
             
-            <a class="tag" href="/tags/emoji/" title="emoji">emoji</a>
+            <a class="tag" href="/tags/web/" title="web">web</a>
             
           </div>
-          <h1>Emoji Support</h1>
+          <h1>Django教程</h1>
           <h2 class="subheading"></h2>
           <span class="meta">
-            Posted by  Hugo Authors 
-            on Tue, Mar 5, 2019
+            Posted by  Zhenda 
+            on Tue, Apr 30, 2024
           </span>
         </div>
       </div>
@@ -197,42 +199,46 @@
               col-lg-8 col-lg-offset-2
               col-md-10 col-md-offset-1
               post-container">
-        <p>Emoji can be enabled in a Hugo project in a number of ways.</p>
-<p>The <a href="https://gohugo.io/functions/emojify/" target="_blank"><code>emojify</code></a> function can be called directly in templates or <a href="https://gohugo.io/templates/shortcode-templates/#inline-shortcodes" target="_blank">Inline Shortcodes</a>.</p>
-<p>To enable emoji globally, set <code>enableEmoji</code> to <code>true</code> in your site&rsquo;s <a href="https://gohugo.io/getting-started/configuration/" target="_blank">configuration</a> and then you can type emoji shorthand codes directly in content files; e.g.</p>
-<p><span class="nowrap"><span class="emojify">🙈</span> <code>🙈</code></span>  <span class="nowrap"><span class="emojify">🙉</span> <code>🙉</code></span>  <span class="nowrap"><span class="emojify">🙊</span> <code>🙊</code></span></p>
-<br>
-<p>The <a href="http://www.emoji-cheat-sheet.com/" target="_blank">Emoji cheat sheet</a> is a useful reference for emoji shorthand codes.</p>
-<hr>
-<p><strong>N.B.</strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>.emoji {
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>}</code></pre></div>
+        <h1 id="django-教程">Django 教程<a class="anchorjs-link" href="#django-%e6%95%99%e7%a8%8b"></a></h1><p>[toc]</p>
+<h2 id="http-4-种请求和传参方式">http 4 种请求和传参方式<a class="anchorjs-link" href="#http-4-%e7%a7%8d%e8%af%b7%e6%b1%82%e5%92%8c%e4%bc%a0%e5%8f%82%e6%96%b9%e5%bc%8f"></a></h2><h2 id="网站开发逻辑梳理">网站开发逻辑梳理<a class="anchorjs-link" href="#%e7%bd%91%e7%ab%99%e5%bc%80%e5%8f%91%e9%80%bb%e8%be%91%e6%a2%b3%e7%90%86"></a></h2><h3 id="初级阶段使用-admin-后台快速建站">初级阶段，使用 admin 后台快速建站<a class="anchorjs-link" href="#%e5%88%9d%e7%ba%a7%e9%98%b6%e6%ae%b5%e4%bd%bf%e7%94%a8-admin-%e5%90%8e%e5%8f%b0%e5%bf%ab%e9%80%9f%e5%bb%ba%e7%ab%99"></a></h3><ul>
+<li>model</li>
+<li>admin</li>
+</ul>
+<h3 id="直接编写后台逻辑和前台模板页面">直接编写后台逻辑和前台模板页面<a class="anchorjs-link" href="#%e7%9b%b4%e6%8e%a5%e7%bc%96%e5%86%99%e5%90%8e%e5%8f%b0%e9%80%bb%e8%be%91%e5%92%8c%e5%89%8d%e5%8f%b0%e6%a8%a1%e6%9d%bf%e9%a1%b5%e9%9d%a2"></a></h3><ul>
+<li>url</li>
+<li>view
+<ul>
+<li>FBV</li>
+<li>CBV</li>
+</ul>
+</li>
+<li>template</li>
+<li>form</li>
+</ul>
+<h2 id="view-之上的逻辑">view 之上的逻辑<a class="anchorjs-link" href="#view-%e4%b9%8b%e4%b8%8a%e7%9a%84%e9%80%bb%e8%be%91"></a></h2><p>中间件， 钩子</p>
+<h2 id="具体功能">具体功能<a class="anchorjs-link" href="#%e5%85%b7%e4%bd%93%e5%8a%9f%e8%83%bd"></a></h2><h3 id="用户和权限和邮箱">用户和权限和邮箱<a class="anchorjs-link" href="#%e7%94%a8%e6%88%b7%e5%92%8c%e6%9d%83%e9%99%90%e5%92%8c%e9%82%ae%e7%ae%b1"></a></h3><p>用户模块的重要意义： 支持多端用户，千人千面。</p>
+<h3 id="celery-处理异步任务和定时任务">celery 处理异步任务和定时任务<a class="anchorjs-link" href="#celery-%e5%a4%84%e7%90%86%e5%bc%82%e6%ad%a5%e4%bb%bb%e5%8a%a1%e5%92%8c%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1"></a></h3><h3 id="缓存">缓存<a class="anchorjs-link" href="#%e7%bc%93%e5%ad%98"></a></h3><h2 id="前后段分离">前后段分离<a class="anchorjs-link" href="#%e5%89%8d%e5%90%8e%e6%ae%b5%e5%88%86%e7%a6%bb"></a></h2><ul>
+<li>vue
+<ul>
+<li>FBV</li>
+<li>CBV</li>
+</ul>
+</li>
+<li>drf</li>
+</ul>
+<h2 id="网站部署">网站部署<a class="anchorjs-link" href="#%e7%bd%91%e7%ab%99%e9%83%a8%e7%bd%b2"></a></h2><h2 id="django-源码风格">django 源码风格<a class="anchorjs-link" href="#django-%e6%ba%90%e7%a0%81%e9%a3%8e%e6%a0%bc"></a></h2><p>大量使用 Minin</p>
 
-<style>
-.emojify {
-	font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
-	font-size: 2rem;
-	vertical-align: middle;
-}
-@media screen and (max-width:650px) {
-  .nowrap {
-    display: block;
-    margin: 25px 0;
-  }
-}
-</style>
 
         <hr style="visibility: hidden;" />
         <ul class="pager">
           
-          
-          <li class="next">
-            <a href="/posts/math-typesetting/" data-toggle="tooltip" data-placement="top" title="Math Typesetting">
-              Next<br>
-              <span>Math Typesetting</span>
+          <li class="previous">
+            <a href="/posts/ubuntu%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/" data-toggle="tooltip" data-placement="top" title="Ubuntu使用配置">
+              Previous<br>
+              <span>Ubuntu使用配置</span>
             </a>
           </li>
+          
           
         </ul>
         <hr style="visibility: hidden;" />
@@ -266,6 +272,20 @@
 
       
       
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
       
       
       <div class="
@@ -368,6 +388,56 @@
 
 
 
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.bd0fbd5f2749da9d631c3438dac03c1bcee6f275f5f3eec79592e0f512284470.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
 
 
 

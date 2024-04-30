@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on Zhenda&#39;s Blog</title>
+    <link>https://zhenda-hub.github.io/tags/web/</link>
+    <description>Recent content in web on Zhenda&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2023-2024. All Rights Reserved. Zhenda 版权所有</copyright>
+    <lastBuildDate>Tue, 30 Apr 2024 14:07:14 +0800</lastBuildDate><atom:link href="https://zhenda-hub.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Django教程</title>
+      <link>https://zhenda-hub.github.io/posts/django%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Tue, 30 Apr 2024 14:07:14 +0800</pubDate>
+      
+      <guid>https://zhenda-hub.github.io/posts/django%E6%95%99%E7%A8%8B/</guid>
+      <description>Django 教程[toc] http 4 种请求和传参方式网站开发逻辑梳理初级阶段，使用 admin 后台快速建站 model admin 直接编写后台逻辑和前台模板页面 url view FBV CBV template form view 之上的逻辑中</description>
+    </item>
+    
+  </channel>
+</rss>

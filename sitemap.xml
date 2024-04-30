@@ -3,9 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://zhenda-hub.github.io/</loc>
-    <lastmod>2024-04-30T13:43:06+08:00</lastmod>
+    <lastmod>2024-04-30T14:07:14+08:00</lastmod>
+  </url><url>
+    <loc>https://zhenda-hub.github.io/posts/django%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2024-04-30T14:07:14+08:00</lastmod>
   </url><url>
     <loc>https://zhenda-hub.github.io/posts/</loc>
+    <lastmod>2024-04-30T14:07:14+08:00</lastmod>
+  </url><url>
+    <loc>https://zhenda-hub.github.io/tags/</loc>
+    <lastmod>2024-04-30T14:07:14+08:00</lastmod>
+  </url><url>
+    <loc>https://zhenda-hub.github.io/tags/web/</loc>
+    <lastmod>2024-04-30T14:07:14+08:00</lastmod>
+  </url><url>
+    <loc>https://zhenda-hub.github.io/tags/linux/</loc>
     <lastmod>2024-04-30T13:43:06+08:00</lastmod>
   </url><url>
     <loc>https://zhenda-hub.github.io/posts/ubuntu%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/</loc>
@@ -18,9 +30,6 @@
     <lastmod>2024-01-09T00:04:35+08:00</lastmod>
   </url><url>
     <loc>https://zhenda-hub.github.io/posts/docker%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2024-01-09T00:04:35+08:00</lastmod>
-  </url><url>
-    <loc>https://zhenda-hub.github.io/tags/</loc>
     <lastmod>2024-01-09T00:04:35+08:00</lastmod>
   </url><url>
     <loc>https://zhenda-hub.github.io/tags/data/</loc>
@@ -55,9 +64,6 @@
   </url><url>
     <loc>https://zhenda-hub.github.io/series/</loc>
     <lastmod>2023-11-25T11:48:21+08:00</lastmod>
-  </url><url>
-    <loc>https://zhenda-hub.github.io/tags/linux/</loc>
-    <lastmod>2023-11-25T11:29:37+08:00</lastmod>
   </url><url>
     <loc>https://zhenda-hub.github.io/posts/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/</loc>
     <lastmod>2023-11-25T11:29:37+08:00</lastmod>
