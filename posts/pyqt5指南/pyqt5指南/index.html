@@ -205,9 +205,17 @@
               col-md-10 col-md-offset-1
               post-container">
         <p>使用python我们也可以开发桌面应用（在pc上运行的软件，pyqt5好像还不支持手机app）平时做做小工具还是挺方便的。这次我们一起学习一下pyqt5</p>
-<h2 id="环境安装">环境安装<a class="anchorjs-link" href="#%e7%8e%af%e5%a2%83%e5%ae%89%e8%a3%85"></a></h2><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pip install pyqt5
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>pip install pyqt5-tools
-</code></pre></div><p>python 版本不要过高， 需要适配pyqt5 ，像3.8，3.9 是可以的，高版本可能会出现适配问题</p>
+<h2 id="环境安装">环境安装<a class="anchorjs-link" href="#%e7%8e%af%e5%a2%83%e5%ae%89%e8%a3%85"></a></h2><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install pyqt5
+pip install pyqt5-tools
+</code></pre></td></tr></table>
+</div>
+</div><p>python 版本不要过高， 需要适配pyqt5 ，像3.8，3.9 是可以的，高版本可能会出现适配问题</p>
 <h2 id="开发流程">开发流程<a class="anchorjs-link" href="#%e5%bc%80%e5%8f%91%e6%b5%81%e7%a8%8b"></a></h2><p>整体开发逻辑可以类比网页，有很多相似之处：</p>
 <ul>
 <li>各种控件 相当于 html的各种标签
@@ -255,43 +263,88 @@
 <li>选择n个控件， 设置它们的布局（水平， 垂直， 网格）</li>
 <li>给需要控制的控件设置<strong>objectName</strong> ,方便后续写代码寻找这个控件</li>
 </ol>
-<h3 id="使用命令把ui-转为py文件">使用命令把*.ui 转为*.py文件<a class="anchorjs-link" href="#%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4%e6%8a%8aui-%e8%bd%ac%e4%b8%bapy%e6%96%87%e4%bb%b6"></a></h3><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pyuic5 ui文件名 -o py文件名
-</code></pre></div><h3 id="继承生成的py文件的类-进行功能开发">继承生成的*.py文件的类, 进行功能开发<a class="anchorjs-link" href="#%e7%bb%a7%e6%89%bf%e7%94%9f%e6%88%90%e7%9a%84py%e6%96%87%e4%bb%b6%e7%9a%84%e7%b1%bb-%e8%bf%9b%e8%a1%8c%e5%8a%9f%e8%83%bd%e5%bc%80%e5%8f%91"></a></h3><ol>
+<h3 id="使用命令把ui-转为py文件">使用命令把*.ui 转为*.py文件<a class="anchorjs-link" href="#%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4%e6%8a%8aui-%e8%bd%ac%e4%b8%bapy%e6%96%87%e4%bb%b6"></a></h3><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">pyuic5 ui文件名 -o py文件名
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="继承生成的py文件的类-进行功能开发">继承生成的*.py文件的类, 进行功能开发<a class="anchorjs-link" href="#%e7%bb%a7%e6%89%bf%e7%94%9f%e6%88%90%e7%9a%84py%e6%96%87%e4%bb%b6%e7%9a%84%e7%b1%bb-%e8%bf%9b%e8%a1%8c%e5%8a%9f%e8%83%bd%e5%bc%80%e5%8f%91"></a></h3><ol>
 <li>
 <p>搭建结构使gui运行</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#a90d91">from</span> <span style="color:#000">PyQt5.QtCore</span> <span style="color:#a90d91">import</span> <span style="color:#000">Qt</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#a90d91">from</span> <span style="color:#000">PyQt5.QtWidgets</span> <span style="color:#a90d91">import</span> <span style="color:#000">QApplication</span>, <span style="color:#000">QMainWindow</span>, <span style="color:#000">QCheckBox</span>, <span style="color:#000">QMessageBox</span>, <span style="color:#000">QInputDialog</span>, <span style="color:#000">QLineEdit</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#a90d91">from</span> <span style="color:#000">PyQt5.QtGui</span> <span style="color:#a90d91">import</span> <span style="color:#000">QIcon</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#a90d91">from</span> <span style="color:#000">my_clock</span> <span style="color:#a90d91">import</span> <span style="color:#000">Ui_MainWindow</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#a90d91">import</span> <span style="color:#000">sys</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#177500"># 1. 继承*.py文件的类Ui_MainWindow</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#a90d91">class</span> <span style="color:#3f6e75">MyGui</span>(<span style="color:#000">QMainWindow</span>, <span style="color:#000">Ui_MainWindow</span>):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>     <span style="color:#a90d91">def</span> <span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>) <span style="color:#000">-&gt;</span> <span style="color:#a90d91">None</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>         <span style="color:#a90d91">super</span>()<span style="color:#000">.</span><span style="color:#000">__init__</span>()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>         <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">setupUi</span>(<span style="color:#5b269a">self</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>         <span style="color:#177500"># 设置窗口最大最小值和关闭按钮</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>         <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">setWindowFlags</span>(<span style="color:#000">Qt</span><span style="color:#000">.</span><span style="color:#000">WindowMinMaxButtonsHint</span> <span style="color:#000">|</span> <span style="color:#000">Qt</span><span style="color:#000">.</span><span style="color:#000">WindowCloseButtonHint</span>)  
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>         <span style="color:#177500"># 2. 设置信号和槽函数的连接: clicked是一个信号, 设置它连接槽函数self.run</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>         <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">pushButton_run</span><span style="color:#000">.</span><span style="color:#000">clicked</span><span style="color:#000">.</span><span style="color:#000">connect</span>(<span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">run</span>)  
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>     <span style="color:#177500"># 槽函数</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>     <span style="color:#a90d91">def</span> <span style="color:#000">run</span>(<span style="color:#5b269a">self</span>):
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        <span style="color:#a90d91">pass</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span style="color:#a90d91">if</span> <span style="color:#000">__name__</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#39;__main__&#39;</span>:
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>     <span style="color:#000">app</span> <span style="color:#000">=</span> <span style="color:#000">QApplication</span>(<span style="color:#000">sys</span><span style="color:#000">.</span><span style="color:#000">argv</span>)
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>     <span style="color:#000">app</span><span style="color:#000">.</span><span style="color:#000">setWindowIcon</span>(<span style="color:#000">QIvon</span>(<span style="color:#c41a16">&#39;logo.png&#39;</span>))  <span style="color:#177500"># 设置icon</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>     <span style="color:#000">mygui</span> <span style="color:#000">=</span> <span style="color:#000">MyGui</span>()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>     <span style="color:#000">mygui</span><span style="color:#000">.</span><span style="color:#000">show</span>()
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>     <span style="color:#000">sys</span><span style="color:#000">.</span><span style="color:#000">exit</span>(<span style="color:#000">app</span><span style="color:#000">.</span><span style="color:#000">exec_</span>())
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>
-</code></pre></div></li>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a90d91">from</span> <span style="color:#000">PyQt5.QtCore</span> <span style="color:#a90d91">import</span> <span style="color:#000">Qt</span>
+<span style="color:#a90d91">from</span> <span style="color:#000">PyQt5.QtWidgets</span> <span style="color:#a90d91">import</span> <span style="color:#000">QApplication</span>, <span style="color:#000">QMainWindow</span>, <span style="color:#000">QCheckBox</span>, <span style="color:#000">QMessageBox</span>, <span style="color:#000">QInputDialog</span>, <span style="color:#000">QLineEdit</span>
+<span style="color:#a90d91">from</span> <span style="color:#000">PyQt5.QtGui</span> <span style="color:#a90d91">import</span> <span style="color:#000">QIcon</span>
+<span style="color:#a90d91">from</span> <span style="color:#000">my_clock</span> <span style="color:#a90d91">import</span> <span style="color:#000">Ui_MainWindow</span>
+<span style="color:#a90d91">import</span> <span style="color:#000">sys</span>
+
+<span style="color:#177500"># 1. 继承*.py文件的类Ui_MainWindow</span>
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">MyGui</span>(<span style="color:#000">QMainWindow</span>, <span style="color:#000">Ui_MainWindow</span>):
+
+     <span style="color:#a90d91">def</span> <span style="color:#000">__init__</span>(<span style="color:#5b269a">self</span>) <span style="color:#000">-&gt;</span> <span style="color:#a90d91">None</span>:
+         <span style="color:#a90d91">super</span>()<span style="color:#000">.</span><span style="color:#000">__init__</span>()
+         <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">setupUi</span>(<span style="color:#5b269a">self</span>)
+         <span style="color:#177500"># 设置窗口最大最小值和关闭按钮</span>
+         <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">setWindowFlags</span>(<span style="color:#000">Qt</span><span style="color:#000">.</span><span style="color:#000">WindowMinMaxButtonsHint</span> <span style="color:#000">|</span> <span style="color:#000">Qt</span><span style="color:#000">.</span><span style="color:#000">WindowCloseButtonHint</span>)  
+
+         <span style="color:#177500"># 2. 设置信号和槽函数的连接: clicked是一个信号, 设置它连接槽函数self.run</span>
+         <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">pushButton_run</span><span style="color:#000">.</span><span style="color:#000">clicked</span><span style="color:#000">.</span><span style="color:#000">connect</span>(<span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">run</span>)  
+
+     <span style="color:#177500"># 槽函数</span>
+     <span style="color:#a90d91">def</span> <span style="color:#000">run</span>(<span style="color:#5b269a">self</span>):
+        <span style="color:#a90d91">pass</span>
+
+
+<span style="color:#a90d91">if</span> <span style="color:#000">__name__</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#39;__main__&#39;</span>:
+     <span style="color:#000">app</span> <span style="color:#000">=</span> <span style="color:#000">QApplication</span>(<span style="color:#000">sys</span><span style="color:#000">.</span><span style="color:#000">argv</span>)
+     <span style="color:#000">app</span><span style="color:#000">.</span><span style="color:#000">setWindowIcon</span>(<span style="color:#000">QIvon</span>(<span style="color:#c41a16">&#39;logo.png&#39;</span>))  <span style="color:#177500"># 设置icon</span>
+
+     <span style="color:#000">mygui</span> <span style="color:#000">=</span> <span style="color:#000">MyGui</span>()
+     <span style="color:#000">mygui</span><span style="color:#000">.</span><span style="color:#000">show</span>()
+
+     <span style="color:#000">sys</span><span style="color:#000">.</span><span style="color:#000">exit</span>(<span style="color:#000">app</span><span style="color:#000">.</span><span style="color:#000">exec_</span>())
+
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>进行信号和槽函数的编写</p>
 </li>
@@ -301,10 +354,24 @@
 </li>
 </ol>
 <h3 id="项目打包">项目打包<a class="anchorjs-link" href="#%e9%a1%b9%e7%9b%ae%e6%89%93%e5%8c%85"></a></h3><p>先安装pyinstaller模块</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pip install pyinstaller
-</code></pre></div><p>然后打包为可执行文件</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>pyinstaller -F -w 执行的py文件
-</code></pre></div><h3 id="其他实用功能">其他实用功能<a class="anchorjs-link" href="#%e5%85%b6%e4%bb%96%e5%ae%9e%e7%94%a8%e5%8a%9f%e8%83%bd"></a></h3><ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">pip install pyinstaller
+</code></pre></td></tr></table>
+</div>
+</div><p>然后打包为可执行文件</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">pyinstaller -F -w 执行的py文件
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="其他实用功能">其他实用功能<a class="anchorjs-link" href="#%e5%85%b6%e4%bb%96%e5%ae%9e%e7%94%a8%e5%8a%9f%e8%83%bd"></a></h3><ul>
 <li>QFileDialog 文件选择</li>
 <li>QMessageBox 弹框</li>
 </ul>
