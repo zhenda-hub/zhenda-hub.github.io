@@ -7,4 +7,3 @@
 - hugo
 - hexo
 - mrdocs
-- 
