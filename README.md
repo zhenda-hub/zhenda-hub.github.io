@@ -6,4 +6,4 @@
 
 - hugo
 - hexo
-- mrdocs
+- mkdocs
