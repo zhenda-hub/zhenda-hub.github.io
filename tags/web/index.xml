@@ -14,7 +14,7 @@
       <pubDate>Tue, 30 Apr 2024 14:07:14 +0800</pubDate>
       
       <guid>https://zhenda-hub.github.io/posts/django%E6%95%99%E7%A8%8B/</guid>
-      <description>Django 教程[toc] http 4 种请求和传参方式网站开发逻辑梳理初级阶段，使用 admin 后台快速建站 model admin 直接编写后台逻辑和前台模板页面 url view FBV CBV template form view 之上的逻辑中</description>
+      <description>Django 教程[toc] 通信协议 HTTP get 传参(对数据长度有限制(大约 2048 个字符) http://example.com/api?k1=v1&amp;k2=v2 post 传参 request header Content-Type 指明数据格式 request body json form-data text put 传参同 post, 只是需要对象存在 delete websocket TCP UDP 网站</description>
     </item>
     
   </channel>

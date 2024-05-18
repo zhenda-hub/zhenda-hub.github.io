@@ -10,15 +10,15 @@
     
   <title>Ubuntu使用配置 | Zhenda&#39;s Blog</title>
   <meta name="author" content="Zhenda">
-  <meta name="description" content="ubuntu 使用配置[toc] app install uninstallsys_update.sh 1 2 3 4 5 6 7 #!/bin/bash echo &#34;update:&#34; sudo apt update echo &#34;upgrade:&#34; sudo apt upgrade echo &#34;autoremove:&#34; sudo apt autoremove 1 2 3 sudo apt install inetutils-traceroute sudo apt install flameshot sudo apt-get install gnome-shell-pomodoro settings再次点击最小化应用 1 gsettings">
+  <meta name="description" content="ubuntu 使用配置[toc] install and uninstallsys_update.sh 1 2 3 4 5 6 7 #!/bin/bash echo &#34;update:&#34; sudo apt update echo &#34;upgrade:&#34; sudo apt upgrade echo &#34;autoremove:&#34; sudo apt autoremove 1 2 3 sudo apt install inetutils-traceroute sudo apt install flameshot sudo apt-get install gnome-shell-pomodoro settings再次点击图标实现最小化">
   <meta name="keywords" content="blog,developer,personal">
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Ubuntu使用配置"/>
-<meta name="twitter:description" content="ubuntu 使用配置[toc] app install uninstallsys_update.sh 1 2 3 4 5 6 7 #!/bin/bash echo &#34;update:&#34; sudo apt update echo &#34;upgrade:&#34; sudo apt upgrade echo &#34;autoremove:&#34; sudo apt autoremove 1 2 3 sudo apt install inetutils-traceroute sudo apt install flameshot sudo apt-get install gnome-shell-pomodoro settings再次点击最小化应用 1 gsettings"/>
+<meta name="twitter:description" content="ubuntu 使用配置[toc] install and uninstallsys_update.sh 1 2 3 4 5 6 7 #!/bin/bash echo &#34;update:&#34; sudo apt update echo &#34;upgrade:&#34; sudo apt upgrade echo &#34;autoremove:&#34; sudo apt autoremove 1 2 3 sudo apt install inetutils-traceroute sudo apt install flameshot sudo apt-get install gnome-shell-pomodoro settings再次点击图标实现最小化"/>
 
   <meta property="og:title" content="Ubuntu使用配置" />
-<meta property="og:description" content="ubuntu 使用配置[toc] app install uninstallsys_update.sh 1 2 3 4 5 6 7 #!/bin/bash echo &#34;update:&#34; sudo apt update echo &#34;upgrade:&#34; sudo apt upgrade echo &#34;autoremove:&#34; sudo apt autoremove 1 2 3 sudo apt install inetutils-traceroute sudo apt install flameshot sudo apt-get install gnome-shell-pomodoro settings再次点击最小化应用 1 gsettings" />
+<meta property="og:description" content="ubuntu 使用配置[toc] install and uninstallsys_update.sh 1 2 3 4 5 6 7 #!/bin/bash echo &#34;update:&#34; sudo apt update echo &#34;upgrade:&#34; sudo apt upgrade echo &#34;autoremove:&#34; sudo apt autoremove 1 2 3 sudo apt install inetutils-traceroute sudo apt install flameshot sudo apt-get install gnome-shell-pomodoro settings再次点击图标实现最小化" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zhenda-hub.github.io/posts/ubuntu%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-30T13:43:06+08:00" />
@@ -200,7 +200,7 @@
               col-md-10 col-md-offset-1
               post-container">
         <h1 id="ubuntu-使用配置">ubuntu 使用配置<a class="anchorjs-link" href="#ubuntu-%e4%bd%bf%e7%94%a8%e9%85%8d%e7%bd%ae"></a></h1><p>[toc]</p>
-<h2 id="app-install-uninstall">app install uninstall<a class="anchorjs-link" href="#app-install-uninstall"></a></h2><p>sys_update.sh</p>
+<h2 id="install-and-uninstall">install and uninstall<a class="anchorjs-link" href="#install-and-uninstall"></a></h2><p>sys_update.sh</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -233,7 +233,7 @@ sudo apt install flameshot
 sudo apt-get install gnome-shell-pomodoro
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="settings">settings<a class="anchorjs-link" href="#settings"></a></h2><p>再次点击最小化应用</p>
+</div><h2 id="settings">settings<a class="anchorjs-link" href="#settings"></a></h2><p>再次点击图标实现最小化</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -242,9 +242,9 @@ sudo apt-get install gnome-shell-pomodoro
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gsettings <span style="color:#a90d91">set</span> org.gnome.shell.extensions.dash-to-dock click-action <span style="color:#c41a16">&#39;minimize&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="rc-file-settings">.*rc file settings<a class="anchorjs-link" href="#rc-file-settings"></a></h3><ul>
-<li>~/.bashrc</li>
-</ul>
+</div><h3 id="xxxrc-file-settings">~/.xxxrc file settings<a class="anchorjs-link" href="#xxxrc-file-settings"></a></h3><ul>
+<li>
+<p>~/.bashrc</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -267,9 +267,9 @@ sudo apt-get install gnome-shell-pomodoro
 <span style="color:#a90d91">alias</span> <span style="color:#000">ll</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;ls -alFh&#39;</span>
 </code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>~/.vimrc</li>
-</ul>
+</div></li>
+<li>
+<p>~/.vimrc</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -290,9 +290,9 @@ sudo apt-get install gnome-shell-pomodoro
 <span style="color:#a90d91">set</span> <span style="color:#000">backupdir</span><span style="color:#000">=</span>~/.vim/undo
 </code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>~/.nanorc</li>
-</ul>
+</div></li>
+<li>
+<p>~/.nanorc</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -305,15 +305,9 @@ sudo apt-get install gnome-shell-pomodoro
 <span style="color:#a90d91">set</span> backup
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="zip-file">zip file<a class="anchorjs-link" href="#zip-file"></a></h2><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">unzip xxxfile
-</code></pre></td></tr></table>
-</div>
-</div><!--
+</div></li>
+</ul>
+<!--
 ## Homebrew
 
 https://docs.brew.sh/Homebrew-on-Linux -->
@@ -322,10 +316,12 @@ https://docs.brew.sh/Homebrew-on-Linux -->
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh -v 用户名@ip地址
-scp
+<span style="color:#a90d91">exit</span>
+scp ... ...
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="open-picture">open picture<a class="anchorjs-link" href="#open-picture"></a></h2><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -336,10 +332,46 @@ scp
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eog xxx.png
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="遗留事项">遗留事项<a class="anchorjs-link" href="#%e9%81%97%e7%95%99%e4%ba%8b%e9%a1%b9"></a></h2><ul>
+</div><h2 id="resize-mem-swap">resize mem swap<a class="anchorjs-link" href="#resize-mem-swap"></a></h2><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># resize swap</span>
+sudo swapoff -a
+sudo dd <span style="color:#a90d91">if</span><span style="color:#000">=</span>/dev/zero <span style="color:#000">of</span><span style="color:#000">=</span>/swapfile <span style="color:#000">bs</span><span style="color:#000">=</span>1G <span style="color:#000">count</span><span style="color:#000">=</span><span style="color:#1c01ce">32</span>
+sudo chmod <span style="color:#1c01ce">0600</span> /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+<span style="color:#177500"># look swap</span>
+swapon --show
+free -h
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://askubuntu.com/questions/178712/how-to-increase-swap-space" target="_blank">https://askubuntu.com/questions/178712/how-to-increase-swap-space</a>
+<a href="https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F" target="_blank">https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F</a></p>
+<h2 id="check-screen">check screen<a class="anchorjs-link" href="#check-screen"></a></h2><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">xrandr
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="remaining-matters">Remaining matters<a class="anchorjs-link" href="#remaining-matters"></a></h2><ul>
 <li>查看所有的 history</li>
 <li>视频没有预览图</li>
-<li>ping 很多网站不通 本来就这样把</li>
+<li>ping 很多网站不通</li>
 </ul>
 
 
@@ -481,7 +513,26 @@ scp
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-        <ul class="list-inline text-center"></ul>
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/zhenda-hub" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
 
         <p class="copyright text-muted">
           Copyright © 2023-2024. All Rights Reserved. Zhenda 版权所有  

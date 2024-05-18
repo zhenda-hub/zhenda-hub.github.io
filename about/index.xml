@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>About on Zhenda&#39;s Blog</title>
+    <title>About Me on Zhenda&#39;s Blog</title>
     <link>https://zhenda-hub.github.io/about/</link>
-    <description>Recent content in About on Zhenda&#39;s Blog</description>
+    <description>Recent content in About Me on Zhenda&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023-2024. All Rights Reserved. Zhenda 版权所有</copyright>
-    <lastBuildDate>Thu, 28 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://zhenda-hub.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://zhenda-hub.github.io/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

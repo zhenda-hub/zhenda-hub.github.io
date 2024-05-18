@@ -10,15 +10,15 @@
     
   <title>Django教程 | Zhenda&#39;s Blog</title>
   <meta name="author" content="Zhenda">
-  <meta name="description" content="Django 教程[toc] http 4 种请求和传参方式网站开发逻辑梳理初级阶段，使用 admin 后台快速建站 model admin 直接编写后台逻辑和前台模板页面 url view FBV CBV template form view 之上的逻辑中">
+  <meta name="description" content="Django 教程[toc] 通信协议 HTTP get 传参(对数据长度有限制(大约 2048 个字符) http://example.com/api?k1=v1&k2=v2 post 传参 request header Content-Type 指明数据格式 request body json form-data text put 传参同 post, 只是需要对象存在 delete websocket TCP UDP 网站">
   <meta name="keywords" content="blog,developer,personal">
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Django教程"/>
-<meta name="twitter:description" content="Django 教程[toc] http 4 种请求和传参方式网站开发逻辑梳理初级阶段，使用 admin 后台快速建站 model admin 直接编写后台逻辑和前台模板页面 url view FBV CBV template form view 之上的逻辑中"/>
+<meta name="twitter:description" content="Django 教程[toc] 通信协议 HTTP get 传参(对数据长度有限制(大约 2048 个字符) http://example.com/api?k1=v1&k2=v2 post 传参 request header Content-Type 指明数据格式 request body json form-data text put 传参同 post, 只是需要对象存在 delete websocket TCP UDP 网站"/>
 
   <meta property="og:title" content="Django教程" />
-<meta property="og:description" content="Django 教程[toc] http 4 种请求和传参方式网站开发逻辑梳理初级阶段，使用 admin 后台快速建站 model admin 直接编写后台逻辑和前台模板页面 url view FBV CBV template form view 之上的逻辑中" />
+<meta property="og:description" content="Django 教程[toc] 通信协议 HTTP get 传参(对数据长度有限制(大约 2048 个字符) http://example.com/api?k1=v1&k2=v2 post 传参 request header Content-Type 指明数据格式 request body json form-data text put 传参同 post, 只是需要对象存在 delete websocket TCP UDP 网站" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zhenda-hub.github.io/posts/django%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-30T14:07:14+08:00" />
@@ -200,33 +200,322 @@
               col-md-10 col-md-offset-1
               post-container">
         <h1 id="django-教程">Django 教程<a class="anchorjs-link" href="#django-%e6%95%99%e7%a8%8b"></a></h1><p>[toc]</p>
-<h2 id="http-4-种请求和传参方式">http 4 种请求和传参方式<a class="anchorjs-link" href="#http-4-%e7%a7%8d%e8%af%b7%e6%b1%82%e5%92%8c%e4%bc%a0%e5%8f%82%e6%96%b9%e5%bc%8f"></a></h2><h2 id="网站开发逻辑梳理">网站开发逻辑梳理<a class="anchorjs-link" href="#%e7%bd%91%e7%ab%99%e5%bc%80%e5%8f%91%e9%80%bb%e8%be%91%e6%a2%b3%e7%90%86"></a></h2><h3 id="初级阶段使用-admin-后台快速建站">初级阶段，使用 admin 后台快速建站<a class="anchorjs-link" href="#%e5%88%9d%e7%ba%a7%e9%98%b6%e6%ae%b5%e4%bd%bf%e7%94%a8-admin-%e5%90%8e%e5%8f%b0%e5%bf%ab%e9%80%9f%e5%bb%ba%e7%ab%99"></a></h3><ul>
-<li>model</li>
-<li>admin</li>
+<h2 id="通信协议">通信协议<a class="anchorjs-link" href="#%e9%80%9a%e4%bf%a1%e5%8d%8f%e8%ae%ae"></a></h2><ul>
+<li>
+<p>HTTP</p>
+<ul>
+<li>get
+<ul>
+<li>传参(对数据长度有限制(大约 2048 个字符)
+<ul>
+<li><a href="http://example.com/api?k1=v1&amp;k2=v2" target="_blank">http://example.com/api?k1=v1&k2=v2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>post
+<ul>
+<li>传参
+<ul>
+<li>request header
+<ul>
+<li>Content-Type 指明数据格式</li>
+</ul>
+</li>
+<li>request body
+<ul>
+<li>json</li>
+<li>form-data</li>
+<li>text</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>put
+<ul>
+<li>传参同 post, 只是需要对象存在</li>
+</ul>
+</li>
+<li>delete</li>
+</ul>
+</li>
+<li>
+<p>websocket</p>
+</li>
+<li>
+<p>TCP</p>
+</li>
+<li>
+<p>UDP</p>
+</li>
+</ul>
+<h2 id="网站开发逻辑梳理">网站开发逻辑梳理<a class="anchorjs-link" href="#%e7%bd%91%e7%ab%99%e5%bc%80%e5%8f%91%e9%80%bb%e8%be%91%e6%a2%b3%e7%90%86"></a></h2><h3 id="初级阶段使用-admin-后台快速建站">初级阶段，使用 admin 后台快速建站<a class="anchorjs-link" href="#%e5%88%9d%e7%ba%a7%e9%98%b6%e6%ae%b5%e4%bd%bf%e7%94%a8-admin-%e5%90%8e%e5%8f%b0%e5%bf%ab%e9%80%9f%e5%bb%ba%e7%ab%99"></a></h3><ul>
+<li>
+<p>model</p>
+<ul>
+<li>model 分类
+<ul>
+<li>普通的继承</li>
+<li>abstruct 抽象基类</li>
+<li>proxy 添加额外的方法</li>
+</ul>
+</li>
+<li>模型管理器
+<ul>
+<li>objects =</li>
+</ul>
+</li>
+<li>自定义BaseModel</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a90d91">class</span> <span style="color:#3f6e75">BaseModel</span>(<span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">Model</span>):
+    <span style="color:#c41a16">&#34;&#34;&#34;为模型类补充字段&#34;&#34;&#34;</span>
+    <span style="color:#000">create_time</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">DateTimeField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;创建时间&#39;</span>, <span style="color:#000">auto_now_add</span><span style="color:#000">=</span><span style="color:#a90d91">True</span>)
+    <span style="color:#000">update_time</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">DateTimeField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;更新时间&#39;</span>, <span style="color:#000">auto_now</span><span style="color:#000">=</span><span style="color:#a90d91">True</span>)
+
+    <span style="color:#a90d91">class</span> <span style="color:#3f6e75">Meta</span>:
+        <span style="color:#177500"># 说明是抽象模型类</span>
+        <span style="color:#000">abstract</span> <span style="color:#000">=</span> <span style="color:#a90d91">True</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a90d91">class</span> <span style="color:#3f6e75">ProjectModel</span>(<span style="color:#000">BaseModel</span>):
+    <span style="color:#c41a16">&#34;&#34;&#34;项目&#34;&#34;&#34;</span>
+    <span style="color:#000">user</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">ForeignKey</span>(<span style="color:#000">User</span>, <span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;用户&#39;</span>, <span style="color:#000">on_delete</span><span style="color:#000">=</span><span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">CASCADE</span>)
+
+    <span style="color:#000">name</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">CharField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;项目名&#39;</span>, <span style="color:#000">max_length</span><span style="color:#000">=</span><span style="color:#1c01ce">30</span>)
+    <span style="color:#000">what</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">TextField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;项目描述&#39;</span>)
+    <span style="color:#000">why</span> <span style="color:#000">=</span> <span style="color:#000">RichTextUploadingField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;项目意义&#39;</span>)
+    <span style="color:#000">priority_choices</span> <span style="color:#000">=</span> ((<span style="color:#1c01ce">0</span>, <span style="color:#c41a16">&#39;不重要不紧急&#39;</span>), (<span style="color:#1c01ce">1</span>, <span style="color:#c41a16">&#39;不重要紧急&#39;</span>), (<span style="color:#1c01ce">2</span>, <span style="color:#c41a16">&#39;重要不紧急&#39;</span>), (<span style="color:#1c01ce">3</span>, <span style="color:#c41a16">&#39;重要紧急&#39;</span>))
+    <span style="color:#000">priority</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">IntegerField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;优先级&#39;</span>, <span style="color:#000">default</span><span style="color:#000">=</span><span style="color:#1c01ce">0</span>, <span style="color:#000">choices</span><span style="color:#000">=</span><span style="color:#000">priority_choices</span>)
+    <span style="color:#000">public</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">BooleanField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;是否公开&#39;</span>, <span style="color:#000">default</span><span style="color:#000">=</span><span style="color:#a90d91">False</span>)
+
+    <span style="color:#000">start_date</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">DateField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;计划开始日期&#39;</span>)
+    <span style="color:#000">end_date</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">DateField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;计划完成日期&#39;</span>)
+
+    <span style="color:#177500"># how = RichTextUploadingField(verbose_name=&#39;执行步骤&#39;, config_name=&#39;default&#39;)</span>
+    <span style="color:#000">how</span> <span style="color:#000">=</span> <span style="color:#000">MDTextField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;执行步骤&#39;</span>)
+
+    <span style="color:#000">attachments</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">FileField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;附件&#39;</span>, <span style="color:#000">upload_to</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;attachments/%Y/%m/</span><span style="color:#c41a16">%d</span><span style="color:#c41a16">/&#39;</span>, <span style="color:#000">null</span><span style="color:#000">=</span><span style="color:#a90d91">True</span>, <span style="color:#000">blank</span><span style="color:#000">=</span><span style="color:#a90d91">True</span>)
+    <span style="color:#000">status</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">BooleanField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;是否完成&#39;</span>, <span style="color:#000">default</span><span style="color:#000">=</span><span style="color:#a90d91">False</span>)
+    <span style="color:#000">think</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">TextField</span>(<span style="color:#000">verbose_name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;项目感想&#39;</span>, <span style="color:#000">null</span><span style="color:#000">=</span><span style="color:#a90d91">True</span>, <span style="color:#000">blank</span><span style="color:#000">=</span><span style="color:#a90d91">True</span>)
+
+    <span style="color:#a90d91">class</span> <span style="color:#3f6e75">Meta</span>:
+        <span style="color:#000">verbose_name</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;项目&#39;</span>
+        <span style="color:#000">verbose_name_plural</span> <span style="color:#000">=</span> <span style="color:#000">verbose_name</span>
+
+    <span style="color:#a90d91">def</span> <span style="color:#000">__str__</span>(<span style="color:#5b269a">self</span>):
+        <span style="color:#a90d91">return</span> <span style="color:#5b269a">self</span><span style="color:#000">.</span><span style="color:#000">name</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>admin 后台管理</p>
+<ul>
+<li>
+<p>管理模型类</p>
+<ul>
+<li>
+<p>添加模型类到 admin</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#177500"># 直接添加</span>
+<span style="color:#000">admin</span><span style="color:#000">.</span><span style="color:#000">site</span><span style="color:#000">.</span><span style="color:#000">register</span>(<span style="color:#000">ProjectModel</span>)
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>自定义模型类的功能页面</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#177500"># 自定义模型类的admin</span>
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">ProjectModelAdmin</span>(<span style="color:#000">admin</span><span style="color:#000">.</span><span style="color:#000">ModelAdmin</span>):
+    <span style="color:#177500"># list页面</span>
+    <span style="color:#000">list_display</span> <span style="color:#000">=</span> [<span style="color:#c41a16">&#39;user&#39;</span>, <span style="color:#c41a16">&#39;name&#39;</span>, <span style="color:#c41a16">&#39;what&#39;</span>, <span style="color:#c41a16">&#39;priority&#39;</span>, <span style="color:#c41a16">&#39;end_date&#39;</span>, <span style="color:#c41a16">&#39;duration&#39;</span>, <span style="color:#c41a16">&#39;status&#39;</span>]
+    <span style="color:#000">list_filter</span> <span style="color:#000">=</span> [<span style="color:#c41a16">&#39;user&#39;</span>, <span style="color:#c41a16">&#39;status&#39;</span>, <span style="color:#c41a16">&#39;priority&#39;</span>, <span style="color:#c41a16">&#39;end_date&#39;</span>]
+    <span style="color:#000">search_fields</span> <span style="color:#000">=</span> [<span style="color:#c41a16">&#39;name&#39;</span>, <span style="color:#c41a16">&#39;what&#39;</span>, <span style="color:#c41a16">&#39;why&#39;</span>, <span style="color:#c41a16">&#39;how&#39;</span>, <span style="color:#c41a16">&#39;think&#39;</span>]
+    <span style="color:#000">ordering</span> <span style="color:#000">=</span> [<span style="color:#c41a16">&#39;status&#39;</span>, <span style="color:#c41a16">&#39;-priority&#39;</span>, <span style="color:#c41a16">&#39;end_date&#39;</span>]
+    <span style="color:#177500"># detail页面</span>
+    <span style="color:#000">readonly_fields</span> <span style="color:#000">=</span> [<span style="color:#c41a16">&#39;user&#39;</span>]  <span style="color:#177500"># 只读字段，不能编辑</span>
+
+<span style="color:#177500"># 添加自定义的ProjectModelAdmin</span>
+<span style="color:#000">admin</span><span style="color:#000">.</span><span style="color:#000">site</span><span style="color:#000">.</span><span style="color:#000">register</span>(<span style="color:#000">ProjectModel</span>, <span style="color:#000">ProjectModelAdmin</span>)
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<h2 id="邮件重置密码">邮件重置密码<a class="anchorjs-link" href="#%e9%82%ae%e4%bb%b6%e9%87%8d%e7%bd%ae%e5%af%86%e7%a0%81"></a></h2></li>
+</ul>
+</li>
 </ul>
 <h3 id="直接编写后台逻辑和前台模板页面">直接编写后台逻辑和前台模板页面<a class="anchorjs-link" href="#%e7%9b%b4%e6%8e%a5%e7%bc%96%e5%86%99%e5%90%8e%e5%8f%b0%e9%80%bb%e8%be%91%e5%92%8c%e5%89%8d%e5%8f%b0%e6%a8%a1%e6%9d%bf%e9%a1%b5%e9%9d%a2"></a></h3><ul>
-<li>url</li>
-<li>view
+<li>
+<p>url</p>
+<ul>
+<li>include()
+<ul>
+<li>name</li>
+<li>namespace</li>
+</ul>
+</li>
+<li>view 中访问
+<ul>
+<li>reverse()</li>
+</ul>
+</li>
+<li>基本格式
+<ul>
+<li>‘’</li>
+<li>create</li>
+<li>&lt;int:pk&gt;</li>
+<li>&lt;int:pk&gt;/update</li>
+<li>&lt;int:pk&gt;/delete</li>
+</ul>
+</li>
+<li>
+<h2 id="嵌套的-url">嵌套的 url<a class="anchorjs-link" href="#%e5%b5%8c%e5%a5%97%e7%9a%84-url"></a></h2></li>
+</ul>
+</li>
+<li>
+<p>view</p>
+<ul>
+<li>FBV</li>
+<li>CBV</li>
+<li>中间件， 钩子</li>
+</ul>
+</li>
+<li>
+<p>template</p>
+<ul>
+<li>页面的主要类型
+<ul>
+<li>list</li>
+<li>detail</li>
+<li>delete_confirm</li>
+</ul>
+</li>
+<li>语法
+<ul>
+<li>tags
+<ul>
+<li>常用语法
+<ul>
+<li>{% extends &lsquo;xxx.html&rsquo; %} <strong>必须在 html 的最开头</strong></li>
+<li>{% load xxx %} <strong>每个模板页都要 load 自己使用的 tag， 而不能通过 extend 继承</strong></li>
+<li>{% include xxx %}</li>
+<li>{% block xxx %} {% endblock xxx %}</li>
+<li>{% url &lsquo;namespace:name&rsquo; %}</li>
+</ul>
+</li>
+<li>自定义 tag
+<ul>
+<li>在 app 内创建 templatetags/demo.py</li>
+<li>{% include demo %}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>variables
+<ul>
+<li>{{ var1 }}</li>
+</ul>
+</li>
+<li>filters</li>
+<li>comments</li>
+</ul>
+</li>
+<li>overwrite
+<ul>
+<li>模板加载顺序 DIRS -&gt; APP_DIRS -&gt; others</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>form</p>
+<ul>
+<li>Form: 灵活设置</li>
+<li>ModelForm：针对模型，添加了数据的验证和保存的功能</li>
+</ul>
+</li>
+</ul>
+<h2 id="具体功能">具体功能<a class="anchorjs-link" href="#%e5%85%b7%e4%bd%93%e5%8a%9f%e8%83%bd"></a></h2><h3 id="用户和邮箱">用户和邮箱<a class="anchorjs-link" href="#%e7%94%a8%e6%88%b7%e5%92%8c%e9%82%ae%e7%ae%b1"></a></h3><p>用户模块的重要意义： 支持多端用户，千人千面。
+settings.AUTH_USER_MODEL
+登录状态检测</p>
+<h3 id="权限">权限<a class="anchorjs-link" href="#%e6%9d%83%e9%99%90"></a></h3><h3 id="celery-处理异步任务和定时任务">celery 处理异步任务和定时任务<a class="anchorjs-link" href="#celery-%e5%a4%84%e7%90%86%e5%bc%82%e6%ad%a5%e4%bb%bb%e5%8a%a1%e5%92%8c%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1"></a></h3><h3 id="缓存">缓存<a class="anchorjs-link" href="#%e7%bc%93%e5%ad%98"></a></h3><h2 id="前后端分离">前后端分离<a class="anchorjs-link" href="#%e5%89%8d%e5%90%8e%e7%ab%af%e5%88%86%e7%a6%bb"></a></h2><ul>
+<li>DRF
 <ul>
 <li>FBV</li>
 <li>CBV</li>
 </ul>
 </li>
-<li>template</li>
-<li>form</li>
+<li>VUE</li>
 </ul>
-<h2 id="view-之上的逻辑">view 之上的逻辑<a class="anchorjs-link" href="#view-%e4%b9%8b%e4%b8%8a%e7%9a%84%e9%80%bb%e8%be%91"></a></h2><p>中间件， 钩子</p>
-<h2 id="具体功能">具体功能<a class="anchorjs-link" href="#%e5%85%b7%e4%bd%93%e5%8a%9f%e8%83%bd"></a></h2><h3 id="用户和权限和邮箱">用户和权限和邮箱<a class="anchorjs-link" href="#%e7%94%a8%e6%88%b7%e5%92%8c%e6%9d%83%e9%99%90%e5%92%8c%e9%82%ae%e7%ae%b1"></a></h3><p>用户模块的重要意义： 支持多端用户，千人千面。</p>
-<h3 id="celery-处理异步任务和定时任务">celery 处理异步任务和定时任务<a class="anchorjs-link" href="#celery-%e5%a4%84%e7%90%86%e5%bc%82%e6%ad%a5%e4%bb%bb%e5%8a%a1%e5%92%8c%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1"></a></h3><h3 id="缓存">缓存<a class="anchorjs-link" href="#%e7%bc%93%e5%ad%98"></a></h3><h2 id="前后段分离">前后段分离<a class="anchorjs-link" href="#%e5%89%8d%e5%90%8e%e6%ae%b5%e5%88%86%e7%a6%bb"></a></h2><ul>
-<li>vue
-<ul>
-<li>FBV</li>
-<li>CBV</li>
-</ul>
-</li>
-<li>drf</li>
-</ul>
-<h2 id="网站部署">网站部署<a class="anchorjs-link" href="#%e7%bd%91%e7%ab%99%e9%83%a8%e7%bd%b2"></a></h2><h2 id="django-源码风格">django 源码风格<a class="anchorjs-link" href="#django-%e6%ba%90%e7%a0%81%e9%a3%8e%e6%a0%bc"></a></h2><p>大量使用 Minin</p>
+<h2 id="网站部署">网站部署<a class="anchorjs-link" href="#%e7%bd%91%e7%ab%99%e9%83%a8%e7%bd%b2"></a></h2><p>配置 nginx 和 uwsgi</p>
+<h2 id="django-源码风格">django 源码风格<a class="anchorjs-link" href="#django-%e6%ba%90%e7%a0%81%e9%a3%8e%e6%a0%bc"></a></h2><p>广泛使用 Minin 和 decorator</p>
 
 
         <hr style="visibility: hidden;" />
@@ -360,7 +649,26 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
-        <ul class="list-inline text-center"></ul>
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/zhenda-hub" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
 
         <p class="copyright text-muted">
           Copyright © 2023-2024. All Rights Reserved. Zhenda 版权所有  
