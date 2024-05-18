@@ -190,10 +190,10 @@
     
     <item>
       <title>About Hugo</title>
-      <link>https://zhenda-hub.github.io/posts/about-me/</link>
+      <link>https://zhenda-hub.github.io/posts/about-hugo/</link>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zhenda-hub.github.io/posts/about-me/</guid>
+      <guid>https://zhenda-hub.github.io/posts/about-hugo/</guid>
       <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
 Hugo makes use of a variety of open source projects including:
  https://github.</description>
