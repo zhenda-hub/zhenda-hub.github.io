@@ -1,6 +1,12 @@
-# my-hugopj
+# zhenda's blog
 
 a project to generate my blog
+
+## 静态博客工具罗列
+
+- hugo
+- hexo
+- mkdocs
 
 ## github actions
 
@@ -24,17 +30,6 @@ use giscus:
 - https://giscus.app/zh-CN
 - https://blog.highp.ing/p/giscus/
 - https://fengchao.pro/blog/comment-system-with-giscus/
-
-
-# zhenda's blog
-
-个人博客
-
-## 静态博客工具罗列
-
-- hugo
-- hexo
-- mkdocs
 
 TODO: 
 
