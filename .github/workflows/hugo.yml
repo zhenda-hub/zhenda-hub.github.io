@@ -57,6 +57,7 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+          ls -la public  # 检查构建目录
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
