@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Databases | Zhenda&#39;s Blog</title>
+  <meta name="author" content="Zhenda">
+  <meta name="description" content="关系型 mysql 基础 环境变量 我的电脑 高级设置 path 里添加 mysql 安装路径 配置文件 my.cnf 图形控制软件 Navicat 步骤 设置密码不过期 alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified by &lsquo;root&rsquo; password expire never; 修改加密规则 alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified with mysql_native_password by">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Databases"/>
+<meta name="twitter:description" content="关系型 mysql 基础 环境变量 我的电脑 高级设置 path 里添加 mysql 安装路径 配置文件 my.cnf 图形控制软件 Navicat 步骤 设置密码不过期 alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified by &lsquo;root&rsquo; password expire never; 修改加密规则 alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified with mysql_native_password by"/>
+
+  <meta property="og:title" content="Databases" />
+<meta property="og:description" content="关系型 mysql 基础 环境变量 我的电脑 高级设置 path 里添加 mysql 安装路径 配置文件 my.cnf 图形控制软件 Navicat 步骤 设置密码不过期 alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified by &lsquo;root&rsquo; password expire never; 修改加密规则 alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified with mysql_native_password by" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhenda-hub.github.io/posts/databases/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-06-03T09:21:49+08:00" />
+<meta property="article:modified_time" content="2024-06-03T09:21:49+08:00" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Zhenda&#39;s Blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="/series/themes-guide/" title="Guide">Guide</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+          <li><a href="https://github.com/zhenda-hub/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+          </div>
+          <h1>Databases</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Zhenda 
+            on Mon, Jun 3, 2024
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <ul>
+<li>
+<p>关系型</p>
+<ul>
+<li>
+<p>mysql</p>
+<ul>
+<li>
+<p>基础</p>
+<ul>
+<li>
+<p>环境变量</p>
+<ul>
+<li>我的电脑
+<ul>
+<li>高级设置
+<ul>
+<li>path 里添加 mysql 安装路径</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>配置文件</p>
+<ul>
+<li>my.cnf</li>
+</ul>
+</li>
+<li>
+<p>图形控制软件</p>
+<ul>
+<li>Navicat
+<ul>
+<li>步骤
+<ul>
+<li>设置密码不过期
+<ul>
+<li>alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified by &lsquo;root&rsquo; password expire never;</li>
+</ul>
+</li>
+<li>修改加密规则
+<ul>
+<li>alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified with mysql_native_password by &lsquo;root&rsquo;;</li>
+</ul>
+</li>
+<li>连接 mysql
+<ul>
+<li>设置编码</li>
+</ul>
+</li>
+<li>创建数据库</li>
+<li>新建查询
+<ul>
+<li>写 sql</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可以选择代码来运行
+<ul>
+<li>快捷键
+<ul>
+<li>ctrl, shift, r</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>默认数据库</p>
+<ul>
+<li>mysql
+<ul>
+<li>管理用户的表
+<ul>
+<li>user</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>performance</li>
+<li>sys</li>
+<li>test
+<ul>
+<li>每个用户一个测试用的数据库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>查看字符集格式</p>
+<ul>
+<li>show variables like &lsquo;char%';</li>
+</ul>
+</li>
+<li>
+<p>最基本操作！！！！！</p>
+<ul>
+<li>命令行访问
+<ul>
+<li>启动
+<ul>
+<li>service mysql restart</li>
+<li>service mysql start</li>
+</ul>
+</li>
+<li>登录
+<ul>
+<li>mysql -h localhost -u root -p;
+<ul>
+<li>&ndash;port=</li>
+<li>root</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基本操作
+<ul>
+<li>show databases;</li>
+<li>use mysql;
+<ul>
+<li>选择数据库</li>
+</ul>
+</li>
+<li>show tables;</li>
+<li>desc 表；</li>
+<li>select database();
+<ul>
+<li>查看当前数据库</li>
+</ul>
+</li>
+<li>exit;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>sql 语句</p>
+<ul>
+<li>
+<p>分类</p>
+<ul>
+<li>
+<p>权限管理</p>
+<ul>
+<li>
+<p>DCL</p>
+<ul>
+<li>
+<p>运维重点</p>
+<ul>
+<li>
+<p>用户密码控制</p>
+<ul>
+<li>查看用户
+<ul>
+<li>select user,host from mysql.user</li>
+</ul>
+</li>
+<li>设置密码等级
+<ul>
+<li>set global validate_password.policy=LOW</li>
+<li>set global validate_password.length=1</li>
+</ul>
+</li>
+<li>重新设置密码
+<ul>
+<li>mysqladmin -uroot -p password</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>查看权限</p>
+<ul>
+<li>show grants for 用户@host</li>
+</ul>
+</li>
+<li>
+<p>远程连接设置</p>
+<ul>
+<li>
+<p>概念</p>
+<ul>
+<li>一个 pc 连接另一个 pc 的 mysql</li>
+</ul>
+</li>
+<li>
+<p>主要步骤
+_ 创建用户
+_ 语法
+_ create user 用户@host identified by 密码
+_ 例子
+_ create user &lsquo;zzd&rsquo;@'%&rsquo; identified by &lsquo;root&rsquo;
+_ 给与权限
+_ 语法
+_ grant 权限 on 表 to 用户@host
+_ 例子
+_ grant all on <em>.</em> to &lsquo;zzd&rsquo;@'%'
+_ 删除用户
+_ drop user ‘用户’@‘ip’ * 例子</p>
+<pre><code>  * update user set host='%' where user='root';
+      * nat方式连接，查看虚拟ip
+</code></pre>
+<ul>
+<li>刷新授权表，立即生效
+<ul>
+<li>flush privileges;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>其他相关操作</p>
+<ul>
+<li>管理员身份运行
+<ul>
+<li>mysqld -install</li>
+</ul>
+</li>
+<li>访问速度慢
+<ul>
+<li>修改 my.ini
+<ul>
+<li>在 mysqld 里面添加一句话
+<ul>
+<li>skip-name-resolve</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>帮助信息</p>
+<ul>
+<li>? Account Management</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>数据库，表</p>
+<ul>
+<li>
+<p>DDL</p>
+<ul>
+<li>
+<p>database</p>
+<ul>
+<li>create database 库名称 (各个列的内容);</li>
+<li>drop database 库名称</li>
+<li>use 库名称
+<ul>
+<li>选择库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>table</p>
+<ul>
+<li>
+<p>语句</p>
+<ul>
+<li>create table 表名称 (各个列的内容);
+<ul>
+<li>primary key
+<ul>
+<li>中文：主键，非常关键
+<ul>
+<li>唯一且非空</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>auto_increment
+<ul>
+<li>用于整数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>alter table 表名称
+<ul>
+<li>ADD
+<ul>
+<li>name char(1)</li>
+</ul>
+</li>
+<li>DROP
+<ul>
+<li>MODIFY
+<ul>
+<li>内容</li>
+</ul>
+</li>
+<li>change oldname, name
+<ul>
+<li>内容和列名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>drop table 表名称</li>
+</ul>
+</li>
+<li>
+<p>约束</p>
+<ul>
+<li>
+<p>概念</p>
+<ul>
+<li>对于表中的各个列内容的限制</li>
+</ul>
+</li>
+<li>
+<p>分类</p>
+<ul>
+<li>
+<p>非外键</p>
+<ul>
+<li>字段后面
+<ul>
+<li>primary key
+<ul>
+<li>中文：主键，非常关键</li>
+<li>唯一且非空</li>
+</ul>
+</li>
+<li>auto_increment * 用于整数</li>
+<li>UNIQUE</li>
+<li>NOT NULL</li>
+<li>DEFAULT</li>
+<li>CHACK( sex=&lsquo;boy&rsquo; || sex=&lsquo;girl&rsquo;)
+<ul>
+<li>选择约束</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>表
+<ul>
+<li>constraint 匿名 PRIMARY KRY(字段)
+<ul>
+<li>唯一且非空</li>
+</ul>
+</li>
+<li>constraint 匿名 CHACK( sex=&lsquo;boy&rsquo;||sex=&lsquo;girl&rsquo;)</li>
+<li>constraint 匿名 UNIQUE(字段)</li>
+</ul>
+</li>
+<li>表外部添加
+<ul>
+<li>alter table 表名称 add
+<ul>
+<li>constraint 匿名 PRIMARY KRY（）</li>
+</ul>
+</li>
+<li>alter table 表名称 modify
+<ul>
+<li>auto_increment</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>外键</p>
+<ul>
+<li>
+<p>概念</p>
+<ul>
+<li>子表通过外键，关联父表主键</li>
+<li>相当于：类通过组合使用其他类</li>
+</ul>
+</li>
+<li>
+<p>使用</p>
+<ul>
+<li>子表重写
+<ul>
+<li>表类型的
+<ul>
+<li>constraint 匿名 foreign key (子表字段) references 父表名 (父表字段)</li>
+<li>外部添加
+<ul>
+<li>alter table 表名称 add
+<ul>
+<li>constraint 匿名 foreign key (子表字段) references 父表名 (父表字段)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>删除</p>
+<ul>
+<li>
+<p>外键策略</p>
+<ul>
+<li>目的
+<ul>
+<li>方便修改或删除父表</li>
+</ul>
+</li>
+<li>重新设置策略
+<ul>
+<li>删除原来的外键约束
+<ul>
+<li>alter table 表名称 drop foreign key 外键匿名</li>
+</ul>
+</li>
+<li>外部添加
+<ul>
+<li>on update cascsde on delete cascade
+<ul>
+<li>会直接删除子表内容
+<ul>
+<li>方便，但危险</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>on update set null on delete set null</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分类</li>
+</ul>
+</li>
+<li>
+<p>一般情况</p>
+<ul>
+<li>先删除子表，再删除父表</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>表的字段</p>
+<ul>
+<li>添加
+<ul>
+<li>alter table 表名 add 字段 A 类型 after 字段 B
+<ul>
+<li>添加字段 A，放在字段 B 后面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>删除
+<ul>
+<li>alter table 表名 drop 字段</li>
+</ul>
+</li>
+<li>修改
+<ul>
+<li>alter table 表名 change 旧字段 新字段 新类型
+<ul>
+<li>改字段名，改类型</li>
+</ul>
+</li>
+<li>alter table 表名 modify 字段 新类型
+<ul>
+<li>改字段的类型</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>表的索引</p>
+<ul>
+<li>添加
+<ul>
+<li>alter table 表名 add index 索引名（字段）</li>
+</ul>
+</li>
+<li>删除
+<ul>
+<li>alter table 表名 drop index 索引名 （字段）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>查看建表语句</p>
+<ul>
+<li>show create table 表名字</li>
+</ul>
+</li>
+<li>
+<p>修改表名</p>
+<ul>
+<li>rename table A to B</li>
+<li>alter table A rename to B</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>view</p>
+<ul>
+<li>with check option
+<ul>
+<li>控制选择条件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>procedure</p>
+<ul>
+<li>存储过程 相当于函数
+<ul>
+<li>创建
+<ul>
+<li>（in ， out）
+<ul>
+<li>begin
+<ul>
+<li>if
+<ul>
+<li>then</li>
+</ul>
+</li>
+<li>else</li>
+<li>end if;</li>
+</ul>
+</li>
+<li>select found_rows() into
+<ul>
+<li>返回查询个数</li>
+</ul>
+</li>
+<li>end;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>调用
+<ul>
+<li>函数名（'', @rst）</li>
+<li>select @rst;
+<ul>
+<li>打印查询个数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>帮助信息</p>
+<ul>
+<li>? Data Definition</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>数据</p>
+<ul>
+<li>DML！！！！
+<ul>
+<li>添加一行数据
+<ul>
+<li>insert into 表名称（字段 1，字段 2） values (&lsquo;A&rsquo;,&lsquo;B&rsquo;)</li>
+<li>insert into 表名称 values (&lsquo;A&rsquo;,&lsquo;B&rsquo;)</li>
+</ul>
+</li>
+<li>删
+<ul>
+<li>删一行数据
+<ul>
+<li>delete from 表名称 where</li>
+</ul>
+</li>
+<li>清空表的数据
+<ul>
+<li>truncate table 表名称
+<ul>
+<li>重新建表</li>
+<li>自增的主键不会保留</li>
+</ul>
+</li>
+<li>delete from 表名称
+<ul>
+<li>自增的主键会保留</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>改
+<ul>
+<li>update 表名称 set 字段 1=‘’， 字段 2=‘’ where 条件</li>
+</ul>
+</li>
+<li>帮助信息
+<ul>
+<li>? Data Manipulation</li>
+</ul>
+</li>
+<li>数据类型
+<ul>
+<li>字符
+<ul>
+<li>VARCHAR
+<ul>
+<li>一句话</li>
+</ul>
+</li>
+<li>TEXT
+<ul>
+<li>大文章</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数字
+<ul>
+<li>INT</li>
+<li>FLOAT</li>
+<li>DOUBLE</li>
+</ul>
+</li>
+<li>时间
+<ul>
+<li>DATE</li>
+<li>TIMESTAMP</li>
+<li>time</li>
+<li>DATETIME</li>
+<li>NOW()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DQL
+<ul>
+<li>select
+<ul>
+<li>函数
+<ul>
+<li>单行函数
+<ul>
+<li>lower()</li>
+<li>upper()</li>
+<li>length（）</li>
+<li>substring（字段， start， stop）
+<ul>
+<li>下标从 1 开始</li>
+</ul>
+</li>
+<li>abs（）</li>
+<li>ceil()</li>
+<li>floor()</li>
+<li>round()</li>
+<li>curdate()</li>
+<li>curtime()</li>
+<li>now()</li>
+<li>sysdate()
+<ul>
+<li>实际执行时间</li>
+</ul>
+</li>
+<li>条件分支
+<ul>
+<li>if(条件，A，B)</li>
+<li>ifnull(条件，执行)</li>
+<li>nullif(val1, val2)
+<ul>
+<li>val1 等于 val2，则返回 null，否则返回 val1</li>
+</ul>
+</li>
+<li>case</li>
+<li>database()</li>
+<li>user()</li>
+<li>version()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多行函数
+<ul>
+<li>概念
+<ul>
+<li>对多个数据处理，返回一个结果</li>
+</ul>
+</li>
+<li>特点
+<ul>
+<li>自动忽略 null 的值</li>
+<li>min（字段）</li>
+<li>max（字段）</li>
+<li>avg（字段）</li>
+<li>sum()</li>
+<li>count（字段）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>显示数据总数
+<ul>
+<li>select count(*) from 表名</li>
+</ul>
+</li>
+<li>显示数据
+<ul>
+<li>SELECT * FROM 表名</li>
+<li>SELECT * FROM 表名 \G</li>
+</ul>
+</li>
+<li>单表查询
+<ul>
+<li>单表操作
+<ul>
+<li>去重
+<ul>
+<li>distinct</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>执行顺序，从上往下
+<ul>
+<li>from</li>
+<li>分组前筛选
+<ul>
+<li>where
+<ul>
+<li>条件 A and 条件 B
+<ul>
+<li>or</li>
+<li>in（12，23）</li>
+</ul>
+</li>
+<li>like ’‘
+<ul>
+<li>’%A%‘
+<ul>
+<li>%多个字符</li>
+</ul>
+</li>
+<li>’_A%‘
+<ul>
+<li>_代表一个字符</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>is null</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>按照字段的不同内容分组
+<ul>
+<li>group by</li>
+</ul>
+</li>
+<li>选择字段展示
+<ul>
+<li>select</li>
+</ul>
+</li>
+<li>having
+<ul>
+<li>分组后筛选</li>
+</ul>
+</li>
+<li>排序
+<ul>
+<li>order by 字段
+<ul>
+<li>asc
+<ul>
+<li>升序</li>
+</ul>
+</li>
+<li>desc
+<ul>
+<li>降序</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多表查询
+<ul>
+<li>连接方式
+<ul>
+<li>只显示匹配的表信息，不匹配的信息忽略
+<ul>
+<li>交叉连接
+<ul>
+<li>select * from 表 A cross join 表 B
+<ul>
+<li>很多重复内容</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>自然连接
+<ul>
+<li>select * from 表 A natural join 表 B
+<ul>
+<li>匹配 所有同名列
+<ul>
+<li>同名列只展示一次</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内连接
+<ul>
+<li>select * from 表 A inner join 表 B
+<ul>
+<li>using 同名列字段
+<ul>
+<li>选择 同名列</li>
+</ul>
+</li>
+<li>on A.字段=B.字段
+<ul>
+<li>设置 同名列
+<ul>
+<li>设置 A 的字段，匹配 B 的字段
+<ul>
+<li>自连接</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>on A.字段 betwen B.小字段 and B.大字段</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>显示匹配和不匹配的表信息
+<ul>
+<li>左外连接
+<ul>
+<li>select * from 表 A left outer join 表 B
+<ul>
+<li>展示左表的全部信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>右外连接
+<ul>
+<li>select * from 表 A right outer join 表 B
+<ul>
+<li>展示右表的全部信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>合并左外连接，右外连接
+<ul>
+<li>添加 union
+<ul>
+<li>select _ from 表 A left outer join 表 B union select _ from 表 A right outer join 表 B</li>
+</ul>
+</li>
+<li>select * from 表 A full outer join 表 B
+<ul>
+<li>展示左外连接和右外连接合并的全部信息，但 mysql 不支持这个语法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分类
+<ul>
+<li>两表查询</li>
+<li>三表查询
+<ul>
+<li>可以看成两表查询</li>
+</ul>
+</li>
+<li>自己查询
+<ul>
+<li>可以看成两表查询</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>子查询
+<ul>
+<li>概念
+<ul>
+<li>多个 sql 语句合并成，提高查询效率，总的 sql 语句依赖子的 sql 语句，子 sql 语句称为子查询</li>
+</ul>
+</li>
+<li>select where （）
+<ul>
+<li>不相关子查询
+<ul>
+<li>概念
+<ul>
+<li>可以独立运行的子查询</li>
+</ul>
+</li>
+<li>分类
+<ul>
+<li>单行
+<ul>
+<li>查询结果为一个
+<ul>
+<li>=</li>
+<li>
+<blockquote>
+</blockquote>
+</li>
+<li>&lt;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多行
+<ul>
+<li>查询结果多一个
+<ul>
+<li>all（）</li>
+<li>any（）</li>
+<li>in（）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>相关子查询
+<ul>
+<li>起一个别名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>默认不区分大小写</p>
+<ul>
+<li>可以设置区分
+<ul>
+<li>binary</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>事务</p>
+<ul>
+<li>需求背景
+<ul>
+<li>银行转账，两个账户需要确保都完成，或都不完成</li>
+</ul>
+</li>
+<li>特性
+<ul>
+<li>ACID
+<ul>
+<li>原子性</li>
+<li>一致性</li>
+<li>隔离性</li>
+<li>持久性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>原理
+<ul>
+<li>默认一条 sql 语句，为一个事务</li>
+<li>可以手动开启事务，执行多条 sql 语句</li>
+</ul>
+</li>
+<li>流程
+<ul>
+<li>start transaction
+<ul>
+<li>手动开始一个事务</li>
+</ul>
+</li>
+<li>多条 sql 语句
+<ul>
+<li>操作缓存，不操作数据库</li>
+</ul>
+</li>
+<li>可以选择
+<ul>
+<li>rollback
+<ul>
+<li>撤销</li>
+</ul>
+</li>
+<li>commit
+<ul>
+<li>提交</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事务并发
+<ul>
+<li>多个事务同时进行，同时操作缓存
+<ul>
+<li>问题
+<ul>
+<li>脏读
+<ul>
+<li>数据错了</li>
+</ul>
+</li>
+<li>不可重复读
+<ul>
+<li>数据变了</li>
+</ul>
+</li>
+<li>幻读
+<ul>
+<li>数据多了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>解决方法
+<ul>
+<li>事务隔离级别
+<ul>
+<li>repeatable read</li>
+<li>read uncommitted</li>
+<li>read committed</li>
+<li>sarializable</li>
+</ul>
+</li>
+<li>查看隔离级别
+<ul>
+<li>select @@transaction_isolation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事务分类
+<ul>
+<li>本地事务</li>
+<li>分布式事务
+<ul>
+<li>操作不同数据库，来保证一致性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>索引</p>
+<ul>
+<li>作用
+<ul>
+<li>相当于书的目录，快速查找</li>
+</ul>
+</li>
+<li>可以建立多个索引</li>
+<li>常用索引类型
+<ul>
+<li>primary key</li>
+<li>unique</li>
+<li>not null</li>
+</ul>
+</li>
+<li>联合索引
+<ul>
+<li>优点
+<ul>
+<li>就像查字典一样，通过减少搜索的范围，增大索引效率，更快速的查找数据</li>
+<li>复合索引比两个单独索引效果好</li>
+</ul>
+</li>
+<li>特点
+<ul>
+<li>最左匹配
+<ul>
+<li>字段 1</li>
+<li>字段 1 字段 2</li>
+<li>字段 1 字段 2 字段 3</li>
+<li>左边不能少，右边可以少</li>
+<li>像字典一样</li>
+</ul>
+</li>
+<li>不起作用的匹配
+<ul>
+<li>字段 2</li>
+<li>字段 3</li>
+<li>字段 2 字段 3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>将多个字段设置为索引</li>
+<li>定义
+<ul>
+<li>添加
+<ul>
+<li>alter table 表名 add index 索引名 (字段 1，字段 2)
+<ul>
+<li>字段需要非空</li>
+<li>字段顺序非常重要</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>删除
+<ul>
+<li>alter table 表名 drop index 索引名</li>
+</ul>
+</li>
+<li>查
+<ul>
+<li>show index from 表名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用场景
+<ul>
+<li>排序</li>
+<li>分组</li>
+<li>外键</li>
+</ul>
+</li>
+<li>不应当使用的场景
+<ul>
+<li>表需要频繁增删改</li>
+<li>第一个字段数据量很大</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>进阶</p>
+<ul>
+<li>
+<p>设计表</p>
+<ul>
+<li>存储引擎（做表类型）
+<ul>
+<li>查看数据库的引擎
+<ul>
+<li>show engines</li>
+</ul>
+</li>
+<li>分类
+<ul>
+<li>InnoDB
+<ul>
+<li>事务型</li>
+<li>并发</li>
+<li>外键</li>
+<li>崩溃后可以恢复</li>
+</ul>
+</li>
+<li>MyISAM</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可以通过界面来分析字段</li>
+<li>命名
+<ul>
+<li>小写字母下划线
+<ul>
+<li>主键索引名
+<ul>
+<li>pk_字段名</li>
+</ul>
+</li>
+<li>唯一索引名
+<ul>
+<li>uk_字段名</li>
+</ul>
+</li>
+<li>普通索引名
+<ul>
+<li>idx_字段名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>一个表代表一个类
+<ul>
+<li>表要小而精， 和类一样
+<ul>
+<li>将字段很多的表分为多个表</li>
+</ul>
+</li>
+<li>字段
+<ul>
+<li>必须的
+<ul>
+<li>id
+<ul>
+<li>自增</li>
+</ul>
+</li>
+<li>create_time
+<ul>
+<li>非空</li>
+</ul>
+</li>
+<li>update_time
+<ul>
+<li>非空</li>
+</ul>
+</li>
+<li>is_deleted
+<ul>
+<li>软删除
+<ul>
+<li>保证数据完整性
+<ul>
+<li>藏数据。。</li>
+</ul>
+</li>
+<li>查</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设置搜索频率高的字段为索引
+<ul>
+<li>原理
+<ul>
+<li>索引会按照特定的数据结构（如 B 树、B+树）对字段值进行排序和存储，使得数据库引擎可以更快速地定位到需要查询的数据，而不需要逐行扫描整个表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>少用外键， 逻辑可以写在代码里
+<ul>
+<li>减小数据库计算压力</li>
+<li>外键多了，数据库无法扩容</li>
+<li>不能做分库分表
+<ul>
+<li>不同数据库不能用外键</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>表的字段很多时
+<ul>
+<li>分表
+<ul>
+<li>条件查询</li>
+<li>相信内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>多实例</p>
+<ul>
+<li>一个 pc 装多个 mysql，port 不同</li>
+</ul>
+</li>
+<li>
+<p>高端操作</p>
+<ul>
+<li>
+<p>主从同步</p>
+<ul>
+<li>
+<p>原理</p>
+<ul>
+<li>从机查看主机二进制日志
+<ul>
+<li>binary log
+<ul>
+<li>二进制日志</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>详细描述</li>
+</ul>
+</li>
+<li>
+<p>新问题</p>
+<ul>
+<li>ms 级别的同步延迟</li>
+</ul>
+</li>
+<li>
+<p>作用</p>
+<ul>
+<li>读写分离，缓解数据库压力
+<ul>
+<li>应用场景
+<ul>
+<li>读请求很多，写请求较少</li>
+</ul>
+</li>
+<li>操作
+<ul>
+<li>主机配置</li>
+<li>同步内容</li>
+<li>主机授权
+<ul>
+<li>grant replication slave on <em>.</em> to &lsquo;repl&rsquo;@'%';</li>
+</ul>
+</li>
+<li>从机连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高可用
+<ul>
+<li>一个挂了另一个跟上</li>
+<li>注意点</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>集群</p>
+<ul>
+<li>数据库集群方式？？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>调优</p>
+<ul>
+<li>show profiles
+<ul>
+<li>大局时间</li>
+</ul>
+</li>
+<li>show profile
+<ul>
+<li>细节时间</li>
+</ul>
+</li>
+<li>performance_schema</li>
+<li>分库分表</li>
+</ul>
+</li>
+<li>
+<p>数据库连接池</p>
+<ul>
+<li>概念
+<ul>
+<li>分配、管理和释放 数据库的连接</li>
+<li>数据库的连接
+<ul>
+<li>tcpip 连接</li>
+<li>数据库登录</li>
+<li>sql 执行</li>
+<li>数据库退出</li>
+<li>tcpip 断开连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>好处
+<ul>
+<li>减少网络开销，减少数据库登录，退出</li>
+</ul>
+</li>
+<li>步骤
+<ul>
+<li>创建
+<ul>
+<li>栈</li>
+</ul>
+</li>
+<li>管理
+<ul>
+<li>客户端请求连接
+<ul>
+<li>空闲的数据库的连接
+<ul>
+<li>有
+<ul>
+<li>分配</li>
+</ul>
+</li>
+<li>没有
+<ul>
+<li>是否达到最大连接数
+<ul>
+<li>否
+<ul>
+<li>创建新的连接</li>
+</ul>
+</li>
+<li>是
+<ul>
+<li>等待时间
+<ul>
+<li>超时报警</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>客户端释放连接
+<ul>
+<li>删除</li>
+<li>保留</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关闭</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>原理</p>
+<ul>
+<li>b+树
+<ul>
+<li>又矮又胖，查询效率高</li>
+<li>二叉树效率低</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>用 python 操作</p>
+<ul>
+<li>import pymysql
+<ul>
+<li>步骤
+<ul>
+<li>q = connect(host, port, user, password, db, charset)</li>
+<li>p = q.cursor()</li>
+<li>sql 语句
+<ul>
+<li>查
+<ul>
+<li>p.execute(sql, params) 或者 p.executemany(sql, params)
+<ul>
+<li>必须两个参数，防止 sql 注入语句</li>
+<li>sql：语句，参数用%s</li>
+<li>params： 元组参数</li>
+</ul>
+</li>
+<li>p.fetchall()</li>
+</ul>
+</li>
+<li>增删改
+<ul>
+<li>try
+<ul>
+<li>p.execute(sql, params) 或者 p.executemany(sql, params)
+<ul>
+<li>必须两个参数，防止 sql 注入语句</li>
+<li>sql：语句，参数用%s</li>
+<li>params： 元组参数</li>
+</ul>
+</li>
+<li>q.commit()</li>
+<li>except
+<ul>
+<li>q.rollback()</li>
+</ul>
+</li>
+<li>else</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>p.close()</li>
+<li>q.close()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>sqlalchemy
+<ul>
+<li>使用类和对象转为 sql</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>PostgreSQL</p>
+<ul>
+<li>支持海量数据</li>
+</ul>
+</li>
+<li>
+<p>支持 sql 语句，</p>
+<ul>
+<li>3306</li>
+</ul>
+</li>
+<li>
+<p>适用于复杂查询</p>
+<ul>
+<li>子查询</li>
+<li>聚合函数
+<ul>
+<li>count</li>
+<li>sum</li>
+<li>avg</li>
+<li>max</li>
+<li>min</li>
+</ul>
+</li>
+<li>分组</li>
+<li>排序</li>
+<li>过滤</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>非关系型</p>
+<ul>
+<li>
+<p>不支持 sql 语句，适用于关系简单的数据</p>
+<ul>
+<li>
+<p>k-v</p>
+<ul>
+<li>
+<p>redis</p>
+<ul>
+<li>
+<p>概念</p>
+<ul>
+<li>关系简单的存储</li>
+<li>需要配置环境变量 path</li>
+<li>cs 架构
+<ul>
+<li>启动命令
+<ul>
+<li>redis-server</li>
+</ul>
+</li>
+<li>使用命令
+<ul>
+<li>redis-cli</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>特点
+<ul>
+<li>16 个数据库</li>
+<li>速度快
+<ul>
+<li>操作内存
+<ul>
+<li>效率很高</li>
+</ul>
+</li>
+<li>单线程
+<ul>
+<li>避免切换上下文</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>6379</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>存储数据类型
+_ hash
+_ 遍历快
+_ set
+_ sorted set
+_ list
+_ string</p>
+</li>
+<li>
+<p>操作命令</p>
+<ul>
+<li>select 1</li>
+<li>查看
+<ul>
+<li>keys *
+<ul>
+<li>少用，会卡</li>
+<li>查看所有的键</li>
+</ul>
+</li>
+<li>get key</li>
+<li>type k1
+<ul>
+<li>看类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>增
+<ul>
+<li>set key value</li>
+<li>mset k1 v1 k2 v2 &hellip;
+<ul>
+<li>批量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>改
+<ul>
+<li>rename k1 new_k1</li>
+</ul>
+</li>
+<li>删
+<ul>
+<li>del k1 k2</li>
+<li>flushdb
+<ul>
+<li>删除一个库</li>
+</ul>
+</li>
+<li>flushall
+<ul>
+<li>删除所有库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设置密码
+<ul>
+<li>config rewrite</li>
+</ul>
+</li>
+<li>exit</li>
+</ul>
+</li>
+<li>
+<p>缓存</p>
+<ul>
+<li>逻辑结构
+<ul>
+<li>数据库
+<ul>
+<li>一级缓存
+<ul>
+<li>sqlalchemy 的 session</li>
+</ul>
+</li>
+<li>二级缓存
+<ul>
+<li>redis</li>
+</ul>
+</li>
+<li>三级缓存
+<ul>
+<li>nginx</li>
+<li>最快，但可能是脏数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>客户端</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>实际使用</p>
+<ul>
+<li>缓存
+<ul>
+<li>数据同步方式
+<ul>
+<li>更新数据库，删除缓存
+<ul>
+<li>没有缓存，查询数据库</li>
+<li>有缓存，返回缓存数据</li>
+<li>更改收据库后，设置缓存失效</li>
+</ul>
+</li>
+<li>canal 读取 mysql 的 binlog</li>
+</ul>
+</li>
+<li>设置合理的有效时间</li>
+</ul>
+</li>
+<li>消息队列
+<ul>
+<li>发布订阅</li>
+<li>事务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>远程连接</p>
+<ul>
+<li>修改 redis.conf
+<ul>
+<li>注释掉里面的 bind</li>
+<li>protected-mode
+<ul>
+<li>改为 no</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>主从同步</p>
+<ul>
+<li>
+<p>启动 * redis 配置文件</p>
+</li>
+<li>
+<p>断开</p>
+</li>
+<li>
+<p>redis-cli info replication</p>
+</li>
+<li>
+<p>原理</p>
+<ul>
+<li>全量同步</li>
+<li>部分同步</li>
+<li>命令传播</li>
+</ul>
+</li>
+<li>
+<p>redis-cli role</p>
+</li>
+<li>
+<p>master 必须做持久化</p>
+<ul>
+<li>防止丢失</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>集群</p>
+<ul>
+<li>多台服务器 交叉主从同步
+<ul>
+<li>防止一台服务器挂掉。数据异常</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>文档数据库</p>
+<ul>
+<li>mongoDB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>shelve</p>
+<ul>
+<li>概念
+<ul>
+<li>Python 中的数据库，以二进制存储字典</li>
+</ul>
+</li>
+<li>方法
+<ul>
+<li>with shelve.open() as db:
+<ul>
+<li>open()</li>
+<li>close()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/posts/tornado-tutorial/tornado-tutorial/" data-toggle="tooltip" data-placement="top" title="Tornado Tutorial">
+              Previous<br>
+              <span>Tornado Tutorial</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/posts/cloud-servers/" data-toggle="tooltip" data-placement="top" title="Cloud Servers">
+              Next<br>
+              <span>Cloud Servers</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="zhenda-hub/zhenda-hub.github.io" 
+  data-repo-id="R_kgDOKvQVww"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOKvQVw84CfdFG"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/data/">data</a>
+    
+    <a href="/tags/docker/">docker</a>
+    
+    <a href="/tags/documentation/">documentation</a>
+    
+    <a href="/tags/emoji/">emoji</a>
+    
+    <a href="/tags/git/">git</a>
+    
+    <a href="/tags/gui/">gui</a>
+    
+    <a href="/tags/guide/">guide</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/linux/">linux</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+    <a href="/tags/privacy/">privacy</a>
+    
+    <a href="/tags/pyqt5/">pyqt5</a>
+    
+    <a href="/tags/python/">Python</a>
+    
+    <a href="/tags/shortcodes/">shortcodes</a>
+    
+    <a href="/tags/software-architecture/">Software Architecture</a>
+    
+    <a href="/tags/text/">text</a>
+    
+    <a href="/tags/tools/">tools</a>
+    
+    <a href="/tags/videos/">videos</a>
+    
+    <a href="/tags/web/">web</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://www.kumao.cool" target="_blank">Guo Qiang</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/zhenda-hub" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright © 2023-2024. All Rights Reserved. Zhenda 版权所有  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.6436294d8572a421d31642d249910e90a99a4c763ccc93d2702846084e55450a.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.3b7db2b3df33fe1a11e849a920b73bf33f2bda851375e9c72b69cac985999032.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.bd0fbd5f2749da9d631c3438dac03c1bcee6f275f5f3eec79592e0f512284470.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

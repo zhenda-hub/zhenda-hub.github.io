@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>App Design | Zhenda&#39;s Blog</title>
+  <meta name="author" content="Zhenda">
+  <meta name="description" content="cs 桌面端 适合场景 需要访问本地文件时，优先选择 离线工作 注册登录 权限管理 内容 增删改查 可视化 资源的上传下载 提醒通知 用户及时了解应用状态 软件设置 用户">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="App Design"/>
+<meta name="twitter:description" content="cs 桌面端 适合场景 需要访问本地文件时，优先选择 离线工作 注册登录 权限管理 内容 增删改查 可视化 资源的上传下载 提醒通知 用户及时了解应用状态 软件设置 用户"/>
+
+  <meta property="og:title" content="App Design" />
+<meta property="og:description" content="cs 桌面端 适合场景 需要访问本地文件时，优先选择 离线工作 注册登录 权限管理 内容 增删改查 可视化 资源的上传下载 提醒通知 用户及时了解应用状态 软件设置 用户" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhenda-hub.github.io/posts/app-design/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-26T01:10:45+08:00" />
+<meta property="article:modified_time" content="2024-05-26T01:10:45+08:00" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Zhenda&#39;s Blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="/series/themes-guide/" title="Guide">Guide</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+          <li><a href="https://github.com/zhenda-hub/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+          </div>
+          <h1>App Design</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Zhenda 
+            on Sun, May 26, 2024
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <ul>
+<li>
+<p>cs</p>
+<ul>
+<li>桌面端
+<ul>
+<li>适合场景
+<ul>
+<li>需要访问本地文件时，优先选择</li>
+<li>离线工作</li>
+<li>注册登录</li>
+<li>权限管理</li>
+</ul>
+</li>
+<li>内容
+<ul>
+<li>增删改查</li>
+<li>可视化</li>
+<li>资源的上传下载</li>
+</ul>
+</li>
+<li>提醒通知
+<ul>
+<li>用户及时了解应用状态</li>
+</ul>
+</li>
+<li>软件设置
+<ul>
+<li>用户个性化设置</li>
+</ul>
+</li>
+<li>软件更新
+<ul>
+<li>自动推送
+<ul>
+<li>获取版本</li>
+<li>验证版本</li>
+<li>下载</li>
+<li>安装</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>日志记录</li>
+</ul>
+</li>
+<li>移动端
+<ul>
+<li>注册登录</li>
+<li>权限管理</li>
+<li>内容
+<ul>
+<li>增删改查</li>
+<li>可视化</li>
+<li>资源的上传下载</li>
+</ul>
+</li>
+<li>提醒通知
+<ul>
+<li>用户及时了解应用状态</li>
+</ul>
+</li>
+<li>软件设置
+<ul>
+<li>用户个性化设置</li>
+</ul>
+</li>
+<li>软件更新
+<ul>
+<li>自动推送</li>
+</ul>
+</li>
+<li>社交推广</li>
+<li>订单支付</li>
+</ul>
+</li>
+<li>特点
+<ul>
+<li>使用客户端的 cpu，内存，硬盘
+<ul>
+<li>计算资源</li>
+<li>存储资源</li>
+</ul>
+</li>
+<li>需要用户安装</li>
+<li>支持离线使用</li>
+</ul>
+</li>
+<li>通信协议
+<ul>
+<li>socket</li>
+<li>tcpip</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>bs</p>
+<ul>
+<li>
+<p>网站</p>
+<ul>
+<li>
+<p>网页设计</p>
+<ul>
+<li>
+<p>header</p>
+<ul>
+<li>顶部全局导航栏
+<ul>
+<li>固定头部！！</li>
+<li>不能太多！！</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>body</p>
+<ul>
+<li>left
+<ul>
+<li>侧边导航栏
+<ul>
+<li>侧边收起功能</li>
+<li>文字不能太长！！</li>
+<li>侧边折叠功能</li>
+<li>使用场景
+<ul>
+<li>页面内容很长，一页看不完时，添加侧边导航栏，方便快速定位</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>right</li>
+</ul>
+</li>
+<li>
+<p>footer</p>
+</li>
+</ul>
+</li>
+<li>
+<p>主要功能</p>
+<ul>
+<li>注册登录
+<ul>
+<li>忘记密码</li>
+</ul>
+</li>
+<li>权限管理</li>
+<li>内容
+<ul>
+<li>增删改查</li>
+<li>资源的上传下载</li>
+<li>可视化</li>
+</ul>
+</li>
+<li>搜索</li>
+<li>日志记录</li>
+<li>用户统计分析
+<ul>
+<li>用户行为</li>
+<li>访问量</li>
+</ul>
+</li>
+<li>提醒通知
+<ul>
+<li>用户及时了解应用状态</li>
+</ul>
+</li>
+<li>软件更新
+<ul>
+<li>自动推送</li>
+</ul>
+</li>
+<li>管理
+<ul>
+<li>数据库</li>
+<li>服务器</li>
+</ul>
+</li>
+<li>社交推广</li>
+<li>订单支付</li>
+</ul>
+</li>
+<li>
+<p>子应用分类</p>
+<ul>
+<li>用户模块
+<ul>
+<li>注册登录</li>
+<li>用户数据</li>
+</ul>
+</li>
+<li>主内容
+<ul>
+<li>主题数据</li>
+<li>资源上传下载</li>
+</ul>
+</li>
+<li>中间件
+<ul>
+<li>权限管理</li>
+<li>用户行为</li>
+</ul>
+</li>
+<li>数据库定期备份
+<ul>
+<li>设置假删除</li>
+</ul>
+</li>
+<li>全文检索搜索</li>
+<li>导航栏模块
+<ul>
+<li>顶部栏数据</li>
+<li>侧边栏数据</li>
+</ul>
+</li>
+<li>更新公告</li>
+<li>维护
+<ul>
+<li>快速更新部署</li>
+<li>服务器监控</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>特点</p>
+<ul>
+<li>所有处理由服务器提供
+<ul>
+<li>优化计算
+<ul>
+<li>celery</li>
+<li>redis</li>
+<li>多服务器
+<ul>
+<li>负载均衡</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>传输优化
+<ul>
+<li>cdn</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>通信协议</p>
+<ul>
+<li>http</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>添加暗色主题</p>
+</li>
+</ul>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/posts/browser/" data-toggle="tooltip" data-placement="top" title="Browser">
+              Previous<br>
+              <span>Browser</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/posts/flask-tutorial/" data-toggle="tooltip" data-placement="top" title="Flask Tutorial">
+              Next<br>
+              <span>Flask Tutorial</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="zhenda-hub/zhenda-hub.github.io" 
+  data-repo-id="R_kgDOKvQVww"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOKvQVw84CfdFG"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/data/">data</a>
+    
+    <a href="/tags/docker/">docker</a>
+    
+    <a href="/tags/documentation/">documentation</a>
+    
+    <a href="/tags/emoji/">emoji</a>
+    
+    <a href="/tags/git/">git</a>
+    
+    <a href="/tags/gui/">gui</a>
+    
+    <a href="/tags/guide/">guide</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/linux/">linux</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+    <a href="/tags/privacy/">privacy</a>
+    
+    <a href="/tags/pyqt5/">pyqt5</a>
+    
+    <a href="/tags/python/">Python</a>
+    
+    <a href="/tags/shortcodes/">shortcodes</a>
+    
+    <a href="/tags/software-architecture/">Software Architecture</a>
+    
+    <a href="/tags/text/">text</a>
+    
+    <a href="/tags/tools/">tools</a>
+    
+    <a href="/tags/videos/">videos</a>
+    
+    <a href="/tags/web/">web</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://www.kumao.cool" target="_blank">Guo Qiang</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/zhenda-hub" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright © 2023-2024. All Rights Reserved. Zhenda 版权所有  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.6436294d8572a421d31642d249910e90a99a4c763ccc93d2702846084e55450a.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.3b7db2b3df33fe1a11e849a920b73bf33f2bda851375e9c72b69cac985999032.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.bd0fbd5f2749da9d631c3438dac03c1bcee6f275f5f3eec79592e0f512284470.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

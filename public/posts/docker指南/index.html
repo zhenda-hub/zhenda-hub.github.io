@@ -10,15 +10,15 @@
     
   <title>Docker指南 | Zhenda&#39;s Blog</title>
   <meta name="author" content="Zhenda">
-  <meta name="description" content="官方文档 https://docs.docker.com/get-started/ https://docs.docker.com/develop/dev-best-practices/ https://docs.docker.com/develop/develop-images/instructions/ 相关教程 https://juejin.cn/post/7154437479955693598">
+  <meta name="description" content="[toc] docker介绍 Docker Desktop https://docs.docker.com/desktop/ Docker Engine Docker Daemon（dockerd）https://docs.docker.com/engine/ REST API Docker CLI scout Compose k8s 作用">
   <meta name="keywords" content="blog,developer,personal">
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker指南"/>
-<meta name="twitter:description" content="官方文档 https://docs.docker.com/get-started/ https://docs.docker.com/develop/dev-best-practices/ https://docs.docker.com/develop/develop-images/instructions/ 相关教程 https://juejin.cn/post/7154437479955693598"/>
+<meta name="twitter:description" content="[toc] docker介绍 Docker Desktop https://docs.docker.com/desktop/ Docker Engine Docker Daemon（dockerd）https://docs.docker.com/engine/ REST API Docker CLI scout Compose k8s 作用"/>
 
   <meta property="og:title" content="Docker指南" />
-<meta property="og:description" content="官方文档 https://docs.docker.com/get-started/ https://docs.docker.com/develop/dev-best-practices/ https://docs.docker.com/develop/develop-images/instructions/ 相关教程 https://juejin.cn/post/7154437479955693598" />
+<meta property="og:description" content="[toc] docker介绍 Docker Desktop https://docs.docker.com/desktop/ Docker Engine Docker Daemon（dockerd）https://docs.docker.com/engine/ REST API Docker CLI scout Compose k8s 作用" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zhenda-hub.github.io/posts/docker%E6%8C%87%E5%8D%97/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-01-09T00:04:35+08:00" />
@@ -173,7 +173,7 @@
             
             <a class="tag" href="/tags/docker/" title="docker">docker</a>
             
-            <a class="tag" href="/tags/basic_tools/" title="basic_tools">basic_tools</a>
+            <a class="tag" href="/tags/tools/" title="tools">tools</a>
             
           </div>
           <h1>Docker指南</h1>
@@ -201,15 +201,1516 @@
               col-lg-8 col-lg-offset-2
               col-md-10 col-md-offset-1
               post-container">
-        <h2 id="官方文档">官方文档<a class="anchorjs-link" href="#%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3"></a></h2><ul>
-<li><a href="https://docs.docker.com/get-started/" target="_blank">https://docs.docker.com/get-started/</a></li>
-<li><a href="https://docs.docker.com/develop/dev-best-practices/" target="_blank">https://docs.docker.com/develop/dev-best-practices/</a></li>
-<li><a href="https://docs.docker.com/develop/develop-images/instructions/" target="_blank">https://docs.docker.com/develop/develop-images/instructions/</a></li>
+        <p>[toc]</p>
+<h2 id="docker介绍">docker介绍<a class="anchorjs-link" href="#docker%e4%bb%8b%e7%bb%8d"></a></h2><ul>
+<li>Docker Desktop <a href="https://docs.docker.com/desktop/" target="_blank">https://docs.docker.com/desktop/</a>
+<ul>
+<li>Docker Engine
+<ul>
+<li>Docker Daemon（dockerd）<a href="https://docs.docker.com/engine/" target="_blank">https://docs.docker.com/engine/</a></li>
+<li>REST API</li>
+<li>Docker CLI</li>
 </ul>
+</li>
+<li>scout</li>
+<li>Compose</li>
+<li>k8s</li>
+</ul>
+</li>
+</ul>
+<h2 id="作用">作用<a class="anchorjs-link" href="#%e4%bd%9c%e7%94%a8"></a></h2><p>简化开发, 部署</p>
 <h2 id="相关教程">相关教程<a class="anchorjs-link" href="#%e7%9b%b8%e5%85%b3%e6%95%99%e7%a8%8b"></a></h2><ul>
+<li><a href="https://docker-practice.github.io/zh-cn/introduction/" target="_blank">https://docker-practice.github.io/zh-cn/introduction/</a></li>
 <li><a href="https://juejin.cn/post/7154437479955693598" target="_blank">https://juejin.cn/post/7154437479955693598</a></li>
 </ul>
+<h2 id="docker-基本概念">Docker 基本概念<a class="anchorjs-link" href="#docker-%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a></h2><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Image</strong></td>
+<td>一个只读的模板，包含了运行容器所需的全部内容，包括代码、运行时、系统工具、系统库等等。可以把它看作是一个root文件系统。</td>
+</tr>
+<tr>
+<td><strong>Container</strong></td>
+<td>镜像的一个运行实例，可以启动、停止、删除。容器是完全使用沙箱机制，相互之间不会有任何接口。</td>
+</tr>
+<tr>
+<td><strong>Repository</strong></td>
+<td>用来保存镜像的一个目录。可以将其理解为一个仓库，里面存放着许多个镜像。</td>
+</tr>
+<tr>
+<td><strong>Dockerfile</strong></td>
+<td>一个文本文件，里面包含了一条条指令，告诉Docker如何一步一步地构建一个镜像。</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td>持久化数据的一种方式，可以将容器中的数据保存到宿主机上。</td>
+</tr>
+<tr>
+<td><strong>Bind Mount</strong></td>
+<td>主机文件系统中指定路径与容器中路径的挂载，适用于共享或持久化特定文件或目录。</td>
+</tr>
+<tr>
+<td><strong>Network</strong></td>
+<td>Docker提供了多种网络模式，用于容器之间的通信和与宿主机之间的通信。</td>
+</tr>
+<tr>
+<td><strong>Compose</strong></td>
+<td>Docker Compose，定义和管理多容器应用的工具，使用 <code>docker-compose.yaml</code> 文件描述服务。</td>
+</tr>
+<tr>
+<td>Swarm</td>
+<td>Docker Swarm，是 Docker 的原生集群管理和编排工具，用于管理多个 Docker 主机。</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>用于容器编排和管理的开源平台，支持自动化部署、扩展和管理应用程序。</td>
+</tr>
+<tr>
+<td>Service</td>
+<td>在 Swarm 模式下，定义了如何部署和管理一组容器实例。</td>
+</tr>
+<tr>
+<td>Stack</td>
+<td>在 Docker Swarm 或 Compose 中定义的一组相关服务和资源。</td>
+</tr>
+<tr>
+<td>Dangling 镜像</td>
+<td>是指没有标签（tag）且不被任何容器使用的镜像</td>
+</tr>
+<tr>
+<td>Dangling 卷</td>
+<td>是指没有标签（tag）且不被任何容器使用的卷</td>
+</tr>
+</tbody>
+</table>
+<h2 id="repository">Repository<a class="anchorjs-link" href="#repository"></a></h2><ul>
+<li>dockerhub
+<ul>
+<li>自动build 需要付费</li>
+</ul>
+</li>
+<li>ghcr
+<ul>
+<li><a href="https://docs.github.com/zh/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">https://docs.github.com/zh/packages/working-with-a-github-packages-registry/working-with-the-container-registry</a></li>
+<li><a href="https://medium.com/@deepak1812002/get-started-with-github-ghcr-an-alternative-of-dockerhub-f7d5b2198b9a" target="_blank">https://medium.com/@deepak1812002/get-started-with-github-ghcr-an-alternative-of-dockerhub-f7d5b2198b9a</a></li>
+<li><a href="https://gist.github.com/yokawasa/841b6db379aa68b2859846da84a9643c" target="_blank">https://gist.github.com/yokawasa/841b6db379aa68b2859846da84a9643c</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="ghcr">ghcr<a class="anchorjs-link" href="#ghcr"></a></h3><h4 id="手动推送">手动推送<a class="anchorjs-link" href="#%e6%89%8b%e5%8a%a8%e6%8e%a8%e9%80%81"></a></h4><ol>
+<li>登录</li>
+</ol>
+<ul>
+<li><a href="https://github.com/settings/tokens" target="_blank">https://github.com/settings/tokens</a></li>
+<li><a href="https://docs.github.com/zh/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank">https://docs.github.com/zh/packages/working-with-a-github-packages-registry/working-with-the-container-registry</a></li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a90d91">export</span> <span style="color:#000">CR_PAT</span><span style="color:#000">=</span>YOUR_TOKEN
+<span style="color:#a90d91">echo</span> <span style="color:#000">$CR_PAT</span> | docker login ghcr.io -u USERNAME --password-stdin
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>命令</li>
+</ol>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+docker tag xxxx ghcr.io/github_id/image_name:tag_name
+docker push ghcr.io/github_id/image_name:tag_name
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="操作docker的方法">操作docker的方法<a class="anchorjs-link" href="#%e6%93%8d%e4%bd%9cdocker%e7%9a%84%e6%96%b9%e6%b3%95"></a></h2><ol>
+<li>可视化工具</li>
+</ol>
+<ul>
+<li>docker desktop</li>
+<li>portainer (第三方web工具)</li>
+</ul>
+<ol start="2">
+<li>docker cli命令</li>
+</ol>
+<ul>
+<li>常用命令</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># 创建 context</span>
+docker context create desktop-linux --description <span style="color:#c41a16">&#34;Docker Desktop&#34;</span> --docker <span style="color:#c41a16">&#34;host=unix:///home/YOUR_USER_NAME/.docker/desktop/docker.sock&#34;</span>
 
+<span style="color:#177500"># create files</span>
+docker init
+
+<span style="color:#177500"># repo</span>
+docker pull username/image_name:tag_version
+docker push username/image_name:tag_version
+
+<span style="color:#177500"># image</span>
+docker images
+docker built -t username/image_name:tag_version .
+docker tag old_image_name new_image_name
+docker rmi image_id
+<span style="color:#177500"># 删除 dangling image</span>
+docker image prune
+
+<span style="color:#177500"># container</span>
+docker ps
+docker ps -a
+docker run -d -p local_ip:container_ip username/image_name:tag_version
+<span style="color:#177500"># exec, exit退出此模式</span>
+docker <span style="color:#a90d91">exec</span> -it container_id /bin/bash
+docker rm container_id
+docker stop container_id
+
+<span style="color:#177500"># run时添加volume</span>
+docker run -d -v volume_name:container_folder_path username/image_name:tag_version
+docker run -d -v local_folder_path:container_folder_path username/image_name:tag_version
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>查阅命令</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker --help
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Usage:  docker <span style="color:#000">[</span>OPTIONS<span style="color:#000">]</span> COMMAND
+
+A self-sufficient runtime <span style="color:#a90d91">for</span> containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  <span style="color:#a90d91">exec</span>        Execute a <span style="color:#a90d91">command</span> in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  <span style="color:#a90d91">logout</span>      Log out from a registry
+  search      Search Docker Hub <span style="color:#a90d91">for</span> images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx
+  compose*    Docker Compose
+  container   Manage containers
+  context     Manage contexts
+  debug*      Get a shell into any image or container
+  desktop*    Docker Desktop commands <span style="color:#000">(</span>Alpha<span style="color:#000">)</span>
+  dev*        Docker Dev Environments
+  extension*  Manages Docker extensions
+  feedback*   Provide feedback, right in your terminal!
+  image       Manage images
+  init*       Creates Docker-related starter files <span style="color:#a90d91">for</span> your project
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  sbom*       View the packaged-based Software Bill Of Materials <span style="color:#000">(</span>SBOM<span style="color:#000">)</span> <span style="color:#a90d91">for</span> an image
+  scout*      Docker Scout
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach <span style="color:#a90d91">local</span> standard input, output, and error streams to a running container
+  commit      Create a new image from a container<span style="color:#c41a16">&#39;s changes
+</span><span style="color:#c41a16">  cp          Copy files/folders between a container and the local filesystem
+</span><span style="color:#c41a16">  create      Create a new container
+</span><span style="color:#c41a16">  diff        Inspect changes to files or directories on a container&#39;</span>s filesystem
+  events      Get real <span style="color:#a90d91">time</span> events from the server
+  <span style="color:#a90d91">export</span>      Export a container<span style="color:#c41a16">&#39;s filesystem as a tar archive
+</span><span style="color:#c41a16">  history     Show the history of an image
+</span><span style="color:#c41a16">  import      Import the contents from a tarball to create a filesystem image
+</span><span style="color:#c41a16">  inspect     Return low-level information on Docker objects
+</span><span style="color:#c41a16">  kill        Kill one or more running containers
+</span><span style="color:#c41a16">  load        Load an image from a tar archive or STDIN
+</span><span style="color:#c41a16">  logs        Fetch the logs of a container
+</span><span style="color:#c41a16">  pause       Pause all processes within one or more containers
+</span><span style="color:#c41a16">  port        List port mappings or a specific mapping for the container
+</span><span style="color:#c41a16">  rename      Rename a container
+</span><span style="color:#c41a16">  restart     Restart one or more containers
+</span><span style="color:#c41a16">  rm          Remove one or more containers
+</span><span style="color:#c41a16">  rmi         Remove one or more images
+</span><span style="color:#c41a16">  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+</span><span style="color:#c41a16">  start       Start one or more stopped containers
+</span><span style="color:#c41a16">  stats       Display a live stream of container(s) resource usage statistics
+</span><span style="color:#c41a16">  stop        Stop one or more running containers
+</span><span style="color:#c41a16">  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+</span><span style="color:#c41a16">  top         Display the running processes of a container
+</span><span style="color:#c41a16">  unpause     Unpause all processes within one or more containers
+</span><span style="color:#c41a16">  update      Update configuration of one or more containers
+</span><span style="color:#c41a16">  wait        Block until one or more containers stop, then print their exit codes
+</span><span style="color:#c41a16">
+</span><span style="color:#c41a16">Global Options:
+</span><span style="color:#c41a16">      --config string      Location of client config files (default &#34;/home/zhenda/.docker&#34;)
+</span><span style="color:#c41a16">  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with &#34;docker context use&#34;)
+</span><span style="color:#c41a16">  -D, --debug              Enable debug mode
+</span><span style="color:#c41a16">  -H, --host list          Daemon socket to connect to
+</span><span style="color:#c41a16">  -l, --log-level string   Set the logging level (&#34;debug&#34;, &#34;info&#34;, &#34;warn&#34;, &#34;error&#34;, &#34;fatal&#34;) (default &#34;info&#34;)
+</span><span style="color:#c41a16">      --tls                Use TLS; implied by --tlsverify
+</span><span style="color:#c41a16">      --tlscacert string   Trust certs signed only by this CA (default &#34;/home/zhenda/.docker/ca.pem&#34;)
+</span><span style="color:#c41a16">      --tlscert string     Path to TLS certificate file (default &#34;/home/zhenda/.docker/cert.pem&#34;)
+</span><span style="color:#c41a16">      --tlskey string      Path to TLS key file (default &#34;/home/zhenda/.docker/key.pem&#34;)
+</span><span style="color:#c41a16">      --tlsverify          Use TLS and verify the remote
+</span><span style="color:#c41a16">  -v, --version            Print version information and quit
+</span><span style="color:#c41a16">
+</span><span style="color:#c41a16">Run &#39;</span>docker COMMAND --help<span style="color:#000">&#39;</span> <span style="color:#a90d91">for</span> more information on a command.
+
+For more <span style="color:#a90d91">help</span> on how to use Docker, head to https://docs.docker.com/go/guides/
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker compose --help
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Usage:  docker compose <span style="color:#000">[</span>OPTIONS<span style="color:#000">]</span> COMMAND
+
+Define and run multi-container applications with Docker
+
+Options:
+      --all-resources              Include all resources, even those not used by services
+      --ansi string                Control when to print ANSI control characters <span style="color:#000">(</span><span style="color:#c41a16">&#34;never&#34;</span>|<span style="color:#c41a16">&#34;always&#34;</span>|<span style="color:#c41a16">&#34;auto&#34;</span><span style="color:#000">)</span> <span style="color:#000">(</span>default <span style="color:#c41a16">&#34;auto&#34;</span><span style="color:#000">)</span>
+      --compatibility              Run compose in backward compatibility mode
+      --dry-run                    Execute <span style="color:#a90d91">command</span> in dry run mode
+      --env-file stringArray       Specify an alternate environment file
+  -f, --file stringArray           Compose configuration files
+      --parallel int               Control max parallelism, -1 <span style="color:#a90d91">for</span> unlimited <span style="color:#000">(</span>default -1<span style="color:#000">)</span>
+      --profile stringArray        Specify a profile to <span style="color:#a90d91">enable</span>
+      --progress string            Set <span style="color:#a90d91">type</span> of progress output <span style="color:#000">(</span>auto, tty, plain, quiet<span style="color:#000">)</span> <span style="color:#000">(</span>default <span style="color:#c41a16">&#34;auto&#34;</span><span style="color:#000">)</span>
+      --project-directory string   Specify an alternate working directory
+                                   <span style="color:#000">(</span>default: the path of the, first specified, Compose file<span style="color:#000">)</span>
+  -p, --project-name string        Project name
+
+Commands:
+  attach      Attach <span style="color:#a90d91">local</span> standard input, output, and error streams to a service<span style="color:#c41a16">&#39;s running container
+</span><span style="color:#c41a16">  build       Build or rebuild services
+</span><span style="color:#c41a16">  config      Parse, resolve and render compose file in canonical format
+</span><span style="color:#c41a16">  cp          Copy files/folders between a service container and the local filesystem
+</span><span style="color:#c41a16">  create      Creates containers for a service
+</span><span style="color:#c41a16">  down        Stop and remove containers, networks
+</span><span style="color:#c41a16">  events      Receive real time events from containers
+</span><span style="color:#c41a16">  exec        Execute a command in a running container
+</span><span style="color:#c41a16">  images      List images used by the created containers
+</span><span style="color:#c41a16">  kill        Force stop service containers
+</span><span style="color:#c41a16">  logs        View output from containers
+</span><span style="color:#c41a16">  ls          List running compose projects
+</span><span style="color:#c41a16">  pause       Pause services
+</span><span style="color:#c41a16">  port        Print the public port for a port binding
+</span><span style="color:#c41a16">  ps          List containers
+</span><span style="color:#c41a16">  pull        Pull service images
+</span><span style="color:#c41a16">  push        Push service images
+</span><span style="color:#c41a16">  restart     Restart service containers
+</span><span style="color:#c41a16">  rm          Removes stopped service containers
+</span><span style="color:#c41a16">  run         Run a one-off command on a service
+</span><span style="color:#c41a16">  scale       Scale services 
+</span><span style="color:#c41a16">  start       Start services
+</span><span style="color:#c41a16">  stats       Display a live stream of container(s) resource usage statistics
+</span><span style="color:#c41a16">  stop        Stop services
+</span><span style="color:#c41a16">  top         Display the running processes
+</span><span style="color:#c41a16">  unpause     Unpause services
+</span><span style="color:#c41a16">  up          Create and start containers
+</span><span style="color:#c41a16">  version     Show the Docker Compose version information
+</span><span style="color:#c41a16">  wait        Block until the first service container stops
+</span><span style="color:#c41a16">  watch       Watch build context for service and rebuild/refresh containers when files are updated
+</span><span style="color:#c41a16">
+</span><span style="color:#c41a16">Run &#39;</span>docker compose COMMAND --help<span style="color:#000">&#39;</span> <span style="color:#a90d91">for</span> more information on a command.
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="dockerfile">Dockerfile<a class="anchorjs-link" href="#dockerfile"></a></h2><h3 id="作用-1">作用<a class="anchorjs-link" href="#%e4%bd%9c%e7%94%a8-1"></a></h3><p>Dockerfile 的目的是构建一个可复用的镜像</p>
+<h3 id="官方文档">官方文档<a class="anchorjs-link" href="#%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3"></a></h3><ul>
+<li><a href="https://docs.docker.com/get-started/" target="_blank">https://docs.docker.com/get-started/</a></li>
+<li><a href="https://docs.docker.com/reference/dockerfile/" target="_blank">https://docs.docker.com/reference/dockerfile/</a></li>
+<li><a href="https://docs.docker.com/develop/dev-best-practices/" target="_blank">https://docs.docker.com/develop/dev-best-practices/</a></li>
+<li><a href="https://docs.docker.com/develop/develop-images/instructions/" target="_blank">https://docs.docker.com/develop/develop-images/instructions/</a></li>
+<li><a href="https://docs.docker.com/storage/" target="_blank">https://docs.docker.com/storage/</a></li>
+</ul>
+<h3 id="dockerfile-关键字">Dockerfile 关键字<a class="anchorjs-link" href="#dockerfile-%e5%85%b3%e9%94%ae%e5%ad%97"></a></h3><table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADD</td>
+<td>Add local or remote files and directories.</td>
+</tr>
+<tr>
+<td>ARG</td>
+<td>Use build-time variables.</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>Specify default commands.</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td>Copy files and directories.</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>Specify default executable.</td>
+</tr>
+<tr>
+<td>ENV</td>
+<td>Set environment variables.</td>
+</tr>
+<tr>
+<td>EXPOSE</td>
+<td>Describe which ports your application is listening on.</td>
+</tr>
+<tr>
+<td>FROM</td>
+<td>Create a new build stage from a base image.</td>
+</tr>
+<tr>
+<td>HEALTHCHECK</td>
+<td>Check a container&rsquo;s health on startup.</td>
+</tr>
+<tr>
+<td>LABEL</td>
+<td>Add metadata to an image.</td>
+</tr>
+<tr>
+<td>MAINTAINER</td>
+<td>Specify the author of an image.</td>
+</tr>
+<tr>
+<td>ONBUILD</td>
+<td>Specify instructions for when the image is used in a build.</td>
+</tr>
+<tr>
+<td>RUN</td>
+<td>Execute build commands.</td>
+</tr>
+<tr>
+<td>SHELL</td>
+<td>Set the default shell of an image.</td>
+</tr>
+<tr>
+<td>STOPSIGNAL</td>
+<td>Specify the system call signal for exiting a container.</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>Set user and group ID.</td>
+</tr>
+<tr>
+<td>VOLUME</td>
+<td>Create volume mounts.</td>
+</tr>
+<tr>
+<td>WORKDIR</td>
+<td>Change working directory.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="workdir">WORKDIR<a class="anchorjs-link" href="#workdir"></a></h4><table>
+<thead>
+<tr>
+<th>常用路径</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/app</td>
+<td>简单,快捷</td>
+</tr>
+<tr>
+<td>/usr/local</td>
+<td>python和python包的默认安装路径,</td>
+</tr>
+<tr>
+<td>/var/www</td>
+<td>用于托管静态网站</td>
+</tr>
+</tbody>
+</table>
+<h3 id="基础镜像">基础镜像<a class="anchorjs-link" href="#%e5%9f%ba%e7%a1%80%e9%95%9c%e5%83%8f"></a></h3><ul>
+<li>轻量级的 Linux 发行版
+<ul>
+<li>slim(下载工具apt 300MB)
+<ul>
+<li>apt install xxx</li>
+<li>apt remove xxx</li>
+</ul>
+</li>
+<li>alpine(下载工具apk 8MB)
+<ul>
+<li>apk add xxx</li>
+<li>apk del xxx</li>
+</ul>
+</li>
+<li>busybox(4MB)</li>
+</ul>
+</li>
+</ul>
+<h3 id="dockerfile示例">Dockerfile示例<a class="anchorjs-link" href="#dockerfile%e7%a4%ba%e4%be%8b"></a></h3><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># 开发容器时, 为了防止容器挂掉, 可以使用以下两个命令</span>
+tail -f /dev/null
+sleep infinity
+<span style="color:#177500"># 例如:</span>
+docker run -d image_name tail -f /dev/null
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>python项目的Dockerfile</li>
+</ol>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#a90d91">FROM</span><span style="color:#c41a16"> python:3</span><span style="color:#000">
+</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">WORKDIR</span><span style="color:#c41a16"> /usr/src/app</span><span style="color:#000">
+</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">COPY</span> requirements.txt ./<span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">RUN</span> pip install --no-cache-dir -r requirements.txt<span style="color:#000">
+</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">COPY</span> . .<span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#177500"># ENTRYPOINT 是容器的默认启动文件(执行一系列命令), CMD 是容器的默认启动命令, 给 ENTRYPOINT 传递参数</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">ENTRYPOINT</span> [<span style="color:#c41a16">&#34;./entrypoint.sh&#34;</span>]<span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">CMD</span> [<span style="color:#c41a16">&#34;tail&#34;</span>, <span style="color:#c41a16">&#34;-f&#34;</span>, <span style="color:#c41a16">&#34;/dev/null&#34;</span>]<span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#177500"># CMD [ &#34;python&#34;, &#34;./your-daemon-or-script.py&#34; ]</span><span style="color:#000">
+</span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>python项目的entrypoint.sh文件</li>
+</ol>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#633820">#!/bin/bash
+</span><span style="color:#633820"></span>
+<span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;start sh!!!!!!!&#34;</span>
+
+<span style="color:#177500"># pip freeze &gt; requirements.txt</span>
+<span style="color:#177500"># django-admin startproject pj1</span>
+
+python manage.py migrate
+python manage.py collectstatic --noinput
+
+<span style="color:#177500"># python manage.py runserver 0.0.0.0:8000</span>
+gunicorn -c gunicorn_conf.py pj1.wsgi
+
+<span style="color:#177500"># 执行传入的命令或默认命令</span>
+<span style="color:#a90d91">exec</span> <span style="color:#c41a16">&#34;</span><span style="color:#000">$@</span><span style="color:#c41a16">&#34;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>运行Dockerfile</li>
+</ol>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># 有了Dockerfile后 需要build, run</span>
+docker build -t username/image_name:tag_version .
+docker run -d -p local_ip:container_ip username/image_name:tag_version
+</code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>Docker Scout (优化Dockerfile)</li>
+</ol>
+<p>检查image漏洞的工具, 通常在build之后检查image</p>
+<ol start="5">
+<li>Multi-stage builds 多阶段构建</li>
+</ol>
+<p>python还是推荐使用slim版本, alpine各种报错</p>
+<p><a href="https://docs.docker.com/build/building/multi-stage/" target="_blank">https://docs.docker.com/build/building/multi-stage/</a></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#a90d91">FROM</span><span style="color:#c41a16"> xxx_big AS builder</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#177500"># build...</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">FROM</span><span style="color:#c41a16"> xxx_small AS final</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">COPY</span> --from<span style="color:#000">=</span>builder path1 path1<span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">COPY</span> --from<span style="color:#000">=</span>builder path2 path2<span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#177500"># run...</span><span style="color:#000">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="多个port绑定的作用">多个port绑定的作用<a class="anchorjs-link" href="#%e5%a4%9a%e4%b8%aaport%e7%bb%91%e5%ae%9a%e7%9a%84%e4%bd%9c%e7%94%a8"></a></h4><ul>
+<li>不同服务</li>
+<li>负载均衡</li>
+<li>debug和测试</li>
+</ul>
+<h2 id="volume-和-bind-mount">Volume 和 Bind Mount<a class="anchorjs-link" href="#volume-%e5%92%8c-bind-mount"></a></h2><p>Docker 不允许直接将一个容器目录同时挂载到宿主机目录和 Docker volume</p>
+<ul>
+<li>Bind Mount
+<ul>
+<li>本地文件夹:容器文件夹</li>
+<li>本地文件:容器文件</li>
+</ul>
+</li>
+<li>Volume
+<ul>
+<li>volume_name:容器文件夹</li>
+</ul>
+</li>
+</ul>
+<p>作用</p>
+<ol>
+<li>使用<strong>共享卷</strong>同步各个容器的数据</li>
+<li>使用卷同步本地和容器的数据</li>
+</ol>
+<h3 id="volume的数据迁移">Volume的数据迁移<a class="anchorjs-link" href="#volume%e7%9a%84%e6%95%b0%e6%8d%ae%e8%bf%81%e7%a7%bb"></a></h3><p><a href="https://docs.docker.com/desktop/use-desktop/volumes/" target="_blank">https://docs.docker.com/desktop/use-desktop/volumes/</a></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scp</td>
+<td>简单的文件复制, 适合一次性的数据copy</td>
+</tr>
+<tr>
+<td>rsync</td>
+<td>增量传输, 断点续传, 适合持续的数据同步</td>
+</tr>
+</tbody>
+</table>
+<p>假设想把 old_volume 改称 new_volume</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+<span style="color:#177500"># 1. old_volume -&gt; old_volume.tar.gz</span>
+docker run --rm -v old_volume:/volume -v <span style="color:#a90d91">$(</span><span style="color:#a90d91">pwd</span><span style="color:#a90d91">)</span>:/backup busybox tar -czvf /backup/old_volume.tar.gz -C /volume .
+<span style="color:#177500"># 2. copy tar.gz的两种方式</span>
+scp old_volume.tar.gz username@IP:/home/username/
+<span style="color:#177500"># rsync -avz volume1.tar.gz volume2.tar.gz username@IP:/home/username/</span>
+<span style="color:#177500"># 3. create new_volume</span>
+docker volume create new_volume
+<span style="color:#177500"># 4. old_volume.tar.gz -&gt; new_volume</span>
+docker run --rm -v new_volume:/volume -v <span style="color:#a90d91">$(</span><span style="color:#a90d91">pwd</span><span style="color:#a90d91">)</span>:/backup busybox tar -xzvf /backup/old_volume.tar.gz -C /volume
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="container-networking">Container Networking<a class="anchorjs-link" href="#container-networking"></a></h2><p>如果两个容器位于同一网络上，它们可以相互通信。如果他们不是，他们就不能</p>
+<h2 id="image测试平台">Image测试平台<a class="anchorjs-link" href="#image%e6%b5%8b%e8%af%95%e5%b9%b3%e5%8f%b0"></a></h2><p><a href="https://labs.play-with-docker.com/" target="_blank">https://labs.play-with-docker.com/</a></p>
+<p>可以在这个平台, 测试镜像是否符合预期</p>
+<h2 id="docker-compose">Docker Compose<a class="anchorjs-link" href="#docker-compose"></a></h2><h3 id="作用-2">作用<a class="anchorjs-link" href="#%e4%bd%9c%e7%94%a8-2"></a></h3><p>docker-compose.yaml 的目的是编排多个服务</p>
+<h3 id="官方文档-1">官方文档<a class="anchorjs-link" href="#%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3-1"></a></h3><ul>
+<li><a href="https://docs.docker.com/reference/compose-file/" target="_blank">https://docs.docker.com/reference/compose-file/</a></li>
+<li><a href="https://docs.docker.com/compose/compose-file/05-services/#simple-example" target="_blank">https://docs.docker.com/compose/compose-file/05-services/#simple-example</a></li>
+</ul>
+<h3 id="yaml文件">yaml文件<a class="anchorjs-link" href="#yaml%e6%96%87%e4%bb%b6"></a></h3><h4 id="书写规则">书写规则<a class="anchorjs-link" href="#%e4%b9%a6%e5%86%99%e8%a7%84%e5%88%99"></a></h4><ul>
+<li>缩进 两个空格表示一个层级的</li>
+<li>字典 k:v</li>
+<li>列表 -</li>
+</ul>
+<h4 id="yaml对比json">yaml对比json<a class="anchorjs-link" href="#yaml%e5%af%b9%e6%af%94json"></a></h4><table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>YAML</strong></th>
+<th><strong>JSON</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件扩展名</td>
+<td><code>.yaml</code> or <code>.yml</code></td>
+<td><code>.json</code></td>
+</tr>
+<tr>
+<td><strong>可读性</strong></td>
+<td>高，可读性强，类似自然语言</td>
+<td>适中，结构较为严谨，但大量标点符号可能降低可读性</td>
+</tr>
+<tr>
+<td><strong>语法复杂度</strong></td>
+<td>简洁，使用缩进表示层级，不需要引号、逗号、括号</td>
+<td>语法严格，必须使用大括号 <code>{}</code>、方括号 <code>[]</code> 和逗号 <code>,</code></td>
+</tr>
+<tr>
+<td><strong>注释支持</strong></td>
+<td>支持（使用 <code>#</code>）</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>数据类型支持</strong></td>
+<td>原生支持布尔值、整数、浮点数、字符串、列表、字典等</td>
+<td>支持类似数据类型，但字符串需要用引号包裹</td>
+</tr>
+<tr>
+<td><strong>兼容性</strong></td>
+<td>需要专门的解析器</td>
+<td>原生支持 JavaScript，对其他语言也很友好</td>
+</tr>
+<tr>
+<td><strong>用途</strong></td>
+<td>常用于配置文件（如 Docker Compose、Kubernetes 等）</td>
+<td>常用于数据交换、API 响应等</td>
+</tr>
+<tr>
+<td>文件大小</td>
+<td>相对较小，由于省略了大量标点，文件内容通常更少</td>
+<td>相对较大，因标点符号和引号较多而显得冗长</td>
+</tr>
+<tr>
+<td><strong>复杂数据结构支持</strong></td>
+<td>非常灵活，可以轻松表示复杂的嵌套数据结构</td>
+<td>适中，但可能在嵌套层级较多时显得冗长</td>
+</tr>
+<tr>
+<td><strong>学习曲线</strong></td>
+<td>需要一定学习时间，特别是处理复杂场景时</td>
+<td>学习难度较低，语法简单明确</td>
+</tr>
+<tr>
+<td><strong>主要应用场景</strong></td>
+<td>配置文件、数据序列化、模板等</td>
+<td>数据交换、配置文件、Web API、存储对象等</td>
+</tr>
+</tbody>
+</table>
+<h3 id="composeyaml的书写规则">compose.yaml的书写规则<a class="anchorjs-link" href="#composeyaml%e7%9a%84%e4%b9%a6%e5%86%99%e8%a7%84%e5%88%99"></a></h3><ul>
+<li>顶级元素
+<ul>
+<li>services</li>
+<li>network</li>
+<li>volumes</li>
+<li>configs</li>
+<li>secrets</li>
+</ul>
+</li>
+</ul>
+<h3 id="环境变量">环境变量<a class="anchorjs-link" href="#%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f"></a></h3><p>相关文档</p>
+<ul>
+<li><a href="https://docs.docker.com/compose/environment-variables/set-environment-variables/" target="_blank">https://docs.docker.com/compose/environment-variables/set-environment-variables/</a></li>
+<li><a href="https://docs.docker.com/compose/environment-variables/variable-interpolation/" target="_blank">https://docs.docker.com/compose/environment-variables/variable-interpolation/</a></li>
+</ul>
+<p>在 Docker Compose 中</p>
+<ul>
+<li>
+<p>服务名称会自动解析为对应的容器 IP 地址</p>
+</li>
+<li>
+<p>设置环境变量</p>
+<ul>
+<li>使用.env文件设置</li>
+</ul>
+</li>
+<li>
+<p>使用环境变量</p>
+<ul>
+<li>env_file=&lsquo;xxx&rsquo;
+<ul>
+<li>在 env_file 属性中指定的 .env 文件的路径是相对于 compose.yml 文件的位置的。</li>
+</ul>
+</li>
+<li>Interpolation
+<ul>
+<li><strong>${ENV_NAME}</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="env书写格式">.env书写格式<a class="anchorjs-link" href="#env%e4%b9%a6%e5%86%99%e6%a0%bc%e5%bc%8f"></a></h4><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-.env" data-lang=".env"><span style="color:#177500"># mysql</span>
+<span style="color:#000">MYSQL_ROOT_PASSWORD</span><span style="color:#000">=</span><span style="color:#1c01ce">111</span>
+<span style="color:#000">MYSQL_DATABASE</span><span style="color:#000">=</span>mydb
+<span style="color:#000">MYSQL_USER</span><span style="color:#000">=</span>user1
+<span style="color:#000">MYSQL_PASSWORD</span><span style="color:#000">=</span><span style="color:#1c01ce">444</span>
+
+<span style="color:#177500"># web</span>
+<span style="color:#000">DB_HOST</span><span style="color:#000">=</span>db
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="查看实际运行的配置文件">查看实际运行的配置文件<a class="anchorjs-link" href="#%e6%9f%a5%e7%9c%8b%e5%ae%9e%e9%99%85%e8%bf%90%e8%a1%8c%e7%9a%84%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6"></a></h3><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker compose config
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="创建-composeyaml">创建 compose.yaml<a class="anchorjs-link" href="#%e5%88%9b%e5%bb%ba-composeyaml"></a></h3><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000">services</span>:
+  <span style="color:#000">redis</span>:
+    <span style="color:#000">image</span>: <span style="color:#1c01ce">redis</span>
+    <span style="color:#000">volumes</span>:
+      - <span style="color:#1c01ce">redis-data:/data</span>
+    <span style="color:#000">ports</span>:
+      - <span style="color:#c41a16">&#39;6379:6379&#39;</span>
+  <span style="color:#000">web1</span>:
+    <span style="color:#000">restart</span>: <span style="color:#a90d91">on</span>-<span style="color:#1c01ce">failure</span>
+    <span style="color:#000">build</span>: <span style="color:#1c01ce">./web</span>
+    <span style="color:#000">hostname</span>: <span style="color:#1c01ce">web1</span>
+    <span style="color:#000">ports</span>:
+      - <span style="color:#c41a16">&#39;81:5000&#39;</span>
+  <span style="color:#000">web2</span>:
+    <span style="color:#000">restart</span>: <span style="color:#a90d91">on</span>-<span style="color:#1c01ce">failure</span>
+    <span style="color:#000">build</span>: <span style="color:#1c01ce">./web</span>
+    <span style="color:#000">hostname</span>: <span style="color:#1c01ce">web2</span>
+    <span style="color:#000">ports</span>:
+      - <span style="color:#c41a16">&#39;82:5000&#39;</span>
+  <span style="color:#000">nginx</span>:
+    <span style="color:#000">build</span>: <span style="color:#1c01ce">./nginx</span>
+    <span style="color:#000">ports</span>:
+      - <span style="color:#c41a16">&#34;${NGINX_PORT}:8000&#34;</span>  <span style="color:#177500"># 环境变量设置对外port</span>
+    <span style="color:#000">depends_on</span>:
+      - <span style="color:#1c01ce">web1</span>
+      - <span style="color:#1c01ce">web2</span>
+<span style="color:#000">volumes</span>:
+  <span style="color:#000">redis-data</span>:
+</code></pre></td></tr></table>
+</div>
+</div><p>command 覆盖 Dockerfile 中的 CMD，适用于特定服务的启动配置。</p>
+<h3 id="常用命令">常用命令<a class="anchorjs-link" href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a></h3><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker compose --help
+<span style="color:#177500"># 生成image, container, build 作用: 重新构建image</span>
+docker compose up --build
+<span style="color:#177500"># 后台运行，可以重复运行！ Docker Compose 会自动检测变化，并只重新构建和启动有变化的服务</span>
+docker compose up --build -d
+<span style="color:#177500"># 停止container</span>
+docker compose stop
+<span style="color:#177500"># 具体服务</span>
+docker compose restart service_name
+docker compose stop service_name
+docker compose start service_name
+<span style="color:#177500"># 销毁container， network</span>
+docker compose down
+<span style="color:#177500"># 开发环境,查看实时变化, 需要在compose.yaml添加 develop, watch</span>
+docker compose watch
+<span style="color:#177500"># 交互调试, exit退出此模式</span>
+docker compose <span style="color:#a90d91">exec</span> service_name /bin/bash
+<span style="color:#177500"># 查看实际运行的配置文件</span>
+docker compose config
+<span style="color:#177500"># 指定环境变量文件</span>
+docker compose --env-file .env.production up -d
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="项目目录结构推荐">项目目录结构推荐<a class="anchorjs-link" href="#%e9%a1%b9%e7%9b%ae%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84%e6%8e%a8%e8%8d%90"></a></h2><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">myproject/
+│
+├── .git/                 <span style="color:#177500"># Git repository metadata</span>
+├── .gitignore            <span style="color:#177500"># Git ignore file</span>
+├── .dockerignore         <span style="color:#177500"># Docker ignore file</span>
+├── docker-compose.yml    <span style="color:#177500"># Docker Compose configuration file</span>
+├── web/                  <span style="color:#177500"># Web服务（如Django）的目录</span>
+│   ├── Dockerfile        <span style="color:#177500"># Web服务的Dockerfile</span>
+│   ├── requirements.txt  <span style="color:#177500"># Python依赖文件</span>
+│   ├── manage.py         <span style="color:#177500"># Django管理脚本</span>
+│   └── myproject/        <span style="color:#177500"># Django项目目录</span>
+│       ├── __init__.py
+│       ├── settings.py
+│       ├── urls.py
+│       └── wsgi.py
+├── db/                   <span style="color:#177500"># 数据库服务的目录（可选）</span>
+│   ├── Dockerfile        <span style="color:#177500"># 数据库服务的Dockerfile（如自定义配置）</span>
+│   └── init.sql          <span style="color:#177500"># 初始化数据库的SQL脚本（可选）</span>
+└── nginx/                <span style="color:#177500"># Nginx服务的目录（可选）</span>
+    ├── Dockerfile        <span style="color:#177500"># Nginx服务的Dockerfile（如自定义配置）</span>
+    └── nginx.conf        <span style="color:#177500"># Nginx配置文件</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="docker-标签">docker 标签<a class="anchorjs-link" href="#docker-%e6%a0%87%e7%ad%be"></a></h2><p>方便image版本回退</p>
+<h2 id="cicd">CI/CD<a class="anchorjs-link" href="#cicd"></a></h2><h3 id="主要构成">主要构成<a class="anchorjs-link" href="#%e4%b8%bb%e8%a6%81%e6%9e%84%e6%88%90"></a></h3><ul>
+<li>持续集成（Continuous Integration，CI）, 执行 testcase</li>
+<li>持续交付（Continuous Delivery，CD）, 生成 docker image</li>
+<li>持续部署（Continuous Deployment，CD）, 使用ssh, 登录服务器, 更新代码和image, 启动服务</li>
+</ul>
+<h3 id="工作流">工作流<a class="anchorjs-link" href="#%e5%b7%a5%e4%bd%9c%e6%b5%81"></a></h3><p>git push -&gt; run testcase -&gt; build image -&gt; ssh deploy -&gt; 自动监控 -&gt; 自动回滚</p>
+<h3 id="原理">原理<a class="anchorjs-link" href="#%e5%8e%9f%e7%90%86"></a></h3><p>触发一系列命令, 执行自定义逻辑</p>
+<h3 id="分类">分类<a class="anchorjs-link" href="#%e5%88%86%e7%b1%bb"></a></h3><ul>
+<li>github actions</li>
+<li>gitlab ci/cd</li>
+<li>jenkins</li>
+</ul>
+<h3 id="为image设置时间辍">为image设置时间辍<a class="anchorjs-link" href="#%e4%b8%baimage%e8%ae%be%e7%bd%ae%e6%97%b6%e9%97%b4%e8%be%8d"></a></h3><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a90d91">$(</span>date -u +<span style="color:#c41a16">&#34;&#34;</span><span style="color:#a90d91">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="使用github-actions来实现cicd的实际操作">使用github actions来实现CI/CD的实际操作<a class="anchorjs-link" href="#%e4%bd%bf%e7%94%a8github-actions%e6%9d%a5%e5%ae%9e%e7%8e%b0cicd%e7%9a%84%e5%ae%9e%e9%99%85%e6%93%8d%e4%bd%9c"></a></h3><ol>
+<li>编写yaml文件定义逻辑</li>
+</ol>
+<p>github actions yaml文件demo</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000">name</span>: <span style="color:#1c01ce">dp gpt</span>
+
+<span style="color:#000">on</span>:
+    <span style="color:#000">push</span>:
+        <span style="color:#000">branches</span>: [ <span style="color:#c41a16">&#34;master&#34;</span> ]
+    <span style="color:#000">pull_request</span>:
+        <span style="color:#000">branches</span>: [ <span style="color:#c41a16">&#34;master&#34;</span> ]
+
+<span style="color:#000">jobs</span>:
+  <span style="color:#000">build</span>:
+    <span style="color:#000">runs-on</span>: <span style="color:#1c01ce">ubuntu-latest</span>
+
+    <span style="color:#000">steps</span>:
+      - <span style="color:#000">name</span>: <span style="color:#1c01ce">Checkout code</span>
+        <span style="color:#000">uses</span>: <span style="color:#1c01ce">actions/checkout@v4</span>
+
+      <span style="color:#177500"># - name: Set up Docker Buildx</span>
+      <span style="color:#177500">#   uses: docker/setup-buildx-action@v2</span>
+
+      - <span style="color:#000">name</span>: <span style="color:#1c01ce">Log in to Docker Hub</span>
+        <span style="color:#000">uses</span>: <span style="color:#1c01ce">docker/login-action@v3</span>
+        <span style="color:#000">with</span>:
+          <span style="color:#000">username</span>: <span style="color:#1c01ce">${{ secrets.DOCKER_USERNAME }}</span>
+          <span style="color:#000">password</span>: <span style="color:#1c01ce">${{ secrets.DOCKER_PASSWORD }}</span>
+
+      - <span style="color:#000">name</span>: <span style="color:#1c01ce">Log in to ghrc</span>
+        <span style="color:#000">uses</span>: <span style="color:#1c01ce">docker/login-action@v3</span>
+        <span style="color:#000">with</span>:
+          <span style="color:#000">registry</span>: <span style="color:#1c01ce">ghcr.io</span>
+          <span style="color:#000">username</span>: <span style="color:#1c01ce">zhenda-hub</span>
+          <span style="color:#000">password</span>: <span style="color:#1c01ce">${{ secrets.GHCR_PASSWORD }}</span>
+          
+      - <span style="color:#000">name</span>: <span style="color:#1c01ce">Build and push Docker image</span>
+        <span style="color:#000">uses</span>: <span style="color:#1c01ce">docker/build-push-action@v5</span>
+        <span style="color:#000">with</span>:
+          <span style="color:#000">context</span>: <span style="color:#1c01ce">./pj1</span>
+          <span style="color:#000">push</span>: <span style="color:#a90d91">true</span>
+          <span style="color:#000">tags</span>: |<span style="color:#c41a16">
+</span><span style="color:#c41a16">            zzdnb/docker_django_demo:${{ github.sha }}
+</span><span style="color:#c41a16">            zzdnb/docker_django_demo:latest
+</span><span style="color:#c41a16">            ghcr.io/zhenda-hub/docker_django_demo:${{ github.sha }}
+</span><span style="color:#c41a16">            ghcr.io/zhenda-hub/docker_django_demo:latest</span>            
+
+  <span style="color:#000">deploy</span>:
+    <span style="color:#000">needs</span>: <span style="color:#1c01ce">build</span>
+    <span style="color:#000">runs-on</span>: <span style="color:#1c01ce">ubuntu-latest</span>
+
+    <span style="color:#000">steps</span>:
+      
+      - <span style="color:#000">name</span>: <span style="color:#1c01ce">Deploy to Tencent Cloud</span>
+        <span style="color:#000">uses</span>: <span style="color:#1c01ce">appleboy/ssh-action@master</span>
+        <span style="color:#000">with</span>:
+          <span style="color:#000">host</span>: <span style="color:#1c01ce">${{ secrets.TENCENT_HOST }}</span>
+          <span style="color:#000">username</span>: <span style="color:#1c01ce">${{ secrets.TENCENT_USERNAME }}</span>
+          <span style="color:#000">key</span>: <span style="color:#1c01ce">${{ secrets.TENCENT_PRI_SSH_KEY }}</span>
+          <span style="color:#177500"># password: ${{ secrets.TENCENT_PASSWORD }}</span>
+          <span style="color:#000">script</span>: |<span style="color:#c41a16">
+</span><span style="color:#c41a16">            cd /www/wwwroot/docker-django-demo
+</span><span style="color:#c41a16">            git pull
+</span><span style="color:#c41a16">            sudo docker compose up --build -d</span>            
+
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>服务器中设置ssh
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa
+cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+<span style="color:#177500"># 最后在secret中设置私钥</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>在github的代码仓库中, 设置很多的secret</li>
+</ol>
+<h3 id="yaml文件-1">yaml文件<a class="anchorjs-link" href="#yaml%e6%96%87%e4%bb%b6-1"></a></h3><h2 id="其余内容">其余内容<a class="anchorjs-link" href="#%e5%85%b6%e4%bd%99%e5%86%85%e5%ae%b9"></a></h2><h3 id="buildx">Buildx<a class="anchorjs-link" href="#buildx"></a></h3><p>Buildx 是 Docker 的一个 CLI 插件，扩展了 docker build 命令的功能。它支持多平台构建、构建缓存、并行构建等高级功能</p>
+<h3 id="docker-swarm">Docker Swarm<a class="anchorjs-link" href="#docker-swarm"></a></h3><p>要将应用部署到多个节点（服务器），实现分布式部署</p>
+<p>通常需要多个服务器!!! 才可以体现出其高可用性和扩展性</p>
+<h3 id="关于-docker-desktop-的使用">关于 Docker Desktop 的使用<a class="anchorjs-link" href="#%e5%85%b3%e4%ba%8e-docker-desktop-%e7%9a%84%e4%bd%bf%e7%94%a8"></a></h3><h4 id="使用-windows-wsl2">使用 windows WSL2<a class="anchorjs-link" href="#%e4%bd%bf%e7%94%a8-windows-wsl2"></a></h4><p><a href="https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig" target="_blank">https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig</a></p>
+<p>配置WSL防止内存过大</p>
+<ol>
+<li>
+<p>创建 C:\Users\username.wslconfig</p>
+</li>
+<li>
+<p>写入以下内容</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[wsl2]
+# 配置 WSL 的核心数
+processors=2
+# 配置 WSL 的内存最大值
+memory=2GB
+# 配置交换内存大小，默认是电脑内存的 1/4
+swap=8GB
+# 关闭默认连接以将 WSL 2 本地主机绑定到 Windows 本地主机
+localhostForwarding=true
+# 设置临时文件位置，默认 %USERPROFILE%\\AppData\\Local\\Temp\\swap.vhdx
+# swapfile=D:\\\\temp\\\\wsl-swap.vhdx
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h4 id="docker-engine-配置">docker engine 配置<a class="anchorjs-link" href="#docker-engine-%e9%85%8d%e7%bd%ae"></a></h4><p>~/.docker/daemon.json</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#000">&#34;builder&#34;</span>: {
+    <span style="color:#000">&#34;gc&#34;</span>: {
+      <span style="color:#000">&#34;defaultKeepStorage&#34;</span>: <span style="color:#c41a16">&#34;20GB&#34;</span>,
+      <span style="color:#000">&#34;enabled&#34;</span>: <span style="color:#a90d91">true</span>
+    }
+  },
+  <span style="color:#000">&#34;experimental&#34;</span>: <span style="color:#a90d91">false</span>,
+  <span style="color:#000">&#34;log-driver&#34;</span>: <span style="color:#c41a16">&#34;json-file&#34;</span>,
+  <span style="color:#000">&#34;log-opts&#34;</span>: {
+    <span style="color:#000">&#34;max-size&#34;</span>: <span style="color:#c41a16">&#34;10m&#34;</span>,
+    <span style="color:#000">&#34;max-file&#34;</span>: <span style="color:#c41a16">&#34;3&#34;</span>
+  }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="更换安装位置到别的盘">更换安装位置到别的盘<a class="anchorjs-link" href="#%e6%9b%b4%e6%8d%a2%e5%ae%89%e8%a3%85%e4%bd%8d%e7%bd%ae%e5%88%b0%e5%88%ab%e7%9a%84%e7%9b%98"></a></h3><p><a href="https://stackoverflow.com/questions/40465979/change-docker-native-images-location-on-windows-10-pro" target="_blank">https://stackoverflow.com/questions/40465979/change-docker-native-images-location-on-windows-10-pro</a></p>
+<h3 id="换源">换源<a class="anchorjs-link" href="#%e6%8d%a2%e6%ba%90"></a></h3><h4 id="apt换国内源">apt换国内源<a class="anchorjs-link" href="#apt%e6%8d%a2%e5%9b%bd%e5%86%85%e6%ba%90"></a></h4><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#177500"># debian12 替换 APT 源为国内源</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">RUN</span> sed -i <span style="color:#c41a16">&#39;s@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g&#39;</span> /etc/apt/sources.list.d/debian.sources <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    sed -i <span style="color:#c41a16">&#39;s@deb.debian.org@mirrors.ustc.edu.cn@g&#39;</span> /etc/apt/sources.list.d/debian.sources <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    sed -i <span style="color:#c41a16">&#39;s@deb.debian.org@mirrors.aliyun.com@g&#39;</span> /etc/apt/sources.list.d/debian.sources <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    sed -i <span style="color:#c41a16">&#39;s@deb.debian.org@mirrors.cloud.tencent.com@g&#39;</span> /etc/apt/sources.list.d/debian.sources<span style="color:#000">
+</span><span style="color:#000"></span>    <span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#177500"># 更新, 安装所需的软件包（这里仅为示例）, 最后清理apt-get缓存</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">RUN</span> apt-get update <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    apt-get install -y --no-install-recommends <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    curl <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    git <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    apt-get clean <span style="color:#000">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span style="color:#000">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="pip换国内源">pip换国内源<a class="anchorjs-link" href="#pip%e6%8d%a2%e5%9b%bd%e5%86%85%e6%ba%90"></a></h4><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#177500"># 设置 pip 源为阿里云源和其他国内源</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#a90d91">RUN</span> pip config <span style="color:#a90d91">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/ <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    pip config <span style="color:#a90d91">set</span> global.extra-index-url https://mirrors.aliyun.com/pypi/simple/ <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    pip config <span style="color:#a90d91">set</span> global.extra-index-url https://mirrors.cloud.tencent.com/pypi/simple/ <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    pip config <span style="color:#a90d91">set</span> install.trusted-host pypi.tuna.tsinghua.edu.cn <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    pip config <span style="color:#a90d91">set</span> install.trusted-host mirrors.aliyun.com <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>    pip config <span style="color:#a90d91">set</span> install.trusted-host mirrors.cloud.tencent.com<span style="color:#000">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="docker换国内源">docker换国内源<a class="anchorjs-link" href="#docker%e6%8d%a2%e5%9b%bd%e5%86%85%e6%ba%90"></a></h4><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nano /etc/docker/daemon.json
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#000">&#34;registry-mirrors&#34;</span>: [
+        <span style="color:#c41a16">&#34;https://docker.m.daocloud.io&#34;</span>, 
+        <span style="color:#c41a16">&#34;https://noohub.ru&#34;</span>, 
+        <span style="color:#c41a16">&#34;https://huecker.io&#34;</span>,
+        <span style="color:#c41a16">&#34;https://dockerhub.timeweb.cloud&#34;</span>,
+        <span style="color:#c41a16">&#34;https://mirror.ccs.tencentyun.com&#34;</span>,
+        <span style="color:#c41a16">&#34;https://registry.docker-cn.com&#34;</span>,
+        <span style="color:#c41a16">&#34;http://docker.mirrors.ustc.edu.cn&#34;</span>,
+        <span style="color:#c41a16">&#34;http://hub-mirror.c.163.com&#34;</span>
+    ]
+}
+</code></pre></td></tr></table>
+</div>
+</div>
 
         <hr style="visibility: hidden;" />
         <ul class="pager">
@@ -292,8 +1793,6 @@
   <h5>FEATURED TAGS</h5>
   <div class="tags">
     
-    <a href="/tags/basic_tools/">basic_tools</a>
-    
     <a href="/tags/css/">css</a>
     
     <a href="/tags/data/">data</a>
@@ -328,6 +1827,10 @@
     
     <a href="/tags/text/">text</a>
     
+    <a href="/tags/tools/">tools</a>
+    
+    <a href="/tags/videos/">videos</a>
+    
     <a href="/tags/web/">web</a>
     
   </div>
@@ -335,6 +1838,16 @@
 
         
         
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://www.kumao.cool" target="_blank">Guo Qiang</a></li>
+  
+</ul>
 
       </div>
     </div>

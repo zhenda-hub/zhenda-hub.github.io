@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Vue教程 | Zhenda&#39;s Blog</title>
+  <meta name="author" content="Zhenda">
+  <meta name="description" content="document https://cn.vuejs.org/ https://cn.vuejs.org/tutorial/ https://www.vueframework.com/docs/v3/cn/style-guide https://cn.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram Project Setup1 npm install Compile and Hot-Reload for Development1 npm run dev Compile and Minify for Production1 npm run build Lint with ESLint1 npm run lint 内容总结 nodejs 运行环境 npm nodejs 的包管理器 npm 配置源 get registry config set registry 地址 list 默认显示本地 -g 全局 -v 查">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue教程"/>
+<meta name="twitter:description" content="document https://cn.vuejs.org/ https://cn.vuejs.org/tutorial/ https://www.vueframework.com/docs/v3/cn/style-guide https://cn.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram Project Setup1 npm install Compile and Hot-Reload for Development1 npm run dev Compile and Minify for Production1 npm run build Lint with ESLint1 npm run lint 内容总结 nodejs 运行环境 npm nodejs 的包管理器 npm 配置源 get registry config set registry 地址 list 默认显示本地 -g 全局 -v 查"/>
+
+  <meta property="og:title" content="Vue教程" />
+<meta property="og:description" content="document https://cn.vuejs.org/ https://cn.vuejs.org/tutorial/ https://www.vueframework.com/docs/v3/cn/style-guide https://cn.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram Project Setup1 npm install Compile and Hot-Reload for Development1 npm run dev Compile and Minify for Production1 npm run build Lint with ESLint1 npm run lint 内容总结 nodejs 运行环境 npm nodejs 的包管理器 npm 配置源 get registry config set registry 地址 list 默认显示本地 -g 全局 -v 查" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhenda-hub.github.io/posts/vue%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-24T10:16:28+08:00" />
+<meta property="article:modified_time" content="2024-05-24T10:16:28+08:00" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://zhenda-hub.github.io/">Zhenda&#39;s Blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/" title="Home">Home</a></li>
+          
+          <li><a href="/archive/" title="Archive">Archive</a></li>
+          
+          <li><a href="/series/themes-guide/" title="Guide">Guide</a></li>
+          
+          <li><a href="/about/" title="About">About</a></li>
+          
+          <li><a href="https://github.com/zhenda-hub/" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="$ grep...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('');
+  }
+</style>
+
+<header class="intro-header style-text">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/web/" title="web">web</a>
+            
+          </div>
+          <h1>Vue教程</h1>
+          <h2 class="subheading"></h2>
+          <span class="meta">
+            Posted by  Zhenda 
+            on Fri, May 24, 2024
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <h2 id="document">document<a class="anchorjs-link" href="#document"></a></h2><ul>
+<li><a href="https://cn.vuejs.org/" target="_blank">https://cn.vuejs.org/</a></li>
+<li><a href="https://cn.vuejs.org/tutorial/" target="_blank">https://cn.vuejs.org/tutorial/</a></li>
+<li><a href="https://www.vueframework.com/docs/v3/cn/style-guide" target="_blank">https://www.vueframework.com/docs/v3/cn/style-guide</a></li>
+<li><a href="https://cn.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram" target="_blank">https://cn.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram</a></li>
+</ul>
+<h2 id="project-setup">Project Setup<a class="anchorjs-link" href="#project-setup"></a></h2><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm install
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="compile-and-hot-reload-for-development">Compile and Hot-Reload for Development<a class="anchorjs-link" href="#compile-and-hot-reload-for-development"></a></h3><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm run dev
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="compile-and-minify-for-production">Compile and Minify for Production<a class="anchorjs-link" href="#compile-and-minify-for-production"></a></h3><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm run build
+</code></pre></td></tr></table>
+</div>
+</div>Lint with <h3 id="lint-with-eslinthttpseslintorg"><a href="https://eslint.org/" target="_blank">ESLint</a><a class="anchorjs-link" href="#lint-with-eslinthttpseslintorg"></a></h3><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm run lint
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="内容总结">内容总结<a class="anchorjs-link" href="#%e5%86%85%e5%ae%b9%e6%80%bb%e7%bb%93"></a></h2><ul>
+<li>nodejs
+<ul>
+<li>运行环境</li>
+<li>npm
+<ul>
+<li>nodejs 的包管理器</li>
+</ul>
+</li>
+<li>npm
+<ul>
+<li>配置源
+<ul>
+<li>get registry</li>
+<li>config set registry 地址</li>
+</ul>
+</li>
+<li>list
+<ul>
+<li>默认显示本地</li>
+<li>-g
+<ul>
+<li>全局</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>-v
+<ul>
+<li>查看版本</li>
+</ul>
+</li>
+<li>config list
+<ul>
+<li>查看 config</li>
+</ul>
+</li>
+<li>install 模块名
+<ul>
+<li>安装</li>
+</ul>
+</li>
+<li>update 模块名
+<ul>
+<li>更新</li>
+</ul>
+</li>
+<li>uninstall 模块名
+<ul>
+<li>卸载</li>
+</ul>
+</li>
+<li>init
+<ul>
+<li>生成 package.json</li>
+</ul>
+</li>
+<li>run serve
+<ul>
+<li>运行项目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>启动项目方式
+<ul>
+<li>create vue
+<ul>
+<li>npm
+<ul>
+<li>create vue@latest</li>
+<li>install</li>
+<li>run dev</li>
+<li>run build</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>vue cli
+<ul>
+<li>过时</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>结构
+<ul>
+<li>vue 文件结构
+<ul>
+<li>script
+<ul>
+<li>setup
+<ul>
+<li>才可以在 template 中使用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>template</li>
+<li>style</li>
+</ul>
+</li>
+<li>项目结构
+<ul>
+<li>router</li>
+<li>views</li>
+<li>App.vue
+<ul>
+<li>主文件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基础
+<ul>
+<li>变量类型
+<ul>
+<li>响应式基础
+<ul>
+<li>ref
+<ul>
+<li>只适用于对象</li>
+</ul>
+</li>
+<li>reactive
+<ul>
+<li>接受任何值类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>其他关键字
+<ul>
+<li>computed
+<ul>
+<li>计算会被缓存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>watch
+<ul>
+<li>监听</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>{{ a++ }}</li>
+<li>属性指令
+<ul>
+<li>v-bind:id=&ldquo;myId&rdquo;</li>
+<li>:id=&ldquo;myId&rdquo;</li>
+<li>当 id=&ldquo;id&rdquo;
+<ul>
+<li>v-bind:id</li>
+<li>:id</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>逻辑
+<ul>
+<li>v-if
+<ul>
+<li>创建销毁</li>
+</ul>
+</li>
+<li>v-show
+<ul>
+<li>显示隐藏</li>
+</ul>
+</li>
+<li>v-for</li>
+</ul>
+</li>
+<li>事件处理
+<ul>
+<li>v-on:</li>
+<li>@click</li>
+</ul>
+</li>
+<li>v-model
+<ul>
+<li>双向数据绑定</li>
+</ul>
+</li>
+<li>修饰符
+<ul>
+<li>很方便的小功能</li>
+</ul>
+</li>
+<li>import ButtonCounter from &lsquo;./ButtonCounter.vue&rsquo;</li>
+<li>export default
+<ul>
+<li>export default 是 ES6 的语法，意思是将这个东西导出，你要 import 引入东西，导出了才能引用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>vue2
+<ul>
+<li>export default {}
+<ul>
+<li>data(){}</li>
+<li>methods(){}</li>
+<li>mounted(){}</li>
+<li>data(){}</li>
+<li>data(){}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>组件
+<ul>
+<li>作用
+<ul>
+<li>代码复用</li>
+</ul>
+</li>
+<li>组建间传参
+<ul>
+<li>defineProps</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>vue-router
+<ul>
+<li>RouterLink
+<ul>
+<li><RouterLink :to="{ name: 'video' }">Video</RouterLink></li>
+</ul>
+</li>
+<li>RouterView
+<ul>
+<li>view
+<ul>
+<li>指的是子 html</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>axios
+<ul>
+<li>http 请求</li>
+</ul>
+</li>
+<li>vuex
+<ul>
+<li>状态保持</li>
+</ul>
+</li>
+<li>表单</li>
+<li>部署</li>
+<li>第三方样式库
+<ul>
+<li><a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank">https://element.eleme.cn/#/zh-CN/component/installation</a></li>
+<li><a href="https://vant-ui.github.io/vant/#/zh-CN/quickstart" target="_blank">https://vant-ui.github.io/vant/#/zh-CN/quickstart</a></li>
+</ul>
+</li>
+</ul>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/posts/programming-paradigm/" data-toggle="tooltip" data-placement="top" title="Programming Paradigm">
+              Previous<br>
+              <span>Programming Paradigm</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/posts/ai%E6%95%99%E7%A8%8B/" data-toggle="tooltip" data-placement="top" title="AI教程">
+              Next<br>
+              <span>AI教程</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="zhenda-hub/zhenda-hub.github.io" 
+  data-repo-id="R_kgDOKvQVww"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOKvQVw84CfdFG"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/css/">css</a>
+    
+    <a href="/tags/data/">data</a>
+    
+    <a href="/tags/docker/">docker</a>
+    
+    <a href="/tags/documentation/">documentation</a>
+    
+    <a href="/tags/emoji/">emoji</a>
+    
+    <a href="/tags/git/">git</a>
+    
+    <a href="/tags/gui/">gui</a>
+    
+    <a href="/tags/guide/">guide</a>
+    
+    <a href="/tags/html/">html</a>
+    
+    <a href="/tags/linux/">linux</a>
+    
+    <a href="/tags/markdown/">markdown</a>
+    
+    <a href="/tags/privacy/">privacy</a>
+    
+    <a href="/tags/pyqt5/">pyqt5</a>
+    
+    <a href="/tags/python/">Python</a>
+    
+    <a href="/tags/shortcodes/">shortcodes</a>
+    
+    <a href="/tags/software-architecture/">Software Architecture</a>
+    
+    <a href="/tags/text/">text</a>
+    
+    <a href="/tags/tools/">tools</a>
+    
+    <a href="/tags/videos/">videos</a>
+    
+    <a href="/tags/web/">web</a>
+    
+  </div>
+</section>
+
+        
+        
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://www.kumao.cool" target="_blank">Guo Qiang</a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center">
+
+<li>
+  <a href="https://github.com/zhenda-hub" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li>
+
+
+<li>
+  <a href="/index.xml" target="_blank">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+</li></ul>
+
+        <p class="copyright text-muted">
+          Copyright © 2023-2024. All Rights Reserved. Zhenda 版权所有  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.6436294d8572a421d31642d249910e90a99a4c763ccc93d2702846084e55450a.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.3b7db2b3df33fe1a11e849a920b73bf33f2bda851375e9c72b69cac985999032.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.bd0fbd5f2749da9d631c3438dac03c1bcee6f275f5f3eec79592e0f512284470.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

@@ -10,15 +10,15 @@
     
   <title>Django教程 | Zhenda&#39;s Blog</title>
   <meta name="author" content="Zhenda">
-  <meta name="description" content="Django 教程[toc] 通信协议 HTTP get 传参(对数据长度有限制(大约 2048 个字符) http://example.com/api?k1=v1&k2=v2 post 传参 request header Content-Type 指明数据格式 request body json form-data text put 传参同 post, 只是需要对象存在 delete websocket TCP UDP 网站">
+  <meta name="description" content="通信协议 HTTP 请求方式 传参方式 示例 GET 查询字符串 (Query Parameters) GET /users?id=123 路径参数 (Path Parameters) GET /users/123 请求头 (Headers) Authorization: Bearer token POST 请求体 (Request Body) POST /users { &quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30 } 表单数据 (Form Data) POST /users name=John&amp;age=30 请求头 (Headers) Content-Type: application/json PUT">
   <meta name="keywords" content="blog,developer,personal">
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Django教程"/>
-<meta name="twitter:description" content="Django 教程[toc] 通信协议 HTTP get 传参(对数据长度有限制(大约 2048 个字符) http://example.com/api?k1=v1&k2=v2 post 传参 request header Content-Type 指明数据格式 request body json form-data text put 传参同 post, 只是需要对象存在 delete websocket TCP UDP 网站"/>
+<meta name="twitter:description" content="通信协议 HTTP 请求方式 传参方式 示例 GET 查询字符串 (Query Parameters) GET /users?id=123 路径参数 (Path Parameters) GET /users/123 请求头 (Headers) Authorization: Bearer token POST 请求体 (Request Body) POST /users { &quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30 } 表单数据 (Form Data) POST /users name=John&amp;age=30 请求头 (Headers) Content-Type: application/json PUT"/>
 
   <meta property="og:title" content="Django教程" />
-<meta property="og:description" content="Django 教程[toc] 通信协议 HTTP get 传参(对数据长度有限制(大约 2048 个字符) http://example.com/api?k1=v1&k2=v2 post 传参 request header Content-Type 指明数据格式 request body json form-data text put 传参同 post, 只是需要对象存在 delete websocket TCP UDP 网站" />
+<meta property="og:description" content="通信协议 HTTP 请求方式 传参方式 示例 GET 查询字符串 (Query Parameters) GET /users?id=123 路径参数 (Path Parameters) GET /users/123 请求头 (Headers) Authorization: Bearer token POST 请求体 (Request Body) POST /users { &quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30 } 表单数据 (Form Data) POST /users name=John&amp;age=30 请求头 (Headers) Content-Type: application/json PUT" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zhenda-hub.github.io/posts/django%E6%95%99%E7%A8%8B/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-30T14:07:14+08:00" />
@@ -199,57 +199,111 @@
               col-lg-8 col-lg-offset-2
               col-md-10 col-md-offset-1
               post-container">
-        <h1 id="django-教程">Django 教程<a class="anchorjs-link" href="#django-%e6%95%99%e7%a8%8b"></a></h1><p>[toc]</p>
-<h2 id="通信协议">通信协议<a class="anchorjs-link" href="#%e9%80%9a%e4%bf%a1%e5%8d%8f%e8%ae%ae"></a></h2><ul>
-<li>
-<p>HTTP</p>
-<ul>
-<li>get
-<ul>
-<li>传参(对数据长度有限制(大约 2048 个字符)
-<ul>
-<li><a href="http://example.com/api?k1=v1&amp;k2=v2" target="_blank">http://example.com/api?k1=v1&k2=v2</a></li>
+        <h2 id="通信协议">通信协议<a class="anchorjs-link" href="#%e9%80%9a%e4%bf%a1%e5%8d%8f%e8%ae%ae"></a></h2><ul>
+<li>HTTP</li>
 </ul>
-</li>
-</ul>
-</li>
-<li>post
+<table>
+<thead>
+<tr>
+<th>请求方式</th>
+<th>传参方式</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>查询字符串 (Query Parameters)</td>
+<td><code>GET /users?id=123</code></td>
+</tr>
+<tr>
+<td></td>
+<td>路径参数 (Path Parameters)</td>
+<td><code>GET /users/123</code></td>
+</tr>
+<tr>
+<td></td>
+<td>请求头 (Headers)</td>
+<td><code>Authorization: Bearer token</code></td>
+</tr>
+<tr>
+<td>POST</td>
+<td>请求体 (Request Body)</td>
+<td><code>POST /users</code><br><code>{ &quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30 }</code></td>
+</tr>
+<tr>
+<td></td>
+<td>表单数据 (Form Data)</td>
+<td><code>POST /users</code><br><code>name=John&amp;age=30</code></td>
+</tr>
+<tr>
+<td></td>
+<td>请求头 (Headers)</td>
+<td><code>Content-Type: application/json</code></td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>请求体 (Request Body)</td>
+<td><code>PUT /users/123</code><br><code>{ &quot;name&quot;: &quot;Jane&quot;, &quot;age&quot;: 25 }</code></td>
+</tr>
+<tr>
+<td></td>
+<td>路径参数 (Path Parameters)</td>
+<td><code>PUT /users/123</code></td>
+</tr>
+<tr>
+<td></td>
+<td>请求头 (Headers)</td>
+<td><code>Content-Type: application/json</code></td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>请求体 (Request Body)</td>
+<td><code>PATCH /users/123</code><br><code>{ &quot;age&quot;: 31 }</code></td>
+</tr>
+<tr>
+<td></td>
+<td>路径参数 (Path Parameters)</td>
+<td><code>PATCH /users/123</code></td>
+</tr>
+<tr>
+<td></td>
+<td>请求头 (Headers)</td>
+<td><code>Content-Type: application/json</code></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>路径参数 (Path Parameters)</td>
+<td><code>DELETE /users/123</code></td>
+</tr>
+<tr>
+<td></td>
+<td>请求头 (Headers)</td>
+<td><code>Authorization: Bearer token</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code>-   get
+    -   url传参(对数据长度有限制(大约 2048 个字符)
+        -   http://example.com/api?k1=v1&amp;k2=v2
+-   post
+    -   传参
+        -   类型
+            -   request header
+                -   Content-Type 指明数据格式
+            -   request body
+                -   json
+                -   form-data
+                -   text
+        -   url传参 
+-   put
+    -   传参同 post, 只是需要对象存在
+-   delete
+</code></pre>
 <ul>
-<li>传参
-<ul>
-<li>request header
-<ul>
-<li>Content-Type 指明数据格式</li>
-</ul>
-</li>
-<li>request body
-<ul>
-<li>json</li>
-<li>form-data</li>
-<li>text</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>put
-<ul>
-<li>传参同 post, 只是需要对象存在</li>
-</ul>
-</li>
-<li>delete</li>
-</ul>
-</li>
-<li>
-<p>websocket</p>
-</li>
-<li>
-<p>TCP</p>
-</li>
-<li>
-<p>UDP</p>
-</li>
+<li>websocket</li>
+<li>TCP</li>
+<li>UDP</li>
 </ul>
 <h2 id="网站开发逻辑梳理">网站开发逻辑梳理<a class="anchorjs-link" href="#%e7%bd%91%e7%ab%99%e5%bc%80%e5%8f%91%e9%80%bb%e8%be%91%e6%a2%b3%e7%90%86"></a></h2><h3 id="初级阶段使用-admin-后台快速建站">初级阶段，使用 admin 后台快速建站<a class="anchorjs-link" href="#%e5%88%9d%e7%ba%a7%e9%98%b6%e6%ae%b5%e4%bd%bf%e7%94%a8-admin-%e5%90%8e%e5%8f%b0%e5%bf%ab%e9%80%9f%e5%bb%ba%e7%ab%99"></a></h3><ul>
 <li>
@@ -267,7 +321,7 @@
 <li>objects =</li>
 </ul>
 </li>
-<li>自定义BaseModel</li>
+<li>自定义 BaseModel</li>
 </ul>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -428,11 +482,16 @@
 </li>
 <li>基本格式
 <ul>
-<li>‘’</li>
-<li>create</li>
-<li>&lt;int:pk&gt;</li>
-<li>&lt;int:pk&gt;/update</li>
-<li>&lt;int:pk&gt;/delete</li>
+<li>''</li>
+<li>create/</li>
+<li>&lt;int:pk&gt;/</li>
+<li>&lt;int:pk&gt;/update/</li>
+<li>&lt;int:pk&gt;/delete/</li>
+</ul>
+</li>
+<li>传参数
+<ul>
+<li>使用&lt;&gt;来传参</li>
 </ul>
 </li>
 <li>
@@ -442,9 +501,50 @@
 <li>
 <p>view</p>
 <ul>
-<li>FBV</li>
-<li>CBV</li>
-<li>中间件， 钩子</li>
+<li>概念：处理请求， 返回响应。通常会操作数据库</li>
+<li>请求和响应
+<ul>
+<li><a href="https://docs.djangoproject.com/zh-hans/5.0/ref/request-response/" target="_blank">https://docs.djangoproject.com/zh-hans/5.0/ref/request-response/</a></li>
+<li>HttpRequest
+<ul>
+<li>可以在中间件中设置各种需要的属性</li>
+</ul>
+</li>
+<li>HttpResponse
+<ul>
+<li>分类
+<ul>
+<li>纯文本</li>
+<li>json</li>
+<li>html</li>
+<li>文件</li>
+<li>redirect</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据库操作
+<ul>
+<li><a href="https://docs.djangoproject.com/en/5.0/ref/models/querysets/#get" target="_blank">https://docs.djangoproject.com/en/5.0/ref/models/querysets/#get</a></li>
+</ul>
+</li>
+<li>FBV
+<ul>
+<li>很直观，完全自主可控的写法</li>
+</ul>
+</li>
+<li>CBV
+<ul>
+<li>django提供了一些类来作为view, 不是很好用</li>
+</ul>
+</li>
+<li>中间件， 钩子
+<ul>
+<li>概念：在HttpRequest到达view的前后，自定义额外的处理逻辑</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
@@ -497,25 +597,163 @@
 <li>
 <p>form</p>
 <ul>
-<li>Form: 灵活设置</li>
+<li>Form: 灵活设置需要的字段</li>
 <li>ModelForm：针对模型，添加了数据的验证和保存的功能</li>
 </ul>
 </li>
 </ul>
-<h2 id="具体功能">具体功能<a class="anchorjs-link" href="#%e5%85%b7%e4%bd%93%e5%8a%9f%e8%83%bd"></a></h2><h3 id="用户和邮箱">用户和邮箱<a class="anchorjs-link" href="#%e7%94%a8%e6%88%b7%e5%92%8c%e9%82%ae%e7%ae%b1"></a></h3><p>用户模块的重要意义： 支持多端用户，千人千面。
-settings.AUTH_USER_MODEL
-登录状态检测</p>
-<h3 id="权限">权限<a class="anchorjs-link" href="#%e6%9d%83%e9%99%90"></a></h3><h3 id="celery-处理异步任务和定时任务">celery 处理异步任务和定时任务<a class="anchorjs-link" href="#celery-%e5%a4%84%e7%90%86%e5%bc%82%e6%ad%a5%e4%bb%bb%e5%8a%a1%e5%92%8c%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1"></a></h3><h3 id="缓存">缓存<a class="anchorjs-link" href="#%e7%bc%93%e5%ad%98"></a></h3><h2 id="前后端分离">前后端分离<a class="anchorjs-link" href="#%e5%89%8d%e5%90%8e%e7%ab%af%e5%88%86%e7%a6%bb"></a></h2><ul>
+<h2 id="具体功能">具体功能<a class="anchorjs-link" href="#%e5%85%b7%e4%bd%93%e5%8a%9f%e8%83%bd"></a></h2><h3 id="用户和邮箱">用户和邮箱<a class="anchorjs-link" href="#%e7%94%a8%e6%88%b7%e5%92%8c%e9%82%ae%e7%ae%b1"></a></h3><p>新项目的用户模型</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#177500"># app/models.py</span>
+<span style="color:#a90d91">from</span> <span style="color:#000">django.contrib.auth.models</span> <span style="color:#a90d91">import</span> <span style="color:#000">AbstractUser</span>
+
+
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">User</span>(<span style="color:#000">AbstractUser</span>):
+    <span style="color:#a90d91">pass</span>
+
+<span style="color:#177500"># project/settings.py</span>
+<span style="color:#000">settings</span><span style="color:#000">.</span><span style="color:#000">AUTH_USER_MODEL</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;appname.User&#39;</span>
+
+<span style="color:#177500"># app.admin.py</span>
+<span style="color:#a90d91">from</span> <span style="color:#000">django.contrib.auth.admin</span> <span style="color:#a90d91">import</span> <span style="color:#000">UserAdmin</span>
+
+
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">CustomUserAdmin</span>(<span style="color:#000">UserAdmin</span>):
+    <span style="color:#000">...</span>
+    <span style="color:#000">fieldsets</span> <span style="color:#000">=</span> <span style="color:#000">UserAdmin</span><span style="color:#000">.</span><span style="color:#000">fieldsets</span> <span style="color:#000">+</span> ((<span style="color:#a90d91">None</span>, {<span style="color:#c41a16">&#34;fields&#34;</span>: [<span style="color:#c41a16">&#34;custom_field&#34;</span>]}),)
+    <span style="color:#000">add_fieldsets</span> <span style="color:#000">=</span> <span style="color:#000">UserAdmin</span><span style="color:#000">.</span><span style="color:#000">add_fieldsets</span> <span style="color:#000">+</span> ((<span style="color:#a90d91">None</span>, {<span style="color:#c41a16">&#34;fields&#34;</span>: [<span style="color:#c41a16">&#34;custom_field&#34;</span>]}),)
+</code></pre></td></tr></table>
+</div>
+</div><p>老项目的用户模型</p>
+<p>使用OneToOneField</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a90d91">from</span> <span style="color:#000">django.contrib.auth.models</span> <span style="color:#a90d91">import</span> <span style="color:#000">User</span>
+
+
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">Employee</span>(<span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">Model</span>):
+    <span style="color:#000">user</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">OneToOneField</span>(<span style="color:#000">User</span>, <span style="color:#000">on_delete</span><span style="color:#000">=</span><span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">CASCADE</span>)
+    <span style="color:#000">department</span> <span style="color:#000">=</span> <span style="color:#000">models</span><span style="color:#000">.</span><span style="color:#000">CharField</span>(<span style="color:#000">max_length</span><span style="color:#000">=</span><span style="color:#1c01ce">100</span>)
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="权限">权限<a class="anchorjs-link" href="#%e6%9d%83%e9%99%90"></a></h3><ul>
+<li>RBAC： 基于角色控制访问</li>
+<li>分类
+<ul>
+<li>retrieve detail</li>
+<li>create</li>
+<li>retrieve list</li>
+<li>update detail</li>
+<li>delete detail</li>
+</ul>
+</li>
+</ul>
+<h3 id="celery-处理异步任务和定时任务">celery 处理异步任务和定时任务<a class="anchorjs-link" href="#celery-%e5%a4%84%e7%90%86%e5%bc%82%e6%ad%a5%e4%bb%bb%e5%8a%a1%e5%92%8c%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1"></a></h3><h3 id="缓存">缓存<a class="anchorjs-link" href="#%e7%bc%93%e5%ad%98"></a></h3><h2 id="前后端分离">前后端分离<a class="anchorjs-link" href="#%e5%89%8d%e5%90%8e%e7%ab%af%e5%88%86%e7%a6%bb"></a></h2><ul>
 <li>DRF
 <ul>
-<li>FBV</li>
-<li>CBV</li>
+<li>概念
+<ul>
+<li>对 django 框架进一步封装的第三方包，以便于写出 restfulAPI</li>
+</ul>
+</li>
+<li>Serialization
+<ul>
+<li>data
+<ul>
+<li>to_representation() 重写序列化逻辑</li>
+<li>valid_xxxx() 重写验证逻辑</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>APIView
+<ul>
+<li>Request</li>
+<li>Response
+<ul>
+<li>status.xxx</li>
+</ul>
+</li>
+<li>顺序
+<ul>
+<li>as_view()
+<ul>
+<li>dispatch()
+<ul>
+<li>Authentication</li>
+<li>Permission</li>
+<li>Throttling</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>view func</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Viewset</li>
+<li>Router</li>
 </ul>
 </li>
 <li>VUE</li>
+<li>CORS 报错
+<ul>
+<li>pip install django-cors-headers</li>
+<li><a href="https://www.cnblogs.com/WiseAdministrator/articles/11488681.html" target="_blank">https://www.cnblogs.com/WiseAdministrator/articles/11488681.html</a></li>
 </ul>
-<h2 id="网站部署">网站部署<a class="anchorjs-link" href="#%e7%bd%91%e7%ab%99%e9%83%a8%e7%bd%b2"></a></h2><p>配置 nginx 和 uwsgi</p>
+</li>
+</ul>
+<h2 id="网站部署">网站部署<a class="anchorjs-link" href="#%e7%bd%91%e7%ab%99%e9%83%a8%e7%bd%b2"></a></h2><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pythono manage.py check --deploy
+</code></pre></td></tr></table>
+</div>
+</div><p>配置 nginx 和 uwsgi</p>
 <h2 id="django-源码风格">django 源码风格<a class="anchorjs-link" href="#django-%e6%ba%90%e7%a0%81%e9%a3%8e%e6%a0%bc"></a></h2><p>广泛使用 Minin 和 decorator</p>
+<h2 id="相关文档">相关文档<a class="anchorjs-link" href="#%e7%9b%b8%e5%85%b3%e6%96%87%e6%a1%a3"></a></h2><ul>
+<li><a href="https://docs.djangoproject.com/zh-hans/5.0/" target="_blank">Django Doc</a></li>
+<li><a href="https://www.django-rest-framework.org/tutorial/quickstart/" target="_blank">DRF Doc</a></li>
+</ul>
+<h2 id="常见问题">常见问题<a class="anchorjs-link" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98"></a></h2><h3 id="cors">CORS<a class="anchorjs-link" href="#cors"></a></h3><p>浏览器的同源策略: 是一个重要的安全机制. 禁止不同源访问.</p>
+<p>源由协议、域名和端口号组成, 例如</p>
+<ul>
+<li>http://127.0.0.1:8000</li>
+<li>ws://127.0.0.1:8000</li>
+</ul>
+<p>跨域请求: CORS是一种机制，允许服务器声明哪些源可以访问它的资源。这需要<strong>服务器端的配置</strong>。</p>
 
 
         <hr style="visibility: hidden;" />
@@ -528,6 +766,13 @@ settings.AUTH_USER_MODEL
             </a>
           </li>
           
+          
+          <li class="next">
+            <a href="/posts/programming-paradigm/" data-toggle="tooltip" data-placement="top" title="Programming Paradigm">
+              Next<br>
+              <span>Programming Paradigm</span>
+            </a>
+          </li>
           
         </ul>
         <hr style="visibility: hidden;" />
@@ -592,8 +837,6 @@ settings.AUTH_USER_MODEL
   <h5>FEATURED TAGS</h5>
   <div class="tags">
     
-    <a href="/tags/basic_tools/">basic_tools</a>
-    
     <a href="/tags/css/">css</a>
     
     <a href="/tags/data/">data</a>
@@ -628,6 +871,10 @@ settings.AUTH_USER_MODEL
     
     <a href="/tags/text/">text</a>
     
+    <a href="/tags/tools/">tools</a>
+    
+    <a href="/tags/videos/">videos</a>
+    
     <a href="/tags/web/">web</a>
     
   </div>
@@ -635,6 +882,16 @@ settings.AUTH_USER_MODEL
 
         
         
+
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://gohugo.io" target="_blank">John Doe</a></li>
+  
+  <li><a href="https://www.kumao.cool" target="_blank">Guo Qiang</a></li>
+  
+</ul>
 
       </div>
     </div>
