@@ -17,8 +17,4 @@ cat config.toml || cat config.yaml || cat config.json || echo "No config file fo
 echo "Theme directory:"
 ls -R themes
 
-# 尝试构建站点
-echo "Attempting to build site:"
-hugo --minify
-
 echo "== End of Check =="
