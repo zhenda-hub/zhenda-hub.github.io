@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-06-23T18:17:06+08:00
 draft = true
 toc = true
-tags = []
+tags = ['bible']
 +++
 
 ## 洗礼

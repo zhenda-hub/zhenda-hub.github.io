@@ -52,7 +52,7 @@ Learn more and contribute on [GitHub](https://github.com/gohugoio).
                         -   2.jpg
     -   生成
         -   hugo
-            -   -D
+            -   -D 包含draft
         -   生成的静态网站
             -   public
                 -   关联 pages
