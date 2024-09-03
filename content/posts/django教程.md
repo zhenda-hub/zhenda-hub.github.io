@@ -2,7 +2,7 @@
 title = 'Django教程'
 subtitle = ""
 date = 2024-04-30T14:07:14+08:00
-draft = true
+draft = false
 toc = true
 tags = ["web"]
 +++

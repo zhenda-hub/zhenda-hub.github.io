@@ -2,7 +2,7 @@
 title = 'Personal Growth'
 subtitle = ""
 date = 2024-05-24T10:20:29+08:00
-draft = true
+draft = false
 toc = true
 tags = []
 +++

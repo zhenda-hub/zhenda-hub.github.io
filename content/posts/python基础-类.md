@@ -1,7 +1,7 @@
 +++
 title = 'Python基础 类'
 date = 2023-11-23T21:54:28+08:00
-draft = true
+draft = false
 toc = true
 tags = ["Python", "Software Architecture"]
 +++

@@ -2,7 +2,7 @@
 title = 'Ubuntu使用配置'
 subtitle = ""
 date = 2024-04-30T13:43:06+08:00
-draft = true
+draft = false
 toc = true
 tags = ["linux"]
 +++

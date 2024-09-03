@@ -2,7 +2,7 @@
 title = 'Programming Paradigm'
 subtitle = ""
 date = 2024-05-22T11:19:53+08:00
-draft = true
+draft = false
 toc = true
 tags = []
 +++

@@ -1,7 +1,7 @@
 +++
 title = 'Python基础 虚拟环境管理 Anaconda'
 date = 2023-11-23T21:49:57+08:00
-draft = true
+draft = false
 toc = true
 tags = ["Python"]
 +++
