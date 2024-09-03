@@ -35,3 +35,9 @@ use giscus:
 - hugo
 - hexo
 - mkdocs
+
+TODO: 
+
+- 换theme
+- 文章分类
+- 设置 submodule
