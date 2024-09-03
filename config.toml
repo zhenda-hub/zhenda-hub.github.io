@@ -1,0 +1,134 @@
+# baseURL = "http://localhost:1313/subdir"
+baseURL = "https://zhenda-hub.github.io/"
+
+title = "Zhenda's Blog"
+
+theme = "puppet"
+# themesDir = "../.."
+
+copyright = "Copyright © 2023-2024. All Rights Reserved. Zhenda 版权所有"
+paginate = 5
+languageCode = "en"
+defaultContentLanguage = "en"
+
+hasCJKLanguage = true
+enableInlineShortcodes = true
+enableEmoji = true
+# prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
+# See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
+ignoreErrors = ["error-remote-getjson"]
+
+disqusShortname = ""
+googleAnalytics = ""
+
+[outputs]
+home = ["HTML", "JSON", "RSS"]
+# section = ['html', 'rss']
+# taxonomy = ['html']
+# term = ['html']
+
+# prevent build failures when using Hugo's template _internal/opengraph.html 
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+[markup]
+[markup.highlight]
+noClasses = true
+codeFences = true
+guessSyntax = true
+lineNos = true
+lineNumbersInTable = true
+tabWidth = 4
+
+# style = "dracula"
+# style = "catppuccin-latte"
+# style = "github"
+style = "xcode"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[menu]
+[[menu.main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = -100
+[[menu.main]]
+identifier = "archive"
+name = "Archive"
+url = "/archive/"
+weight = 10
+[[menu.main]]
+identifier = "guide"
+name = "Guide"
+url = "/series/themes-guide/"
+weight = 20
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 50
+[[menu.main]]
+identifier = "github"
+name = "Github"
+url = "https://github.com/zhenda-hub/"
+weight = 100
+
+
+[params]
+author = "Zhenda"
+description = "Just Do It"
+keywords = "blog,developer,personal"
+img_home = "img/home-bg.jpg"
+img_404 = "img/404-bg.jpg"
+
+useFaviconGenerator = true
+
+custom_js = []
+custom_css = [] # ["css/custom.css"]  Add your file to assets folder  [assets/css/custom.css]
+
+[params.sidebar]
+enable = true
+gravatarEmail = ""
+# Overwritten by your gravatar image if `gravatarEmail` is filled
+avatar = "img/home-bg.jpg"
+bio = "a personal website"
+
+[params.social]
+github = "zhenda-hub"
+rss = true
+# twitter = "johndoe"
+# facebook = "johndoe"
+# zhihu = "johndoe"
+# weibo = "johndoe"
+# gitlab = "johndoe"
+# linkedin = "johndoe"
+
+# [params.social.mastodon]
+# weight = 56
+# icon = "fab fa-mastodon"
+# format = "https://mastodon.social/%v"
+# id = "johndoe"
+# url = ""
+
+[[params.friends]]
+name = "John Doe"
+url = "https://gohugo.io"
+
+[[params.friends]]
+name = "Guo Qiang"
+url = "https://www.kumao.cool"
+
+# See https://giscus.app/
+[params.giscus]
+enable = true
+repo = "zhenda-hub/zhenda-hub.github.io"
+repo_id = "R_kgDOKvQVww"
+category = "Announcements"
+category_id = "DIC_kwDOKvQVw84CfdFG"
+input_position = "top"
+theme = "light"
+lang = "en"
