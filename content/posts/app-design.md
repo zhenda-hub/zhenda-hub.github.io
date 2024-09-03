@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-05-26T01:10:45+08:00
 draft = false
 toc = true
-tags = ["web", "gui]
+tags = ["web", "gui"]
 +++
 
 -   cs
