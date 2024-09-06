@@ -743,10 +743,6 @@ $(date -u +"")
    ```
 3. 在github的代码仓库中, 设置很多的secret
 
-### yaml文件
-
-
-
 ## 其余内容
 
 ### Buildx
