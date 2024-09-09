@@ -9,6 +9,11 @@ tags = ['tools']
 
 [TOC]
 
+## 参考链接
+
+-   https://markdown.com.cn/basic-syntax/headings.html
+-   https://mermaid.js.org/intro/
+
 ## 基础
 
 -   标题
@@ -59,6 +64,94 @@ tags = ['tools']
 -   html
     -   设置各种 css 颜色
 
-## 参考链接
+## 高级
 
--   https://markdown.com.cn/basic-syntax/headings.html
+Mermaid Diagram
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+
+```
+
+```mermaid
+gantt
+dateFormat  YYYY-MM-DD
+title Adding GANTT diagram to mermaid
+excludes weekdays 2014-01-10
+
+section A section
+Completed task            :done,    des1, 2014-01-06,2014-01-08
+Active task               :active,  des2, 2014-01-09, 3d
+Future task               :         des3, after des2, 5d
+Future task2               :         des4, after des3, 5d
+
+```
+
+```mermaid
+journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+
+```
+
+```mermaid
+sankey-beta
+
+%% source,target,value
+Electricity grid,Over generation / exports,104.453
+Electricity grid,Heating and cooling - homes,113.726
+Electricity grid,H2 conversion,27.14
+
+```
+
+```mermaid
+---
+title: Simple sample
+---
+stateDiagram-v2
+    [*] --> Still
+    Still --> [*]
+
+    Still --> Moving
+    Moving --> Still
+    Moving --> Crash
+    Crash --> [*]
+
+```
+
+```mermaid
+flowchart TB
+    A --> C
+    A --> D
+    B --> C
+    B --> D
+
+```
+
+```mermaid
+mindmap
+Root
+    A
+        B
+        C
+    D
+        E
+        F
+    Q
+        Q1
+        Q2
+            1
+            2
+            3
+
+```
