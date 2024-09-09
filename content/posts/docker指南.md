@@ -430,6 +430,7 @@ COPY --from=builder path2 path2
 - 不同服务
 - 负载均衡
 - debug和测试
+- 尽量少的绑定端口, 外部不使用时,不绑定
 
 ## Volume 和 Bind Mount
 
