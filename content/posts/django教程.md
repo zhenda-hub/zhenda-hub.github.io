@@ -74,6 +74,30 @@ tags = ["web"]
 | XMPP | 即时消息和在线协作协议 | 即时通讯、在线协作 | 功能丰富 | 社区相对较小 | 较低 |
 | CoAP       | 专为物联网设备设计的轻量级协议，基于 UDP，类似于精简版的 HTTP。                                        | 低功耗、资源受限的设备通信，如传感器网络、智能城市等。           | 轻量级、低开销、支持组播，适用于受限环境。                               | 基于 UDP 传输，可靠性不如 TCP，适用场景有限，功能较简单。                    | 低（物联网中逐渐普及）            |
 
+### mqtt
+
+核心概念:
+
+| 名词 | 概念 |
+|---|---|
+| Broker | 消息代理，负责接收、存储和转发消息到订阅者。 |
+| Client | 客户端，可以是发布者或订阅者。 |
+| Topic | 主题，用于标识消息的分类和路由。 |
+| Message | 消息，由发布者发送并由代理转发给订阅者。 |
+| Subscription | 订阅，客户端订阅一个或多个主题，以接收相关的消息。 |
+| Publication | 发布，客户端发布消息到某个主题。 |
+
+
+关系流程:
+
+```mermaid
+graph TD
+    ClientA[Client A: Publisher] -->|Publish| Broker((MQTT Broker))
+    ClientB[Client B: Publisher] -->|Publish| Broker
+    Broker -->|Forward| ClientC[Client C: Subscriber]
+    Broker -->|Forward| ClientD[Client D: Subscriber]
+
+```
 
 ## 网站开发逻辑梳理
 
