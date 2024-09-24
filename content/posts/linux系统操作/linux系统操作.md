@@ -111,6 +111,7 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
 -   文件文件夹相关
 
     -   mkdir 文件夹名： 创建文件夹
+        -   mkdir -p fold1/{subfold1,subfold2}
     -   touch 文件名：创建文件
     -   rm 文件名： 删除文件或文件夹
     -   mv 文件名 移动位置： 移动文件或文件夹
@@ -260,7 +261,10 @@ sudo 命令 提升权限 visudo
 
 ```bash
 netstat -tulnp | grep :3306
+ss -tulnp | grep 3306
 lsof -i:3306
+
+kill -9 3306
 ```
 
 ### 防火墙
