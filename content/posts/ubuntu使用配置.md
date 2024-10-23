@@ -92,7 +92,7 @@ exit
 scp ... ...
 ```
 
-## open picture
+## open image
 
 ```bash
 eog xxx.png

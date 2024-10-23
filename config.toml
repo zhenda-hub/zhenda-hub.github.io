@@ -122,6 +122,10 @@ url = "https://gohugo.io"
 name = "Guo Qiang"
 url = "https://www.kumao.cool"
 
+[[params.friends]]
+name = "梅塔沃克 - 专注跨境"
+url = "https://iweec.com/"
+
 # See https://giscus.app/
 [params.giscus]
 enable = true

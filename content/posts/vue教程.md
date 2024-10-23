@@ -40,32 +40,66 @@ npm run lint
 
 ## 内容总结
 
--   nodejs
-    -   运行环境
-    -   npm
-        -   nodejs 的包管理器
-    -   npm
-        -   配置源
-            -   get registry
-            -   config set registry 地址
-        -   list
-            -   默认显示本地
-            -   -g
-                -   全局
-        -   -v
-            -   查看版本
-        -   config list
-            -   查看 config
-        -   install 模块名
-            -   安装
-        -   update 模块名
-            -   更新
-        -   uninstall 模块名
-            -   卸载
-        -   init
-            -   生成 package.json
-        -   run serve
-            -   运行项目
+### 基本概念
+
+| 名称 | 作用 |
+|---|---|
+| nvm | node版本管理工具 |
+| node | 运行环境 |
+| npm | node的包管理工具 |
+
+nvm 命令
+
+```bash
+# 查看
+nvm ls
+nvm ls-remote
+
+# 设置默认版本
+nvm alias default xxx.xxx.xxx
+
+# 使用
+nvm use xxx.xxx.xxx
+nvm install xxx.xxx.xxx
+nvm uninstall xxx.xxx.xxx
+```
+
+node 命令
+
+```bash
+node -v
+node xxx.js
+```
+npm 命令
+
+```bash
+# 配置源
+npm get registry
+npm config set registry 地址
+
+# 查看版本
+npm -v
+npm config list
+
+# 操作包
+# 默认显示本地包
+npm list
+# 显示全局包
+npm list -g
+npm install
+
+npm install xxx
+npm uninstall xxx
+npm update xxx
+
+# 生成 package.json, 前端通用配置文件
+npm init
+
+# 运行功能
+npm run dev
+npm run build
+```
+
 -   启动项目方式
     -   create vue
         -   npm
@@ -83,10 +117,12 @@ npm run lint
         -   template
         -   style
     -   项目结构
-        -   router
-        -   views
-        -   App.vue
-            -   主文件
+        -   src
+            -   router
+            -   views
+            -   App.vue
+            -   main.js
+        -   index.html
 -   基础
     -   变量类型
         -   响应式基础
@@ -132,8 +168,10 @@ npm run lint
 -   组件
     -   作用
         -   代码复用
-    -   组建间传参
+    -   父亲向子传参
         -   defineProps
+    -   子向父亲传参
+        -   defineEmits
 -   vue-router
     -   RouterLink
         -   <RouterLink :to="{ name: 'video' }">Video</RouterLink>

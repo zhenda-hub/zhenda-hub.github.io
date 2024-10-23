@@ -24,26 +24,85 @@ tags = ["Python"]
 
 ---
 
-管理python虚拟环境方法很多，我们在此分享知名的anaconda
 
-### conda重要命令汇总
+<!--
+| 工具    | 特点          | 使用场景                                      |
+|---------|---------------|-----------------------------------------------|
+|---------|---------------|-----------------------------------------------|
+-->
 
-#### 虚拟环境管理
+### poetry
 
-1. 查看所有环境和当前环境(前面有*标记的)： __conda info --envs__
-2. 切换并进入环境： __conda activate 环境名__
-3. 退出环境： conda deactivate
-4. 创建指定版本的python环境： __conda create --name 环境名 python=3.9__
-5. 删除环境：__conda remove --name 环境名 --all__
+```bash
+poetry new myproject
+poetry add <package>
+```
 
-#### 环境中的包管理
 
-1. 查看包的信息： __conda list__
-2. 安装包： conda install 包名.  安装了pip之后可以使用：__pip install 包名__
-3. 卸载包： conda remove 包名
-4. 更新所有包到最新的兼容版本： __conda update --all__
+### pyenv
 
-#### 导入导出环境包
+不太支持windows
 
-1. 导出当前环境的包：__conda env export > freeze.yml__
-2. 导入, 注意防止环境名重复：__conda env create -f freeze.yml__
+| 命令                                 | 功能说明                                                         |
+|-------------------------------------|------------------------------------------------------------------|
+| `pyenv install <version>`           | 安装指定版本的 Python，例如 `pyenv install 3.9.7`                 |
+| `pyenv uninstall <version>`         | 卸载指定版本的 Python                                            |
+| `pyenv versions`                    | 列出已安装的所有 Python 版本                                      |
+| `pyenv version`                     | 显示当前使用的 Python 版本                                        |
+| `pyenv global <version>`            | 设置全局的 Python 版本，例如 `pyenv global 3.9.7`                  |
+| `pyenv local <version>`             | 在当前目录设置本地的 Python 版本，例如 `pyenv local 3.8.5`         |
+| `pyenv shell <version>`             | 为当前 shell 会话临时设置 Python 版本，例如 `pyenv shell 3.7.3`   |
+| `pyenv rehash`                      | 重新生成 `shims`，每次安装或卸载 Python 版本后需要执行            |
+| `pyenv which <command>`             | 显示当前 Python 环境中某个命令的绝对路径，例如 `pyenv which python`|
+| `pyenv doctor`                      | 检查 pyenv 是否安装正确并配置好                                   |
+| `pyenv update`                      | 更新 pyenv 本身及其插件                                           |
+
+其他有用的插件命令
+
+| 命令                                 | 功能说明                                                         |
+|-------------------------------------|------------------------------------------------------------------|
+| `pyenv virtualenv <version> <name>` | 创建一个基于指定 Python 版本的虚拟环境                            |
+| `pyenv virtualenvs`                 | 列出所有使用 pyenv 创建的虚拟环境                                 |
+| `pyenv activate <name>`             | 激活指定的虚拟环境                                                |
+| `pyenv deactivate`                  | 退出当前的虚拟环境                                                |
+
+
+### venv
+
+```bash                      
+# 创建环境
+python3 -m venv myenv         
+
+# 激活环境
+source myenv/bin/activate     
+
+# 安装包
+pip install <package>         
+```
+
+### conda常用命令
+
+```bash
+# 虚拟环境管理
+# 查看所有环境和当前环境(前面有*标记的)
+conda info --envs
+# 切换并进入环境
+conda activate 环境名
+# 退出环境
+conda deactivate
+# 创建指定版本的python环境
+conda create --name 环境名 python=3.9
+# 删除环境
+conda remove --name 环境名 --all
+
+# 环境中的包管理
+conda list
+# 更新所有包到最新的兼容版本
+conda update --all
+
+# 导入导出环境包
+conda env export > freeze.yml
+# 导入, 注意防止环境名重复
+conda env create -f freeze.yml
+```
+
