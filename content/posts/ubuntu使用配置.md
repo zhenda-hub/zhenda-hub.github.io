@@ -136,7 +136,12 @@ nameserver 8.8.4.4
 ibus restart
 ibus-setup
 ```
+## gnome
 
+```bash
+# 重启
+sudo systemctl restart gdm
+```
 
 ## Remaining matters
 
