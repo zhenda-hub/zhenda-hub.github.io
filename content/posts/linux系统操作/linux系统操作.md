@@ -223,7 +223,7 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
 
 相关命令
 
--   du -sh 文件名 ：查看各文件大小
+-   du -hd 1 | sort -rh ：查看各文件大小
 -   df -h ：检查磁盘空间占用情况
 
 ## 中级阶段

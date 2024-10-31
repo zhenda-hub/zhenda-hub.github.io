@@ -125,19 +125,6 @@ docker run -d -v local_folder_path:container_folder_path username/image_name:tag
 docker run --restart  username/image_name:tag_version
 ```
 
-### restart policy
-
-Restart policies only apply to containers.
-
-<https://docs.docker.com/engine/containers/start-containers-automatically/>
-
-| Flag | Description |
-|----------|-----|
-| no      | Don't automatically restart the container. (Default) |
-| on-failure[:max-retries]      | Restart the container if it exits due to an error, which manifests as a non-zero exit code. Optionally, limit the number of times the Docker daemon attempts to restart the container using the :max-retries option. The on-failure policy only prompts a restart if the container exits with a failure. It doesn't restart the container if the daemon restarts |
-| always      | 	Always restart the container if it stops. If it's manually stopped, it's restarted only when Docker daemon restarts or the container itself is manually restarted. (See the second bullet listed in restart policy details) |
-| unless-stopped      | Similar to always, except that when the container is stopped (manually or otherwise), it isn't restarted even after Docker daemon restarts. |
-
 - 查阅命令
 
 ```bash
@@ -490,6 +477,8 @@ docker-compose.yaml 的目的是编排多个服务
 
 -   <https://docs.docker.com/reference/compose-file/>
 -   <https://docs.docker.com/compose/compose-file/05-services/#simple-example>
+-   开发 <https://docs.docker.com/compose/how-tos/file-watch/#use-watch>
+-   生产 <https://docs.docker.com/compose/how-tos/production/>
   
 ### yaml文件
 
@@ -621,6 +610,28 @@ docker compose exec service_name /bin/bash
 docker compose config
 # 指定环境变量文件
 docker compose --env-file .env.production up -d
+```
+
+### restart
+
+Restart policies only apply to containers.
+
+<https://docs.docker.com/engine/containers/start-containers-automatically/>
+
+| Flag | Description |
+|----------|-----|
+| no      | Don't automatically restart the container. (Default) |
+| on-failure[:max-retries]      | Restart the container if it exits due to an error, which manifests as a non-zero exit code. Optionally, limit the number of times the Docker daemon attempts to restart the container using the :max-retries option. The on-failure policy only prompts a restart if the container exits with a failure. It doesn't restart the container if the daemon restarts |
+| always      | 	Always restart the container if it stops. If it's manually stopped, it's restarted only when Docker daemon restarts or the container itself is manually restarted. (See the second bullet listed in restart policy details) |
+| unless-stopped      | Similar to always, except that when the container is stopped (manually or otherwise), it isn't restarted even after Docker daemon restarts. |
+
+
+### healthcheck
+
+### volumes
+
+```yaml
+driver_opts
 ```
 
 ## 项目目录结构推荐
