@@ -7,7 +7,10 @@ theme = "puppet"
 # themesDir = "../.."
 
 copyright = "Copyright © 2023-2024. All Rights Reserved. Zhenda 版权所有"
-paginate = 5
+
+[pagination]
+pagerSize = 5
+
 languageCode = "en"
 defaultContentLanguage = "en"
 

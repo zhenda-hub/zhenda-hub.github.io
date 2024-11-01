@@ -22,6 +22,11 @@ a project to generate my blog
 
 https://gohugo.io/installation/linux/
 
+```bash
+# install and update
+brew install hugo
+```
+
 ## theme
 
 https://github.com/roninro/hugo-theme-puppet
