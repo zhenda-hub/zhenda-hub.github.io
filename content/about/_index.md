@@ -41,5 +41,5 @@ date = "2024-03-28"
 
 如果你有任何问题、建议或者只是想跟我交流，都可以通过以下方式联系我：
 
-- 电子邮箱：<a href="mailto:1955093734@qq.com">mailto:1955093734@qq.com</a>
+- 电子邮箱：<a href="mailto:msoft77564532@outlook.com">mailto:msoft77564532@outlook.com</a>
 - 博客评论：你可以在我的博客文章下方留言，我会尽快回复你的。
