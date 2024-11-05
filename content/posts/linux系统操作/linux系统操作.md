@@ -237,7 +237,7 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
     tar -xzvf xxx.tar.gz
 
     # zip
-    zip xxx.zip f1 f2
+    zip -r xxx.zip f1 f2
     unzip xxx.zip
     ```
 
@@ -295,7 +295,8 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
 
 相关命令
 
--   du -hd 1 | sort -rh ：查看各文件大小
+-   du -hd 1 | sort -rh ：查看各文件大小, 有些文件看不到
+-   du -sh * | sort -rh ：查看各文件大小
 -   df -h ：检查磁盘空间占用情况
 
 ## 中级阶段
