@@ -220,11 +220,27 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
     -   find -name 文件名： 查找
 
 -   打包和压缩
-    -   不同文件后缀的含义
-        -   .tar： 打包文件
-        -   .tar.gz： 压缩包文件， 大小约为打包文件的 1/7
-    -   命令
-        -   tar
+    | 属性             | tar(打包)+gzip(压缩, 大小约为打包文件的 1/7)| zip                               |
+    |------------------|-----------------------------------------|-----------------------------------|
+    | 文件后缀         | `.tar.gz` 或 `.tgz`                     | `.zip`                            |
+    | 多文件支持       | 使用 `tar` 打包多个文件并压缩           | 原生支持多文件和目录结构           |
+    | 压缩率           | 高，适合大文件和数据集                   | 一般，适合较小的文件或目录         |
+    | 兼容性           | Linux/Unix 中常用工具，Windows 较少用    | Windows、Mac、Linux 全面支持       |
+    | 是否支持加密     | 不支持，需借助其他工具                  | 支持基本密码加密                   |
+    | 是否支持分卷压缩 | 不支持                                  | 支持                              |
+
+    命令:
+
+    ```bash
+    # tar
+    tar -czvf xxx.tar.gz f1 f2 f3
+    tar -xzvf xxx.tar.gz
+
+    # zip
+    zip xxx.zip f1 f2
+    unzip xxx.zip
+    ```
+
 
 ### 文件权限
 

@@ -55,8 +55,15 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
     # alias
     alias ls='ls --time-style=long-iso'
     alias ll='ls -alFh'
-    ```
 
+    alias edge='microsoft-edge'
+    alias chrome='google-chrome'
+
+    ```
+- ~/.profile
+    ```bash
+
+    ```
 -   ~/.vimrc
 
     ```bash

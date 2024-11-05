@@ -461,6 +461,30 @@ docker run --rm -v new_volume:/volume -v $(pwd):/backup busybox tar -xzvf /backu
 
 如果两个容器位于同一网络上，它们可以相互通信。如果他们不是，他们就不能
 
+```bash
+# 首先创建一个外部网络
+docker network create web_network
+
+# 查看网络详情
+docker network inspect web_network
+
+# 测试容器间连接
+docker exec nginx-container ping site1-web
+```
+
+```yaml
+# nginx的 docker-compose.yaml
+services:
+  nginx:
+    image: nginx:alpine
+    networks:
+      - web_network
+
+networks:
+  web_network:
+    external: true    # 声明这是一个外部网络
+```
+
 ## Image测试平台
 
 <https://labs.play-with-docker.com/>
@@ -573,13 +597,6 @@ services:
     hostname: web2
     ports:
       - '82:5000'
-  nginx:
-    build: ./nginx
-    ports:
-      - "${NGINX_PORT}:8000"  # 环境变量设置对外port
-    depends_on:
-      - web1
-      - web2
 volumes:
   redis-data:
 ```
@@ -655,9 +672,6 @@ myproject/
 ├── db/                   # 数据库服务的目录（可选）
 │   ├── Dockerfile        # 数据库服务的Dockerfile（如自定义配置）
 │   └── init.sql          # 初始化数据库的SQL脚本（可选）
-└── nginx/                # Nginx服务的目录（可选）
-    ├── Dockerfile        # Nginx服务的Dockerfile（如自定义配置）
-    └── nginx.conf        # Nginx配置文件
 
 ```
 
