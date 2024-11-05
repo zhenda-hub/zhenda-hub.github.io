@@ -140,7 +140,7 @@ tags = []
                     -   指定版本
                 -   pip install --upgrade xxx
                     -   更新 xxx
-                -   pip show
+                -   pip show xxx
                     -   查看包地址
                 -   pip list | grep xxx
                     -   查看指定包
