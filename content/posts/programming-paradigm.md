@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-05-22T11:19:53+08:00
 draft = false
 toc = true
-tags = []
+tags = ["Software Architecture"]
 +++
 
 ## 编程范式

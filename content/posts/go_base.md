@@ -2,9 +2,9 @@
 title = 'Go_base'
 subtitle = ""
 date = 2024-09-25T17:17:57+08:00
-draft = true
+draft = false
 toc = true
-tags = []
+tags = ["go"]
 +++
 
 ## 资料

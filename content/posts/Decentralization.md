@@ -2,9 +2,9 @@
 title = 'Decentralization'
 subtitle = ""
 date = 2024-11-07T02:07:14+08:00
-draft = true
+draft = false
 toc = true
-tags = []
+tags = ["trade"]
 +++
 
 # 去中心化

@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-11-05T16:42:27+08:00
 draft = false
 toc = true
-tags = []
+tags = ["Python"]
 +++
 
 python 工具 pip

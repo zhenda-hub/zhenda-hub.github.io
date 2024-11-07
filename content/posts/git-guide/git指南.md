@@ -507,8 +507,10 @@ git commit -m "retrigger checks" --allow-empty
 
 
 
-# 撤销暂存区 add
+# 撤销add状态
 git reset
+# 撤销指定文件的add状态
+git reset xxx.py
 # 撤销 commit 到 add
 git reset --soft id
 # 撤销 commit 到 0

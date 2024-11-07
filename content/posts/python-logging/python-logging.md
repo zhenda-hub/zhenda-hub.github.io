@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-06-03T12:52:52+08:00
 draft = true
 toc = true
-tags = []
+tags = ["python"]
 +++
 
 -   loguru

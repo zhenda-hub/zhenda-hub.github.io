@@ -2,7 +2,7 @@
 title = 'AI教程'
 subtitle = ""
 date = 2024-05-24T10:16:53+08:00
-draft = true
+draft = false
 toc = true
 tags = []
 +++
@@ -19,6 +19,34 @@ tags = []
 - 法律风险：在许多地方,这种做法可能违反劳动法和隐私法。
 - 误判问题：简单的视频监控很难准确判断一个人是否在工作。思考、讨论等看似"不工作"的行为可能是工作过程的重要组成部分。
 - 士气低落：这种管理方式会严重打击员工积极性,可能导致优秀员工离职。
+
+
+## 名词关系网
+
+```mermaid
+graph TD
+    AI[人工智能 AI] --> ML[机器学习 Machine Learning]
+    AI --> LOG[逻辑推理]
+    AI --> EXP[专家系统]
+    
+    ML --> DL[深度学习 Deep Learning]
+    ML --> TRADITIONAL[传统机器学习]
+    
+    TRADITIONAL --> SVM[支持向量机]
+    TRADITIONAL --> DT[决策树]
+    TRADITIONAL --> RF[随机森林]
+    
+    DL --> NN[神经网络 Neural Network]
+    
+    NN --> CNN[卷积神经网络]
+    NN --> RNN[循环神经网络]
+    NN --> TRANS[Transformer]
+    
+    style AI fill:#f9f,stroke:#333
+    style ML fill:#bbf,stroke:#333
+    style DL fill:#bfb,stroke:#333
+    style NN fill:#fbf,stroke:#333
+```
 
 ## 大模型
 
