@@ -2,7 +2,7 @@
 title = 'Computer Science Crash Course'
 subtitle = ""
 date = 2024-05-24T10:25:32+08:00
-draft = true
+draft = false
 toc = true
 tags = ['videos']
 +++

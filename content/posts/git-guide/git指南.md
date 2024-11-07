@@ -7,7 +7,9 @@ toc = true
 tags = ["git", "tools"]
 +++
 
-## 官方文档: <https://git-scm.com/book/zh/v2>
+## 官方文档
+
+<https://git-scm.com/book/zh/v2>
 
 ## git 原理
 

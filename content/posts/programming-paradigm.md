@@ -55,6 +55,6 @@ tags = ["Software Architecture"]
         -   all
         -   zip
     -   itertools
-        -   。。。
+        -   ...
     -   functools
         -   ...
