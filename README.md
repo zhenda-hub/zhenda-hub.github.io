@@ -17,6 +17,7 @@ a project to generate my blog
 
 - https://gohugo.io/getting-started/configuration-markup/
 - https://lawsssscat.github.io/hugo-usage-doc/docs/hugo/layout-usage/
+- https://gohugo.io/content-management/mathematics/
 
 ## install hugo
 

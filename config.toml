@@ -50,8 +50,17 @@ tabWidth = 4
 # style = "github"
 style = "xcode"
 
-[markup.goldmark.renderer]
-unsafe = true
+
+
+[markup.goldmark]
+    [markup.goldmark.renderer]
+    unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
 
 [menu]
 [[menu.main]]
@@ -92,6 +101,7 @@ useFaviconGenerator = true
 
 custom_js = []
 custom_css = [] # ["css/custom.css"]  Add your file to assets folder  [assets/css/custom.css]
+math = true
 
 [params.sidebar]
 enable = true
