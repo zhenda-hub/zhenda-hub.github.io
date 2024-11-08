@@ -56,3 +56,19 @@ position
 - relative 相对于默认位置
 - absolute 相对于容器
 - fixed  相对于视图
+
+
+## 案例
+
+分割线样式
+
+```html
+<hr style="height:2px;border:none;border-top:2px dotted #185598;" />
+<hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+<hr style="height:1px;border:none;border-top:1px solid #555555;" />
+<hr style="height:3px;border:none;border-top:3px double red;" />
+<hr style="height:5px;border:none;border-top:5px ridge green;" />
+<hr style="height:10px;border:none;border-top:10px groove skyblue;" />
+```
+
+链接 <https://www.yisu.com/jc/119190.html>
