@@ -107,7 +107,9 @@ tags = ["web"]
 | XMPP | 即时消息和在线协作协议 | 即时通讯、在线协作 | 功能丰富 | 社区相对较小 | 较低 |
 | CoAP       | 专为物联网设备设计的轻量级协议，基于 UDP，类似于精简版的 HTTP。                                        | 低功耗、资源受限的设备通信，如传感器网络、智能城市等。           | 轻量级、低开销、支持组播，适用于受限环境。                               | 基于 UDP 传输，可靠性不如 TCP，适用场景有限，功能较简单。                    | 低（物联网中逐渐普及）            |
 
-### mqtt
+### 发布/订阅消息传输协议
+
+#### mqtt
 
 核心概念:
 
@@ -130,6 +132,42 @@ graph TD
     Broker -->|Forward| ClientC[Client C: Subscriber]
     Broker -->|Forward| ClientD[Client D: Subscriber]
 
+```
+
+#### kafka
+
+特点: 提供持久性存储
+
+关系流程:
+
+```mermaid
+flowchart LR
+    subgraph Producers[生产者]
+        P[Producer]
+    end
+
+    subgraph Kafka[Kafka Cluster]
+        subgraph Broker1[Broker Leader]
+            T1[Topic-Partition1]
+        end
+        
+        subgraph Broker2[Broker Follower]
+            R1[Replica]
+        end
+    end
+
+    subgraph Consumers[消费者]
+        C1[Consumer Group]
+    end
+
+    %% 核心流程
+    P -->|1.发送消息| T1
+    T1 -->|2.同步复制| R1
+    T1 -->|3.消费消息| C1
+    
+    %% 添加说明
+    classDef broker fill:#f9f,stroke:#333,stroke-width:2px;
+    class Broker1,Broker2 broker;
 ```
 
 ## 网站开发逻辑梳理
