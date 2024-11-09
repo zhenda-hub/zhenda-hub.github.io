@@ -31,13 +31,51 @@ tags = ["Python"]
 |---------|---------------|-----------------------------------------------|
 -->
 
+### conda常用命令
+
+```bash
+# 虚拟环境管理
+# 查看所有环境和当前环境(前面有*标记的)
+conda info --envs
+# 切换并进入环境
+conda activate 环境名
+# 退出环境
+conda deactivate
+# 创建指定版本的python环境
+conda create --name 环境名 python=3.9
+# 删除环境
+conda remove --name 环境名 --all
+
+# 环境中的包管理
+conda list
+# 更新所有包到最新的兼容版本
+conda update --all
+
+# 导入导出环境包
+conda env export > freeze.yml
+# 导入, 注意防止环境名重复
+conda env create -f freeze.yml
+```
+
+### venv
+
+```bash                      
+# 创建环境
+python3 -m venv myenv         
+
+# 激活环境
+source myenv/bin/activate     
+
+# 安装包
+pip install <package>         
+```
+
 ### poetry
 
 ```bash
 poetry new myproject
 poetry add <package>
 ```
-
 
 ### pyenv
 
@@ -65,44 +103,4 @@ poetry add <package>
 | `pyenv virtualenvs`                 | 列出所有使用 pyenv 创建的虚拟环境                                 |
 | `pyenv activate <name>`             | 激活指定的虚拟环境                                                |
 | `pyenv deactivate`                  | 退出当前的虚拟环境                                                |
-
-
-### venv
-
-```bash                      
-# 创建环境
-python3 -m venv myenv         
-
-# 激活环境
-source myenv/bin/activate     
-
-# 安装包
-pip install <package>         
-```
-
-### conda常用命令
-
-```bash
-# 虚拟环境管理
-# 查看所有环境和当前环境(前面有*标记的)
-conda info --envs
-# 切换并进入环境
-conda activate 环境名
-# 退出环境
-conda deactivate
-# 创建指定版本的python环境
-conda create --name 环境名 python=3.9
-# 删除环境
-conda remove --name 环境名 --all
-
-# 环境中的包管理
-conda list
-# 更新所有包到最新的兼容版本
-conda update --all
-
-# 导入导出环境包
-conda env export > freeze.yml
-# 导入, 注意防止环境名重复
-conda env create -f freeze.yml
-```
 
