@@ -53,25 +53,27 @@ tags = ["docker", "tools"]
 - dockerhub
   - 自动build 需要付费
 - ghcr
-  - <https://docs.github.com/zh/packages/working-with-a-github-packages-registry/working-with-the-container-registry>
-  - <https://medium.com/@deepak1812002/get-started-with-github-ghcr-an-alternative-of-dockerhub-f7d5b2198b9a>
-  - <https://gist.github.com/yokawasa/841b6db379aa68b2859846da84a9643c>
 
 ### ghcr
 
+相关教程:
+- <https://docs.github.com/zh/packages/working-with-a-github-packages-registry/working-with-the-container-registry>
+- <https://medium.com/@deepak1812002/get-started-with-github-ghcr-an-alternative-of-dockerhub-f7d5b2198b9a>
+- <https://gist.github.com/yokawasa/841b6db379aa68b2859846da84a9643c>
+
+token设置地址:
+- <https://github.com/settings/tokens>
 
 #### 手动推送
 
 1. 登录
-- <https://github.com/settings/tokens>
-- <https://docs.github.com/zh/packages/working-with-a-github-packages-registry/working-with-the-container-registry>
 
 ```bash
 export CR_PAT=YOUR_TOKEN
 echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
 ```
 
-1. 命令
+2. 命令
 ```bash
 
 docker tag xxxx ghcr.io/github_id/image_name:tag_name

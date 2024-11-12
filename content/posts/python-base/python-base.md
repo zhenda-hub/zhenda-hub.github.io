@@ -165,7 +165,7 @@ tags = ["python"]
                         -   linux
                             -   export PYTHONPATH=./
                         -   win
-                            -   cwd
+                            -   cmd
                                 -   set PYTHONPATH=./
                             -   powershell
 
