@@ -461,7 +461,23 @@ docker run --rm -v new_volume:/volume -v $(pwd):/backup busybox tar -xzvf /backu
 
 ## Container Networking
 
+相关文档:
+
+- <https://docs.docker.com/engine/network/>
+- <https://docs.docker.com/engine/network/drivers/>
+
 如果两个容器位于同一网络上，它们可以相互通信。如果他们不是，他们就不能
+
+网络Drivers:
+
+| Driver   | Description                                                                                   |
+|----------|----------------------------------------------------------------------------------------|
+| `bridge` | The default network driver.                           |
+| `host`   | **Remove network isolation** between the container and the Docker host.  |
+| `none`   | **Completely isolate** a container from the host and other containers.   |
+| `overlay`| Overlay networks connect **multiple Docker daemons** together.        |
+| `ipvlan` | IPvlan networks provide full control over both IPv4 and IPv6 addressing.  |
+| `macvlan`| Assign a **MAC address** to a container.                     |
 
 ```bash
 # 首先创建一个外部网络
