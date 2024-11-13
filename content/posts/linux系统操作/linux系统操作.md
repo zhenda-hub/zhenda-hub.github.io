@@ -372,6 +372,10 @@ sudo 命令 提升权限 visudo
 -   ifconfig
 -   ping
 -   curl
+    ```
+    # 网上文件下载
+    curl httpaddr -o filename
+    ```
 
 #### 查看port
 
