@@ -51,3 +51,36 @@ curl http://localhost:11434/api/generate -d '{
 
 
 ```
+
+## embedding
+
+<https://blog.csdn.net/weixin_43589681/article/details/139269119>
+
+Q: RAG是什么?
+
+A: RAG，全称Retrieval-Augmented Generation，中文译为检索增强生成。它是一种结合了信息检索和生成模型的技术，旨在让大语言模型（LLM）能够访问和利用外部知识库中的信息，从而生成更准确、更全面的回答。
+
+
+
+Q: 为什么需要 embedding?
+
+A: embedding 是将文本、图像等非数值数据转化为**数值向量**的一种技术。在RAG中，embedding起到了至关重要的桥梁作用。
+
+embedding的特点:
+
+- 语义表达能力强:
+
+Embedding 可以捕捉词汇和句子的语义信息。
+相似的词语和句子在向量空间中也会相近。
+
+
+- 模型输入优化:
+
+大多数机器学习模型需要数值型输入,Embedding 可以将文本转换为合适的输入格式。
+
+
+- 计算效率提升:
+
+Embedding 可以大幅压缩文本信息,降低计算复杂度。
+基于向量运算的模型计算效率更高。
+
