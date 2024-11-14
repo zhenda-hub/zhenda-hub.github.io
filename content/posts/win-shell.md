@@ -2,7 +2,7 @@
 title = 'Win Shell'
 subtitle = ""
 date = 2024-11-12T20:32:30+08:00
-draft = true
+draft = false
 toc = true
 tags = []
 +++
