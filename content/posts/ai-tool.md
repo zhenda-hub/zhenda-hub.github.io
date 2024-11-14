@@ -2,7 +2,7 @@
 title = 'Ai Tool'
 subtitle = ""
 date = 2024-11-13T21:08:52+08:00
-draft = true
+draft = false
 toc = true
 tags = []
 +++
