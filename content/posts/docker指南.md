@@ -465,6 +465,7 @@ docker run --rm -v new_volume:/volume -v $(pwd):/backup busybox tar -xzvf /backu
 
 - <https://docs.docker.com/engine/network/>
 - <https://docs.docker.com/engine/network/drivers/>
+- <https://docs.docker.com/desktop/features/networking/>
 
 如果两个容器位于同一网络上，它们可以相互通信。如果他们不是，他们就不能
 
@@ -502,6 +503,15 @@ networks:
   web_network:
     external: true    # 声明这是一个外部网络
 ```
+
+容器访问主机的ip
+
+```
+http://host.docker.internal
+```
+
+主机的 IP 地址不断变化，如果您无法访问网络，则没有 IP 地址。我们建议您连接到特殊的 DNS 名称host.docker.internal，该名称可解析为主机使用的内部 IP 地址。
+
 
 ## Image测试平台
 
@@ -565,6 +575,21 @@ docker-compose.yaml 的目的是编排多个服务
 在 Docker Compose 中
 
 - 服务名称会自动解析为对应的容器 IP 地址
+
+  ```dockerfile
+  services:
+    web:
+      image: nginx
+      depends_on:
+        - api
+      environment:
+        - API_URL=http://api:8080  # 直接使用服务名 api 作为主机名
+
+    api:
+      image: api-service
+      ports:
+        - "8080:8080"
+  ```
 
 - 设置环境变量
   - 使用.env文件设置
