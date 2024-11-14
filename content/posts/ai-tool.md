@@ -52,6 +52,13 @@ curl http://localhost:11434/api/generate -d '{
 
 ```
 
+容器访问ollama的地址
+
+```
+http://host.docker.internal:11434
+```
+
+
 ## embedding
 
 <https://blog.csdn.net/weixin_43589681/article/details/139269119>
