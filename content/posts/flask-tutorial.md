@@ -124,6 +124,8 @@ app.add_url_rule(
 ```bash
 pip install Flask-SQLAlchemy
 pip install Flask-Migrate
+pip install flask-restful
+
 pip install WTForms
 pip install Flask-WTF
 pip install Flask-Admin
