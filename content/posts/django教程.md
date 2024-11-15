@@ -170,6 +170,33 @@ flowchart LR
     class Broker1,Broker2 broker;
 ```
 
+```python
+from kafka import KafkaConsumer
+import json 
+
+consumer = KafkaConsumer(
+    'your_topic_name',
+    bootstrap_servers='your_kafka_broker:9092',
+    group_id='your_consumer_group',
+    value_deserializer=lambda v: json.loads(v.decode('utf-8'))  # Deserialize JSON
+)
+
+# 阻塞
+for i in consumer:
+    ...
+
+# 非阻塞
+while 1:
+    for topic, msg in consumer.poll():
+        ...
+```
+
+常见问题:
+
+kafka nobrokersavailable
+
+
+
 ## 网站开发逻辑梳理
 
 ### 初级阶段，使用 admin 后台快速建站
