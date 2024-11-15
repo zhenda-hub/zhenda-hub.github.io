@@ -58,8 +58,7 @@ curl http://localhost:11434/api/generate -d '{
 http://host.docker.internal:11434
 ```
 
-
-## embedding
+## RAG
 
 <https://blog.csdn.net/weixin_43589681/article/details/139269119>
 
@@ -67,7 +66,7 @@ Q: RAG是什么?
 
 A: RAG，全称Retrieval-Augmented Generation，中文译为检索增强生成。它是一种结合了信息检索和生成模型的技术，旨在让大语言模型（LLM）能够访问和利用外部知识库中的信息，从而生成更准确、更全面的回答。
 
-
+### embedding
 
 Q: 为什么需要 embedding?
 
