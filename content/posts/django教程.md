@@ -170,6 +170,33 @@ flowchart LR
     class Broker1,Broker2 broker;
 ```
 
+```python
+from kafka import KafkaConsumer
+import json 
+
+consumer = KafkaConsumer(
+    'your_topic_name',
+    bootstrap_servers='your_kafka_broker:9092',
+    group_id='your_consumer_group',
+    value_deserializer=lambda v: json.loads(v.decode('utf-8'))  # Deserialize JSON
+)
+
+# 阻塞
+for i in consumer:
+    ...
+
+# 非阻塞
+while 1:
+    for topic, msg in consumer.poll():
+        ...
+```
+
+常见问题:
+
+kafka nobrokersavailable
+
+
+
 ## 网站开发逻辑梳理
 
 ### 初级阶段，使用 admin 后台快速建站
@@ -254,6 +281,8 @@ flowchart LR
     -   ## 邮件重置密码
 
 ### 直接编写后台逻辑和前台模板页面
+
+<https://python.plainenglish.io/building-a-basic-crud-using-django-b218d6859206>
 
 -   url
     -   include()
@@ -364,14 +393,47 @@ class Employee(models.Model):
 ### 权限
 
 -   RBAC： 基于角色控制访问
--   分类
+-   权限分类
+    -   retrieve list
     -   retrieve detail
     -   create
-    -   retrieve list
     -   update detail
     -   delete detail
 
-### celery 处理异步任务和定时任务
+### 异步任务和定时任务
+
+Celery 是一个分布式任务队列系统，广泛用于处理异步任务和定时任务。
+
+<https://docs.celeryq.dev/en/stable/index.html>
+
+| 组件 | 功能描述 | 示意图 |
+|---|---|---|
+| **worker** | 执行任务 | 负责从消息队列中获取任务并执行。 |
+| **beat** | 任务调度器 | 定期检查任务并将其添加到消息队列中。 |
+| **broker** | 消息中间件 | 存储待执行的任务，是 worker 和 beat 之间的桥梁。常见的有 RabbitMQ、Redis、Amazon SQS 等。 |
+| **backend** | 结果存储 | 存储任务执行的结果。常见的有 SQLAlchemy、Redis、MongoDB 等。 |
+
+
+```mermaid
+graph TD
+    A[Celery Beat] -->|调度任务| B(消息队列)
+    B -->|发送任务| C[Celery Worker 1]
+    B -->|发送任务| D[Celery Worker 2]
+    B -->|发送任务| E[Celery Worker N]
+    F[客户端应用] -->|发送任务| B
+    C -->|存储结果| G[Backend]
+    D -->|存储结果| G
+    E -->|存储结果| G
+
+```
+
+常用命令
+```bash
+# 启动worker, 异步处理 耗时任务
+celery -A djangoProject worker -l INFO -P eventlet
+# 启动beat, 调用定时任务
+celery -A djangoProject beat -l INFO
+```
 
 ### 缓存
 
@@ -464,42 +526,6 @@ listen 8081;
 -   [Django Doc](https://docs.djangoproject.com/zh-hans/5.0/)
 -   [DRF Doc](https://www.django-rest-framework.org/tutorial/quickstart/)
 
-## 相关工具
-
-### celery
-
-Celery 是一个分布式任务队列系统，广泛用于处理异步任务和定时任务。
-
-<https://docs.celeryq.dev/en/stable/index.html>
-
-| 组件 | 功能描述 | 示意图 |
-|---|---|---|
-| **worker** | 执行任务 | 负责从消息队列中获取任务并执行。 |
-| **beat** | 任务调度器 | 定期检查任务并将其添加到消息队列中。 |
-| **broker** | 消息中间件 | 存储待执行的任务，是 worker 和 beat 之间的桥梁。常见的有 RabbitMQ、Redis、Amazon SQS 等。 |
-| **backend** | 结果存储 | 存储任务执行的结果。常见的有 SQLAlchemy、Redis、MongoDB 等。 |
-
-
-```mermaid
-graph TD
-    A[Celery Beat] -->|调度任务| B(消息队列)
-    B -->|发送任务| C[Celery Worker 1]
-    B -->|发送任务| D[Celery Worker 2]
-    B -->|发送任务| E[Celery Worker N]
-    F[客户端应用] -->|发送任务| B
-    C -->|存储结果| G[Backend]
-    D -->|存储结果| G
-    E -->|存储结果| G
-
-```
-
-常用命令
-```bash
-# 启动worker, 处理任务
-celery -A djangoProject worker -l INFO -P eventlet
-# 启动beat, 调用定时任务
-celery -A djangoProject beat -l INFO
-```
 
 ## 常见问题
 
