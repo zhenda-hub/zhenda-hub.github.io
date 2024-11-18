@@ -36,7 +36,7 @@ tags = ['tools']
 | 更新时间 | update_time |
 | 软删除 | is_deleted |
 
-## 外键
+## 外键 ForeignKey
 
 在多的里面设置一的
 
