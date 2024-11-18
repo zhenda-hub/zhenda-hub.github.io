@@ -315,6 +315,20 @@ kafka nobrokersavailable
                 -   redirect
     -   数据库操作
         -   https://docs.djangoproject.com/en/5.0/ref/models/querysets/#get
+            ```python
+            # 查询
+            Book.objects.filter(**dct)
+            Entry.objects.order_by("blog__name", "headline")
+            Poll.objects.get(
+                Q(question__startswith="Who"),
+                Q(pub_date=date(2005, 5, 2)) | Q(pub_date=date(2005, 5, 6)),
+            )
+
+            # 增改删
+            Book.objects.create(**dct)
+            Book.objects.update_or_create(**dct)
+            Book.objects.filter(**dct).delete()
+            ```
     -   FBV
         -   很直观，完全自主可控的写法
     -   CBV
