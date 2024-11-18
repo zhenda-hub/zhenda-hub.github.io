@@ -22,3 +22,13 @@ def func(
     pass
 
 ```
+
+## 多行import
+
+```python
+from .utils.helpers import (
+    format_datetime,
+    calculate_price,
+    generate_order_number,
+)
+```

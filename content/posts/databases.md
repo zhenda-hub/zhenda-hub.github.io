@@ -36,6 +36,18 @@ tags = ['tools']
 | 更新时间 | update_time |
 | 软删除 | is_deleted |
 
+## 外键 ForeignKey
+
+在多的里面设置一的
+
+```python
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)  # author删除时, 所有的book也删除
+```
 ## 事务
 
 ## 索引
