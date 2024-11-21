@@ -319,12 +319,14 @@ kafka nobrokersavailable
         -   https://docs.djangoproject.com/zh-hans/5.0/ref/request-response/
         -   HttpRequest
             -   可以在中间件中设置各种需要的属性
+            -   GET
+            -   POST
+            -   body
         -   HttpResponse
             -   分类
-                -   纯文本
-                -   json
-                -   html
-                -   文件
+                -   HttpResponse
+                -   jsonResponse
+                -   render
                 -   redirect
     -   数据库操作
         -   https://docs.djangoproject.com/en/5.0/ref/models/querysets/#get
