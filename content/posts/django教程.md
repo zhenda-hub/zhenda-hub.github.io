@@ -195,7 +195,20 @@ while 1:
 
 kafka nobrokersavailable
 
+## 前后端数据交互的类型
 
+- json
+```json
+{
+    username: 'john_doe',
+    email: 'john@example.com',
+    age: 30
+}
+```
+- form
+`username=john_doe&email=john@example.com`
+- url
+`/api/users?username=john_doe&email=john@example.com`
 
 ## 网站开发逻辑梳理
 
@@ -328,6 +341,28 @@ kafka nobrokersavailable
             Book.objects.create(**dct)
             Book.objects.update_or_create(**dct)
             Book.objects.filter(**dct).delete()
+            ```
+
+            ```python
+            defaults = {"first_name": "Bob"}
+            create_defaults = {"first_name": "Bob", "birthday": date(1940, 10, 9)}
+            try:
+                obj = Person.objects.get(first_name="John", last_name="Lennon")
+                for key, value in defaults.items():
+                    setattr(obj, key, value)
+                obj.save()
+            except Person.DoesNotExist:
+                new_values = {"first_name": "John", "last_name": "Lennon"}
+                new_values.update(create_defaults)
+                obj = Person(**new_values)
+                obj.save()
+
+            obj, created = Person.objects.update_or_create(
+                first_name="John",
+                last_name="Lennon",
+                defaults={"first_name": "Bob"},  # 更新的数据
+                create_defaults={"first_name": "Bob", "birthday": date(1940, 10, 9)},  # 创建的数据
+            )
             ```
     -   FBV
         -   很直观，完全自主可控的写法

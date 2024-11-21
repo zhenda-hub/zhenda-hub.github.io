@@ -526,4 +526,14 @@ git stash pop
 git stash list
 git stash clear
 
+
+# cherry-pick 合并特定commit 到main
+git checkout main
+git cherry-pick commitidxxxx
+# 有冲突
+git add xxx
+git cherry-pick --continue 
+# 取消合并
+git cherry-pick --abort
+
 ```
