@@ -498,7 +498,7 @@ git submodule update --remote --rebase
 git commit --amend -m ""
 
 # 撤销提交记录
-git reset --head xxx
+git reset --hard xxx
 
 git push -f
 
@@ -507,12 +507,12 @@ git push -f
 git commit -m "retrigger checks" --allow-empty
 
 
-
-
-# 撤销add状态
-git reset
+# 撤销工作区的文件
+git checkout xxx.py
 # 撤销指定文件的add状态
 git reset xxx.py
+# 撤销add状态
+git reset
 # 撤销 commit 到 add
 git reset --soft id
 # 撤销 commit 到 0
@@ -535,5 +535,10 @@ git add xxx
 git cherry-pick --continue 
 # 取消合并
 git cherry-pick --abort
+
+
+# 比较文件内容
+git diff
+git diff commitidxxx -- ./path1/path2/xxx.py
 
 ```
