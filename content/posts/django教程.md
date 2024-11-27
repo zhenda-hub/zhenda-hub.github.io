@@ -325,7 +325,7 @@ kafka nobrokersavailable
         -   HttpResponse
             -   分类
                 -   HttpResponse
-                -   jsonResponse
+                -   JsonResponse / drf 的 Response
                 -   render
                 -   redirect
     -   数据库操作
@@ -346,6 +346,7 @@ kafka nobrokersavailable
             ```
 
             ```python
+            # update_or_create
             defaults = {"first_name": "Bob"}
             create_defaults = {"first_name": "Bob", "birthday": date(1940, 10, 9)}
             try:
@@ -365,6 +366,10 @@ kafka nobrokersavailable
                 defaults={"first_name": "Bob"},  # 更新的数据
                 create_defaults={"first_name": "Bob", "birthday": date(1940, 10, 9)},  # 创建的数据
             )
+
+            # 分组
+            from django.db.omdels import Count
+            type1_lst = MyModel.objects.values('type1').annotate(count=Count('id'))
             ```
     -   FBV
         -   很直观，完全自主可控的写法
