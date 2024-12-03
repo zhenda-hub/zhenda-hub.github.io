@@ -7,6 +7,8 @@ toc = true
 tags = ['tools']
 +++
 
+mysql 优化: <https://dev.to/hamzakhan/how-youtube-scaled-mysql-to-support-249-billion-users-3eea>
+
 ## 设计表
 
 可以通过界面来分析字段
@@ -48,6 +50,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)  # author删除时, 所有的book也删除
 ```
+
 ## 事务
 
 ## 索引
