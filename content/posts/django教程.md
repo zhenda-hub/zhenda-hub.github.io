@@ -504,6 +504,17 @@ celery -A djangoProject beat -l INFO
 
 ## 前后端分离
 
+TODO:
+### api
+
+前后端 通过api来进行交互
+
+优秀api的规范
+
+- restful
+- 文档
+- 验证
+
 -   DRF
     -   概念
         -   对 django 框架进一步封装的第三方包，以便于写出 restfulAPI
@@ -522,12 +533,15 @@ celery -A djangoProject beat -l INFO
                     -   Permission
                     -   Throttling
             -   view func
-    -   Viewset
+    <!-- -   GenericAPIView -->
+    <!-- -   Viewset -->
+    -   GenericViewSet
+    -   ModelViewSet
     -   Router
--   VUE
 -   CORS 报错
     -   pip install django-cors-headers
     -   https://www.cnblogs.com/WiseAdministrator/articles/11488681.html
+-   VUE
 
 ## 网站部署
 
