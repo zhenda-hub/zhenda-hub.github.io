@@ -375,6 +375,15 @@ kafka nobrokersavailable
         -   很直观，完全自主可控的写法
     -   CBV
         -   django提供了一些类来作为view, 不是很好用
+    -   状态码
+        |代码|含义|
+        | --- | --- |
+        | 200 | ok |
+        | 400 | bad request |
+        | 401 | auth fail |
+        | 403 | permission |
+        | 404 | not found |
+        | 500 | server error |
     -   中间件， 钩子
         -   概念：在HttpRequest到达view的前后，自定义额外的处理逻辑
 
