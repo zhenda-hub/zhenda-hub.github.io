@@ -381,6 +381,15 @@ kafka nobrokersavailable
         -   很直观，完全自主可控的写法
     -   CBV
         -   django提供了一些类来作为view, 不是很好用
+    -   状态码
+        |代码|含义|
+        | --- | --- |
+        | 200 | ok |
+        | 400 | bad request |
+        | 401 | auth fail |
+        | 403 | permission |
+        | 404 | not found |
+        | 500 | server error |
     -   中间件， 钩子
         -   概念：在HttpRequest到达view的前后，自定义额外的处理逻辑
 
@@ -501,6 +510,17 @@ celery -A djangoProject beat -l INFO
 
 ## 前后端分离
 
+TODO:
+### api
+
+前后端 通过api来进行交互
+
+优秀api的规范
+
+- restful
+- 文档
+- 验证
+
 -   DRF
     -   概念
         -   对 django 框架进一步封装的第三方包，以便于写出 restfulAPI
@@ -519,12 +539,15 @@ celery -A djangoProject beat -l INFO
                     -   Permission
                     -   Throttling
             -   view func
-    -   Viewset
+    <!-- -   GenericAPIView -->
+    <!-- -   Viewset -->
+    -   GenericViewSet
+    -   ModelViewSet
     -   Router
--   VUE
 -   CORS 报错
     -   pip install django-cors-headers
     -   https://www.cnblogs.com/WiseAdministrator/articles/11488681.html
+-   VUE
 
 ## 网站部署
 

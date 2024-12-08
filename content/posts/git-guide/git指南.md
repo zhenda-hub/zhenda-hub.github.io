@@ -542,4 +542,7 @@ git cherry-pick --abort
 git diff
 git diff commitidxxx -- ./path1/path2/xxx.py
 
+# 查看commit
+git log --stat
+git show commmitid
 ```
