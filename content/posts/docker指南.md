@@ -688,6 +688,14 @@ Restart policies only apply to containers.
 
 ### healthcheck
 
+TODO:
+
+### deploy, replicas
+
+```yaml
+deploy:
+      replicas: 2
+```
 ### volumes
 
 ```yaml
