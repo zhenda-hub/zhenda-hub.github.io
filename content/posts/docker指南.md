@@ -360,9 +360,9 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-# ENTRYPOINT 是容器的默认启动文件(执行一系列命令), CMD 是容器的默认启动命令, 给 ENTRYPOINT 传递参数
-ENTRYPOINT ["./entrypoint.sh"]
-CMD ["tail", "-f", "/dev/null"]
+# ENTRYPOINT 是容器的默认启动文件(执行一系列命令), CMD 是容器的默认启动命令, CMD 给 ENTRYPOINT 传递参数
+# ENTRYPOINT ["sh", "./entrypoint.sh"]
+CMD ["sh", "-c", "tail -f /dev/null"]
 # CMD [ "python", "./your-daemon-or-script.py" ]
 ```
 

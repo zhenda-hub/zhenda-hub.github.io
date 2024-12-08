@@ -78,6 +78,7 @@ tags = ["git", "tools"]
         # 编辑个人信息来显示提交记录
         git config --global user.name "Your Name"
         git config --global user.email "Your Email"
+        git config --global core.autocrlf false
         ```
     -   ssh
         -   作用
