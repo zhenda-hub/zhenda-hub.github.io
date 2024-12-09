@@ -502,6 +502,13 @@ celery -A djangoProject beat -l INFO
 
 ### 缓存
 
+### 查询优化
+
+<https://docs.djangoproject.com/en/5.1/ref/models/querysets/#select-related>
+
+select_related()  foreign key and one-to-one
+prefetch_related() a ‘many’ relationship
+
 ## 前后端分离
 
 TODO:
@@ -522,6 +529,15 @@ TODO:
         -   data
             -   to_representation() 重写序列化逻辑
             -   valid_xxxx() 重写验证逻辑
+    
+    | 类 | 特点 |
+    | --- | --- |
+    | APIView | authentication_classes, throttle_classes, permission_classes |
+    | GenericAPIView + mixin | pagination_class, filter_backends, serializer_class |
+    | ViewSet + DefaultRouter | api |
+    | GenericViewSet |  |
+    | ModelViewSet |  |
+    
     -   APIView
         -   Request
         -   Response
