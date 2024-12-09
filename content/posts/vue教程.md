@@ -101,7 +101,7 @@ npm run build
 ```
 
 -   启动项目方式
-    -   create vue
+    -   create vue(vite)
         -   npm
             -   create vue@latest
             -   install
@@ -187,3 +187,4 @@ npm run build
 -   第三方样式库
     -   https://element.eleme.cn/#/zh-CN/component/installation
     -   https://vant-ui.github.io/vant/#/zh-CN/quickstart
+    -   ElementPlus
