@@ -27,11 +27,13 @@ go 版本切换
 ```bash
 # 下载依赖
 go mod init xxx
-# 更新go.mod文件
-go mod tidy
 # 更新依赖
 go get -u
 go get .
+# 更新go.mod文件
+go mod tidy
+# 查看依赖
+go list -m all
 
 go run .
 # 打包main包

@@ -893,6 +893,18 @@ Buildx 是 Docker 的一个 CLI 插件，扩展了 docker build 命令的功能�
 }
 ```
 
+#### 报错 disk is full
+
+```bash
+# 查看占用情况
+docker system df
+# 清除所有
+docker system prune -a --volumes -f
+
+```
+
+设置 Virtual disk limit
+
 ### 更换安装位置到别的盘
 
 <https://stackoverflow.com/questions/40465979/change-docker-native-images-location-on-windows-10-pro>

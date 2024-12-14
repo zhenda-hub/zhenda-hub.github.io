@@ -155,3 +155,11 @@ sudo systemctl restart gdm
 -   查看所有的 history
 -   视频没有预览图
 -   ping 很多网站不通
+
+
+## sys update
+
+您的 sources.list 中的一些第三方源被禁用。您可以在升级后用"软件源"工具或包管理器来重新启用它们
+
+
+在更新您的软件包信息后，无法定位必要的软件包“ubuntu-minimal”。这可能是因为您没有在软件源中使用官方镜像，或您正在使用的镜像负载过重。请查看 /etc/apt/sources.list 文件了解软件源当前的配置列表。
