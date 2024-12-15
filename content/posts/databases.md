@@ -59,6 +59,21 @@ class Book(models.Model):
 
 ## 数据库连接池
 
+## 远程连接
+
+### 连接mysql的设置, mysql很麻烦
+
+navicat 连接 容器 MySQL 报错 
+
+- [x] --default-authentication-plugin=mysql_native_password
+- [ ] --default-authentication-plugin=caching_sha2_password
+- [ ] --default-authentication-plugin=sha256_password
+
+在 "Driver Properties" 或 "连接属性" 选项卡中添加以下参数：
+
+- allowPublicKeyRetrieval=true
+- useSSL=false
+
 ## 分布式
 
 ### 数据同步
