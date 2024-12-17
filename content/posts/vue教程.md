@@ -180,8 +180,10 @@ npm run build
             -   指的是子 html
 -   axios
     -   http 请求
--   vuex
-    -   状态保持
+-   状态保持
+    -   作用: 父子组件的 数据同步
+    -   pinia
+    -   vuex
 -   表单
 -   部署
 -   第三方样式库

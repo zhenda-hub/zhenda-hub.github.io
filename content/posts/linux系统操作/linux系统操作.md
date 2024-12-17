@@ -375,6 +375,8 @@ sudo 命令 提升权限 visudo
     ```
     # 网上文件下载
     curl httpaddr -o filename
+    # 发送post请求
+    curl -X POST "http://xxxxx" -H "" -d'{"k1":"v1", "k2":"v2"}'
     ```
 
 #### 查看port

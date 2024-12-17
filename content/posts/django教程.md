@@ -507,6 +507,18 @@ celery -A djangoProject worker -l INFO -P eventlet
 celery -A djangoProject beat -l INFO
 ```
 
+常见api:
+
+- 查所有
+- 增
+- 查 状态,结果
+- 删
+
+前端获取结果的方式:
+
+- 前端轮循
+- websocket
+
 ### 缓存
 
 ### 查询优化
