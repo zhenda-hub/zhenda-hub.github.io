@@ -186,6 +186,16 @@ ssh 是一种**安全的网络协议**。 可以安全的远程连接电脑。
 
 -   ssh 用户名@服务器的 IP 地址
 
+### scp
+
+```bash
+scp localfile.txt username@remoteip:/directory
+scp username@remoteip:/file.txt /local_directory
+
+scp -r localfiles username@remoteip:/directory
+scp -r username@remoteip:/directory /local_directory
+
+```
 ### 文件管理
 
 linux 中 一切皆文件

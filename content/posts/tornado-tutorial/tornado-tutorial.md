@@ -27,8 +27,8 @@ tags = ['web']
 
                 -   self.request
 
-                -   self.get_argument()
-                -   self.get_arguments()
+                -   self.get_argument('k') # 获取一个参数
+                -   self.get_arguments('k') # 获取一个参数列表
 
             -   post
             -   put
