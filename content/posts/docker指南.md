@@ -513,6 +513,8 @@ http://host.docker.internal
 主机的 IP 地址不断变化，如果您无法访问网络，则没有 IP 地址。我们建议您连接到特殊的 DNS 名称host.docker.internal，该名称可解析为主机使用的内部 IP 地址。
 
 
+Docker 会使用默认的 bridge 网络, **所有容器**都连接到这个默认网络
+
 ## Image测试平台
 
 <https://labs.play-with-docker.com/>
