@@ -114,6 +114,11 @@ tags = ["web"]
 | XMPP | 即时消息和在线协作协议 | 即时通讯、在线协作 | 功能丰富 | 社区相对较小 | 较低 |
 | CoAP       | 专为物联网设备设计的轻量级协议，基于 UDP，类似于精简版的 HTTP。                                        | 低功耗、资源受限的设备通信，如传感器网络、智能城市等。           | 轻量级、低开销、支持组播，适用于受限环境。                               | 基于 UDP 传输，可靠性不如 TCP，适用场景有限，功能较简单。                    | 低（物联网中逐渐普及）            |
 
+### http
+
+requests 同步请求
+httpx 异步请求
+
 ### 发布/订阅消息传输协议
 
 #### mqtt
@@ -204,6 +209,8 @@ kafka nobrokersavailable
 
 ## 前后端数据交互的类型
 
+请求体:
+
 - json
 ```json
 {
@@ -214,7 +221,9 @@ kafka nobrokersavailable
 ```
 - form
 `username=john_doe&email=john@example.com`
-- url
+
+url:
+
 `/api/users?username=john_doe&email=john@example.com`
 
 ## 网站开发逻辑梳理
