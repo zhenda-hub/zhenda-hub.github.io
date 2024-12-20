@@ -32,3 +32,15 @@ from .utils.helpers import (
     generate_order_number,
 )
 ```
+
+
+## except
+
+```python
+try:
+    1/0
+except Exception as e:
+    print(e)
+    raise RuntimeError('error') from e
+
+```
