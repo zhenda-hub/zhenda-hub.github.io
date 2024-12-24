@@ -7,9 +7,33 @@ toc = true
 tags = []
 +++
 
-## powershell
+## windows系统的终端
 
-### 自定义 
+- cmd
+- windows powershell
+
+## 环境变量的增删改查
+
+```cmd
+set
+set Path
+
+set Path=xxx
+set Path=xxx;%Path%
+```
+
+```windows powershell
+ls env:
+$env:MY_VAR
+Get-Command -Name node -All
+
+$env:MY_VAR = "InitialValue"
+$env:MY_VAR = "InitialValue;$env:MY_VAR"
+$env:PYTHONPATH = "$env:PYTHONPATH;$(Get-Location)"
+rm env:MY_VAR
+```
+
+## 自定义 powershell
 
 ```powershell
 notepad $PROFILE
@@ -52,16 +76,4 @@ Set-Alias -Name kill -Value Stop-Process
 # 网络操作
 Set-Alias -Name ping -Value Test-Connection
 Set-Alias -Name wget -Value Invoke-WebRequest
-```
-
-### 环境变量
-
-```powershell
-ls Env:
-$Env:MY_VAR = "InitialValue"
-$Env:MY_VAR
-rm Env:MY_VAR
-
-
-$env:PYTHONPATH = "$env:PYTHONPATH;$(Get-Location)"
 ```

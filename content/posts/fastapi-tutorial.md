@@ -29,9 +29,18 @@ async await
 
 ### pydantic 类型
 
+<https://docs.pydantic.dev/latest/concepts/models/>
+<https://docs.pydantic.dev/latest/examples/orms/#__tabbed_1_2>
+
+Annotated 和 pydantic 结合:
+
+```python
+from typing import Annotated
+from pydantic import BaseModel, Field
+
+Annotated[str, Field(min_length=2, max_length=5)]
 ```
 
-```
 ## view函数
 
 ### 请求参数和校验
