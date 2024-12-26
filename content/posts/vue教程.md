@@ -89,11 +89,12 @@ npm init
 npm list
 # 显示全局包
 npm list -g
-npm install
 
 npm install xxx
 npm uninstall xxx
 npm update xxx
+
+npm install
 
 # 运行功能
 npm run dev
@@ -113,12 +114,60 @@ npm run build
 ```
 
 
+### 风格
+
+- 选项式(简单, 类)
+- 组合式(复杂, 函数)
+  - 响应式状态变量
+  - Vue 的响应式系统
+
 ### 基础
 
-变量
+Attribute 绑定
+
+```template
+<div v-bind:id="dynamicId"></div>
+<div :id="dynamicId"></div>
+```
+动态绑定多个值
+```js
+const objectOfAttrs = {
+  id: 'container',
+  class: 'wrapper',
+  style: 'background-color:green'
+}
+```
+
+```template
+<div v-bind="objectOfAttrs"></div>
+```
 
 属性
+```js
+export default {
+  // 此选项的值应为 返回一个对象的函数
+  // 请确保始终通过 this 来访问响应式状态
+  data() {
+    return {
+      someObject: {}
+    }
+  },
+  // 它应该是一个 包含所有方法的对象
+  // 你不应该在定义 methods 时使用箭头函数，因为箭头函数没有自己的 this 上下文
+  methods: {
+    increment() {
+      this.count++
+    }
+  },
+  // `mounted` 是生命周期钩子，之后我们会讲到
+  mounted() {
+    const newObject = {}
+    this.someObject = newObject
 
+    console.log(newObject === this.someObject) // false
+  }
+}
+```
 逻辑
 
 事件
