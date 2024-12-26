@@ -550,38 +550,89 @@ TODO:
 - 文档
 - 验证
 
--   DRF
-    -   概念
-        -   对 django 框架进一步封装的第三方包，以便于写出 restfulAPI
-    -   Serialization
-        -   data
-            -   to_representation() 重写序列化逻辑
-            -   valid_xxxx() 重写验证逻辑
+#### DRF
+
+<https://q1mi.github.io/Django-REST-framework-documentation/>
+
+概念: 对 django 框架进一步封装的第三方包，以便于写出 restfulAPI
+
+Serialization
+
+-   to_representation() 重写序列化逻辑
+-   valid_xxxx() 重写验证逻辑
+
+```python
+@csrf_exempt
+def snippet_detail(request, pk):
+    """
+    获取，更新或删除一个 code snippet。
+    """
+    try:
+        snippet = Snippet.objects.get(pk=pk)
+    except Snippet.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = SnippetSerializer(snippet)
+        return JSONResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = SnippetSerializer(snippet, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JSONResponse(serializer.data)
+        return JSONResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        snippet.delete()
+        return HttpResponse(status=204)
+```
+
     
-    | 类 | 特点 |
-    | --- | --- |
-    | APIView | authentication_classes, throttle_classes, permission_classes |
-    | GenericAPIView + mixin | pagination_class, filter_backends, serializer_class |
-    | ViewSet + DefaultRouter | api |
-    | GenericViewSet |  |
-    | ModelViewSet |  |
+| 类 | 特点 |
+| --- | --- |
+| APIView | authentication_classes, throttle_classes, permission_classes |
+| GenericAPIView + mixin | pagination_class, filter_backends, serializer_class |
+| ViewSet + DefaultRouter | api |
+| GenericViewSet |  |
+| ModelViewSet |  |
     
-    -   APIView
-        -   Request
-        -   Response
-            -   status.xxx
-        -   顺序
-            -   as_view()
-                -   dispatch()
-                    -   Authentication
-                    -   Permission
-                    -   Throttling
-            -   view func
-    <!-- -   GenericAPIView -->
-    <!-- -   Viewset -->
-    -   GenericViewSet
-    -   ModelViewSet
-    -   Router
+```python
+class CreateListRetrieveViewSet(mixins.CreateModelMixin,
+                                mixins.ListModelMixin,
+                                mixins.RetrieveModelMixin,
+                                viewsets.GenericViewSet):
+    """
+    A viewset that provides `retrieve`, `create`, and `list` actions.
+
+    To use it, override the class and set the `.queryset` and
+    `.serializer_class` attributes.
+    """
+    pass
+
+
+class AccountViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    A simple ViewSet for viewing accounts.
+    """
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
+
+```
+
+-   APIView
+    -   Request
+    -   Response
+        -   status.xxx
+    -   顺序
+        -   as_view()
+            -   dispatch()
+                -   Authentication
+                -   Permission
+                -   Throttling
+        -   view func
+-   Router
 -   CORS 报错
     -   pip install django-cors-headers
     -   https://www.cnblogs.com/WiseAdministrator/articles/11488681.html

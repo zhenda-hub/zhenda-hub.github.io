@@ -14,6 +14,8 @@ tags = []
 
 ## 环境变量的增删改查
 
+cmd
+
 ```cmd
 set
 set Path
@@ -21,6 +23,8 @@ set Path
 set Path=xxx
 set Path=xxx;%Path%
 ```
+
+windows powershell
 
 ```windows powershell
 ls env:
