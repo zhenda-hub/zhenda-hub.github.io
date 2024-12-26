@@ -176,11 +176,11 @@ export default {
 
 生命周期钩子
 
-### 样式
+### 页面样式(html, css)
 
--   https://element.eleme.cn/#/zh-CN/component/installation
--   https://vant-ui.github.io/vant/#/zh-CN/quickstart
--   ElementPlus
+-   <https://element-plus.org/zh-CN/component/overview.html>
+-   <https://element.eleme.cn/#/zh-CN/component/installation>
+-   <https://vant-ui.github.io/vant/#/zh-CN/quickstart>
 
 
 ### 部署
