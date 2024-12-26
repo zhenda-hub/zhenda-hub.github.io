@@ -671,6 +671,8 @@ docker compose stop service_name
 docker compose start service_name
 # 销毁container， network
 docker compose down
+# 销毁container， network, volume
+docker compose down -v
 # 开发环境,查看实时变化, 需要在compose.yaml添加 develop, watch
 docker compose watch
 # 交互调试, exit退出此模式
