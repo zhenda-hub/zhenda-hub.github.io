@@ -48,7 +48,7 @@ npm run lint
 | node | 运行环境 |
 | npm | node的包管理工具 |
 
-nvm 命令
+nvm 命令:
 
 ```bash
 # 查看
@@ -64,13 +64,13 @@ nvm install xxx.xxx.xxx
 nvm uninstall xxx.xxx.xxx
 ```
 
-node 命令
+node 命令:
 
 ```bash
 node -v
 node xxx.js
 ```
-npm 命令
+npm 命令:
 
 ```bash
 # 配置源
@@ -80,6 +80,9 @@ npm config set registry 地址
 # 查看版本
 npm -v
 npm config list
+
+# 生成 package.json, 前端通用配置文件
+npm init
 
 # 操作包
 # 默认显示本地包
@@ -92,13 +95,51 @@ npm install xxx
 npm uninstall xxx
 npm update xxx
 
-# 生成 package.json, 前端通用配置文件
-npm init
-
 # 运行功能
 npm run dev
 npm run build
 ```
+
+## 创建命令
+
+```bash
+
+```
+
+### 项目结构
+
+```
+
+```
+
+
+### 基础
+
+变量
+
+属性
+
+逻辑
+
+事件
+
+请求
+
+生命周期钩子
+
+### 样式
+
+-   https://element.eleme.cn/#/zh-CN/component/installation
+-   https://vant-ui.github.io/vant/#/zh-CN/quickstart
+-   ElementPlus
+
+
+### 部署
+
+
+
+
+
 
 -   启动项目方式
     -   create vue(vite)
@@ -115,6 +156,7 @@ npm run build
             -   setup
                 -   才可以在 template 中使用
         -   template
+            -   `<style scoped>` 可以确保每个组件的样式不会意外地影响其他组件
         -   style
     -   项目结构
         -   src
@@ -185,8 +227,3 @@ npm run build
     -   pinia
     -   vuex
 -   表单
--   部署
--   第三方样式库
-    -   https://element.eleme.cn/#/zh-CN/component/installation
-    -   https://vant-ui.github.io/vant/#/zh-CN/quickstart
-    -   ElementPlus

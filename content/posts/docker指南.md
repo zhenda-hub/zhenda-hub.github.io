@@ -431,6 +431,13 @@ Docker 不允许直接将一个容器目录同时挂载到宿主机目录和 Doc
 - Volume
   - volume_name:容器文件夹
 
+TODO:
+```yaml
+volumes:
+  - ./frontend:/app        # 将主机的 frontend 目录挂载到容器的 /app
+  - /app/node_modules     # 将容器内的 /app/node_modules 作为独立卷
+```
+
 作用
 1. 使用**共享卷**同步各个容器的数据
 2. 使用卷同步本地和容器的数据
