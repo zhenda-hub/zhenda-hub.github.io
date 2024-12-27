@@ -85,3 +85,24 @@ tags = []
         -   python -m json.tool demo.json
             -   查看 json 文件
     -   mypy
+
+
+## random
+
+```python
+import random
+
+random.random()
+random.uniform(0,10)
+
+random.randrange(0,3,2)
+random.randint(0,9)
+
+random.sample([1,2,3,4,5], k=4)  # 不可重复
+random.choices([1,2,3,4,5], k=4)  # 可重复
+random.choice([1,2,3])
+
+l1 = [1,2,3,4,5]
+random.shuffle(l1)
+l1
+```
