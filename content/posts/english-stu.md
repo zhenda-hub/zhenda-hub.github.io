@@ -35,10 +35,63 @@ tags = []
   - 日语：标注元音长度（如 /o/ 和 /oː/），以及特殊的促音（如 /tɕ/）。
   - 韩语：记录送气音（如 /pʰ/）、紧音（如 /p*/）和浊音。
 
-元音：20个（如 /i:/, /ɪ/, /ə/, /æ/ 等）
-辅音：24个（如 /b/, /k/, /ʃ/, /θ/ 等）
+元音（母音）：发音时**气流不受阻碍**，是构成单词的基础。20个（如 /i:/, /ɪ/, /ə/, /æ/ 等）
+辅音（子音）：发音时**气流受阻**，通常与元音搭配. 24个（如 /b/, /k/, /ʃ/, /θ/ 等）
 
-TODO:
+<https://www.bilibili.com/video/BV1QA411i7Yf/?spm_id_from=333.337.search-card.all.click&vd_source=6fe9df08c5f0e7de9b0e23f0e7cb5da1>
+
+
+注音方式:
+- 宽式注音(更常用) /t/ 
+- 严式注音(更严谨) [t]
+  
+短元音:
+
+- a: cat apple bad dad fat hat
+- e: red bed pet let set 
+- i: 
+  - 短元音: 舌头靠后, 短促 sit  ship dip bit hit lip tip
+  - 长元音: 舌头靠前, 拉长 seat sheap deep
+- o: hot pot lot top dog
+- u: cut but cup luck sun
+
+magic e:
+两个短元音, 第一个会变成长元音
+like note cute
+
+多发音辅音
+
+- c: 
+  - /k/
+  - /s/
+- g:
+  - /g/
+  - /d3/
+- l:
+  - /l/
+  - /t/
+- s:
+  - /s/
+  - /z/
+- t:
+  - /t/
+  - /d/
+- x:
+  - /ks/
+  - /gz/
+
+
+爆破音
+
+后接辅音时, 爆破音可以省略
+p t k b d g
+
+
+
+
+
+
+
 
 ### 连读规则
 
