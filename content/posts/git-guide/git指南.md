@@ -537,6 +537,11 @@ git stash pop
 git stash list
 git stash clear
 
+```
+
+### 保持完美提交的方法
+
+```bash
 # cherry-pick 合并特定commit 到main
 git checkout main
 git cherry-pick commitidxxxx
