@@ -95,6 +95,37 @@ npm run build
 └───main.js
 ```
 
+## 页面结构
+
+```vue
+<template>
+  <div class="todo-item">
+    <h2>{{ title }}</h2>
+    <button @click="markAsDone">Mark as Done</button>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    title: String,
+  },
+  methods: {
+    markAsDone() {
+      console.log('Task completed');
+    },
+  },
+};
+</script>
+
+<style scoped>
+.todo-item {
+  font-family: Arial, sans-serif;
+  margin-bottom: 1em;
+}
+</style>
+
+```
 ## 风格
 
 - 选项式(简单, 类)
@@ -123,7 +154,9 @@ const objectOfAttrs = {
 <div v-bind="objectOfAttrs"></div>
 ```
 
-属性
+### 基本js结构
+
+选项式
 ```js
 export default {
   // 此选项的值应为 返回一个对象的函数
@@ -149,7 +182,28 @@ export default {
   }
 }
 ```
+组合式
 
+```js
+import { ref, computed, onMounted } from 'vue'
+import { Delete, Edit } from '@element-plus/icons-vue'
+import { ElMessage } from 'element-plus'
+import { getTodoList } from '@/api/todo'
+
+const newTodo = ref('')
+const filter = ref('all')
+
+// 初始化时获取数据
+onMounted(() => {
+  fetchTodos()
+})
+
+// 删除待办事项
+const deleteTodo = (todo) => {
+  todos.value = todos.value.filter(t => t.id !== todo.id)
+  ElMessage.success('删除成功')
+}
+```
 逻辑
 
 - v-if 绑定条件很少改变
@@ -224,7 +278,65 @@ function say(message) {
 -   <https://element.eleme.cn/#/zh-CN/component/installation>
 -   <https://vant-ui.github.io/vant/#/zh-CN/quickstart>
 
+### element plus
 
+```js
+import { Delete, Edit } from '@element-plus/icons-vue'
+import { ElMessage } from 'element-plus'
+```
+
+TODO:
+
+Element Plus提供了:xs、:sm、:md、:lg、:xl的响应式属性
+
+```html
+<el-col :xs="24" :sm="8">
+```
+
+TODO:
+使用 Element Plus 的 el-drawer 组件
+
+form
+
+```html
+<el-dialog
+  v-model="editDialogVisible"
+  :title="isEdit ? '编辑待办事项' : '添加待办事项'"
+  width="30%"
+  :close-on-click-modal="false"
+>
+  <el-form :model="editForm" label-width="80px">
+    <el-form-item label="标题">
+      <el-input v-model="editForm.title" />
+    </el-form-item>
+    <el-form-item label="描述">
+      <el-input v-model="editForm.description" type="textarea" />
+    </el-form-item>
+    <el-form-item label="状态">
+      <el-select v-model="editForm.status">
+        <el-option label="待办" value="pending" />
+        <el-option label="完成" value="completed" />
+      </el-select>
+    </el-form-item>
+    <el-form-item label="优先级">
+      <el-select v-model="editForm.priority">
+        <el-option label="低" value="low" />
+        <el-option label="中" value="medium" />
+        <el-option label="高" value="high" />
+      </el-select>
+    </el-form-item>
+    <el-form-item label="截止日期">
+      <el-date-picker v-model="editForm.due_date" type="date" />
+    </el-form-item>
+  </el-form>
+  <template #footer>
+    <span class="dialog-footer">
+      <el-button @click="editDialogVisible = false">取消</el-button>
+      <el-button type="primary" @click="saveEdit">确定</el-button>
+    </span>
+  </template>
+</el-dialog>
+```
 
 
 
