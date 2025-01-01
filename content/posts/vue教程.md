@@ -7,6 +7,8 @@ toc = true
 tags = ["web"]
 +++
 
+[toc]
+
 ## document
 
 -   https://cn.vuejs.org/
@@ -14,33 +16,7 @@ tags = ["web"]
 -   https://www.vueframework.com/docs/v3/cn/style-guide
 -   https://cn.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
-
-## 内容总结
-
-### 基本概念
+## 前置知识
 
 | 名称 | 作用 |
 |---|---|
@@ -107,21 +83,26 @@ npm run build
 
 ```
 
-### 项目结构
+## 项目结构
 
+```bash
+├───assets  # 用于存放静态资源，如图片、字体文件、全局样式等
+├───router  # 存放路由配置文件
+├───stores  # 用于管理全局数据
+├───components  # 存放可复用的 页面内 组件, 如按钮、表单、导航栏等
+├───views  # 存放路由视图组件（页面级组件）
+├───App.vue
+└───main.js
 ```
 
-```
-
-
-### 风格
+## 风格
 
 - 选项式(简单, 类)
 - 组合式(复杂, 函数)
   - 响应式状态变量
   - Vue 的响应式系统
 
-### 基础
+## 基础
 
 Attribute 绑定
 
@@ -168,27 +149,107 @@ export default {
   }
 }
 ```
+
 逻辑
 
+- v-if 绑定条件很少改变
+- v-show 需要频繁切换
+- v-for
+
+```js
+const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
+```
+
+```template
+<li v-for="item in items">
+  {{ item.message }}
+</li>
+```
+
+表单
+
+v-model
+
+```js
+<script setup>
+import { ref } from 'vue'
+
+const message = ref('')
+
+const selected = ref('')
+
+const picked = ref('One')
+</script>
+```
+
+```template
+<textarea v-model="message" placeholder="add multiple lines"></textarea>
+
+<span> Selected: {{ selected }}</span>
+<select v-model="selected">
+  <option disabled value="">Please select one</option>
+  <option>A</option>
+  <option>B</option>
+  <option>C</option>
+</select>
+
+<div>Picked: {{ picked }}</div>
+<input type="radio" id="one" value="One" v-model="picked" />
+<label for="one">One</label>
+<input type="radio" id="two" value="Two" v-model="picked" />
+<label for="two">Two</label>
+```
+
 事件
+
+```js
+function say(message) {
+  alert(message)
+}
+```
+
+```template
+<button @click="say('hello')">Say hello</button>
+<button @click="say('bye')">Say bye</button>
+```
+
 
 请求
 
 生命周期钩子
 
-### 页面样式(html, css)
+## 页面样式(html, css)
 
 -   <https://element-plus.org/zh-CN/component/overview.html>
 -   <https://element.eleme.cn/#/zh-CN/component/installation>
 -   <https://vant-ui.github.io/vant/#/zh-CN/quickstart>
 
 
-### 部署
 
 
 
+## 开发顺序
+
+- 配置路由
+- 初始化状态管理
+- 全局布局
+- 开发页面级组件
+- 开发页面内组件
+- 调用 API
+
+## 输入校验
+
+- 前端获取后端规则：通过接口获取后端定义的验证规则，如密码、用户名格式等。
+- 前端实时验证：使用 Vue 的表单绑定和计算属性，动态应用规则进行表单验证。
+- 后端最终验证：即使前端验证通过，后端仍需要做最终验证，以确保数据符合要求并避免安全风险。
+- 友好的错误反馈：前端根据后端返回的错误信息提供用户友好的提示
+
+## 动态更新
+
+当 URL 路径变化时，Vue Router 会根据配置的路由规则，动态更新并渲染对应的组件到 `<router-view />` 中
 
 
+## 部署
 
 -   启动项目方式
     -   create vue(vite)

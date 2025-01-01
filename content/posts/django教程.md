@@ -433,6 +433,41 @@ url:
 
 ## 具体功能
 
+### 认证 jwt
+
+jwt存储方式:
+
+- cookie
+  - 优点
+    - 可设置 HttpOnly 属性： 可以设置 HttpOnly 属性，防止客户端 JavaScript 访问 Cookie，提高安全性，防止 XSS 攻击。
+    - 可设置 Secure 属性： 可以设置 Secure 属性，只允许在 HTTPS 连接中发送 Cookie，防止中间人攻击。
+    - 可设置 SameSite 属性： 可以设置 SameSite 属性，防止 CSRF 攻击
+    - 自动发送
+  - 缺点
+    - 不能跨域, 需要 cors
+    - 大小有限制, 通常为4KB
+
+jwt基础流程:
+
+登录 -> 前端存储 -> 请求 -> 后端验证 -> 返回
+
+JWT 续期:
+
+1. 前端检测到 JWT 过期，使用刷新 token 请求新 JWT。
+2. 后端验证刷新 token，生成并返回新 JWT。
+3. 如果token也过期，则需要用户重新登录
+4. 设置 HttpOnly, Secure, SameSite 属性
+
+
+认证类型:
+- Bearer: 通过 Authorization 请求头传递 JWT 令牌
+- Basic Authentication: 使用 Base64 编码的用户名和密码
+- Digest Authentication: 基于哈希签名的认证
+- OAuth 2.0 Authorization Bearer Token: 用于 OAuth 2.0 框架中的访问令牌
+- Hawk Authentication: 基于签名的认证，用于高安全性场景
+
+
+
 ### 用户和邮箱
 
 新项目的用户模型
@@ -547,6 +582,7 @@ TODO:
 优秀api的规范
 
 - restful
+  - 大多数现代 RESTful API 都使用`-`作为分隔符
 - 文档
 - 验证
 

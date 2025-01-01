@@ -591,3 +591,31 @@ pick b5b06654 remove: entrypoint.sh
 #
 # However, if you remove everything, the rebase will be aborted.
 ```
+
+
+## 使用ssh, 免密码访问
+
+1. 创建密钥
+
+```bash
+# 生成 ssh
+ssh-keygen -t rsa -C '你的邮箱地址'
+
+# 测试连接
+ssh -T git@github.com
+
+```
+
+2. 添加 ssh 公钥 (pub) 到代码仓库 github 或 其他平台
+
+### 问题
+
+SSH 默认使用端口 22, 如果网络阻止访问, 可以改为 443
+
+~/.ssh/config
+```plaintext
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+```
+
