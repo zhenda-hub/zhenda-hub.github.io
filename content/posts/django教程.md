@@ -588,16 +588,56 @@ TODO:
 
 #### DRF
 
-<https://q1mi.github.io/Django-REST-framework-documentation/>
+- <https://q1mi.github.io/Django-REST-framework-documentation/>
+- <https://q1mi.github.io/Django-REST-framework-documentation/api-guide/serializers_zh/>
 
 概念: 对 django 框架进一步封装的第三方包，以便于写出 restfulAPI
 
-Serialization
+Serializer
 
--   to_representation() 重写序列化逻辑
--   valid_xxxx() 重写验证逻辑
+REST framework中的serializers与Django的Form和ModelForm类非常像。
+
+| Django | DRF | 特点 |
+|---|---|---|
+| Form | Serializer | 灵活,定制化 |
+| ModelForm | ModelSerializer | 固定, 方便 |
 
 ```python
+
+# 定义
+
+from rest_framework import serializers
+
+class CommentSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    content = serializers.CharField(max_length=200)
+    created = serializers.DateTimeField()
+
+    def create():
+        ...
+
+    def update():
+        ...
+
+    def save():
+        ...
+
+    def validate():
+        ...
+
+    def valid_xxxx():
+        # 重写验证逻辑
+        ...
+    def to_representation():
+        # 重写序列化逻辑
+        ...
+
+```
+
+
+```python
+
+# 使用
 @csrf_exempt
 def snippet_detail(request, pk):
     """
@@ -745,7 +785,7 @@ listen 8081;
 
 源由协议、域名和端口号组成, 例如 
 
-- http://127.0.0.1:8000
-- ws://127.0.0.1:8000
+- `http://127.0.0.1:8000`
+- `ws://127.0.0.1:8000`
 
 跨域请求: CORS是一种机制，允许服务器声明哪些源可以访问它的资源。这需要**服务器端的配置**。
