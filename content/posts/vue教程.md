@@ -137,7 +137,7 @@ export default {
 
 Attribute 绑定
 
-```template
+```html
 <div v-bind:id="dynamicId"></div>
 <div :id="dynamicId"></div>
 ```
@@ -150,7 +150,7 @@ const objectOfAttrs = {
 }
 ```
 
-```template
+```html
 <div v-bind="objectOfAttrs"></div>
 ```
 
@@ -214,7 +214,7 @@ const deleteTodo = (todo) => {
 const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 ```
 
-```template
+```html
 <li v-for="item in items">
   {{ item.message }}
 </li>
@@ -236,7 +236,7 @@ const picked = ref('One')
 </script>
 ```
 
-```template
+```html
 <textarea v-model="message" placeholder="add multiple lines"></textarea>
 
 <span> Selected: {{ selected }}</span>
@@ -262,7 +262,7 @@ function say(message) {
 }
 ```
 
-```template
+```html
 <button @click="say('hello')">Say hello</button>
 <button @click="say('bye')">Say bye</button>
 ```
@@ -280,8 +280,15 @@ function say(message) {
 
 ### element plus
 
+```html
+<template #prefix>
+  <el-icon><Key /></el-icon>
+</template>
+```
+
 ```js
 import { Delete, Edit } from '@element-plus/icons-vue'
+import { Lock, Message, Key } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 ```
 
