@@ -285,16 +285,26 @@ import { Delete, Edit } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 ```
 
-TODO:
-
 Element Plus提供了:xs、:sm、:md、:lg、:xl的响应式属性
+
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| --- | --- | --- | --- | --- |
+| span | 栅格占据的列数 | number | — | 24 |
+| offset | 栅格左侧的间隔格数 | number | — | 0 |
+| push | 栅格向右移动格数 | number | — | 0 |
+| pull | 栅格向左移动格数 | number | — | 0 |
+| **xs** | <code><768px</code> 响应式栅格数或者栅格属性对象 | number/object (例如： {span: 4, offset: 4}) | — | — |
+| sm | <code>≥768px</code> 响应式栅格数或者栅格属性对象 | number/object (例如： {span: 4, offset: 4}) | — | — |
+| md | <code>≥992px</code> 响应式栅格数或者栅格属性对象 | number/object (例如： {span: 4, offset: 4}) | — | — |
+| **lg** | <code>≥1200px</code> 响应式栅格数或者栅格属性对象 | number/object (例如： {span: 4, offset: 4}) | — | — |
+| xl | <code>≥1920px</code> 响应式栅格数或者栅格属性对象 | number/object (例如： {span: 4, offset: 4}) | — | — |
+| tag | 自定义元素标签 | string | * | div |
+
 
 ```html
 <el-col :xs="24" :sm="8">
 ```
-
-TODO:
-使用 Element Plus 的 el-drawer 组件
 
 form
 
