@@ -359,6 +359,33 @@ form
 - 开发页面内组件
 - 调用 API
 
+## 动态更新
+
+当 URL 路径变化时，Vue Router 会根据配置的路由规则，动态更新并渲染对应的组件到 `<router-view />` 中
+
+## vue-router
+
+```js
+import { createRouter, createWebHistory } from 'vue-router'
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: HomeView
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue')
+    },
+  ]
+})
+
+router.beforeEach((to, from, next) => {})
+```
 ## 输入校验
 
 - 前端获取后端规则：通过接口获取后端定义的验证规则，如密码、用户名格式等。
@@ -366,9 +393,6 @@ form
 - 后端最终验证：即使前端验证通过，后端仍需要做最终验证，以确保数据符合要求并避免安全风险。
 - 友好的错误反馈：前端根据后端返回的错误信息提供用户友好的提示
 
-## 动态更新
-
-当 URL 路径变化时，Vue Router 会根据配置的路由规则，动态更新并渲染对应的组件到 `<router-view />` 中
 
 
 ## 部署
