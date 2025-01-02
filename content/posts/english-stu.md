@@ -87,12 +87,6 @@ like note cute
 p t k b d g
 
 
-
-
-
-
-
-
 ### 连读规则
 
 ### 重读音, 非重读音

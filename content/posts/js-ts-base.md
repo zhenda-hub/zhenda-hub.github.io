@@ -22,6 +22,11 @@ js是弱类型的语言，运算时，自动转换类型
 ```js
 let a = 13;  // 作用域在{}块内
 var a = "haha";  // 作用域在函数内
+
+typeof 43;
+typeof '43';
+typeof ture;
+
 ```
 
 ```js
