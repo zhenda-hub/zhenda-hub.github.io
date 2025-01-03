@@ -20,13 +20,43 @@ js是弱类型的语言，运算时，自动转换类型
 
 
 ```js
+// 类型
+let a = [1,2,3];
+
+let obj = {'a':1, 'b':2};
+obj["a"]
+obj["b"]
+
+// 定义
+// 块级作用域：用一对花括号创建的作用域（块）。
 let a = 13;  // 作用域在{}块内
 var a = "haha";  // 作用域在函数内
+const a = "haha";  // 作用域在{}块内, 只读常量
 
 typeof 43;
 typeof '43';
 typeof ture;
 
+// 三元运算
+const canVote = age >= 18 ? "Yes" : "No";
+
+// 赋值表达式的返回值为右边
+y = (x=90+5)
+y
+// if
+if (condition) {
+} else {
+}
+
+// for
+let arr = [3, 5, 7];
+
+for (const[i, v] of arr.entries()) {
+    console.log(i, v)
+}
+
+// error
+throw new Error("Not Equal");
 ```
 
 ```js
