@@ -51,6 +51,9 @@ if (condition) {
 // for
 let arr = [3, 5, 7];
 
+for (lst i in arr) {
+    console.log(i, typeof i)
+}
 for (const[i, v] of arr.entries()) {
     console.log(i, v)
 }
