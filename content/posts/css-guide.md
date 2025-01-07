@@ -7,6 +7,12 @@ toc = true
 tags = ['web']
 +++
 
+## css选择器
+
+- <https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Basic_selectors>
+- <https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors>
+- <https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Combinators>
+
 ## 常用属性
 
 | 属性                  | 描述                                                         | 类型 |
@@ -27,7 +33,7 @@ tags = ['web']
 | `border`              | 边框                                                       | `border` |
 | `width`               | 设置宽度                                                       |  |
 | `height`              | 设置高度                                                       |  |
-| `display`             | 元素的显示方式（如block、inline、flex、none、block等）      | `display` |
+| `display`             | 元素的显示方式（如block、inline、flex、none等）      | `display` |
 | `position`            | 元素的定位方式（static、relative、absolute、fixed等）       |  `position`   |
 | `top`, `right`, `bottom`, `left` | 设置定位元素的位置                                  | |
 | `float`               | 设置浮动                                                       |  |
@@ -46,12 +52,13 @@ tags = ['web']
 
 ## 布局
 
-https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Introduction
+- <https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Introduction>
 
 display
 - block
 - inline
 - flex
+- none
 
 position
 - static 默认位置
@@ -59,6 +66,13 @@ position
 - absolute 相对于容器
 - fixed  相对于视图
 
+## 优先级
+
+- 内联
+- `#`
+- `.`
+- 类型(p, div)
+- `*`
 
 ## 案例
 
