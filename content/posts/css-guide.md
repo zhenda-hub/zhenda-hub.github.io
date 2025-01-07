@@ -53,17 +53,18 @@ tags = ['web']
 ## 布局
 
 - <https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Introduction>
+- <https://www.w3schools.com/Css/css_display_visibility.asp>
+- <https://www.w3schools.com/Css/css_positioning.asp>
 
 display
-- block
-- inline
-- flex
-- none
+- block 块
+- inline 行内
+- none 隐藏
 
 position
 - static 默认位置
 - relative 相对于默认位置
-- absolute 相对于容器
+- absolute 相对于最近定位的祖先
 - fixed  相对于视图
 
 ## 优先级
