@@ -109,10 +109,10 @@ p t k b d g
 - 例：scrib（写） → describe（描述）。
 
 前缀（Prefix）：加在词根前，改变词义。
-- 例：re-（重新） + scrib → rewrite（重写）。
+- 例：re-（重新） + write → rewrite（重写）。
 
 后缀（Suffix）：加在词根后，改变词性或词义。
-- 例：scrib + -er（表示人） → writer（作家）。
+- 例：write + -er（表示人） → writer（作家）。
 
 
 将词根和词缀按意义或功能分类，便于系统学习。
