@@ -57,6 +57,11 @@ import sys, os
 sys.path.insert(0, os.cwd())
 ```
 
+1.3 使用 -m运行
+
+```bash
+python -m xxx.file
+```
 当前目录: 命令行执行的目录
 导包目录: 被执行文件的目录会默认被加入pythonpath的第一个位置
 
