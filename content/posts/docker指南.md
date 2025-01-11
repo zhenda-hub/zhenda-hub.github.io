@@ -683,6 +683,10 @@ docker compose config
 docker compose --env-file .env.production up -d
 ```
 
+tips:
+
+有时候`docker compose up` 运行 报错,  手动拉image可以解决大部分问题 `docker pull xxxx`.
+
 ### restart
 
 Restart policies only apply to containers.
