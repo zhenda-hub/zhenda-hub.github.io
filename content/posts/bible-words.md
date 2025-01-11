@@ -217,9 +217,9 @@ tags = []
 
 > Don't be misled you cannot mock the justice of God. You will always harvest what you plant.
 >
-> Those who live only to satisfy their own sinful nature will harvest decay and death from that sinful nature. But those who live to please the Spirit will harvest everlasting lift from the Spirit.
+> Those who live only to satisfy their own sinful nature will harvest decay and death from that sinful nature. But those who live to please the Spirit will harvest everlasting life from the Spirit.
 > 
-> *(Galatians 5:7-8 NLT)*
+> *(Galatians 6:7-8 NLT)*
 
 
 ## Ephesians
