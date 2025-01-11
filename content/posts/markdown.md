@@ -7,7 +7,7 @@ toc = true
 tags = ['tools']
 +++
 
-[TOC]
+<!-- [TOC] -->
 
 ## 参考链接
 

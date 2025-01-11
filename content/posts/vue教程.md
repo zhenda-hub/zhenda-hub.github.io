@@ -7,7 +7,7 @@ toc = true
 tags = ["web"]
 +++
 
-[toc]
+<!-- [toc] -->
 
 ## document
 

@@ -2,7 +2,7 @@
 title = 'Bible Words'
 subtitle = ""
 date = 2025-01-11T19:50:33+08:00
-draft = true
+draft = false
 toc = true
 tags = []
 +++
@@ -10,7 +10,7 @@ tags = []
 
 # Bible Words
 
-[toc]
+<!-- [toc] -->
 
 ## Romans
 

@@ -7,7 +7,7 @@ tags = ["Python", "Software Architecture"]
 +++
 
 
-[TOC]
+<!-- [TOC] -->
 今天继续分享一下自己的近期心得：
 
 ## python之禅
