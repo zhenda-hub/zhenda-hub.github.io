@@ -82,6 +82,13 @@ tags = ['bible']
 > *(Proverbs 18:16 NLT)*
 
 
+## Ecclesiastes
+
+> Control your temper, for anger lables you a fool.
+> 
+> *(Ecclesiastes 7:9 NLT)*
+
+
 ## Micah
 
 > But you, O bethlehem Ephrathah, are only a small village among all the people of Judah. Yet a ruler of Israel, whose origins are in the distant past, will come from you on my behalf.
@@ -253,6 +260,10 @@ tags = ['bible']
 > Work willingly at whatever you do, as though you were working for the Lord rather than for people.
 > 
 > *(Colossians 3:23 NLT)*
+
+> Let your conversation be gracious and attractive so that you will have the right response for everyone.
+> 
+> *(Colossians 4:6 NLT)*
 
 
 ## 1 Timothy

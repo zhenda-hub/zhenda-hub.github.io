@@ -41,6 +41,18 @@ try:
     1/0
 except Exception as e:
     print(e)
-    raise RuntimeError('error') from e
+    raise e
 
+```
+
+## unpack
+
+```bash
+>>> a, b, *c = [1,2,3,3,4,5,6]
+>>> a,b,c
+(1, 2, [3, 3, 4, 5, 6])
+
+>>> a, *b, c = [1,2,3,3,4,5,6]
+>>> a,b,c
+(1, [2, 3, 3, 4, 5], 6)
 ```
