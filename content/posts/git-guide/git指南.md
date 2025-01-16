@@ -2,7 +2,7 @@
 title = 'Git资源'
 subtitle = ""
 date = 2024-01-08T23:37:30+08:00
-draft = true
+draft = false
 toc = true
 tags = ["git", "tools"]
 +++
@@ -11,15 +11,19 @@ tags = ["git", "tools"]
 
 <https://git-scm.com/book/zh/v2>
 
-## git 原理
+## git 重要概念
 
--   以 commit 节点为根基
--   各个分支实际上是可移动的指针
+-   commit
+    -   以 commit 节点为根基, 记录历史, 当前 commit 为 HEAD
+-   branch
+    -   分支实际上是可移动的指针, 代表一系列commit
+    -   用于并行开发
     -   创建删除非常轻量
--   当前 commit 为 HEAD
--   远程仓库部署在服务器中，供用户访问
--   本地仓库
-    -   信息都存放在 **.git文件夹** 里面，  **.git文件夹** 所在的文件夹就是仓库
+-   代码仓库
+    -   远程仓库
+        -   部署在服务器中，供用户访问
+    -   本地仓库
+        -   信息都存放在 **.git文件夹** 里面，  **.git文件夹** 所在的文件夹就是仓库
 
 ## git 远程仓库平台
 
@@ -67,6 +71,327 @@ tags = ["git", "tools"]
     -   review pr
 
 ## 环境搭建
+
+
+
+
+
+## git 使用方法
+
+### .gitignore
+
+作用: 设置忽略跟踪的文件或文件夹
+
+.gitignore文件编辑的规则:
+
+```bash
+# 忽略.log 结尾的文件
+*.log
+# 忽略.vscode文件夹
+.vscode/
+# 多级目录下的 config
+**/config
+# 只忽略根目录下的 fd
+/fd/
+```
+
+命令
+
+```bash
+# 查看是否被忽略
+git check-ignore -v 文件
+# 删除远程仓库
+git rm-r -cached 文件名
+```
+
+
+### branch
+
+**一个功能: 一个branch, 多个commit**
+
+```bash
+# 命名
+main  # 分支保护, 稳定可发布的分支
+dev
+origin/xxx-bbb
+backup/xxx-bbb
+feature/xxx-bbb
+fixbug/xxx-bbb
+refactor/xxx-bbb
+env/xxx-bbb
+tmp/xxx-bbb
+```
+
+```bash
+# 本地feature1分支, 同步 远程dev分支 的最新更改
+git pull --rebase origin dev
+```
+
+```bash
+# cherry-pick 合并特定commit
+git checkout main
+git cherry-pick commitidxxxx
+# 有冲突
+git add xxx
+git cherry-pick --continue 
+# 取消合并
+git cherry-pick --abort
+```
+
+
+pull request: 开发分支发起对主分支的合并请求
+
+### tag
+
+tag 很稳定
+
+通常对main分支的commit, 创建 tag
+
+命名规则: v1.0.0-20230525
+
+
+```bash
+# 查所有
+git tag
+# 查详情
+git show tag 名
+# 增加
+git tag -a 版本名 -m''
+# 删除
+git tag -d 版本名
+
+# 切换, 和分支一样
+git checkout tag 名
+
+# 远程仓库交互
+git pull --tags
+git push --tags
+```
+
+### 保持完美提交的方法
+
+提交格式
+
+功能（作用域）：描述
+
+功能:
+
+| 功能名称 | 含义 |
+|---|---|
+| refactor | 重构 |
+| fix | 改功能 |
+| revert | 撤销提交 |
+| feat | 新功能 |
+| test | 测试 |
+| docs | 文档 |
+| ci | ci流水线 |
+| xx! | 表示不兼容 |
+
+
+个人使用
+
+-   add： xxx
+-   delete： xxx
+-   update
+              
+
+
+```bash
+
+# git rebase 整理 本地commit
+git rebase -i commitid
+git rebase --continue
+git rebase --abort
+git rebase --skip
+```
+
+```vim
+pick 2a923b73 fix: conf
+pick b5b06654 remove: entrypoint.sh
+
+# Rebase 5aa07cc4..b5b06654 onto 5aa07cc4 (2 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's message; -c is same as -C but
+#                    opens the editor
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+# .       create a merge commit using the original merge commit's
+# .       message (or the oneline, if no original merge commit was
+# .       specified); use -c <commit> to reword the commit message
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+```
+
+## 常用备忘内容
+
+```bash
+# 比较文件内容
+git diff
+git diff commitidxxx -- ./path1/path2/xxx.py
+
+# 查看commit
+git log --stat
+git show commmitid
+```
+
+```bash
+# 修改上次commit
+git commit --amend -m ""
+
+# 撤销提交记录
+git reset --hard xxx
+
+git push -f
+
+
+# 空提交, 为了触发自动化动作
+git commit -m "retrigger checks" --allow-empty
+
+
+# 撤销工作区的文件
+git checkout xxx.py
+# 撤销指定文件的add状态
+git reset xxx.py
+# 撤销add状态
+git reset
+# 撤销 commit 到 add
+git reset --soft id
+# 撤销 commit 到 0
+git reset --hard id
+
+
+# 开发了一半
+git stash && git stash drop
+git stash save 'xxx'
+git stash pop
+git stash list
+git stash clear
+
+```
+
+
+
+## 其他
+
+### 子模块
+
+使用场景: 一个仓库内嵌套另一个仓库，需要维护好总的仓库
+
+作用: 管理好嵌套结构
+
+标志文件: .gitmodules
+
+命令:
+
+```bash
+# 一次性 clone 包括子仓库的主仓库
+git clone --recurse sshxxxx
+# 查看状态
+git submodule status
+# 详细状态
+git submodule summary
+# 添加
+git submodule add sshxxx <not existed path>
+# 删除
+git submodule remove <path>
+# 批量更新
+git submodule update --remote
+#
+git submodule init
+# 对子模块批量操作
+git submodule foreach 命令
+# 对子模块批量操作
+git submodule update --remote --rebase
+```
+
+### ci/cd
+
+-   概念
+    -   自动测试/自动部署
+-   实现原理
+    -   使用命令自动化执行任务
+-   流程
+    -   工具
+        -   travis ci
+        -   github
+            -   actions
+                -   自动推送
+        -   gitee
+        -   gitlab
+    -   配置文件
+    -   触发条件
+        -   提交代码
+        -   定时
+-   ci
+    -   开发和代码前通过测试用例
+    -   yaml
+        -   stages
+        -   beforescript
+            -   stage
+            -   script
+                -   test1
+                -   test2
+            -   tags
+            -   artifacts
+                -   when
+                    -   on_success
+                    -   always
+                -   paths
+            -   allow_failure
+            -   retry
+                -   2
+            -   only
+-   cd
+    -   推送部署
+        -   服务器
+        -   第三方平台
+    -   回滚
+
+
+### 使用ssh, 免密码访问
+
+1. 创建密钥
+
+```bash
+# 生成 ssh
+ssh-keygen -t rsa -C '你的邮箱地址'
+
+# 测试连接
+ssh -T git@github.com
+
+```
+
+2. 添加 ssh 公钥 (pub) 到代码仓库 github 或 其他平台
+
+#### 问题
+
+SSH 默认使用端口 22, 如果网络阻止访问, 可以改为 443
+
+~/.ssh/config
+```plaintext
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+```
+
+
+
+```
 
 -   基础
 
@@ -147,32 +472,6 @@ tags = ["git", "tools"]
                 -   推代码
         -   pull request
             -   发给别人远程仓库进行代码合并
-
-## git 使用方法
-
-### .gitignore
-
-.gitignore文件编辑的规则:
-
-```bash
-# 忽略.log 结尾的文件
-*.log
-# 忽略.vscode文件夹
-.vscode/
-# 多级目录下的 config
-**/config
-# 只忽略根目录下的 fd
-/fd/
-```
-
-命令
-
-```bash
-# 查看是否被忽略
-git check-ignore -v 文件
-# 删除远程仓库
-git rm-r -cached 文件名
-```
 
     -   增删改查
         -   查
@@ -353,269 +652,8 @@ git rm-r -cached 文件名
         -   回退旧版本
             -   git checkout commitid 文件名
         -   回到最新版
-            -   git checkout HEAD 文件名
+            -   git checkout HEAD 
+            
 
-### branch
-
-
-### 主要操作流程
-
-
-编辑 commit push
-
-
-
-提交格式
-
-功能（作用域）：描述
-
-功能:
-
-| 功能名称 | 含义 |
-|---|---|
-| refactor | 重构 |
-| fix | 改功能 |
-| revert | 撤销提交 |
-| feat | 新功能 |
-| test | 测试 |
-| docs | 文档 |
-| ci | ci流水线 |
-| xx! | 表示不兼容 |
-
-
-个人使用
-
--   add： xxx
--   delete： xxx
--   update
-                
-
-### tag
-
-tag 很稳定
-
-对于任何一次commit，都可以创建 tag
-
-命名规则: v1.0.0-20230525
-
-
-```bash
-# 查所有
-git tag
-# 查详情
-git show tag 名
-# 增加
-git tag -a 版本名 -m''
-# 删除
-git tag -d 版本名
-
-# 切换, 和分支一样
-git checkout tag 名
-
-# 远程仓库交互
-git pull --tags
-git push --tags
-```
-
-### 子模块
-
-使用场景: 一个仓库内嵌套另一个仓库，需要维护好总的仓库
-
-作用: 管理好嵌套结构
-
-标志文件: .gitmodules
-
-命令:
-
-```bash
-# 一次性 clone 包括子仓库的主仓库
-git clone --recurse sshxxxx
-# 查看状态
-git submodule status
-# 详细状态
-git submodule summary
-# 添加
-git submodule add sshxxx <not existed path>
-# 删除
-git submodule remove <path>
-# 批量更新
-git submodule update --remote
-#
-git submodule init
-# 对子模块批量操作
-git submodule foreach 命令
-# 对子模块批量操作
-git submodule update --remote --rebase
-```
-
-## ci/cd
-
--   概念
-    -   自动测试/自动部署
--   实现原理
-    -   使用命令自动化执行任务
--   流程
-    -   工具
-        -   travis ci
-        -   github
-            -   actions
-                -   自动推送
-        -   gitee
-        -   gitlab
-    -   配置文件
-    -   触发条件
-        -   提交代码
-        -   定时
--   ci
-    -   开发和代码前通过测试用例
-    -   yaml
-        -   stages
-        -   beforescript
-            -   stage
-            -   script
-                -   test1
-                -   test2
-            -   tags
-            -   artifacts
-                -   when
-                    -   on_success
-                    -   always
-                -   paths
-            -   allow_failure
-            -   retry
-                -   2
-            -   only
--   cd
-    -   推送部署
-        -   服务器
-        -   第三方平台
-    -   回滚
-
-
-## 常用备忘内容
-
-```bash
-# 比较文件内容
-git diff
-git diff commitidxxx -- ./path1/path2/xxx.py
-
-# 查看commit
-git log --stat
-git show commmitid
-```
-
-```bash
-# 修改上次commit
-git commit --amend -m ""
-
-# 撤销提交记录
-git reset --hard xxx
-
-git push -f
-
-
-# 空提交, 为了触发自动化动作
-git commit -m "retrigger checks" --allow-empty
-
-
-# 撤销工作区的文件
-git checkout xxx.py
-# 撤销指定文件的add状态
-git reset xxx.py
-# 撤销add状态
-git reset
-# 撤销 commit 到 add
-git reset --soft id
-# 撤销 commit 到 0
-git reset --hard id
-
-
-# 开发了一半
-git stash && git stash drop
-git stash save 'xxx'
-git stash pop
-git stash list
-git stash clear
 
 ```
-
-### 保持完美提交的方法
-
-```bash
-# cherry-pick 合并特定commit 到main
-git checkout main
-git cherry-pick commitidxxxx
-# 有冲突
-git add xxx
-git cherry-pick --continue 
-# 取消合并
-git cherry-pick --abort
-```
-
-```bash
-# git rebase 处理复杂commit
-git rebase -i commitid
-git rebase --continue
-git rebase --abort
-git rebase --skip
-```
-
-```vim
-pick 2a923b73 fix: conf
-pick b5b06654 remove: entrypoint.sh
-
-# Rebase 5aa07cc4..b5b06654 onto 5aa07cc4 (2 commands)
-#
-# Commands:
-# p, pick <commit> = use commit
-# r, reword <commit> = use commit, but edit the commit message
-# e, edit <commit> = use commit, but stop for amending
-# s, squash <commit> = use commit, but meld into previous commit
-# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
-#                    commit's log message, unless -C is used, in which case
-#                    keep only this commit's message; -c is same as -C but
-#                    opens the editor
-# x, exec <command> = run command (the rest of the line) using shell
-# b, break = stop here (continue rebase later with 'git rebase --continue')
-# d, drop <commit> = remove commit
-# l, label <label> = label current HEAD with a name
-# t, reset <label> = reset HEAD to a label
-# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
-# .       create a merge commit using the original merge commit's
-# .       message (or the oneline, if no original merge commit was
-# .       specified); use -c <commit> to reword the commit message
-#
-# These lines can be re-ordered; they are executed from top to bottom.
-#
-# If you remove a line here THAT COMMIT WILL BE LOST.
-#
-# However, if you remove everything, the rebase will be aborted.
-```
-
-
-## 使用ssh, 免密码访问
-
-1. 创建密钥
-
-```bash
-# 生成 ssh
-ssh-keygen -t rsa -C '你的邮箱地址'
-
-# 测试连接
-ssh -T git@github.com
-
-```
-
-2. 添加 ssh 公钥 (pub) 到代码仓库 github 或 其他平台
-
-### 问题
-
-SSH 默认使用端口 22, 如果网络阻止访问, 可以改为 443
-
-~/.ssh/config
-```plaintext
-Host github.com
-    Hostname ssh.github.com
-    Port 443
-```
-
