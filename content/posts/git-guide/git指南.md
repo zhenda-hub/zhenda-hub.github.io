@@ -114,11 +114,13 @@ git rm-r -cached 文件名
 main  # 分支保护, 稳定可发布的分支
 dev
 origin/xxx-bbb
-backup/xxx-bbb
+
 feature/xxx-bbb
 fixbug/xxx-bbb
 refactor/xxx-bbb
-env/xxx-bbb
+docs/xxx-bbb
+
+backup/xxx-bbb
 tmp/xxx-bbb
 ```
 
@@ -200,6 +202,8 @@ git push --tags
 
 # git rebase 整理 本地commit
 git rebase -i commitid
+git rebase -i HEAD~3
+
 git rebase --continue
 git rebase --abort
 git rebase --skip
@@ -245,6 +249,8 @@ git diff
 git diff commitidxxx -- ./path1/path2/xxx.py
 
 # 查看commit
+
+# e y 上下 , q 退出
 git log --stat
 git show commmitid
 ```
@@ -282,6 +288,16 @@ git stash pop
 git stash list
 git stash clear
 
+
+# 指定文件
+# 拉去指定文件
+git checkout 分支名 文件名
+# 查看指定文件提交历史
+git reflog 文件名
+# 回退旧版本
+git checkout commitid 文件名
+# 回到最新版
+git checkout HEAD 
 ```
 
 
@@ -474,21 +490,6 @@ Host github.com
             -   发给别人远程仓库进行代码合并
 
     -   增删改查
-        -   查
-            -   git log
-                -   和远程提交记录一致
-                -   参数
-                    -   --stat
-                        -   简略文件
-                    -   -p
-                        -   详细信息
-                    -   --graph
-                        -   提交图
-                -   查看操作
-                    -   e
-                    -   y
-                    -   q
-                        -   退出
             -   git reflog 分支名
                 -   按照分支查询
                     -   越往下 越老版本
@@ -538,36 +539,9 @@ Host github.com
                             -   git reset --soft id
                         -   撤销 commit 到 0
                             -   git reset --hard id
-                    -   开发了一半
-                        -   git stash && git stash drop
-                        -   git stash save 'xxx'
-                        -   git stash pop
-                        -   git stash list
-                            -   git stash clear
                 -   本地提交
                     -   撤销远程提交
                         -   git revert id1 id2
-                    -   git commit -m ''
-                        -   提交格式
-                            -   功能（作用域）：描述
-                            -   type
-                                -   个人
-                                    -   add： xxx
-                                    -   delete： xxx
-                                    -   update
-                                    -   refactor：
-                                        -   重构
-                                    -   fix：
-                                        -   改功能
-                                    -   revert
-                                        -   撤销提交
-                                -   添加
-                                    -   feat
-                                    -   test
-                                    -   docs
-                                    -   ci
-                                -   后加！
-                                    -   表示不兼容
                     -   git commit --amend -m“”
                         -   commit 写错了，重新提交
                     -   提交已经 git add 的文件, 不用再次 git add
@@ -644,15 +618,6 @@ Host github.com
                     -   远程分支
                         -   origin/dev
                 -   git rebase
-    -   指定文件
-        -   拉去指定文件
-            -   git checkout 分支名 文件名
-        -   查看指定文件提交历史
-            -   git reflog 文件名
-        -   回退旧版本
-            -   git checkout commitid 文件名
-        -   回到最新版
-            -   git checkout HEAD 
             
 
 
