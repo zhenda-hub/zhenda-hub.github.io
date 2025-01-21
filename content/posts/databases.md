@@ -24,7 +24,7 @@ mysql 优化: <https://dev.to/hamzakhan/how-youtube-scaled-mysql-to-support-249-
 | 普通索引名 | idx_字段名 | -->
 
 
-一个表代表一个类
+一个表代表一个类, `是一个名词, 而不是动词`
 
 -   表要小而精， 和类一样
 -   将字段很多的表分为多个表
@@ -40,7 +40,22 @@ mysql 优化: <https://dev.to/hamzakhan/how-youtube-scaled-mysql-to-support-249-
 
 ## 外键 ForeignKey
 
-在多的里面设置一的
+数据关系如下:
+
+```json
+{
+    'a1': ["b1","b2","b3"],
+    'a2': ["b4","b5"]
+}
+```
+
+| Author | Book |
+|---|---|
+| a1 | b1 |
+| a1 | b2 |
+| a1 | b3 |
+| a2 | b4 |
+| a2 | b5 |
 
 ```python
 class Author(models.Model):
