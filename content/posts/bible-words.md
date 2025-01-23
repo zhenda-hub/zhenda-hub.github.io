@@ -342,9 +342,10 @@ tags = ['bible']
 > *(1 John 2:22-23 NLT)*
 
 
+> Those who have been born into God's family do not make a practice of sinning, because God's life is in them. So they can't keep on sinning, because they are children of God.
 > So now we can tell who are children of God and who are children of the devil. Anyone who does not live righteously and does not love other believers does not belong to God.
 >
-> *(1 John 3:10 NLT)*
+> *(1 John 3:9-10 NLT)*
 
 
 

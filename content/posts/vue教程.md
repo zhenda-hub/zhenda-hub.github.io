@@ -80,7 +80,10 @@ npm run build
 ## 创建命令
 
 ```bash
-
+npm create vue@latest
+npm install
+npm run dev
+npm run build
 ```
 
 ## 项目结构
