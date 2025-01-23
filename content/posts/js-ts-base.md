@@ -26,6 +26,7 @@ let a = [1,2,3];
 let obj = {'a':1, 'b':2};
 obj["a"]
 obj["b"]
+Object.keys(obj) // 查看 所有key
 
 // 定义
 // 块级作用域：用一对花括号创建的作用域（块）。
@@ -89,6 +90,13 @@ window.clearTimeout(a)
 
 ## 异步请求
 
+
+## 调试
+
+```js
+console.log()
+debugger
+```
 
 
 

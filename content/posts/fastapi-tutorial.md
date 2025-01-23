@@ -83,7 +83,7 @@ async def update_item(item_id: int, item: Item, q: str | None = None):
 
 Depends
 
-```
+```python
 from typing import Union
 
 from fastapi import Depends, FastAPI

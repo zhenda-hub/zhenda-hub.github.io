@@ -50,6 +50,8 @@ tags = ['web']
 
     -   authenticated
         -   用户认证
+    -   tornado,ioloop.PeriodicCallback()
+        -   定时任务
 
 
 <https://www.tornadoweb.org/en/stable/web.html>

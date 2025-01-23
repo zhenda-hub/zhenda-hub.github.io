@@ -668,11 +668,12 @@ def snippet_detail(request, pk):
     
 | 类 | 特点 |
 | --- | --- |
-| APIView | authentication_classes, throttle_classes, permission_classes |
-| GenericAPIView + mixin | pagination_class, filter_backends, serializer_class |
-| ViewSet + DefaultRouter | api |
-| GenericViewSet |  |
-| ModelViewSet |  |
+| View |  |
+| `APIView` | View+ authentication_classes, throttle_classes, permission_classes |
+| GenericAPIView | `APIView`+ pagination_class, filter_backends, serializer_class |
+| ViewSet | `APIView`+ DefaultRouter |
+| `GenericViewSet` | GenericAPIView+ DefaultRouter |
+| ModelViewSet | `GenericViewSet`+ mixin |
     
 ```python
 class CreateListRetrieveViewSet(mixins.CreateModelMixin,
