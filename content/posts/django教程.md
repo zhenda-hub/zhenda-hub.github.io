@@ -347,6 +347,8 @@ url:
     -   数据库操作
         -   https://docs.djangoproject.com/en/5.0/ref/models/querysets/#get
             ```python
+            from django.db.models import Q
+            
             # 查询
             Book.objects.filter(**dct)
             Entry.objects.order_by("blog__name", "headline")
@@ -385,7 +387,8 @@ url:
 
             # 分组
             from django.db.omdels import Count
-            type1_lst = MyModel.objects.values('type1').annotate(count=Count('id'))
+
+            type1_lst = MyModel.objects.values('type1', 'type2').annotate(count=Count('id'))
             ```
     -   FBV
         -   很直观，完全自主可控的写法
