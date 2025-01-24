@@ -106,3 +106,27 @@ l1 = [1,2,3,4,5]
 random.shuffle(l1)
 l1
 ```
+
+
+## datetime
+
+<https://docs.python.org/zh-cn/3/library/datetime.html#module-datetime>
+
+```python
+from datetime import datetime, timedelta
+
+now = datetime.now()
+gap = timedelta(days=1)
+two = now + gap
+print(two)
+print(two.replace(day=1))
+
+print(now.strftime("%Y-%m-%d %H:%M:%S"))
+
+obj = datetime.strptime("2022-01-01 14:33:21", "%Y-%m-%d %H:%M:%S")
+print(obj)
+now.date()
+now.time()
+
+
+```
