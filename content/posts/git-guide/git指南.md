@@ -7,6 +7,8 @@ toc = true
 tags = ["git", "tools"]
 +++
 
+<!-- [toc] -->
+
 ## 官方文档
 
 <https://git-scm.com/book/zh/v2>
@@ -72,7 +74,14 @@ tags = ["git", "tools"]
 
 ## 环境搭建
 
-
+```bash
+# 克隆
+git clone 远程的 ssh
+# 初始化
+git init
+git remote add origin sshxxx
+git push --set-upstream origin main
+```
 
 
 
