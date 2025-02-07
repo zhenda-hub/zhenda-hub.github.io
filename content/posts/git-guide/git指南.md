@@ -136,8 +136,10 @@ git cherry-pick commitidxxxx
 # 有冲突
 git add xxx
 git cherry-pick --continue 
-# 取消合并
+# 取消 operation
 git cherry-pick --abort
+# skip patch
+git cherry-pick --skip
 ```
 
 

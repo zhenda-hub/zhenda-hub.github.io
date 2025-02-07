@@ -228,6 +228,14 @@ url:
 
 ## 网站开发逻辑梳理
 
+- 前端
+  - template
+  - form
+- 后端
+  - model
+  - view
+  - url
+
 ### 初级阶段，使用 admin 后台快速建站
 
 -   model
