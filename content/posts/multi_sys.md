@@ -27,21 +27,22 @@ tags = []
 ### u盘启动工具
 
 - ETCHER
-- ventoy!!!! U盘, 开源
+- ventoy!!!! , 开源
   - 作用
     - 为主机安装多系统
     - 把多系统装进U盘
   - iso, img
-- refind 硬盘
-- xorboot
-- grub
-  - grub2win
-  - grub4dos
 
-diskgenius?
 
-### 引导方式
+### 固件引导方式和固件引导程序
+
+计算机在加载操作系统之前，由底层固件（固件就是存储在主板上、在系统上电时最先运行的软件）来初始化硬件、检测系统状态和加载引导加载器的过程
 
 - BIOS
+  - xorboot
+  - grub
+    - grub2win
+    - grub4dos
 - UEFI
+  - refind
 
