@@ -52,4 +52,10 @@ tags = []
 
 ### virtualbox
 
-Secure Boot
+关闭 Secure Boot
+
+
+```cmd
+sc.exe query vboxsup
+sc start vboxsup
+```
