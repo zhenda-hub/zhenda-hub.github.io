@@ -13,6 +13,9 @@ tags = []
   - PVE!!!!
     - pvesource
   - ESXi
+  - 虚拟软件
+    - virtualbox
+    - vmware
 - 其他系统
   - win
   - linux
@@ -46,3 +49,7 @@ tags = []
 - UEFI
   - refind
 
+
+### virtualbox
+
+Secure Boot
