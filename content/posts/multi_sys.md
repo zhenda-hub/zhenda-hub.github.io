@@ -46,3 +46,8 @@ tags = []
 - UEFI
   - refind
 
+
+```cmd
+sc.exe query vboxsup
+sc start vboxsup
+```
