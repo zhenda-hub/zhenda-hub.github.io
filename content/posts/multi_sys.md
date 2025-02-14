@@ -54,6 +54,10 @@ tags = []
 
 关闭 Secure Boot
 
+```txt
+VirtualBox is not currently allowed to access USB devices. You can change this by adding your user to the 'vboxusers' group. Please see the user manual for a more detailed explanation.
+```
+
 
 ```cmd
 sc.exe query vboxsup

@@ -150,6 +150,12 @@ ibus-setup
 sudo systemctl restart gdm
 ```
 
+## 右键添加文件
+
+<https://cn.linux-console.net/?p=18873>
+
+在 `~/Templates` 里面 放置一些想创建的文件, 右键就可以新建了
+
 ## Remaining matters
 
 -   查看所有的 history
