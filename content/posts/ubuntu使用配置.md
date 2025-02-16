@@ -13,12 +13,24 @@ sys_update.sh
 
 ```bash
 #!/bin/bash
-echo "update:"
-sudo apt update
-echo "upgrade:"
-sudo apt upgrade
-echo "autoremove:"
-sudo apt autoremove
+
+# 更新软件包列表
+echo "更新软件包列表..."
+sudo apt update -y
+
+# 升级已安装的软件包
+echo "升级已安装的软件包..."
+sudo apt upgrade -y
+
+# 删除不再需要的包
+echo "删除不再需要的包..."
+sudo apt autoremove -y
+
+# 清理软件包缓存
+echo "清理缓存..."
+sudo apt clean
+
+echo "系统更新和清理完成！"
 ```
 
 ```bash
@@ -34,6 +46,11 @@ sudo apt install <path to .deb file>
 sudo dpkg -i <path to .deb file>
 ```
 
+## 中文
+
+```bash
+sudo apt install ibus-pinyin
+```
 ## settings
 
 再次点击图标实现最小化
@@ -155,6 +172,10 @@ sudo systemctl restart gdm
 <https://cn.linux-console.net/?p=18873>
 
 在 `~/Templates` 里面 放置一些想创建的文件, 右键就可以新建了
+
+## 无法打开terminal
+
+<https://blog.csdn.net/u010092716/article/details/130968032>
 
 ## Remaining matters
 

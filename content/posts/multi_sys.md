@@ -52,14 +52,26 @@ tags = []
 
 ### virtualbox
 
-关闭 Secure Boot
+#### linux bug:
 
-```txt
+Q: 创建虚拟机报错
+A: 关闭 Secure Boot
+
+Q: 
 VirtualBox is not currently allowed to access USB devices. You can change this by adding your user to the 'vboxusers' group. Please see the user manual for a more detailed explanation.
-```
+
+A:
 
 
+#### windows bug:
+
+
+Q: 虚拟化报错
+A:
 ```cmd
 sc.exe query vboxsup
 sc start vboxsup
 ```
+
+
+

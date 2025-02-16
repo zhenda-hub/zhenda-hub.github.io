@@ -217,6 +217,7 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
     -   cd 路径：移动
     -   ls ：查看当前文件夹内容
     -   tree： 以树形结构查看当前文件夹内容
+        -   `tree -L 2`:  查看两层深度
 -   文件文件夹相关
 
     -   mkdir 文件夹名： 创建文件夹
