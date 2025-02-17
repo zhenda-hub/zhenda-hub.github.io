@@ -319,30 +319,18 @@ groupdel 组名
 组中 用户的增删改查
 
 ```bash
-gpasswd -a 用户名 组名 
-gpasswd -d 用户名 组名 
-```
+# 组内用户
+getent group 组名
+# 组内用户
+id 用户名
 
 
-
-```bash
-id $USER
-
-
-usermod -aG 组名 用户名
 gpasswd -a 用户名 组名
-groupmems -g 组名 -a 用户名
-
-
-useradd
-userdel
-
-
-chmod 修改文件权限
-chgrp 修改文件属组
-chown 修改文件属主
-
+gpasswd -d 用户名 组名
 ```
+
+
+
 
 
 ### vi/vim 编辑
