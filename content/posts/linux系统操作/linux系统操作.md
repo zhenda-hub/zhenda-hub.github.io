@@ -6,7 +6,7 @@ toc = true
 tags = ["linux"]
 +++
 
-<!-- [toc] -->
+[toc]
 
 ## 文章目的
 
@@ -184,7 +184,7 @@ ssh 是一种**安全的网络协议**。 可以安全的远程连接电脑。
 
 相关命令
 
--   ssh 用户名@服务器的 IP 地址
+-   ssh 用户名@服务器IP地址
 
 ### scp
 
@@ -196,6 +196,13 @@ scp -r localfiles username@remoteip:/directory
 scp -r username@remoteip:/directory /local_directory
 
 ```
+
+### sftp
+
+```bash
+
+```
+
 ### 文件管理
 
 linux 中 一切皆文件
@@ -253,9 +260,23 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
     ```
 
 
-### 文件权限
+### 文件权限和用户管理
 
-查看权限 ls -l
+> linux 系统支持**多用户同时使用**。可以为每个用户设置群组， 通过群组间接进行权限控制. 
+> 组的主要作用是简化权限管理.
+> 超级用户 root, 拥有最高权限. 
+> 普通用户, 拥有有限的权限. 
+> sudo 命令 提升权限 visudo. 
+
+用户 和 组 是 多对多的关系
+
+文件信息
+
+-   /etc/passwd 用户的信息文件
+-   /etc/group 用户组的信息文件   
+
+
+#### FilePermission
 
 [Linux 文件基本属性 | 菜鸟教程 (runoob.com)](https://www.runoob.com/linux/linux-file-attr-permission.html)
 
@@ -270,11 +291,59 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
 -   755： 自己可读可写可执行，用户组和其他人可读可执行，不可写
 -   700： 自己可读可写可执行，用户组和其他人没有任何权限
 
-相关命令
 
--   chmod 修改文件权限
--   chgrp 修改文件属组
--   chown 修改文件属主
+文件权限的设置
+
+```bash
+# 查看权限 
+ls -l
+
+chown newowner:newgroup filename
+chown :newgroup filename
+chmod 775 filename
+```
+
+
+#### Group
+
+组的增删改查
+
+```bash
+groupadd 组名
+groupmod -n 新组名 旧组名
+groupdel 组名
+```
+
+#### User
+
+组中 用户的增删改查
+
+```bash
+gpasswd -a 用户名 组名 
+gpasswd -d 用户名 组名 
+```
+
+
+
+```bash
+id $USER
+
+
+usermod -aG 组名 用户名
+gpasswd -a 用户名 组名
+groupmems -g 组名 -a 用户名
+
+
+useradd
+userdel
+
+
+chmod 修改文件权限
+chgrp 修改文件属组
+chown 修改文件属主
+
+```
+
 
 ### vi/vim 编辑
 
@@ -351,30 +420,6 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
     -   yum remove xxx : 卸载
 
 ## 高级阶段
-
-### 用户管理
-
-linux 系统支持**多用户同时使用**。可以为每个用户设置群组， 通过群组间接进行权限控制
-
-超级用户 root, 拥有最高权限
-
-普通用户, 拥有有限的权限
-
-sudo 命令 提升权限 visudo
-
-文件信息
-
--   /etc/passwd 用户的信息文件
--   /etc/group 用户组的信息文件
-
-相关命令
-
--   groupadd
--   groupmod
--   groupdel
--   useradd
--   usermod
--   userdel
 
 ### 网络管理
 
