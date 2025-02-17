@@ -74,4 +74,10 @@ sc start vboxsup
 ```
 
 
+U盘改文件系统 ntfs 
+
+d 为实际盘符
+```cmd 
+convert d:/fs:ntfs
+```
 

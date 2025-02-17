@@ -802,13 +802,13 @@ $(date -u +"")
         # - name: Set up Docker Buildx
         #   uses: docker/setup-buildx-action@v2
 
-        - name: Log in to Docker Hub
+        - name: Login to Docker Hub
           uses: docker/login-action@v3
           with:
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
 
-        - name: Log in to ghrc
+        - name: Login to ghrc
           uses: docker/login-action@v3
           with:
             registry: ghcr.io
