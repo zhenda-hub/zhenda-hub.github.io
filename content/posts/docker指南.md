@@ -496,6 +496,9 @@ docker network inspect web_network
 
 # 测试容器间连接
 docker exec nginx-container ping site1-web
+
+# 用户删除网络
+docker network rm web_network
 ```
 
 ```yaml
@@ -511,16 +514,30 @@ networks:
     external: true    # 声明这是一个外部网络
 ```
 
-容器访问主机的ip
+### 网络解析
 
-```
-http://host.docker.internal
-```
+容器访问主机的ip: `http://host.docker.internal`
 
-主机的 IP 地址不断变化，如果您无法访问网络，则没有 IP 地址。我们建议您连接到特殊的 DNS 名称host.docker.internal，该名称可解析为主机使用的内部 IP 地址。
+Docker 会使用默认的 bridge 网络, 容器默认连接到这个网络
+
+默认 bridge 网络：
+- 当你直接用 docker run 启动容器时
+- 容器自动连接到 bridge 网络
+- IP 地址在 172.17.0.0/16 范围内
+- 没有自动的 DNS 解析（容器间不能用名字互相访问）
+
+自定义网络（如我们的 api-network）：
+- 使用 docker-compose 或手动创建的网络
+- 有自动的 DNS 解析
+- 可以看到有 Aliases（别名）列表
+- IP 地址在不同的范围（192.168.32.0/20）
 
 
-Docker 会使用默认的 bridge 网络, **所有容器**都连接到这个默认网络
+默认 bridge：只能用 IP 地址通信
+自定义网络：可以用服务名通信
+
+Docker DNS 会将服务名(service name)解析到对应的容器
+如果服务有多个实例，会自动负载均衡
 
 ## Image测试平台
 
