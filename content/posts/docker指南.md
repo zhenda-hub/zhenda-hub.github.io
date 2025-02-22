@@ -20,6 +20,18 @@ tags = ["docker", "tools"]
   - Compose
   - k8s
 
+## 安装
+
+docker engine 推荐安装
+docker desktop 可以不安装
+
+把自己加入 docker 组
+```bash
+getent group docker
+sudo usermod -aG docker $USER
+
+```
+
 ## 作用
 
 简化开发, 部署
@@ -688,6 +700,7 @@ docker compose stop service_name
 docker compose start service_name
 # 销毁container， network
 docker compose down
+docker compose down --remove-orphans
 # 销毁container， network, volume
 docker compose down -v
 # 开发环境,查看实时变化, 需要在compose.yaml添加 develop, watch
