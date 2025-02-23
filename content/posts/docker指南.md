@@ -453,6 +453,12 @@ volumes:
 
 假设想把 old_volume 改称 new_volume
 
+
+```bash
+# bk
+sudo docker run --rm -v immich_model-cache:/data -v $(pwd):/backup busybox tar cvf /backup/data.tar /data
+
+```
 ```bash
 
 # 1. old_volume -> old_volume.tar.gz

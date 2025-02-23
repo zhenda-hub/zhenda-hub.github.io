@@ -266,7 +266,7 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
 > 组的主要作用是简化权限管理.
 > 超级用户 root, 拥有最高权限. 
 > 普通用户, 拥有有限的权限. 
-> sudo 命令 提升权限 visudo. 
+> sudo 命令 提升权限 visudo.  `sudo -i`
 
 用户 和 组 是 多对多的关系
 
@@ -416,12 +416,17 @@ gpasswd -d 用户名 组名
 -   ifconfig
 -   ping
 -   curl
-    ```
+    ```bash
     # 网上文件下载
     curl httpaddr -o filename
     # 发送post请求
     curl -X POST "http://xxxxx" -H "" -d'{"k1":"v1", "k2":"v2"}'
     ```
+
+- wget
+```bash
+wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
+```
 
 #### 查看port
 
