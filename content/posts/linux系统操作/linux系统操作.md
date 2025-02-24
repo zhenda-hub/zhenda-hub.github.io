@@ -298,9 +298,9 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
 # 查看权限 
 ls -l
 
-chown newowner:newgroup filename
+chown -R newowner:newgroup filename
 chown :newgroup filename
-chmod 775 filename
+chmod -R 775 filename
 ```
 
 
