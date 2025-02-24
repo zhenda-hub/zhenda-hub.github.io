@@ -309,6 +309,7 @@ chmod 775 filename
 组的增删改查
 
 ```bash
+getent group
 groupadd 组名
 groupmod -n 新组名 旧组名
 groupdel 组名
