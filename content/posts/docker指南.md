@@ -717,6 +717,8 @@ docker compose exec service_name /bin/bash
 docker compose config
 # 指定环境变量文件
 docker compose --env-file .env.production up -d
+# 指定compose文件
+docker compose -f docker-compose.yml.withdb up -d
 ```
 
 tips:
