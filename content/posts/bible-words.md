@@ -37,7 +37,7 @@ tags = ['bible']
 > 
 > *(Psalms 34:18 NLT)*
 
-> O my people, trust in him at all times. Pour out your heart to him, for God is our refuge.
+> O my people, trust in him at all times. **Pour out your heart to him, for God is our refuge**.
 > 
 > *(Psalms 62:8 NLT)*
 
@@ -62,13 +62,17 @@ tags = ['bible']
 
 ## Proverbs
 
-> Give freely and become more wealthy; be stingy and lose everything.
+> **Give freely and become more wealthy; be stingy and lose everything.**
 >
-> The generous will prosper; those who refresh others will themselves be refreshed.
+> The generous will prosper; those who **refresh others** will themselves be refreshed.
 > 
 > *(Proverbs 11:24-25 NLT)*
 
-> Unfriendly people care only about themselves; they lash out at common sense.
+> Better to be patient than powerful; better to have **self-control** than to conquer a city.
+> 
+> *(Proverbs 16:32 NLT)*
+
+> Unfriendly people care only about themselves; they lash out at **common sense**.
 > 
 > *(Proverbs 18:1 NLT)*
 
@@ -77,7 +81,7 @@ tags = ['bible']
 > 
 > *(Proverbs 18:9 NLT)*
 
-> Giving a gift can open doors; it gives accesss to important people!
+> **Giving a gift** can open doors; it gives access to important people!
 > 
 > *(Proverbs 18:16 NLT)*
 
@@ -159,7 +163,7 @@ tags = ['bible']
 
 > Because of what Jesus Christ our Lord has brought us info this place of undeserved privilege where we now stand, and we confidently and joyfully look forward to sharing God's glory.
 > 
-> We can rejoice, too, when we run into problems and trials, for we know that they help us develop endurance.
+> We can rejoice, too, when we run into problems and trials, for we know that they help us **develop endurance**.
 > 
 > And endurance develops stength of character, and character strengthens our confident hope of salvation.
 > 
