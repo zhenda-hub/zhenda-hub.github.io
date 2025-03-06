@@ -12,7 +12,7 @@ tags = ["Python", "Software Architecture"]
 
 ## python之禅
 
-```bash
+```txt
 Python 3.10.11 | packaged by Anaconda, Inc. | (main, Apr 20 2023, 18:56:50) [MSC v.1916 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import this

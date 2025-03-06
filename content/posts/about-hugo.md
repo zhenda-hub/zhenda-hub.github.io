@@ -64,3 +64,12 @@ Learn more and contribute on [GitHub](https://github.com/gohugoio).
     -   md 文件顶部，设置 tags=[]
 -   头部导航栏固定
     -   fixed-top
+
+
+```bash
+hugo new site xxx
+hugo server -D
+hugo new xxxx/xxx/xxxx.md
+
+hugo
+```
