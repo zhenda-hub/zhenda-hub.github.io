@@ -3,14 +3,19 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span> 次 · </span>
+        <span id="busuanzi_container_site_uv">您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者</span>
         <!-- SNS Link -->
         {{ partial "sns-links.html" (dict "center" true "social" .Site.Params.social ) }}
+        
+        
         <p class="copyright text-muted">
-        {{- if site.Copyright }}
+          {{- if site.Copyright }}
           {{ site.Copyright | markdownify }}
-        {{- else }}
+          {{- else }}
           Copyright &copy; {{ .Site.Title }} {{ now.Format "2006" }}
-        {{- end }}  
+          {{- end }}  
           <br>
           Powered by <a href="https://gohugo.io">Hugo</a>
         </p>
@@ -19,6 +24,7 @@
   </div>
 </footer>
 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src={{ "js/jquery.min.js" | relURL }}></script>
 <script src={{"js/bootstrap.min.js" | relURL }} crossorigin="anonymous"></script>
 
