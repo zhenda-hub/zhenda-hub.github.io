@@ -58,6 +58,7 @@ mysql 优化: <https://dev.to/hamzakhan/how-youtube-scaled-mysql-to-support-249-
 | a2 | b5 |
 
 ```python
+# 通过外键关联1
 class Author(models.Model):
     name = models.CharField(max_length=100)
 

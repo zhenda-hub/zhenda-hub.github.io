@@ -125,7 +125,7 @@ dev
 origin/xxx-bbb
 
 feature/xxx-bbb
-fixbug/xxx-bbb
+debug/xxx-bbb
 refactor/xxx-bbb
 docs/xxx-bbb
 

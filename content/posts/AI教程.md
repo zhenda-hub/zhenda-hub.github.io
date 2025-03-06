@@ -215,6 +215,8 @@ l2最常用
 
 #### Dataset 和 DataLoader
 
+DataLoader 加载 Dataset
+
 #### 批量处理
 
 神经网络的损失函数通常是一个非凸函数,也就是说它可能存在多个局部最优解

@@ -174,7 +174,7 @@ tags = ['bible']
 
 > For God knew his people in advance, and he chose them to become like his Son, so that his Son would be the firstborn among many brothers and sisters.
 >
-> And having chosen them, he called them to come to him. And having called them, he gave them right standing with himself. And having given them right standing, he gave them his glory.
+> And **having chosen them**, he called them to come to him. And having called them, he gave them right standing with himself. And having given them right standing, he gave them his glory.
 >
 > What shall we say about such wonderful things as there? If God is for us, who can ever be against us?
 > 
@@ -187,6 +187,12 @@ tags = ['bible']
 > God will destory anyone who destorys this temple. For God's temple is holy, and you are that temple.
 > 
 > *(1 Corinthians 3:16-17 NLT)*
+
+> As for me, it matters very little how I might be evaluated by you or by any human authority. I don't even trust my own judgment on this point.
+>
+> My conscience is clear, but that doesn't prove I'm right. It is the Lord himself who will examine me and decide.
+> 
+> *(1 Corinthians 4:3-4 NLT)*
 
 > You say, "I am allowed to do anything" but not everything is good for you. And even though "I am allowed to do anything," I must not become a slave to anything.
 > 
