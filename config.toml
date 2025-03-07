@@ -6,7 +6,7 @@ title = "Zhenda's Blog"
 theme = "puppet"
 # themesDir = "../.."
 
-copyright = "Copyright © 2023-2025. All Rights Reserved. Zhenda 版权所有"
+copyright = "Copyright © 2023-2025 Zhenda. All Rights Reserved."
 
 [pagination]
 pagerSize = 5
