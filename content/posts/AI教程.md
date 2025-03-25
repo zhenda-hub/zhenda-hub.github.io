@@ -7,7 +7,7 @@ toc = true
 tags = []
 +++
 
-<!-- [toc] -->
+[toc]
 
 ## 名词关系网
 
@@ -215,7 +215,7 @@ l2最常用
 
 #### Dataset 和 DataLoader
 
-DataLoader 加载 Dataset
+DataLoader 提供灵活加载Dataset的设置
 
 #### 批量处理
 
@@ -270,6 +270,11 @@ DataLoader 加载 Dataset
 
 
 | MLP |
+
+
+##### Sequential 
+
+对各个网络层封装在一个类
 
 #### 神经网络架构
 
