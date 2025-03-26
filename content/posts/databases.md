@@ -75,7 +75,56 @@ class Book(models.Model):
 
 ## 数据库连接池
 
-## 远程连接
+## 本地连接
+
+```bash
+# mysql
+mysql --version
+mysql -u root -p -h 127.0.0.1 -P 3306
+SHOW DATABASES;
+SHOW TABLES;
+EXIT;
+
+# pg
+psql --version
+psql -U username -d database_name -h host -p port
+
+\?
+\l
+\c database_name
+\dt
+\d table_name
+\q
+```
+
+## 代码连接
+
+```python
+import pymysql
+
+
+q = connect(host, port, user, password, db, charset)
+p = q.cursor()
+# 查
+p.execute(sql, params)
+p.fetchall()
+
+# 增删改
+try:
+    p.execute(sql, params)
+    q.commit()
+
+except:
+    q.rollback()
+else:
+    ...
+
+p.close()
+q.close()
+
+```
+
+## 远程连接(navicat, dbeaver)
 
 ### 连接mysql的设置, mysql很麻烦
 

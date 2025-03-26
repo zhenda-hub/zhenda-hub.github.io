@@ -562,6 +562,19 @@ celery -A djangoProject worker -l INFO -P eventlet
 celery -A djangoProject beat -l INFO
 ```
 
+#### 定时任务
+
+```python
+# 5点执行
+@periodic_task(run_every=crontab(hour="5"))
+def func1():
+    ...
+
+# 每5小时执行
+@periodic_task(run_every=crontab(hour="*/5"))
+def func1():
+    ... 
+```
 常见api:
 
 - 查所有
