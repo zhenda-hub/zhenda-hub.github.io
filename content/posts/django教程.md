@@ -7,11 +7,10 @@ toc = true
 tags = ["web"]
 +++
 
-<!-- [toc] -->
+[toc]
 
 ## 网站开发逻辑
 
-- 主要模块
 - 数据
 - 页面
 - api
@@ -237,6 +236,8 @@ url:
   - url
 
 ### 初级阶段，使用 admin 后台快速建站
+
+<https://docs.djangoproject.com/en/5.1/ref/models/fields/#:~:text=ForeignKey>
 
 -   model
 
@@ -621,6 +622,8 @@ Serializer
 
 REST framework中的serializers与Django的Form和ModelForm类非常像。
 
+作用: 简化view函数的实现, 数据库的数据转json. json转数据, 加数据验证
+
 | Django | DRF | 特点 |
 |---|---|---|
 | Form | Serializer | 灵活,定制化 |
@@ -658,6 +661,42 @@ class CommentSerializer(serializers.Serializer):
 
 ```
 
+嵌套
+```python
+from django.db import models
+
+class Website(models.Model):
+    name = models.CharField(max_length=255, verbose_name='网站名称')
+    url = models.URLField(verbose_name='网站URL')
+
+    def __str__(self):
+        return self.name
+
+class Audio(models.Model):
+    website = models.ForeignKey(Website, on_delete=models.CASCADE, related_name='audios', verbose_name='所属网站')
+    title = models.CharField(max_length=255, verbose_name='音频标题')
+    file_path = models.FileField(upload_to='audio_files/', verbose_name='音频文件路径')
+
+    def __str__(self):
+        return self.title
+
+
+from rest_framework import serializers
+from .models import Website, Audio
+
+class AudioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Audio
+        fields = ['id', 'title', 'file_path']
+
+class WebsiteSerializer(serializers.ModelSerializer):
+    audios = AudioSerializer(many=True, read_only=True)  # 附带
+
+    class Meta:
+        model = Website
+        fields = ['id', 'name', 'url', 'audios']
+
+```
 
 ```python
 
