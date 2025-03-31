@@ -845,11 +845,26 @@ listen 8081;
 
 ### CORS
 
-浏览器的同源策略: 是一个重要的安全机制. 禁止不同源访问.
+在前后端分离开发时, 经常遇到
+
+CORS 浏览器的同源策略: 是一个重要的安全机制. 默认禁止不同源访问. 允许服务器声明哪些源可以访问它的资源。这需要**服务器设置response来允许跨域**。
+
 
 源由协议、域名和端口号组成, 例如 
 
 - `http://127.0.0.1:8000`
 - `ws://127.0.0.1:8000`
 
-跨域请求: CORS是一种机制，允许服务器声明哪些源可以访问它的资源。这需要**服务器端的配置**。
+
+
+### CSRF
+
+是一种攻击方式，攻击者利用已登录的session进行攻击, 因此使用一个token来二次验证
+
+默认情况下，Django 的 CsrfViewMiddleware 会对所有非安全请求（如 POST、PUT、DELETE 等）进行 CSRF 验证.
+
+drf auth跳过方式:
+
+SessionAuthentication 改为 TokenAuthentication
+或自定义 `authentication_classes`
+
