@@ -745,11 +745,9 @@ class CreateListRetrieveViewSet(mixins.CreateModelMixin,
                                 viewsets.GenericViewSet):
     """
     A viewset that provides `retrieve`, `create`, and `list` actions.
-
-    To use it, override the class and set the `.queryset` and
-    `.serializer_class` attributes.
     """
-    pass
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
 
 
 class AccountViewSet(viewsets.ReadOnlyModelViewSet):
@@ -759,7 +757,87 @@ class AccountViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
 
+
+from rest_framework.decorators import action
+from rest_framework.filters import SearchFilter, OrderingFilter
+
+
+class AccountViewSet(viewsets.ModelViewSet):
+    """
+    
+    """
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
+
+    # 自定义各种配置
+
+    # 权限
+    authentication_classes = [] # 1
+    permission_classes = [] # 2
+    throttle_classes = [] # 3
+
+    # 功能
+    filter_backends = [SearchFilter, OrderingFilter]
+
+    # GET /mymodels/?search=example
+    search_fields = ['name', 'description']  # 指定搜索字段
+
+    # GET /mymodels/?ordering=-created_at
+    ordering_fields = ['created_at', 'name']  # 指定排序字段
+    ordering = ['-created_at']  # 默认排序规则
+    
+    pagination_class = MyPageClass
+
+    @action(methods=['get'], detail=False)
+    def my_method(self):
+        ...
+
 ```
+
+| 过滤后端     | 功能描述       | 示例代码片段         |
+|-----------|-------------|---------------------------|
+| `SearchFilter`        | 全文搜索       | `filter_backends = [SearchFilter]`  |
+| `OrderingFilter`      | 排序           | `filter_backends = [OrderingFilter]`         |
+| `DjangoFilterBackend` | 复杂条件过滤    | `filter_backends = [DjangoFilterBackend]`    |
+| 自定义过滤后端         | 实现个性化过滤逻辑   | 继承 `BaseFilterBackend`              |
+
+drf 源码逻辑
+
+```python
+
+class APIView(View):
+
+    # The following policies may be set at either globally, or per-view.
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
+    parser_classes = api_settings.DEFAULT_PARSER_CLASSES
+    authentication_classes = api_settings.DEFAULT_AUTHENTICATION_CLASSES
+    throttle_classes = api_settings.DEFAULT_THROTTLE_CLASSES
+    permission_classes = api_settings.DEFAULT_PERMISSION_CLASSES
+    content_negotiation_class = api_settings.DEFAULT_CONTENT_NEGOTIATION_CLASS
+    metadata_class = api_settings.DEFAULT_METADATA_CLASS
+    versioning_class = api_settings.DEFAULT_VERSIONING_CLASS
+
+    # Allow dependency injection of other settings to make testing easier.
+    settings = api_settings
+
+    schema = DefaultSchema()
+
+    def initial(self, request, *args, **kwargs):
+        ...
+
+        # Ensure that the incoming request is permitted
+        self.perform_authentication(request)
+        self.check_permissions(request)
+        self.check_throttles(request)
+```
+
+
+
+TODO: 源码设计优劣
+
+django flask
+
+
 
 -   APIView
     -   Request

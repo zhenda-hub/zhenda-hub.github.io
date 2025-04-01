@@ -297,8 +297,17 @@ DataLoader 提供灵活加载Dataset的设置
 | MLP（多层感知机）  | 最基本的前馈神经网络，由多个全连接层组成，适合处理结构化数据             | - 分类和回归任务                            |
 |                    |                                                            | - 数据特征学习（深度学习基础结构）         |
 
+### 损失
 
-#### 模型训练流程
+计算模型准确度
+
+### 优化器
+
+更新模型参数
+
+## 常见操作步骤
+
+### 模型训练流程
 
 | 概念 | 类比 | 功能 | 数学表示 | 常见类型/示例 |
 |---|---|---|---|---|
@@ -329,9 +338,21 @@ for epoch in range(epochs):
     optimizer.step()
 ```
 
-#### 模型保存加载
+### 模型保存加载
 
-#### 模型性能优化
+```python
+import torch
+import torchvision
+
+vgg16 = torchvision.models.vgg16(weights=True)
+
+torch.save(vgg16, '/app/output/vgg16.pth')
+
+model = torch.load('/app/output/vgg16.pth', weights_only=False)
+print(model)
+```
+
+### 模型性能优化
 
 问答 -> 用户反馈
 SFT
@@ -343,7 +364,7 @@ SFT
 - 参数调优
 - 性能评估
 
-#### 模型量化
+### 模型量化
 
 是将模型的参数（如权重和激活值）从高精度（通常是32位浮点数）转换为低精度表示（如8位整数或更低位数）的过程
 
@@ -351,7 +372,7 @@ llama.cpp
 转gguf
 
 
-### 常见问题
+## 常见问题
 
 1. 欠拟合: 训练集误差大. 
 
