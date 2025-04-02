@@ -933,6 +933,20 @@ CORS 浏览器的同源策略: 是一个重要的安全机制. 默认禁止不�
 - `http://127.0.0.1:8000`
 - `ws://127.0.0.1:8000`
 
+设置response来允许跨域:
+
+```python
+from django.utils.deprecation import MiddlewareMixin
+
+class CorsMiddleware(MiddlewareMixin):
+    def process_response(self, request, response):
+        # 主要是response 设置三个值
+        response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Methods"] = "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+        response["Access-Control-Allow-Headers"] = "Authorization, Content-Type"
+        return response
+
+```
 
 
 ### CSRF
