@@ -338,6 +338,23 @@ for epoch in range(epochs):
     optimizer.step()
 ```
 
+#### gpu训练
+
+```python
+net = Net()
+if torch.cuda.is_available():
+    net = net.cuda()
+
+loss_fn = nn.CrossEntropyLoss()
+if torch.cuda.is_available():
+    loss_fn = loss_fn.cuda()
+
+
+if torch.cuda.is_available():
+    inputs = inputs.cuda()
+    labels = labels.cuda()
+```
+
 ### 模型保存加载
 
 ```python
