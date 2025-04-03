@@ -418,7 +418,7 @@ llama.cpp
   - 降低模型复杂度
     - dropout: 随机丢弃神经网络中的神经元，防止过拟合
     - 对损失函数, 正则化
-  - early stopping
+  - early stopping?
 
 梯度消失：使用ReLU等激活函数
 梯度爆炸：梯度裁剪
