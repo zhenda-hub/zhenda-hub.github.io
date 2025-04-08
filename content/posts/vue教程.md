@@ -412,6 +412,13 @@ router.beforeEach((to, from, next) => {})
 | this.$route	| 访问当前路由信息 |
 
 
+## storage
+
+What are Local storage and cookies?
+It is important to understand the concept of local storage and cookies. They are examples of web storage which is used to store important data in your browsers.
+With the help of local storage, you can store data (up to 5 MB) of a website. You can access this data even after you close the browser. Whereas, cookies can store only 4 KB of data. Unlike Local storage, all data will be lost as soon as you close the browser.
+
+
 ## 部署
 
 -   启动项目方式
