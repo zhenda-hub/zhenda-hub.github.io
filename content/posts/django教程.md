@@ -208,9 +208,29 @@ kafka nobrokersavailable
 
 ## 前后端数据交互的类型
 
-请求体:
 
-- json
+### header 请求头:
+
+包含了基本的请求信息, method, url, 协议, 和一些 kv.
+
+常见kv如下:
+
+|key|meaning|
+|---|---|
+|Accept| 客户端可接受的响应类型 |
+|Accept-Language| 客户端可接受的语言 |
+|Content-Type| body数据类型 |
+|Cookie| 用于用户认证 |
+|Host| 请求服务器地址 |
+|User-Agent| 客户端信息 |
+
+### body 请求体:
+
+数据类型 在header里的 **Content-Type** 可以查看
+
+有三种数据格式:
+
+- application/json
 ```json
 {
     username: 'john_doe',
@@ -219,11 +239,16 @@ kafka nobrokersavailable
 }
 ```
 - form
-`username=john_doe&email=john@example.com`
+  - application/x-www-form-urlencoded
+    - `username=john_doe&email=john@example.com`
+  - multipart/form-data
+    - 上传文件
 
-url:
+### query params:
 
 `/api/users?username=john_doe&email=john@example.com`
+
+
 
 ## 网站开发逻辑梳理
 
@@ -841,6 +866,8 @@ django flask
 
 -   APIView
     -   Request
+        -   data
+        -   query_params
     -   Response
         -   status.xxx
     -   顺序
