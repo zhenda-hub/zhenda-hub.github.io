@@ -50,12 +50,6 @@ curl http://localhost:11434/api/generate -d '{
 }'
 
 
-
-
-sk-56999665a4e04164b5c627df493de75e
-
-
-
 ```
 
 容器访问ollama的地址
