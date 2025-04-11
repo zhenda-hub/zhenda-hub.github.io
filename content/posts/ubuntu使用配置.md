@@ -198,3 +198,17 @@ sudo systemctl restart gdm
 sudo apt install net-tools
 sudo apt install openssh-server
 ```
+
+
+## X11 wayland 区别
+
+两个图形显示框架
+
+<https://zhuanlan.zhihu.com/p/26028490976>
+
+```bash
+sudo vi /etc/gdm3/custom.conf
+# wayland -> X11
+# 注意第7行是 #WaylandEnable=false，去掉注释，改成WaylandEnable=false，保存
+sudo systemctl restart gdm3 
+```

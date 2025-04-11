@@ -31,6 +31,7 @@ tags = ['web']
                 -   self.get_arguments('k') # 获取一个参数列表
 
             -   post
+                -   json.load(self.request.body)
             -   put
             -   delete
             -   prepare
@@ -50,7 +51,7 @@ tags = ['web']
 
     -   authenticated
         -   用户认证
-    -   tornado,ioloop.PeriodicCallback()
+    -   tornado.ioloop.PeriodicCallback()
         -   定时任务
 
 
