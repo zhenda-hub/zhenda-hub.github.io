@@ -31,7 +31,7 @@ tags = ['web']
                 -   self.get_arguments('k') # 获取一个参数列表
 
             -   post
-                -   json.load(self.request.body)
+                -   json.loads(self.request.body)
             -   put
             -   delete
             -   prepare
