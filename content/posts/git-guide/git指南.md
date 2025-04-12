@@ -637,14 +637,14 @@ Host github.com
 ## git 软件安装包
 
 
-| 文件名示例	| 平台（系统）|	架构 / 适配设备	| 说明|
-|---|---|---|---|
-| .dmg 	            | macOS	| x64：Intel / arm64：M1/M2/M3 |	Mac 安装包，双击安装即可 |
-| .dmg.blockmap	    | 	| |	自动更新 |
-| .rpm 	| Linux	| x64, arm64, armv7l	| 适用于 Fedora / RedHat 系 |
-| .deb 	| 	| 	| Debian/Ubuntu 系统使用的 `.deb` 包 |
-| .pacman	| 	| 	| Arch Linux / Manjaro 专用 `.pacman` 包 |
-| .AppImage 	| 	| 	| 通用 Linux 可执行包，免安装 |
-| .Setup.exe	| Windows | 	x64, x86, arm64, win7	| 安装包 | 
-| .7z	|  | 		| 绿色版压缩包（免安装） | 
-| .blockmap	|  | 		| 支持自动更新 | 
+| 文件名示例	| 平台（系统）|	架构 / 适配设备	| 说明| 推荐 |
+|---|---|---|---|---|
+| .dmg 	            | macOS	| x64：Intel / arm64：M1/M2/M3 |	Mac 安装包，双击安装即可 | |
+| .dmg.blockmap	    | 	| |	自动更新 | O |
+| .rpm 	| Linux	| x64, arm64, armv7l	| 适用于 Fedora / RedHat 系  `.rpm`包 | |
+| .deb 	| 	| 	| Debian/Ubuntu 系统使用的 `.deb` 包 | |
+| .pacman	| 	| 	| Arch Linux / Manjaro 专用 `.pacman` 包 | |
+| .AppImage 	| 	| 	| 通用 Linux `可执行包`，免安装 | O |
+| .Setup.exe	| Windows | 	x64, x86, arm64, win7	| 安装包 |  |
+| .blockmap	|  | 		| 支持自动更新 | O |
+| .7z	|  | 		| 绿色版压缩包（无需安装，解压即用） | O |
