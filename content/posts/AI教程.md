@@ -251,7 +251,7 @@ DataLoader 提供灵活加载Dataset的设置
 | **神经元** | 生物神经元 | 信息处理的基本单元 | output = activation(∑(weight * input) + bias) | - |
 |  | **权重** 连接强度 | 决定输入对输出的影响 | w | - |
 |  | **偏置** 阈值 | 调整神经元输出 | b | - |
-|  | **激活函数** 开关 | 引入非线性 | Sigmoid, Tanh, ReLU, LeakyReLU, ELU等 | - |
+|  | **激活函数** 开关 | 引入非线性 | **Sigmoid, Tanh, ReLU, LeakyReLU, ELU**等 | - |
 | **层** | 楼层 | 信息处理的层次 | 输入层、隐藏层、输出层 | - |
 |  | 输入层 | 接收外界数据，作为神经网络的输入 |  |  |
 |  | 隐藏层 | 对输入数据进行复杂的非线性变换，提取特征 |  |  |
@@ -260,6 +260,10 @@ DataLoader 提供灵活加载Dataset的设置
 ###### 网络层
 
 对于 隐藏层的数量 和 各个隐藏层的节点数: 常见策略是逐层减少节点数
+
+通常，我们选择2的若干次幂作为层的宽度。
+因为内存在硬件中的分配和寻址方式，这么做往往可以在计算上更高效。
+
 
 | 层 | 名称 | 作用 | 概念 |
 |---|---|---|---|
@@ -359,6 +363,7 @@ for epoch in range(epochs):
     
     # 3. 反向传播: 计算梯度
     loss.backward()  
+    # output.backward(torch.ones_like(output))
     
     # 4. 优化器: 更新参数
     optimizer.step()
