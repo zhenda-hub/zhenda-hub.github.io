@@ -58,6 +58,25 @@ sudo apt install ibus-pinyin
 ```bash
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 ```
+## gnome extension
+
+```bash
+sudo apt install gnome-shell-extensions chrome-gnome-shell gnome-tweaks
+```
+<https://extensions.gnome.org/>
+
+- lipboard Indicator
+- Vitals
+- OpenWeather
+
+## preload
+
+```bash
+sudo apt -y install preload
+sudo preload -l
+sudo systemctl status preload.service
+sudo cat /var/log/preload.log
+```
 
 ### ~/.xxxrc file settings
 

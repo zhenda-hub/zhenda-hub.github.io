@@ -498,3 +498,12 @@ set -eu
 #### 安全检查工具
 
 shellcheck
+
+
+### 文件服务
+
+```bash
+python -m http.server 8080
+```
+
+局域网访问文件

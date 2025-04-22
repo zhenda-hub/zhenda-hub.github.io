@@ -675,10 +675,11 @@ class CommentSerializer(serializers.Serializer):
         ...
 
     def validate():
+        # 重写 对象 验证逻辑
         ...
 
-    def valid_xxxx():
-        # 重写验证逻辑
+    def validate_xxxx():
+        # 重写 field 验证逻辑
         ...
     def to_representation():
         # 重写序列化逻辑
@@ -785,7 +786,17 @@ class AccountViewSet(viewsets.ReadOnlyModelViewSet):
 
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter, OrderingFilter
+# django_filters
+from django_filters.rest_framework import DjangoFilterBackend, FilterSet
+# drf-dynamic-fields
 
+
+class UserFilter(FilterSet):
+    username = filters.CharFilter(field_name="username", lookup_expr='icontains')  # 模糊匹配用户名
+
+    class Meta:
+        model = Account
+        fields = ['username', 'email']
 
 class AccountViewSet(viewsets.ModelViewSet):
     """
@@ -802,7 +813,7 @@ class AccountViewSet(viewsets.ModelViewSet):
     throttle_classes = [] # 3
 
     # 功能
-    filter_backends = [SearchFilter, OrderingFilter]
+    filter_backends = [SearchFilter, OrderingFilter, DjangoFilterBackend]
 
     # GET /mymodels/?search=example
     search_fields = ['name', 'description']  # 指定搜索字段
@@ -811,6 +822,11 @@ class AccountViewSet(viewsets.ModelViewSet):
     ordering_fields = ['created_at', 'name']  # 指定排序字段
     ordering = ['-created_at']  # 默认排序规则
     
+    # DjangoFilterBackend
+    # GET /mymodels/?username=xxxx
+    filterset_fields = ['username', 'email']  # 可以过滤的字段
+    # filter_class = UserFilter
+
     pagination_class = MyPageClass
 
     @action(methods=['get'], detail=False)
