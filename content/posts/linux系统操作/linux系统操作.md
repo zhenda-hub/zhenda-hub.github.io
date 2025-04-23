@@ -503,6 +503,7 @@ shellcheck
 ### 文件服务
 
 ```bash
+cd target_path
 python -m http.server 8080
 ```
 
