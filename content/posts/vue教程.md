@@ -7,7 +7,7 @@ toc = true
 tags = ["web"]
 +++
 
-<!-- [toc] -->
+[toc]
 
 ## document
 
@@ -176,12 +176,16 @@ export default {
       this.count++
     }
   },
-  // `mounted` 是生命周期钩子，之后我们会讲到
+  // 钩子在组件的模板和 DOM 已经被渲染并挂载完成后调用，此时组件已经完全挂载到页面上
   mounted() {
     const newObject = {}
     this.someObject = newObject
 
     console.log(newObject === this.someObject) // false
+  },
+  // xxx
+  computed: {
+
   }
 }
 ```
@@ -207,6 +211,7 @@ const deleteTodo = (todo) => {
   ElMessage.success('删除成功')
 }
 ```
+
 逻辑
 
 - v-if 绑定条件很少改变
@@ -223,7 +228,7 @@ const items = ref([{ message: 'Foo' }, { message: 'Bar' }])
 </li>
 ```
 
-表单
+#### 表单
 
 v-model
 
@@ -257,7 +262,7 @@ const picked = ref('One')
 <label for="two">Two</label>
 ```
 
-事件
+#### 事件
 
 ```js
 function say(message) {
@@ -271,11 +276,17 @@ function say(message) {
 ```
 
 
-请求
+#### 请求
 
-生命周期钩子
+#### 生命周期钩子
 
-## 页面样式(html, css)
+<https://cn.vuejs.org/guide/essentials/lifecycle.html>
+
+```html
+mounted(){}
+```
+
+## 样式库
 
 -   <https://element-plus.org/zh-CN/component/overview.html>
 -   <https://element.eleme.cn/#/zh-CN/component/installation>
@@ -418,6 +429,39 @@ What are Local storage and cookies?
 It is important to understand the concept of local storage and cookies. They are examples of web storage which is used to store important data in your browsers.
 With the help of local storage, you can store data (up to 5 MB) of a website. You can access this data even after you close the browser. Whereas, cookies can store only 4 KB of data. Unlike Local storage, all data will be lost as soon as you close the browser.
 
+## 缓存
+
+<keep-alive> 是 Vue 提供的一个抽象组件，它能够缓存不活跃的组件实例，而不是每次切换时都销毁它们。这样可以在组件切换时保持组件的状态，避免重复渲染，提高性能
+
+
+```html
+<template>
+  <div>
+    <router-link to="/a">Go to A</router-link>
+    <router-link to="/b">Go to B</router-link>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+  </div>
+</template>
+
+<script>
+import ComponentA from './ComponentA.vue';
+import ComponentB from './ComponentB.vue';
+
+export default {
+  components: {
+    ComponentA,
+    ComponentB
+  }
+};
+</script>
+
+```
+
+1. 当用户首次访问 /a 时，ComponentA 被渲染并挂载到 DOM 上，触发 mounted 钩子。
+2. 用户切换到 /b，ComponentA 被缓存，触发 deactivated 钩子，ComponentB 被渲染并挂载，触发 mounted 钩子。
+3. 用户再次切换回 /a，ComponentB 被缓存，触发 deactivated 钩子，ComponentA 从缓存中恢复，触发 activated 钩子，而不会重新触发 mounted
 
 ## 部署
 
