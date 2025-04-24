@@ -7,7 +7,7 @@ toc = true
 tags = ["git", "tools"]
 +++
 
-<!-- [toc] -->
+[toc]
 
 ## 官方文档
 
@@ -405,6 +405,43 @@ ssh -T git@github.com
 
 2. 添加 ssh 公钥 (pub) 到代码仓库 github 或 其他平台
 
+
+### Git Large File Storage
+
+<https://git-lfs.com/>
+
+```bash
+Examples
+--------
+
+To get started with Git LFS, the following commands can be used.
+
+. Setup Git LFS on your system. You only have to do this once per user
+account:
++
+
+git lfs install
+
+. Choose the type of files you want to track, for examples all ISO
+images, with git lfs track:
++
+
+git lfs track "*.iso"
+
+. The above stores this information in gitattributes(5) files, so that
+file needs to be added to the repository:
++
+
+git add .gitattributes
+
+. Commit, push and work with the files normally:
++
+
+git add file.iso
+git commit -m "Add disk image"
+git push
+```
+
 #### 问题
 
 SSH 默认使用端口 22, 如果网络阻止访问, 可以改为 443
@@ -633,8 +670,9 @@ Host github.com
 
 
 ```
+## 文件类型
 
-## git 软件安装包
+### git平台中, 常见的软件安装包
 
 
 | 文件名示例    | 平台（系统） | 架构 / 适配设备              | 说明                                   | 推荐 |
@@ -650,7 +688,7 @@ Host github.com
 | .7z           |              |                              | 绿色版压缩包（无需安装，解压即用）     | O    |
 
 
-## 文件压缩
+### 文件压缩
 
 为什么会压缩?
 
@@ -672,7 +710,7 @@ Host github.com
 
 
 
-## 文本
+### 文本
 
 | 文本格式                  | 文件扩展名 | 描述                                         | 用途                     | 兼容性                               |
 | ------------------------- | ---------- | -------------------------------------------- | ------------------------ | ------------------------------------ |
@@ -687,7 +725,7 @@ Host github.com
 | XML                       | .xml       | 可扩展标记语言,关注数据的结构和内容          | 用于数据存储和传输       | 高                                   |
 
 
-## 图片
+### 图片
 
 | 格式         | 特点                             | 是否支持透明度  | 是否支持动画 | 压缩方式  | 文件大小 | 适用场景                   |
 | ------------ | -------------------------------- | --------------- | ------------ | --------- | -------- | -------------------------- |
@@ -701,7 +739,7 @@ Host github.com
 | **TIFF/TIF** | 高质量图像存储，常用于印刷       | 是              | 否           | 无损      | 大       | 专业图像处理、印刷         |
 
 
-## 音频
+### 音频
 
 
 | 格式     | 特点                               | 压缩方式  | 音质   | 文件大小 | 兼容性   | 是否含有字幕        |
@@ -719,7 +757,7 @@ Host github.com
 
 
 
-### 字幕
+#### 字幕
 
 - 字幕分离
 
@@ -752,7 +790,7 @@ MP3 文件可以通过 ID3v2 标签嵌入歌词信息。
 - SYLT（Synchronized Lyrics）：同步歌词，包含时间戳信息，实现歌词与音乐同步显示. 支持较少
 
 
-## 视频
+### 视频
 
 
 | 格式        | 特点                           | 压缩方式  | 视频质量 | 文件大小 | 兼容性 | 是否含有字幕     |
