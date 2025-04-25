@@ -619,8 +619,19 @@ def func1():
 
 <https://docs.djangoproject.com/en/5.1/ref/models/querysets/#select-related>
 
-select_related()  foreign key and one-to-one
-prefetch_related() a ‘many’ relationship
+```python
+# select_related(): foreign key and one-to-one
+books = Book.objects.select_related('author').all()
+for book in books:
+    print(book.author.name)  # 这里不会触发额外的查询，因为作者信息已经被预取
+
+# prefetch_related(): 支持多对多和反向关系
+articles = Article.objects.prefetch_related('tags').all()
+
+for article in articles:
+    print(article.title, [tag.name for tag in article.tags.all()])  # 不会触发额外查询
+```
+
 
 ## 前后端分离
 
