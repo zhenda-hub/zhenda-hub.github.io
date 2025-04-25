@@ -62,32 +62,43 @@ tags = ["git", "tools"]
 -   本地仓库
 -   远程仓库
 
-## 参与开源项目
-
--   提交 issue
--   提交代码
-    -   fork
-    -   在分支编写代码
-    -   pull request
--   检查代码
-    -   review pr
-
-## 环境搭建
-
-```bash
-# 克隆
-git clone 远程的 ssh
-# 初始化
-git init
-git remote add origin sshxxx
-git push --set-upstream origin main
-```
-
 
 
 ## git 使用方法
 
-### .gitignore
+
+### 基础使用
+
+使用前提:
+**安装 -> 配置 -> 远程仓库 -> 本地仓库**
+
+#### 安装
+
+...
+
+#### 配置个人信息
+
+```bash
+# 查看 git 信息
+git config -l
+# 编辑个人信息来显示提交记录
+git config --global user.name "Your Name"
+git config --global user.email "Your Email"
+git config --global core.autocrlf false
+```
+
+#### 远程仓库
+
+最好使用英文，方便国际化仓库
+
+主要 md 文件
+-   README.md 介绍项目
+-   CHANGELOG.md 更新日志
+-   CODE_OF_CONDUCT.md 代码准则
+-   CONTRIBUTING.md 贡献指南
+
+
+##### .gitignore
 
 作用: 设置忽略跟踪的文件或文件夹
 
@@ -114,16 +125,35 @@ git rm-r -cached 文件名
 ```
 
 
-### branch
+#### 本地仓库
+
+获得本地仓库
+```bash
+# 克隆
+git clone 远程的 ssh
+# 初始化
+git init
+git remote add origin sshxxx
+git push --set-upstream origin main
+```
+
+
+
+使用流程:
+**pull dev -> new分支 -> 编辑 -> add -> commit -> push**
+
+
+#### branch
 
 **一个功能: 一个branch, 多个commit**
 
 ```bash
-# 命名
+# 默认分支命名:
 main  # 分支保护, 稳定可发布的分支
 dev
-origin/xxx-bbb
+origin/xxx-bbb # 远程分支的默认名称是 origin
 
+# 自定义分支名:
 feature/xxx-bbb
 debug/xxx-bbb
 refactor/xxx-bbb
@@ -133,28 +163,101 @@ backup/xxx-bbb
 tmp/xxx-bbb
 ```
 
+pull request: 开发分支发起对主分支的合并请求
+
+远程和本地关联
+
+```bash
+# 查看关联
+git remote -v
+# 关联
+git remote add origin 远程的 ssh
+# 取消关联
+git remote rm origin
+# 直接设置
+git remote set-url origin xxx
+```
+
+切换自己的分支写代码
+
+```bash
+git checkout dev
+git pull
+git checkout -b xxx/xxx_branch
+```
+
+#### commit
+
+```bash
+git add demo.py
+git commit -m "add: demo.py"
+git push
+```
+
+
+### 进阶使用
+
+
 ```bash
 # 本地feature1分支, 同步 远程dev分支 的最新更改
 git pull --rebase origin dev
 ```
 
+#### git diff
+
 ```bash
-# cherry-pick 合并特定commit
-git checkout main
-git cherry-pick commitidxxxx
-# 有冲突
-git add xxx
-git cherry-pick --continue 
-# 取消 operation
-git cherry-pick --abort
-# skip patch
-git cherry-pick --skip
+# 比较文件内容
+git diff
+git diff commitidxxx -- ./path1/path2/xxx.py
+
+# 查看commit
+
+# e y 上下 , q 退出
+git log --stat
+git show commmitid
+```
+
+#### 撤销
+
+```bash
+
+# 撤销工作区的文件
+git checkout xxx.py
+# 撤销指定文件的add状态
+git reset xxx.py
+# 撤销add -> 0
+git reset
+# 撤销 commit -> add
+git reset --soft id
+# 撤销 commit -> 0
+git reset --hard id
+```
+
+#### 开发了一半
+
+```bash
+git stash && git stash drop
+git stash save 'xxx'
+git stash pop
+git stash list
+git stash clear
+```
+
+#### 指定文件
+
+```bash
+# 拉去指定文件
+git checkout 分支名 文件名
+# 查看指定文件提交历史
+git reflog 文件名
+# 回退旧版本
+git checkout commitid 文件名
+# 回到最新版
+git checkout HEAD 
 ```
 
 
-pull request: 开发分支发起对主分支的合并请求
-
-### tag
+#### tag
 
 tag 很稳定
 
@@ -208,6 +311,7 @@ git push --tags
 -   update
               
 
+#### 相关命令
 
 ```bash
 
@@ -252,66 +356,30 @@ pick b5b06654 remove: entrypoint.sh
 # However, if you remove everything, the rebase will be aborted.
 ```
 
-## 常用备忘内容
-
-```bash
-# 比较文件内容
-git diff
-git diff commitidxxx -- ./path1/path2/xxx.py
-
-# 查看commit
-
-# e y 上下 , q 退出
-git log --stat
-git show commmitid
-```
-
 ```bash
 # 修改上次commit
 git commit --amend -m ""
 
 # 撤销提交记录
 git reset --hard xxx
-
 git push -f
-
 
 # 空提交, 为了触发自动化动作
 git commit -m "retrigger checks" --allow-empty
-
-
-# 撤销工作区的文件
-git checkout xxx.py
-# 撤销指定文件的add状态
-git reset xxx.py
-# 撤销add状态
-git reset
-# 撤销 commit 到 add
-git reset --soft id
-# 撤销 commit 到 0
-git reset --hard id
-
-
-# 开发了一半
-git stash && git stash drop
-git stash save 'xxx'
-git stash pop
-git stash list
-git stash clear
-
-
-# 指定文件
-# 拉去指定文件
-git checkout 分支名 文件名
-# 查看指定文件提交历史
-git reflog 文件名
-# 回退旧版本
-git checkout commitid 文件名
-# 回到最新版
-git checkout HEAD 
 ```
 
-
+#### cherry-pick 合并特定commit
+```bash
+git checkout main
+git cherry-pick commitidxxxx
+# 有冲突
+git add xxx
+git cherry-pick --continue 
+# 取消 operation
+git cherry-pick --abort
+# skip patch
+git cherry-pick --skip
+```
 
 ## 其他
 
@@ -406,6 +474,15 @@ ssh -T git@github.com
 2. 添加 ssh 公钥 (pub) 到代码仓库 github 或 其他平台
 
 
+SSH 默认使用端口 22, 如果网络阻止访问, 可以改为 443
+
+~/.ssh/config
+```plaintext
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+```
+
 ### Git Large File Storage
 
 <https://git-lfs.com/>
@@ -442,16 +519,23 @@ git commit -m "Add disk image"
 git push
 ```
 
-#### 问题
+### 参与开源项目
 
-SSH 默认使用端口 22, 如果网络阻止访问, 可以改为 443
+-   提交 issue
+-   提交代码
+    -   fork
+    -   在分支编写代码
+    -   pull request
+-   检查代码
+    -   review pr
 
-~/.ssh/config
-```plaintext
-Host github.com
-    Hostname ssh.github.com
-    Port 443
-```
+
+
+
+
+
+
+
 
 
 
@@ -460,15 +544,6 @@ Host github.com
 -   基础
 
     -   下载 git软件
-    -   配置个人信息
-        ```bash
-        # 查看 git 信息
-        git config -l
-        # 编辑个人信息来显示提交记录
-        git config --global user.name "Your Name"
-        git config --global user.email "Your Email"
-        git config --global core.autocrlf false
-        ```
     -   ssh
         -   作用
             -   免密码 pull push 代码
@@ -496,24 +571,6 @@ Host github.com
         git push --set-upstream origin main
         ```
 
-        -   最好使用英文，方便国际化仓库
-        -   主要 md 文件
-            -   README.md 介绍项目
-            -   CHANGELOG.md 更新日志
-            -   CODE_OF_CONDUCT.md 代码准则
-            -   CONTRIBUTING.md 贡献指南
-
-    -   远程和本地关联
-        ```bash
-        # 查看关联
-        git remote -v
-        # 关联
-        git remote add origin 远程的 ssh
-        # 取消关联
-        git remote rm origin
-        # 直接设置
-        git remote set-url origin xxx
-        ```
 
 -   进阶
     -   多个远程仓库关联
