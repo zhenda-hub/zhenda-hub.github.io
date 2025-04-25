@@ -7,7 +7,7 @@ toc = true
 tags = ["docker", "tools"]
 +++
 
-<!-- [toc] -->
+[toc]
 
 ## docker介绍
 
@@ -19,6 +19,11 @@ tags = ["docker", "tools"]
   - scout
   - Compose
   - k8s
+
+## why use docker?
+
+- 环境一致性, 让开发和部署保持一致, DevOps 真正落地
+- 适合构建微服务架构
 
 ## 安装
 
@@ -32,16 +37,27 @@ sudo usermod -aG docker $USER
 
 ```
 
-## 作用
-
-简化开发, 部署
 
 ## 相关教程
 
 -   <https://docker-practice.github.io/zh-cn/introduction/>
 -   <https://juejin.cn/post/7154437479955693598>
 
-## Docker 基本概念
+## 快速入门
+
+**概念 -> 操作方法 -> 使用Container**
+
+### Docker 基本概念
+
+Container是实际使用的实例, 主要通过以下两种方法生成:
+
+**Repository -> Image -> Container**
+**Dockerfile -> Image -> Container**
+
+Volume: 存储数据
+Network: 容器网络通信
+宿主机: 本人使用的电脑
+
 
 | 概念 | 描述 |
 |---|---|
@@ -60,13 +76,13 @@ sudo usermod -aG docker $USER
 | Dangling 镜像    | 是指没有标签（tag）且不被任何容器使用的镜像                                      |
 | Dangling 卷    | 是指没有标签（tag）且不被任何容器使用的卷                                      |
 
-## Repository
+#### Repository
 
 - dockerhub
   - 自动build 需要付费
 - ghcr
 
-### ghcr
+##### ghcr
 
 相关教程:
 - <https://docs.github.com/zh/packages/working-with-a-github-packages-registry/working-with-the-container-registry>
@@ -76,68 +92,16 @@ sudo usermod -aG docker $USER
 token设置地址:
 - <https://github.com/settings/tokens>
 
-#### 手动推送
 
-1. 登录
-
-```bash
-export CR_PAT=YOUR_TOKEN
-echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
-```
-
-2. 命令
-```bash
-
-docker tag xxxx ghcr.io/github_id/image_name:tag_name
-docker push ghcr.io/github_id/image_name:tag_name
-```
-
-## 操作docker的方法
+### 操作docker的方法
 
 1. 可视化工具
 
+- portainer (第三方web工具, 推荐)
 - docker desktop
-- portainer (第三方web工具)
 
 2. docker cli命令
 
-- 常用命令
-
-```bash
-# 创建 context
-docker context create desktop-linux --description "Docker Desktop" --docker "host=unix:///home/YOUR_USER_NAME/.docker/desktop/docker.sock"
-
-# create files
-docker init
-
-# repo
-docker pull username/image_name:tag_version
-docker push username/image_name:tag_version
-
-# image
-docker images
-docker built -t username/image_name:tag_version .
-docker tag old_image_name new_image_name
-docker rmi image_id
-# 删除 dangling image
-docker image prune
-
-# container
-docker ps
-docker ps -a
-docker run -d -p local_ip:container_ip username/image_name:tag_version
-# exec, exit退出此模式
-docker exec -it container_id /bin/bash
-docker rm container_id
-docker stop container_id
-
-# run时添加volume
-docker run -d -v volume_name:container_folder_path username/image_name:tag_version
-docker run -d -v local_folder_path:container_folder_path username/image_name:tag_version
-
-# --restart string                   Restart policy to apply when a container exits (default "no")
-docker run --restart  username/image_name:tag_version
-```
 
 - 查阅命令
 
@@ -295,13 +259,52 @@ Commands:
 Run 'docker compose COMMAND --help' for more information on a command.
 ```
 
-## Dockerfile
 
-### 作用
+- 常用命令
+
+```bash
+# 创建 context
+docker context create desktop-linux --description "Docker Desktop" --docker "host=unix:///home/YOUR_USER_NAME/.docker/desktop/docker.sock"
+
+# create files
+docker init
+
+# repo
+docker pull username/image_name:tag_version
+docker push username/image_name:tag_version
+
+# image
+docker images
+docker built -t username/image_name:tag_version .
+docker tag old_image_name new_image_name
+docker rmi image_id
+# 删除 dangling image
+docker image prune
+
+# container
+docker ps
+docker ps -a
+docker run -d -p local_ip:container_ip username/image_name:tag_version
+# exec, exit退出此模式
+docker exec -it container_id /bin/bash
+docker rm container_id
+docker stop container_id
+
+# run时添加volume
+docker run -d -v volume_name:container_folder_path username/image_name:tag_version
+docker run -d -v local_folder_path:container_folder_path username/image_name:tag_version
+
+# --restart string                   Restart policy to apply when a container exits (default "no")
+docker run --restart  username/image_name:tag_version
+```
+
+### Dockerfile
+
+#### 作用
 
 Dockerfile 的目的是构建一个可复用的镜像
 
-### 官方文档
+#### 官方文档
 
 -   <https://docs.docker.com/get-started/>
 -   <https://docs.docker.com/reference/dockerfile/>
@@ -309,7 +312,7 @@ Dockerfile 的目的是构建一个可复用的镜像
 -   <https://docs.docker.com/develop/develop-images/instructions/>
 -   <https://docs.docker.com/storage/>
 
-### Dockerfile 关键字
+#### Dockerfile 关键字
 
 | Instruction | Description |
 | --- | --- |
@@ -332,7 +335,7 @@ Dockerfile 的目的是构建一个可复用的镜像
 | VOLUME	| Create volume mounts. |
 | WORKDIR	| Change working directory. |
 
-#### WORKDIR
+##### WORKDIR
 
 | 常用路径 | 特点 |
 | --- | --- |
@@ -340,7 +343,7 @@ Dockerfile 的目的是构建一个可复用的镜像
 | /usr/local	| python和python包的默认安装路径,  |
 | /var/www	| 用于托管静态网站 |
 
-### 基础镜像
+#### 基础镜像
 
 - 轻量级的 Linux 发行版
   - slim(下载工具apt 300MB)
@@ -351,7 +354,7 @@ Dockerfile 的目的是构建一个可复用的镜像
     - apk del xxx
   - busybox(4MB)
 
-### Dockerfile示例
+#### Dockerfile示例
 
 ```bash
 # 开发容器时, 为了防止容器挂掉, 可以使用以下两个命令
@@ -426,14 +429,14 @@ COPY --from=builder path2 path2
 # run...
 ```
 
-#### 多个port绑定的作用
+##### 多个port绑定的作用
 
 - 不同服务
 - 负载均衡
 - debug和测试
 - 尽量少的绑定端口, 外部不使用时,不绑定
 
-## Volume 和 Bind Mount
+### Volume 和 Bind Mount
 
 Docker 不允许直接将一个容器目录同时挂载到宿主机目录和 Docker volume
 
@@ -454,7 +457,22 @@ volumes:
 1. 使用**共享卷**同步各个容器的数据
 2. 使用卷同步本地和容器的数据
 
-### Volume的数据迁移
+
+#### user 和 权限
+
+挂载目录时, 常常会遇到**权限问题**
+**最好手动创建文件夹, 然后运行docker.**
+
+
+即使设置了 user: 1000:1000, 可能还是会遇到权限问题.
+
+Docker 默认是 root，是因为它需要访问很多内核级别的功能
+挂载目录是在容器运行之前就准备好的
+指定的 user 是容器启动之后才生效的！
+创建宿主机目录这个动作，是 Docker 守护进程（默认是 root）在做的，和设置的容器用户没关系！
+
+
+#### Volume的数据迁移
 
 <https://docs.docker.com/desktop/use-desktop/volumes/>
 
@@ -484,7 +502,9 @@ docker volume create new_volume
 docker run --rm -v new_volume:/volume -v $(pwd):/backup busybox tar -xzvf /backup/old_volume.tar.gz -C /volume
 ```
 
-## Container Networking
+## 进阶使用
+
+### Container Networking
 
 相关文档:
 
@@ -532,7 +552,7 @@ networks:
     external: true    # 声明这是一个外部网络
 ```
 
-### 网络解析
+#### 网络解析
 
 容器访问主机的ip: `http://host.docker.internal`
 
@@ -557,33 +577,29 @@ Docker 会使用默认的 bridge 网络, 容器默认连接到这个网络
 Docker DNS 会将服务名(service name)解析到对应的容器
 如果服务有多个实例，会自动负载均衡
 
-## Image测试平台
 
-<https://labs.play-with-docker.com/>
 
-可以在这个平台, 测试镜像是否符合预期
+### Docker Compose
 
-## Docker Compose
+#### 作用
 
-### 作用
+docker-compose.yaml 的目的是编排多个服务(container)
 
-docker-compose.yaml 的目的是编排多个服务
-
-### 官方文档
+#### 官方文档
 
 -   <https://docs.docker.com/reference/compose-file/>
 -   <https://docs.docker.com/compose/compose-file/05-services/#simple-example>
 -   开发 <https://docs.docker.com/compose/how-tos/file-watch/#use-watch>
 -   生产 <https://docs.docker.com/compose/how-tos/production/>
   
-### yaml文件
+#### yaml文件
 
-#### 书写规则
+##### 书写规则
 - 缩进 两个空格表示一个层级的
 - 字典 k:v
 - 列表 -
 
-#### yaml对比json
+##### yaml对比json
 
 | **特性**             | **YAML**      | **JSON**      |
 |----------|-----|------|
@@ -600,7 +616,7 @@ docker-compose.yaml 的目的是编排多个服务
 | **主要应用场景**    | 配置文件、数据序列化、模板等                          | 数据交换、配置文件、Web API、存储对象等                  |
 
 
-### compose.yaml的书写规则
+#### compose.yaml的书写规则
 
 - 顶级元素
   - services
@@ -609,7 +625,7 @@ docker-compose.yaml 的目的是编排多个服务
   - configs
   - secrets
 
-### 环境变量
+#### 环境变量
 
 相关文档
 
@@ -643,7 +659,7 @@ docker-compose.yaml 的目的是编排多个服务
   - Interpolation
     - **${ENV_NAME}**
 
-#### .env书写格式
+##### .env书写格式
 
 ```.env
 # mysql
@@ -656,13 +672,13 @@ MYSQL_PASSWORD=444
 DB_HOST=db
 ```
 
-### 查看实际运行的配置文件
+#### 查看实际运行的配置文件
 
 ```bash
 docker compose config
 ```
 
-### 创建 compose.yaml
+#### 创建 compose.yaml
 
 ```yaml
 services:
@@ -690,7 +706,7 @@ volumes:
 
 command 覆盖 Dockerfile 中的 CMD，适用于特定服务的启动配置。
 
-### 常用命令
+#### 常用命令
 
 ```bash
 docker compose --help
@@ -725,7 +741,7 @@ tips:
 
 有时候`docker compose up` 运行 报错,  手动拉image可以解决大部分问题 `docker pull xxxx`.
 
-### restart
+#### restart
 
 Restart policies only apply to containers.
 
@@ -743,17 +759,18 @@ Restart policies only apply to containers.
 |       | Docker 守护进程重启后它不会重启 |
 
 
-### healthcheck
+#### healthcheck
 
 TODO:
 
-### deploy, replicas
+#### deploy, replicas
 
 ```yaml
 deploy:
       replicas: 2
 ```
-### volumes
+
+#### volumes
 
 ```yaml
 driver_opts
@@ -783,9 +800,7 @@ myproject/
 
 ```
 
-## docker 标签
 
-方便image版本回退
 
 ## CI/CD
 
@@ -808,6 +823,26 @@ git push -> run testcase -> build image -> ssh deploy -> 自动监控 -> 自动�
 - github actions
 - gitlab ci/cd
 - jenkins
+
+### 手动推送到repo
+
+1. 登录
+
+```bash
+export CR_PAT=YOUR_TOKEN
+echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+```
+
+2. 命令
+```bash
+
+docker tag xxxx ghcr.io/github_id/image_name:tag_name
+docker push ghcr.io/github_id/image_name:tag_name
+```
+
+### docker 标签
+
+方便image版本回退
 
 ### 为image设置时间辍
 
@@ -1018,3 +1053,11 @@ sudo nano /etc/docker/daemon.json
     ]
 }
 ```
+
+
+
+### Image测试平台
+
+<https://labs.play-with-docker.com/>
+
+可以在这个平台, 测试镜像是否符合预期
