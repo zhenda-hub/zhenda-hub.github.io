@@ -7,7 +7,9 @@ toc = true
 tags = ["linux"]
 +++
 
-## install and uninstall
+[toc]
+
+## install and remove
 
 sys_update.sh
 
@@ -33,51 +35,56 @@ sudo apt clean
 echo "系统更新和清理完成！"
 ```
 
-```bash
-sudo apt install inetutils-traceroute
-sudo apt install flameshot
-sudo apt-get install gnome-shell-pomodoro
-```
-
 install
+
 ```bash
 sudo apt install <path to .deb file>
 # 备用
 sudo dpkg -i <path to .deb file>
 ```
 
-## 中文
+remove
+
+```bash
+sudo apt purge <path to .deb file>
+# 备用
+sudo dpkg -l | grep xxx
+sudo dpkg -P <path to .deb file>
+```
+
+## 基本设置
+
+### 中文
 
 ```bash
 sudo apt install ibus-pinyin
 ```
-## settings
+
+### keyboard
+
+```bash
+ibus restart
+ibus-setup
+```
+
+
+### 设置远程访问
+
+TODO:
+
+```bash
+sudo apt install net-tools
+sudo apt install openssh-server
+```
+
+
+### settings
 
 再次点击图标实现最小化
 
 ```bash
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 ```
-## gnome extension
-
-```bash
-sudo apt install gnome-shell-extensions chrome-gnome-shell gnome-tweaks
-```
-<https://extensions.gnome.org/>
-
-- lipboard Indicator
-- Vitals
-- OpenWeather
-
-## preload
-
-```bash
-sudo apt -y install preload
-sudo preload -l
-sudo systemctl status preload.service
-sudo cat /var/log/preload.log
-```
-
 ### ~/.xxxrc file settings
 
 -   ~/.bashrc
@@ -125,7 +132,47 @@ sudo cat /var/log/preload.log
 
 https://docs.brew.sh/Homebrew-on-Linux -->
 
-## ssh
+
+## 常用软件
+
+### gnome extension
+
+```bash
+sudo apt install gnome-shell-extensions chrome-gnome-shell gnome-tweaks
+```
+<https://extensions.gnome.org/>
+
+- lipboard Indicator
+- Vitals
+- OpenWeather
+
+```bash
+sudo apt install inetutils-traceroute
+sudo apt install flameshot
+sudo apt-get install gnome-shell-pomodoro
+```
+
+
+### preload
+
+```bash
+sudo apt -y install preload
+sudo preload -l
+sudo systemctl status preload.service
+sudo cat /var/log/preload.log
+```
+
+## 使用技巧
+
+
+### 右键添加文件
+
+<https://cn.linux-console.net/?p=18873>
+
+在 `~/Templates` 里面 放置一些想创建的文件, 右键就可以新建了
+
+
+### ssh
 
 <!-- ssh -v ubuntu@134.175.124.152 -->
 
@@ -135,13 +182,16 @@ exit
 scp ... ...
 ```
 
-## open image
+### open image
 
 ```bash
 eog xxx.png
 ```
 
-## resize mem swap
+## 进阶设置
+
+
+### resize mem swap
 
 ```bash
 # resize swap
@@ -159,12 +209,13 @@ free -h
 https://askubuntu.com/questions/178712/how-to-increase-swap-space
 https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F
 
-## check screen
+### check screen
 
 ```bash
 xrandr
 ```
-## dns setting
+
+### dns setting
 
 ```bash
 sudo nano /etc/resolv.conf
@@ -173,53 +224,17 @@ nameserver 8.8.8.8
 nameserver 8.8.4.4
 ```
 
-## keyboard
 
-```bash
-ibus restart
-ibus-setup
-```
-## gnome
+
+### gnome
 
 ```bash
 # 重启
 sudo systemctl restart gdm
 ```
 
-## 右键添加文件
 
-<https://cn.linux-console.net/?p=18873>
-
-在 `~/Templates` 里面 放置一些想创建的文件, 右键就可以新建了
-
-## 无法打开terminal
-
-<https://blog.csdn.net/u010092716/article/details/130968032>
-
-## Remaining matters
-
--   查看所有的 history
--   视频没有预览图
--   ping 很多网站不通
-
-
-## sys update
-
-您的 sources.list 中的一些第三方源被禁用。您可以在升级后用"软件源"工具或包管理器来重新启用它们
-
-
-在更新您的软件包信息后，无法定位必要的软件包“ubuntu-minimal”。这可能是因为您没有在软件源中使用官方镜像，或您正在使用的镜像负载过重。请查看 /etc/apt/sources.list 文件了解软件源当前的配置列表。
-
-
-## server app
-
-```bash
-sudo apt install net-tools
-sudo apt install openssh-server
-```
-
-
-## X11 wayland 区别
+### X11 wayland 区别
 
 两个图形显示框架
 
@@ -231,3 +246,30 @@ sudo vi /etc/gdm3/custom.conf
 # 注意第7行是 #WaylandEnable=false，去掉注释，改成WaylandEnable=false，保存
 sudo systemctl restart gdm3 
 ```
+
+
+
+
+
+
+## 遗留问题
+
+-   查看所有的 history
+-   视频没有预览图
+-   ping 很多网站不通
+
+
+### 无法打开terminal
+
+<https://blog.csdn.net/u010092716/article/details/130968032>
+
+
+
+
+### sys update
+
+您的 sources.list 中的一些第三方源被禁用。您可以在升级后用"软件源"工具或包管理器来重新启用它们
+
+
+在更新您的软件包信息后，无法定位必要的软件包“ubuntu-minimal”。这可能是因为您没有在软件源中使用官方镜像，或您正在使用的镜像负载过重。请查看 /etc/apt/sources.list 文件了解软件源当前的配置列表。
+
