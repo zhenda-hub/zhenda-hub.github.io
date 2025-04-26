@@ -70,13 +70,36 @@ ibus-setup
 
 ### 设置远程访问
 
-TODO:
+#### ssh 远程访问
+
+服务端设置 ssh
 
 ```bash
+# 安装 SSH 服务
 sudo apt install net-tools
 sudo apt install openssh-server
+
+# 检查 SSH 服务状态
+sudo systemctl status ssh
+
+# 如果需要，启用服务
+sudo systemctl enable ssh
+sudo systemctl start ssh
 ```
 
+客户端使用 ssh
+
+<!-- ssh -v ubuntu@134.175.124.152 -->
+
+```bash
+ssh -v 用户名@ip地址
+exit
+scp ... ...
+```
+
+
+-  多用户访问
+-  桌面远程访问
 
 ### settings
 
@@ -171,16 +194,6 @@ sudo cat /var/log/preload.log
 
 在 `~/Templates` 里面 放置一些想创建的文件, 右键就可以新建了
 
-
-### ssh
-
-<!-- ssh -v ubuntu@134.175.124.152 -->
-
-```bash
-ssh -v 用户名@ip地址
-exit
-scp ... ...
-```
 
 ### open image
 
