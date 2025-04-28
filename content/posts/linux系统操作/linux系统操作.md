@@ -229,6 +229,7 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
     -   pwd ：当前绝对路径
     -   cd 路径：移动
     -   ls ：查看当前文件夹内容
+        -   `ls -1 | wc -l`: 查看文件夹内的文件数量
     -   tree： 以树形结构查看当前文件夹内容
         -   `tree -L 2`:  查看两层深度
 -   文件文件夹相关
