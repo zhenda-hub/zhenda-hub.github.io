@@ -263,7 +263,7 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
 
     # zip
     zip -r xxx.zip f1 f2
-    unzip xxx.zip
+    unzip xxx.zip -d xxx
     ```
 
 
