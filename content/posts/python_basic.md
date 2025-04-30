@@ -23,6 +23,57 @@ def func(
 
 ```
 
+## python 类知识点
+
+```python
+
+
+class Student:
+
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
+        
+    @classmethod
+    def from_dict(cls, data: dict):
+        return cls(name=data["name"], age=data["age"])
+    
+    @staticmethod
+    def is_valid_age(age: int) -> bool:
+        return age > 0
+
+    def say_hello(self):
+        print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+
+    def __repr__(self):
+        # eval(repr(obj))
+        
+        return f"Student(name={self.name!r}, age={self.age})"
+        
+        # dct = {
+        #     "name": self.name,
+        #     "age": self.age
+        # }
+        # return f"Student.from_dict({dct})"
+    
+
+
+dir(Student)  # To see all attributes and methods of the class
+print(Student.__mro__)  # Output: (<class '__main__.Student'>, <class 'object'>)
+
+```
+
+### repr !r的用法
+
+```python
+import datetime
+
+now = datetime.datetime.now()
+print(f"Current time: {now}")  # 使用 str()
+print(f"Current time (repr): {now!r}")  # 使用 repr()
+
+```
+
 ## 多行import,  换行
 
 ```python
