@@ -274,6 +274,58 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
     ```
 
 
+### vi/vim 编辑
+
+配置文件 ~/.vimrc
+
+三种模式
+
+-   命令模式
+    -   操作
+        -   查找： / 关键字 ， 之后按 n 找下一个匹配， 按 N 找上一个匹配
+-   编辑模式
+    -   进入方式
+        -   a 增加的方式进入编辑模式
+        -   i 插入的方式进入编辑模式
+        -   o 另起一行的方式进入编辑模式
+    -   退出方式
+        -   esc
+-   末行模式
+    -   进入方式
+        -   : 进入末行模式
+    -   退出方式
+        -   enter 退出末行模式
+    -   操作
+        -   退出保存 wq
+        -   退出不保存 q!
+        -   ![vim](../imgs/vim2.jpg)
+
+### 磁盘管理
+
+相关命令
+
+-   `du -hd 1 | sort -rh` ：查看各文件大小, 有些文件看不到
+-   `du -sh * | sort -rh` ：查看各文件大小
+-   `df -h` ：检查磁盘空间占用情况
+
+### 软件安装
+
+如果下载很慢的话，需要**切换下载源**
+
+相关命令
+
+-   ubuntu
+    -   sudo apt update && sudo apt upgrade : 更新
+    -   sudo apt install xxx : 下载
+    -   sudo apt remove xxx : 卸载
+-   centos
+    -   yum update : 更新
+    -   yum install xxx : 下载
+    -   yum remove xxx : 卸载
+
+## 中级阶段
+
+
 ### 文件权限和用户管理
 
 > linux 系统支持**多用户同时使用**。可以为每个用户设置群组， 通过群组间接进行权限控制. 
@@ -347,43 +399,6 @@ gpasswd -d 用户名 组名
 
 
 
-
-### vi/vim 编辑
-
-配置文件 ~/.vimrc
-
-三种模式
-
--   命令模式
-    -   操作
-        -   查找： / 关键字 ， 之后按 n 找下一个匹配， 按 N 找上一个匹配
--   编辑模式
-    -   进入方式
-        -   a 增加的方式进入编辑模式
-        -   i 插入的方式进入编辑模式
-        -   o 另起一行的方式进入编辑模式
-    -   退出方式
-        -   esc
--   末行模式
-    -   进入方式
-        -   : 进入末行模式
-    -   退出方式
-        -   enter 退出末行模式
-    -   操作
-        -   退出保存 wq
-        -   退出不保存 q!
-        -   ![vim](../imgs/vim2.jpg)
-
-### 磁盘管理
-
-相关命令
-
--   `du -hd 1 | sort -rh` ：查看各文件大小, 有些文件看不到
--   `du -sh * | sort -rh` ：查看各文件大小
--   `df -h` ：检查磁盘空间占用情况
-
-## 中级阶段
-
 ### 进程管理
 
 相关概念
@@ -406,21 +421,6 @@ gpasswd -d 用户名 组名
 -   glances: top 的彩色加强版 plus，需要安装
 -   ps ：查看进程
 -   kill -9 pid：杀死进程
-
-### 软件安装
-
-如果下载很慢的话，需要**切换下载源**
-
-相关命令
-
--   ubuntu
-    -   sudo apt update && sudo apt upgrade : 更新
-    -   sudo apt install xxx : 下载
-    -   sudo apt remove xxx : 卸载
--   centos
-    -   yum update : 更新
-    -   yum install xxx : 下载
-    -   yum remove xxx : 卸载
 
 ## 高级阶段
 
@@ -516,3 +516,46 @@ python -m http.server 8080
 ```
 
 局域网访问文件
+
+
+
+### 路径跳转
+
+- autodump
+
+
+autojump 会根据你访问目录的频率来“记住”你常去的路径, 智能模糊匹配, 
+
+安装:
+
+```bash
+apt install autodump
+
+# 在 ~/.bashrc 添加
+[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
+
+
+source ~/.bashrc
+
+```
+
+```bash
+# 路径导航
+j xxx
+# 查看权重
+j -s 
+```
+
+- alias
+
+命令缩写
+
+```bash
+alias ll='cd /aa/bb/cc'
+```
+
+查看 alias
+```bash
+alias
+```
+
