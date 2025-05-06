@@ -222,7 +222,7 @@ free -h
 https://askubuntu.com/questions/178712/how-to-increase-swap-space
 https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F
 
-### check screen
+### 屏幕详情
 
 ```bash
 xrandr
@@ -260,6 +260,12 @@ sudo vi /etc/gdm3/custom.conf
 sudo systemctl restart gdm3 
 ```
 
+### 音频工具ffmpeg
+
+```bash
+sudo apt install ffmpeg
+ffmpeg -i 音乐文件.mp3
+```
 
 
 

@@ -221,6 +221,11 @@ linux 中 一切皆文件
 
 linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
 
+文件类型:
+- 文件 f
+- 文件夹 d
+- 符号链接 l
+
 文件路径分类
 
 -   绝对路径
@@ -244,41 +249,103 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
         -   mkdir -p fold1/{subfold1,subfold2}
     -   touch 文件名：创建文件
     -   rm 文件名： 删除文件或文件夹
-        -   正则匹配删除
-        ```bash
-        # 查看
-        find . -maxdepth 1 -regex ".*your-regex-pattern.*" -print
-        # 删除
-        find . -maxdepth 1 -regex ".*your-regex-pattern.*" -delete
-        ```
     -   mv 文件名 移动位置： 移动文件或文件夹
     -   cp 文件名 新文件名：复制文件或文件夹
     -   cat 文件名：查看文件
     -   tail 文件名：查看文件末尾
-    -   find -name 文件名： 查找
 
--   打包和压缩
-    | 属性             | tar(打包)+gzip(压缩, 大小约为打包文件的 1/7) | zip                          |
-    | ---------------- | -------------------------------------------- | ---------------------------- |
-    | 文件后缀         | `.tar.gz` 或 `.tgz`                          | `.zip`                       |
-    | 多文件支持       | 使用 `tar` 打包多个文件并压缩                | 原生支持多文件和目录结构     |
-    | 压缩率           | 高，适合大文件和数据集                       | 一般，适合较小的文件或目录   |
-    | 兼容性           | Linux/Unix 中常用工具，Windows 较少用        | Windows、Mac、Linux 全面支持 |
-    | 是否支持加密     | 不支持，需借助其他工具                       | 支持基本密码加密             |
-    | 是否支持分卷压缩 | 不支持                                       | 支持                         |
 
-    命令:
 
-    ```bash
-    # tar
-    tar -czvf xxx.tar.gz f1 f2 f3
-    tar -xzvf xxx.tar.gz
+#### 打包和压缩
 
-    # zip
-    zip -r xxx.zip f1 f2
-    unzip xxx.zip -d xxx
-    ```
+| 属性             | tar(打包)+gzip(压缩, 大小约为打包文件的 1/7) | zip                          |
+| ---------------- | -------------------------------------------- | ---------------------------- |
+| 文件后缀         | `.tar.gz` 或 `.tgz`                          | `.zip`                       |
+| 多文件支持       | 使用 `tar` 打包多个文件并压缩                | 原生支持多文件和目录结构     |
+| 压缩率           | 高，适合大文件和数据集                       | 一般，适合较小的文件或目录   |
+| 兼容性           | Linux/Unix 中常用工具，Windows 较少用        | Windows、Mac、Linux 全面支持 |
+| 是否支持加密     | 不支持，需借助其他工具                       | 支持基本密码加密             |
+| 是否支持分卷压缩 | 不支持                                       | 支持                         |
 
+命令:
+
+```bash
+# tar
+tar -czvf xxx.tar.gz f1 f2 f3
+tar -xzvf xxx.tar.gz
+
+# zip
+zip -r xxx.zip f1 f2
+unzip xxx.zip -d xxx
+```
+
+#### Shell 通配符模式（Glob Pattern）
+
+Glob Pattern (Shell 通配符模式): 是一种用于**匹配文件名**的模式匹配工具，广泛应用于 Unix 和类 Unix 操作系统（如 Linux 和 macOS）的命令行界面中
+
+regex: 更适合细致或复杂的文本分析
+
+字符集功能:
+
+在 ASCII 编码中：
+
+数字字符（0-9）按顺序排列。
+小写字母（a-z）按顺序排列。
+大写字母（A-Z）按顺序排列。
+
+
+
+```bash
+# * 匹配任意数量的任意字符
+*.jpg
+*report*
+
+**/*.txt
+
+# ? 匹配任意单个的任意字符
+
+?.txt
+
+# []
+[1-9].jpg
+[a-z].jpg
+[A-Z].jpg
+
+# [!]
+[!A].jpg # 匹配除了A的其他字符
+
+```
+
+#### find 删除
+
+
+仅用于文件名匹配
+
+文本处理
+
+
+```bash
+
+find . -name "*your-regex-pattern*" -print
+find . -name "*your-regex-pattern*" -delete
+
+# 多层级
+find . -wholename "./**/*4eaG8*"
+
+# # 正则
+# find . -maxdepth 1 -regex ".*your-regex-pattern.*" -print
+# find . -maxdepth 1 -regex ".*your-regex-pattern.*" -delete
+```
+
+#### diff比较
+
+```bash
+# 比较文件
+diff file1/ file2/
+
+# 比较文件夹
+diff -r dir1/ dir2/
+```
 
 ### vi/vim 编辑
 
@@ -527,7 +594,7 @@ python -m http.server 8080
 
 ### 路径跳转
 
-- autodump
+- autojump
 
 
 autojump 会根据你访问目录的频率来“记住”你常去的路径, 智能模糊匹配, 
@@ -535,7 +602,7 @@ autojump 会根据你访问目录的频率来“记住”你常去的路径, 智
 安装:
 
 ```bash
-apt install autodump
+apt install autojump
 
 # 在 ~/.bashrc 添加
 [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
