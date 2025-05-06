@@ -20,11 +20,17 @@ linux 是一个稳定， 安全， 开源，免费的操作系统内核。 支�
 
 ## 基于 linux 内核的主流发行版
 
-| 系统分类 |   特点   | 软件安装工具 |
-| :------: | :------: | :----------: |
-|  ubuntu  | 自带桌面 |     apt      |
-| manjaro  |          |     apt      |
-|  centos  |          |     yum      |
+| 发行版                          | 基础        | 特点描述                                                                                     | 适合用户类型                           | 软件安装工具             |
+|---------------------------------|-------------|----------------------------------------------------------------------------------------------|----------------------------------------|--------------------------|
+| **Debian**                          | 独立        | 强调自由软件，非常稳定，是许多其他发行版的基础。                                             | 需要高度稳定性的用户                   | `apt`, `apt-get`, `dpkg` |
+| **Ubuntu**                          | Debian      | 易于使用，提供桌面和服务器版本，有长期支持版本（LTS）。                                       | 广泛应用于个人电脑、服务器及云计算     | `apt`, `snap`            |
+| Fedora                          | 独立        | 包含最新开源软件包和技术，由Red Hat赞助，强调创新和技术领先性。                               | 追求新技术特性的高级用户               | `dnf`                    |
+| Red Hat Enterprise Linux (RHEL) | 独立        | 面向企业的付费发行版，提供高度的安全性和稳定性，适合关键业务应用。                           | 企业级用户                             | `yum` / `dnf`            |
+| SUSE Linux Enterprise (SLE)     | 独立        | 企业级发行版，在欧洲市场流行，openSUSE为社区版本，提供Leap（稳定）和Tumbleweed（滚动发布）。 | 需要企业级服务和支持的用户             | `zypper`                 |
+| **Arch Linux**                      | 独立        | 滚动发布，适合喜欢自己动手定制系统的高级用户，始终获得最新的软件包。                         | 技术爱好者和高级用户                   | `pacman`                 |
+| **Manjaro**                         | Arch Linux  | 提供更友好的安装过程和默认设置，基于Arch Linux但对新手更加友好。                             | 新手及希望体验Arch Linux的用户         | `pacman`                 |
+| **Linux Mint**                      | Ubuntu      | 提供更加传统的桌面体验，默认带有媒体编解码器等实用工具，非常适合从Windows过渡过来的新手用户。 | Windows用户迁移或寻求简单易用的用户   | `apt`                    |
+| Elementary OS                   | Ubuntu      | 受macOS启发的设计风格，美观且直观的桌面环境，旨在提供简洁高效的计算体验。                    | 寻求美观高效界面的用户                 | `apt`                    |
 
 
 ```bash
@@ -274,6 +280,58 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
     ```
 
 
+### vi/vim 编辑
+
+配置文件 ~/.vimrc
+
+三种模式
+
+-   命令模式
+    -   操作
+        -   查找： / 关键字 ， 之后按 n 找下一个匹配， 按 N 找上一个匹配
+-   编辑模式
+    -   进入方式
+        -   a 增加的方式进入编辑模式
+        -   i 插入的方式进入编辑模式
+        -   o 另起一行的方式进入编辑模式
+    -   退出方式
+        -   esc
+-   末行模式
+    -   进入方式
+        -   : 进入末行模式
+    -   退出方式
+        -   enter 退出末行模式
+    -   操作
+        -   退出保存 wq
+        -   退出不保存 q!
+        -   ![vim](../imgs/vim2.jpg)
+
+### 磁盘管理
+
+相关命令
+
+-   `du -hd 1 | sort -rh` ：查看各文件大小, 有些文件看不到
+-   `du -sh * | sort -rh` ：查看各文件大小
+-   `df -h` ：检查磁盘空间占用情况
+
+### 软件安装
+
+如果下载很慢的话，需要**切换下载源**
+
+相关命令
+
+-   ubuntu
+    -   sudo apt update && sudo apt upgrade : 更新
+    -   sudo apt install xxx : 下载
+    -   sudo apt remove xxx : 卸载
+-   centos
+    -   yum update : 更新
+    -   yum install xxx : 下载
+    -   yum remove xxx : 卸载
+
+## 中级阶段
+
+
 ### 文件权限和用户管理
 
 > linux 系统支持**多用户同时使用**。可以为每个用户设置群组， 通过群组间接进行权限控制. 
@@ -347,43 +405,6 @@ gpasswd -d 用户名 组名
 
 
 
-
-### vi/vim 编辑
-
-配置文件 ~/.vimrc
-
-三种模式
-
--   命令模式
-    -   操作
-        -   查找： / 关键字 ， 之后按 n 找下一个匹配， 按 N 找上一个匹配
--   编辑模式
-    -   进入方式
-        -   a 增加的方式进入编辑模式
-        -   i 插入的方式进入编辑模式
-        -   o 另起一行的方式进入编辑模式
-    -   退出方式
-        -   esc
--   末行模式
-    -   进入方式
-        -   : 进入末行模式
-    -   退出方式
-        -   enter 退出末行模式
-    -   操作
-        -   退出保存 wq
-        -   退出不保存 q!
-        -   ![vim](../imgs/vim2.jpg)
-
-### 磁盘管理
-
-相关命令
-
--   `du -hd 1 | sort -rh` ：查看各文件大小, 有些文件看不到
--   `du -sh * | sort -rh` ：查看各文件大小
--   `df -h` ：检查磁盘空间占用情况
-
-## 中级阶段
-
 ### 进程管理
 
 相关概念
@@ -406,21 +427,6 @@ gpasswd -d 用户名 组名
 -   glances: top 的彩色加强版 plus，需要安装
 -   ps ：查看进程
 -   kill -9 pid：杀死进程
-
-### 软件安装
-
-如果下载很慢的话，需要**切换下载源**
-
-相关命令
-
--   ubuntu
-    -   sudo apt update && sudo apt upgrade : 更新
-    -   sudo apt install xxx : 下载
-    -   sudo apt remove xxx : 卸载
--   centos
-    -   yum update : 更新
-    -   yum install xxx : 下载
-    -   yum remove xxx : 卸载
 
 ## 高级阶段
 
@@ -516,3 +522,46 @@ python -m http.server 8080
 ```
 
 局域网访问文件
+
+
+
+### 路径跳转
+
+- autodump
+
+
+autojump 会根据你访问目录的频率来“记住”你常去的路径, 智能模糊匹配, 
+
+安装:
+
+```bash
+apt install autodump
+
+# 在 ~/.bashrc 添加
+[[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
+
+
+source ~/.bashrc
+
+```
+
+```bash
+# 路径导航
+j xxx
+# 查看权重
+j -s 
+```
+
+- alias
+
+命令缩写
+
+```bash
+alias ll='cd /aa/bb/cc'
+```
+
+查看 alias
+```bash
+alias
+```
+
