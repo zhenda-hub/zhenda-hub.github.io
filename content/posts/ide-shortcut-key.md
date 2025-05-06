@@ -15,10 +15,12 @@ tags = ['tools']
 | --------------------- | ------------------ | ---- |
 | 导航                  | alt ,<-            | 查看 |
 |                       | alt ,->            |      |
-| 折叠1                 | ctrl, shift, [     |      |
-|                       | ctrl, shift, ]     |      |
-| 折叠2                 | ctrl, k，0         |      |
+| 递归折叠全文          | **ctrl, k，0**     |      |
 |                       | ctrl, k，j         |      |
+| 递归折叠              | ctrl, k， [        |      |
+|                       | **ctrl, k， ]**    |      |
+| 折叠                  | ctrl, shift, [     |      |
+|                       | ctrl, shift, ]     |      |
 | 参数提示              | ctrl，shift，space |      |
 | 搜索时,查看下一个变量 | ctrl, f3           |      |
 | 换行                  | ctrl,enter         | 编辑 |
