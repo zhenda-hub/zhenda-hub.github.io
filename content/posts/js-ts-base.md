@@ -98,6 +98,21 @@ console.log()
 debugger
 ```
 
+## 多模块
+
+ES模块
+
+```js
+// math.mjs
+export function add(a, b) {
+  return a + b;
+}
+
+// app.mjs
+import { add } from './math.mjs';
+console.log(add(2, 3)); // 输出: 5
+```
+
 
 
 JS(基于对象)

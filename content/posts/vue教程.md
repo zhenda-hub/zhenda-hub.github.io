@@ -20,9 +20,18 @@ tags = ["web"]
 
 | 名称 | 作用 |
 |---|---|
-| nvm | node版本管理工具 |
 | node | 运行环境 |
+| nvm | node版本管理工具 |
 | npm | node的包管理工具 |
+
+
+node 命令:
+
+```bash
+node -v
+node xxx.js
+```
+
 
 nvm 命令:
 
@@ -40,12 +49,7 @@ nvm install xxx.xxx.xxx
 nvm uninstall xxx.xxx.xxx
 ```
 
-node 命令:
 
-```bash
-node -v
-node xxx.js
-```
 npm 命令:
 
 ```bash
@@ -66,7 +70,12 @@ npm list
 # 显示全局包
 npm list -g
 
+# 安装到 node_modules里面, 详细的记录文件package-lock.json, 同时更新package.json.
 npm install xxx
+
+# npm install vite
+# npm install axios
+
 npm uninstall xxx
 npm update xxx
 
