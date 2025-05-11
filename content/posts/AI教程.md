@@ -250,7 +250,7 @@ DataLoader 提供灵活加载Dataset的设置
 
 噪声较大
 
-### 模型
+### 模型前置知识
 
 #### 神经网络基础
 
@@ -271,7 +271,7 @@ DataLoader 提供灵活加载Dataset的设置
 |  | **隐藏层** | 对输入数据进行复杂的**非线性变换，提取特征** |  |  |
 |  | 输出层 | 输出神经网络的预测结果 |  |  |
 
-###### 网络层
+###### 网络层 layer
 
 对于 隐藏层的数量 和 各个隐藏层的节点数: 常见策略是逐层减少节点数
 
@@ -293,13 +293,64 @@ DataLoader 提供灵活加载Dataset的设置
 | 循环层 | nn.RNN | 保留历史信息 |
 | 自注意力层 | nn.Transformer | 捕捉输入数据中长距离依赖关系 |
 
-##### sequential
+
+### 模型 model
+
+一个模型由1个或多个layer 组成.
+
+#### sequential
 
 ```python
 from torch import nn
 
-net = nn.Sequential(nn.Linear(20, 256), nn.ReLU(), nn.Linear(256, 10))
+model = nn.Sequential(
+    nn.Conv2d(1,20,5),
+    nn.ReLU(),
+    nn.Conv2d(20,64,5),
+    nn.ReLU()
+)
 ```
+
+#### 自定义复杂逻辑
+
+```python
+from torch import nn
+
+class FCNet(nn.Module):
+    def __init__(self, input_size, hidden_size, num_classes):
+        super(FCNet, self).__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_size, num_classes)
+
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.relu(out)
+        out = self.fc2(out)
+        return out
+```
+
+
+
+#### 模型参数
+
+```python
+# 查看参数
+model.state_dict()
+
+for name, param in model.named_parameters():
+    print(name, param.size())
+
+```
+
+模型参数初始化
+
+```python
+nn.init.zeros_
+nn.init.constant_
+nn.init.normal_
+```
+
 
 ### 损失函数
 
@@ -377,6 +428,10 @@ if torch.cuda.is_available():
 if torch.cuda.is_available():
     inputs = inputs.cuda()
     labels = labels.cuda()
+
+
+torch.cuda.device_count()
+
 ```
 
 #### 模型保存加载
@@ -385,12 +440,18 @@ if torch.cuda.is_available():
 import torch
 import torchvision
 
+# method1
 vgg16 = torchvision.models.vgg16(weights=True)
-
 torch.save(vgg16, '/app/output/vgg16.pth')
 
 model = torch.load('/app/output/vgg16.pth', weights_only=False)
 print(model)
+
+# method2
+torch.save(net.state_dict(), 'mlp.params')
+
+clone = MLP()
+clone.load_state_dict(torch.load('mlp.params'))
 ```
 
 
@@ -427,6 +488,53 @@ print(model)
 池化层
 
 #### RNN
+
+
+#### transformer
+
+利用自注意力机制捕捉文本中的长距离依赖关系
+
+
+注意力机制的核心思想是：在处理一个元素时，模型可以动态地关注输入序列中的其他部分，从而聚焦于与当前任务最相关的信息。
+
+- 查询（Query）：当前处理的元素。
+- 键（Key）和值（Value）：输入序列中的所有元素。
+
+通过计算查询与键之间的相似度，得到注意力权重，然后用这些权重对值进行加权求和，生成当前元素的表示
+
+自注意力机制是一种特殊的注意力机制，其中查询、键和值都来自同一个序列。
+作用：捕捉序列内部元素之间的依赖关系。
+
+在Transformer模型中，多头注意力机制是其核心组件
+
+
+| 模块名称                 | 所在位置           | 主要功能描述                                                                 |
+|--------------------------|--------------------|------------------------------------------------------------------------------|
+| Self-Attention（自注意力） | 编码器和解码器     | 使模型在处理每个词时，能够关注序列中所有其他位置的词，以捕捉词与词之间的依赖关系。 |
+| Encoder-Decoder Attention（编码器-解码器注意力） | 解码器 | 在解码过程中，允许模型根据编码器的输出，动态地关注输入序列的不同部分，从而有效地利用上下文信息。 |
+| Add & Normalize（残差连接与层归一化） | 所有子层之后 | 通过残差连接缓解梯度消失问题，并通过层归一化稳定训练过程，加速模型收敛。 |
+| Feed Forward（前馈神经网络） | 编码器和解码器     | 为每个位置的表示引入非线性变换，增强模型的表达能力。 |
+
+
+
+| 组件名称               | 作用描述                                                                 | 输入与输出关系                                               | 特点与意义                                                                 |
+|------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------|----------------------------------------------------------------------------|
+| **Add & Normalize**     | 实现残差连接（Residual Connection）和层归一化（Layer Normalization）     | 输入：原始张量 + 子层输出<br>输出：归一化后的张量            | 提高训练稳定性，缓解梯度消失，加快收敛速度                                 |
+| **Feed Forward**        | 对每个位置独立进行非线性变换                                             | 输入：序列中每个位置的向量<br>输出：变换后的向量              | 引入非线性能力，增强模型表达力                                             |
+| **Self-Attention**      | 让每个位置关注序列中的所有其他位置，建立全局依赖                         | 输入：Query, Key, Value（通常来自同一输入）<br>输出：加权表示 | 捕捉长距离依赖，替代传统CNN/RNN，实现并行处理                              |
+| **Encoder-Decoder Attention** | 解码器关注编码器的所有位置，用于生成目标序列时参考源序列信息         | 输入：解码器状态作为Query，编码器状态作为Key/Value<br>输出：上下文向量 | 在翻译等任务中，让解码器基于源句子的完整信息生成目标词                     |
+
+
+
+| 组件                 | 功能                                                         | 描述                                                         |
+|----------------------|--------------------------------------------------------------|--------------------------------------------------------------|
+| Add & Normalize      | 残差连接与层归一化                                           | - 残差连接：缓解梯度消失，加速训练<br>- 层归一化：稳定训练过程，加速收敛 |
+| Feed Forward         | 前馈神经网络                                                 | - 线性变换：对注意力输出进行非线性变换<br>- 结构：两个线性层，中间有ReLU激活函数 |
+| Encoder-Decoder Attention | 编码器-解码器注意力                                           | - 允许解码器关注编码器的输出<br>- 用于序列到序列任务，如机器翻译 |
+| Self-Attention       | 自注意力                                                     | - 计算序列内部位置的注意力分数<br>- 捕捉序列内部的依赖关系<br>- 并行计算，捕捉长距离依赖 |
+
+
+
 
 #### 时间
 

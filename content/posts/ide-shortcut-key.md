@@ -49,3 +49,9 @@ tags = ['tools']
 | 规范化代码            | ctrl， alt， l  |      |
 | 多行编辑              | shift alt 拖动  |      |
 
+
+查看函数定义,参数等:
+
+```python
+help(xxxfunc)
+```
