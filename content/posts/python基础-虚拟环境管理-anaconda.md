@@ -51,7 +51,7 @@ conda list
 # 更新所有包到最新的兼容版本
 conda update --all
 
-# 导入导出环境包
+# 导出环境包
 conda env export > freeze.yml
 # 导入, 注意防止环境名重复
 conda env create -f freeze.yml
