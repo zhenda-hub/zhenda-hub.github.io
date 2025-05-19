@@ -92,7 +92,8 @@ weight = 100
 
 [params]
 author = "Zhenda"
-description = "Just Do It"
+# description = "Just Do It"
+description = "Stay hungry, stay humble, and keep shipping value."
 keywords = "blog,developer,personal"
 img_home = "img/home-bg.jpg"
 img_404 = "img/404-bg.jpg"
