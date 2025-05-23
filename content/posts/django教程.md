@@ -264,6 +264,13 @@ kafka nobrokersavailable
 
 <https://docs.djangoproject.com/en/5.1/ref/models/fields/#:~:text=ForeignKey>
 
+Field:
+
+```
+null=True  # 数据库层面
+blank=True  # 表单层面
+```
+
 -   model
 
     -   model 分类
@@ -654,7 +661,7 @@ TODO:
 
 概念: 对 django 框架进一步封装的第三方包，以便于写出 restfulAPI
 
-Serializer
+##### Serializer
 
 REST framework中的serializers与Django的Form和ModelForm类非常像。
 
@@ -698,8 +705,8 @@ class CommentSerializer(serializers.Serializer):
 
 ```
 
-嵌套
 ```python
+# 嵌套 nest
 from django.db import models
 
 class Website(models.Model):
@@ -765,7 +772,8 @@ def snippet_detail(request, pk):
         return HttpResponse(status=204)
 ```
 
-    
+##### Viewset
+  
 | 类 | 特点 |
 | --- | --- |
 | View |  |
@@ -793,8 +801,10 @@ class AccountViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
+```
 
 
+```python
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter, OrderingFilter
 # django_filters
@@ -846,6 +856,8 @@ class AccountViewSet(viewsets.ModelViewSet):
 
 ```
 
+##### Filter
+
 | 过滤后端     | 功能描述       | 示例代码片段         |
 |-----------|-------------|---------------------------|
 | `SearchFilter`        | 全文搜索       | `filter_backends = [SearchFilter]`  |
@@ -853,7 +865,19 @@ class AccountViewSet(viewsets.ModelViewSet):
 | `DjangoFilterBackend` | 复杂条件过滤    | `filter_backends = [DjangoFilterBackend]`    |
 | 自定义过滤后端         | 实现个性化过滤逻辑   | 继承 `BaseFilterBackend`              |
 
-drf 源码逻辑
+##### Pagination
+
+<https://q1mi.github.io/Django-REST-framework-documentation/api-guide/pagination_zh/>
+
+```python
+# PageNumberPagination
+?page=4&page_size=100
+# LimitOffsetPagination
+?limit=100&offset=300
+# CursorPagination
+```
+
+##### drf 源码逻辑
 
 ```python
 
