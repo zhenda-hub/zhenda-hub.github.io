@@ -1011,6 +1011,7 @@ CORS 浏览器的同源策略: 是一个重要的安全机制. 默认禁止不�
 - `http://127.0.0.1:8000`
 - `ws://127.0.0.1:8000`
 
+
 设置response来允许跨域:
 
 ```python
@@ -1018,12 +1019,22 @@ from django.utils.deprecation import MiddlewareMixin
 
 class CorsMiddleware(MiddlewareMixin):
     def process_response(self, request, response):
-        # 主要是response 设置三个值
+        # 主要是response 设置三个值, 统配设置
         response["Access-Control-Allow-Origin"] = "*"
+        response["Access-Control-Allow-Headers"] = "*"
         response["Access-Control-Allow-Methods"] = "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-        response["Access-Control-Allow-Headers"] = "Authorization, Content-Type"
         return response
 
+    def process_response(self, request, response):
+        # 主要是response 设置三个值, 具体设置
+        
+        origin = f'{request.scheme}://{request.get_host()}'
+        if origin in ['origin1', 'origin2', 'origin3']:
+            response["Access-Control-Allow-Origin"] = origin
+
+        response["Access-Control-Allow-Headers"] = "Authorization, Content-Type"
+        response["Access-Control-Allow-Methods"] = "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+        return response
 ```
 
 
