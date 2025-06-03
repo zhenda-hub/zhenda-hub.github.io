@@ -215,6 +215,7 @@ git diff commitidxxx -- ./path1/path2/xxx.py
 # e y 上下 , q 退出
 git log --stat
 git show commmitid
+git reflog branch_name
 ```
 
 #### 撤销
