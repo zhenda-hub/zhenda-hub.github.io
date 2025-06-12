@@ -70,6 +70,8 @@ Math
 Number
 
 new Date()
+
+new Array()
 ```
 
 
@@ -95,6 +97,8 @@ window.clearTimeout(a)
 
 ```js
 console.log()
+console.dir()
+
 debugger
 ```
 
@@ -399,7 +403,7 @@ JS(基于对象)
                                                         constructor
                                                             定义的构造函数
                                                 使用
-                                                    Object.prototype.func1 = function(){{}
+                                                    Object.prototype.func1 = function(){}
                                                         为所有对象创建属性，方法
                                                     函数名.prototype
                                                         为这个构造函数创建属性，方法
