@@ -641,32 +641,34 @@ docker-compose.yaml 的目的是编排多个服务(container)
 - <https://docs.docker.com/compose/environment-variables/set-environment-variables/>
 - <https://docs.docker.com/compose/environment-variables/variable-interpolation/>
 
-在 Docker Compose 中
 
-- 服务名称会自动解析为对应的容器 IP 地址
+```text
+# comments...
+AA=1
+BB=2
+```
 
-  ```dockerfile
-  services:
-    web:
-      image: nginx
-      depends_on:
-        - api
-      environment:
-        - API_URL=http://api:8080  # 直接使用服务名 api 作为主机名
+```dockerfile
+services:
+  web:
+    image: nginx
+    depends_on:
+      - api
+    # 在 env_file 属性中指定的 .env 文件的路径是相对于 compose.yml 文件的位置的, 优先级< environment, 文件中所有定义的变量都传给service
+    env_file:
+      - .env
+      - .env.dev
+    environment:
+      - API_URL=http://api:8080  # 直接使用服务名 api 作为主机名, 服务名称会自动解析为对应的容器 IP 地址
+      - AA=${AA} # compose文件自动读取.env的变量
+      - BB=${BB}
+      - DEBUG=${DEBUG:-false} # 默认值为false
 
-    api:
-      image: api-service
-      ports:
-        - "8080:8080"
-  ```
-
-- 设置环境变量
-  - 使用.env文件设置
-- 使用环境变量
-  - env_file='xxx'
-    - 在 env_file 属性中指定的 .env 文件的路径是相对于 compose.yml 文件的位置的。
-  - Interpolation
-    - **${ENV_NAME}**
+  api:
+    image: api-service
+    ports:
+      - "8080:8080"
+```
 
 ##### .env书写格式
 

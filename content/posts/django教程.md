@@ -539,7 +539,7 @@ class CustomUserAdmin(UserAdmin):
 
 老项目的用户模型
 
-使用OneToOneField
+使用OneToOneField, **可以多个 OneToOneField**
 ```python
 from django.contrib.auth.models import User
 
