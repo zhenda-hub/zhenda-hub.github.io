@@ -107,3 +107,69 @@ except Exception as e:
 >>> a,b,c
 (1, [2, 3, 3, 4, 5], 6)
 ```
+
+## 多list
+
+```bash
+>>> from itertools import chain
+
+>>> [i for i in chain([1,3,2], ['a','c','e'])]
+[1, 3, 2, 'a', 'c', 'e']
+
+>>> [i for i in zip([1,3,2], ['a','c','e'])]
+[(1, 'a'), (3, 'c'), (2, 'e')]
+```
+
+其他常用
+            -   collection.
+                -   Counter()
+                    -   统计个数神器
+                    -   most_comon()
+                    -   pop
+                    -   update
+                -   deque()
+                    -   双端队列
+                    -   1
+                        -   append()
+                        -   appendleft()
+                    -   2
+                        -   popleft()
+                        -   pop()
+                    -   clear()
+                -   namedtuple
+                    -   创建一个结构体的东西
+                    -   不可修改
+                    -   简单数据
+                    -   方法
+                        -   创建
+                            -   \_make()
+                            -   \_replace()
+                                -   返回新实例
+                        -   查看
+                            -   \_asdict()
+                                -   返回字典
+                            -   \_fields
+                                -   所有字段
+                -   orderdict()
+                -   defaultdict(lambda:"none")
+                    -   为不存在的 key 设置默认值
+            -   itertools.
+                -   排列组合
+                    -   排列
+                        -   permutations（）
+                            -   不放回，元素不重复
+                        -   product（）
+                            -   多组
+                    -   组合
+                        -   combinations
+                            -   不放回，元素不重复
+                        -   combinations_with_replacement()
+                            -   多组
+                    -   1
+                        -   使用 for
+                        -   使用 list()
+                -   repeat()
+                -   cycle()
+            -   dataclass
+                -   可以修改
+                -   较复杂数据
