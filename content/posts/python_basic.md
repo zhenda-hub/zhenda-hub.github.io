@@ -6,6 +6,12 @@ draft = false
 toc = true
 tags = ["Python"]
 +++
+## python 数据类型
+
+和绝大多数的文件或编程语言一样
+
+基础的: num str None
+复杂的: list, dict, set
 
 ## python 函数中, 参数的定义顺序
 
