@@ -67,6 +67,13 @@ class Student:
 dir(Student)  # To see all attributes and methods of the class
 print(Student.__mro__)  # Output: (<class '__main__.Student'>, <class 'object'>)
 
+
+# 属性操作
+hasattr()
+getattr()
+setattr()
+delattr()
+
 ```
 
 ### repr !r的用法
