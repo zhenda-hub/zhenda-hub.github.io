@@ -11,6 +11,11 @@ tags = ['bible']
 # Bible Words
 
 <!-- [toc] -->
+## word cloud
+
+![bbe_wordcloud](../imgs/bbe_wordcloud.png)
+
+![hgb_wordcloud](../imgs/hgb_wordcloud.png)
 
 ## Job
 
