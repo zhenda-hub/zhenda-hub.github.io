@@ -38,6 +38,10 @@ tags = ['bible']
 > 
 > *(Psalms 27:10 NLT)*
 
+> The Lord rules over the floodwaters. The Lord reigns as king forever.
+> 
+> *(Psalms 29:10 NLT)*
+
 > The LORD is close to the brokenhearted; he rescues those whose spirits are crushed.
 > 
 > *(Psalms 34:18 NLT)*
