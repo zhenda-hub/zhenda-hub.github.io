@@ -77,6 +77,10 @@ tags = ['bible']
 > 
 > *(Proverbs 11:24-25 NLT)*
 
+> only simpletons believe everything ther're told! The prudent carefully consider their steps.
+> 
+> *(Proverbs 14:15 NLT)*
+
 > Better to be patient than powerful; better to have **self-control** than to conquer a city.
 > 
 > *(Proverbs 16:32 NLT)*
@@ -84,7 +88,6 @@ tags = ['bible']
 > Unfriendly people care only about themselves; they lash out at **common sense**.
 > 
 > *(Proverbs 18:1 NLT)*
-
 
 > A lazy person is as bad as someone who destroys things.
 > 
@@ -144,6 +147,10 @@ tags = ['bible']
 > 
 > *(Luke 6:26 NLT)*
 
+> I tell you, **use worldly wealth to gain friends for yourselves**, so that when it is gone, you will be welcomed into eternal dwellings.
+> 
+> *(Luke 16:9 NIV)*
+
 ## John
 
 > In the beginning the Word already existed. The Word was with God, and the Word was God.
@@ -174,9 +181,25 @@ tags = ['bible']
 > 
 > *(John 4:37 NLT)*
 
+> And I assure you that the time is coming, indeed it's here now, when the dead will hear my voice--the voice of the Son of God. And those who listen will live.
+> 
+> The Father has life in himself, and he has granted the same life-giving power to his Son.
+> 
+> **And he has given him authority to judge everyone because he is the Son of Man.**
+> 
+> Don't be so surprised! Indeed, the time is coming when all the dead is their graves will hear the voice of God's Son,
+> 
+> and they will rise again. Those who have donw good will rise to experience eternal life, and those who have continued in evil will rise to experience judgment.
+> 
+> *(John 5:25-29 NLT)*
+
 > No one can take my life from me. I sacrifice it voluntarily. For I want to and also to take it up again. For this is what my Father has commanded.
 > 
 > *(John 10:18 NLT)*
+
+> Jesus told him, "**I am the way, the truth, and the life. No one can come to the Father except through me.**"
+> 
+> *(John 14:6 NLT)*
 
 
 ## Romans
