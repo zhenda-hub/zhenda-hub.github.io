@@ -146,6 +146,14 @@ tags = ['bible']
 
 ## John
 
+> In the beginning the Word already existed. The Word was with God, and the Word was God.
+>
+> He existed in the beginning with God.
+>
+> God created everything through him, and nothing was created except through him.
+> 
+> *(John 1:1-3 NLT)*
+
 > The one who is the true light, who gives light to everyone, was coming into the world.
 >
 > He came into the very world he created, but the world didn't recognize him.
@@ -162,6 +170,9 @@ tags = ['bible']
 > 
 > *(John 3:16 NLT)*
 
+> You know the saying, 'One plants and another harvests.' And it's true.
+> 
+> *(John 4:37 NLT)*
 
 > No one can take my life from me. I sacrifice it voluntarily. For I want to and also to take it up again. For this is what my Father has commanded.
 > 
