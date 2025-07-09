@@ -200,6 +200,9 @@ tags = ['bible']
 > Jesus told him, "**I am the way, the truth, and the life. No one can come to the Father except through me.**"
 > 
 > *(John 14:6 NLT)*
+>
+> Make them holy by your truth; teach them your word, which is truth.
+> *(John 17:17 NLT)*
 
 
 ## Romans
