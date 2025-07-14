@@ -428,7 +428,7 @@ blank=True  # 表单层面
 
             # 分组
             from django.db.omdels import Count
-
+            # [{'type1': xxx, 'type2': xxx, 'id': xxx}]
             type1_lst = MyModel.objects.values('type1', 'type2').annotate(count=Count('id'))
             ```
     -   FBV
