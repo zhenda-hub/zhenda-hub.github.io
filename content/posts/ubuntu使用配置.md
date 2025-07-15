@@ -185,6 +185,16 @@ sudo systemctl status preload.service
 sudo cat /var/log/preload.log
 ```
 
+### AppImage 类型的软件
+
+```bash
+# 安装依赖
+sudo apt install fuse
+
+chmod +x ./xxx.AppImage
+./xxx.AppImage
+```
+
 ## 使用技巧
 
 
