@@ -279,6 +279,21 @@ ffmpeg -i 音乐文件.mp3
 
 
 
+## 常见问题
+
+### 无法打开terminal
+
+<https://blog.csdn.net/u010092716/article/details/130968032>
+
+### 无法进入设置
+
+<https://blog.csdn.net/qq_38500436/article/details/106652746>
+
+```bash
+sudo apt update
+sudo apt install gnome-control-center
+```
+
 
 
 ## 遗留问题
@@ -287,10 +302,6 @@ ffmpeg -i 音乐文件.mp3
 -   视频没有预览图
 -   ping 很多网站不通
 
-
-### 无法打开terminal
-
-<https://blog.csdn.net/u010092716/article/details/130968032>
 
 
 
