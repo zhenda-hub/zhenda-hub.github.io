@@ -212,6 +212,11 @@ chmod +x ./xxx.AppImage
 
 有一些字体报错
 
+## 默认打开方式
+
+右键 属性 打开方式
+<https://blog.csdn.net/weixin_43994864/article/details/110468818>
+
 ## 使用技巧
 
 
