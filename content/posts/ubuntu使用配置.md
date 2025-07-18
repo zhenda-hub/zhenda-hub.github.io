@@ -47,6 +47,9 @@ remove
 
 ```bash
 sudo apt purge <path to .deb file>
+
+sudo apt purge xxxx* 
+sudo apt autoremove
 # 备用
 sudo dpkg -l | grep xxx
 sudo dpkg -P <path to .deb file>
@@ -194,6 +197,20 @@ sudo apt install fuse
 chmod +x ./xxx.AppImage
 ./xxx.AppImage
 ```
+
+### 办公软件
+
+#### libreoffice
+
+兼容office太差, 建议卸载
+
+#### onlyoffice
+
+兼容office好
+
+#### wps
+
+有一些字体报错
 
 ## 使用技巧
 
