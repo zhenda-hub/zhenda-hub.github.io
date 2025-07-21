@@ -47,8 +47,10 @@ remove
 
 ```bash
 sudo apt purge <path to .deb file>
-
-sudo apt purge xxxx* 
+# 仅仅删除程序
+sudo apt remove xxxx*
+# 删除程序及其配置文件
+sudo apt purge xxxx*
 sudo apt autoremove
 # 备用
 sudo dpkg -l | grep xxx
@@ -174,7 +176,6 @@ sudo apt install gnome-shell-extensions chrome-gnome-shell gnome-tweaks
 
 ```bash
 sudo apt install inetutils-traceroute
-sudo apt install flameshot
 sudo apt-get install gnome-shell-pomodoro
 ```
 
@@ -196,6 +197,15 @@ sudo apt install fuse
 
 chmod +x ./xxx.AppImage
 ./xxx.AppImage
+```
+
+### flameshot 截图
+
+<https://zhuanlan.zhihu.com/p/166559142>
+
+```bash
+sudo apt install flameshot
+flameshot gui
 ```
 
 ### 办公软件
@@ -286,6 +296,10 @@ sudo systemctl restart gdm
 <https://zhuanlan.zhihu.com/p/26028490976>
 
 ```bash
+# 查看当前会话类型
+echo $XDG_SESSION_TYPE
+
+
 sudo vi /etc/gdm3/custom.conf
 # wayland -> X11
 # 注意第7行是 #WaylandEnable=false，去掉注释，改成WaylandEnable=false，保存
