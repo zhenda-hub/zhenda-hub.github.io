@@ -8,6 +8,10 @@ tags = ["linux"]
 +++
 
 [toc]
+## install tool
+
+apt
+snap store
 
 ## install and remove
 
@@ -187,6 +191,12 @@ sudo apt -y install preload
 sudo preload -l
 sudo systemctl status preload.service
 sudo cat /var/log/preload.log
+```
+
+### yulan
+
+```bash
+sudo apt install gnome-sushi
 ```
 
 ### AppImage 类型的软件
