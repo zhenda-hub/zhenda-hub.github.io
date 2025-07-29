@@ -250,7 +250,11 @@ tags = ['bible']
 > 
 > *(1 Corinthians 8:1-2 NLT)*
 
-
+> So you see, just as death came into the world through a man, now the resurrection from the dead has begun through another man.
+>
+> Just as everyone dies because we all belong to Adam, everyone who belongs to Christ will be given new life.
+> 
+> *(1 Corinthians 15:21-22 NLT)*
 
 ## 2 Corinthians
 
