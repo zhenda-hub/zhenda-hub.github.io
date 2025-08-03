@@ -337,7 +337,7 @@ regex: 更适合细致或复杂的文本分析
 
 
 ```bash
-
+# yeshi duocengji?
 find . -name "*your-regex-pattern*" -print
 find . -name "*your-regex-pattern*" -delete
 
