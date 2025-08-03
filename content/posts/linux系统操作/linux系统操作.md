@@ -505,6 +505,9 @@ gpasswd -d 用户名 组名
 -   ps ：查看进程
 -   kill -9 pid：杀死进程
 
+ htop, ppid
+ ps -p 4155167 -o pid,ppid,cmd
+
 #### shell 后台作业
 
 一个shell 可以同时运行多个进程. 有的可见, 有的不可见. 就像桌面, 多窗口切换
