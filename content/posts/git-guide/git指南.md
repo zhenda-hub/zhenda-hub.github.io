@@ -467,8 +467,10 @@ git submodule update --remote --rebase
 1. 创建密钥
 
 ```bash
-# 生成 ssh
-ssh-keygen -t rsa -C '你的邮箱地址'
+# 生成 sshkey
+ssh-keygen -t rsa
+# 查看 pubkey
+cat ~/.ssh/id_rsa.pub
 
 # 测试连接
 ssh -T git@github.com
