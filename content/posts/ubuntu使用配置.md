@@ -117,47 +117,6 @@ scp ... ...
 ```bash
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 ```
-### ~/.xxxrc file settings
-
--   ~/.bashrc
-
-    ```bash
-    # auto ls
-    function cd {
-        builtin cd "$@" && ls
-    }
-
-    # alias
-    alias ls='ls --time-style=long-iso'
-    alias ll='ls -alFh'
-
-    alias edge='microsoft-edge'
-    alias chrome='google-chrome'
-
-    ```
-- ~/.profile
-    ```bash
-
-    ```
--   ~/.vimrc
-
-    ```bash
-    syntax on
-    set autoindent
-    set tabstop=4
-    set shiftwidth=4
-    set cursorline
-    set backup
-    set backupdir=~/.vim/undo
-    ```
-
--   ~/.nanorc
-
-    ```bash
-    include "/usr/share/nano/*.nanorc"
-    set tabsize 4
-    set backup
-    ```
 
 <!--
 ## Homebrew

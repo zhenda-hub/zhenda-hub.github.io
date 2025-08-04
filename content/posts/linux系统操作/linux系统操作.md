@@ -359,6 +359,67 @@ diff file1/ file2/
 diff -r dir1/ dir2/
 ```
 
+### 编辑配置 ~/.xxxrc file settings
+
+-   ~/.bashrc
+
+    ```bash
+    # auto ls
+    function cd {
+        builtin cd "$@" && ls
+    }
+
+    # alias
+    alias ls='ls --time-style=long-iso'
+    alias ll='ls -alFh'
+    
+    # browser
+    alias edge='microsoft-edge'
+    alias chrome='google-chrome'
+
+    ```
+- ~/.profile
+    ```bash
+
+    ```
+-   ~/.vimrc
+
+    ```bash
+    syntax on
+    set autoindent
+    set tabstop=4
+    set shiftwidth=4
+    set cursorline
+    set backup
+    set backupdir=~/.vim/undo
+    ```
+
+-   ~/.nanorc
+
+    ```bash
+    include "/usr/share/nano/*.nanorc"
+    set tabsize 4
+    set backup
+    ```
+
+### nano编辑
+
+快捷键用如下方式进行表示：
+控制键序列使用一个“^”符号标记，它可以用 Ctrl键或按 Esc 键两次的方式进行输入。
+Meta 键序列使用“M-”符号标记，它可以用Alt、Cmd 或 Esc 键输入，具体取决于您的键盘设置。
+
+| 快捷键 | 功能描述 |
+|--------|----------|
+| ^G     (F1)   |   显示帮助 |
+| ^X     (F2)   |   关闭当前缓冲区 / 离开 nano |
+| M-U           |   撤销上次操作 |
+| M-E           |   重做撤销的操作 |
+| M-Q           |   向后搜索下一个出现位置 |
+| M-W           |   向前搜索下一个出现位置 |
+| ^D     (Del)  |   删除游标之下的字符 |
+| M-Del         |   去除当前行（或者标记的行） |
+
+
 ### vi/vim 编辑
 
 配置文件 ~/.vimrc
@@ -389,9 +450,9 @@ diff -r dir1/ dir2/
 
 相关命令
 
+-   `df -h` ：检查pc的磁盘空间占用情况
 -   `du -hd 1 | sort -rh` ：查看各文件大小, 有些文件看不到
 -   `du -sh * | sort -rh` ：查看各文件大小
--   `df -h` ：检查磁盘空间占用情况
 
 ### 软件安装
 
