@@ -318,3 +318,7 @@ sudo apt install gnome-control-center
 
 在更新您的软件包信息后，无法定位必要的软件包“ubuntu-minimal”。这可能是因为您没有在软件源中使用官方镜像，或您正在使用的镜像负载过重。请查看 /etc/apt/sources.list 文件了解软件源当前的配置列表。
 
+
+## 有价值的链接
+
+<https://www.ufans.top/index.php/archives/148/>
