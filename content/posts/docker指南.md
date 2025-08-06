@@ -495,6 +495,7 @@ volumes:
 
 ```bash
 # bk
+# --rm 一次性的容器, 停止会销毁
 sudo docker run --rm -v immich_model-cache:/data -v $(pwd):/backup busybox tar cvf /backup/data.tar /data
 
 ```
@@ -624,6 +625,9 @@ docker-compose.yaml 的目的是编排多个服务(container)
 | **学习曲线**        | 需要一定学习时间，特别是处理复杂场景时               | 学习难度较低，语法简单明确                                |
 | **主要应用场景**    | 配置文件、数据序列化、模板等                          | 数据交换、配置文件、Web API、存储对象等                  |
 
+多行写法 TODO:
+- >-
+- |-
 
 #### compose.yaml的书写规则
 
