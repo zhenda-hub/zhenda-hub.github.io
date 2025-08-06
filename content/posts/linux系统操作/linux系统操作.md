@@ -184,42 +184,39 @@ unser AAA
 
 ```
 
-### ssh
-
-ssh 是一种**安全的网络协议**。 可以安全的远程连接电脑。
-
-远程连接的意义
-
--   方便随时随地的查看状态，处理故障
--   可以远程连接多个地区的服务器，统一管理
-    可以看出 远程连接服务器的优势： **高效，安全**
-
-相关命令
-
--   ssh 用户名@服务器IP地址
-
-### scp
-
-```bash
-scp localfile.txt username@remoteip:/directory
-scp username@remoteip:/file.txt /local_directory
-
-scp -r localfiles username@remoteip:/directory
-scp -r username@remoteip:/directory /local_directory
-
-```
-
-### sftp
-
-```bash
-
-```
 
 ### 文件管理
 
 linux 中 一切皆文件
 
 linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
+
+以下是 Linux 系统中根目录（`/`）下的常见一级目录及其功能简要说明。
+
+```markdown
+| 目录       | 作用说明                                                                 | 常见使用场景                                   |
+|------------|--------------------------------------------------------------------------|------------------------------------------------|
+| `/`        | 根目录，一切从此开始，是所有文件和目录的起点。                            | 一般不会直接操作；系统启动时自动挂载。         |
+| `/bin`     | 存放系统启动和基本操作所需的二进制可执行文件（如 `ls`, `cp`, `rm` 等）。   | 恢复模式下使用基础命令；系统正常运行依赖。     |
+| `/boot`    | 存放启动加载器（如 GRUB）相关文件及 Linux 内核（如 `vmlinuz`）。           | 内核升级、修复启动引导问题。                   |
+| `/dev`     | 包含系统中的设备文件，如硬盘、终端、USB 等（设备以文件形式存在）。          | 查看磁盘 `/dev/sd*`；与挂载、格式化有关操作。   |
+| `/etc`     | 存放系统和应用程序的配置文件，几乎所有系统配置都在这里。                  | 编辑网络、服务、用户配置等；如 `/etc/hosts`。   |
+| `/home`    | 普通用户的主目录，如 `/home/username`。                                    | 用户文件存储、桌面环境配置、个人数据备份。     |
+| `/lib`     | 系统启动和 `/bin` 程序运行所需的共享库。                                    | 程序运行依赖；开发时查阅库路径。               |
+| `/media`   | 挂载可移动媒体设备（如 U 盘、CD-ROM）的挂载点。                              | 插入 U 盘、自动挂载路径。                       |
+| `/mnt`     | 临时挂载其他文件系统的目录，常用于手动挂载。                                 | 临时访问硬盘、ISO 文件、远程文件系统。         |
+| `/opt`     | 可选软件包的安装目录（通常是第三方软件）。                                 | 安装非系统标准路径的应用，如 Chrome。          |
+| `/proc`    | 内存中的虚拟文件系统，提供系统和进程信息接口，如 `/proc/cpuinfo`。         | 查看硬件信息、内核参数、运行进程。             |
+| `/root`    | 超级用户（root）的主目录（不是 `/home/root`）。                             | `sudo -i` 后默认进入的目录；管理员的私有空间。 |
+| `/run`     | 系统运行时的信息（PID 文件、套接字等），是临时目录。                         | 临时文件、守护进程 PID 文件、socket 通信等。    |
+| `/sbin`    | 存放系统管理员使用的二进制命令，如 `shutdown`, `mount` 等。                | 系统管理操作，如重启、挂载、网络配置。         |
+| `/srv`     | 服务数据目录，如 FTP、HTTP 的根目录等。                                   | 搭建网站、FTP 服务器时使用。                   |
+| `/sys`     | 内核提供的系统和硬件信息接口，通常只读。                                   | 观察设备信息，热插拔设备自动更新。             |
+| `/tmp`     | 临时文件存储目录，系统重启后通常会清空。                                   | 程序或用户临时存放文件。                       |
+| `/usr`     | 包含只读的用户应用程序和文件（如 `/usr/bin`, `/usr/lib`）。               | 安装软件、运行系统级应用。                     |
+| `/var`     | 存放可变数据文件，如日志、缓存、邮件等。                                   | 查看系统日志 `/var/log`，服务缓存等。           |
+```
+
 
 文件类型:
 - 文件 f
@@ -254,42 +251,120 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
     -   cat 文件名：查看文件
     -   tail 文件名：查看文件末尾
 
+### 文件编辑
 
-#### 文件共享
+#### 编辑配置 ~/.xxxrc file settings
 
-/tmp：
+-   ~/.bashrc
 
-通常用于存放临时文件，可能位于磁盘或内存中，具体取决于系统配置。
-适合存放需要在系统重启后仍然保留的临时数据。
+    ```bash
+    # auto ls
+    function cd {
+        builtin cd "$@" && ls
+    }
 
-/dev/shm：
+    # alias
+    alias ls='ls --time-style=long-iso'
+    alias ll='ls -alFh'
+    
+    # browser
+    alias edge='microsoft-edge'
+    alias chrome='google-chrome'
 
-专为共享内存设计，位于 RAM 中，访问速度更快。
-适合存放需要高速访问且不需要持久化的数据。
+    ```
+- ~/.profile
+    ```bash
+
+    ```
+-   ~/.vimrc
+
+    ```bash
+    syntax on
+    set autoindent
+    set tabstop=4
+    set shiftwidth=4
+    set cursorline
+    set backup
+    set backupdir=~/.vim/undo
+    ```
+
+-   ~/.nanorc
+
+    ```bash
+    include "/usr/share/nano/*.nanorc"
+    set tabsize 4
+    set backup
+    ```
+
+#### nano编辑
+
+快捷键用如下方式进行表示：
+控制键序列使用一个“^”符号标记，它可以用 Ctrl键或按 Esc 键两次的方式进行输入。
+Meta 键序列使用“M-”符号标记，它可以用Alt、Cmd 或 Esc 键输入，具体取决于您的键盘设置。
+
+| 快捷键 | 功能描述 |
+|--------|----------|
+| ^G     (F1)   |   显示帮助 |
+| ^X     (F2)   |   关闭当前缓冲区 / 离开 nano |
+| M-U           |   撤销上次操作 |
+| M-E           |   重做撤销的操作 |
+| M-Q           |   向后搜索下一个出现位置 |
+| M-W           |   向前搜索下一个出现位置 |
+| M-Del         |   去除当前行（或者标记的行） |
 
 
-#### 打包和压缩
+#### vi/vim 编辑
 
-| 属性             | tar(打包)+gzip(压缩, 大小约为打包文件的 1/7) | zip                          |
-| ---------------- | -------------------------------------------- | ---------------------------- |
-| 文件后缀         | `.tar.gz` 或 `.tgz`                          | `.zip`                       |
-| 多文件支持       | 使用 `tar` 打包多个文件并压缩                | 原生支持多文件和目录结构     |
-| 压缩率           | 高，适合大文件和数据集                       | 一般，适合较小的文件或目录   |
-| 兼容性           | Linux/Unix 中常用工具，Windows 较少用        | Windows、Mac、Linux 全面支持 |
-| 是否支持加密     | 不支持，需借助其他工具                       | 支持基本密码加密             |
-| 是否支持分卷压缩 | 不支持                                       | 支持                         |
+配置文件 ~/.vimrc
 
-命令:
+三种模式
 
-```bash
-# tar
-tar -czvf xxx.tar.gz f1 f2 f3
-tar -xzvf xxx.tar.gz
+-   命令模式
+    -   操作
+        -   查找： / 关键字 ， 之后按 n 找下一个匹配， 按 N 找上一个匹配
+-   编辑模式
+    -   进入方式
+        -   a 增加的方式进入编辑模式
+        -   i 插入的方式进入编辑模式
+        -   o 另起一行的方式进入编辑模式
+    -   退出方式
+        -   esc
+-   末行模式
+    -   进入方式
+        -   : 进入末行模式
+    -   退出方式
+        -   enter 退出末行模式
+    -   操作
+        -   退出保存 wq
+        -   退出不保存 q!
+        -   ![vim](../imgs/vim2.jpg)
 
-# zip
-zip -r xxx.zip f1 f2
-unzip xxx.zip -d xxx
-```
+### 磁盘管理
+
+相关命令
+
+-   `df -h` ：检查pc的磁盘空间占用情况
+-   `du -hd 1 | sort -rh` ：查看各文件大小, 有些文件看不到
+-   `du -sh * | sort -rh` ：查看各文件大小
+
+### 软件安装
+
+如果下载很慢的话，需要**切换下载源**
+
+相关命令
+
+-   ubuntu
+    -   sudo apt update && sudo apt upgrade : 更新
+    -   sudo apt install xxx : 下载
+    -   sudo apt remove xxx : 卸载
+-   centos
+    -   yum update : 更新
+    -   yum install xxx : 下载
+    -   yum remove xxx : 卸载
+
+## 中级阶段
+
+### 文件进阶
 
 #### Shell 通配符模式（Glob Pattern）
 
@@ -359,116 +434,41 @@ diff file1/ file2/
 diff -r dir1/ dir2/
 ```
 
-### 编辑配置 ~/.xxxrc file settings
+#### 文件共享
 
--   ~/.bashrc
+/tmp：
 
-    ```bash
-    # auto ls
-    function cd {
-        builtin cd "$@" && ls
-    }
+通常用于存放临时文件，可能位于磁盘或内存中，具体取决于系统配置。
+适合存放需要在系统重启后仍然保留的临时数据。
 
-    # alias
-    alias ls='ls --time-style=long-iso'
-    alias ll='ls -alFh'
-    
-    # browser
-    alias edge='microsoft-edge'
-    alias chrome='google-chrome'
+/dev/shm：
 
-    ```
-- ~/.profile
-    ```bash
-
-    ```
--   ~/.vimrc
-
-    ```bash
-    syntax on
-    set autoindent
-    set tabstop=4
-    set shiftwidth=4
-    set cursorline
-    set backup
-    set backupdir=~/.vim/undo
-    ```
-
--   ~/.nanorc
-
-    ```bash
-    include "/usr/share/nano/*.nanorc"
-    set tabsize 4
-    set backup
-    ```
-
-### nano编辑
-
-快捷键用如下方式进行表示：
-控制键序列使用一个“^”符号标记，它可以用 Ctrl键或按 Esc 键两次的方式进行输入。
-Meta 键序列使用“M-”符号标记，它可以用Alt、Cmd 或 Esc 键输入，具体取决于您的键盘设置。
-
-| 快捷键 | 功能描述 |
-|--------|----------|
-| ^G     (F1)   |   显示帮助 |
-| ^X     (F2)   |   关闭当前缓冲区 / 离开 nano |
-| M-U           |   撤销上次操作 |
-| M-E           |   重做撤销的操作 |
-| M-Q           |   向后搜索下一个出现位置 |
-| M-W           |   向前搜索下一个出现位置 |
-| M-Del         |   去除当前行（或者标记的行） |
+专为共享内存设计，位于 RAM 中，访问速度更快。
+适合存放需要高速访问且不需要持久化的数据。
 
 
-### vi/vim 编辑
+#### 打包和压缩
 
-配置文件 ~/.vimrc
+| 属性             | tar(打包)+gzip(压缩, 大小约为打包文件的 1/7) | zip                          |
+| ---------------- | -------------------------------------------- | ---------------------------- |
+| 文件后缀         | `.tar.gz` 或 `.tgz`                          | `.zip`                       |
+| 多文件支持       | 使用 `tar` 打包多个文件并压缩                | 原生支持多文件和目录结构     |
+| 压缩率           | 高，适合大文件和数据集                       | 一般，适合较小的文件或目录   |
+| 兼容性           | Linux/Unix 中常用工具，Windows 较少用        | Windows、Mac、Linux 全面支持 |
+| 是否支持加密     | 不支持，需借助其他工具                       | 支持基本密码加密             |
+| 是否支持分卷压缩 | 不支持                                       | 支持                         |
 
-三种模式
+命令:
 
--   命令模式
-    -   操作
-        -   查找： / 关键字 ， 之后按 n 找下一个匹配， 按 N 找上一个匹配
--   编辑模式
-    -   进入方式
-        -   a 增加的方式进入编辑模式
-        -   i 插入的方式进入编辑模式
-        -   o 另起一行的方式进入编辑模式
-    -   退出方式
-        -   esc
--   末行模式
-    -   进入方式
-        -   : 进入末行模式
-    -   退出方式
-        -   enter 退出末行模式
-    -   操作
-        -   退出保存 wq
-        -   退出不保存 q!
-        -   ![vim](../imgs/vim2.jpg)
+```bash
+# tar
+tar -czvf xxx.tar.gz f1 f2 f3
+tar -xzvf xxx.tar.gz
 
-### 磁盘管理
-
-相关命令
-
--   `df -h` ：检查pc的磁盘空间占用情况
--   `du -hd 1 | sort -rh` ：查看各文件大小, 有些文件看不到
--   `du -sh * | sort -rh` ：查看各文件大小
-
-### 软件安装
-
-如果下载很慢的话，需要**切换下载源**
-
-相关命令
-
--   ubuntu
-    -   sudo apt update && sudo apt upgrade : 更新
-    -   sudo apt install xxx : 下载
-    -   sudo apt remove xxx : 卸载
--   centos
-    -   yum update : 更新
-    -   yum install xxx : 下载
-    -   yum remove xxx : 卸载
-
-## 中级阶段
+# zip
+zip -r xxx.zip f1 f2
+unzip xxx.zip -d xxx
+```
 
 
 ### 文件权限和用户管理
@@ -586,6 +586,38 @@ nohup 命令 > output.log 2>&1 &
 ```
 
 ## 高级阶段
+
+
+### ssh
+
+ssh 是一种**安全的网络协议**。 可以安全的远程连接电脑。
+
+远程连接的意义
+
+-   方便随时随地的查看状态，处理故障
+-   可以远程连接多个地区的服务器，统一管理
+    可以看出 远程连接服务器的优势： **高效，安全**
+
+相关命令
+
+-   ssh 用户名@服务器IP地址
+
+### scp
+
+```bash
+scp localfile.txt username@remoteip:/directory
+scp username@remoteip:/file.txt /local_directory
+
+scp -r localfiles username@remoteip:/directory
+scp -r username@remoteip:/directory /local_directory
+
+```
+
+### sftp
+
+```bash
+
+```
 
 ### 网络管理
 
