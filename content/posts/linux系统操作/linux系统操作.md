@@ -560,13 +560,13 @@ gpasswd -d 用户名 组名
 相关命令
 
 -   top ：查看进程，内存，交换空间等， 相当于 windows 的 任务管理器
--   htop：top 的彩色加强版， 需要安装
+-   htop：top 的彩色加强版， 需要安装, 但是无法复制文字
 -   glances: top 的彩色加强版 plus，需要安装
 -   ps ：查看进程
 -   kill -9 pid：杀死进程
 
- htop, ppid
- ps -p 4155167 -o pid,ppid,cmd
+htop, ppid
+ps -p 4155167 -o pid,ppid,cmd
 
 #### shell 后台作业
 
@@ -615,6 +615,7 @@ scp -r username@remoteip:/directory /local_directory
 
 ### sftp
 
+FTP: 客户端和服务器之间传输文件的标准网络协议
 ```bash
 
 ```
