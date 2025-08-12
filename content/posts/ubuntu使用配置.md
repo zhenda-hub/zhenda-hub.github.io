@@ -322,3 +322,12 @@ sudo apt install gnome-control-center
 ## 有价值的链接
 
 <https://www.ufans.top/index.php/archives/148/>
+
+
+
+## snap tracker 
+
+```bash
+sudo systemctl stop snapd
+pkill tracker
+```
