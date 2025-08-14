@@ -50,14 +50,14 @@ sudo dpkg -i <path to .deb file>
 remove
 
 ```bash
-sudo apt purge <path to .deb file>
+# 查询软件名
+dpkg -l | grep electron-stu
+
 # 仅仅删除程序
 sudo apt remove xxxx*
-# 删除程序及其配置文件
-sudo apt purge xxxx*
+
 sudo apt autoremove
 # 备用
-sudo dpkg -l | grep xxx
 sudo dpkg -P <path to .deb file>
 ```
 
