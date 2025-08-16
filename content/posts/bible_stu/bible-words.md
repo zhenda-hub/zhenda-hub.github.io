@@ -226,6 +226,11 @@ tags = ['bible']
 > 
 > *(Romans 8:29-31 NLT)*
 
+> Rejoice in our confident hope. Be patient in trouble, and keep on praying.
+> 
+> *(Romans 12:12 NLT)*
+
+
 ## 1 Corinthians
 
 > Don't you realize that all of you together are the temple of God and that the Spirit of God lives in you?
@@ -355,6 +360,12 @@ tags = ['bible']
 > 
 > *(Hebrews 11:6 NLT)*
 
+
+> Under the old system, the high priest brought the blood of animals into the Holy Place as a sacrifice for sin, and the bodies of the animals were burned outside the camp.
+> 
+> So also Jesus suffered and died outside the city gates to make his people holy by means of his own blood.
+>
+> *(Hebrews 13:11-12 NLT)*
 
 ## James
 
