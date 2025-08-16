@@ -13,17 +13,20 @@ python 工具 pip
 
 命令
 
-|类别|命令|含义|
-|---|---|---|
-| 在线安装 | `pip install xxx` |  |
-|  | `pip install -r requirements.txt` |  |
-| 在线换源安装 | `pip config list` | 查看源 |
-|  | `pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xxx` | 换源 |
-| 离线安装, 公司很多情况不联网 |  |  |
-| tar.gz | `tar -xzvf xxx.tag.gz && cd xxx && pip install .` |  |
-| whl | `pip install xxx.whl` |  |
-| tar.gz或whl | `pip install --no-index --find-links=xxxx/packages/ -r requirements.txt` | 使用requirements.txt 批量安装包 |
-| 其余 | `pip freeze > requirements.txt` |  |
-|  | `pip uninstall xxx` |  |
-|  | `pip install -u xxx` |  |
-|  | `pip check` |  |
+| 类别                         | 命令                                                                     | 含义                                                             |
+| ---------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| 在线安装                     | `pip install xxx`                                                        |                                                                  |
+|                              | `pip install -r requirements.txt`                                        |                                                                  |
+| 在线换源安装                 | `pip config list`                                                        | 查看源                                                           |
+|                              | `pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xxx`            | 换源                                                             |
+| 离线安装, 公司很多情况不联网 |                                                                          |                                                                  |
+|                              | `pip download -r requirements.txt -d ./pkgs`                             | 批量下载离线安装包                                               |
+| tar.gz或whl                  | `pip install --no-index --find-links=xxxx/packages/ -r requirements.txt` | 使用requirements.txt 批量安装包, 需要全部验证通过了,才开始安装包 |
+|                              | `pip download mkdocs -d ./pkgs`                                          | 批量下载大型的安装包                                             |
+| tar.gz或whl                  | `pip install --no-index --find-links=xxxx/packages/ mkdocs`              | 批量安装大型的包                                                 |
+| tar.gz                       | `tar -xzvf xxx.tag.gz && cd xxx && pip install .`                        |                                                                  |
+| whl                          | `pip install xxx.whl`                                                    |                                                                  |
+| 其余                         | `pip freeze > requirements.txt`                                          |                                                                  |
+|                              | `pip uninstall xxx`                                                      |                                                                  |
+|                              | `pip install -u xxx`                                                     |                                                                  |
+|                              | `pip check`                                                              |                                                                  |

@@ -134,7 +134,7 @@ git rm-r -cached 文件名
 ```bash
 # 克隆
 git clone 远程的 ssh
-# 初始化
+# 初始化!!!!!!!!!!!!!
 git init
 git remote add origin sshxxx
 git push --set-upstream origin main
