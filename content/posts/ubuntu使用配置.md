@@ -193,6 +193,10 @@ flameshot gui
 
 ## 默认打开方式
 
+```bash
+xdg-open .
+```
+
 右键 属性 打开方式
 <https://blog.csdn.net/weixin_43994864/article/details/110468818>
 

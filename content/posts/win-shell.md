@@ -37,7 +37,17 @@ $env:PYTHONPATH = "$env:PYTHONPATH;$(Get-Location)"
 rm env:MY_VAR
 ```
 
-## 自定义 powershell
+
+## 自动关联系统默认程序，快速打开
+
+```cmd
+start .
+```
+
+
+## 额外配置
+
+自定义 powershell
 
 ```powershell
 notepad $PROFILE
