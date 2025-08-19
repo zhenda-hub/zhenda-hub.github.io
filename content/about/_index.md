@@ -36,6 +36,8 @@ date = "2024-03-28"
   - [项目管理网站](http://134.175.124.152:8200/admin)
 - Pyqt5项目
   - [天命之选](https://gitee.com/zhenda/random_recipe)
+- Nas网站
+  - [Nas世界](https://zhenda-hub.github.io/my-docker-files/)
 
 ## 联系方式
 
