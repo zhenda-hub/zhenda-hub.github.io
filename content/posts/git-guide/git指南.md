@@ -788,6 +788,23 @@ git push
 | XML                       | .xml       | 可扩展标记语言,关注数据的结构和内容          | 用于数据存储和传输       | 高                                   |
 
 
+### 电子书
+
+
+| 格式   | 全称 / 来源            | 支持设备/软件         | 特点                              | 适用场景 |
+|--------|------------------------|-----------------------|-----------------------------------|----------|
+| **EPUB**   | Electronic Publication | 几乎所有阅读器、APP   | 开放标准，排版灵活，可重排        | 主流通用格式 |
+| **MOBI**   | Mobipocket (亚马逊收购) | Kindle（旧版）        | 老 Kindle 格式，功能较简单        | 旧 Kindle 用户 |
+| AZW3   | Kindle Format 8        | Kindle                | MOBI 的升级版，支持更复杂排版     | Kindle 专用 |
+| KFX    | Kindle Format 10       | 新 Kindle             | 亚马逊最新格式，支持增强功能      | Kindle 专用 |
+| **PDF**    | Portable Document Format | 所有设备             | 固定版式，保真度高，但不利小屏阅读 | 学术论文、教材 |
+| DJVU   | Déjà Vu                | 部分阅读器/软件支持   | 高压缩率，适合扫描书籍            | 扫描文档、老书 |
+| CBR    | Comic Book RAR         | 漫画阅读器（Komga等） | RAR 打包漫画图片                  | 漫画 |
+| CBZ    | Comic Book ZIP         | 漫画阅读器（Komga等） | ZIP 打包漫画图片                  | 漫画 |
+| TXT    | 纯文本                 | 所有设备              | 无排版，仅文字，极轻量            | 小说原文档、笔记 |
+| FB2    | FictionBook            | 部分阅读器（KOReader等） | 基于 XML 的开放格式，东欧常见   | 小众电子书 |
+
+
 ### 图片
 
 | 格式         | 特点                             | 是否支持透明度  | 是否支持动画 | 压缩方式  | 文件大小 | 适用场景                   |
@@ -865,4 +882,3 @@ MP3 文件可以通过 ID3v2 标签嵌入歌词信息。
 
 - USLT（Unsynchronized Lyrics）：非同步歌词，仅包含歌词文本。广泛支持
 - SYLT（Synchronized Lyrics）：同步歌词，包含时间戳信息，实现歌词与音乐同步显示. 支持较少
-
