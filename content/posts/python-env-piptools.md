@@ -44,6 +44,7 @@ CMD ["python", "main.py"]
 
 ```bash
 pip install pipdeptree
+# pipdeptree 默认是分析当前环境里的包
 pipdeptree
 ```
 
