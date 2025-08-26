@@ -25,6 +25,14 @@ from xxx import *
 
 
 
+当前目录: 命令行执行的目录
+导包目录: 被执行文件的目录会默认被加入pythonpath的第一个位置
+
+
+包名， 文件名 要区分开
+
+
+
 ## 常见问题
 
 ### 导入失败
@@ -32,11 +40,21 @@ from xxx import *
 python import 失败
 大概率是因为 项目根目录不在 pythonpath 里
 
+
+
+
 解决方法:
 
-1. 添加 项目根目录到 pythonpath 里
 
-1.1. 命令行解决
+1 使用 -m运行
+
+```bash
+python -m xxx.file
+```
+
+2. 添加 项目根目录到 pythonpath 里
+
+2.1. 命令行解决
 
 ```bash
 export PYTHONPATH=./
@@ -50,23 +68,13 @@ set PYTHONPATH=./
 
 ```
 
-1.2. 代码解决
+2.2. 代码解决
 
 ```python
 import sys, os
 sys.path.insert(0, os.cwd())
 ```
 
-1.3 使用 -m运行
-
-```bash
-python -m xxx.file
-```
-当前目录: 命令行执行的目录
-导包目录: 被执行文件的目录会默认被加入pythonpath的第一个位置
-
-
-包名， 文件名 要区分开
 
 ### 循环导入
 
