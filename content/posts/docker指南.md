@@ -731,6 +731,8 @@ docker compose up --build
 docker compose up --build -d
 # 停止container
 docker compose stop
+# 更新container
+docker compose pull
 # 具体服务
 docker compose restart service_name
 docker compose stop service_name
@@ -754,7 +756,7 @@ docker compose -f docker-compose.yml.withdb up -d
 
 tips:
 
-有时候`docker compose up` 运行 报错,  手动拉image可以解决大部分问题 `docker pull xxxx`.
+有时候`docker compose up` 运行报错, 手动拉image可以解决大部分问题 `docker pull xxxx`.
 
 #### restart
 

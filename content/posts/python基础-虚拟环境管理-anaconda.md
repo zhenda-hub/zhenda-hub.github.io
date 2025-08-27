@@ -64,10 +64,15 @@ conda env create -f freeze.yml
 python3 -m venv myenv         
 
 # 激活环境
-source myenv/bin/activate     
+source myenv/bin/activate
+
 
 # 安装包
 pip install <package>         
+```
+
+```cmd
+.venv\Scripts\activate
 ```
 
 ### poetry
