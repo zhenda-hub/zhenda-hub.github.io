@@ -38,3 +38,29 @@ use giscus:
 - https://giscus.app/zh-CN
 - https://blog.highp.ing/p/giscus/
 - https://fengchao.pro/blog/comment-system-with-giscus/
+
+### hugo multi theme
+
+- PaperMod
+- Ananke
+- Hugo Book
+- DoIt
+- Beautiful Hugo
+- Hermit
+- Hemingway
+- Zen Theme
+- uBlogger
+- Terminal
+- LoveIt
+
+
+
+
+```bash
+git submodule add https://github.com/用户名/主题名.git themes/主题名
+
+```
+
+```toml
+theme = "主题名"
+```
