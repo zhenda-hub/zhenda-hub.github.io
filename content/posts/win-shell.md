@@ -91,3 +91,11 @@ Set-Alias -Name kill -Value Stop-Process
 Set-Alias -Name ping -Value Test-Connection
 Set-Alias -Name wget -Value Invoke-WebRequest
 ```
+
+
+
+## windows 命令行安装工具
+
+winget
+
+<https://learn.microsoft.com/zh-cn/windows/package-manager/winget/help>
