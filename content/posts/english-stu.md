@@ -7,6 +7,8 @@ toc = true
 tags = []
 +++
 
+[toc]
+
 ## 英语重要性
 
 英语是国际通用语言
@@ -128,9 +130,22 @@ p t k b d g
 
 将词根和词缀按意义或功能分类，便于系统学习。
 
-TODO:
 
 ### 词性
+
+| 词性   | 英文名称     | 缩写    | 示例                 |
+| ------ | ------------ | ------- | -------------------- |
+| 名词   | Noun         | n.      | book, apple, freedom |
+| 代词   | Pronoun      | pron.   | he, she, it, they    |
+| 动词   | Verb         | v.      | run, eat, think      |
+| 形容词 | Adjective    | adj.    | big, happy, blue     |
+| 副词   | Adverb       | adv.    | quickly, very, well  |
+| 介词   | Preposition  | prep.   | in, on, at, by       |
+| 连词   | Conjunction  | conj.   | and, but, because    |
+| 冠词   | Article      | art.    | a, an, the           |
+| 数词   | Numeral      | num.    | one, first           |
+| 感叹词 | Interjection | interj. | oh, wow, hey         |
+
 
 ### 时态
 
