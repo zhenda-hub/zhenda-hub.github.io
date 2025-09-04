@@ -565,7 +565,58 @@ gpasswd -d 用户名 组名
 -   ps ：查看进程
 -   kill -9 pid：杀死进程
 
-htop, ppid
+
+#### top
+
+h 帮助文档
+xb <> 自由排序
+
+
+f 设置
+按 Shift + W（大写 W）
+这个命令会把当前配置写入 ~/.toprc 文件
+```
+Help for Interactive Commands - procps-ng 3.3.17
+Window 1:Def: Cumulative mode Off.  System: Delay 3.0 secs; Secure mode Off.
+
+  Z,B,E,e   Global: 'Z' colors; 'B' bold; 'E'/'e' summary/task memory scale
+  l,t,m,I   Toggle: 'l' load avg; 't' task/cpu; 'm' memory; 'I' Irix mode
+  0,1,2,3,4 Toggle: '0' zeros; '1/2/3' cpu/numa views; '4' cpus two abreast
+  f,F,X     Fields: 'f'/'F' add/remove/order/sort; 'X' increase fixed-width
+
+  L,&,<,> . Locate: 'L'/'&' find/again; Move sort column: '<'/'>' left/right
+  R,H,J,C . Toggle: 'R' Sort; 'H' Threads; 'J' Num justify; 'C' Coordinates
+  c,i,S,j . Toggle: 'c' Cmd name/line; 'i' Idle; 'S' Time; 'j' Str justify
+  x,y     . Toggle highlights: 'x' sort field; 'y' running tasks
+  z,b     . Toggle: 'z' color/mono; 'b' bold/reverse (only if 'x' or 'y')
+  u,U,o,O . Filter by: 'u'/'U' effective/any user; 'o'/'O' other criteria
+  n,#,^O  . Set: 'n'/'#' max tasks displayed; Show: Ctrl+'O' other filter(s)
+  V,v     . Toggle: 'V' forest view; 'v' hide/show forest view children
+
+  k,r       操作进程：'k' 杀死；'r' 设置优先级
+  d or s    设定更新间隔
+  W,Y,!     Write config file 'W'; Inspect other output 'Y'; Combine Cpus '!'
+  q         Quit
+          ( commands shown with '.' require a visible task display window ) 
+Press 'h' or '?' for help with Windows,
+```
+
+####  htop  使用
+
+f10 失灵的问题
+
+swap 排序
+
+按 H （大写 H，不是小写的 h）
+- H = Hide user threads（隐藏用户线程）
+- Shift + H 可以在显示 / 隐藏线程之间切换。
+这样就能让列表干净很多，避免一堆重复的 Firefox 线程。
+
+
+ppid
+
+
+
 ps -p 4155167 -o pid,ppid,cmd
 
 #### shell 后台作业

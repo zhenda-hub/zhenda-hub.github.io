@@ -11,8 +11,12 @@ tags = ["linux"]
 ## install tool
 
 apt
-snap store
+snap store, snap 各种问题
 
+```bash
+# 罗列所有的snap软件
+ll ~/snap
+```
 ## install and remove
 
 sys_update.sh
