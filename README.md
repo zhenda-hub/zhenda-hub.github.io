@@ -39,28 +39,55 @@ use giscus:
 - https://blog.highp.ing/p/giscus/
 - https://fengchao.pro/blog/comment-system-with-giscus/
 
-### hugo multi theme
+## hugo multi theme
 
+- Blowfish
+- hextra
+- Beautiful Hugo
+- Coder
 - PaperMod
+
+- Hugo Blox
+- LoveIt
+
+- Zen
+- DoIt
+- Terminal
 - Ananke
 - Hugo Book
-- DoIt
-- Beautiful Hugo
 - Hermit
 - Hemingway
-- Zen Theme
 - uBlogger
-- Terminal
-- LoveIt
 
 
 
 
 ```bash
-git submodule add https://github.com/用户名/主题名.git themes/主题名
+git submodule update --init --recursive # needed when you reclone your repo (submodules may not get cloned automatically)
 
+
+
+git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+
+git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-coder
+
+git submodule add -b main https://github.com/nunocoracao/blowfish.git themes/blowfish
+
+git submodule add https://github.com/halogenica/beautifulhugo.git themes/beautifulhugo
+
+git submodule add https://github.com/imfing/hextra.git themes/hextra
 ```
+
+
+
 
 ```toml
 theme = "主题名"
 ```
+
+
+```bash
+# 当使用CI/CD部署Hugo网站时，确保在运行hugo命令之前执行以下命令至关重要。
+git submodule update --init
+```
+
