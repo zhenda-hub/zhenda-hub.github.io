@@ -575,7 +575,8 @@ xb <> 自由排序
 f 设置
 按 Shift + W（大写 W）
 这个命令会把当前配置写入 ~/.toprc 文件
-```
+
+```bash
 Help for Interactive Commands - procps-ng 3.3.17
 Window 1:Def: Cumulative mode Off.  System: Delay 3.0 secs; Secure mode Off.
 
@@ -603,18 +604,18 @@ Press 'h' or '?' for help with Windows,
 
 ####  htop  使用
 
-f10 失灵的问题
+- f10 失灵的问题: 快捷键冲突
+- 自定义列名: f2进入添加 swap ppid
+- 显示混乱:
+    按 H （大写 H，不是小写的 h）
+    - H = Hide user threads（隐藏用户线程）
+    - Shift + H 可以在显示 / 隐藏线程之间切换。
+    这样就能让列表干净很多，避免一堆重复的 Firefox 线程。
 
-swap 排序
-
-按 H （大写 H，不是小写的 h）
-- H = Hide user threads（隐藏用户线程）
-- Shift + H 可以在显示 / 隐藏线程之间切换。
-这样就能让列表干净很多，避免一堆重复的 Firefox 线程。
-
-
-ppid
-
+```bash
+# 配置文件位置
+~/.config/htop/htoprc
+```
 
 
 ps -p 4155167 -o pid,ppid,cmd
