@@ -27,7 +27,7 @@
 
   {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction) "includePaths" (slice
   "sass")) }}
-  {{- $style := resources.Get "sass/main.scss" | resources.ToCSS $options -}}
+  {{- $style := resources.Get "sass/main.scss" | css.Sass $options -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
   {{ $zoom_css := resources.Get "zoomjs/zoom.css" | resources.Minify -}}
@@ -36,7 +36,7 @@
   {{ range .Site.Params.custom_css -}}
   {{ $custom_template := resources.Get . }}
   {{ if $custom_template }}
-  {{ $custom_style := $custom_template | resources.ToCSS | resources.Minify }}
+  {{ $custom_style := $custom_template | css.Sass | resources.Minify }}
   <link rel="stylesheet" href="{{ $custom_style.RelPermalink }}">
   {{ end }}
   {{- end -}}
