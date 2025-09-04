@@ -67,9 +67,13 @@ Learn more and contribute on [GitHub](https://github.com/gohugoio).
 
 
 ```bash
+# 创建项目
 hugo new site xxx
+# 本地开发
 hugo server -D
+# 创建文章
 hugo new xxxx/xxx/xxxx.md
 
+# 生成public
 hugo
 ```
