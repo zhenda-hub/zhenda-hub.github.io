@@ -3,7 +3,13 @@ baseURL = "https://zhenda-hub.github.io/"
 
 title = "Zhenda's Blog"
 
+# theme = "beautifulhugo"
+# theme = "blowfish"
+# theme = "hextra"
+# theme = "hugo-coder"
+# theme = "PaperMod"
 theme = "puppet"
+
 # themesDir = "../.."
 
 copyright = "Copyright © 2023-2025 Zhenda. All Rights Reserved."

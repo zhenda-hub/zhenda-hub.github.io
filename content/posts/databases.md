@@ -26,8 +26,9 @@ mysql 优化: <https://dev.to/hamzakhan/how-youtube-scaled-mysql-to-support-249-
 
 一个表代表一个类, `是一个名词, 而不是动词`
 
--   表要小而精， 和类一样
+-   为了简单方便, 可以将数据量少的设计为一个表
 -   将字段很多的表分为多个表
+-   将数据量过万的表分为多个表
 
 推荐字段
 
