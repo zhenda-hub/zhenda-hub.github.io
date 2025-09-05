@@ -1,0 +1,33 @@
+# Blowfish theme for Hugo
+
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "Zhenda Hub"
+theme = "blowfish"
+
+# prevent build failures when using Hugo's template _internal/opengraph.html 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+name = "Blowfish"
+license = "MIT"
+licenselink = "https://github.com/nunocoracao/blowfish/blob/main/LICENSE"
+description = "A powerful, lightweight theme for Hugo built with Tailwind CSS."
+
+homepage = "https://github.com/nunocoracao/blowfish/"
+demosite = "https://blowfish.page/"
+
+tags = ["blog", "minimal", "responsive", "dark mode", "dark", "light", "tailwind", "personal"]
+features = ["syntax highlighting", "dark mode", "emoji", "firebase", "views"]
+
+[author]
+  name = "Nuno Coracao"
+  homepage = "http://localhost:1313/subdir"
+  # homepage = "https://n9o.xyz/"
+
+[original]
+  author = "James Panther"
+  homepage = "https://jamespanther.com/"
+  repo = "https://github.com/jpanther/congo"

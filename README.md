@@ -46,9 +46,9 @@ use giscus:
 - Beautiful Hugo
 - Coder
 - PaperMod
+- LoveIt
 
 - Hugo Blox
-- LoveIt
 
 - Zen
 - DoIt
@@ -76,6 +76,8 @@ git submodule add -b main https://github.com/nunocoracao/blowfish.git themes/blo
 git submodule add https://github.com/halogenica/beautifulhugo.git themes/beautifulhugo
 
 git submodule add https://github.com/imfing/hextra.git themes/hextra
+
+git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
 ```
 
 
@@ -89,5 +91,13 @@ theme = "主题名"
 ```bash
 # 当使用CI/CD部署Hugo网站时，确保在运行hugo命令之前执行以下命令至关重要。
 git submodule update --init
+```
+
+
+
+```bash
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1) 
+Press Ctrl+C to stop
 ```
 
