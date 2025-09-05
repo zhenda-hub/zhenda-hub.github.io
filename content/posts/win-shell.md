@@ -99,3 +99,8 @@ Set-Alias -Name wget -Value Invoke-WebRequest
 winget
 
 <https://learn.microsoft.com/zh-cn/windows/package-manager/winget/help>
+
+
+## windows port
+
+https://blog.csdn.net/zt15732625878/article/details/80904437
