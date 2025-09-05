@@ -78,6 +78,8 @@ git submodule add https://github.com/halogenica/beautifulhugo.git themes/beautif
 git submodule add https://github.com/imfing/hextra.git themes/hextra
 
 git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+
+git submodule add https://github.com/zhenda-hub/hugo-theme-puppet.git themes/puppet_zd
 ```
 
 

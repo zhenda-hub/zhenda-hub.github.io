@@ -8,7 +8,7 @@ title = "Zhenda's Blog"
 # theme = "hextra"
 # theme = "hugo-coder"
 # theme = "PaperMod"
-theme = "puppet"
+theme = "puppet_zd"
 
 # themesDir = "../.."
 
