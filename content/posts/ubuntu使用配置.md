@@ -12,11 +12,14 @@ tags = ["linux"]
 
 apt
 snap store, snap 各种问题
+brew
+asdf
 
 ```bash
 # 罗列所有的snap软件
 ll ~/snap
 ```
+
 ## install and remove
 
 sys_update.sh
