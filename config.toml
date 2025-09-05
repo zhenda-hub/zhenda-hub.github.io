@@ -80,9 +80,9 @@ name = "Archive"
 url = "/archive/"
 weight = 10
 [[menu.main]]
-identifier = "guide"
-name = "Guide"
-url = "/series/themes-guide/"
+identifier = "series"
+name = "Series"
+url = "/series/"
 weight = 20
 [[menu.main]]
 identifier = "about"
