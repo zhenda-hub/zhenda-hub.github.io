@@ -77,3 +77,36 @@ hugo new xxxx/xxx/xxxx.md
 # 生成public
 hugo
 ```
+
+```bash
+目录结构:
+.
+├── archetypes
+│   └── default.md
+├── assets
+├── content
+├── data
+├── hugo.toml
+├── i18n
+├── layouts
+├── static
+└── themes
+```
+
+
+```bash
+Congratulations! Your new Hugo site was created in /home/zhenda/Documents/projects/hugo1.
+
+Just a few more steps...
+
+1. Change the current directory to /home/zhenda/Documents/projects/hugo1.
+2. Create or install a theme:
+   - Create a new theme with the command "hugo new theme <THEMENAME>"
+   - Or, install a theme from https://themes.gohugo.io/
+3. Edit hugo.toml, setting the "theme" property to the theme name.
+4. Create new content with the command "hugo new content <SECTIONNAME>/<FILENAME>.<FORMAT>".
+5. Start the embedded web server with the command "hugo server --buildDrafts".
+
+See documentation at https://gohugo.io/.
+
+```
