@@ -132,6 +132,37 @@ p t k b d g
 
 所以只看拼写，往往会猜错。
 
+
+## 混淆的单词
+
+🔹 watch vs. see
+
+see = 用眼睛“看到”，不一定主动。
+👉 例子：I see a bird outside the window. （我看到一只鸟，不是我特意去看。）
+
+watch = 有目的地“盯着看”，动作更主动，持续一段时间。
+👉 例子：I watch TV every evening. （我主动地看电视。）
+
+✅ 小技巧：
+
+see = 不经意的，短暂的
+
+watch = 主动的，长时间的
+
+🔹 listen vs. hear
+
+hear = 耳朵听到声音，不一定专心。
+👉 例子：I can hear music from next door. （我听到隔壁有音乐声，但没认真听。）
+
+listen = 主动去“听”，表示专心。
+👉 例子：I’m listening to music now. （我戴着耳机在认真听音乐。）
+
+✅ 小技巧：
+
+hear = 被动，耳朵接收到声音
+
+listen = 主动，用心去听
+
 ## 语法
 
 ### 词性 (Parts of Speech)
