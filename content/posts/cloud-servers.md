@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-06-03T09:49:51+08:00
 draft = false
 toc = true
-tags = ["tools"]
+series = ["server"]
 +++
 
 ## 关键配置
