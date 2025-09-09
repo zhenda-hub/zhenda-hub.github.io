@@ -4,6 +4,7 @@ date = 2023-11-25T11:29:37+08:00
 draft = false
 toc = true
 tags = ["linux"]
+series = ["linux"]
 +++
 
 [toc]
