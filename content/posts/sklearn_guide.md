@@ -4,7 +4,7 @@ subtitle = ""
 date = 2025-05-30T14:57:48+08:00
 draft = true
 toc = true
-tags = []
+series = ['AI']
 +++
 
 | 名词       | 含义                                                                                                                                                         |

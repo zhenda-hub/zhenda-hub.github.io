@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-05-24T10:16:53+08:00
 draft = false
 toc = true
-tags = []
+series = ['AI']
 +++
 
 [toc]
