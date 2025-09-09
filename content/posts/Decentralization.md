@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-11-07T02:07:14+08:00
 draft = false
 toc = true
-tags = ["trade"]
+series = ["trade"]
 +++
 
 # 去中心化

@@ -4,7 +4,7 @@ subtitle = ""
 date = 2025-08-28T00:12:11+08:00
 draft = false
 toc = true
-tags = []
+series = ['trade']
 +++
 
 ## 基础概念
