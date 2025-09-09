@@ -4,6 +4,7 @@ date = 2023-11-23T21:54:28+08:00
 draft = false
 toc = true
 tags = ["Python", "Software Architecture"]
+series = ['python']
 +++
 
 ## 一：概念阐述

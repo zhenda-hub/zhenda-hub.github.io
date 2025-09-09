@@ -4,6 +4,7 @@ date = 2023-11-23T22:49:27+08:00
 draft = false
 toc = true
 tags = ["Python", "Software Architecture"]
+series = ["python"]
 +++
 
 这次我们补充说明 __类的关系__ 这一非常重要的概念

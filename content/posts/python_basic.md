@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-09-18T15:15:14+08:00
 draft = false
 toc = true
-tags = ["Python"]
+series = ["Python"]
 +++
 ## python 数据类型
 

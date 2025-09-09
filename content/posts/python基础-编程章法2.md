@@ -4,6 +4,7 @@ date = 2023-11-23T00:37:34+08:00
 draft = false
 toc = true
 tags = ["Python", "Software Architecture"]
+series = ['python']
 +++
 
 

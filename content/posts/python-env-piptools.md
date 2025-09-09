@@ -4,7 +4,7 @@ subtitle = ""
 date = 2025-08-25T14:58:59+08:00
 draft = true
 toc = true
-tags = []
+series = ['python']
 +++
 
 简易的, 适合python包管理工具

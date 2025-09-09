@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-06-03T11:06:54+08:00
 draft = true
 toc = true
-tags = ["python"]
+series = ["python"]
 +++
 
 -   基础
