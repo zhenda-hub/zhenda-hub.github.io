@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-05-24T10:25:32+08:00
 draft = false
 toc = true
-tags = ['videos']
+series = ['videos']
 +++
 
 ## 起源
