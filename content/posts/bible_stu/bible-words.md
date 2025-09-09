@@ -4,7 +4,7 @@ subtitle = ""
 date = 2025-01-11T19:50:33+08:00
 draft = false
 toc = true
-tags = ['bible']
+series = ['bible']
 +++
 
 
