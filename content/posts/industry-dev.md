@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-12-03T16:13:01+08:00
 draft = true
 toc = true
-tags = []
+series = ['note']
 +++
 
 ## 和年龄无关

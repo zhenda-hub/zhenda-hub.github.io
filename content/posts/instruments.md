@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-05-25T16:24:32+08:00
 draft = false
 toc = true
-tags = ["hobby"]
+series = ["note"]
 +++
 
 ## 弦乐器

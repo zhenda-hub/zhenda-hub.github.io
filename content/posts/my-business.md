@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-11-27T00:15:56+08:00
 draft = true
 toc = true
-tags = []
+series = ['note']
 +++
 
 # 开网店, 接单
