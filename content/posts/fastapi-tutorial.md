@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-11-09T22:57:03+08:00
 draft = true
 toc = true
-tags = ["web"]
+series = ["web"]
 +++
 
 link <https://fastapi.tiangolo.com/zh/tutorial/first-steps/>

@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-06-27T15:35:55+08:00
 draft = false
 toc = true
-tags = ['web']
+series = ['web']
 +++
 
 ## css选择器

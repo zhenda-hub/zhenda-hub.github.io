@@ -4,10 +4,10 @@ subtitle = ""
 date = 2025-08-22T16:41:23+08:00
 draft = true
 toc = true
-tags = []
+series = ['web']
 +++
 
-```
+
 基础知识
     整体流程
         网站
@@ -1241,4 +1241,3 @@ font awosome
     长宽像素
         1900
         950
-```
