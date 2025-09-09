@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-12-24T11:08:01+08:00
 draft = true
 toc = true
-tags = []
+series = ['software']
 +++
 
 数据结构和算法
