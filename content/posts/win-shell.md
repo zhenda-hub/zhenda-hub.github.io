@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-11-12T20:32:30+08:00
 draft = false
 toc = true
-tags = []
+series = ['windows']
 +++
 
 ## windows系统的终端
