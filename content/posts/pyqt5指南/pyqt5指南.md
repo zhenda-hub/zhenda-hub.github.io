@@ -8,7 +8,7 @@ subtitle = ""
 # header_img = "img/404-bg.jpg"
 toc = true
 # categories = ["themes", "syntax",]
-series = ["tech"]
+
 +++
 
 使用 python 我们也可以开发桌面应用（在 pc 上运行的软件，pyqt5 好像还不支持手机 app）平时做做小工具还是挺方便的。这次我们一起学习一下 pyqt5
