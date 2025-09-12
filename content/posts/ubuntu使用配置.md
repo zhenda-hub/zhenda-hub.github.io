@@ -159,7 +159,7 @@ sudo systemctl status preload.service
 sudo cat /var/log/preload.log
 ```
 
-### yulan
+### preview image, video
 
 ```bash
 sudo apt install gnome-sushi
