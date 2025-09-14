@@ -756,7 +756,8 @@ docker compose -f docker-compose.yml.withdb up -d
 
 tips:
 
-有时候`docker compose up` 运行报错, 手动拉image可以解决大部分问题 `docker pull xxxx`.
+有时候`docker compose up` 运行报错：  ERROR [internal] load metadata for docker.io/library/xxxxx
+手动拉image可以解决大部分问题 `docker pull xxxx`.
 
 #### restart
 
