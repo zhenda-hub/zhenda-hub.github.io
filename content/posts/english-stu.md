@@ -197,6 +197,10 @@ listen = 主动，用心去听
 
 ### 时态
 
+now perfect: still before  had past verb
+past verb
+past perfect: had past verb
+
 ## 句子结构
 
 - 主谓宾
