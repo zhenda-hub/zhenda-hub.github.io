@@ -1075,6 +1075,15 @@ sudo nano /etc/docker/daemon.json
 }
 ```
 
+#### windows access permission
+
+
+an attempt was made to access a socket in a way forbidden by its access permissions
+
+```powershell
+ipconfig /flushdns
+netsh winsock reset
+```
 
 
 ### Image测试平台
@@ -1082,3 +1091,4 @@ sudo nano /etc/docker/daemon.json
 <https://labs.play-with-docker.com/>
 
 可以在这个平台, 测试镜像是否符合预期
+
