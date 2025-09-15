@@ -14,6 +14,9 @@ series = []
 
 ```markdown
 # 项目名称
+s
+english  readme
+
 ## 介绍
 ## 特性
 ## 示例
@@ -58,7 +61,11 @@ Submit issues in GitHub Issues.
 
 ```
 # prompt
-按照这几个内容编写中英文readme:
+查看Note.md, 按照下列内容, 编写中英文readme:
+
+介绍, 特性, 示例, 快速开始, 参与贡献, 问题反馈, 许可证, 致谢
+
+按照下列内容, 编写中英文readme:
 
 介绍, 特性, 示例, 快速开始, 参与贡献, 问题反馈, 许可证, 致谢
 ```
