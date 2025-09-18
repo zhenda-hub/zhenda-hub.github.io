@@ -2,9 +2,9 @@
 title = 'Virtual'
 subtitle = ""
 date = 2025-09-18T00:53:19+08:00
-draft = true
+draft = false
 toc = true
-series = []
+series = ['note']
 +++
 
 # 生活中的虚拟化

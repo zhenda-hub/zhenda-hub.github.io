@@ -1,7 +1,7 @@
 +++
 title = 'Pyqt5指南'
 date = 2023-11-25T11:48:21+08:00
-draft = true
+draft = false
 # description = "A brief description of Hugo Shortcodes"
 tags = ["Python", "pyqt5", "gui"]
 subtitle = ""

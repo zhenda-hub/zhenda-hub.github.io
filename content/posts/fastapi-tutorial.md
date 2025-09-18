@@ -2,7 +2,7 @@
 title = 'Fastapi Tutorial'
 subtitle = ""
 date = 2024-11-09T22:57:03+08:00
-draft = true
+draft = false
 toc = true
 series = ["web"]
 +++

@@ -2,7 +2,7 @@
 title = 'Electron Stu'
 subtitle = ""
 date = 2025-08-12T16:12:13+08:00
-draft = true
+draft = false
 toc = true
 series = ['web']
 +++

@@ -2,7 +2,7 @@
 title = 'Industry Dev'
 subtitle = ""
 date = 2024-12-03T16:13:01+08:00
-draft = true
+draft = false
 toc = true
 series = ['note']
 +++

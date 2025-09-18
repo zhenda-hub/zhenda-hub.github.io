@@ -2,7 +2,7 @@
 title = 'World Affairs'
 subtitle = ""
 date = 2025-04-09T10:13:09+08:00
-draft = true
+draft = false
 toc = true
 series = ['note']
 +++

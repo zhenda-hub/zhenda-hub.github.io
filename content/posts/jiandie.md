@@ -2,7 +2,7 @@
 title = 'Jiandie'
 subtitle = ""
 date = 2025-08-20T11:57:51+08:00
-draft = true
+draft = false
 toc = true
 series = ['note']
 +++
