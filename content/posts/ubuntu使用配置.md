@@ -229,24 +229,26 @@ eog xxx.png
 ### resize mem swap
 
 ```bash
-# resize swap
+# look swap
+swapon --show
+free -h
+
+# off swap
 sudo swapoff -a
+sudo swapoff /swapfile
+
+# mk swap
 sudo dd if=/dev/zero of=/swapfile bs=1G count=32
 sudo chmod 0600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 
-# look swap
-swapon --show
-free -h
-```
-
-```bash
-sudo swapoff /dev/sdX  # 或 /swapfile2
 # 编辑 /etc/fstab，把对应行注释掉。
-sudo swapon -a
+# /swapfile none swap sw 0 0
+sudo swapon -a # 根据 /etc/fstab 启动， 系统开机会自动执行
 
 ```
+
 https://askubuntu.com/questions/178712/how-to-increase-swap-space
 https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F
 
