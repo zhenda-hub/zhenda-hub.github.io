@@ -348,6 +348,15 @@ Meta 键序列使用“M-”符号标记，它可以用Alt、Cmd 或 Esc 键输�
 -   `du -hd 1 | sort -rh` ：查看各文件大小, 有些文件看不到
 -   `du -sh * | sort -rh` ：查看各文件大小
 
+sudo apt install ncdu
+```
+# 分析当前目录
+ncdu
+
+# 分析指定目录
+ncdu /var/log
+```
+
 ### 软件安装
 
 如果下载很慢的话，需要**切换下载源**
@@ -654,6 +663,42 @@ ssh 是一种**安全的网络协议**。 可以安全的远程连接电脑。
 相关命令
 
 -   ssh 用户名@服务器IP地址
+
+
+fail2ban - 入侵防护系统
+
+```bash
+# 安装
+sudo apt install fail2ban
+
+# fail2ban基本配置
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+
+# 创建SSH防护配置（可选）
+sudo tee /etc/fail2ban/jail.local << 'EOF'
+[sshd]
+enabled = true
+port = ssh
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 3
+bantime = 3600
+EOF
+
+sudo systemctl restart fail2ban
+```
+
+```
+# 查看fail2ban状态
+sudo fail2ban-client status
+
+# 查看SSH防护状态
+sudo fail2ban-client status sshd
+
+# 手动解封IP
+sudo fail2ban-client set sshd unbanip 192.168.1.100
+```
 
 ### scp
 

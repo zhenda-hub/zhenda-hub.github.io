@@ -225,11 +225,172 @@ eog xxx.png
 
 ## 进阶设置
 
-### 查看上次关机
+### 查看重启记录
+
 
 ```bash
-uptime -s
+
+last reboot
 ```
+```bash
+reboot   system boot  6.14.0-28-generi Tue Sep 23 00:14   still running
+reboot   system boot  6.14.0-28-generi Mon Sep 22 21:22 - 00:14  (02:52)
+reboot   system boot  6.14.0-27-generi Wed Aug 13 00:05 - 00:14 (41+00:08)
+reboot   system boot  6.14.0-24-generi Tue Jul 22 22:40 - 00:14 (62+01:33)
+reboot   system boot  6.14.0-24-generi Fri Jul 18 21:41 - 22:40 (4+00:58)
+reboot   system boot  6.11.0-26-generi Sun Jun 22 01:52 - 21:41 (26+19:48)
+reboot   system boot  6.11.0-25-generi Mon May 12 23:20 - 21:41 (66+22:21)
+reboot   system boot  6.11.0-21-generi Thu Apr 17 00:27 - 23:19 (25+22:52)
+reboot   system boot  6.11.0-21-generi Wed Apr 16 01:35 - 23:19 (26+21:44)
+reboot   system boot  6.11.0-21-generi Wed Apr 16 00:20 - 23:19 (26+22:59)
+reboot   system boot  6.11.0-21-generi Mon Apr 14 23:54 - 23:19 (27+23:24)
+reboot   system boot  6.11.0-21-generi Fri Apr  4 00:54 - 23:19 (38+22:24)
+reboot   system boot  6.11.0-19-generi Sun Mar 23 23:11 - 00:54 (11+01:42)
+reboot   system boot  6.11.0-17-generi Sun Feb 23 20:52 - 00:54 (39+04:01)
+reboot   system boot  6.11.0-17-generi Sun Feb 23 20:22 - 20:52  (00:30)
+reboot   system boot  6.11.0-17-generi Sun Feb 23 19:52 - 20:21  (00:29)
+```
+
+### xxx
+
+sing-box
+v2rayA
+X-ui面板
+
+### 改server脚本
+
+
+```bash
+#!/bin/bash
+# Ubuntu Desktop → 简化伪服务器优化脚本（去掉健康监控，保留模式切换）
+
+echo "=== Ubuntu Desktop → 伪服务器优化（简化版） ==="
+
+# 1️⃣ 禁用休眠 / 挂起
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+echo "✅ 已禁用休眠和挂起"
+
+# 2️⃣ 禁用自动更新重启
+sudo systemctl disable --now unattended-upgrades
+echo "✅ 已禁用 unattended-upgrades 自动重启"
+
+# 3️⃣ 模式选择：Desktop / Server
+echo "选择运行模式："
+echo "1) 保留桌面环境（Desktop）"
+echo "2) 切换命令行模式（Server）"
+read -p "请选择 (1/2): " GUI_CHOICE
+
+if [[ "$GUI_CHOICE" == "2" ]]; then
+    sudo systemctl set-default multi-user.target
+    echo "✅ 已切换到命令行模式（Server）"
+else
+    sudo systemctl set-default graphical.target
+    echo "✅ 保留桌面模式（Desktop）"
+fi
+
+# 4️⃣ 禁用非必要桌面服务
+# services=( "bluetooth.service" "cups.service" "cups-browsed.service" "avahi-daemon.service" "ModemManager.service" )
+services=( "cups.service" "cups-browsed.service" "avahi-daemon.service" "ModemManager.service" )
+for service in "${services[@]}"; do
+    sudo systemctl disable "$service" 2>/dev/null
+    echo "✅ 已禁用 $service"
+done
+
+# 5️⃣ 日志优化
+sudo journalctl --vacuum-size=200M
+grep -q "SystemMaxUse" /etc/systemd/journald.conf || echo "SystemMaxUse=200M" | sudo tee -a /etc/systemd/journald.conf
+sudo systemctl restart systemd-journald
+echo "✅ 日志限制完成（最大 200M）"
+
+# 6️⃣ Swap 优化
+SWAPFILE=/swapfile
+if [ ! -f "$SWAPFILE" ]; then
+    sudo fallocate -l 4G $SWAPFILE
+    sudo chmod 600 $SWAPFILE
+    sudo mkswap $SWAPFILE
+    sudo swapon $SWAPFILE
+    echo "$SWAPFILE none swap sw 0 0" | sudo tee -a /etc/fstab
+    echo "✅ 创建 4G swap"
+else
+    echo "✅ swap 已存在，跳过创建"
+fi
+
+sudo sysctl vm.swappiness=10
+grep -q "vm.swappiness=10" /etc/sysctl.conf || echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
+echo "✅ swappiness 设置完成"
+
+# 7️⃣ Docker 自启（如果安装了 Docker）
+if command -v docker &> /dev/null; then
+    sudo systemctl enable docker
+    echo "✅ Docker 服务自启"
+else
+    echo "⚠ 未检测到 Docker，跳过 Docker 设置"
+fi
+
+# 8️⃣ 创建模式切换脚本
+sudo tee /usr/local/bin/server-mode << 'EOF'
+#!/bin/bash
+case $1 in
+    "desktop")
+        sudo systemctl set-default graphical.target
+        sudo systemctl start gdm3 2>/dev/null
+        echo "✅ 已切换到桌面模式"
+        ;;
+    "server")
+        sudo systemctl set-default multi-user.target
+        sudo systemctl stop gdm3 2>/dev/null
+        echo "✅ 已切换到服务器模式"
+        ;;
+    "status")
+        echo "当前模式: $(systemctl get-default)"
+        echo "运行时间: $(uptime -p)"
+        echo "内存使用: $(free -h | grep Mem | awk '{print $3"/"$2}')"
+        echo "磁盘使用: $(df -h / | awk 'NR==2{print $5}')"
+        ;;
+    *)
+        echo "用法: server-mode [desktop|server|status]"
+        ;;
+esac
+EOF
+sudo chmod +x /usr/local/bin/server-mode
+echo "✅ 已创建模式切换脚本 /usr/local/bin/server-mode"
+
+echo ""
+echo "🎉 优化完成！"
+echo "• 使用 server-mode desktop/server/status 切换和查看模式"
+echo "• 建议重启系统以生效所有优化"
+
+read -p "是否现在重启？(y/N): " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    sudo reboot
+fi
+
+```
+
+
+使用方法
+
+```bash
+
+# 保存为文件，例如：
+nano ~/ubuntu-server-lite.sh
+
+# 赋予执行权限：
+chmod +x ~/ubuntu-server-lite.sh
+
+# 执行脚本：
+sudo ~/ubuntu-server-lite.sh
+
+# 查看状态：
+server-mode status
+# 切换到桌面：
+server-mode desktop
+# 切换到命令行模式：
+server-mode server
+```
+
+
 
 ### resize mem swap
 
@@ -256,26 +417,6 @@ sudo swapon -a # 根据 /etc/fstab 启动， 系统开机会自动执行
 
 
 
-```
-reboot   system boot  6.14.0-28-generi Tue Sep 23 00:14   still running
-reboot   system boot  6.14.0-28-generi Mon Sep 22 21:22 - 00:14  (02:52)
-reboot   system boot  6.14.0-27-generi Wed Aug 13 00:05 - 00:14 (41+00:08)
-reboot   system boot  6.14.0-24-generi Tue Jul 22 22:40 - 00:14 (62+01:33)
-reboot   system boot  6.14.0-24-generi Fri Jul 18 21:41 - 22:40 (4+00:58)
-reboot   system boot  6.11.0-26-generi Sun Jun 22 01:52 - 21:41 (26+19:48)
-reboot   system boot  6.11.0-25-generi Mon May 12 23:20 - 21:41 (66+22:21)
-reboot   system boot  6.11.0-21-generi Thu Apr 17 00:27 - 23:19 (25+22:52)
-reboot   system boot  6.11.0-21-generi Wed Apr 16 01:35 - 23:19 (26+21:44)
-reboot   system boot  6.11.0-21-generi Wed Apr 16 00:20 - 23:19 (26+22:59)
-reboot   system boot  6.11.0-21-generi Mon Apr 14 23:54 - 23:19 (27+23:24)
-reboot   system boot  6.11.0-21-generi Fri Apr  4 00:54 - 23:19 (38+22:24)
-reboot   system boot  6.11.0-19-generi Sun Mar 23 23:11 - 00:54 (11+01:42)
-reboot   system boot  6.11.0-17-generi Sun Feb 23 20:52 - 00:54 (39+04:01)
-reboot   system boot  6.11.0-17-generi Sun Feb 23 20:22 - 20:52  (00:30)
-reboot   system boot  6.11.0-17-generi Sun Feb 23 19:52 - 20:21  (00:29)
-
-
-```
 https://askubuntu.com/questions/178712/how-to-increase-swap-space
 https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F
 
