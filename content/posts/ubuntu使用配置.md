@@ -225,6 +225,11 @@ eog xxx.png
 
 ## 进阶设置
 
+### 查看上次关机
+
+```bash
+uptime -s
+```
 
 ### resize mem swap
 
