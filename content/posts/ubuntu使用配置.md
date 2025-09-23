@@ -254,6 +254,28 @@ sudo swapon -a # 根据 /etc/fstab 启动， 系统开机会自动执行
 
 ```
 
+
+
+```
+reboot   system boot  6.14.0-28-generi Tue Sep 23 00:14   still running
+reboot   system boot  6.14.0-28-generi Mon Sep 22 21:22 - 00:14  (02:52)
+reboot   system boot  6.14.0-27-generi Wed Aug 13 00:05 - 00:14 (41+00:08)
+reboot   system boot  6.14.0-24-generi Tue Jul 22 22:40 - 00:14 (62+01:33)
+reboot   system boot  6.14.0-24-generi Fri Jul 18 21:41 - 22:40 (4+00:58)
+reboot   system boot  6.11.0-26-generi Sun Jun 22 01:52 - 21:41 (26+19:48)
+reboot   system boot  6.11.0-25-generi Mon May 12 23:20 - 21:41 (66+22:21)
+reboot   system boot  6.11.0-21-generi Thu Apr 17 00:27 - 23:19 (25+22:52)
+reboot   system boot  6.11.0-21-generi Wed Apr 16 01:35 - 23:19 (26+21:44)
+reboot   system boot  6.11.0-21-generi Wed Apr 16 00:20 - 23:19 (26+22:59)
+reboot   system boot  6.11.0-21-generi Mon Apr 14 23:54 - 23:19 (27+23:24)
+reboot   system boot  6.11.0-21-generi Fri Apr  4 00:54 - 23:19 (38+22:24)
+reboot   system boot  6.11.0-19-generi Sun Mar 23 23:11 - 00:54 (11+01:42)
+reboot   system boot  6.11.0-17-generi Sun Feb 23 20:52 - 00:54 (39+04:01)
+reboot   system boot  6.11.0-17-generi Sun Feb 23 20:22 - 20:52  (00:30)
+reboot   system boot  6.11.0-17-generi Sun Feb 23 19:52 - 20:21  (00:29)
+
+
+```
 https://askubuntu.com/questions/178712/how-to-increase-swap-space
 https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F
 
