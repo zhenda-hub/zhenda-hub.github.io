@@ -241,6 +241,12 @@ swapon --show
 free -h
 ```
 
+```bash
+sudo swapoff /dev/sdX  # 或 /swapfile2
+# 编辑 /etc/fstab，把对应行注释掉。
+sudo swapon -a
+
+```
 https://askubuntu.com/questions/178712/how-to-increase-swap-space
 https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F
 
