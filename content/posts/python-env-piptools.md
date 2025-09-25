@@ -15,9 +15,13 @@ series = ['python']
 pip install pip-tools
 
 pip-compile requirements.in
-
 # 会删除多余包, 包严格一致
 pip-sync requirements.txt
+
+
+
+
+# 更新依赖包 requirements.txt
 pip-compile --upgrade
 
 
