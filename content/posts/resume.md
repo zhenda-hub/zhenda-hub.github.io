@@ -1,4 +1,4 @@
-<!-- +++
++++
 title = 'Resume'
 subtitle = ""
 date = 2024-12-19T02:32:59+08:00
@@ -7,14 +7,14 @@ toc = true
 tags = []
 +++
 
-[toc] -->
+<!-- [toc] -->
 
 # xxx
 
 TODO: 新的页面打开
 
 - 手机：xxx-xxxx-xxxx 
-- 邮箱：[1955093734@qq.com](mailto:youremail@example.com)  
+- 邮箱：[195509xxxx@qq.com](mailto:youremail@example.com)  
 - GitHub：[github.com/zhenda-hub](https://github.com/zhenda-hub/)  
 - 博客：[zhenda-hub.github.io](https://zhenda-hub.github.io)  
 
@@ -74,13 +74,13 @@ PMP（项目管理认证）
 ---
 
 ## 工作经历  
-### 宇信科技有限公司 | 后端开发工程师 | 2024.04 – 至今  
+### xxxx有限公司 | 后端开发工程师 | 2024.04 – 至今  
 - 负责银行数字化项目的后端开发和维护
 - 按时交付核心功能，协助部署上线，确保系统稳定运行，用户满意度提升 20%
 - 推动自动化部署脚本实施，将部署时间从 20 分钟缩短至 2 分钟，提高效率
 - 编写技术文档和 ReadMe，提升团队的技术知识共享能力
 
-### 软通动力有限公司 | 后端开发工程师 | 2022.04 - 2024.04  
+### xxxx有限公司 | 后端开发工程师 | 2022.04 - 2024.04  
 - 芯片设计的kit项目开发, 部署, 维护
 - 办公自动化工具开发, 部署, 维护
 - 帮带新同事
@@ -88,7 +88,7 @@ PMP（项目管理认证）
 ---
 
 ## 代表项目
-### 数字 ECC 网站管理平台
+### xxxx 网站管理平台
 - 关键技能：Django、DRF、Vue.js、Celery、MySQL、Redis
 - 项目规模：7 人团队，历时 10 个月
 - 目标：为公司内部团队支持项目管理、问题跟踪、可视化进展展示
@@ -98,7 +98,7 @@ PMP（项目管理认证）
   - 多账号登录同步
   - 通过自动化部署脚本，部署耗时优化: 20min->2min, 将项目部署效率提升 90%
 
-### 芯片 Kit 自动化工具包  
+### xxxx 自动化工具包  
 - 关键技能：PyTorch、Pandas、Numpy、Matplotlib、Linux、Conda、GitLab CI/CD
 - 项目规模：8 人团队，历时 12 个月
 - 目标：为硬件部门开发芯片电路自动化工具，提供数据分析与可视化支持
