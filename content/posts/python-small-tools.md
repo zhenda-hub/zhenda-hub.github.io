@@ -130,3 +130,20 @@ now.time()
 
 
 ```
+
+
+## 环境变量
+
+```bash
+pip install python-dotenv
+# .env
+```
+
+```python
+import os
+
+os.environ
+os.getenv('')
+```
+
+
