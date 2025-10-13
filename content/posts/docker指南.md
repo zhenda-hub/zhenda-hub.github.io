@@ -626,8 +626,13 @@ docker-compose.yaml 的目的是编排多个服务(container)
 | **主要应用场景**    | 配置文件、数据序列化、模板等                          | 数据交换、配置文件、Web API、存储对象等                  |
 
 多行写法 TODO:
-- >-
-- |-
+
+```bash
+>-
+
+|-
+```
+
 
 #### compose.yaml的书写规则
 
@@ -807,15 +812,19 @@ driver_opts
 
 ## 项目目录结构推荐
 
+每个服务都有自己的 **Dockerfile 和 .dockerignore**
+
+构建服务上下文是根据这两个文件来进行
+
 ```bash
 myproject/
 │
 ├── .git/                 # Git repository metadata
 ├── .gitignore            # Git ignore file
-├── .dockerignore         # Docker ignore file
 ├── docker-compose.yml    # Docker Compose configuration file
 ├── web/                  # Web服务（如Django）的目录
 │   ├── Dockerfile        # Web服务的Dockerfile
+│   ├── .dockerignore         # Docker ignore file
 │   ├── requirements.txt  # Python依赖文件
 │   ├── manage.py         # Django管理脚本
 │   └── myproject/        # Django项目目录
@@ -825,6 +834,7 @@ myproject/
 │       └── wsgi.py
 ├── db/                   # 数据库服务的目录（可选）
 │   ├── Dockerfile        # 数据库服务的Dockerfile（如自定义配置）
+│   ├── .dockerignore         # Docker ignore file
 │   └── init.sql          # 初始化数据库的SQL脚本（可选）
 
 ```
