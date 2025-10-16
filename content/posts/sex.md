@@ -2,7 +2,7 @@
 title = 'R Jung'
 subtitle = ""
 date = 2025-10-16T15:30:10+08:00
-draft = true
+draft = false
 toc = true
 series = ['life']
 +++
