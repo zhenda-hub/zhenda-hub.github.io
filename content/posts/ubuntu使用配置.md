@@ -486,7 +486,23 @@ sudo apt update
 sudo apt install gnome-control-center
 ```
 
+### wifi 搜索不到网路
 
+```bash
+nmcli device
+# 如果有 断开连接, 继续下面命令
+
+sudo lspci -k | grep -A 3 -i network
+# 寻找 kernel driver in use: mt7921e
+
+sudo modprobe -r mt7921e
+sleep 2
+sudo modprobe mt7921e
+
+sudo systemctl restart NetworkManager
+nmcli device wifi list
+
+```
 
 ## 遗留问题
 
