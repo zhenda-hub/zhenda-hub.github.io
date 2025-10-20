@@ -104,6 +104,17 @@ series = ['bible']
 > 
 > *(Ecclesiastes 7:9 NLT)*
 
+## Jeremiah
+
+> "The day is coming," says the LORD, "when I will make a new covenant with the people of Israel and Judah.
+> 
+> This covenant will not be like the one I made with their ancestors when I took them by the hand and brought them out of the land of Egypt. They broke that covenant, though I loved them as a husband loves his wife," says the LORD.
+>
+> "But this is the new covenant I will make with the people of Israel after those days," says the LORD. "I will put my instructions deep within them, and I will write them on their hearts. I will be their God, and they will be my people.
+> 
+> And they will not need to teach their neighbors, nor will they need to teach their relatives, saying, 'You should know the LORD.' For everyone, from the least to the greatest, will know me already," says the LORD. "And I will forgive their wickedness, and I will never again remember their sins."
+> 
+> *(Jeremiah 31:31-34 NLT)*
 
 ## Micah
 
