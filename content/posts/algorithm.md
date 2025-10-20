@@ -82,6 +82,40 @@ lst[-2::-1]   # [5, 4, 3, 2, 1]
 ```
 
 
+
+## while 嵌套的 坑
+
+
+```python
+while l<r:
+    while not s[l].isalnum():
+        l += 1
+    while not s[r].isalnum():
+        r -= 1
+# bug, 外层不会判断
+```
+修改方案1: if continue
+```python
+while l<r:
+    if not s[l].isalnum():
+        l += 1
+        continue
+    if not s[r].isalnum():
+        r -= 1
+        continue
+```
+
+修改方案2: while 外层条件 and 内层条件
+
+```python
+while l<r:
+    while l<r and not s[l].isalnum():
+        l += 1
+    while l<r and not s[r].isalnum():
+        r -= 1
+```
+
+
 ### range
 
 range() 的负数不是“倒数第几个”，而是真正的负数值。
