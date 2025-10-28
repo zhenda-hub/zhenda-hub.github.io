@@ -184,6 +184,7 @@ listen = 主动，用心去听
 absolutely/ definitely
 probably
 maybe
+unlikely
 
 
 ## 语法
