@@ -124,6 +124,17 @@ while l<r:
 ```
 
 
+## 小数转整数的方式
+
+| 中文名称| 英文名称| 5 / 2| -5 / 2| 典型使用场景 |
+| --- | --- | ---| --- | ---  |
+| 向上取整| Ceiling division| 3| -2| 数学 ceil() |
+| 向下取整| Floor division| 2| -3| "Python //, 数学 floor()" |
+| 向零截断| Truncation toward zero| 2| -2| "C, Java, JS, Python //（负数）" |
+| 远离零取整| Round away from zero| 3| -3| 商业统计 |
+| 四舍五入| Round to nearest| 3 或 2| -3 或 -2| 日常计算 |
+| 向偶数舍入(银行家舍入)| Round half to even| 2| -2| 浮点标准、统计 |
+
 
 数据结构
     一维度
