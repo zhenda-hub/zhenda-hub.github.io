@@ -38,11 +38,44 @@ series = ['software']
 
 ## 数据结构
 
-数组
-哈希表
-链表
-树
-图
+### 数组
+
+### 哈希表
+
+key -> 哈希函数 -> 哈希值 确定存储位置
+哈希表的 key 必须是“可哈希”的（即能够生成哈希值）。
+
+
+自定义hashable的类
+
+```python
+from dataclasses import dataclass
+"""
+功能,说明
+自动生成 __init__,根据字段自动创建初始化方法
+自动生成 __repr__,好看的打印输出
+自动生成 __eq__,按字段内容比较相等
+自动生成 __hash__（仅当 frozen=True）,使对象可哈希（可用于 dict key / set）
+禁止修改属性,任何 obj.x = 1 都会报错
+"""
+@dataclass(frozen=True)
+class MyKey:
+    id: int
+    name: str
+    # 自动可哈希 + 不可变
+
+
+# 加上 order=True 还能支持 <, >, sorted() 等！
+@dataclass(frozen=True, order=True)  # order=True 还支持比较大小
+class Point:
+    x: int
+    y: int
+
+```
+
+### 链表
+### 树
+### 图
 
 ## 算法
 
