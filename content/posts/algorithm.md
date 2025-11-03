@@ -2,9 +2,9 @@
 title = 'Algorithm'
 subtitle = ""
 date = 2024-12-24T11:08:01+08:00
-draft = true
+draft = false
 toc = true
-series = ['software']
+series = ['python']
 +++
 
 # 数据结构和算法

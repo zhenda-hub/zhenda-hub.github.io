@@ -204,7 +204,7 @@ series = ['bible']
 > 
 > Don't be so surprised! Indeed, the time is coming when all the dead is their graves will hear the voice of God's Son,
 > 
-> and they will rise again. Those who have donw good will rise to experience eternal life, and those who have continued in evil will rise to experience judgment.
+> and they will rise again. **Those who have down good will rise to experience eternal life, and those who have continued in evil will rise to experience judgment.**
 > 
 > *(John 5:25-29 NLT)*
 
@@ -272,7 +272,7 @@ series = ['bible']
 
 > So you see, just as death came into the world through a man, now the resurrection from the dead has begun through another man.
 >
-> Just as everyone dies because we all belong to Adam, everyone who belongs to Christ will be given new life.
+> **Just as everyone dies because we all belong to Adam, everyone who belongs to Christ will be given new life.**
 > 
 > *(1 Corinthians 15:21-22 NLT)*
 
@@ -311,7 +311,7 @@ series = ['bible']
 
 ## Ephesians
 
-> God saved you by his grace when you believed. And you can't take credit for this; it is a gift from God.
+> God saved you by his grace when you believed. And you can't take credit for this; **it is a gift from God.**
 >
 > *(Ephesians 2:8 NLT)*
 
@@ -330,7 +330,7 @@ series = ['bible']
 
 > Christ is the visible image of the invisible God. He existed before anything was created and is supreme over all creation,
 >
-> for through him God created everything is the heavenly realms and on earth. He made the things we can see and the things we can't see such as thrones, kingdoms, rulers, and authorities in the unseen world. Everything was created through him and for him.
+> for through him God created everything is the heavenly realms and on earth. He made the things we can see and the things we can't see such as thrones, kingdoms, rulers, and authorities in the unseen world. **Everything was created through him and for him.**
 > 
 > He existed before anything else, and he holds all creation together.
 > 
