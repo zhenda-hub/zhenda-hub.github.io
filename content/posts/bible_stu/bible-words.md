@@ -133,6 +133,10 @@ series = ['bible']
 > 
 > *(Matthew 3:8 NLT)*
 
+> For my yoke is easy to bear, and the burden I give you is light.
+> 
+> *(Matthew 11:30 NLT)*
+
 > Heaven and earth will disappear, but my words will never disappear.
 > 
 > *(Matthew 24:35 NLT)*
@@ -371,6 +375,9 @@ series = ['bible']
 > 
 > *(Hebrews 11:6 NLT)*
 
+> We do this by keeping our eyss on Jesus, the chamption who initiates and perfects our faith. Because of the joy awaiting him, he endured the cross, disregarding its shame. Now he is seated in the place of honor beside God's throne.
+> 
+> *(Hebrews 12:2 NLT)*
 
 > Under the old system, the high priest brought the blood of animals into the Holy Place as a sacrifice for sin, and the bodies of the animals were burned outside the camp.
 > 
@@ -380,6 +387,9 @@ series = ['bible']
 
 ## James
 
+> These desires give birth to sinful actions. And when sin is allowed to grow, it gives birth to death.
+> 
+> *(James 1:15 NLT)*
 
 > You say you have faith, for you believe that there is one God. Good for you! Even the demons believe this, and they tremble in terror.
 > 
