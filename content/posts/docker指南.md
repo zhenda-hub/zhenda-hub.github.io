@@ -699,7 +699,7 @@ MYSQL_PASSWORD=444
 DB_HOST=db
 ```
 
-#### 查看实际运行的配置文件
+#### 查看实际运行的配置文件(预览 docker compose)
 
 ```bash
 docker compose config
