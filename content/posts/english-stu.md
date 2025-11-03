@@ -151,6 +151,10 @@ p t k b d g
 
 ### 混淆的单词
 
+🔹 its vs. it's
+its 是一个 所有格代词，表示某物或某人所属的事物。
+it's 是 “it is” 或 “it has” 的缩写形式，表示“它是”或“它有”。
+
 🔹 watch vs. see
 
 see = 用眼睛“看到”，不一定主动。
