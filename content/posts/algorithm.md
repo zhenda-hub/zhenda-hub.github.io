@@ -13,7 +13,7 @@ series = ['python']
 
 ## 重要性
 
-使用良好的逻辑和设计, 解决复杂的难题
+面试需要: 公司不在乎False Negative（漏才）：他们有无限备选，宁可错杀1000，不愿放过1个“潜在隐患”。
 
 ## 时间复杂度
 
@@ -40,11 +40,92 @@ series = ['python']
 
 ### 数组
 
+### 队列
+
+```python
+# 算法题
+from collections import deque
+
+
+
+
+# 单机
+from queue import Queue # 同一个进程内（多线程）
+from multiprocessing import Queue # 同一台机器内（多进程）
+
+# 多服务器, 分布式, 可视化管理界面: RabbitMQ、Redis
+```
+deque 来自 collections 模块，是一个 双端队列，支持：
+两端都能高效插入/删除（O(1)）
+底层用双向链表实现。
+支持索引，但中间插入/删除效率低（O(n)）。
+
+
+- 当主要在 两端操作（队列、滑动窗口） 时 → 用 deque
+- 当主要是 随机访问、排序、索引 时 → 用 list
+
+
+
+####  番外: 并发逻辑
+
+共享资源修改 = 串行；并行修改 = 数据竞态 = 不安全。
+
+python
+
+多人同时编辑文档，需要锁
+```mermaid
+
+sequenceDiagram
+    participant T1 as Thread-1
+    participant T2 as Thread-2
+    participant T3 as Thread-3
+    participant R as Results[List]
+
+    T1->>R: lock() + append(result1) + unlock()
+    T2->>R: lock() + append(result2) + unlock()
+    T3->>R: lock() + append(result3) + unlock()
+
+
+```
+
+
+go 
+
+只有一个人编辑，别人写信告诉他
+
+结果管理者 goroutine 串行处理消息
+
+**其余步骤是并发的,结果写入是串行**
+
+```mermaid
+sequenceDiagram
+    participant G1 as Goroutine-1
+    participant G2 as Goroutine-2
+    participant G3 as Goroutine-3
+    participant M as ManagerGoroutine
+
+    G1->>M: send(result1) via channel
+    G2->>M: send(result2) via channel
+    G3->>M: send(result3) via channel
+
+    M->>M: append result1 to list
+    M->>M: append result2 to list
+    M->>M: append result3 to list
+
+```
+
+
 ### 哈希表
 
 key -> 哈希函数 -> 哈希值 确定存储位置
 哈希表的 key 必须是“可哈希”的（即能够生成哈希值）。
 
+
+```python
+from collections import Counter # 统计元素频率
+from collections import defaultdict # 给 dict 提供默认值
+from collections import OrderedDict # 保持插入顺序的字典
+```
 
 自定义hashable的类
 
@@ -75,7 +156,26 @@ class Point:
 
 ### 链表
 ### 树
+
+### heapq
+
+堆是一棵完全二叉树，满足：
+对于任意节点，父节点 ≤ 子节点（最小堆）
+关心优先级或Top-K
+
+底层: 基于 list, 使用数组存储完全二叉树。
+
+
+```python
+import heapq
+
+nums = [9, 1, 5, 7, 3, 8]
+print(heapq.nsmallest(3, nums))  # [1, 3, 5]
+
+```
+
 ### 图
+
 
 ## 算法
 
@@ -188,6 +288,33 @@ while l<r:
 | 远离零取整| Round away from zero| 3| -3| 商业统计 |
 | 四舍五入| Round to nearest| 3 或 2| -3 或 -2| 日常计算 |
 | 向偶数舍入(银行家舍入)| Round half to even| 2| -2| 浮点标准、统计 |
+
+
+
+
+## 算法题 和 实际项目 差异发颠三倒四
+
+
+```mermaid
+graph TD
+    A[算法世界] --> B[LeetCode]
+    A --> C[数据结构]
+    A --> D[时间复杂度]
+    A --> E[单机优化]
+
+    F[工程世界] --> G[分布式]
+    F --> H[容错]
+    F --> I[运维]
+    F --> J[可观测性]
+
+    B --> K[面试通过]
+    G --> L[系统不崩]
+```
+
+
+
+
+
 
 
 数据结构
