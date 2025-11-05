@@ -204,7 +204,25 @@ print(heapq.nsmallest(3, nums))  # [1, 3, 5]
 - 左移 (<<)：将数字的二进制位向左移动。
 - 右移 (>>)：将数字的二进制位向右移动。
 
+### 排序 sort
 
+<https://www.toptal.com/developers/sorting-algorithms>
+<https://visualgo.net/en>
+
+
+- insertion
+- bubble
+- selection
+
+- merge
+- quick
+- heap
+- shell
+
+### 查找 search
+
+- linear
+- binary
 
 ## 思想
 
