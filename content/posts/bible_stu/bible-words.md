@@ -232,14 +232,15 @@ series = ['bible']
 > 
 > *(Romans 5:2-5 NLT)*
 
-
+> And we know that God causes everything to work together for the good of those who love God and are called according to his purpose for them.
+> 
 > For God knew his people in advance, and he chose them to become like his Son, so that his Son would be the firstborn among many brothers and sisters.
 >
 > And **having chosen them**, he called them to come to him. And having called them, he gave them right standing with himself. And having given them right standing, he gave them his glory.
 >
 > What shall we say about such wonderful things as there? If God is for us, who can ever be against us?
 > 
-> *(Romans 8:29-31 NLT)*
+> *(Romans 8:28-31 NLT)*
 
 > Rejoice in our confident hope. Be patient in trouble, and keep on praying.
 > 
