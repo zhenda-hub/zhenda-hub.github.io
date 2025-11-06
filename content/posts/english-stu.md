@@ -245,6 +245,13 @@ unlikely
 | **过去 (Past)**    | ✅ 一般过去时 → I ate.                                                                   | ☑️ 过去完成时 → I had eaten.<br>☑️ 过去进行时 → I was eating.            | ⚪ 过去完成进行时 → I had been eating.       |
 | **将来 (Future)**  | ✅ 一般将来时 → I will eat.                                                              | ☑️ 将来进行时 → I will be eating. <br>☑️ 将来完成时 → I will have eaten. | ⚪ 将来完成进行时 → I will have been eating. |
 
+
+过去现在的时间描述:
+
+- The party will begin in 10 minutes.
+- The party started 10 minutes ago.
+
+
 ## 句子结构
 
 - 主谓宾

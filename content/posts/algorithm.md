@@ -214,10 +214,149 @@ print(heapq.nsmallest(3, nums))  # [1, 3, 5]
 - bubble
 - selection
 
-- merge
-- quick
+- merge: 合并有序数组
+- quick: 分割数组
+- quick3: quick
 - heap
 - shell
+
+```mermaid
+graph TD
+    A[Insertion Sort] --> B[Binary Insertion Sort]
+    A --> C[Shell Sort]
+
+    D[Merge Sort] --> E["Timsort<br>Python / Java 内置sort"]
+    A --> E
+
+    F[Quick Sort] --> G[Quick3]
+
+    F --> H["IntroSort<br>C++ 内置sort"]
+    I[Heap Sort] --> H
+    A --> H
+
+```
+
+
+```python
+def insertion_sort(arr):
+    """
+    插入排序
+    思路：
+    - 从第二个元素开始，向前找到它的正确位置插入
+    - 类似整理扑克牌
+    时间复杂度：O(n^2)
+    稳定排序
+    """
+    n = len(arr)
+    
+    # 从第 1 个元素开始（下标 0 默认已经有序）
+    for i in range(1, n):
+        key = arr[i]  # 当前要插入的元素
+        j = i - 1
+
+        # 从已排序部分右向左扫描
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]  # 大于 key 的元素右移
+            j -= 1
+
+        # 找到合适位置插入 key
+        arr[j + 1] = key
+
+    return arr
+
+
+
+def shell_sort(arr):
+    n = len(arr)
+    gap = n // 2
+
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+            arr[j] = temp
+        gap //= 2
+
+    return arr
+
+
+def quick_sort(arr):
+    """
+    快速排序（经典递归版本）
+    思路：
+    - 选择一个 pivot（基准）
+    - 分区：小于 pivot 的放左边，大于 pivot 的放右边
+    - 递归对左右子数组排序
+    时间复杂度：平均 O(n log n)，最坏 O(n^2)
+    不稳定排序
+    """
+    if len(arr) <= 1:
+        return arr  # 已排序或空数组
+
+    pivot = arr[0]  # 选择第一个元素作为基准
+    left = [x for x in arr[1:] if x <= pivot]   # 小于等于 pivot 的放左边
+    right = [x for x in arr[1:] if x > pivot]   # 大于 pivot 的放右边
+
+    # 递归排序左右子数组，然后合并
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+
+def quick3_sort(arr):
+    """三向快速排序主函数"""
+    if len(arr) <= 1:
+        return arr.copy()  # 基线条件
+    
+    # 选择第一个元素作为基准（实际应用中可随机选择优化性能）
+    pivot = arr[0]
+    
+    # 划分为三部分：小于基准、等于基准、大于基准
+    less = [x for x in arr[1:] if x < pivot]
+    equal = [pivot] + [x for x in arr[1:] if x == pivot]
+    greater = [x for x in arr[1:] if x > pivot]
+    
+    # 递归排序"小于"和"大于"部分，合并结果
+    return quick3_sort(less) + equal + quick3_sort(greater)
+
+
+
+def merge_sort(arr):
+    """归并排序主函数"""
+    if len(arr) <= 1:
+        return arr.copy()  # 基线条件：空数组或单元素数组无需排序
+    
+    # 拆分：将数组分为两半
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])  # 递归排序左半部分
+    right = merge_sort(arr[mid:])  # 递归排序右半部分
+    
+    # 合并两个有序子数组
+    return merge(left, right)
+
+
+def merge(left, right):
+    """合并两个有序数组为一个有序数组"""
+    merged = []
+    i = j = 0  # i指向left的当前元素，j指向right的当前元素
+    
+    # 比较两个子数组的元素，按顺序加入结果
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:  # <= 保证排序稳定性
+            merged.append(left[i])
+            i += 1
+        else:
+            merged.append(right[j])
+            j += 1
+    
+    # 处理剩余元素（其中一个子数组已遍历完）
+    merged.extend(left[i:])
+    merged.extend(right[j:])
+    
+    return merged
+
+```
 
 ### 查找 search
 
