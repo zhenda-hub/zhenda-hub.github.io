@@ -516,11 +516,42 @@ nmcli device wifi list
 
 ### sys update
 
+常见一场提示, 原因是改了 apt源
+
+```txt
 您的 sources.list 中的一些第三方源被禁用。您可以在升级后用"软件源"工具或包管理器来重新启用它们
 
 
 在更新您的软件包信息后，无法定位必要的软件包“ubuntu-minimal”。这可能是因为您没有在软件源中使用官方镜像，或您正在使用的镜像负载过重。请查看 /etc/apt/sources.list 文件了解软件源当前的配置列表。
+```
 
+
+```bash
+# 查看系统升级日志
+cat /var/log/dist-upgrade/main.log
+# 查看异常的包
+apt-cache policy ubuntu-minimal
+
+
+# 检查系统更新
+do-release-upgrade -c
+
+
+# apt源 配置文件
+cat /etc/apt/sources.list
+# 查看所有第三方源
+ls /etc/apt/sources.list.d/   
+
+# 升级系统
+sudo apt update
+sudo apt upgrade -y
+
+# 2选1
+update-manager
+
+sudo do-release-upgrade
+
+```
 
 ## 有价值的链接
 
