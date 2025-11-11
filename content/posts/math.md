@@ -2,9 +2,9 @@
 title = 'Math'
 subtitle = ""
 date = 2025-11-11T14:47:44+08:00
-draft = true
+draft = false
 toc = true
-series = []
+series = ['math']
 +++
 
 
