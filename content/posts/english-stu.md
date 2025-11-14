@@ -198,6 +198,14 @@ unlikely
 - 2008 twenty eight
 - 2022 twenty twenty two
 
+### 时间
+
+a quarter to nine => 8:45
+a quarter past nine => 9:15
+
+- “past” → 过了某个小时
+- “to” → 差到下一个小时
+
 ## 语法
 
 ### 词性 (Parts of Speech)
