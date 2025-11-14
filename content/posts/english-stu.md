@@ -190,6 +190,13 @@ probably
 maybe
 unlikely
 
+### 年份
+
+年份可以拆分成两个 两位数来说:
+
+- 1980 nighteen eighty
+- 2008 twenty eight
+- 2022 twenty twenty two
 
 ## 语法
 
