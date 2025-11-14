@@ -130,6 +130,26 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
 https://docs.brew.sh/Homebrew-on-Linux -->
 
+### ip设置固定
+
+```bash
+# 查看现在网络
+ip a
+route -n
+ip route | grep default
+```
+
+iphone 热点连接配置
+
+```
+网段：   172.20.10.0/28
+网关：   172.20.10.1
+掩码：   255.255.255.240
+
+DNS:     8.8.8.8, 1.1.1.1
+```
+
+静态 IP 必须避开 DHCP 已经分配的 IP
 
 ## 常用软件
 
