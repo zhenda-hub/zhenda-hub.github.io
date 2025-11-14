@@ -251,6 +251,12 @@ unlikely
 - The party will begin in 10 minutes.
 - The party started 10 minutes ago.
 
+
+#### 动词的非谓语形式
+
+- to do: 未来要做的事、目的
+- doing: 进行中动作、动作名词化
+
 #### 连字符
 
 1. 多词一起修饰名词时，用连字符连接

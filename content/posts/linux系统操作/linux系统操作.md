@@ -617,10 +617,9 @@ Press 'h' or '?' for help with Windows,
 - f10 失灵的问题: 快捷键冲突
 - 自定义列名: f2进入添加 swap ppid
 - 显示混乱:
-    按 H （大写 H，不是小写的 h）
+    按 H
     - H = Hide user threads（隐藏用户线程）
-    - Shift + H 可以在显示 / 隐藏线程之间切换。
-    这样就能让列表干净很多，避免一堆重复的 Firefox 线程。
+    这样就能让列表干净很多，避免一堆重复的线程。
 
 ```bash
 # 配置文件位置
