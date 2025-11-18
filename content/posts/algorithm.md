@@ -232,10 +232,25 @@ print(heapq.nsmallest(3, nums))  # [1, 3, 5]
 
 剪枝: 降低状态空间。
 
-在递归基础上，系统地尝试所有可能解，通过“试错+撤销”探索解空间
+回溯: 为了**记录所有过程**, 循环的使用递归, 来实现: 选择, 撤销. 
 
 - N皇后
 - 排列, 组合
+
+
+```python
+
+from itertools import *
+
+# 排列
+permutations() # 不放回，元素不重复
+product() # 多组
+
+# 组合
+combinations() # 不放回，元素不重复
+combinations_with_replacement() # 多组
+
+```
 
 ### 动态规划
 
