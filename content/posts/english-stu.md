@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-12-26T17:52:42+08:00
 draft = false
 toc = true
-tags = []
+tags = ['subjects']
 +++
 
 [toc]
@@ -194,9 +194,9 @@ unlikely
 
 年份可以拆分成两个 两位数来说:
 
-- 1980 nighteen eighty
-- 2008 twenty eight
-- 2022 twenty twenty two
+- 1980: nighteen eighty
+- 2008: twenty eight
+- 2022: twenty twenty two
 
 ### 时间
 
@@ -205,6 +205,28 @@ a quarter past nine => 9:15
 
 - “past” → 过了某个小时
 - “to” → 差到下一个小时
+
+### 大数字
+
+| 中文单位 | 数字    | 英文单位            |
+| -------- | ------- | ------------------- |
+| 千       | 10³     | **thousand**        |
+| **万**   | 10⁴     | ten thousand        |
+| **百万** | **10⁶** | **one million**     |
+| 千万     | 10⁷     | ten million         |
+| **亿**   | **10⁸** | one hundred million |
+| 十亿     | 10⁹     | **one billion**     |
+| 百亿     | 10¹⁰    | ten billion         |
+| 千亿     | 10¹¹    | hundred billion     |
+| 万亿     | 10¹²    | one trillion        |
+| 千万亿   | 10¹⁵    | one quadrillion     |
+
+### 学位
+
+- Associate degree（专科 / 大专）副的、辅助的、较低层级的
+- Bachelor’s degree（学士）
+- Master’s degree（硕士）
+- Doctor’s degree（博士）
 
 ## 语法
 
@@ -226,19 +248,40 @@ a quarter past nine => 9:15
 
 #### 词性分辨
 
-| 后缀                              | 词性               | 示例                                      | 语义规律            |
-| ------------------------------- | ---------------- | --------------------------------------- | --------------- |
-| -ing                            | 动词（现在分词）/ 名词（动作） | running, meeting                        | 表示“正在进行”或“某种活动” |
-| -ed                             | 动词过去分词 / 形容词     | bored, excited                          | 表示“被…的状态”       |
-| -tion / -sion                   | 名词               | connection, decision                    | 表示“动作、结果”       |
-| -ment / -ness / -ity            | 名词               | agreement, happiness, ability           | 表示“状态、性质”       |
-| -er / -or                       | 名词（人/物）          | teacher, actor                          | 表示“做某事的人/物”     |
-| -able / -ible                   | 形容词              | readable, flexible                      | 表示“能被…的”        |
-| -ive / -ous / -ful / -less / -y | 形容词              | active, famous, useful, careless, funny | 表示“具有…特征的”      |
-| -ly                             | 副词（偶尔形容词）        | quickly, friendly                       | 表示“方式地/……地”     |
-| -ize / -ify / -en / -ate        | 动词               | organize, clarify, strengthen, create   | 表示“使成为…”        |
+| 后缀                            | 词性                           | 示例                                    | 语义规律                   |
+| ------------------------------- | ------------------------------ | --------------------------------------- | -------------------------- |
+| -ing                            | 动词（现在分词）/ 名词（动作）/ 形容词 | running, meeting                        | 表示“正在进行”或“某种活动” |
+| -ed                             | 动词过去分词 / 形容词          | bored, excited                          | 表示“被…的状态”            |
+| -tion / -sion                   | 名词                           | connection, decision                    | 表示“动作、结果”           |
+| -ment / -ness / -ity            | 名词                           | agreement, happiness, ability           | 表示“状态、性质”           |
+| -er / -or                       | 名词（人/物）                  | teacher, actor                          | 表示“做某事的人/物”        |
+| -able / -ible                   | 形容词                         | readable, flexible                      | 表示“能被…的”              |
+| -ive / -ous / -ful / -less / -y | 形容词                         | active, famous, useful, careless, funny | 表示“具有…特征的”          |
+| -ly                             | 副词（偶尔形容词）             | quickly, friendly                       | 表示“方式地/……地”          |
+| -ize / -ify / -en / -ate        | 动词                           | organize, clarify, strengthen, create   | 表示“使成为…”              |
 
 
+#### 形容词的类型
+
+
+人 → 用 -ed
+I am excited. / He is bored.
+
+事物 → 用 -ing
+The movie is exciting. / The lecture is boring.
+
+| 动词原形     | -ed（人的感受）  | -ing（事物特征 / 造成感受） | 示例                                                           |
+| -------- | ---------- | ----------------- | ------------------------------------------------------------ |
+| excite   | excited    | exciting          | I am excited about the trip. / The trip is exciting.         |
+| interest | interested | interesting       | I am interested in math. / Math is interesting.              |
+| bore     | bored      | boring            | I am bored. / The lecture is boring.                         |
+| tire     | tired      | tiring            | I am tired after work. / Today was a tiring day.             |
+| confuse  | confused   | confusing         | I am confused by the problem. / The problem is confusing.    |
+| surprise | surprised  | surprising        | I was surprised by the news. / The news is surprising.       |
+| annoy    | annoyed    | annoying          | I am annoyed by the noise. / The noise is annoying.          |
+| relax    | relaxed    | relaxing          | I feel relaxed. / The music is relaxing.                     |
+| frighten | frightened | frightening       | I am frightened of spiders. / The movie is frightening.      |
+| satisfy  | satisfied  | satisfying        | I am satisfied with my work. / Helping others is satisfying. |
 
 
 #### 动词的时态
@@ -246,11 +289,11 @@ a quarter past nine => 9:15
 
 过去分词: 动词 + ed
 
-| 用法    | 结构              | 例子                        |
-| ----- | --------------- | ------------------------- |
+| 用法       | 结构                | 例子                      |
+| ---------- | ------------------- | ------------------------- |
 | 现在完成时 | have/has + 过去分词 | I have **eaten**          |
-| 被动语态  | be + 过去分词       | The homework was **done** |
-| 作形容词  | 过去分词修饰名词        | a **broken** window       |
+| 被动语态   | be + 过去分词       | The homework was **done** |
+| 作形容词   | 过去分词修饰名词    | a **broken** window       |
 
 
 
@@ -265,11 +308,11 @@ a quarter past nine => 9:15
 这 9 个覆盖 99% 的实际使用场景。
 
 
-| ⏰ 时间             | 🌱 核心时态（90% 用于日常）                                                             | 🌿 常用补充（10%）                                                          | 🪶 很少使用（可略）                         |
-| :----------------- | :--------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- | :------------------------------------------- |
+| ⏰ 时间             | 🌱 核心时态（90% 用于日常）                                                                                                                              | 🌿 常用补充（10%）                                                          | 🪶 很少使用（可略）                         |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- | :------------------------------------------- |
 | **现在 (Present)** | ✅ 一般现在时 → I eat. <br>✅ 现在进行时(be doing)[动作正在进行] → I am eating.<br>✅ 现在完成时(have done)[过去的动作或状态与现在有联系] → I have eaten. |                                                                              | ⚪ 现在完成进行时 → I have been eating.      |
-| **过去 (Past)**    | ✅ 一般过去时 → I ate.                                                                   | ☑️ 过去完成时 → I had eaten.<br>☑️ 过去进行时 → I was eating.            | ⚪ 过去完成进行时 → I had been eating.       |
-| **将来 (Future)**  | ✅ 一般将来时 → I will eat.                                                              | ☑️ 将来进行时 → I will be eating. <br>☑️ 将来完成时 → I will have eaten. | ⚪ 将来完成进行时 → I will have been eating. |
+| **过去 (Past)**    | ✅ 一般过去时 → I ate.                                                                                                                                    | ☑️ 过去完成时 → I had eaten.<br>☑️ 过去进行时 → I was eating.            | ⚪ 过去完成进行时 → I had been eating.       |
+| **将来 (Future)**  | ✅ 一般将来时 → I will eat.                                                                                                                               | ☑️ 将来进行时 → I will be eating. <br>☑️ 将来完成时 → I will have eaten. | ⚪ 将来完成进行时 → I will have been eating. |
 
 
 过去现在的时间描述:

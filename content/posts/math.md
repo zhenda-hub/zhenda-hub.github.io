@@ -4,7 +4,7 @@ subtitle = ""
 date = 2025-11-11T14:47:44+08:00
 draft = false
 toc = true
-series = ['math']
+series = ['subjects']
 +++
 
 
