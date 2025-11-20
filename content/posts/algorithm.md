@@ -230,10 +230,40 @@ print(heapq.nsmallest(3, nums))  # [1, 3, 5]
 
 ### 回溯
 
-剪枝: 降低状态空间。
+剪枝: 提前排除无效递归, 降低状态空间。**先排序**方便剪枝
 
 回溯: 为了**记录所有过程**, 循环的使用递归, 来实现: 选择, 撤销. 
 
+```python
+
+def backtrack():
+    res = []
+    path = []
+
+    def dfs(idx):
+        if ...:
+            res.append()
+        for i in nums:
+            path.append(i)
+            dfs(...)
+            path.pop()
+
+    dfs(0)
+    return res
+
+
+def backtrack():
+    res = []
+
+    def dfs(idx, path):
+        if ...:
+            res.append()
+        for i in nums:
+            dfs(..., path + [i]) # 在递归时创建新的, 则不需要用pop()恢复状态. 代码简洁但效率低下
+
+    dfs(0, path)
+    return res
+```
 - N皇后
 - 排列组合
 
