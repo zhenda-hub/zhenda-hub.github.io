@@ -1110,3 +1110,39 @@ netsh winsock reset
 
 可以在这个平台, 测试镜像是否符合预期
 
+
+
+
+### 常见错误
+
+Get "https://registry-1.docker.io/v2/": context deadline exceeded
+
+
+网络问题:
+
+
+```bash
+sudo nano /etc/docker/daemon.json
+```
+
+```json
+{
+  "registry-mirrors": [
+    "https://docker.1panel.live",
+    "https://dockerproxy.net",
+    "https://hub.rat.dev",
+    "https://docker.m.daocloud.io", 
+    "https://noohub.ru", 
+    "https://huecker.io",
+    "https://dockerhub.timeweb.cloud"
+  ],
+  "max-concurrent-downloads": 10,            // 同时下载 10 个 layer，速度翻倍
+  "max-concurrent-uploads": 10,
+  "dns": ["8.8.8.8", "1.1.1.1", "114.114.114.114"]
+}
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
