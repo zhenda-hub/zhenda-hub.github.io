@@ -86,7 +86,7 @@ git config --global user.name "Your Name"
 git config --global user.email "Your Email"
 # 禁止git改换行, (win, linux 换行符不同)
 git config --global core.autocrlf false
-# 禁止git对非 ASCII 转义
+# 防止中文乱码！！！禁止git对非 ASCII 转义
 git config --global core.quotepath false
 ```
 
