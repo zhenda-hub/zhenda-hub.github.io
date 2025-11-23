@@ -123,8 +123,9 @@ except Exception as e:
 
 ```
 
-## unpack
+## * 和 **
 
+unpack
 ```bash
 >>> a, b, *c = [1,2,3,3,4,5,6]
 >>> a,b,c
@@ -133,6 +134,38 @@ except Exception as e:
 >>> a, *b, c = [1,2,3,3,4,5,6]
 >>> a,b,c
 (1, [2, 3, 3, 4, 5], 6)
+```
+
+[] 和 {}
+```python
+# 列表合并
+a = [1, 2]
+b = [3, 4]
+c = [*a, *b, 5]     # → [1, 2, 3, 4, 5]
+
+# 字典合并
+d1 = {"a": 1, "b": 2}
+d2 = {"b": 3, "c": 4}
+d3 = {**d1, **d2}   # → {'a': 1, 'b': 3, 'c': 4}
+```
+
+传参
+```python
+def add(a, b, c):
+    return a + b + c
+
+lst = [10, 20, 30]
+print(add(*lst))
+
+
+
+
+def greet(name, age):
+    print(f"Hello {name}, you are {age}")
+
+info = {"name": "Tom", "age": 18}
+greet(**info)   # 等价于 greet(name="Tom", age=18)
+
 ```
 
 ## 多list
