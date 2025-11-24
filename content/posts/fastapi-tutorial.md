@@ -7,6 +7,8 @@ toc = true
 series = ["web"]
 +++
 
+[toc]
+
 link <https://fastapi.tiangolo.com/zh/tutorial/first-steps/>
 
 ## 快速开始

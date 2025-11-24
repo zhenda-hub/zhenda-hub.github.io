@@ -793,13 +793,27 @@ Restart policies only apply to containers.
 
 TODO:
 
-#### deploy, replicas
+#### deploy, replicas 服务高可用
+
+
+- 本地开发时，你可以用 --scale，随意增减副本
+- 生产时，把副本写在 yml 里，结合 Swarm 或 Kubernetes 管理更稳
+- scale 多了也会占用更多内存，开发测试 2-3 个副本足够
+
 
 ```yaml
 deploy:
       replicas: 2
 ```
 
+```bash
+# 构建镜像
+docker compose build
+
+# 启动服务并模拟高可用
+docker compose up -d --scale fastapi=2 --scale celery=2
+
+```
 #### volumes
 
 ```yaml
@@ -977,6 +991,25 @@ Buildx 是 Docker 的一个 CLI 插件，扩展了 docker build 命令的功能�
 要将应用部署到多个节点（服务器），实现分布式部署
 
 通常需要多个服务器!!! 才可以体现出其高可用性和扩展性
+
+### k8s
+
+K8s 负责把 Pod 分配到 Node 上，实现负载均衡和高可用 
+
+
+| 功能      | Compose | Kubernetes                  |
+| ------- | ------- | --------------------------- |
+| 多节点部署   | ❌       | ✅ 可跨**多台服务器**运行容器               |
+| 自动调度    | ❌       | ✅ 根据资源情况自动调度容器              |
+| 自动扩缩容   | ❌       | ✅ **根据负载自动**增加/减少副本             |
+| 高可用     | ❌       | ✅ 节点或容器挂了自动迁移/重启            |
+| 滚动更新    | ❌       | ✅ 可以**无停机更新**容器版本               |
+| 服务发现    | ❌       | ✅ 内置 DNS、Service 让容器互相访问更稳定 |
+| 日志/监控集成 | ❌       | ✅ 与 Prometheus、ELK 等完全集成    |
+| 网络策略    | ❌       | ✅ 可以控制 Pod 之间的访问权限          |
+
+
+
 
 ### 关于 Docker Desktop 的使用
 

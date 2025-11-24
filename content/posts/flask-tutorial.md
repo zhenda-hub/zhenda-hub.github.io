@@ -4,10 +4,13 @@ subtitle = ""
 date = 2024-05-26T01:17:16+08:00
 draft = false
 toc = true
-series = ['web']
+series = ["web"]
 +++
 
+[toc]
+
 link: <https://flask.palletsprojects.com/en/stable/>
+
 
 ## 快速开始
 
