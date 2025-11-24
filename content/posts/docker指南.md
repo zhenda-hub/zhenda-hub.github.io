@@ -1010,6 +1010,34 @@ K8s 负责把 Pod 分配到 Node 上，实现负载均衡和高可用
 
 
 
+```mermaid
+flowchart TB
+    subgraph ControlPlane["Master / Control Plane"]
+        APIServer[API Server]
+        Scheduler[Scheduler]
+        Controller[Controller Manager]
+        Etcd[etcd]
+    end
+
+    subgraph Node["Worker Node"]
+        Kubelet[kubelet]
+        KubeProxy[kube-proxy]
+        Pod[Pod]
+    end
+
+    User[kubectl / User] -->|请求| APIServer
+    APIServer -->|存储集群状态| Etcd
+    APIServer -->|通知| Scheduler
+    APIServer -->|通知| Controller
+    Scheduler -->|分配 Pod 到 Node| APIServer
+    Controller -->|确保期望状态| APIServer
+    APIServer -->|下发 Pod 定义| Kubelet
+    Kubelet -->|运行 Pod| Pod
+    Kubelet -->|汇报状态| APIServer
+    KubeProxy -->|处理网络流量| Pod
+
+```
+
 
 ### 关于 Docker Desktop 的使用
 
