@@ -243,9 +243,10 @@ linux 目录结构：<https://www.runoob.com/linux/linux-system-contents.html>
         -   `tree -L 2`:  查看两层深度
 -   文件文件夹相关
 
-    -   mkdir 文件夹名： 创建文件夹
+    -   mkdir 文件夹名： 创建文件夹, {}内不能有空格!!!
         -   mkdir -p fold1/{subfold1,subfold2}
-    -   touch 文件名：创建文件
+    -   touch 文件名：创建文件, {}内不能有空格!!!
+        -   touch xxx/{aaa.txt,bbb.json}
     -   rm 文件名： 删除文件或文件夹
     -   mv 文件名 移动位置： 移动文件或文件夹
     -   cp 文件名 新文件名：复制文件或文件夹
