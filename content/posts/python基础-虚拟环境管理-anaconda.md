@@ -146,15 +146,6 @@ pipdeptree
 ```
 
 
-
-### poetry
-
-```bash
-poetry new myproject
-poetry add <package>
-```
-
-
 ### uv
 
 <https://github.com/astral-sh/uv?tab=readme-ov-file>
@@ -165,8 +156,9 @@ poetry add <package>
 # 指定python版本创建项目
 uv init --python 3.9
 
-# 安装 或者 手动编辑pyproject.toml
+# 管理包
 uv add requests
+uv remove requests
 
 # 同步环境
 uv sync                    # 第一次会创建 .venv
@@ -174,7 +166,23 @@ uv sync                    # 第一次会创建 .venv
 # 运行python
 uv run python --version
 
+
+# 和 requirements.txt 交互
+uv add -r requirements.txt
+uv export -o requirements.txt
+
+# pylock.toml
+uv export -o pylock.toml
 ```
+
+
+### poetry
+
+```bash
+poetry new myproject
+poetry add <package>
+```
+
 
 ### pyenv
 
