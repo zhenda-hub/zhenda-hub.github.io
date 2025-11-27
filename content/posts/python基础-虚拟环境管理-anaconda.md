@@ -159,39 +159,20 @@ poetry add <package>
 
 <https://github.com/astral-sh/uv?tab=readme-ov-file>
 
-```bash
-xxxx@xxxxx:~$ uv
-An extremely fast Python package manager.
 
-Usage: uv [OPTIONS] <COMMAND>
-
-Commands:
-  auth     Manage authentication
-  run      Run a command or script
-  init     Create a new project
-  add      Add dependencies to the project
-  remove   Remove dependencies from the project
-  version  Read or update the project's version
-  sync     Update the project's environment
-  lock     Update the project's lockfile
-  export   Export the project's lockfile to an alternate format
-  tree     Display the project's dependency tree
-  format   Format Python code in the project
-  tool     Run and install commands provided by Python packages
-  python   Manage Python versions and installations
-  pip      Manage Python packages with a pip-compatible interface
-  venv     Create a virtual environment
-  build    Build Python packages into source distributions and wheels
-  publish  Upload distributions to an index
-  cache    Manage uv's cache
-  self     Manage the uv executable
-  help     Display documentation for a command
-
-```
-
-切换python版本, todo
 
 ```bash
+# 指定python版本创建项目
+uv init --python 3.9
+
+# 安装 或者 手动编辑pyproject.toml
+uv add requests
+
+# 同步环境
+uv sync                    # 第一次会创建 .venv
+
+# 运行python
+uv run python --version
 
 ```
 
