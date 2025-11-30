@@ -320,6 +320,15 @@ series = ['bible']
 
 ## Philippians
 
+> I don't mean to say that I have already achieved these things or that I have already reached perfection. But I press on to possess that perfection for which Christ Jesus first possessed me.
+>
+> No, dear brothers and sisters, I have not achieved it, but I focus on this one thing: Forgetting the past and looking forward to what lies ahead,
+>
+> I press on to reach the end of the race and receive the heavenly prize for which God, through Christ Jesus, is calling us.
+> 
+> *(Philippians 3:12-14 NLT)*
+
+
 > I know how to live on almost nothing or with everything. I have learned the secret of living in every situation, whether it is with a full stomach or empty, with plenty or little.
 >
 > For I can do everything through Christ, who gives me strength.
