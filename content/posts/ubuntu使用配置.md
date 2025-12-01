@@ -151,6 +151,11 @@ DNS:     8.8.8.8, 1.1.1.1
 
 静态 IP 必须避开 DHCP 已经分配的 IP
 
+### 显示隐藏文件(.xxxxx)
+
+按 ctrl + h 
+
+
 ## 常用软件
 
 ### gnome extension
