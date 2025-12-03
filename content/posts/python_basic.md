@@ -180,6 +180,18 @@ greet(**info)   # 等价于 greet(name="Tom", age=18)
 [(1, 'a'), (3, 'c'), (2, 'e')]
 ```
 
+## set操作
+
+```python
+A = {1, 2, 3}
+B = {3, 4, 5}
+
+print(A & B)   # {3}
+print(A | B)   # {1, 2, 3, 4, 5}
+print(A - B)   # {1, 2}
+print(A ^ B)   # {1, 2, 4, 5}
+```
+
 其他常用
             -   collection.
                 -   Counter()
