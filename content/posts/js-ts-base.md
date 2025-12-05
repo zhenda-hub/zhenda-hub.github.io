@@ -4,9 +4,10 @@ subtitle = ""
 date = 2024-12-31T15:48:54+08:00
 draft = true
 toc = true
-series = ["web"]
+series = ["js,ts"]
 +++
 
+[toc]
 
 ## js
 
@@ -63,17 +64,93 @@ for (const[i, v] of arr.entries()) {
 throw new Error("Not Equal");
 ```
 
+
+
+### 常用的内置数据类型
+
+| 类型   | 用途       | 常用方法                                                      |
+| :----- | :--------- | :------------------------------------------------------------ |
+| Array  | 数组       | push, pop, shift, unshift, slice, splice, map, filter, reduce |
+| Map    | 键值对集合 | set, get, has, delete, clear                                  |
+| Set    | 去重集合   | add, has, delete, clear                                       |
+| Object | 对象       | keys, values, entries, assign                                 |
+| String | 字符串     | split, substring, slice, indexOf, replace, toUpperCase        |
+| Number | 数字       | parseInt, parseFloat, toFixed, isNaN                          |
+| Math   | 数学运算   | Math.max, Math.min, Math.sqrt, Math.floor, Math.ceil          |
+| Date   | 日期时间   | now, getTime, getFullYear, getMonth                           |
+| RegExp | 正则表达式 | test, exec, match, replace                                    |
+| JSON   | JSON 处理  | stringify, parse                                              |
+
 ```js
+// Array
+let arr = [1, 2, 3];
+arr.push(4);          // [1, 2, 3, 4]
+arr.pop();            // [1, 2, 3]
+arr.slice(0, 2);     // [1, 2]
+arr.splice(1, 1);    // [1, 3]
+arr.map(x => x * 2); // [2, 4, 6]
+arr.filter(x => x > 1); // [2, 3]
+arr.reduce((a, b) => a + b, 0); // 6
 
-Math
+// Map
+let map = new Map();
+map.set('a', 1);
+map.get('a'); // 1
+map.has('a'); // true
+map.delete('a');
+map.clear();
+// Set
+let set = new Set();
+set.add(1);
+set.has(1); // true
+set.delete(1);
+set.clear();
 
-Number
+// Object
+let obj = {a: 1, b: 2};
+Object.keys(obj);   // ['a', 'b']
+Object.values(obj); // [1, 2]
+Object.entries(obj); // [['a', 1], ['b', 2]]
+Object.assign(obj, {c: 3}); // {a: 1, b: 2, c: 3}
 
-new Date()
+// String
+let str = "hello world";
+str.split(" ");        // ['hello', 'world']
+str.substring(0, 5);  // 'hello'
+str.indexOf("world"); // 6
+str.replace("world", "JS"); // 'hello JS'
+str.toUpperCase();    // 'HELLO WORLD'
+// Number
+let num = "42.5";
+parseInt(num);    // 42
+parseFloat(num);  // 42.5
+num.toFixed(1);   // '42.5'
+isNaN(num);      // false
+// Math
+Math.max(1, 5, 3);    // 5
+Math.min(1, 5, 3);    // 1
+Math.sqrt(16);       // 4
+Math.floor(4.7);    // 4
+Math.ceil(4.2);     // 5
+// Date
+let now = new Date();
+now.getFullYear();  // 当前年份
+now.getMonth();     // 当前月份 (0-11)
+now.getDate();      // 当前日期
+now.getTime();      // 时间戳
+// RegExp
+let regex = /hello/i;
+regex.test("Hello World"); // true
+"hello world".match(regex); // ['hello']
+"hello world".replace(regex, "hi"); // 'hi world'
+// JSON
+let jsonStr = '{"a":1,"b":2}';
+let obj = JSON.parse(jsonStr); // {a: 1, b: 2}
+JSON.stringify(obj); // '{"a":1,"b":2}'
 
-new Array()
+
+
 ```
-
 
 ### DOM
 
@@ -150,6 +227,16 @@ console.log(add(2, 3)); // 输出: 5
 +---------------------------------------+
 
 ```
+
+## ts
+
+运行ts的方式:
+
+```bash
+npm install -g ts-node
+ts-node xxxx.ts
+```
+
 
 
 JS(基于对象)
