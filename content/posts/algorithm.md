@@ -158,8 +158,30 @@ key -> **哈希函数** -> 哈希值 确定**寻址表**的存储位置
             
 ```python
 from collections import Counter # 统计元素频率
-from collections import defaultdict # 给 dict 提供默认值
 from collections import OrderedDict # 保持插入顺序的字典
+
+```
+
+```python
+from collections import defaultdict # 给 dict 提供默认值
+
+# list 作为默认值
+s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+d = defaultdict(list)
+for k, v in s:
+    d[k].append(v)
+
+sorted(d.items())
+
+
+# int 作为默认值
+s = 'mississippi'
+d = defaultdict(int)
+for k in s:
+    d[k] += 1
+
+sorted(d.items())
+
 ```
 
 自定义hashable的类
