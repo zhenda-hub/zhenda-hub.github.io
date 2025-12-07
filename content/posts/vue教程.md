@@ -20,17 +20,9 @@ series = ["web"]
 
 | 名称 | 作用 |
 |---|---|
-| node | 运行环境 |
 | nvm | node版本管理工具 |
+| node | 运行环境 |
 | npm | node的包管理工具 |
-
-
-node 命令:
-
-```bash
-node -v
-node xxx.js
-```
 
 
 nvm 命令:
@@ -47,6 +39,14 @@ nvm alias default xxx.xxx.xxx
 nvm use xxx.xxx.xxx
 nvm install xxx.xxx.xxx
 nvm uninstall xxx.xxx.xxx
+```
+
+
+node 命令:
+
+```bash
+node -v
+node xxx.js
 ```
 
 

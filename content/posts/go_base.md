@@ -24,13 +24,22 @@ go 版本切换
 -  gvm
 -  asdf
 
-## 命令
+## vscode配置
+
+网络配置
+
+```cmd
+setx GOPROXY "https://goproxy.cn,direct"
+
+```
+## 常用命令
 
 ```bash
-# 下载依赖
-go mod init xxx
+# 初始化项目
+go mod init mypj
 # 更新依赖
 go get -u
+go get -u xxx
 go get .
 # 更新go.mod文件
 go mod tidy
@@ -45,17 +54,27 @@ go test xxx
 air
 ```
 
-## 包管理
+## 基本调试
 
-```bash
-go get -u xxx
+```go
+
+func main() {
+    const name, age = "Kim", 22
+    fmt.Println(name, "is", age, "years old.")
+
+    // 查看数据的类型
+    fmt.Printf("%T, %T\n", ptrs, ptrs2)
+}
+
+
+
+
 ```
 
 ## 数据结构
 
 变量
 
-短赋值语句 := 可在隐式确定类型的 var 声明中使用, 不能在函数外使用
 
 ```go
 /*
@@ -67,13 +86,14 @@ go get -u xxx
 
 var i int
 var f float64 = 3.14
+// 短赋值语句 := 可在隐式确定类型的 var 声明中使用, 不能在函数外使用
 name := "Alice" // 简短变量声明
 ```
 
-类型转换
+`make([]T, length, capacity)` 用于创建切片、映射和通道
+
 ```go
-var a int = 10
-var b float64 = float64(a)
+a := make([]int, 3)
 ```
 
 数组
@@ -89,12 +109,14 @@ s = append(s, 5)
 ```
 
 map
+
 ```go
 m := make(map[string]int)
 m["age"] = 30
 delete(m, "age")
 
 ```
+
 pointer
 
 ```go
@@ -111,6 +133,28 @@ type Person struct {
     Age  int
 }
 ```
+
+channel（通道）是 Go 中用于在 goroutine 之间传递值的类型，常用于同步和通信
+
+```go
+ch := make(chan int)
+go func() {
+    ch <- 1
+    ch <- 2
+    close(ch)
+}()
+for v := range ch {
+    fmt.Println(v)
+}
+```
+
+类型转换
+```go
+var a int = 10
+var b float64 = float64(a)
+```
+
+
 ## 控制逻辑
 
 for
@@ -207,3 +251,14 @@ func main() {
 ## 并发
 
 并发模型基于 goroutine 和 channel
+
+goroutine 超轻量（几 KB）
+channel 天然适合事件驱动系统
+
+## 部署
+
+部署极其容易, 生成一个二进制文件, 直接运行
+
+## 内存管理
+
+Go 的 GC 模型 来并发回收
