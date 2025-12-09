@@ -24,14 +24,137 @@ go 版本切换
 -  gvm
 -  asdf
 
-## vscode配置
+## go env
 
-网络配置
+```bash
+zhenda@yoga-13s-2021:~$ go env
+GOPATH='/home/zhenda/go'
+GOROOT='/usr/local/go'
+GOPROXY='https://proxy.golang.org,direct'
+GOTOOLCHAIN='auto'
+
+GO111MODULE=''
+GOARCH='amd64'
+GOBIN=''
+GOCACHE='/home/zhenda/.cache/go-build'
+GOENV='/home/zhenda/.config/go/env'
+GOEXE=''
+GOEXPERIMENT=''
+GOFLAGS=''
+GOHOSTARCH='amd64'
+GOHOSTOS='linux'
+GOINSECURE=''
+GOMODCACHE='/home/zhenda/go/pkg/mod'
+GONOPROXY=''
+GONOSUMDB=''
+GOOS='linux'
+GOPRIVATE=''
+GOSUMDB='sum.golang.org'
+GOTMPDIR=''
+GOTOOLDIR='/usr/local/go/pkg/tool/linux_amd64'
+GOVCS=''
+GOVERSION='go1.23.1'
+GODEBUG=''
+GOTELEMETRY='local'
+GOTELEMETRYDIR='/home/zhenda/.config/go/telemetry'
+GCCGO='gccgo'
+GOAMD64='v1'
+AR='ar'
+CC='gcc'
+CXX='g++'
+CGO_ENABLED='1'
+GOMOD='/dev/null'
+GOWORK=''
+CGO_CFLAGS='-O2 -g'
+CGO_CPPFLAGS=''
+CGO_CXXFLAGS='-O2 -g'
+CGO_FFLAGS='-O2 -g'
+CGO_LDFLAGS='-O2 -g'
+PKG_CONFIG='pkg-config'
+GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build2891050929=/tmp/go-build -gno-record-gcc-switches'
+```
+
+
+```bash
+echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 网络配置, 国内被墙
 
 ```cmd
 setx GOPROXY "https://goproxy.cn,direct"
 
 ```
+
+```bash
+go env -w GOPROXY=https://goproxy.cn,direct
+go env -w GOSUMDB=off
+```
+
+## gore 交互式环境（REPL）
+
+```bash
+go install github.com/x-motemen/gore/cmd/gore@latest
+
+go: github.com/x-motemen/gore@v0.6.1 requires go >= 1.24; switching to go1.24.11
+go: downloading go1.24.11 (linux/amd64)
+go: download go1.24.11: golang.org/toolchain@v0.0.1-go1.24.11.linux-amd64: verifying module: checksum database disabled by GOSUMDB=off
+```
+
+## go版本升级, 多版本
+
+### windows环境
+
+```powershell
+# 安装Scoop后
+scoop install go
+
+# 安装多版本
+scoop install go@1.20
+
+# 切换版本
+scoop reset go@1.20
+```
+
+### Linux环境
+
+#### 手动安装多版本
+
+```bash
+# 下载不同版本
+wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.20.0.linux-amd64.tar.gz
+# 解压到不同目录
+sudo mv /usr/local/go /usr/local/go1.21.0
+sudo tar -C /usr/local -xzf go1.21.0.linux-amd64.tar.gz
+```
+
+#### 切换版本：修改PATH环境变量
+
+1. 使用命令直接切换
+```bash
+export PATH="/usr/local/go1.21.0/bin:$PATH"
+```
+
+2. 使用脚本切换版本
+
+创建简单的切换脚本 switch-go.sh：
+
+```bash
+#!/bin/bash
+export GOROOT="/usr/local/go$1"
+export PATH="$GOROOT/bin:$PATH"
+go version
+```
+
+使用：
+
+```bash
+source switch-go.sh 1.21.0
+```
+
+
 ## 常用命令
 
 ```bash
@@ -195,6 +318,13 @@ type Animal interface {
 }
 ```
 
+## 包
+
+package xxx
+
+xxx 就是包名, 基本等于文件夹名
+
+文件夹内的函数不能重名
 
 ## 常用工具包
 
