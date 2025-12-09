@@ -92,7 +92,10 @@ go env -w GOPROXY=https://goproxy.cn,direct
 go env -w GOSUMDB=off
 ```
 
-## gore 交互式环境（REPL）
+## 交互式环境（REPL）
+
+- The Go Playground: https://go.dev/play/
+- gore 
 
 ```bash
 go install github.com/x-motemen/gore/cmd/gore@latest
