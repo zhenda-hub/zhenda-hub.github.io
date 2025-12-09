@@ -105,6 +105,18 @@ go: downloading go1.24.11 (linux/amd64)
 go: download go1.24.11: golang.org/toolchain@v0.0.1-go1.24.11.linux-amd64: verifying module: checksum database disabled by GOSUMDB=off
 ```
 
+```bash
+gore> :help
+    :import <package>     import a package
+    :type <expr>          print the type of expression
+    :print                print current source
+    :write [<file>]       write out current source
+    :clear                clear the codes
+    :doc <expr or pkg>    show documentation
+    :help                 show this help
+    :quit                 quit the session
+```
+
 ## go版本升级, 多版本
 
 ### windows环境
@@ -281,7 +293,10 @@ var b float64 = float64(a)
 ```
 
 
-## 控制逻辑
+## 函数
+
+
+控制逻辑
 
 for
 ```go
