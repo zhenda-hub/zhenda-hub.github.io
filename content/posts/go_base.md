@@ -221,7 +221,9 @@ func main() {
 */
 
 // 单行注释
+// byte 是 uint8 的别名，表示无符号的 8 位整数，范围从 0 到 255。
 
+var i byte
 var i int
 var f float64 = 3.14
 // 短赋值语句 := 可在隐式确定类型的 var 声明中使用, 不能在函数外使用
