@@ -16,6 +16,7 @@ tags = ["go"]
 - <https://pkg.go.dev/std>
 
 一个Go项目中只能有**一个 main 包和一个 main() 函数**
+在Go语言中，**所有可执行代码**必须在函数内部（通常是`main`函数）。
 
 你会直接编辑 go.mod（虽然通常通过 Go 命令来做），但永远不应该手动编辑 go.sum
 用于管理项目的依赖关系。它们共同保证了项目的构建过程的可靠性和可重复性
@@ -221,7 +222,11 @@ func main() {
 */
 
 // 单行注释
-// byte 是 uint8 的别名，表示无符号的 8 位整数，范围从 0 到 255。
+
+/* 
+- rune 用于表示 字符（尤其是 Unicode 字符），是 32 位 的带符号整数。
+- byte 是 uint8 的别名，表示无符号的 8 位整数，范围从 0 到 255。用于表示 字节，它是 8 位 无符号整数，通常用于处理 ASCII 字符和原始二进制数据。
+*/
 
 var i byte
 var i int
@@ -304,13 +309,15 @@ var b float64 = float64(a)
 
 for
 ```go
+// 相当于 python 的 enumerate
+for index, value := range arr {
+    fmt.Println(index, value)
+}
+
 for i := 0; i < 5; i++ {
     fmt.Println(i)
 }
 
-for index, value := range arr {
-    fmt.Println(index, value)
-}
 ```
 
 if
