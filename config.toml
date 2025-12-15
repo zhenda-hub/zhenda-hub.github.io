@@ -12,7 +12,7 @@ theme = "puppet_zd"
 
 # themesDir = "../.."
 
-copyright = "Copyright © 2023-2025 Zhenda. All Rights Reserved."
+copyright = "Copyright © 2023-2026 Zhenda. All Rights Reserved."
 
 [pagination]
 pagerSize = 5
