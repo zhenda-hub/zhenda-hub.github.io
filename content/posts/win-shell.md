@@ -96,9 +96,25 @@ Set-Alias -Name wget -Value Invoke-WebRequest
 
 ## windows 命令行安装工具
 
-winget
+| 工具                                 | 安装方式        | 软件源                    | 主要优点           | 适合人群              | 官网                                                                    |
+| ------------------------------------ | --------------- | ------------------------- | ------------------ | --------------------- | ----------------------------------------------------------------------- |
+| **Chocolatey**                       | PowerShell 一行 | 社区仓库 + 官方           | 软件包最全、丰富   | 普通用户 / IT 管理员  |                                                                         |
+| **Scoop**                            | PowerShell 一行 | 官方 bucket + 社区 bucket | 极简、无管理员权限 | 开发者 / 轻量使用者   | <https://github.com/ScoopInstaller/Scoop>                               |
+| **winget (Windows Package Manager)** | 系统预装        | Microsoft + 社区          | Windows 官方支持   | Windows 用户 / 企业   | <https://learn.microsoft.com/zh-cn/windows/package-manager/winget/help> |
+| **Ninite**                           | 安装器          | 官方精选                  | 最简单一次安装     | 新手 / 想一次安装应用 |                                                                         |
+| **AppGet** *(已合并到 winget)*       | CLI             | —                         | 过去的独立方案     | 曾用用户              |                                                                         |
+| **NuGet**                            | CLI             | .NET 包（专注库）         | .NET 生态专业依赖  | .NET 开发者           |                                                                         |
 
-<https://learn.microsoft.com/zh-cn/windows/package-manager/winget/help>
+
+
+
+```cmd
+scoop help
+scoop install git
+
+winget help
+winget install git
+```
 
 
 ## windows port
