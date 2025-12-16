@@ -402,7 +402,8 @@ import (
 
 func main() {
     // 示例代码
-    fmt.Println("Hello, Go!")
+    fmt.Print("Hello, Go!") // 不会换行
+    fmt.Println("Hello, Go!") // 自动换行
 }
 
 ```
