@@ -235,12 +235,6 @@ var f float64 = 3.14
 name := "Alice" // 简短变量声明
 ```
 
-`make([]T, length, capacity)` 用于创建切片、映射和通道
-
-```go
-a := make([]int, 3)
-```
-
 数组, 固定长度, 几乎不怎么用
 ```go
 var arr [5]int = [5]int{1, 2, 3, 4, 5}
@@ -248,11 +242,27 @@ arr[2] = 10
 ```
 
 slice, 可以动态改变大小，每个子切片的长度可以不同，适合处理大小不定或动态的数据
+
 ```go
+a := make([]int, 3)
+// 二维切片
+b := make([][]int, 3)
+// 二维any切片
+data := [][]any{
+	{1, 2, 3},
+	{"a", "b", "c"},
+}
+
+```
+
+
+```go
+// 数字固定, 不常用
 var s []int = []int{1, 2, 3, 4}
 s = append(s, 5)
 
 a := [][]int{{1,2,3,4}, {5,6,7,8}, {9,10,11,12}}
+
 ```
 
 map
@@ -263,6 +273,11 @@ m["age"] = 30
 delete(m, "age")
 
 ```
+
+make
+`make([]T, length, capacity)` 用于创建切片、映射和通道
+
+
 
 pointer
 
@@ -296,11 +311,20 @@ for v := range ch {
 ```
 
 类型转换
+
 ```go
 var a int = 10
 var b float64 = float64(a)
 ```
 
+检查类型
+
+```go
+// 检查类型是否是 int
+if v, ok := data[0][0].(int); ok {
+    fmt.Println(v + 1)
+}
+```
 
 ## 函数
 
