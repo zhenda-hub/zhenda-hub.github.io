@@ -78,25 +78,6 @@ this //面向对象语言中 this 表示当前对象的一个引用
 ### 基础解惑
 
 ```js
-
-/*更科学 更好
-    不会提升变量定义
-    不能重复声明
-    作用域在{}块内
-不会绑定到window的属性*/
-let a = 13;
-/*作用域在函数内
-绑定到window属性*/
-var a = "haha";
-
-// 值和类型都判断, 优先使用
-===
-
-// void
-<a href="javascript:void(document.form.submit())">Click here to submit</a>
-```
-
-```js
 // 类型
 let a = [1,2,3];
 
@@ -107,9 +88,9 @@ Object.keys(obj) // 查看 所有key
 
 // 定义
 // 块级作用域：用一对花括号创建的作用域（块）。
+const a = "haha";  // 作用域在{}块内, 只读常量
 let a = 13;  // 作用域在{}块内
 var a = "haha";  // 作用域在函数内
-const a = "haha";  // 作用域在{}块内, 只读常量
 
 typeof 43;
 typeof '43';
@@ -122,7 +103,15 @@ const canVote = age >= 18 ? "Yes" : "No";
 y = (x=90+5)
 y
 
+```
 
+
+```js
+// 值和类型都判断, 优先使用
+===
+
+// void
+<a href="javascript:void(document.form.submit())">Click here to submit</a>
 ```
 
 
@@ -180,6 +169,9 @@ fruits.forEach((item, index, array) => {console.log(item, index);});
 const fruitsCopy = [...fruits];
 //解构
 var [one, two, three] = [1,2,3];
+//扩展
+const nums = [1, 2, 3];
+const more = [...nums, 4, 5];  // [1,2,3,4,5]
 flat() //转为1维度的
 //绑定属性
 [].a1 = 'qq'
@@ -304,16 +296,7 @@ for (const[i, v] of arr.entries()) {
 
 // error
 throw new Error("Not Equal");
-```
-IIFE
-    迭代器
-        需要显式地维护其内部状态，不推荐
-    生成器函数
-        function* foo() {  yield 1;  yield 2;  yield 3;}
-                                
-### 异常处理
 
-```js
 /*
 try... catch... finally...
 throw...
@@ -321,7 +304,13 @@ throw...
 
 ```
     
-                        
+
+IIFE
+    迭代器
+        需要显式地维护其内部状态，不推荐
+    生成器函数
+        function* foo() {  yield 1;  yield 2;  yield 3;}
+
 
 
 
@@ -330,35 +319,60 @@ throw...
 ES模块
 
 ```js
-// math.mjs
+// math.js
 export function add(a, b) {
   return a + b;
 }
 
-// app.mjs
-import { add } from './math.mjs';
-console.log(add(2, 3)); // 输出: 5
+// app.js
+import { add as ad} from './math.js';
+console.log(ad(2, 3)); // 输出: 5
 
-import { ... as ... } from "xxx.js";
 ```
 
 
 ### 异步请求
 
-* ajax
-    * jquery
-        * 固定写法
-    * XMLHttpRequest()
-        * open（）
-        * send()
-    * promise
-    
 
-async
-Promise
-await
-await Promise.all()
+```js
 
+// async await
+async function getUser() {
+  try {
+    const res = await fetch('/api/user');
+    if (!res.ok) throw new Error('Request failed');
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// Promise
+fetch('/api/user')
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
+
+/*=======================out了================== */
+
+// jQuery.ajax
+$.ajax({
+  url: '/api/user',
+  success(res) {
+    console.log(res);
+  }
+});
+
+// XMLHttpRequest()
+const xhr = new XMLHttpRequest();
+xhr.open('GET', '/api/user');
+xhr.onload = () => {
+  console.log(xhr.responseText);
+};
+xhr.send();
+```
 
 
 ## CDN
@@ -366,7 +380,11 @@ await Promise.all()
 是包含可分享代码库的服务器网络
 
 
-## class
+## 类
+
+ES5 引入 原型链
+ES6 引入 class
+
 
 * 类
     * class
