@@ -351,6 +351,14 @@ if x > 10 {
 } else {
     fmt.Println("x is less than or equal to 10")
 }
+
+// 错误示范
+if x > 0 {
+    doA()
+}
+else {   // <- 语法错误：else 必须和前面的 } 在同一行
+    doB()
+}
 ```
 
 函数
