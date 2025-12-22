@@ -365,6 +365,7 @@ else {   // <- 语法错误：else 必须和前面的 } 在同一行
 
 ```go
 func greet(name string) {
+    m, n := len(name), len(name[0])
     fmt.Printf("Hello, %s!\n", name)
 }
 ```

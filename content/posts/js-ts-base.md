@@ -121,23 +121,8 @@ const canVote = age >= 18 ? "Yes" : "No";
 // 赋值表达式的返回值为右边
 y = (x=90+5)
 y
-// if
-if (condition) {
-} else {
-}
 
-// for
-let arr = [3, 5, 7];
 
-for (lst i in arr) {
-    console.log(i, typeof i)
-}
-for (const[i, v] of arr.entries()) {
-    console.log(i, v)
-}
-
-// error
-throw new Error("Not Equal");
 ```
 
 
@@ -290,13 +275,35 @@ parseFloat('432')
 创建
 ```js
 const func1 = (x,y) => {x-y};
-function fun1(a, b = 12){return a * b;}
-var fun2 = function(){}
+
+let fun2 = function(){
+    let m = grid.length, n = grid[0].length
+}
+
+function fun1(a, b = 12){
+    return a * b;
+}
 ```
 
 ```js
+
+// if
+if (condition) {
+} else {
+}
+
 // for
+
+let arr = [3, 5, 7];
+
 for (let i of iter) {}
+
+for (const[i, v] of arr.entries()) {
+    console.log(i, v)
+}
+
+// error
+throw new Error("Not Equal");
 ```
 IIFE
     迭代器
