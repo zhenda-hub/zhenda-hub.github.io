@@ -160,6 +160,7 @@ TODO: 原型链
 
 ```js
 // Array
+// 只有 Array 和 Object 不用 new, 其他都需要 new
 let arr = [1, 2, 3];
 
 arr.push(4);          // [1, 2, 3, 4]
