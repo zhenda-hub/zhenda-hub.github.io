@@ -370,6 +370,19 @@ func greet(name string) {
 }
 ```
 
+```go
+/*
+因为 Go 不允许在函数体内直接声明“具名函数”，
+但允许变量引用函数值（闭包）。
+*/
+
+var dfs func(int) bool
+dfs = func(x int) bool {
+    ...
+    dfs(y)
+}
+
+```
 
 interface
 

@@ -70,22 +70,19 @@ console.table()
 
 debugger
 
+//查看类型
 instanceof
-typeof a //查看类型
+typeof a // 不准确, array和null 都认为是 object; 
+
+Object.prototype.toString.call(a);
+
+
 this //面向对象语言中 this 表示当前对象的一个引用
 ```
 
-### 基础解惑
+### 基础
 
 ```js
-// 类型
-let a = [1,2,3];
-
-let obj = {'a':1, 'b':2};
-obj["a"]
-obj["b"]
-Object.keys(obj) // 查看 所有key
-
 // 定义
 // 块级作用域：用一对花括号创建的作用域（块）。
 const a = "haha";  // 作用域在{}块内, 只读常量
@@ -107,8 +104,16 @@ y
 
 
 ```js
-// 值和类型都判断, 优先使用, 能不用 == 就不用, 它会转换类型判断, 遗留的功能
-===
+/* 值和类型都判断, 优先使用, 能不用 == 就不用, 它会转换类型判断, 遗留的功能
+
+=== 到底做了什么？（底层规则）
+对原始类型
+值 === 值
+
+对引用类型
+内存地址 === 内存地址
+
+*/
 
 // void
 <a href="javascript:void(document.form.submit())">Click here to submit</a>
@@ -182,6 +187,10 @@ flat() //转为1维度的
 [].a1 = 'qq'
 
 
+// 二维 array
+const graph = Array.from({ length: numCourses }, () => []);
+const arr = Array.from('abc');
+
 // Map
 // key 可以是任何值（函数，对象...）转json没有原生支持
 let map = new Map();
@@ -197,13 +206,33 @@ set.has(1); // true
 set.delete(1);
 set.clear();
 
-// Object
-// key类型 String, Symbol
+// Object 和 JSON
+/*
+Object：key 会被强制转成字符串
+key类型 String, Symbol
+除了json, 其他用Map
+
+json格式:
+只有属性，没有方法
+属性或字符串使用双引号
+*/
 let obj = {a: 1, b: 2};
+// 迭代方法
 Object.keys(obj);   // ['a', 'b']
 Object.values(obj); // [1, 2]
 Object.entries(obj); // [['a', 1], ['b', 2]]
+
 Object.assign(obj, {c: 3}); // {a: 1, b: 2, c: 3}
+
+
+let obj = {"a":1,"b":2};
+let jsonStr = JSON.stringify(obj, null, 2); // '{"a":1,"b":2}'
+JSON.parse(jsonStr); // {a: 1, b: 2}
+
+let jsonStr = '{"a":1,"b":2}';
+let obj = JSON.parse(jsonStr); // {a: 1, b: 2}
+JSON.stringify(obj, null, 2); // '{"a":1,"b":2}'
+
 
 // String
 let str = "hello world";
@@ -242,15 +271,6 @@ let regex = /hello/i;
 regex.test("Hello World"); // true
 "hello world".match(regex); // ['hello']
 "hello world".replace(regex, "hi"); // 'hi world'
-
-/* JSON
-json格式:
-只有属性，没有方法
-属性或字符串使用双引号
-*/
-let jsonStr = '{"a":1,"b":2}';
-let obj = JSON.parse(jsonStr); // {a: 1, b: 2}
-JSON.stringify(obj); // '{"a":1,"b":2}'
 
 //类型转换
 //num->str
