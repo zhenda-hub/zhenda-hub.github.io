@@ -194,7 +194,8 @@ sudo apt install gnome-sushi
 
 ```bash
 # 安装依赖
-sudo apt install fuse
+sudo apt install fuse3
+sudo apt install libfuse2
 
 chmod +x ./xxx.AppImage
 ./xxx.AppImage
@@ -221,7 +222,7 @@ flameshot gui
 
 #### wps
 
-有一些字体报错
+有一些字体报错， 需要安装字体包（在星火商店）
 
 ## 默认打开方式
 

@@ -214,6 +214,17 @@ class Point:
 ### 链表
 ### 树
 
+遍历方式
+
+
+| 中文名称 | 英文标准名称          | 别名/常见写法           | 访问顺序     |
+| :------- | :-------------------- | :---------------------- | :----------- |
+| 前序遍历 | Pre-order Traversal   | Preorder Traversal      | 根 → 左 → 右 |
+| 中序遍历 | In-order Traversal    | Inorder Traversal       | 左 → 根 → 右 |
+| 后序遍历 | Post-order Traversal  | Postorder Traversal     | 左 → 右 → 根 |
+| 层序遍历 | Level-order Traversal | Breadth-First Traversal | 按层从左到右 |
+
+
 ### heapq
 
 堆是一棵完全二叉树，满足：

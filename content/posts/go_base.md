@@ -279,12 +279,22 @@ make
 
 
 
-pointer
+指针 pointer
 
 ```go
 var x int = 10
 var p *int = &x
 fmt.Println(*p) // 输出 10
+
+
+func addOne(x *int) {
+    *x++
+}
+
+a := 10
+addOne(&a)
+// a == 11
+
 ```
 
 结构体
@@ -309,6 +319,9 @@ for v := range ch {
     fmt.Println(v)
 }
 ```
+
+**nil** 表示空值，专门用于指针、接口、切片、通道、映射和函数类型的零值（默认值）。
+简单来说：nil 就是“什么都没有”的意思，相当于其他语言里的 null 或 None（Python）。
 
 类型转换
 
