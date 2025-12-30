@@ -6,6 +6,15 @@ draft = false
 toc = true
 series = ["Python"]
 +++
+
+## 应用场景
+
+- 数据分析（几行代码处理Excel）
+- Web开发（Flask/Django）
+- 自动化脚本（批量处理文件、爬虫）
+- AI/机器学习（最强生态）
+
+
 ## python 数据类型
 
 和绝大多数的文件或编程语言一样

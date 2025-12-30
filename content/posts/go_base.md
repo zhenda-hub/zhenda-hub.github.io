@@ -9,6 +9,11 @@ tags = ["go"]
 
 [toc]
 
+## 应用场景
+
+Web 后端（高并发）     → Go（必选）
+命令行工具（发布）     → Go（体验好）
+
 ## 资料
 
 - <https://go.dev/doc/#references>
