@@ -64,7 +64,7 @@ js是弱类型的语言，运算时，自动转换类型
 ### 调试
 
 ```js
-console.log()
+console.log(`a:${a}, b:${b}`)
 console.dir()
 console.table()
 
@@ -157,6 +157,22 @@ TODO: 原型链
             为这个构造函数创建属性，方法
 使用方法
     Object.create({})
+
+
+```bash
+> let demo = [1,2,3,4,5]
+undefined
+> demo
+[ 1, 2, 3, 4, 5 ]
+> demo.splice(2,1)
+[ 3 ]
+> demo
+[ 1, 2, 4, 5 ]
+> demo.splice(1,2)
+[ 2, 4 ]
+> demo
+[ 1, 5 ]
+```
 
 ```js
 // Array
@@ -655,7 +671,6 @@ jq的DOM
 ajax
     ajax
         示例
-
         参数
             type
                 get
