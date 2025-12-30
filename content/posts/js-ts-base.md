@@ -121,6 +121,12 @@ y
 
 */
 
+jsdoc
+/**
+ * 
+ */
+
+
 // void
 <a href="javascript:void(document.form.submit())">Click here to submit</a>
 ```
@@ -703,9 +709,77 @@ ajax
 
 ## ts
 
-运行ts的方式:
+所有合法的 JavaScript 代码，直接复制粘贴到 .ts 文件里，就是合法的 TypeScript 代码；
+TS 只是比 JS 多了「类型注解」，其余写法完全一致
+
+
+
+### 类型注解
+
+常用的类型注解
+
+- string
+- number
+- boolean
+- unknown
+- void
+
+
+类型注解怎么使用？
+
+- 优先让 TypeScript 推断：在声明变量并直接赋值时，通常可以省略类型注解，让 TS 自动推断。
+- 明确函数签名
+  - 函数的参数和返回值类型建议明确标注。
+  - 空数组初始化
+
+### 运行
+
+TypeScript 源代码，它不能直接被执行，需要转换为 JavaScript
+
 
 ```bash
+# 无.js 文件生成，所有编译过程在内存中完成
 npm install -g ts-node
 ts-node xxxx.ts
+
+
+# .js 文件生成, node 运行 js
+npm install -g typescript
+tsc xxxx.ts
+node xxxx.js
 ```
+
+
+### ts特有语法
+
+接口（Interfaces）：定义对象的结构
+
+
+```typescript
+// 最直接的方式：使用接口 (Interface)，更易于复用
+interface User {
+  name: string;
+  age: number;
+  isStudent?: boolean; // 可选属性，用 ? 标记
+  readonly id: number; // 只读属性，初始化后不能修改
+}
+
+let user: Person = { name: '李四', age: 30, id: 1 };
+user.age = 31; // ✅ 可以修改
+user.id = 2; // ❌ 错误：id是只读的
+```
+
+泛型（Generics）：创建可复用的组件
+
+```typescript
+function identity<T>(arg: T): T {
+  return arg;
+}
+```
+
+枚举（Enums）：定义一组命名常量
+
+```typescript
+enum Color { Red, Green, Blue }
+```
+
