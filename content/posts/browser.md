@@ -28,3 +28,11 @@ tags = ['tools']
 | 刷新 | ctrl，r |  |
 | 硬刷新 | ctrl，shift，r | 开发 |
 | 开发者 | f12 |  |
+
+
+## 内存排查
+
+
+shift, esc 打开浏览器的管理器
+
+
