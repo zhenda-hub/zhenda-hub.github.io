@@ -181,7 +181,7 @@ echo 'export AAA=111' >> ~/.bashrc
 source ~/.bashrc
 
 # 删除
-unser AAA
+unset AAA
 
 ```
 
