@@ -143,7 +143,16 @@ graph TB
 
 ### 命令
 
-命令学习手册： man 命令。 可以查看命令的作用和相关参数
+命令学习手册,  可以查看命令的作用和相关参数
+
+```bash
+# man是自带的工具
+man zip
+
+# tlrc是另一个开源的命令学习手册
+brew install tlrc
+tlrc zip
+```
 
 命令的优势
 
