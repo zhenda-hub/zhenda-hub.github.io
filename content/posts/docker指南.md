@@ -609,6 +609,20 @@ docker-compose.yaml 的目的是编排多个服务(container)
 - 字典 k:v
 - 列表 -
 
+##### 坑
+
+YAML 有隐式类型推断
+👉 不同解析器行为还可能不一致
+
+YAML 看起来像配置，实际上是“弱脚本语言”
+
+
+```yaml
+enabled: yes     # 是 true
+version: 1.10    # 可能被当成 1.1
+time: 2025-01-01 # 自动变成 date
+```
+
 ##### yaml对比json
 
 | **特性**             | **YAML**      | **JSON**      |
