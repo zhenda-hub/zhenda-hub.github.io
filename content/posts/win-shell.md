@@ -24,6 +24,19 @@ set Path=xxx
 set Path=xxx;%Path%
 ```
 
+
+
+```cmd
+setx ANTHROPIC_AUTH_TOKEN <ARK_API_KEY>
+setx ANTHROPIC_BASE_URL https://ark.cn-beijing.volces.com/api/coding
+setx ANTHROPIC_MODEL <Model>
+
+echo %ANTHROPIC_AUTH_TOKEN%
+echo %ANTHROPIC_BASE_URL%
+echo %ANTHROPIC_MODEL%
+```
+
+
 windows powershell
 
 ```windows powershell
