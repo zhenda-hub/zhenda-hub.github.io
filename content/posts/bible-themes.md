@@ -2,7 +2,7 @@
 title = '圣经主题'
 subtitle = ""
 date = 2024-06-23T18:17:06+08:00
-draft = true
+draft = false
 toc = true
 tags = ['bible']
 +++

@@ -2,7 +2,7 @@
 title = 'Python Small Tools'
 subtitle = ""
 date = 2024-06-03T13:06:57+08:00
-draft = true
+draft = false
 toc = true
 series = ['python']
 +++

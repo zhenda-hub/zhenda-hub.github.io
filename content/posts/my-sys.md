@@ -2,9 +2,9 @@
 title = 'My Sys'
 subtitle = ""
 date = 2025-12-28T22:33:38+08:00
-draft = true
+draft = false
 toc = true
-series = []
+series = ['life']
 +++
 
 

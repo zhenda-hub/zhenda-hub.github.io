@@ -2,9 +2,9 @@
 title = 'Succulent'
 subtitle = ""
 date = 2026-01-03T12:28:30+08:00
-draft = true
+draft = false
 toc = true
-series = []
+series = ['life']
 +++
 
 ## 通用多肉养护口诀（很重要）
