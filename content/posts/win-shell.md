@@ -27,10 +27,13 @@ set Path=xxx;%Path%
 
 
 ```cmd
+# 系统级别的设置
+
 setx ANTHROPIC_AUTH_TOKEN <ARK_API_KEY>
 setx ANTHROPIC_BASE_URL https://ark.cn-beijing.volces.com/api/coding
 setx ANTHROPIC_MODEL <Model>
 
+# 查看
 echo %ANTHROPIC_AUTH_TOKEN%
 echo %ANTHROPIC_BASE_URL%
 echo %ANTHROPIC_MODEL%
