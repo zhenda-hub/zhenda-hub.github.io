@@ -102,7 +102,7 @@ pip install <package>
 
 
 
-### pip-tools
+### pip-tools + pipdeptree
 
 ```bash
 pip install pip-tools
@@ -137,7 +137,7 @@ CMD ["python", "main.py"]
 
 ```
 
-### pipdeptree
+pipdeptree:
 
 ```bash
 pip install pipdeptree
@@ -147,6 +147,9 @@ pipdeptree
 
 
 ### uv
+
+灵活切换python版本
+
 
 <https://github.com/astral-sh/uv?tab=readme-ov-file>
 <https://docs.astral.sh/uv/guides/migration/pip-to-project/#next-steps>
@@ -162,9 +165,14 @@ uv python install 3.12
 ```
 
 
+```bash
+uv pip tree
+```
+
 
 ```bash
-uv init
+# 制定项目最低的python版本
+uv init -p 3.8
 # 同步环境
 uv sync                    # 第一次会创建 .venv
 
