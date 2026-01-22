@@ -149,21 +149,32 @@ pipdeptree
 ### uv
 
 <https://github.com/astral-sh/uv?tab=readme-ov-file>
+<https://docs.astral.sh/uv/guides/migration/pip-to-project/#next-steps>
+
+
+```bash
+uv python -h
+uv python list
+# 最新python版本
+uv python install
+# 指定python版本创建项目
+uv python install 3.12
+```
 
 
 
 ```bash
-# 指定python版本创建项目
-uv init --python 3.9
+uv init
+# 同步环境
+uv sync                    # 第一次会创建 .venv
 
 # 管理包
 uv add requests
 uv remove requests
 
-# 同步环境
-uv sync                    # 第一次会创建 .venv
 
 # 运行python
+uv run python main.py
 uv run python --version
 
 
