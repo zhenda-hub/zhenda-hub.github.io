@@ -862,3 +862,18 @@ alias ll='cd /aa/bb/cc'
 alias
 ```
 
+
+
+
+怎么排查内存占用情况的历史
+
+```bash
+
+sudo apt install sysstat
+
+# 看昨天内存情况
+sar -r
+# ps aux --sort=-%mem | head
+sar -r -u -p
+ps aux --sort=-%mem | head
+```
