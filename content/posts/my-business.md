@@ -12,6 +12,11 @@ series = ['note']
 [toc]
 
 
+## 渠道
+
+upwork
+yama
+
 
 ## 发现真实痛点
 
