@@ -537,6 +537,18 @@ git push
 
 
 
+### GitHub 仓库重命名
+
+1. 在 GitHub 上重命名仓库：
+   - 访问 `https://github.com/yourusername/my-agent/settings`
+   - Repository name 改为 `book-rag`
+
+2. 更新本地仓库：
+   ```bash
+   git remote set-url origin git@github.com:yourusername/book-rag.git
+   git push -u origin main
+   ```
+
 
 
 
