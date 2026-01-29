@@ -550,21 +550,6 @@ git push
    ```
 
 
-### worktree
-
-```bash
-# 列出所有 worktree
-git worktree list
-
-git worktree add ../make-qr2-c1 c1
-
-# 删除 worktree（用完后）
-git worktree remove ../make-qr2-c1
-
-# 清理过期的 worktree
-git worktree prune
-
-```
 
 
 

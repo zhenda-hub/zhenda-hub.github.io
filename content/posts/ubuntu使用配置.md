@@ -192,6 +192,8 @@ sudo apt install gnome-sushi
 
 ### AppImage 类型的软件
 
+不好用，不如deb
+
 ```bash
 # 安装依赖
 sudo apt install fuse3
