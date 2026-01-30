@@ -40,6 +40,7 @@ $PSVersionTable 5.x.x
 ## powershell7
 
 跨平台shell， 需要商店单独安装
+
 ```powershell
 $PSVersionTable 7.x.x
 ```
@@ -55,6 +56,14 @@ $env:MY_VAR = "InitialValue"
 $env:MY_VAR = "InitialValue;$env:MY_VAR"
 $env:PYTHONPATH = "$env:PYTHONPATH;$(Get-Location)"
 rm env:MY_VAR
+
+
+[System.Environment]::SetEnvironmentVariable('ANTHROPIC_AUTH_TOKEN', '<ARK_API_KEY>', 'User')
+[System.Environment]::SetEnvironmentVariable('ANTHROPIC_BASE_URL', 'https://ark.cn-beijing.volces.com/api/coding', 'User')
+[System.Environment]::SetEnvironmentVariable('ANTHROPIC_MODEL', '<Model>', 'User')
+echo $env:ANTHROPIC_AUTH_TOKEN
+echo $env:ANTHROPIC_BASE_URL
+echo $env:ANTHROPIC_MODEL
 ```
 
 ### 查看自带缩写
