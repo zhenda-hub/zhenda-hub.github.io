@@ -32,6 +32,7 @@ $PSVersionTable 5.x.x
 ## powershell7
 
 跨平台shell， 需要商店单独安装
+
 ```powershell
 $PSVersionTable 7.x.x
 ```
@@ -48,6 +49,7 @@ $env:MY_VAR = "InitialValue"
 $env:MY_VAR += ";new_value"
 
 rm env:MY_VAR
+
 
 ```
 
