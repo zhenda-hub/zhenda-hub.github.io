@@ -838,6 +838,19 @@ driver_opts
 
 本地机器上可以切换 为使用远程电脑的docker. 据说比ssh 好用
 
+### 更新
+
+```bash
+
+docker pull nginx:latest
+docker stop 容器名
+docker rm 容器名
+docker run ...
+
+docker compose pull && docker compose up -d
+
+```
+
 ## 项目目录结构推荐
 
 每个服务都有自己的 **Dockerfile 和 .dockerignore**
