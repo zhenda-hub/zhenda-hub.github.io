@@ -17,17 +17,9 @@ set
 set Path
 
 set Path=xxx
-set Path=xxx;%Path%
+set Path=%Path%;xxx
 
-# 系统级别的设置
-setx ANTHROPIC_AUTH_TOKEN <ARK_API_KEY>
-setx ANTHROPIC_BASE_URL https://ark.cn-beijing.volces.com/api/coding
-setx ANTHROPIC_MODEL <Model>
-
-# 查看
-echo %ANTHROPIC_AUTH_TOKEN%
-echo %ANTHROPIC_BASE_URL%
-echo %ANTHROPIC_MODEL%
+set Path=
 ```
 
 ## windows powershell 5
@@ -48,22 +40,17 @@ $PSVersionTable 7.x.x
 
 ```powershell
 # 环境变量的增删改查
+
 ls env:
+ls env:MY_VAR*
 $env:MY_VAR
-Get-Command -Name node -All
 
 $env:MY_VAR = "InitialValue"
-$env:MY_VAR = "InitialValue;$env:MY_VAR"
-$env:PYTHONPATH = "$env:PYTHONPATH;$(Get-Location)"
+$env:MY_VAR += ";new_value"
+
 rm env:MY_VAR
 
 
-[System.Environment]::SetEnvironmentVariable('ANTHROPIC_AUTH_TOKEN', '<ARK_API_KEY>', 'User')
-[System.Environment]::SetEnvironmentVariable('ANTHROPIC_BASE_URL', 'https://ark.cn-beijing.volces.com/api/coding', 'User')
-[System.Environment]::SetEnvironmentVariable('ANTHROPIC_MODEL', '<Model>', 'User')
-echo $env:ANTHROPIC_AUTH_TOKEN
-echo $env:ANTHROPIC_BASE_URL
-echo $env:ANTHROPIC_MODEL
 ```
 
 ### 查看自带缩写

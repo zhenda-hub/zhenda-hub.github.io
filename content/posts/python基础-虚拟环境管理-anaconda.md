@@ -174,6 +174,7 @@ uv pip tree
 # 制定项目最低的python版本
 uv init -p 3.8
 # 同步环境
+uv venv -p 3.9
 uv sync                    # 第一次会创建 .venv
 
 # 管理包
