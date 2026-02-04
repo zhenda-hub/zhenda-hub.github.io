@@ -169,6 +169,7 @@ feature/xxx-bbb
 debug/xxx-bbb
 refactor/xxx-bbb
 docs/xxx-bbb
+tests/xxx-bbb
 
 backup/xxx-bbb
 tmp/xxx-bbb
