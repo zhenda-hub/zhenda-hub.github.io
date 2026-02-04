@@ -78,6 +78,8 @@ tags = ["git", "tools"]
 
 #### 配置个人信息
 
+~/.gitconfig
+
 ```bash
 # 查看 git 信息
 git config -l
@@ -86,8 +88,14 @@ git config --global user.name "Your Name"
 git config --global user.email "Your Email"
 # 禁止git改换行, (win, linux 换行符不同)
 git config --global core.autocrlf false
+# 多系统配置
+git config --global core.autocrlf input # linux
+git config --global core.autocrlf true # windows
 # 防止中文乱码！！！禁止git对非 ASCII 转义
 git config --global core.quotepath false
+
+# 撤销修改
+git config --global --unset core.quotepath
 ```
 
 #### 远程仓库
