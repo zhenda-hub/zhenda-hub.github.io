@@ -448,6 +448,16 @@ sudo swapon -a # 根据 /etc/fstab 启动， 系统开机会自动执行
 https://askubuntu.com/questions/178712/how-to-increase-swap-space
 https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F
 
+
+
+```bash
+# 用内存到90%。降低交换频率，防止嗡嗡响
+sudo nano /etc/sysctl.conf
+vm.swappiness=10
+
+sudo sysctl -p
+```
+
 ### 屏幕详情
 
 ```bash
