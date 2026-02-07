@@ -306,6 +306,16 @@ wsl -l -v
 wsl --set-default-version 2
 # 安装
 wsl --install
+
+sudo apt install -y git curl wget vim net-tools zip unzip
+
+# uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+nvm install --lts
+
 ```
 
 #### 开关
@@ -350,6 +360,10 @@ D 盘：/mnt/d
 ### 代码
 
 安装 Windows Terminal → 添加 WSL 配置，设置为默认终端
+```
+# 里面有settings.json, 出问题可以删除，使用默认配置
+C:\Users\xxxx\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
+```
 
 项目代码必须放在 WSL 内部路径（如 /home/user/projects），绝对不要放在 /mnt/c/ 下开发
 
@@ -433,4 +447,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.
 # 编辑 .zshrc，启用插件
 vim ~/.zshrc
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+```
+
+
+```bash
+# 修改默认shell
+chsh -s /bin/bash
+chsh -s /usr/bin/zsh
+
+
 ```
