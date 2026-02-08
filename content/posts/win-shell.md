@@ -271,6 +271,13 @@ https://blog.csdn.net/zt15732625878/article/details/80904437
 
 秒级启动：比虚拟机快 10 倍，资源占用低
 
+所有开发：全在 Linux 里跑
+
+效果是：
+- 系统炸的概率 直接腰斩
+- 内存管理好很多
+- 进程更可控
+
 ### 使用领域
 
 无缝协作：Windows 跑 IDE/浏览器/微信，WSL 跑服务/构建，剪贴板/网络互通
@@ -301,8 +308,7 @@ flowchart LR
 ### 安装
 
 ```powershell
-# 确认版本
-wsl -l -v
+# 设置默认版本为2
 wsl --set-default-version 2
 # 安装
 wsl --install
@@ -321,8 +327,17 @@ nvm install --lts
 #### 开关
 
 ```powershell
+# 查看
+wsl -l -v
+
+# 启动默认
+wsl
+#启动某一个发行版
 wsl -d Ubuntu
-# 停止WSL（节省资源）
+
+# 只关掉某一个发行版
+wsl --terminate Ubuntu-22.04
+# 全部关掉
 wsl --shutdown
 ```
 
