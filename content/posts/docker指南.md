@@ -1009,6 +1009,12 @@ $(date -u +"")
 
 ## 其余内容
 
+### ctop
+
+查看cpu mem 占用
+
+<https://github.com/bcicen/ctop>
+
 ### Buildx
 
 Buildx 是 Docker 的一个 CLI 插件，扩展了 docker build 命令的功能。它支持多平台构建、构建缓存、并行构建等高级功能

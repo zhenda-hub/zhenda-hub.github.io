@@ -429,10 +429,10 @@ free -h
 
 # off swap
 sudo swapoff -a
-sudo swapoff /swapfile
+sudo rm /swapfile
 
-# mk swap
-sudo dd if=/dev/zero of=/swapfile bs=1G count=32
+# mk swap, 设置和内存一样大，可以休眠到磁盘
+sudo dd if=/dev/zero of=/swapfile bs=1G count=16
 sudo chmod 0600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
