@@ -261,3 +261,214 @@ winget install git
 ## windows port
 
 https://blog.csdn.net/zt15732625878/article/details/80904437
+
+
+
+
+##  WSL2 当主开发环境
+
+### 优势
+
+秒级启动：比虚拟机快 10 倍，资源占用低
+
+所有开发：全在 Linux 里跑
+
+效果是：
+- 系统炸的概率 直接腰斩
+- 内存管理好很多
+- 进程更可控
+
+### 使用领域
+
+无缝协作：Windows 跑 IDE/浏览器/微信，WSL 跑服务/构建，剪贴板/网络互通
+
+
+```mermaid
+flowchart LR
+    subgraph W[Windows 主机]
+        A[VS Code / IDE<br>（作为代码编辑器前端）]
+        B[Windows 资源管理器<br>（用于文件拖放）]
+        C[Windows 终端]
+    end
+
+    subgraph L[WSL2 Linux 子系统]
+        D[Linux 文件系统<br>（存放所有项目代码）]
+        E[Node.js, Python, Java<br>等开发工具链]
+        F[Docker Engine<br>（容器化运行环境）]
+    end
+
+    A -- “通过 VS Code<br>Remote - WSL 扩展连接” --> L
+    B -- “通过 \\\\wsl$ 网络位置<br>访问与传输文件” --> D
+    C -- “运行 wsl 命令进入” --> L
+    
+    D <-->|高速读写| E
+    E <-->|构建与运行| F
+```
+
+### 安装
+
+```powershell
+# 设置默认版本为2
+wsl --set-default-version 2
+# 安装
+wsl --install
+
+sudo apt install -y git curl wget vim net-tools zip unzip
+
+# uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+nvm install --lts
+
+```
+
+#### 开关
+
+```powershell
+# 查看
+wsl -l -v
+
+# 启动默认
+wsl
+#启动某一个发行版
+wsl -d Ubuntu
+
+# 只关掉某一个发行版
+wsl --terminate Ubuntu-22.04
+# 全部关掉
+wsl --shutdown
+```
+
+#### 配置
+
+# C:\Users\你的用户名\.wslconfig
+
+```
+[wsl2]
+memory=12GB    # 限制最大占用内存，别给太多
+processors=6  # 限制 CPU 核心数
+swap=8GB      # 限制交换空间
+guiApplications=false # 如果不需要 Linux GUI 软件，关掉它省资源
+localhostForwarding=true
+```
+可以在 .wslconfig 中开启 networkingMode=mirrored。这样 WSL2 和 Windows 共享 IP 端口，彻底解决代理和 localhost 访问难题。
+
+
+Linux 内创建 /etc/wsl.conf（启用 systemd）：
+```
+[boot]
+systemd=true
+```
+
+重启 WSL 后，执行 systemctl status 验证可用性（MySQL/Redis 等服务可 systemctl 管理）
+
+### 目录互通
+
+从Windows访问Linux文件: \\wsl$
+从Linux访问Windows文件: /mnt/c/
+
+C 盘：/mnt/c
+D 盘：/mnt/d
+
+### 代码
+
+安装 Windows Terminal → 添加 WSL 配置，设置为默认终端
+```
+# 里面有settings.json, 出问题可以删除，使用默认配置
+C:\Users\xxxx\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
+```
+
+项目代码必须放在 WSL 内部路径（如 /home/user/projects），绝对不要放在 /mnt/c/ 下开发
+
+在WSL2终端中，进入你的项目目录（例如 cd ~/projects/my-app），然后输入 code . 命令。这会在Windows端自动启动VS Code，并将整个开发环境“附加”到WSL2中，所有插件和终端都将在Linux环境下运行
+
+
+
+### docker
+
+
+用 Docker Desktop
+
+点鲸鱼图标 → Settings（齿轮） → Resources → WSL Integration
+点 Apply & Restart（它会重启 Docker 引擎，几秒钟）
+
+
+不用 Docker Desktop
+
+```bash
+sudo apt install -y docker.io docker-compose-plugin
+sudo usermod -aG docker $USER
+
+
+curl -fsSL https://get.docker.com | sh
+
+```
+
+```bash
+sudo usermod -aG docker $USER  # 退出重进生效
+```
+
+验证：docker run hello-world
+
+
+
+
+
+### 导入导出
+
+```powershell
+# 导出到 tar 文件
+wsl --export Ubuntu Ubuntu-backup.tar
+# 导出为压缩格式（节省空间）
+wsl --export Ubuntu Backup-ubuntu.tar.gz
+
+# 恢复（换电脑/重装系统时）
+wsl --import Ubuntu D:\WSL\Ubuntu D:\backup\ubuntu.tar
+wsl --import MyDevEnv D:\wsl\MyDevEnv D:\backups\wsl-ubuntu-20240601.tar --version 2
+```
+
+导入后默认是root，需要设置用户
+```powershell
+# 进入 WSL
+wsl -d Ubuntu-New
+
+# 创建 /etc/wsl.conf
+sudo nano /etc/wsl.conf
+
+# 添加内容：
+[user]
+default=你的用户名
+
+# 保存后退出 WSL，然后重启
+wsl --terminate Ubuntu-New
+```
+
+
+
+### zsh
+
+```bash
+sudo apt install -y zsh
+# 安装 oh-my-zsh（自动设置 zsh 为默认 shell）
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+```bash
+# 可选：安装插件（语法高亮、自动补全）
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# 编辑 .zshrc，启用插件
+vim ~/.zshrc
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+```
+
+
+```bash
+# 修改默认shell
+chsh -s /bin/bash
+chsh -s /usr/bin/zsh
+
+
+```

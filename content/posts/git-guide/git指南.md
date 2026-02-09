@@ -497,7 +497,11 @@ Host github.com
     Hostname ssh.github.com
     Port 443
 ```
+验证
 
+```
+ssh -T git@github.com
+```
 ### Git Large File Storage
 
 <https://git-lfs.com/>

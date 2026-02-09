@@ -193,6 +193,12 @@ uv export -o requirements.txt
 
 # pylock.toml
 uv export -o pylock.toml
+
+
+ # 查看可更新的包
+ uv outdated
+ # 更新所有依赖到最新兼容版本
+ uv upgrade
 ```
 
 
