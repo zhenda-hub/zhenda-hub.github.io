@@ -283,6 +283,10 @@ series = ['bible']
 > 
 > *(2 Corinthians 3:6 NLT)*
 
+> For the Lord is the Spirit, and wherever the Spirit of the Lord is, there is freedom.
+> 
+> *(2 Corinthians 3:17 NLT)*
+
 
 > For we live by believing and not by seeing.
 > 
@@ -413,6 +417,11 @@ series = ['bible']
 
 
 ## 1 Peter
+
+> But you are not like that, for you are a chosen people, You are royal priests, a holy nation, God's very own possession. As a result, you can show others the goodness of God, for he called you out of the darkness into his wonderful light.
+> 
+> *(1 Peter 2:9 NLT)*
+
 
 > In the same way, you who are younger must accept the authority of the elders. And all of you, dress yourselves in humility as you relate to one another, for "God opposes the pround but gives grace to the humble."
 >
