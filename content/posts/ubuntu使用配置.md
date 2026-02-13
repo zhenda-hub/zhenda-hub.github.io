@@ -442,6 +442,25 @@ https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F
 
 #### zswap
 
+查看
+
+```bash
+# 是否开启
+cat /sys/module/zswap/parameters/enabled
+
+
+mount | grep debugfs
+# 如果没输出，挂载它（临时，重启失效）
+sudo mount -t debugfs none /sys/kernel/debug
+
+
+# 实时观察
+sudo grep -r . /sys/kernel/debug/zswap/
+watch -n 2 "sudo grep -r . /sys/kernel/debug/zswap/ | sed 's|.*/||'"
+```
+
+开启：
+
 ```bash
 sudo nano /etc/default/grub
 ```
