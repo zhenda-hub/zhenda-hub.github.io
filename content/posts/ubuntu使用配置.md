@@ -8,6 +8,7 @@ series = ["linux"]
 +++
 
 [toc]
+
 ## install tool
 
 apt
@@ -83,7 +84,6 @@ ibus restart
 ibus-setup
 ```
 
-
 ### 设置远程访问
 
 #### ssh 远程访问
@@ -113,9 +113,8 @@ exit
 scp ... ...
 ```
 
-
--  多用户访问
--  桌面远程访问
+- 多用户访问
+- 桌面远程访问
 
 ### settings
 
@@ -153,8 +152,7 @@ DNS:     8.8.8.8, 1.1.1.1
 
 ### 显示隐藏文件(.xxxxx)
 
-按 ctrl + h 
-
+按 ctrl + h
 
 ## 常用软件
 
@@ -163,6 +161,7 @@ DNS:     8.8.8.8, 1.1.1.1
 ```bash
 sudo apt install gnome-shell-extensions chrome-gnome-shell gnome-tweaks
 ```
+
 <https://extensions.gnome.org/>
 
 - lipboard Indicator
@@ -173,7 +172,6 @@ sudo apt install gnome-shell-extensions chrome-gnome-shell gnome-tweaks
 sudo apt install inetutils-traceroute
 sudo apt-get install gnome-shell-pomodoro
 ```
-
 
 ### preload
 
@@ -237,13 +235,11 @@ xdg-open .
 
 ## 使用技巧
 
-
 ### 右键添加文件
 
 <https://cn.linux-console.net/?p=18873>
 
 在 `~/Templates` 里面 放置一些想创建的文件, 右键就可以新建了
-
 
 ### open image
 
@@ -255,11 +251,11 @@ eog xxx.png
 
 ### 查看重启记录
 
-
 ```bash
 
 last reboot
 ```
+
 ```bash
 reboot   system boot  6.14.0-28-generi Tue Sep 23 00:14   still running
 reboot   system boot  6.14.0-28-generi Mon Sep 22 21:22 - 00:14  (02:52)
@@ -286,7 +282,6 @@ v2rayA
 X-ui面板
 
 ### 改server脚本
-
 
 ```bash
 #!/bin/bash
@@ -396,7 +391,6 @@ fi
 
 ```
 
-
 使用方法
 
 ```bash
@@ -418,9 +412,9 @@ server-mode desktop
 server-mode server
 ```
 
+### 内存扩充
 
-
-### resize mem swap
+#### resize memswap
 
 ```bash
 # look swap
@@ -443,17 +437,50 @@ sudo swapon -a # 根据 /etc/fstab 启动， 系统开机会自动执行
 
 ```
 
-
-
 https://askubuntu.com/questions/178712/how-to-increase-swap-space
 https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F
 
+#### zswap
 
+查看
 
 ```bash
-# 用内存到90%。降低交换频率，防止嗡嗡响
+# 是否开启
+cat /sys/module/zswap/parameters/enabled
+
+
+mount | grep debugfs
+# 如果没输出，挂载它（临时，重启失效）
+sudo mount -t debugfs none /sys/kernel/debug
+
+
+# 实时观察
+sudo grep -r . /sys/kernel/debug/zswap/
+watch -n 2 "sudo grep -r . /sys/kernel/debug/zswap/ | sed 's|.*/||'"
+```
+
+开启：
+
+```bash
+sudo nano /etc/default/grub
+```
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash zswap.enabled=1 zswap.compressor=zstd zswap.zpool=zsmalloc zswap.max_pool_percent=30"
+```
+
+```bash
+sudo update-grub
+sudo reboot
+```
+
+#### swappiness
+
+保持默认60. 如果想更多的用zswap, 需要加大数值
+
+```bash
 sudo nano /etc/sysctl.conf
-vm.swappiness=10
+vm.swappiness=60
 
 sudo sysctl -p
 ```
@@ -473,15 +500,12 @@ nameserver 8.8.8.8
 nameserver 8.8.4.4
 ```
 
-
-
 ### gnome
 
 ```bash
 # 重启
 sudo systemctl restart gdm
 ```
-
 
 ### X11 wayland 区别
 
@@ -497,7 +521,7 @@ echo $XDG_SESSION_TYPE
 sudo vi /etc/gdm3/custom.conf
 # wayland -> X11
 # 注意第7行是 #WaylandEnable=false，去掉注释，改成WaylandEnable=false，保存
-sudo systemctl restart gdm3 
+sudo systemctl restart gdm3
 ```
 
 ### 音频工具ffmpeg
@@ -506,8 +530,6 @@ sudo systemctl restart gdm3
 sudo apt install ffmpeg
 ffmpeg -i 音乐文件.mp3
 ```
-
-
 
 ## 常见问题
 
@@ -544,13 +566,9 @@ nmcli device wifi list
 
 ## 遗留问题
 
--   查看所有的 history
--   视频没有预览图
--   ping 很多网站不通
-
-
-
-
+- 查看所有的 history
+- 视频没有预览图
+- ping 很多网站不通
 
 ### sys update
 
@@ -562,7 +580,6 @@ nmcli device wifi list
 
 在更新您的软件包信息后，无法定位必要的软件包“ubuntu-minimal”。这可能是因为您没有在软件源中使用官方镜像，或您正在使用的镜像负载过重。请查看 /etc/apt/sources.list 文件了解软件源当前的配置列表。
 ```
-
 
 ```bash
 # 查看系统升级日志
@@ -578,7 +595,7 @@ do-release-upgrade -c
 # apt源 配置文件
 cat /etc/apt/sources.list
 # 查看所有第三方源
-ls /etc/apt/sources.list.d/   
+ls /etc/apt/sources.list.d/
 
 # 升级系统
 sudo apt update
@@ -595,9 +612,7 @@ sudo do-release-upgrade
 
 <https://www.ufans.top/index.php/archives/148/>
 
-
-
-## snap tracker 
+## snap tracker
 
 ```bash
 sudo systemctl stop snapd
