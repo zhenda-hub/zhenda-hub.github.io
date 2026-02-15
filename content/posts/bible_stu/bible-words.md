@@ -271,6 +271,10 @@ series = ['bible']
 > 
 > *(1 Corinthians 8:1-2 NLT)*
 
+> But there is one thing I want you to know: The head of every man is Christ, the head of woman is man, and the head of Christ is God.
+> 
+> *(1 Corinthians 11:3 NLT)*
+
 > So you see, just as death came into the world through a man, now the resurrection from the dead has begun through another man.
 >
 > **Just as everyone dies because we all belong to Adam, everyone who belongs to Christ will be given new life.**
