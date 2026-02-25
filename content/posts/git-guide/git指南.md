@@ -79,6 +79,7 @@ git config -l
 # 编辑个人信息来显示提交记录
 git config --global user.name "Your Name"
 git config --global user.email "Your Email"
+git config --global pull.rebase false
 # 禁止git改换行, (win, linux 换行符不同)
 git config --global core.autocrlf false
 # 多系统配置
