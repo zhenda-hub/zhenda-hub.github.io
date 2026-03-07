@@ -7,7 +7,6 @@ toc = true
 series = ['windows']
 +++
 
-
 ## cmd
 
 ```cmd
@@ -25,6 +24,7 @@ set Path=
 ## windows powershell 5
 
 windows自带 shell
+
 ```powershell
 $PSVersionTable 5.x.x
 ```
@@ -36,7 +36,6 @@ $PSVersionTable 5.x.x
 ```powershell
 $PSVersionTable 7.x.x
 ```
-
 
 ```powershell
 # 环境变量的增删改查
@@ -225,15 +224,11 @@ Alias           wjb -> Wait-Job
 Alias           write -> Write-Output
 ```
 
-
-
 ## 自动关联系统默认程序，快速打开
 
 ```cmd
 start .
 ```
-
-
 
 ## windows 命令行安装工具
 
@@ -243,11 +238,8 @@ start .
 | **Scoop**                            | PowerShell 一行 | 官方 bucket + 社区 bucket | 极简、无管理员权限 | 开发者 / 轻量使用者   | <https://github.com/ScoopInstaller/Scoop>                               |
 | **winget (Windows Package Manager)** | 系统预装        | Microsoft + 社区          | Windows 官方支持   | Windows 用户 / 企业   | <https://learn.microsoft.com/zh-cn/windows/package-manager/winget/help> |
 | **Ninite**                           | 安装器          | 官方精选                  | 最简单一次安装     | 新手 / 想一次安装应用 |                                                                         |
-| **AppGet** *(已合并到 winget)*       | CLI             | —                         | 过去的独立方案     | 曾用用户              |                                                                         |
+| **AppGet** _(已合并到 winget)_       | CLI             | —                         | 过去的独立方案     | 曾用用户              |                                                                         |
 | **NuGet**                            | CLI             | .NET 包（专注库）         | .NET 生态专业依赖  | .NET 开发者           |                                                                         |
-
-
-
 
 ```cmd
 scoop help
@@ -257,15 +249,22 @@ winget help
 winget install git
 ```
 
-
 ## windows port
 
 https://blog.csdn.net/zt15732625878/article/details/80904437
 
+## podman 模拟器
 
+和 Docker Desktop 一样 都要 wsl2 Hyper-V
 
+关闭hyper-v后, 模拟器很省内存(200MB).开启hyper-v, 模拟器很费内存(2000MB),有10倍的差距
 
-##  WSL2 当主开发环境
+```powershell
+bcdedit /set hypervisorlaunchtype auto
+bcdedit /set hypervisorlaunchtype off
+```
+
+## WSL2 当主开发环境
 
 ### 优势
 
@@ -274,6 +273,7 @@ https://blog.csdn.net/zt15732625878/article/details/80904437
 所有开发：全在 Linux 里跑
 
 效果是：
+
 - 系统炸的概率 直接腰斩
 - 内存管理好很多
 - 进程更可控
@@ -281,7 +281,6 @@ https://blog.csdn.net/zt15732625878/article/details/80904437
 ### 使用领域
 
 无缝协作：Windows 跑 IDE/浏览器/微信，WSL 跑服务/构建，剪贴板/网络互通
-
 
 ```mermaid
 flowchart LR
@@ -300,7 +299,7 @@ flowchart LR
     A -- “通过 VS Code<br>Remote - WSL 扩展连接” --> L
     B -- “通过 \\\\wsl$ 网络位置<br>访问与传输文件” --> D
     C -- “运行 wsl 命令进入” --> L
-    
+
     D <-->|高速读写| E
     E <-->|构建与运行| F
 ```
@@ -353,10 +352,11 @@ swap=8GB      # 限制交换空间
 guiApplications=false # 如果不需要 Linux GUI 软件，关掉它省资源
 localhostForwarding=true
 ```
+
 可以在 .wslconfig 中开启 networkingMode=mirrored。这样 WSL2 和 Windows 共享 IP 端口，彻底解决代理和 localhost 访问难题。
 
-
 Linux 内创建 /etc/wsl.conf（启用 systemd）：
+
 ```
 [boot]
 systemd=true
@@ -375,6 +375,7 @@ D 盘：/mnt/d
 ### 代码
 
 安装 Windows Terminal → 添加 WSL 配置，设置为默认终端
+
 ```
 # 里面有settings.json, 出问题可以删除，使用默认配置
 C:\Users\xxxx\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState
@@ -384,16 +385,12 @@ C:\Users\xxxx\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\Loc
 
 在WSL2终端中，进入你的项目目录（例如 cd ~/projects/my-app），然后输入 code . 命令。这会在Windows端自动启动VS Code，并将整个开发环境“附加”到WSL2中，所有插件和终端都将在Linux环境下运行
 
-
-
 ### docker
-
 
 用 Docker Desktop
 
 点鲸鱼图标 → Settings（齿轮） → Resources → WSL Integration
 点 Apply & Restart（它会重启 Docker 引擎，几秒钟）
-
 
 不用 Docker Desktop
 
@@ -412,10 +409,6 @@ sudo usermod -aG docker $USER  # 退出重进生效
 
 验证：docker run hello-world
 
-
-
-
-
 ### 导入导出
 
 ```powershell
@@ -430,6 +423,7 @@ wsl --import MyDevEnv D:\wsl\MyDevEnv D:\backups\wsl-ubuntu-20240601.tar --versi
 ```
 
 导入后默认是root，需要设置用户
+
 ```powershell
 # 进入 WSL
 wsl -d Ubuntu-New
@@ -444,8 +438,6 @@ default=你的用户名
 # 保存后退出 WSL，然后重启
 wsl --terminate Ubuntu-New
 ```
-
-
 
 ### zsh
 
@@ -463,7 +455,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.
 vim ~/.zshrc
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 ```
-
 
 ```bash
 # 修改默认shell
