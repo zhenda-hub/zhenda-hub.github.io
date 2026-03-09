@@ -253,16 +253,20 @@ winget install git
 
 https://blog.csdn.net/zt15732625878/article/details/80904437
 
-## podman 模拟器
-
-和 Docker Desktop 一样 都要 wsl2 Hyper-V
+## 模拟器
 
 关闭hyper-v后, 模拟器很省内存(200MB).开启hyper-v, 模拟器很费内存(2000MB),有10倍的差距
 
 ```powershell
+# 开
 bcdedit /set hypervisorlaunchtype auto
+# 关
 bcdedit /set hypervisorlaunchtype off
 ```
+
+## podman
+
+和 Docker Desktop 一样 都要 wsl2 Hyper-V
 
 ## WSL2 当主开发环境
 
