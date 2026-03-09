@@ -310,6 +310,14 @@ flowchart LR
 
 ### 安装
 
+系统需要开启虚拟化, cpu:虚拟化已启用
+
+按 Win + R 输入 optionalfeatures.exe
+确保以下选项已勾选：
+✅ Hyper-V
+✅ 虚拟机平台 (Virtual Machine Platform)
+✅ Windows Subsystem for Linux
+
 ```powershell
 # 设置默认版本为2
 wsl --set-default-version 2
