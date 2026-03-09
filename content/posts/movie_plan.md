@@ -23,6 +23,8 @@ series = ['videos']
 
 Win11 可按 **Win+Alt+B** 一键切换 HDR 状态
 
+Windows 11自带HDR截图 仅Win11支持: 1. 按 Win+Shift+S 2. 在截图菜单中选择 "HDR"
+
 ### 杜比全景声 / DTS:X
 
 买耳机
