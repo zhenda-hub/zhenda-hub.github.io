@@ -21,7 +21,7 @@ series = ['videos']
 
 显示器: 开启HDR(系统,软件联合设置),Bypass
 
-Win11 可按 Win+Alt+B 一键切换 HDR 状态
+Win11 可按 **Win+Alt+B** 一键切换 HDR 状态
 
 ### 杜比全景声 / DTS:X
 
