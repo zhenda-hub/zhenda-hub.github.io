@@ -4,7 +4,7 @@ subtitle = ""
 date = 2026-03-02T12:13:39+08:00
 draft = true
 toc = true
-series = []
+series = ["tech"]
 +++
 
 ## 简介

@@ -4,14 +4,13 @@ subtitle = ""
 date = 2025-02-07T12:19:54+08:00
 draft = false
 toc = true
-series = ["python"]
+series = ["tech"]
 tags = ["python", "sql"]
 +++
 
 - <https://docs.sqlalchemy.org/en/20/orm/quickstart.html>
 - <https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html#one-to-many>
 - <https://docs.sqlalchemy.org/en/20/orm/queryguide/select.html>
-
 
 ```
 本身知识点
