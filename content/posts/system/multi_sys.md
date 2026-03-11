@@ -4,26 +4,25 @@ subtitle = ""
 date = 2025-02-06T23:26:55+08:00
 draft = false
 toc = true
-series = ["server"]
+series = ["system"]
 +++
 
 ## 系统
 
 - 虚拟系统
-  - PVE!!!!
-    - pvesource
-  - ESXi
-  - 虚拟软件
-    - virtualbox
-    - vmware
+    - PVE!!!!
+        - pvesource
+    - ESXi
+    - 虚拟软件
+        - virtualbox
+        - vmware
 - 其他系统
-  - win
-  - linux
-  - firPE
-  - UNRAID
-  - iKuai
-  - OpenWRT
-
+    - win
+    - linux
+    - firPE
+    - UNRAID
+    - iKuai
+    - OpenWRT
 
 ## 系统安装
 
@@ -31,45 +30,44 @@ series = ["server"]
 
 - ETCHER
 - ventoy!!!! , 开源
-  - 作用
-    - 为主机安装多系统
-    - 把多系统装进U盘
-  - iso, img
-
+    - 作用
+        - 为主机安装多系统
+        - 把多系统装进U盘
+    - iso, img
 
 ### 固件引导方式和固件引导程序
 
 计算机在加载操作系统之前，由底层固件（固件就是存储在主板上、在系统上电时最先运行的软件）来初始化硬件、检测系统状态和加载引导加载器的过程
 
 - BIOS
-  - xorboot
-  - grub
-    - grub2win
-    - grub4dos
+    - xorboot
+    - grub
+        - grub2win
+        - grub4dos
 - UEFI
-  - refind
-
+    - refind
 
 ### virtualbox
 
 <https://www.virtualbox.org/wiki/Downloads>
 
 扩展插件:
+
 - VirtualBox Guest Additions
 - VirtualBox Extension Pack
 
 <https://www.cnblogs.com/litifeng/p/18193323#:~:text=VirtualBox%20Extension%20Pack&text=VirtualBox%20RDP%E6%94%AF%E6%8C%81%EF%BC%9AExtension%20Pack,%E7%8E%AF%E5%A2%83%E7%9A%84%E5%9C%BA%E6%99%AF%E9%9D%9E%E5%B8%B8%E6%9C%89%E7%94%A8%E3%80%82>
-
 
 #### ubuntu 上使用 virtualbox的问题:
 
 Q: 创建虚拟机报错
 A: 关闭 Secure Boot
 
-Q: 
+Q:
 VirtualBox is not currently allowed to access USB devices. You can change this by adding your user to the 'vboxusers' group. Please see the user manual for a more detailed explanation.
 
 A:
+
 ```bash
 getent group vboxusers
 gpasswd -a $USER vboxusers
@@ -85,43 +83,41 @@ A:
 
 #### windows 上使用 virtualbox的问题:
 
-
 Q: 虚拟化报错
 A:
+
 ```cmd
 sc.exe query vboxsup
 sc start vboxsup
 ```
 
-
 #### 网络
 
-| 类型 | 特点 |
-|---|---|
-| nat | 其他设备不可以访问虚拟机, 其余都可以访问 |
-| 桥接 | 其他设备可以访问虚拟机 |
-| 内部网络 | 只供虚拟机之间的连接, 不能联网 |
-| host only | 只供虚拟机之间的连接, 不能联网 |
+| 类型      | 特点                                     |
+| --------- | ---------------------------------------- |
+| nat       | 其他设备不可以访问虚拟机, 其余都可以访问 |
+| 桥接      | 其他设备可以访问虚拟机                   |
+| 内部网络  | 只供虚拟机之间的连接, 不能联网           |
+| host only | 只供虚拟机之间的连接, 不能联网           |
 
-
-U盘改文件系统 ntfs 
+U盘改文件系统 ntfs
 
 d 为实际盘符
-```cmd 
+
+```cmd
 convert d:/fs:ntfs
 ```
 
 #### 虚拟机网络
 
-| 类型 | 特点 |
-|---|---|
-| nat | 其他设备不可以访问虚拟机, 其余都可以访问 |
-| 桥接 | 其他设备可以访问虚拟机 |
-| 内部网络 | 只供虚拟机之间的连接, 不能联网 |
-| host only | 只供虚拟机之间的连接, 不能联网 |
-
+| 类型      | 特点                                     |
+| --------- | ---------------------------------------- |
+| nat       | 其他设备不可以访问虚拟机, 其余都可以访问 |
+| 桥接      | 其他设备可以访问虚拟机                   |
+| 内部网络  | 只供虚拟机之间的连接, 不能联网           |
+| host only | 只供虚拟机之间的连接, 不能联网           |
 
 ### 虚拟机扩容
 
 1. 设置磁盘大小
-2. 
+2.

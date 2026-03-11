@@ -5,15 +5,15 @@ date = 2024-10-30T19:06:51+08:00
 draft = true
 toc = true
 tags = []
+series = ["system"]
 +++
-
 
 ## 随时随地访问
 
 - ddns, 路由器, 域名
 - 内网穿透
-  - ngrok
-  - frp
+    - ngrok
+    - frp
 
 ## 其他
 
