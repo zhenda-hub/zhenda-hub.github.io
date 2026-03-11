@@ -354,7 +354,7 @@ wsl --shutdown
 
 #### 配置
 
-# C:\Users\你的用户名\.wslconfig
+C:\Users\你的用户名\.wslconfig
 
 ```
 [wsl2]
@@ -363,6 +363,7 @@ processors=6  # 限制 CPU 核心数
 swap=8GB      # 限制交换空间
 guiApplications=false # 如果不需要 Linux GUI 软件，关掉它省资源
 localhostForwarding=true
+networkingMode=mirrored
 ```
 
 可以在 .wslconfig 中开启 networkingMode=mirrored。这样 WSL2 和 Windows 共享 IP 端口，彻底解决代理和 localhost 访问难题。
@@ -375,6 +376,20 @@ systemd=true
 ```
 
 重启 WSL 后，执行 systemctl status 验证可用性（MySQL/Redis 等服务可 systemctl 管理）
+
+
+#### WSL2 networkingMode 模式
+
+模式对比
+
+| 模式 | 说明 | localhost 互通 | 开发便利性 |
+|------|------|---------------|-----------|
+| `NAT`（默认） | WSL2 通过 NAT 连接 Windows 网络 | 部分支持，不稳定 | ⭐⭐ |
+| `mirrored` | 共享 Windows 网络栈 | ✅ 完全互通 | ⭐⭐⭐⭐⭐ |
+| `bridged` | WSL2 桥接到物理网卡，获得独立 IP | ❌ 需手动配置 | ⭐⭐⭐ |
+| `virtioproxy` | 高性能虚拟网络（实验性） | 部分 | ⭐⭐ |
+
+
 
 ### 目录互通
 
