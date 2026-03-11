@@ -5,14 +5,15 @@ date = 2024-09-25T17:17:57+08:00
 draft = false
 toc = true
 tags = ["go"]
+series = ["programming_language"]
 +++
 
 [toc]
 
 ## 应用场景
 
-Web 后端（高并发）     → Go（必选）
-命令行工具（发布）     → Go（体验好）
+Web 后端（高并发） → Go（必选）
+命令行工具（发布） → Go（体验好）
 
 ## 资料
 
@@ -27,8 +28,9 @@ Web 后端（高并发）     → Go（必选）
 用于管理项目的依赖关系。它们共同保证了项目的构建过程的可靠性和可重复性
 
 go 版本切换
--  gvm
--  asdf
+
+- gvm
+- asdf
 
 ## go env
 
@@ -80,7 +82,6 @@ PKG_CONFIG='pkg-config'
 GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build2891050929=/tmp/go-build -gno-record-gcc-switches'
 ```
 
-
 ```bash
 echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bashrc
 source ~/.bashrc
@@ -101,7 +102,7 @@ go env -w GOSUMDB=off
 ## 交互式环境（REPL）
 
 - The Go Playground: https://go.dev/play/
-- gore 
+- gore
 
 ```bash
 go install github.com/x-motemen/gore/cmd/gore@latest
@@ -154,6 +155,7 @@ sudo tar -C /usr/local -xzf go1.21.0.linux-amd64.tar.gz
 #### 切换版本：修改PATH环境变量
 
 1. 使用命令直接切换
+
 ```bash
 export PATH="/usr/local/go1.21.0/bin:$PATH"
 ```
@@ -174,7 +176,6 @@ go version
 ```bash
 source switch-go.sh 1.21.0
 ```
-
 
 ## 常用命令
 
@@ -219,7 +220,6 @@ func main() {
 
 变量
 
-
 ```go
 /*
 这是一个多行注释
@@ -228,7 +228,7 @@ func main() {
 
 // 单行注释
 
-/* 
+/*
 - rune 用于表示 字符（尤其是 Unicode 字符），是 32 位 的带符号整数。
 - byte 是 uint8 的别名，表示无符号的 8 位整数，范围从 0 到 255。用于表示 字节，它是 8 位 无符号整数，通常用于处理 ASCII 字符和原始二进制数据。
 */
@@ -241,6 +241,7 @@ name := "Alice" // 简短变量声明
 ```
 
 数组, 固定长度, 几乎不怎么用
+
 ```go
 var arr [5]int = [5]int{1, 2, 3, 4, 5}
 arr[2] = 10
@@ -259,7 +260,6 @@ data := [][]any{
 }
 
 ```
-
 
 ```go
 // 数字固定, 不常用
@@ -281,8 +281,6 @@ delete(m, "age")
 
 make
 `make([]T, length, capacity)` 用于创建切片、映射和通道
-
-
 
 指针 pointer
 
@@ -346,10 +344,10 @@ if v, ok := data[0][0].(int); ok {
 
 ## 函数
 
-
 控制逻辑
 
 for
+
 ```go
 // 相当于 python 的 enumerate
 for index, value := range arr {
@@ -363,6 +361,7 @@ for i := 0; i < 5; i++ {
 ```
 
 if
+
 ```go
 if x > 10 {
     fmt.Println("x is greater than 10")
@@ -421,29 +420,29 @@ xxx 就是包名, 基本等于文件夹名
 
 ## 常用工具包
 
-| 包名           | 功能           | 常用函数                          |
-| :------------- | :------------- | :-------------------------------- |
-| fmt            | 格式化输入输出 | Println, Printf, Sprintf          |
-| strings        | 字符串处理     | Split, Contains, Replace, ToLower |
-| strconv        | 字符串转换     | Atoi, ParseInt, Itoa, FormatInt   |
-| math           | 数学函数       | Max, Min, Sqrt, Pow, Abs          |
-| os             | 操作系统接口   | Open, Create, ReadFile, WriteFile |
-| io             | 输入输出接口   | Reader, Writer, Copy              |
-| log            | 日志记录       | Println, Fatal, Panic             |
-| time           | 时间处理       | Now, Sleep, Parse, Format         |
-| sort           | 排序           | Ints, Strings, Sort, Reverse      |
-| errors         | 错误处理       | New, Is, As                       |
-| bufio          | 缓冲 I/O       | Scanner, Reader, Writer           |
-| json           | JSON 处理      | Marshal, Unmarshal                |
-| encoding/json | JSON 编码和解码 | Marshal, Unmarshal                |
-| encoding/xml  | XML 编码和解码  | Marshal, Unmarshal                |
-| encoding/csv  | CSV 编码和解码  | NewReader, NewWriter              |
-| container/list | 链表           | New, PushBack, Remove             |
-| container/heap | 堆             | Push, Pop, Init                   |
-| net/http      | HTTP 客户端和服务器 | Get, Post, ListenAndServe         |
-| net/url      | URL 解析和构建 | Parse, URL, QueryEscape          |
-| context        | 上下文管理     | Background, WithCancel, WithTimeout |
-| database/sql   | 数据库操作     | Open, Query, Exec                 |
+| 包名           | 功能                | 常用函数                            |
+| :------------- | :------------------ | :---------------------------------- |
+| fmt            | 格式化输入输出      | Println, Printf, Sprintf            |
+| strings        | 字符串处理          | Split, Contains, Replace, ToLower   |
+| strconv        | 字符串转换          | Atoi, ParseInt, Itoa, FormatInt     |
+| math           | 数学函数            | Max, Min, Sqrt, Pow, Abs            |
+| os             | 操作系统接口        | Open, Create, ReadFile, WriteFile   |
+| io             | 输入输出接口        | Reader, Writer, Copy                |
+| log            | 日志记录            | Println, Fatal, Panic               |
+| time           | 时间处理            | Now, Sleep, Parse, Format           |
+| sort           | 排序                | Ints, Strings, Sort, Reverse        |
+| errors         | 错误处理            | New, Is, As                         |
+| bufio          | 缓冲 I/O            | Scanner, Reader, Writer             |
+| json           | JSON 处理           | Marshal, Unmarshal                  |
+| encoding/json  | JSON 编码和解码     | Marshal, Unmarshal                  |
+| encoding/xml   | XML 编码和解码      | Marshal, Unmarshal                  |
+| encoding/csv   | CSV 编码和解码      | NewReader, NewWriter                |
+| container/list | 链表                | New, PushBack, Remove               |
+| container/heap | 堆                  | Push, Pop, Init                     |
+| net/http       | HTTP 客户端和服务器 | Get, Post, ListenAndServe           |
+| net/url        | URL 解析和构建      | Parse, URL, QueryEscape             |
+| context        | 上下文管理          | Background, WithCancel, WithTimeout |
+| database/sql   | 数据库操作          | Open, Query, Exec                   |
 
 ```go
 import (
