@@ -61,6 +61,7 @@ from multiprocessing import Queue # 同一台机器内（多进程）
 
 # 多服务器, 分布式, 可视化管理界面: RabbitMQ、Redis
 ```
+
 deque 来自 collections 模块，是一个 双端队列，支持：
 两端都能高效插入/删除（O(1)）
 底层用双向链表实现。
@@ -69,56 +70,6 @@ deque 来自 collections 模块，是一个 双端队列，支持：
 
 - 当主要在 两端操作（队列、滑动窗口） 时 → 用 deque
 - 当主要是 随机访问、排序、索引 时 → 用 list
-
-
-
-####  番外: 并发逻辑
-
-共享资源修改 = 串行；并行修改 = 数据竞态 = 不安全。
-
-python
-
-多人同时编辑文档，需要锁
-```mermaid
-
-sequenceDiagram
-    participant T1 as Thread-1
-    participant T2 as Thread-2
-    participant T3 as Thread-3
-    participant R as Results[List]
-
-    T1->>R: lock() + append(result1) + unlock()
-    T2->>R: lock() + append(result2) + unlock()
-    T3->>R: lock() + append(result3) + unlock()
-
-
-```
-
-
-go 
-
-只有一个人编辑，别人写信告诉他
-
-结果管理者 goroutine 串行处理消息
-
-**其余步骤是并发的,结果写入是串行**
-
-```mermaid
-sequenceDiagram
-    participant G1 as Goroutine-1
-    participant G2 as Goroutine-2
-    participant G3 as Goroutine-3
-    participant M as ManagerGoroutine
-
-    G1->>M: send(result1) via channel
-    G2->>M: send(result2) via channel
-    G3->>M: send(result3) via channel
-
-    M->>M: append result1 to list
-    M->>M: append result2 to list
-    M->>M: append result3 to list
-
-```
 
 
 ### 哈希表
