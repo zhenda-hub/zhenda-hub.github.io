@@ -36,7 +36,7 @@ home = ["HTML", "JSON", "RSS"]
 # taxonomy = ['html']
 # term = ['html']
 
-# prevent build failures when using Hugo's template _internal/opengraph.html 
+# prevent build failures when using Hugo's template _internal/opengraph.html
 [taxonomies]
 category = "categories"
 tag = "tags"
@@ -138,9 +138,9 @@ rss = true
 name = "John Doe"
 url = "https://gohugo.io"
 
-[[params.friends]]
-name = "Guo Qiang"
-url = "https://www.kumao.cool"
+# [[params.friends]]
+# name = "Guo Qiang"
+# url = "https://www.kumao.cool"
 
 [[params.friends]]
 name = "梅塔沃克 - 专注跨境"
