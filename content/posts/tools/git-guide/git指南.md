@@ -16,39 +16,39 @@ tags = ["git", "tools"]
 ## git 重要概念
 
 - commit
-  - 以 commit 节点为根基, 记录历史, 当前 commit 为 HEAD
+    - 以 commit 节点为根基, 记录历史, 当前 commit 为 HEAD
 - branch
-  - 分支实际上是可移动的指针, 代表一系列commit
-  - 用于并行开发
-  - 创建删除非常轻量
+    - 分支实际上是可移动的指针, 代表一系列commit
+    - 用于并行开发
+    - 创建删除非常轻量
 - 代码仓库
-  - 远程仓库
-    - 部署在服务器中，供用户访问
-  - 本地仓库
-    - 信息都存放在 **.git文件夹** 里面， **.git文件夹** 所在的文件夹就是仓库
+    - 远程仓库
+        - 部署在服务器中，供用户访问
+    - 本地仓库
+        - 信息都存放在 **.git文件夹** 里面， **.git文件夹** 所在的文件夹就是仓库
 
 ## git 远程仓库平台
 
 - github
-  - 最强大的国际git平台，海量的优秀仓库
-  - actions
-    - CICD
-  - pages
-    - 静态网页部署
-    - 编写 md 发布到全网
+    - 最强大的国际git平台，海量的优秀仓库
+    - actions
+        - CICD
+    - pages
+        - 静态网页部署
+        - 编写 md 发布到全网
 
-  - railway
-    - 部署 web 项目
+    - railway
+        - 部署 web 项目
 
 - gitlab
-  - 支持自建远程仓库
-    - https://docs.gitlab.com/ee/update/package/#upgrade-using-the-official-repositories
-  - ci/cd
+    - 支持自建远程仓库
+        - https://docs.gitlab.com/ee/update/package/#upgrade-using-the-official-repositories
+    - ci/cd
 
 - gitee
-  - 国内使用方便
-  - CICD
-    - 需要自己弄服务器
+    - 国内使用方便
+    - CICD
+        - 需要自己弄服务器
 
 ## 大体流程
 
@@ -421,45 +421,45 @@ git submodule update --remote --rebase
 ### ci/cd
 
 - 概念
-  - 自动测试/自动部署
+    - 自动测试/自动部署
 - 实现原理
-  - 使用命令自动化执行任务
+    - 使用命令自动化执行任务
 - 流程
-  - 工具
-    - travis ci
-    - github
-      - actions
-        - 自动推送
-    - gitee
-    - gitlab
-  - 配置文件
-  - 触发条件
-    - 提交代码
-    - 定时
+    - 工具
+        - travis ci
+        - github
+            - actions
+                - 自动推送
+        - gitee
+        - gitlab
+    - 配置文件
+    - 触发条件
+        - 提交代码
+        - 定时
 - ci
-  - 开发和代码前通过测试用例
-  - yaml
-    - stages
-    - beforescript
-      - stage
-      - script
-        - test1
-        - test2
-      - tags
-      - artifacts
-        - when
-          - on_success
-          - always
-        - paths
-      - allow_failure
-      - retry
-        - 2
-      - only
+    - 开发和代码前通过测试用例
+    - yaml
+        - stages
+        - beforescript
+            - stage
+            - script
+                - test1
+                - test2
+            - tags
+            - artifacts
+                - when
+                    - on_success
+                    - always
+                - paths
+            - allow_failure
+            - retry
+                - 2
+            - only
 - cd
-  - 推送部署
-    - 服务器
-    - 第三方平台
-  - 回滚
+    - 推送部署
+        - 服务器
+        - 第三方平台
+    - 回滚
 
 ### 使用ssh, 免密码访问
 
@@ -534,23 +534,28 @@ git push
 
 - 提交 issue
 - 提交代码
-  - fork
-  - 在分支编写代码
-  - pull request
+    - fork
+    - 在分支编写代码
+    - pull request
 - 检查代码
-  - review pr
+    - review pr
 
 ### GitHub 仓库重命名
 
 1. 在 GitHub 上重命名仓库：
-   - 访问 `https://github.com/yourusername/my-agent/settings`
-   - Repository name 改为 `book-rag`
+    - 访问 `https://github.com/yourusername/my-agent/settings`
+    - Repository name 改为 `book-rag`
 
 2. 更新本地仓库：
-   ```bash
-   git remote set-url origin git@github.com:yourusername/book-rag.git
-   git push -u origin main
-   ```
+    ```bash
+    git remote set-url origin git@github.com:yourusername/book-rag.git
+    git push -u origin main
+    ```
+
+### github 工具
+
+deepwiki.com
+gitingest.com
 
 ````
 
