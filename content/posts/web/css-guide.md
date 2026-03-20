@@ -15,40 +15,39 @@ series = ['web']
 
 ## 常用属性
 
-| 属性                  | 描述                                                         | 类型 |
-|-----------------------|--------------------------------------------------------------| --- |
-| `color`               | 设置文本颜色                                                  | `color` |
-| `text-decoration`     | 设置文本装饰（如下划线、删除线等）                             |  |
-| `text-align`          | 设置文本对齐方式                                               |  |
-| `font-family`         | 设置字体族系                                                   | `font` |
-| `font-size`           | 设置字体大小                                                   |  |
-| `font-weight`         | 设置字体粗细                                                   |  |
-| `line-height`         | 设置行高                                                       |  |
-| `letter-spacing`      | 设置字符间距                                                   |  |
-| `background-color`    | 设置背景颜色                                                   | `background` |
-| `background-image`    | 设置背景图片                                                   |  |
-| `background-size`     | 设置背景图片大小                                               |  |
-| `margin`              | 外边距                                                     | `margin` |
-| `padding`             | 内边距                                                     | `padding` |
-| `border`              | 边框                                                       | `border` |
-| `width`               | 设置宽度                                                       |  |
-| `height`              | 设置高度                                                       |  |
-| `display`             | 元素的显示方式（如block、inline、flex、none等）      | `display` |
-| `position`            | 元素的定位方式（static、relative、absolute、fixed等）       |  `position`   |
-| `top`, `right`, `bottom`, `left` | 设置定位元素的位置                                  | |
-| `float`               | 设置浮动                                                       |  |
-| `clear`               | 清除浮动效果                                                   |  |
-| `flex-direction`      | 设置Flexbox布局的主轴方向                                      |  |
-| `justify-content`     | 设置Flexbox布局主轴上子元素的对齐方式                            |  |
-| `align-items`         | 设置Flexbox布局交叉轴上子元素的对齐方式                          |  |
-| `grid-template-columns`, `grid-template-rows` | 设置Grid布局的列和行的大小和数量         |         |
-| `grid-column`, `grid-row` | 设置Grid布局元素所占的列和行范围                             |  |
-| `transition`          | 设置过渡效果                                                   |  |
-| `animation`           | 设置动画效果                                                   |  |
-| `box-shadow`          | 设置阴影效果                                                   |  |
-| `overflow`            | 设置元素内容溢出效果(scroll, hidden, visible)                  | `overflow` |
-| `opacity`             | 设置透明度                                                     | `opacity` |
-
+| 属性                                          | 描述                                                  | 类型         |
+| --------------------------------------------- | ----------------------------------------------------- | ------------ |
+| `color`                                       | 设置文本颜色                                          | `color`      |
+| `text-decoration`                             | 设置文本装饰（如下划线、删除线等）                    |              |
+| `text-align`                                  | 设置文本对齐方式                                      |              |
+| `font-family`                                 | 设置字体族系                                          | `font`       |
+| `font-size`                                   | 设置字体大小                                          |              |
+| `font-weight`                                 | 设置字体粗细                                          |              |
+| `line-height`                                 | 设置行高                                              |              |
+| `letter-spacing`                              | 设置字符间距                                          |              |
+| `background-color`                            | 设置背景颜色                                          | `background` |
+| `background-image`                            | 设置背景图片                                          |              |
+| `background-size`                             | 设置背景图片大小                                      |              |
+| `margin`                                      | 外边距                                                | `margin`     |
+| `padding`                                     | 内边距                                                | `padding`    |
+| `border`                                      | 边框                                                  | `border`     |
+| `width`                                       | 设置宽度                                              |              |
+| `height`                                      | 设置高度                                              |              |
+| `display`                                     | 元素的显示方式（如block、inline、flex、none等）       | `display`    |
+| `position`                                    | 元素的定位方式（static、relative、absolute、fixed等） | `position`   |
+| `top`, `right`, `bottom`, `left`              | 设置定位元素的位置                                    |              |
+| `float`                                       | 设置浮动                                              |              |
+| `clear`                                       | 清除浮动效果                                          |              |
+| `flex-direction`                              | 设置Flexbox布局的主轴方向                             |              |
+| `justify-content`                             | 设置Flexbox布局主轴上子元素的对齐方式                 |              |
+| `align-items`                                 | 设置Flexbox布局交叉轴上子元素的对齐方式               |              |
+| `grid-template-columns`, `grid-template-rows` | 设置Grid布局的列和行的大小和数量                      |              |
+| `grid-column`, `grid-row`                     | 设置Grid布局元素所占的列和行范围                      |              |
+| `transition`                                  | 设置过渡效果                                          |              |
+| `animation`                                   | 设置动画效果                                          |              |
+| `box-shadow`                                  | 设置阴影效果                                          |              |
+| `overflow`                                    | 设置元素内容溢出效果(scroll, hidden, visible)         | `overflow`   |
+| `opacity`                                     | 设置透明度                                            | `opacity`    |
 
 ## 布局
 
@@ -57,15 +56,17 @@ series = ['web']
 - <https://www.w3schools.com/Css/css_positioning.asp>
 
 display
+
 - block 块
 - inline 行内
 - none 隐藏
 
 position
+
 - static 默认位置
 - relative 相对于默认位置
 - absolute 相对于最近定位的祖先
-- fixed  相对于视图
+- fixed 相对于视图
 
 ## 优先级
 
@@ -89,3 +90,12 @@ position
 ```
 
 链接 <https://www.yisu.com/jc/119190.html>
+
+## 浏览器调试
+
+User Agent Stylesheet 是浏览器自带的默认 CSS 样式表。每个浏览器（Chrome、Firefox、Safari
+等）都有自己的默认样式，用于在没有任何自定义 CSS 时给 HTML 元素提供基础样式。
+
+- margin
+- border
+- padding
