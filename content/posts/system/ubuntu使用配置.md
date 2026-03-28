@@ -538,8 +538,8 @@ ffmpeg -i 音乐文件.mp3
 loginctl list-sessions
 
 # 结束session
-loginctl terminate-session 894
-loginctl terminate-user tmp
+loginctl terminate-session <id>
+loginctl terminate-user <user>
 
 
 ```
