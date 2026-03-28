@@ -531,6 +531,19 @@ sudo apt install ffmpeg
 ffmpeg -i 音乐文件.mp3
 ```
 
+### 多用户
+
+```bash
+# 查看session
+loginctl list-sessions
+
+# 结束session
+loginctl terminate-session 894
+loginctl terminate-user tmp
+
+
+```
+
 ## 常见问题
 
 ### 无法打开terminal
