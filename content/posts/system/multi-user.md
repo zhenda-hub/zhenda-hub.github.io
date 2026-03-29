@@ -11,6 +11,11 @@ series = ["system"]
 
 电脑全面支持
 
+```txt
+windows 软件安装在个人目录, 则为私有软件
+共有软件安装在 C:\Program Files
+```
+
 ## pad
 
 部分安卓支持
