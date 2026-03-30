@@ -4,7 +4,7 @@ subtitle = "客户与开发者合作注册微信小程序流程"
 date = 2026-03-31T00:21:10+08:00
 draft = false
 toc = true
-series = []
+series = ["web"]
 +++
 
 ## 微信小程序注册限制
