@@ -42,6 +42,80 @@ series = []
 |                       |                                                 | 2. UA 校验 + 行为风控                              |
 |                       |                                                 | 3. 隐藏敏感接口                                    |
 
+## 防护策略
+
+### IP黑名单,设备黑名单
+
+IP 黑名单：攻击者换个 VPN / 代理就绕过
+设备黑名单：指纹浏览器能绕过
+
+日志记录
+
+设备
+地理位置
+ip
+path
+query
+status
+user_agent
+
+### 进阶思路
+
+不是“封人”，而是：降低攻击成功率 + 提高攻击成本
+
+```txt
+用户访问
+↓
+Cloudflare（CDN + WAF + 速率限制 + DDoS 清洗 + 隐藏源IP）
+↓
+Nginx（仅允许 Cloudflare IP 访问 + 多网站分发 + 二次安全拦截）
+↓
+后端服务
+
+- site1: 127.0.0.1:8001
+- site2: 127.0.0.1:8002
+- site3: 127.0.0.1:8003
+- site4: 127.0.0.1:8004
+- site5: 127.0.0.1:8005
+```
+
+监控：Cloudflare Dashboard 查看攻击日志 + Nginx access.log + 应用日志
+
+####
+
+- Cloudflare: CDN + WAF + Rate Limit
+- 路径穿越（必须修）严格控制目录访问权限
+- 配置自动备份（每天备份到异地）
+
+## Cloudflare（CDN + WAF + Rate Limit + DDoS防护）
+
+Cloudflare 隐藏你的真实服务器IP
+Cloudflare 必须有域名, 把域名解析到 CDN 节点. 开启 CDN 代理（橙色云朵）
+服务器防火墙：只允许 CDN 节点 IP 访问，拒绝所有其他 IP
+
+假设你的域名：xxx.com5 个网站用子域名区分：
+site1.xxx.com → 指向你的服务器 IP
+site2.xxx.com → 同上
+
+DNS & 代理模式：所有域名 DNS 都走 Cloudflare（橙云标），隐藏真实服务器 IP
+
+Cloudflare：DDoS缓解、全球CDN、WAF规则、Rate Limit（免费版即可）
+
+关键：Nginx 只监听 127.0.0.1 或 Unix Socket，公网 80/443 端口完全由 Cloudflare 接管，防止直接访问绕过 WAF。
+
+### Django 生产环境关键设置
+
+在 settings.py 中，必须修改以下配置以保证安全：
+
+CSRF Token 防止跨站请求伪造 中
+关闭错误回显 生产环境不显示报错信息，防止信息泄露 低
+DEBUG = False: 绝对不能在线上开启调试模式，这会暴露大量敏感信息。
+
+cors
+ALLOWED_HOSTS: 必须设置，指定允许访问的域名或 IP，防止 HTTP Host 头攻击。
+
+SECRET_KEY: 从环境变量或文件中读取，绝不能硬编码在代码里。
+
 ## 日志统计：
 
 主要包含恶意扫描的404访问记录
