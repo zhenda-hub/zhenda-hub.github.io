@@ -1,2 +1,11 @@
 public/
 resources/
+
+# Hugo
+.hugo_build.lock
+
+# Playwright MCP
+.playwright-mcp/
+
+# Claude
+.claude/
