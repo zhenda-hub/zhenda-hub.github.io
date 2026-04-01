@@ -456,6 +456,11 @@ series = ['bible']
 >
 > _(1 John 3:9-10 NLT)_
 
+> Dear children, let's not merely say that we love each other; let us show the truth by our actions.
+>
+> Our actions will show that we belong to the truth, so we will be confident when we stand before God.
+>
+> _(1 John 3:18-19 NLT)_
 <!-- > “不经一番寒彻骨，怎得梅花扑鼻香。”
 >
 > **—— 黄檗禅师**
