@@ -1,0 +1,33 @@
+# -- Theme Options --
+colorScheme = "blowfish"
+defaultAppearance = "light"
+autoSwitchAppearance = true
+
+enableSearch = true
+enableCodeCopy = true
+keywords = ["blog", "developer", "personal"]
+
+[header]
+  layout = "fixed"
+
+[homepage]
+  layout = "profile"
+  showRecent = true
+  showRecentItems = 999
+  cardView = true
+
+[article]
+  showDate = true
+  showAuthor = true
+  showReadingTime = true
+  showWordCount = true
+  showHeadingAnchors = true
+  showTaxonomies = true
+  showTableOfContents = true
+  showBreadcrumbs = true
+  showComments = true
+
+[list]
+  groupByYear = true
+  cardView = true
+  showSummary = true

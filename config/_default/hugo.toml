@@ -1,0 +1,27 @@
+# -- Site Configuration --
+baseURL = "https://zhenda-hub.github.io/"
+defaultContentLanguage = "en"
+theme = "blowfish"
+enableRobotsTXT = true
+pagination.pagerSize = 10
+summaryLength = 0
+hasCJKLanguage = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+[markup]
+  [markup.highlight]
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    style = "xcode"
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
