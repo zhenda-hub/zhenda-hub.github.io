@@ -7,6 +7,8 @@ toc = true
 series = ['bible']
 +++
 
+![神学方法论](featured.jpg)
+
 ## Theology（神学）的重要分支
 
 | 类型                             | 关注点                     |
@@ -29,6 +31,8 @@ series = ['bible']
 - 以经解经（Analogy of Faith）：用清楚的经文解释不清楚的经文；圣经整体一致，无矛盾。
 - 作者意图优先：先问“作者想说什么？”，而不是“我觉得是什么”。
 - 体裁尊重：叙事当叙事读、诗歌当诗歌读、比喻当比喻读、预言当预言读。
+
+![释经学](image1.jpg)
 
 ## 系统神学 (Systematic Theology)
 
@@ -55,3 +59,7 @@ series = ['bible']
 - 教会治理 (Ecclesiology in practice)： 涉及教会的组织架构、领导力开发以及如何处理行政事务。
 - 基督教伦理学 (Christian Ethics)： 探讨在复杂社会问题（如AI伦理、环境、社会正义）中，信仰该如何表态。
 - 礼仪学 (Liturgiology)： 研究崇拜仪式、洗礼、圣餐的编排及其背后的神学意义。
+
+
+![实践神学](image2.jpg)
+
