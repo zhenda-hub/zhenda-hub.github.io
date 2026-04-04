@@ -1,5 +1,20 @@
 # -- Theme Options --
 colorScheme = "blowfish"
+# autumn
+# avocado
+# bloody
+# blowfish
+# congo
+# fire
+# forest
+# github
+# marvel
+# neon
+# noir
+# one-light
+# princess
+# slate
+# terminal
 defaultAppearance = "light"
 autoSwitchAppearance = true
 
@@ -11,10 +26,11 @@ keywords = ["blog", "developer", "personal"]
   layout = "fixed"
 
 [homepage]
-  layout = "profile"
+  layout = "page"
   showRecent = true
-  showRecentItems = 999
+  showRecentItems = 9
   cardView = true
+  showMoreLink = true
 
 [article]
   showDate = true

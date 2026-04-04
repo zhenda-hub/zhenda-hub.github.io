@@ -3,7 +3,7 @@ baseURL = "https://zhenda-hub.github.io/"
 defaultContentLanguage = "en"
 theme = "blowfish"
 enableRobotsTXT = true
-pagination.pagerSize = 10
+pagination.pagerSize = 6
 summaryLength = 0
 hasCJKLanguage = true
 
@@ -17,10 +17,11 @@ hasCJKLanguage = true
 
 [markup]
   [markup.highlight]
-    lineNos = true
+    lineNos = false
     lineNumbersInTable = true
     noClasses = false
     style = "xcode"
+    tabWidth = 2
 
   [markup.goldmark]
     [markup.goldmark.renderer]
