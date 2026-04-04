@@ -7,6 +7,8 @@ toc = true
 series = ["web"]
 +++
 
+![微信小程序合作流程](featured.jpg)
+
 ## 微信小程序注册限制
 
 | 主体类型                  | 可注册小程序数量上限 | 备注                        |
@@ -84,6 +86,8 @@ series = ["web"]
 2. 在微信中确认接受邀请
 3. 登录 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) 验证权限
 
+![微信小程序开发](image1.jpg)
+
 ---
 
 ### 阶段四：备案（2025新规）
@@ -112,6 +116,8 @@ series = ["web"]
 - 提供必要的设计素材、文案
 - 测试体验版并反馈
 - 审核通过后正式发布
+
+![团队协作](image2.jpg)
 
 ---
 
