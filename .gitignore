@@ -8,4 +8,4 @@ resources/
 .playwright-mcp/
 
 # Claude
-.claude/
+.claude/settings.local.json
