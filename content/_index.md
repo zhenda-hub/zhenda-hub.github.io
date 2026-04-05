@@ -1,5 +1,7 @@
 +++
-author = "Hugo Authors"
+author = "Zhenda"
 +++
 
-Home Index Content
+## 欢迎来到我的博客
+
+这里是 **Zhenda** 的个人博客，记录我在编程、技术和生活中的思考与探索。

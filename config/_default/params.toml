@@ -24,9 +24,16 @@ keywords = ["blog", "developer", "personal"]
 
 [header]
   layout = "fixed"
+  # basic、fixed、fixed-fill、and fixed-fill-blur
 
 [homepage]
   layout = "page"
+  # profile
+  # page
+  # hero
+  # background
+  # card
+
   showRecent = true
   showRecentItems = 9
   cardView = true
