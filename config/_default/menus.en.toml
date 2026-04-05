@@ -9,6 +9,11 @@
   weight = 20
 
 [[main]]
+  name = "Stats"
+  pageRef = "/posts/blog-stats/"
+  weight = 25
+
+[[main]]
   name = "About"
   pageRef = "/about/"
   weight = 30
