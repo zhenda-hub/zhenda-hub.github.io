@@ -1,5 +1,5 @@
 +++
-title = 'Wechat App'
+title = '微信小程序合作流程'
 subtitle = "客户与开发者合作注册微信小程序流程"
 date = 2026-03-31T00:21:10+08:00
 draft = false
@@ -7,7 +7,6 @@ toc = true
 series = ["web"]
 +++
 
-![微信小程序合作流程](featured.jpg)
 
 ## 微信小程序注册限制
 

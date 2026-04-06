@@ -1,5 +1,5 @@
 +++
-title = 'Methods'
+title = 'Theology（神学）的重要分支'
 subtitle = ""
 date = 2026-03-16T21:45:01+08:00
 draft = false
@@ -7,7 +7,6 @@ toc = true
 series = ['bible']
 +++
 
-![神学方法论](featured.jpg)
 
 ## Theology（神学）的重要分支
 
@@ -59,7 +58,3 @@ series = ['bible']
 - 教会治理 (Ecclesiology in practice)： 涉及教会的组织架构、领导力开发以及如何处理行政事务。
 - 基督教伦理学 (Christian Ethics)： 探讨在复杂社会问题（如AI伦理、环境、社会正义）中，信仰该如何表态。
 - 礼仪学 (Liturgiology)： 研究崇拜仪式、洗礼、圣餐的编排及其背后的神学意义。
-
-
-![实践神学](image2.jpg)
-

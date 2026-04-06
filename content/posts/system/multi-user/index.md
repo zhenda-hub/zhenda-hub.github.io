@@ -1,5 +1,5 @@
 +++
-title = 'Multi User'
+title = '电子设备的多用户模式整理'
 subtitle = ""
 date = 2026-03-28T21:07:46+08:00
 draft = false
@@ -7,7 +7,6 @@ toc = true
 series = ["system"]
 +++
 
-![多用户系统](featured.jpg)
 
 ## pc
 
@@ -35,7 +34,6 @@ series = ["system"]
 部分安卓支持
 ipad不支持
 
-![移动设备](image2.jpg)
 
 ## phone
 
