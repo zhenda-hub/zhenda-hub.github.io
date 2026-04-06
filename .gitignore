@@ -9,3 +9,6 @@ resources/
 
 # Claude
 .claude/settings.local.json
+
+# Firebase configuration (sensitive data)
+config/production/

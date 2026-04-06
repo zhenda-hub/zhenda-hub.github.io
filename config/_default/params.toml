@@ -49,8 +49,24 @@ keywords = ["blog", "developer", "personal"]
   showTableOfContents = true
   showBreadcrumbs = true
   showComments = true
+  showViews = true
+  showLikes = true
 
 [list]
   groupByYear = true
   cardView = true
   showSummary = true
+  showViews = true
+  showLikes = true
+
+# Firebase configuration for views and likes
+# Get your config from: https://console.firebase.google.com/
+# Project settings → General → Your apps → Web app
+[firebase]
+  apiKey = "YOUR_API_KEY"
+  authDomain = "YOUR_PROJECT_ID.firebaseapp.com"
+  projectId = "YOUR_PROJECT_ID"
+  storageBucket = "YOUR_PROJECT_ID.appspot.com"
+  messagingSenderId = "YOUR_SENDER_ID"
+  appId = "YOUR_APP_ID"
+  # measurementId = "YOUR_MEASUREMENT_ID"  # Optional
