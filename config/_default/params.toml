@@ -51,7 +51,13 @@ keywords = ["blog", "developer", "personal"]
   showComments = true
   showViews = true
   showLikes = true
-
+  showPagination = false
+  showZenMode = true
+  # seriesOpened = false
+  showHero = true
+  heroStyle = "big"
+  # basic、big、background、thumbAndBackground
+  # showEdit = true
 [list]
   groupByYear = true
   cardView = true
