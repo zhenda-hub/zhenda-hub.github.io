@@ -1,3 +1,13 @@
++++
+title = 'Blowfish 布局说明'
+subtitle = '页面布局与组件介绍'
+date = 2025-04-06T00:00:00+08:00
+draft = false
+toc = true
+tags = ['Hugo', 'Blowfish']
+series = ['Hugo Blowfish 指南']
++++
+
 # Blowfish 布局配置
 
 ## Homepage Layout（主页布局）

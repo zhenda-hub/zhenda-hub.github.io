@@ -1,3 +1,13 @@
++++
+title = 'Hugo 主题对比'
+subtitle = '各主题功能对比分析'
+date = 2025-04-06T00:00:00+08:00
+draft = false
+toc = true
+tags = ['Hugo', '主题', '对比']
+series = ['Hugo Blowfish 指南']
++++
+
 # Hugo 主题对比分析
 
 本文档记录了项目中各 Hugo 主题的版本兼容性和功能对比分析。

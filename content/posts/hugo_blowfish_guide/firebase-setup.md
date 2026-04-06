@@ -1,3 +1,13 @@
++++
+title = 'Firebase 集成指南'
+subtitle = '添加页面浏览和点赞功能'
+date = 2025-04-06T00:00:00+08:00
+draft = false
+toc = true
+tags = ['Hugo', 'Blowfish', 'Firebase']
+series = ['Hugo Blowfish 指南']
++++
+
 # Firebase 配置指南
 
 本指南帮助你配置 Firebase 以启用文章浏览数和点赞功能。Blowfish 主题已内置 Firebase 支持，使用 Firebase v9 ES modules 实现。

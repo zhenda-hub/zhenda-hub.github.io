@@ -1,3 +1,13 @@
++++
+title = 'Blowfish 迁移记录'
+subtitle = '从其他主题迁移到 Blowfish'
+date = 2025-04-06T00:00:00+08:00
+draft = false
+toc = true
+tags = ['Hugo', 'Blowfish', '迁移']
+series = ['Hugo Blowfish 指南']
++++
+
 # Blowfish 迁移特性对比
 
 | 特性 | puppet_zd | Blowfish | 迁移注意 |

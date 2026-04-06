@@ -4,7 +4,8 @@ subtitle = '设置文章大标题而非使用文件名'
 date = 2025-04-06T00:00:00+08:00
 draft = false
 toc = true
-tags = ['Hugo', '文档']
+tags = ['Hugo', 'Blowfish']
+series = ['Hugo Blowfish 指南']
 +++
 
 ## 概述

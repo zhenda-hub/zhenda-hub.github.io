@@ -1,3 +1,13 @@
++++
+title = 'Hugo 缓存问题'
+subtitle = '解决构建缓存相关问题'
+date = 2025-04-06T00:00:00+08:00
+draft = false
+toc = true
+tags = ['Hugo', '缓存']
+series = ['Hugo Blowfish 指南']
++++
+
 # Hugo 缓存清理
 
 ## 禁用缓存重新运行

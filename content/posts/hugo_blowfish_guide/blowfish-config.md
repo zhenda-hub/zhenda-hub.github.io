@@ -1,3 +1,13 @@
++++
+title = 'Blowfish 配置指南'
+subtitle = '主题配置选项详解'
+date = 2025-04-06T00:00:00+08:00
+draft = false
+toc = true
+tags = ['Hugo', 'Blowfish']
+series = ['Hugo Blowfish 指南']
++++
+
 # Blowfish 配置选项
 
 | 配置项 | 当前值 | 可选值 | 说明 |
