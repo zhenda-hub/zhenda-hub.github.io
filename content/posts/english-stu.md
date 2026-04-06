@@ -7,4 +7,4 @@ toc = true
 tags = ['subjects']
 +++
 
-<zhenda-hub.github.io/english-note/>
+[english-note](https://zhenda-hub.github.io/english-note/)
