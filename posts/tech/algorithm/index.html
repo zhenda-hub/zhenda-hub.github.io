@@ -1,0 +1,821 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Algorithm | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content="数据结构和算法[toc]
+重要性面试需要: 公司不在乎False Negative（漏才）：他们有无限备选，宁可错杀1000，不愿放过1个“潜在隐患”。
+时间复杂度大O表示法 (Big O notation): 会忽略常数项、低阶项和系数。例如，一个算法的执行次数是 3n² + 2n + 5，其时间复杂度为 O(n2)
+结构类型 代码示例 复杂度 口诀 常数操作 return arr[0] O(1) 直接返回 → 常数时间 两指针线性扫 i, j 向前推进一次 O(n) 每元素访问一次 单层循环 for i in range(n) O(n) 一层遍历 → 线性 双层循环 嵌套两层循环 O(n²) 二层嵌套 → 平方 三层循环 嵌套三层循环 O(n³) 三层嵌套 → 立方 二分查找 while left < right: mid = (left + right) // 2 O(log n) 每次折半 → 对数 分治算法（如快排） 递归 T(n)=2T(n/2)+O(n) O(n log n) 分治递归 → n log n 递归（斐波那契） fibonacci(n) O(2ⁿ) 每次分支翻倍 → 指数时间 全排列 permute(nums) O(n!"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Algorithm"><meta name=twitter:description content="数据结构和算法[toc]
+重要性面试需要: 公司不在乎False Negative（漏才）：他们有无限备选，宁可错杀1000，不愿放过1个“潜在隐患”。
+时间复杂度大O表示法 (Big O notation): 会忽略常数项、低阶项和系数。例如，一个算法的执行次数是 3n² + 2n + 5，其时间复杂度为 O(n2)
+结构类型 代码示例 复杂度 口诀 常数操作 return arr[0] O(1) 直接返回 → 常数时间 两指针线性扫 i, j 向前推进一次 O(n) 每元素访问一次 单层循环 for i in range(n) O(n) 一层遍历 → 线性 双层循环 嵌套两层循环 O(n²) 二层嵌套 → 平方 三层循环 嵌套三层循环 O(n³) 三层嵌套 → 立方 二分查找 while left < right: mid = (left + right) // 2 O(log n) 每次折半 → 对数 分治算法（如快排） 递归 T(n)=2T(n/2)+O(n) O(n log n) 分治递归 → n log n 递归（斐波那契） fibonacci(n) O(2ⁿ) 每次分支翻倍 → 指数时间 全排列 permute(nums) O(n!"><meta property="og:url" content="https://zhenda-hub.github.io/posts/tech/algorithm/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="Algorithm"><meta property="og:description" content="数据结构和算法[toc]
+重要性面试需要: 公司不在乎False Negative（漏才）：他们有无限备选，宁可错杀1000，不愿放过1个“潜在隐患”。
+时间复杂度大O表示法 (Big O notation): 会忽略常数项、低阶项和系数。例如，一个算法的执行次数是 3n² + 2n + 5，其时间复杂度为 O(n2)
+结构类型 代码示例 复杂度 口诀 常数操作 return arr[0] O(1) 直接返回 → 常数时间 两指针线性扫 i, j 向前推进一次 O(n) 每元素访问一次 单层循环 for i in range(n) O(n) 一层遍历 → 线性 双层循环 嵌套两层循环 O(n²) 二层嵌套 → 平方 三层循环 嵌套三层循环 O(n³) 三层嵌套 → 立方 二分查找 while left < right: mid = (left + right) // 2 O(log n) 每次折半 → 对数 分治算法（如快排） 递归 T(n)=2T(n/2)+O(n) O(n log n) 分治递归 → n log n 递归（斐波那契） fibonacci(n) O(2ⁿ) 每次分支翻倍 → 指数时间 全排列 permute(nums) O(n!"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-12-24T11:08:01+08:00"><meta property="article:modified_time" content="2024-12-24T11:08:01+08:00"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/invest/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/sqlalchemy-stu/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/decentralization/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/docker%E6%8C%87%E5%8D%97/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8C%87%E5%8D%97/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8C%87%E5%8D%97/"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags></div><h1>Algorithm</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Tue, Dec 24, 2024</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><h1 id=数据结构和算法>数据结构和算法<a class=anchorjs-link href=#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e5%92%8c%e7%ae%97%e6%b3%95></a></h1><p>[toc]</p><h2 id=重要性>重要性<a class=anchorjs-link href=#%e9%87%8d%e8%a6%81%e6%80%a7></a></h2><p>面试需要: 公司不在乎False Negative（漏才）：他们有无限备选，宁可错杀1000，不愿放过1个“潜在隐患”。</p><h2 id=时间复杂度>时间复杂度<a class=anchorjs-link href=#%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6></a></h2><p>大O表示法 (Big O notation): 会忽略常数项、低阶项和系数。例如，一个算法的执行次数是 3n² + 2n + 5，其时间复杂度为 O(n2)</p><table><thead><tr><th>结构类型</th><th>代码示例</th><th>复杂度</th><th>口诀</th></tr></thead><tbody><tr><td>常数操作</td><td><code>return arr[0]</code></td><td>O(1)</td><td>直接返回 → 常数时间</td></tr><tr><td>两指针线性扫</td><td><code>i</code>, <code>j</code> 向前推进一次</td><td>O(n)</td><td>每元素访问一次</td></tr><tr><td>单层循环</td><td><code>for i in range(n)</code></td><td>O(n)</td><td>一层遍历 → 线性</td></tr><tr><td>双层循环</td><td>嵌套两层循环</td><td>O(n²)</td><td>二层嵌套 → 平方</td></tr><tr><td>三层循环</td><td>嵌套三层循环</td><td>O(n³)</td><td>三层嵌套 → 立方</td></tr><tr><td>二分查找</td><td><code>while left &lt; right: mid = (left + right) // 2</code></td><td>O(log n)</td><td>每次折半 → 对数</td></tr><tr><td>分治算法（如快排）</td><td>递归 T(n)=2T(n/2)+O(n)</td><td>O(n log n)</td><td>分治递归 → n log n</td></tr><tr><td>递归（斐波那契）</td><td><code>fibonacci(n)</code></td><td>O(2ⁿ)</td><td>每次分支翻倍 → 指数时间</td></tr><tr><td>全排列</td><td><code>permute(nums)</code></td><td>O(n!)</td><td>每个元素都排列一次 → 阶乘</td></tr></tbody></table><h2 id=空间复杂度>空间复杂度<a class=anchorjs-link href=#%e7%a9%ba%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6></a></h2><h2 id=数据结构>数据结构<a class=anchorjs-link href=#%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84></a></h2><h3 id=数组>数组<a class=anchorjs-link href=#%e6%95%b0%e7%bb%84></a></h3><p>字符串:</p><ul><li>回文: 回文的倒序等于回文</li><li>子串(substring): 连续的</li><li>子序列(subsequence): 不连续，但相对顺序要保持一致</li></ul><h3 id=队列>队列<a class=anchorjs-link href=#%e9%98%9f%e5%88%97></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># 算法题</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>collections</span> <span style=color:#a90d91>import</span> <span style=color:#000>deque</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 单机</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>queue</span> <span style=color:#a90d91>import</span> <span style=color:#000>Queue</span> <span style=color:#177500># 同一个进程内（多线程）</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>multiprocessing</span> <span style=color:#a90d91>import</span> <span style=color:#000>Queue</span> <span style=color:#177500># 同一台机器内（多进程）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 多服务器, 分布式, 可视化管理界面: RabbitMQ、Redis</span>
+</span></span></code></pre></td></tr></table></div></div><p>deque 来自 collections 模块，是一个 双端队列，支持：
+两端都能高效插入/删除（O(1)）
+底层用双向链表实现。
+支持索引，但中间插入/删除效率低（O(n)）。</p><ul><li>当主要在 两端操作（队列、滑动窗口） 时 → 用 deque</li><li>当主要是 随机访问、排序、索引 时 → 用 list</li></ul><h3 id=哈希表>哈希表<a class=anchorjs-link href=#%e5%93%88%e5%b8%8c%e8%a1%a8></a></h3><p>key -> <strong>哈希函数</strong> -> 哈希值 确定<strong>寻址表</strong>的存储位置
+哈希表的 key 必须是“可哈希”的（即能够生成哈希值）。</p><p>哈希函数的常用方法:</p><ul><li>除留余数法<ul><li>对寻址表长度取余</li><li>对最大的质数取余<ul><li>减少偶数的哈希冲突</li></ul></li><li>直接定址法<ul><li>关键字分步均匀的情况下使用</li></ul></li><li>数字分析法</li></ul></li><li>平方取中法</li></ul><p>哈希冲突: 得到的地址是重复的
+解决方法:</p><ul><li>开链表法<ul><li>出现哈希冲突就添加节点</li><li>java的hashmap</li></ul></li><li>开放寻址法<ul><li>线性探测<ul><li>i+1,i+2&mldr;</li><li>查找效率低下</li><li>删除需要逻辑删除，不能置空</li></ul></li><li>平方探测<ul><li>1^2, -1^2，2^2， -2^2， 3^2， -3^2&mldr;</li><li>出现哈希冲突就把地址加上平方数，继续哈希函数处理</li><li>需要寻址表的长度是4i+3</li></ul></li><li>双重哈希<ul><li>再来一次哈希</li></ul></li></ul></li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>collections</span> <span style=color:#a90d91>import</span> <span style=color:#000>Counter</span> <span style=color:#177500># 统计元素频率</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>collections</span> <span style=color:#a90d91>import</span> <span style=color:#000>OrderedDict</span> <span style=color:#177500># 保持插入顺序的字典</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>collections</span> <span style=color:#a90d91>import</span> <span style=color:#000>defaultdict</span> <span style=color:#177500># 给 dict 提供默认值</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># list 作为默认值</span>
+</span></span><span style=display:flex><span><span style=color:#000>s</span> <span style=color:#000>=</span> [(<span style=color:#c41a16>&#39;yellow&#39;</span>, <span style=color:#1c01ce>1</span>), (<span style=color:#c41a16>&#39;blue&#39;</span>, <span style=color:#1c01ce>2</span>), (<span style=color:#c41a16>&#39;yellow&#39;</span>, <span style=color:#1c01ce>3</span>), (<span style=color:#c41a16>&#39;blue&#39;</span>, <span style=color:#1c01ce>4</span>), (<span style=color:#c41a16>&#39;red&#39;</span>, <span style=color:#1c01ce>1</span>)]
+</span></span><span style=display:flex><span><span style=color:#000>d</span> <span style=color:#000>=</span> <span style=color:#000>defaultdict</span>(<span style=color:#a90d91>list</span>)
+</span></span><span style=display:flex><span><span style=color:#a90d91>for</span> <span style=color:#000>k</span>, <span style=color:#000>v</span> <span style=color:#000>in</span> <span style=color:#000>s</span>:
+</span></span><span style=display:flex><span>    <span style=color:#000>d</span>[<span style=color:#000>k</span>]<span style=color:#000>.</span><span style=color:#000>append</span>(<span style=color:#000>v</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>sorted</span>(<span style=color:#000>d</span><span style=color:#000>.</span><span style=color:#000>items</span>())
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># int 作为默认值</span>
+</span></span><span style=display:flex><span><span style=color:#000>s</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;mississippi&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#000>d</span> <span style=color:#000>=</span> <span style=color:#000>defaultdict</span>(<span style=color:#a90d91>int</span>)
+</span></span><span style=display:flex><span><span style=color:#a90d91>for</span> <span style=color:#000>k</span> <span style=color:#000>in</span> <span style=color:#000>s</span>:
+</span></span><span style=display:flex><span>    <span style=color:#000>d</span>[<span style=color:#000>k</span>] <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>sorted</span>(<span style=color:#000>d</span><span style=color:#000>.</span><span style=color:#000>items</span>())
+</span></span></code></pre></td></tr></table></div></div><p>自定义hashable的类</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>dataclasses</span> <span style=color:#a90d91>import</span> <span style=color:#000>dataclass</span>
+</span></span><span style=display:flex><span><span style=color:#c41a16>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>功能,说明
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>自动生成 __init__,根据字段自动创建初始化方法
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>自动生成 __repr__,好看的打印输出
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>自动生成 __eq__,按字段内容比较相等
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>自动生成 __hash__（仅当 frozen=True）,使对象可哈希（可用于 dict key / set）
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>禁止修改属性,任何 obj.x = 1 都会报错
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>@dataclass</span>(<span style=color:#000>frozen</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>)
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>MyKey</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>id</span>: <span style=color:#a90d91>int</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>name</span>: <span style=color:#a90d91>str</span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 自动可哈希 + 不可变</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 加上 order=True 还能支持 &lt;, &gt;, sorted() 等！</span>
+</span></span><span style=display:flex><span><span style=color:#000>@dataclass</span>(<span style=color:#000>frozen</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>, <span style=color:#000>order</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>)  <span style=color:#177500># order=True 还支持比较大小</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>Point</span>:
+</span></span><span style=display:flex><span>    <span style=color:#000>x</span>: <span style=color:#a90d91>int</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>y</span>: <span style=color:#a90d91>int</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=链表>链表<a class=anchorjs-link href=#%e9%93%be%e8%a1%a8></a></h3><h3 id=树>树<a class=anchorjs-link href=#%e6%a0%91></a></h3><p>遍历方式</p><table><thead><tr><th style=text-align:left>中文名称</th><th style=text-align:left>英文标准名称</th><th style=text-align:left>别名/常见写法</th><th style=text-align:left>访问顺序</th></tr></thead><tbody><tr><td style=text-align:left>前序遍历</td><td style=text-align:left>Pre-order Traversal</td><td style=text-align:left>Preorder Traversal</td><td style=text-align:left>根 → 左 → 右</td></tr><tr><td style=text-align:left>中序遍历</td><td style=text-align:left>In-order Traversal</td><td style=text-align:left>Inorder Traversal</td><td style=text-align:left>左 → 根 → 右</td></tr><tr><td style=text-align:left>后序遍历</td><td style=text-align:left>Post-order Traversal</td><td style=text-align:left>Postorder Traversal</td><td style=text-align:left>左 → 右 → 根</td></tr><tr><td style=text-align:left>层序遍历</td><td style=text-align:left>Level-order Traversal</td><td style=text-align:left>Breadth-First Traversal</td><td style=text-align:left>按层从左到右</td></tr></tbody></table><p>概念</p><p>根：最上层
+叶：最下层
+上下层关系：子节点，父节点
+节点的度：节点的孩子数量
+树的度： 最大的节点的度
+树的深度： 层级总数
+满二叉树: 叶子节点长全了
+完全二叉树: 完全二叉树的叶子没长全</p><p>二叉搜索树</p><p>左&lt;中&lt;右
+中序遍历
+结果为升序数组
+节点不重复，唯一性
+可以不是完全二叉树
+兄弟节点有排序
+作用
+大小有序，便于二分查找，提高查找速度
+操作
+创建</p><pre><code>删除节点
+    方法
+        当节点只有一个孩子
+            直接替换
+        当节点有两个孩子
+            要么用左子树的最右下的节点替换
+            要么用右子树最左下的节点替换
+</code></pre><p>查找的效率和树的深度一致
+分类
+平衡二叉查找树
+核心算法
+维持树的平衡
+分类
+红黑树
+特点
+从根到叶，路径差小于2倍
+应用场景
+数据全部放在内存
+linux中进程的调度
+avl树
+特点
+左右子树的深度不能超过1
+维持树的平衡的方法
+修改最小不平衡子树
+插入左孩子出现不平衡
+ll
+右上旋转
+rl
+右上旋加左上旋
+插入右孩子出现不平衡
+rr
+左上旋转
+lr
+左上旋加右上旋
+多路查找树
+矮胖型的树
+效率取决于访问磁盘的次数
+深度小，有利于提高效率
+分之多，层数少
+绝对平衡
+子树的深度相同
+b+树
+应用场景
+数据大部分放在磁盘
+mysql
+适合文件搜索系统，数据库系统
+特点
+结构
+一个节点的子树和关键字的数量相同
+叶子节点
+叶子结点存储的是key
+用链表连接所有叶子节点
+通过叶子结点获取值
+分支节点
+所有分支节点只包含子节点中关键字的最大值
+因为分支节点不存储信息，只是索引的作用 ，所以一个节点存储的关键字更多，分支更多，读取磁盘次数越少，效率更高
+两种查找
+从根节点开始查找
+头叶子结点的头结点开始遍历
+b树
+特点
+数据存储在每个节点上
+查找速度等价于二分查找
+定义
+多路平衡查找树
+规定节点是分叉下限和上限【m/2, m】
+2-3树
+2-3-4树</p><p>堆</p><p>作用
+排序工具
+取最大值最小值的
+概念
+子节点>=或&lt;=父节点的完全二叉树
+分类
+优先级队列
+操作系统的消息，按照重要级别执行
+二叉堆
+大根堆
+根节点是最大值，可以等于子节点
+小根堆
+根节点是最小值，可以等于子节点
+二项堆
+斐波那契堆
+特点
+2p+1
+左子树
+2p+2
+右子树
+排序
+步骤
+根节点和最后的节点交换
+根节点下沉</p><p>其余相关内容</p><p>redis
+跳表
+链表添加多层索引和边界
+实现二分查找的效果
+log2n层
+插值
+记录节点
+维护指针
+操作
+右移动，
+下移动
+哈夫曼树
+特点
+树的节点拥有权重值
+概念
+带权路径长度最小的二叉树
+相关概念
+带权路径长度
+目标结点的权重值*路径长度
+路径长度
+根节点到目标节点的长度
+哈夫曼编码
+只能是叶子节点存储信息</p><h4 id=应用>应用<a class=anchorjs-link href=#%e5%ba%94%e7%94%a8></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#000>treelib</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>Tree</span>()
+</span></span><span style=display:flex><span>        <span style=color:#000>create_node</span>()
+</span></span><span style=display:flex><span>        <span style=color:#000>paths_to_leaves</span>()
+</span></span><span style=display:flex><span>        <span style=color:#000>leaves</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>show</span>()
+</span></span><span style=display:flex><span>        <span style=color:#000>save2file</span>()
+</span></span><span style=display:flex><span>            <span style=color:#000>to_dict</span>()
+</span></span><span style=display:flex><span>            <span style=color:#000>to_json</span>()
+</span></span><span style=display:flex><span>            <span style=color:#000>to_graphviz</span>()
+</span></span><span style=display:flex><span>    <span style=color:#000>Node</span>()
+</span></span><span style=display:flex><span><span style=color:#000>anytree</span>
+</span></span><span style=display:flex><span><span style=color:#000>binarytree</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=heapq>heapq<a class=anchorjs-link href=#heapq></a></h3><p>堆是一棵完全二叉树，满足：
+对于任意节点，父节点 ≤ 子节点（最小堆）
+关心优先级或Top-K</p><p>底层: 基于 list, 使用数组存储完全二叉树。</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>import</span> <span style=color:#000>heapq</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>nums</span> <span style=color:#000>=</span> [<span style=color:#1c01ce>9</span>, <span style=color:#1c01ce>1</span>, <span style=color:#1c01ce>5</span>, <span style=color:#1c01ce>7</span>, <span style=color:#1c01ce>3</span>, <span style=color:#1c01ce>8</span>]
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#000>heapq</span><span style=color:#000>.</span><span style=color:#000>nsmallest</span>(<span style=color:#1c01ce>3</span>, <span style=color:#000>nums</span>))  <span style=color:#177500># [1, 3, 5]</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=图>图<a class=anchorjs-link href=#%e5%9b%be></a></h3><h2 id=算法>算法<a class=anchorjs-link href=#%e7%ae%97%e6%b3%95></a></h2><h3 id=双指针>双指针<a class=anchorjs-link href=#%e5%8f%8c%e6%8c%87%e9%92%88></a></h3><p>同向移动或相向移动</p><h3 id=栈-队列>栈, 队列<a class=anchorjs-link href=#%e6%a0%88-%e9%98%9f%e5%88%97></a></h3><p>排出n个, 进入m个</p><h3 id=模拟>模拟<a class=anchorjs-link href=#%e6%a8%a1%e6%8b%9f></a></h3><p>没有“算法技巧”，就是把现实过程<strong>翻译成代码</strong>的每一步。一步步再现算法的逻辑、状态变化、和中间过程。</p><h3 id=递归>递归<a class=anchorjs-link href=#%e9%80%92%e5%bd%92></a></h3><p>通过函数<strong>调用自身</strong>解决</p><p>记忆化搜索:递归+记录</p><h3 id=回溯>回溯<a class=anchorjs-link href=#%e5%9b%9e%e6%ba%af></a></h3><p>剪枝: 提前排除无效递归, 降低状态空间。<strong>先排序</strong>方便剪枝</p><p>回溯: 为了<strong>记录所有过程</strong>, 循环的使用递归, 来实现: 选择, 撤销.</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>backtrack</span>():
+</span></span><span style=display:flex><span>    <span style=color:#000>res</span> <span style=color:#000>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#000>path</span> <span style=color:#000>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>dfs</span>(<span style=color:#000>idx</span>):
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>if</span> <span style=color:#000>...</span>:
+</span></span><span style=display:flex><span>            <span style=color:#000>res</span><span style=color:#000>.</span><span style=color:#000>append</span>()
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>for</span> <span style=color:#000>i</span> <span style=color:#000>in</span> <span style=color:#000>nums</span>:
+</span></span><span style=display:flex><span>            <span style=color:#000>path</span><span style=color:#000>.</span><span style=color:#000>append</span>(<span style=color:#000>i</span>)
+</span></span><span style=display:flex><span>            <span style=color:#000>dfs</span>(<span style=color:#000>...</span>)
+</span></span><span style=display:flex><span>            <span style=color:#000>path</span><span style=color:#000>.</span><span style=color:#000>pop</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>dfs</span>(<span style=color:#1c01ce>0</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>res</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>backtrack</span>():
+</span></span><span style=display:flex><span>    <span style=color:#000>res</span> <span style=color:#000>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>dfs</span>(<span style=color:#000>idx</span>, <span style=color:#000>path</span>):
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>if</span> <span style=color:#000>...</span>:
+</span></span><span style=display:flex><span>            <span style=color:#000>res</span><span style=color:#000>.</span><span style=color:#000>append</span>()
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>for</span> <span style=color:#000>i</span> <span style=color:#000>in</span> <span style=color:#000>nums</span>:
+</span></span><span style=display:flex><span>            <span style=color:#000>dfs</span>(<span style=color:#000>...</span>, <span style=color:#000>path</span> <span style=color:#000>+</span> [<span style=color:#000>i</span>]) <span style=color:#177500># 在递归时创建新的, 则不需要用pop()恢复状态. 代码简洁但效率低下</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>dfs</span>(<span style=color:#1c01ce>0</span>, <span style=color:#000>path</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>res</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>N皇后</li><li>排列组合</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>itertools</span> <span style=color:#a90d91>import</span> <span style=color:#000>*</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 排列</span>
+</span></span><span style=display:flex><span><span style=color:#000>permutations</span>() <span style=color:#177500># 不放回，元素不重复</span>
+</span></span><span style=display:flex><span><span style=color:#000>product</span>() <span style=color:#177500># 多组</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 组合</span>
+</span></span><span style=display:flex><span><span style=color:#000>combinations</span>() <span style=color:#177500># 不放回，元素不重复</span>
+</span></span><span style=display:flex><span><span style=color:#000>combinations_with_replacement</span>() <span style=color:#177500># 多组</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=动态规划>动态规划<a class=anchorjs-link href=#%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92></a></h3><p>搜集已知条件, 推理潜在规律, 找到转化方程</p><p>将递归问题记忆化，避免重复计算相同子问题，转化为状态转移方程</p><h3 id=贪心>贪心<a class=anchorjs-link href=#%e8%b4%aa%e5%bf%83></a></h3><p>期望通过局部最优达到全局最优。</p><h3 id=位运算>位运算<a class=anchorjs-link href=#%e4%bd%8d%e8%bf%90%e7%ae%97></a></h3><p>常见的 位运算操作：</p><ul><li>按位与 (&)：两个数字的每一位进行“与”操作。</li><li>按位或 (|)：两个数字的每一位进行“或”操作。</li><li>按位异或 (^)：两个数字的每一位进行“异或”操作。</li><li>按位取反 (~)：对数字的每一位取反。</li><li>左移 (&#171;)：将数字的二进制位向左移动。</li><li>右移 (&#187;)：将数字的二进制位向右移动。</li></ul><h3 id=排序-sort>排序 sort<a class=anchorjs-link href=#%e6%8e%92%e5%ba%8f-sort></a></h3><p><a href=https://www.toptal.com/developers/sorting-algorithms target=_blank>https://www.toptal.com/developers/sorting-algorithms</a>
+<a href=https://visualgo.net/en target=_blank>https://visualgo.net/en</a></p><ul><li><p>insertion</p></li><li><p>bubble</p></li><li><p>selection</p></li><li><p>merge: 合并有序数组</p></li><li><p>quick: 分割数组</p></li><li><p>quick3: quick</p></li><li><p>heap</p></li><li><p>shell</p></li></ul><pre class=mermaid>graph TD
+    A[Insertion Sort] --> B[Binary Insertion Sort]
+    A --> C[Shell Sort]
+
+    D[Merge Sort] --> E["Timsort<br>Python / Java 内置sort"]
+    A --> E
+
+    F[Quick Sort] --> G[Quick3]
+
+    F --> H["IntroSort<br>C++ 内置sort"]
+    I[Heap Sort] --> H
+    A --> H
+</pre><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">102
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">103
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">104
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">105
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">106
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">107
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">108
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">109
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">110
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">111
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">112
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">113
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">114
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">115
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">116
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">117
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>insertion_sort</span>(<span style=color:#000>arr</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    插入排序
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    思路：
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    - 从第二个元素开始，向前找到它的正确位置插入
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    - 类似整理扑克牌
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    时间复杂度：O(n^2)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    稳定排序
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>n</span> <span style=color:#000>=</span> <span style=color:#a90d91>len</span>(<span style=color:#000>arr</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 从第 1 个元素开始（下标 0 默认已经有序）</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>for</span> <span style=color:#000>i</span> <span style=color:#000>in</span> <span style=color:#a90d91>range</span>(<span style=color:#1c01ce>1</span>, <span style=color:#000>n</span>):
+</span></span><span style=display:flex><span>        <span style=color:#000>key</span> <span style=color:#000>=</span> <span style=color:#000>arr</span>[<span style=color:#000>i</span>]  <span style=color:#177500># 当前要插入的元素</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>j</span> <span style=color:#000>=</span> <span style=color:#000>i</span> <span style=color:#000>-</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#177500># 从已排序部分右向左扫描</span>
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>while</span> <span style=color:#000>j</span> <span style=color:#000>&gt;=</span> <span style=color:#1c01ce>0</span> <span style=color:#000>and</span> <span style=color:#000>arr</span>[<span style=color:#000>j</span>] <span style=color:#000>&gt;</span> <span style=color:#000>key</span>:
+</span></span><span style=display:flex><span>            <span style=color:#000>arr</span>[<span style=color:#000>j</span> <span style=color:#000>+</span> <span style=color:#1c01ce>1</span>] <span style=color:#000>=</span> <span style=color:#000>arr</span>[<span style=color:#000>j</span>]  <span style=color:#177500># 大于 key 的元素右移</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>j</span> <span style=color:#000>-=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#177500># 找到合适位置插入 key</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>arr</span>[<span style=color:#000>j</span> <span style=color:#000>+</span> <span style=color:#1c01ce>1</span>] <span style=color:#000>=</span> <span style=color:#000>key</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>arr</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>shell_sort</span>(<span style=color:#000>arr</span>):
+</span></span><span style=display:flex><span>    <span style=color:#000>n</span> <span style=color:#000>=</span> <span style=color:#a90d91>len</span>(<span style=color:#000>arr</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>gap</span> <span style=color:#000>=</span> <span style=color:#000>n</span> <span style=color:#000>//</span> <span style=color:#1c01ce>2</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>while</span> <span style=color:#000>gap</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>0</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>for</span> <span style=color:#000>i</span> <span style=color:#000>in</span> <span style=color:#a90d91>range</span>(<span style=color:#000>gap</span>, <span style=color:#000>n</span>):
+</span></span><span style=display:flex><span>            <span style=color:#000>temp</span> <span style=color:#000>=</span> <span style=color:#000>arr</span>[<span style=color:#000>i</span>]
+</span></span><span style=display:flex><span>            <span style=color:#000>j</span> <span style=color:#000>=</span> <span style=color:#000>i</span>
+</span></span><span style=display:flex><span>            <span style=color:#a90d91>while</span> <span style=color:#000>j</span> <span style=color:#000>&gt;=</span> <span style=color:#000>gap</span> <span style=color:#000>and</span> <span style=color:#000>arr</span>[<span style=color:#000>j</span> <span style=color:#000>-</span> <span style=color:#000>gap</span>] <span style=color:#000>&gt;</span> <span style=color:#000>temp</span>:
+</span></span><span style=display:flex><span>                <span style=color:#000>arr</span>[<span style=color:#000>j</span>] <span style=color:#000>=</span> <span style=color:#000>arr</span>[<span style=color:#000>j</span> <span style=color:#000>-</span> <span style=color:#000>gap</span>]
+</span></span><span style=display:flex><span>                <span style=color:#000>j</span> <span style=color:#000>-=</span> <span style=color:#000>gap</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>arr</span>[<span style=color:#000>j</span>] <span style=color:#000>=</span> <span style=color:#000>temp</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>gap</span> <span style=color:#000>//=</span> <span style=color:#1c01ce>2</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>arr</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>quick_sort</span>(<span style=color:#000>arr</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    快速排序（经典递归版本）
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    思路：
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    - 选择一个 pivot（基准）
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    - 分区：小于 pivot 的放左边，大于 pivot 的放右边
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    - 递归对左右子数组排序
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    时间复杂度：平均 O(n log n)，最坏 O(n^2)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    不稳定排序
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>if</span> <span style=color:#a90d91>len</span>(<span style=color:#000>arr</span>) <span style=color:#000>&lt;=</span> <span style=color:#1c01ce>1</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>arr</span>  <span style=color:#177500># 已排序或空数组</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>pivot</span> <span style=color:#000>=</span> <span style=color:#000>arr</span>[<span style=color:#1c01ce>0</span>]  <span style=color:#177500># 选择第一个元素作为基准</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>left</span> <span style=color:#000>=</span> [<span style=color:#000>x</span> <span style=color:#a90d91>for</span> <span style=color:#000>x</span> <span style=color:#000>in</span> <span style=color:#000>arr</span>[<span style=color:#1c01ce>1</span>:] <span style=color:#a90d91>if</span> <span style=color:#000>x</span> <span style=color:#000>&lt;=</span> <span style=color:#000>pivot</span>]   <span style=color:#177500># 小于等于 pivot 的放左边</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>right</span> <span style=color:#000>=</span> [<span style=color:#000>x</span> <span style=color:#a90d91>for</span> <span style=color:#000>x</span> <span style=color:#000>in</span> <span style=color:#000>arr</span>[<span style=color:#1c01ce>1</span>:] <span style=color:#a90d91>if</span> <span style=color:#000>x</span> <span style=color:#000>&gt;</span> <span style=color:#000>pivot</span>]   <span style=color:#177500># 大于 pivot 的放右边</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 递归排序左右子数组，然后合并</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>quick_sort</span>(<span style=color:#000>left</span>) <span style=color:#000>+</span> [<span style=color:#000>pivot</span>] <span style=color:#000>+</span> <span style=color:#000>quick_sort</span>(<span style=color:#000>right</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>quick3_sort</span>(<span style=color:#000>arr</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;三向快速排序主函数&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>if</span> <span style=color:#a90d91>len</span>(<span style=color:#000>arr</span>) <span style=color:#000>&lt;=</span> <span style=color:#1c01ce>1</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>arr</span><span style=color:#000>.</span><span style=color:#000>copy</span>()  <span style=color:#177500># 基线条件</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 选择第一个元素作为基准（实际应用中可随机选择优化性能）</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>pivot</span> <span style=color:#000>=</span> <span style=color:#000>arr</span>[<span style=color:#1c01ce>0</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 划分为三部分：小于基准、等于基准、大于基准</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>less</span> <span style=color:#000>=</span> [<span style=color:#000>x</span> <span style=color:#a90d91>for</span> <span style=color:#000>x</span> <span style=color:#000>in</span> <span style=color:#000>arr</span>[<span style=color:#1c01ce>1</span>:] <span style=color:#a90d91>if</span> <span style=color:#000>x</span> <span style=color:#000>&lt;</span> <span style=color:#000>pivot</span>]
+</span></span><span style=display:flex><span>    <span style=color:#000>equal</span> <span style=color:#000>=</span> [<span style=color:#000>pivot</span>] <span style=color:#000>+</span> [<span style=color:#000>x</span> <span style=color:#a90d91>for</span> <span style=color:#000>x</span> <span style=color:#000>in</span> <span style=color:#000>arr</span>[<span style=color:#1c01ce>1</span>:] <span style=color:#a90d91>if</span> <span style=color:#000>x</span> <span style=color:#000>==</span> <span style=color:#000>pivot</span>]
+</span></span><span style=display:flex><span>    <span style=color:#000>greater</span> <span style=color:#000>=</span> [<span style=color:#000>x</span> <span style=color:#a90d91>for</span> <span style=color:#000>x</span> <span style=color:#000>in</span> <span style=color:#000>arr</span>[<span style=color:#1c01ce>1</span>:] <span style=color:#a90d91>if</span> <span style=color:#000>x</span> <span style=color:#000>&gt;</span> <span style=color:#000>pivot</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 递归排序&#34;小于&#34;和&#34;大于&#34;部分，合并结果</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>quick3_sort</span>(<span style=color:#000>less</span>) <span style=color:#000>+</span> <span style=color:#000>equal</span> <span style=color:#000>+</span> <span style=color:#000>quick3_sort</span>(<span style=color:#000>greater</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>merge_sort</span>(<span style=color:#000>arr</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;归并排序主函数&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>if</span> <span style=color:#a90d91>len</span>(<span style=color:#000>arr</span>) <span style=color:#000>&lt;=</span> <span style=color:#1c01ce>1</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>arr</span><span style=color:#000>.</span><span style=color:#000>copy</span>()  <span style=color:#177500># 基线条件：空数组或单元素数组无需排序</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 拆分：将数组分为两半</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>mid</span> <span style=color:#000>=</span> <span style=color:#a90d91>len</span>(<span style=color:#000>arr</span>) <span style=color:#000>//</span> <span style=color:#1c01ce>2</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>left</span> <span style=color:#000>=</span> <span style=color:#000>merge_sort</span>(<span style=color:#000>arr</span>[:<span style=color:#000>mid</span>])  <span style=color:#177500># 递归排序左半部分</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>right</span> <span style=color:#000>=</span> <span style=color:#000>merge_sort</span>(<span style=color:#000>arr</span>[<span style=color:#000>mid</span>:])  <span style=color:#177500># 递归排序右半部分</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 合并两个有序子数组</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>merge</span>(<span style=color:#000>left</span>, <span style=color:#000>right</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>merge</span>(<span style=color:#000>left</span>, <span style=color:#000>right</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;合并两个有序数组为一个有序数组&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>merged</span> <span style=color:#000>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#000>i</span> <span style=color:#000>=</span> <span style=color:#000>j</span> <span style=color:#000>=</span> <span style=color:#1c01ce>0</span>  <span style=color:#177500># i指向left的当前元素，j指向right的当前元素</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 比较两个子数组的元素，按顺序加入结果</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>while</span> <span style=color:#000>i</span> <span style=color:#000>&lt;</span> <span style=color:#a90d91>len</span>(<span style=color:#000>left</span>) <span style=color:#000>and</span> <span style=color:#000>j</span> <span style=color:#000>&lt;</span> <span style=color:#a90d91>len</span>(<span style=color:#000>right</span>):
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>if</span> <span style=color:#000>left</span>[<span style=color:#000>i</span>] <span style=color:#000>&lt;=</span> <span style=color:#000>right</span>[<span style=color:#000>j</span>]:  <span style=color:#177500># &lt;= 保证排序稳定性</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>merged</span><span style=color:#000>.</span><span style=color:#000>append</span>(<span style=color:#000>left</span>[<span style=color:#000>i</span>])
+</span></span><span style=display:flex><span>            <span style=color:#000>i</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#000>merged</span><span style=color:#000>.</span><span style=color:#000>append</span>(<span style=color:#000>right</span>[<span style=color:#000>j</span>])
+</span></span><span style=display:flex><span>            <span style=color:#000>j</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 处理剩余元素（其中一个子数组已遍历完）</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>merged</span><span style=color:#000>.</span><span style=color:#000>extend</span>(<span style=color:#000>left</span>[<span style=color:#000>i</span>:])
+</span></span><span style=display:flex><span>    <span style=color:#000>merged</span><span style=color:#000>.</span><span style=color:#000>extend</span>(<span style=color:#000>right</span>[<span style=color:#000>j</span>:])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>merged</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=查找-search>查找 search<a class=anchorjs-link href=#%e6%9f%a5%e6%89%be-search></a></h3><h4 id=一维>一维<a class=anchorjs-link href=#%e4%b8%80%e7%bb%b4></a></h4><ul><li>linear</li><li>binary</li></ul><h4 id=二维>二维<a class=anchorjs-link href=#%e4%ba%8c%e7%bb%b4></a></h4><p>概念:</p><ul><li>有环: 有多条路径能到达同一个格子</li><li>无环: 有一条路径能到达同一个格子</li></ul><p>数据结构分类:</p><ul><li>树状结构(无环), 不需要去重</li><li>表格/图搜索中，“重复访问” 其实就是 “环路” 问题；必须记录 visited，避免重复或死循环。</li></ul><p>方法:</p><ul><li>dfs</li><li>bfs</li></ul><table><thead><tr><th>对比项</th><th>DFS（深度优先搜索）</th><th>BFS（广度优先搜索）</th></tr></thead><tbody><tr><td><strong>搜索方式</strong></td><td>一条路走到黑（递归或栈）</td><td>按层次逐步扩展（队列）</td></tr><tr><td><strong>实现方式</strong></td><td>通常递归或手动<strong>栈</strong></td><td>通常用<strong>队列</strong>（<code>collections.deque</code>）</td></tr><tr><td><strong>空间占用</strong></td><td>少（递归深度有限）</td><td>多（每层都要保存节点）</td></tr><tr><td><strong>代码风格</strong></td><td>简洁直观</td><td>稍显模板化但稳健</td></tr></tbody></table><h3 id=数论>数论<a class=anchorjs-link href=#%e6%95%b0%e8%ae%ba></a></h3><p>研究整数性质的数学</p><ul><li>特殊整数</li><li>完美数</li><li>丑数</li><li>斐波那契数</li></ul><p>图论</p><h2 id=思想>思想<a class=anchorjs-link href=#%e6%80%9d%e6%83%b3></a></h2><ul><li>从易到难, 动画逐步推理</li><li>使用合理的数据结构, 事半功倍</li><li>考虑极限情况, 处理边界</li><li>逆向推理</li><li>可以改变输入,作为中间过程的记录. 降低编码复杂度</li></ul><h2 id=具体细节>具体细节<a class=anchorjs-link href=#%e5%85%b7%e4%bd%93%e7%bb%86%e8%8a%82></a></h2><h3 id=字符串的-slice-range>字符串的 slice range<a class=anchorjs-link href=#%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%9a%84-slice-range></a></h3><p>start stop step</p><h4 id=slice>slice<a class=anchorjs-link href=#slice></a></h4><p>负数索引（negative index）</p><table><thead><tr><th>索引</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead><tbody><tr><td>倒序索引</td><td>-5</td><td>-4</td><td>-3</td><td>-2</td><td>-1</td></tr><tr><td>元素</td><td>a</td><td>b</td><td>c</td><td>d</td><td>e</td></tr></tbody></table><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#000>lst</span> <span style=color:#000>=</span> [<span style=color:#1c01ce>1</span>, <span style=color:#1c01ce>2</span>, <span style=color:#1c01ce>3</span>, <span style=color:#1c01ce>4</span>, <span style=color:#1c01ce>5</span>, <span style=color:#1c01ce>6</span>]
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#000>lst</span>[<span style=color:#000>-</span><span style=color:#1c01ce>3</span>:])     <span style=color:#177500># [4, 5, 6]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>lst</span>[<span style=color:#000>-</span><span style=color:#1c01ce>2</span>::<span style=color:#000>-</span><span style=color:#1c01ce>1</span>]   <span style=color:#177500># [5, 4, 3, 2, 1]</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=range>range<a class=anchorjs-link href=#range></a></h4><p>range() 的负数不是“倒数第几个”，而是真正的负数值。</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>range</span>(<span style=color:#000>-</span><span style=color:#1c01ce>3</span>, <span style=color:#1c01ce>3</span>)  <span style=color:#177500># [-3, -2, -1, 0, 1, 2]</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=while-嵌套的-坑>while 嵌套的 坑<a class=anchorjs-link href=#while-%e5%b5%8c%e5%a5%97%e7%9a%84-%e5%9d%91></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>while</span> <span style=color:#000>l</span><span style=color:#000>&lt;</span><span style=color:#000>r</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>while</span> <span style=color:#000>not</span> <span style=color:#000>s</span>[<span style=color:#000>l</span>]<span style=color:#000>.</span><span style=color:#000>isalnum</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>l</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>while</span> <span style=color:#000>not</span> <span style=color:#000>s</span>[<span style=color:#000>r</span>]<span style=color:#000>.</span><span style=color:#000>isalnum</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>r</span> <span style=color:#000>-=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span><span style=color:#177500># bug, 外层不会判断</span>
+</span></span></code></pre></td></tr></table></div></div><p>修改方案1: if continue</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>while</span> <span style=color:#000>l</span><span style=color:#000>&lt;</span><span style=color:#000>r</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>if</span> <span style=color:#000>not</span> <span style=color:#000>s</span>[<span style=color:#000>l</span>]<span style=color:#000>.</span><span style=color:#000>isalnum</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>l</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>continue</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>if</span> <span style=color:#000>not</span> <span style=color:#000>s</span>[<span style=color:#000>r</span>]<span style=color:#000>.</span><span style=color:#000>isalnum</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>r</span> <span style=color:#000>-=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>continue</span>
+</span></span></code></pre></td></tr></table></div></div><p>修改方案2: while 外层条件 and 内层条件</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>while</span> <span style=color:#000>l</span><span style=color:#000>&lt;</span><span style=color:#000>r</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>while</span> <span style=color:#000>l</span><span style=color:#000>&lt;</span><span style=color:#000>r</span> <span style=color:#000>and</span> <span style=color:#000>not</span> <span style=color:#000>s</span>[<span style=color:#000>l</span>]<span style=color:#000>.</span><span style=color:#000>isalnum</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>l</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>while</span> <span style=color:#000>l</span><span style=color:#000>&lt;</span><span style=color:#000>r</span> <span style=color:#000>and</span> <span style=color:#000>not</span> <span style=color:#000>s</span>[<span style=color:#000>r</span>]<span style=color:#000>.</span><span style=color:#000>isalnum</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>r</span> <span style=color:#000>-=</span> <span style=color:#1c01ce>1</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=小数转整数的方式>小数转整数的方式<a class=anchorjs-link href=#%e5%b0%8f%e6%95%b0%e8%bd%ac%e6%95%b4%e6%95%b0%e7%9a%84%e6%96%b9%e5%bc%8f></a></h3><table><thead><tr><th>中文名称</th><th>英文名称</th><th>5 / 2</th><th>-5 / 2</th><th>典型使用场景</th></tr></thead><tbody><tr><td>向上取整</td><td>Ceiling division</td><td>3</td><td>-2</td><td>数学 ceil()</td></tr><tr><td>向下取整</td><td>Floor division</td><td>2</td><td>-3</td><td>&ldquo;Python //, 数学 floor()&rdquo;</td></tr><tr><td>向零截断</td><td>Truncation toward zero</td><td>2</td><td>-2</td><td>&ldquo;C, Java, JS, Python //（负数）&rdquo;</td></tr><tr><td>远离零取整</td><td>Round away from zero</td><td>3</td><td>-3</td><td>商业统计</td></tr><tr><td>四舍五入</td><td>Round to nearest</td><td>3 或 2</td><td>-3 或 -2</td><td>日常计算</td></tr><tr><td>向偶数舍入(银行家舍入)</td><td>Round half to even</td><td>2</td><td>-2</td><td>浮点标准、统计</td></tr></tbody></table><h3 id=各种统计的数>各种统计的数<a class=anchorjs-link href=#%e5%90%84%e7%a7%8d%e7%bb%9f%e8%ae%a1%e7%9a%84%e6%95%b0></a></h3><table><thead><tr><th>分类</th><th>统计量名称</th><th>英文</th><th>Python 示例</th></tr></thead><tbody><tr><td>中心</td><td>平均数</td><td>Mean</td><td>df[&ldquo;x&rdquo;].mean()</td></tr><tr><td></td><td>中位数</td><td>Median</td><td>df[&ldquo;x&rdquo;].median()</td></tr><tr><td></td><td>众数</td><td>Mode</td><td>df[&ldquo;x&rdquo;].mode()</td></tr><tr><td>极值</td><td>最大值</td><td>Max</td><td>df[&ldquo;x&rdquo;].max()</td></tr><tr><td></td><td>最小值</td><td>Min</td><td>df[&ldquo;x&rdquo;].min()</td></tr><tr><td>分散</td><td>标准差</td><td>Standard Deviation</td><td>df[&ldquo;x&rdquo;].std()</td></tr><tr><td></td><td>方差</td><td>Variance</td><td>df[&ldquo;x&rdquo;].var()</td></tr><tr><td></td><td>极差</td><td>Range</td><td>df[&ldquo;x&rdquo;].max() - df[&ldquo;x&rdquo;].min()</td></tr><tr><td></td><td>四分位距</td><td>IQR</td><td>df[&ldquo;x&rdquo;].quantile(0.75) - df[&ldquo;x&rdquo;].quantile(0.25)</td></tr><tr><td>位置</td><td>分位数</td><td>Quantile</td><td>df[&ldquo;x&rdquo;].quantile(0.95)</td></tr></tbody></table><h2 id=算法题-和-实际项目-差异>算法题 和 实际项目 差异<a class=anchorjs-link href=#%e7%ae%97%e6%b3%95%e9%a2%98-%e5%92%8c-%e5%ae%9e%e9%99%85%e9%a1%b9%e7%9b%ae-%e5%b7%ae%e5%bc%82></a></h2><pre class=mermaid>graph TD
+    A[算法世界] --> B[LeetCode]
+    A --> C[数据结构]
+    A --> D[时间复杂度]
+    A --> E[单机优化]
+
+    F[工程世界] --> G[分布式]
+    F --> H[容错]
+    F --> I[运维]
+    F --> J[可观测性]
+
+    B --> K[面试通过]
+    G --> L[系统不崩]
+</pre><p>数据结构
+一维度
+线性表
+顺序表
+典型例子
+列表
+分离式的元素外置的顺序表
+类型
+元素外置顺序表
+实际存储元素的地址，可以存储任意类型元素
+一体式的
+便于查找
+分离式的
+便于修改
+链表
+组成
+节点
+数据
+next
+存储结构
+物理存储单元上 非连续，非顺序的
+可以计算节点个数
+判断是否为None
+功能设计
+设计节点
+设计链表
+三种情况
+0节点
+1节点
+多节点
+受限制的
+栈stack,又名堆栈
+可以理解成往杯子放东西
+栈顶
+进出的端口
+也是最后进来的那个元素
+实际应用
+列表
+扩展
+共享栈
+两个栈模拟队列
+队列queue
+可以理解成排队
+先进先出，及时排出去，需要计数
+队尾
+进入
+队头
+出去
+实际使用
+from collections import deque
+列表
+其他分裂
+循环队列
+取余，可以实现循环
+哈希表（散列表）</p><pre><code>二维度
+    图
+        概念
+            顶点
+            边
+            邻接
+                两个顶点有边相连，这两个顶点是邻接关系
+            路径
+                从一个顶点到另一个顶点走过的顶点序列
+            度
+                一个顶点有多少条边
+                入度
+                    多少条边从该顶点指入
+                出度
+                    多少条边从该顶点指出
+        图的存储
+            邻接矩阵
+                就是dataframe
+            邻接表
+                就是字典
+
+        拓扑排序
+        关键路径
+        最小生成树
+        二分图
+        最大流
+</code></pre><p>复杂类型
+排列组合
+两种思想
+分步加法
+单步可以完成任务
+分步乘法
+需要组合完成任务
+排列
+特点
+有顺序
+Amn
+计算公式
+n*(n-1)(n-2)&mldr;(n-(m-1))
+n!/(n-m)!
+数学规定
+0!=1
+含义
+从n个元素取出m个，进行排列
+全排列
+m=n的时候
+n！
+递归条件
+1
+组合
+特点
+没顺序
+Cmn
+计算公式
+Amn/Amm
+n!/(n-m)!m!
+Cmn = C(n-m)n
+递归条件
+0
+插空法
+一起插空
+分步插空
+倍缩法
+除法
+排列/组合
+填空法
+先填变量，忽略不变
+回溯大法</p><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/web/crawler/ data-toggle=tooltip data-placement=top title=Crawler>Previous<br><span>Crawler</span></a></li><li class=next><a href=/posts/english-stu/ data-toggle=tooltip data-placement=top title="English Stu">Next<br><span>English Stu</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script><script type=module>
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script></body></html>

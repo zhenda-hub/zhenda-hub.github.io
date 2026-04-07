@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zhenda's Blog</title><link>https://zhenda-hub.github.io/</link><description>Recent content on Zhenda's Blog</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2023-2026 Zhenda. All Rights Reserved.</copyright><lastBuildDate>Tue, 31 Mar 2026 00:21:10 +0800</lastBuildDate><atom:link href="https://zhenda-hub.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Wechat App</title><link>https://zhenda-hub.github.io/posts/web/wechat-app/wechat-app/</link><pubDate>Tue, 31 Mar 2026 00:21:10 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/wechat-app/wechat-app/</guid><description>微信小程序注册限制 主体类型 可注册小程序数量上限 备注 个人主体（身份证） 5 个 每个邮箱只能申请 1 个小程序 个体工商户 5 个 主管理员必须为法人 企业 / 政府 / 媒体 / 组织 50 个 适用于多业务线布局 关键原则：
+一个小程序账号只能对应发布一个小程序 数量限制基于&amp;quot;主体&amp;quot;（营业执照或身份证） 每个小程序需要独立的、未被注册过的邮箱 2025年新规：每个小程序需独立完成备案 合作流程阶段一：前期准备客户需要准备 营业执照（企业）或身份证（个人） 未注册过微信小程序的邮箱 企业对公账户信息（如需微信认证） 小程序名称、功能描述、类目 开发者需要提供 开发需求清单（功能列表、页面设计） 开发周期预估 费用报价（开发费、认证费、服务器等） 阶段二：客户注册小程序账号建议：由客户自行注册，确保所有权归属客户。
+注册步骤 访问 微信公众平台 点击&amp;quot;立即注册&amp;quot;，选择&amp;quot;小程序&amp;quot; 填写邮箱、密码、账号名称 选择主体类型（个人/企业） 填写主体信息并验证 完成注册 等待审核 企业：1-7个工作日 个人：通常即时或1-3个工作日 阶段三：设置开发者权限客户操作 登录小程序后台 进入&amp;quot;设置&amp;quot; → &amp;ldquo;人员设置&amp;rdquo; 点击&amp;quot;绑定开发者&amp;quot; 输入开发者的微信号/QQ号 选择权限级别： 开发者：可开发、调试、提交代码 体验者：仅可体验测试版本 项目成员：拥有部分管理权限 开发者操作 收到邀请通知 在微信中确认接受邀请 登录 微信开发者工具 验证权限 阶段四：备案（2025新规）客户操作 准备备案材料（营业执照、法人身份证等） 在小程序后台提交备案申请 等待管局审核（7-20个工作日） 注意：个人/个体户首次备案需逐个顺序提交，无法同时进行。</description></item><item><title>Multi User</title><link>https://zhenda-hub.github.io/posts/system/multi-user/</link><pubDate>Sat, 28 Mar 2026 21:07:46 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/system/multi-user/</guid><description>pc电脑全面支持
+对比项 Windows Linux 私有安装路径 用户 AppData 目录 $HOME/local 或～/.local 共有安装路径 Program Files 目录 /usr/local 或 /opt 权限控制 安装时选择 + UAC 验证 文件系统权限（ugo）+ 组管理 环境变量 自动配置 需手动配置（私有安装） 卸载影响 私有仅影响当前用户 私有仅删除用户目录文件 共有影响所有用户 共有需 root 权限卸载 软件安装在个人目录, 则为私有软件
+pad部分安卓支持 ipad不支持
+phone部分安卓支持 ios不支持</description></item><item><title>Creed</title><link>https://zhenda-hub.github.io/posts/bible_stu/creed/</link><pubDate>Mon, 16 Mar 2026 23:01:23 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/bible_stu/creed/</guid><description>《使徒信经》(Apostles&amp;rsquo; Creed) 《尼西亚信经》(Nicene Creed)</description></item><item><title>Methods</title><link>https://zhenda-hub.github.io/posts/bible_stu/methods/</link><pubDate>Mon, 16 Mar 2026 21:45:01 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/bible_stu/methods/</guid><description>Theology（神学）的重要分支 类型 关注点 释经学 (Exegesis / Hermeneutics) 正确理解和解释圣经文本本身 圣经神学 (Biblical Theology) 按历史发展研究圣经 历史神学 (Historical Theology) 教义历史发展 系统神学 (Systematic Theology) 按主题整理教义 实践神学 (Practical Theology) 教会实际牧养 护教学 (Apologetics) 为信仰提供理性辩护 释经学 (Exegesis / Hermeneutics) 你当竭力在　神面前得蒙喜悦，作无愧的工人，按着正意分解真理的道。（提后2:15）
+“正意分解”就是释经学的核心呼召. 如果释经出错(容易把自己的想法读进圣经，而不是让圣经说话)，后续所有神学建构都会偏离圣经 “释经是神学的母亲”——没有好的释经，就没有好的神学!!!!
+上下文原则（Context is king）：经文最可靠的解释者是上下文（立即上下文 → 段落 → 全书 → 全本圣经）。 文法-历史释经（Grammatical-Historical Method）：按原文语法、历史背景、文学体裁去理解（当代主流正统方法）。 以经解经（Analogy of Faith）：用清楚的经文解释不清楚的经文；圣经整体一致，无矛盾。 作者意图优先：先问“作者想说什么？”，而不是“我觉得是什么”。 体裁尊重：叙事当叙事读、诗歌当诗歌读、比喻当比喻读、预言当预言读。 系统神学 (Systematic Theology)结构大概是：
+神学主题 研究内容 神论 上帝是谁，上帝的属性 基督论 Jesus Christ是谁 圣灵论 Holy Spirit 的工作 人论 人的本质 罪论 罪从哪里来 救恩论 人如何得救 教会论 教会是什么 末世论 世界最终结局 实践神学 (Practical Theology)核心任务：把以上神学真理应用到实际教会生活与服事中</description></item><item><title>Succulent</title><link>https://zhenda-hub.github.io/posts/life/succulent/</link><pubDate>Sat, 03 Jan 2026 12:28:30 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/succulent/</guid><description>[toc]
+通用多肉养护口诀（很重要） 多晒、少水、通风好， 土干再浇不出事。
+土壤 一定要颗粒土（多肉土、赤玉土、珍珠岩） 不能用普通园土 浇水判断 手捏盆很轻 → 可以浇 叶子发软 → 可以浇 叶子饱满 → 别浇 知识蒸腾 叶片的气孔出汗，吸收CO₂。 是水，养分，矿物质的运输系统, 给植物降温。 档位 状态 太小 水和 CO₂ 上不来 合适 光合效率最高 太大 脱水 → 气孔关 通风促进蒸腾
+光合作用$$6CO₂ + 6H₂O + 光能 → C₆H₁₂O₆ + 6O₂$$ 光合的作用：
+生长，变胖，上色，修复伤口
+不是越晒越好 高温下光合反而会下降 新手常见“养死原因” 浇水太勤（No.1 杀手） 室内不通风 光线太暗（只放书桌不靠窗） 常见不良症状 现象 含义 底叶干瘪 正常 / 适应 中心叶发软 ⚠️ 缺水或根弱 整株塌 ❌ 烂根 发黑发臭 ❌ 立刻处理 四季规律冬天, 活着就合格：</description></item><item><title>My Sys</title><link>https://zhenda-hub.github.io/posts/life/my-sys/</link><pubDate>Sun, 28 Dec 2025 22:33:38 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/my-sys/</guid><description>[toc]
+生态系统构建所有生态系统都遵循：
+能量单向流动，物质循环
+控制光照光 是能量的起点
+太阳光 = 强 + 随机 + 不可控
+水草灯 全光谱植物灯 CRI 高的 LED 植物光合作用： 光能 + CO₂ + 水 → 有机物 + 氧气
+补水（不是频繁换水）纯净水 / RO 水 / 蒸馏水
+分类 淡水生态 半水半陆湿地系统 陆地微生态系统 昆虫 光和湿度是核心 新缸氨 → 目标0 亚硝酸盐 → 目标0 硝酸盐 → 目标&amp;lt;20ppm
+（靠换水+加硝化细菌+植物控制）
+过滤作用：
+水流动，让水质均匀，氧气充足 让水“看起来”清 对水体稳定很友好 进水口一定要加海绵
+过滤里会住满硝化细菌 洗过滤器（用鱼缸换出来的旧水冲洗，别用自来水，避免杀死硝化细菌）
+建立硝化系统：过滤盒里加入「硝化细菌滤材」（陶瓷环、石英球、生化棉，优先铺在过滤中层 / 下层），然后倒入瓶装硝化细菌（按说明书剂量，新手建议加倍）。
+工具必备工具
+渔网 镊子 换水吸管 定时插座 记号笔，标记水位 次要工具
+过滤海绵 加热棒 换水新缸前 2 周： 2 天换 1/3</description></item><item><title>Math</title><link>https://zhenda-hub.github.io/posts/tools/math/</link><pubDate>Tue, 11 Nov 2025 14:47:44 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/math/</guid><description>mindmap root((数学)) 纯数学 数论 初等数论 代数数论 解析数论 代数学 抽象代数 群论 环论 域论 线性代数 几何 欧几里得几何 非欧几何 微分几何 代数几何 拓扑几何 拓扑学 代数拓扑 几何拓扑 分析学 微积分 实分析 复分析 函数分析 常微分 偏微分 逻辑学 数理逻辑 集合论 模型论 证明论 应用数学 概率论 统计学 运筹学 数值分析 动力系统 控制论 信息论 计算数学 博弈论 数学物理 root((数学)) 纯数学 数论 初等数论 代数数论 解析数论 代数学 抽象代数 群论 环论 域论 线性代数 几何 欧几里得几何 非欧几何 微分几何 代数几何 拓扑几何 拓扑学 代数拓扑 几何拓扑 分析学 微积分 实分析 复分析 函数分析 常微分 偏微分 逻辑学 数理逻辑 集合论 模型论 证明论 应用数学 概率论 统计学 运筹学 数值分析 动力系统 控制论 信息论 计算数学 博弈论 数学物理</description></item><item><title>R Jung</title><link>https://zhenda-hub.github.io/posts/life/sex/</link><pubDate>Thu, 16 Oct 2025 15:30:10 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/sex/</guid><description>卡尔·古斯塔夫·荣格（Carl Gustav Jung）的分析心理学
+弗洛伊德的《性学三论》和荣格的《心理学与炼金术》
+将通常通过性行为释放的强大生命力，重新引导至其他生活领域，例如：
+增强意志力与专注力： 控制本能冲动被视为一种锻炼意志的方式。 提升创造力： 将性能量重新导向艺术、事业或其他创造性活动。 追求灵性成长： 在一些传统和现代的灵修实践中，性能量被视为达成更高意识状态的燃料。 道家性修炼学派
+层次 / 阶段 中文名称 含义 来源 功能 / 作用 转化方向 对应修炼层次 最终状态 第一层：精 炼精化气 精是生命的物质根本，指体内的生殖精、肾精、营养精华等 先天遗传 + 后天饮食 维持生命、生殖、成长，是能量的“原料” 🔺 精 → 气 身体层 精充体健、精力充沛 第二层：气 炼气化神 气是生命的动力，是精化而成的流动能量（呼吸、循环、代谢） 精炼化而来 推动血液运行、维持器官功能、支撑情绪与思维 🔺 气 → 神 心理层 气顺神清、心平气和 第三层：神 炼神还虚 神是意识、精神与灵性的体现，是气凝聚的结果 气聚而成 主导感知、思维、觉知，是“我”的中心 🔺 神 → 虚（道） 灵性层 无欲无我、与道合一 循环互养 神守气，气养精 精、气、神可循环转化、相互滋养 —— 精足则气旺，气旺则神明，神明则反养精 🔁 循环 身心合一层 长养生机、心神稳定</description></item><item><title>Height</title><link>https://zhenda-hub.github.io/posts/life/height/</link><pubDate>Thu, 16 Oct 2025 08:54:27 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/height/</guid><description>关键因素 支柱 为什么重要 每日目标 预期效果 睡眠 生长激素夜间分泌80% 9-11小时（10pm-7am） +2-4cm/年 营养 钙+蛋白建骨骼 1500mg钙+80g蛋白 +3cm/年 运动 拉伸骨骼+刺激激素 60min跳跃类 +2cm/年 生长激素主要在深睡眠（22:00–02:00）时大量分泌！
+运动拉伸类运动
+跳绳（最有效，每天10-15分钟） 篮球、排球（弹跳运动） 游泳 瑜伽、拉伸 频率
+每天30-60分钟中等强度运动 拉伸运动最好每天做 避免
+过早进行举重等压迫性运动 过度训练会反而影响生长 生长激素（Growth Hormone, GH）生长激素（Growth Hormone, GH）由垂体分泌，主要促进肌肉生长、脂肪燃烧、骨密度和细胞修复。自然提升GH有助于减重、抗衰老和恢复（尤其结合禁食）。基于科学证据（来源：NEJM、哈佛医学院、Endocrine Society 2023-2025研究），以下是安全、有效方法。警告：GH补充剂需医生处方，避免滥用可能导致关节痛、心脏风险。目标人群：健康成人，非儿童/孕妇。
+GH在饥饿时激增，促进脂肪分解（Johns Hopkins 2024研究，n=1000）。Tips：晚8点-次日中午禁食，多喝水。</description></item><item><title>Time</title><link>https://zhenda-hub.github.io/posts/social/time/</link><pubDate>Tue, 14 Oct 2025 15:30:58 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/social/time/</guid><description> 24小时制 12小时制 说明 00:00 12:00 a.m. 午夜，新的一天开始 01:00 1:00 a.m. 凌晨1点 06:00 6:00 a.m. 早上6点 11:59 11:59 a.m. 中午之前 12:00 12:00 p.m. 正午，中午 13:00 1:00 p.m. 下午1点 18:00 6:00 p.m. 傍晚6点 22:30 10:30 p.m. 晚上10点半 23:59 11:59 p.m. 午夜之前 24小时: 是 0-23, 没有 24. 12小时: 是 12-&amp;gt;1-&amp;gt;11, 没有 0.</description></item><item><title>Baby</title><link>https://zhenda-hub.github.io/posts/life/baby/</link><pubDate>Tue, 14 Oct 2025 11:07:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/baby/</guid><description>知识准备学习内容
+孕期知识(各阶段注意事项) 分娩知识(顺产/剖腹产流程) 母乳喂养技巧 新生儿护理(换尿布、洗澡、抚触) 产后恢复 婴儿常见问题处理 孕前准备(备孕期)身体准备(双方都要)
+孕前检查: 去医院做全面体检(血常规、传染病筛查、生殖系统检查等) 补充叶酸: 女方至少提前3个月开始,每天400-800微克 戒烟戒酒: 双方都要,至少提前3个月 规律作息: 充足睡眠,避免熬夜 适度运动: 提高身体素质,控制体重在健康范围 慢性病管理: 如有高血压、糖尿病等要先控制好 生活调整
+避免接触有害物质(装修、辐射、化学品) 减少咖啡因摄入 营养均衡,不要节食 调整用药(某些药物需要停用或替换) 怀孕后的准备产检安排
+确认怀孕后尽早建档(孕8-12周) 按时产检,不要漏掉重要检查 了解各阶段检查项目(NT、唐筛、四维、糖耐等) 孕期保健
+继续补充叶酸(孕早期) 补充钙、铁、DHA等(医生建议下) 控制体重增长(整个孕期增重11-16kg左右) 适度运动(孕期瑜伽、散步) 监测血压、血糖</description></item><item><title>Healthy</title><link>https://zhenda-hub.github.io/posts/life/healthy/</link><pubDate>Fri, 10 Oct 2025 17:39:21 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/healthy/</guid><description>健康生活方式相关文章 sleep.md eat.md exercise.md energy.md 常见问题 问题 影响因素 肥胖 吃饭, 睡觉 性激素 吃饭, 运动</description></item><item><title>Energy</title><link>https://zhenda-hub.github.io/posts/life/energy/</link><pubDate>Fri, 10 Oct 2025 15:15:39 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/energy/</guid><description>正能量 负能量
+高能量 低能量
+生命力</description></item><item><title>Exercise</title><link>https://zhenda-hub.github.io/posts/life/exercise/</link><pubDate>Fri, 10 Oct 2025 15:00:31 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/exercise/</guid><description>上班族运动选择离家或公司近的健身房： 减少通勤时间就是增加运动的可能性。或者，从家庭健身开始，买一对哑铃、一根弹力带、一张瑜伽垫就足够了。
+运动时间： 早上 6:00 - 7:00
+运动时间： 晚上 7:30 - 8:30</description></item><item><title>Eat</title><link>https://zhenda-hub.github.io/posts/life/eat/</link><pubDate>Fri, 10 Oct 2025 15:00:22 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/eat/</guid><description>三餐蛋白质来源（每天1.2-1.6g/kg体重） 碳水选择 健康脂肪 微量元素
+时间 吃什么 原理 早餐（7–8点） 高蛋白 + 复合碳水（鸡蛋+燕麦+水果） 启动代谢、提升专注力 午餐（12点） 均衡（肉+菜+主食） 补充能量、维持血糖稳定 下午加餐（15–16点） 坚果/酸奶/水果 防止低血糖、抗疲劳 晚餐（19点左右） 少碳水+高蛋白+蔬菜 避免脂肪堆积、助睡眠 睡前 不建议重食，可喝牛奶/蛋白粉 促进恢复、助眠 禁食禁食（Fasting） = 在一段时间内不吃或限制热量摄入， 让身体从“消耗食物能量” → 转换为“消耗储存能量（脂肪）”的状态。
+注意：禁食并非适合所有人（如孕妇、糖尿病患者）
+类型 含义 举例 🕐 间歇性禁食（Intermittent Fasting, IF） 每天控制进食时间 16:8法：禁食16小时，吃饭8小时 📆 周期性禁食（Periodic Fasting） 每周或每月禁食1–2天 5:2法：5天正常吃，2天只吃500卡 🧂 长时间禁食（Extended Fasting） 超过24小时不吃 仅在医疗监督下进行 禁食不是饿肚子，而是给身体“休息和修复”的时间。 最实用的方式是 间歇性禁食 16:8 ——既安全，又能带来明显健康好处。
+不适：初期可能头晕、饥饿，多喝水/黑咖啡缓解。</description></item><item><title>Sleep</title><link>https://zhenda-hub.github.io/posts/life/sleep/</link><pubDate>Thu, 09 Oct 2025 17:23:23 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/sleep/</guid><description>睡眠结构睡眠分两大阶段：
+NREM（非快速眼动）：深度睡眠，身体修复、排毒、增长激素分泌； REM（快速眼动）：做梦阶段，大脑整理记忆、情绪重置。 理想的睡眠结构：
+一个完整的“睡眠周期”≈ 90分钟（如7.5h、9h）； 一晚大约 4～5个周期； 前半夜（22:00–2:00 左右）以“深睡”为主，后半夜（2:00–6:00 左右）以“做梦”为主。 👉 所以：早睡比晚睡更关键，因为深睡集中在前半夜。
+睡眠周期 阶段 名称 主要作用 特征 N1 入睡期 从清醒到浅睡 半梦半醒、容易被叫醒、眼动慢 N2 浅睡眠 进入放松状态 占比最多（约50%），体温下降、心率减慢 N3 深睡眠（慢波睡眠） 身体修复、免疫增强、成长激素分泌 最难被唤醒；脑波最慢（δ波） REM 快速眼动睡眠 大脑修复、做梦、情绪记忆整合 脑活动活跃、肌肉放松、快速眼动 睡眠准备白天：
+如果您有喝咖啡或茶的习惯，尽量在下午2点前喝完。 午睡 如果白天感到疲倦，可以进行一次“能量午睡”。最佳时间是下午1点到3点之间，时长控制在20-30分钟。 短暂的午睡可以有效恢复精力, 避免午睡超过30分钟，否则可能进入深睡阶段，醒来反而更加疲倦. 过长或太晚的午睡会消耗掉晚上的“睡眠压力”，导致晚上难以入睡。 适度运动（17:00-20:00）促进睡眠, 睡前3小时前完成 睡前：
+调暗灯光 (Dim the Lights) 洗个温水澡： 睡前1-2小时洗个温水澡。出浴后体温的自然下降会诱发睡意。 睡觉:
+尽可能黑暗安静: 眼罩 风扇（既降温又产生白噪音） 快速入睡技巧 4-7-8呼吸法：吸气4秒，屏息7秒，呼气8秒 渐进式肌肉放松：全身从脚到头依次放松, 脚→小腿→大腿→臀部→腹部→胸部→手→臂→肩→颈→脸 判断你是否“睡得好” 白天是否精神: 不打哈欠、不想午睡 起床后是否清醒: 10–15分钟后头脑清晰 睡眠债连续短睡，会导致：
+系统 典型变化 恢复所需 🧠 大脑 注意力、记忆下降；焦虑；易怒；“脑雾” 1～2 周高质量睡眠 ⚙️ 内分泌 皮质醇高、睾酮低、生长激素分泌不足 至少 2 周规律作息 💪 免疫系统 感冒频率上升、恢复慢 7 天后逐步改善 🍔 代谢 胰岛素抵抗、易胖 3～4 周逐步恢复 ❤️ 心血管 心率变高、血压偏高 需规律睡眠+轻运动恢复 如果白天感到极度疲劳，可以安排20-30分钟的午睡（最佳时间为中午至下午3点）</description></item><item><title>M2m W2w</title><link>https://zhenda-hub.github.io/posts/life/m2m-w2w/</link><pubDate>Thu, 09 Oct 2025 16:08:19 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/m2m-w2w/</guid><description>让男人更有男子气概，女人更有女性魅力男人更man：健康自信的男子气概 —— 像一座山，可靠而稳定
+健康体魄是基础 规律运动：每周3-4次力量训练（如深蹲、俯卧撑）和有氧运动（如跑步、游泳），塑造健康体态 合理饮食：多摄入优质蛋白（鸡胸肉、鱼类）、蔬菜水果，减少高糖高脂食物 充足睡眠：保证7-8小时高质量睡眠，提升精力和自律能力 自信气质的培养 挺拔体态：保持脊柱直立，肩膀放松，走路时步伐稳健有力 声音控制：用腹式呼吸说话，语速适中，音量适中（避免过于尖锐或过于低沉） 目光坚定：与人交谈时保持自然眼神接触，展现自信而不咄咄逼人 内在修养与责任感 培养专业能力：在工作中展现专业素养和解决问题的能力 情绪管理：学会冷静处理压力，避免情绪化反应 担当精神：在家庭和工作中主动承担责任，同时尊重他人 学会 “有温度的力量”：允许自己 “不坚强”，也懂得 “疼人” 不压抑情绪，但会 “合理表达”：比如工作受挫了，不用硬扛着说 “我没事”，可以跟信任的人说 “今天这事有点难，我需要缓一缓”—— 承认脆弱不丢人，丢人的是把情绪憋成内伤，再迁怒于身边人。 懂得 “细节里的温柔”：比如跟朋友吃饭，会主动帮对方拉椅子；跟伴侣吵架，不会说 “你别无理取闹”，而是等双方冷静后说 “刚才我也有不对，我们聊聊”；看到陌生人需要帮忙（比如老人提重物），会主动搭把手，不图回报。 女人更woman：优雅自信的女性魅力 —— 像一片海，包容而有力
+仪态与体态 站姿与走姿：每天靠墙站立15分钟矫正体态，注意后脑勺、肩胛骨、臀部、小腿肚四点贴墙 优雅动作：走路时膝盖自然打直，肩膀放松，避免含胸驼背 细节精致：保持指甲圆润，手部护理，选择适合的高跟鞋（5-7厘米粗跟） 穿着与形象 场合适配：办公室选剪裁利落的衬衫/连衣裙，约会用柔和的莫兰迪色系 简约高级：选择H型或X型连衣裙，避免过多蕾丝装饰，莫兰迪色系比荧光色更显高级 配饰点睛：遵循&amp;quot;三件原则&amp;quot;，珍珠耳钉+细链手表+锁骨链足够精致 语言与表达 声音管理：用腹式呼吸让声音更柔和，语速控制在每分钟180-220字左右 真诚表达：多用&amp;quot;我感受到&amp;quot;代替指责性语言，展现共情能力 适度微笑：眼睛和嘴巴同时微笑，展现自然亲和力 内在修养 知识储备：每月精读1本文学经典和1本社科著作，提升谈吐深度 情绪智慧：遇到冲突时先深呼吸5秒再回应，微抬下巴保持目光平视 自我关爱：定期做面膜、泡澡，选择真丝枕套减少睡眠皱纹 先学会 “共情”：不是 “委屈自己迁就别人”，而是 “懂别人也懂自己” 会 “换位思考”，但不 “过度共情”：比如朋友失恋了，会陪她聊天、听她哭诉，而不是说 “你别难过了”；但如果对方一直抱怨、消耗你，也会说 “我理解你的难过，但我现在也需要休息，我们明天再聊”—— 共情不是 “无底线包容”，而是 “温暖且有边界”。 懂 “柔软的表达”：不用 “强势对抗”，也能传递想法：比如跟伴侣有分歧，不是说 “你根本不理解我”，而是说 “我希望你能听听我的想法，比如这件事我觉得……”；跟同事合作，不是说 “你这么做不对”，而是说 “如果这样调整，会不会更好？”—— 柔软的表达，比 “强硬反驳” 更有力量。 人体健康的物质 维生素D (90%的人缺乏) Omega-3 (抗炎、大脑) 镁 (300+种酶,70%的人缺) B族维生素 (能量、神经) 性激素性激素是决定并维持男女性别特征、调控生殖功能的关键化学物质。主要由性腺（男性为睾丸，女性为卵巢）和肾上腺分泌的一类固醇类激素</description></item><item><title>Quit Smoking</title><link>https://zhenda-hub.github.io/posts/life/quit-smoking/</link><pubDate>Thu, 09 Oct 2025 14:41:13 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/quit-smoking/</guid><description>🚭 一、吸烟主要造成的伤害（可逆与不可逆）吸烟对睾酮和血管的双重打击，会加速性功能的衰退。
+烟草中的尼古丁和其他有害物质会损害血管内皮，导致阴茎动脉硬化和狭窄，使血液无法充分流入阴茎，影响勃起硬度和维持
+影响部位 吸烟造成的问题 戒烟后可否修复 血管系统 血管收缩、弹性下降、动脉内膜损伤（影响勃起和心血管） ✅ 3~12个月内血流功能改善70%以上 呼吸系统 肺泡损伤、支气管炎、肺功能下降 ✅ 戒烟半年~2年内肺功能明显恢复（取决于吸烟年限） 激素系统 睾酮分泌下降、性欲减弱 ✅ 戒烟3~6月内睾酮逐步回升 神经系统 多巴胺调节异常、焦虑、注意力差 ✅ 戒烟后1月起神经调节恢复正常 皮肤/外貌 氧化压力、皮肤暗沉 ✅ 戒烟1~3月后肤色变亮，血氧改善 DNA损伤（长期吸烟） 癌变风险升高 ⚠️ 不可完全逆转，但戒烟10年后风险降至接近非吸烟者水平 🧠 二、修复原则：让身体“主动更新”可以把戒烟后的恢复看作“三个阶段”：
+阶段 时间 目标 方法 排毒阶段 前2周 清除尼古丁与焦油残留，稳定情绪 多喝水、深呼吸、轻运动、补维生素C 修复阶段 1~3个月 血管、肺、神经功能恢复 运动+营养+规律睡眠 强化阶段 3~12个月 激素、心肺、性功能完全重建 力量训练+高质量饮食+持续戒烟 💪 三、重点修复方案（身体各系统）吸烟最伤“血管内皮”，戒烟后重点是修血管、养血流：
+运动
+每周 45 次有氧（快走、游泳、骑车 3045分钟）； 每周 2 次力量训练（尤其下肢、核心）。 有氧让血管通畅，力量训练提高睾酮分泌。 饮食
+富含抗氧化物：蓝莓、西红柿、胡萝卜； 提高一氧化氮水平（助勃起）：深绿色蔬菜（菠菜、芝麻菜）、甜菜根； 多摄入 ω-3 脂肪酸（深海鱼、亚麻籽油）； 清理肺部、减少炎症: 减少高糖高油食物, 绿茶, 苹果 多喝水：保持水分充足，帮助身体排毒，稀释肺部和血液中的有害物质。 补剂（可选）</description></item><item><title>Face Care</title><link>https://zhenda-hub.github.io/posts/life/face-care/</link><pubDate>Fri, 26 Sep 2025 15:28:58 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/face-care/</guid><description>[toc]
+肤质类型和测试方法方法 1：洁面观察法（最简单）
+步骤：
+用温和洁面产品（如无硫酸盐洁面乳）洗脸，去除油脂和化妆品。 不要涂抹任何护肤品，等待1-2小时（避免触碰脸部）。
+油性肌肤：T区或全脸出现明显油光，摸起来油腻。 干性肌肤：皮肤感到紧绷，可能有脱皮或粗糙感，无油光。 混合性肌肤：T区出油，脸颊干燥或紧绷。(T区控油，U区保湿) 中性肌肤：皮肤柔软、无紧绷或油腻感，整体舒适。 敏感性肌肤：可能有轻微泛红、刺痛或不适感（尤其在洁面后）。 方法 2：季节性观察法
+步骤：
+记录皮肤在不同季节（如夏季、冬季）的表现。
+油性肌肤：夏季油光更明显，冬季可能略干燥但仍出油。 干性肌肤：冬季紧绷、脱皮加重，夏季稍改善但仍缺水。 混合性肌肤：T区常年出油，脸颊冬季干燥、夏季正常。 中性肌肤：四季变化不大，始终平衡。 敏感性肌肤：季节变化（如干燥或高温）容易引发泛红、刺痛。 痛点解决：清洁相关的皮肤问题，这样破1 黑头 / 闭口反复？可能是 “清洁不到位” 或 “清洁过度”
+黑头与清洁的关系：为什么 “去黑头洁面” 无法根除黑头？（正确逻辑：清洁 + 疏通 + 收敛） 闭口的 “清洁诱因”：过度清洁导致角质层受损，反而引发闭口 针对性方案：油皮黑头肌的 “每周 1 次深层清洁” 法（温和去角质 + 清洁面膜搭配） 2 敏感肌泛红刺痛？先检查 “洁面环节” 这 3 个错误
+敏感肌清洁的 “3 不原则”：不用皂基、不频繁去角质、不冷热交替洗脸 泛红急救：清洁后出现刺痛，该用什么快速缓解（避免 “立刻涂精华” 的误区） 修复期清洁：敏感肌爆发期，能用 “清水洁面” 吗？（视严重程度判断） 3 洁面后皮肤紧绷 / 拔干？不是 “洗得干净”，是 “洗伤了”
+紧绷感的 2 种原因：清洁产品碱性太强 / 清洁时间过长 急救方法：洁面后 3 分钟内涂 “修复型爽肤水”（避免皮肤水分流失） 长期调整：换用 “保湿型洁面”，搭配 “洁面后即时保湿” 步骤 4 毛孔粗大</description></item><item><title>Hair Care</title><link>https://zhenda-hub.github.io/posts/life/hair-care/</link><pubDate>Fri, 26 Sep 2025 10:42:09 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/life/hair-care/</guid><description>头皮和发质头皮分类测试洗头后24小时测试：
+用纸巾轻按头皮根部 油腻明显 → 油性头皮 干燥紧绷 → 干性头皮 轻微油光 → 中性头皮 不同区域不同 → 混合性头皮 发质分类测试 取一根头发放在白纸上 细软发：几乎看不见 中等发：能看见但不明显 粗硬发：清晰可见 常见组合：油性头皮 + 细软发质 = 容易贴头皮 干性头皮 + 粗硬发质 = 容易毛躁 敏感头皮 + 受损发质 = 需要温和护理
+护理建议护理原则： 头皮决定洗发产品选择 发质决定护发产品选择 温柔洗护：选用成分温和、不刺激的洗发水和护发素。避免频繁洗头（建议每周2-3次）。 头皮护理, 洗头发 正确洗头：用指腹轻柔按摩头皮，而非指甲，以促进血液循环。避免使用过热的水洗头。 定期按摩头皮（每天5-10分钟），促进血液循环，刺激毛囊。 发质护理, 护发素护发素就像是给头发“上保护膜”。
+头发的最外层是毛鳞片，受损时会翘起，让头发粗糙、容易断。 护发素能让毛鳞片闭合，看起来顺滑有光泽。
+主要作用 改善头发的外观和质地 使头发更柔顺光滑，减少洗头后打结，便于梳理，降低头发在梳理时的拉扯损伤 使用方法 根据发质选择适合的护发素（如干性、油性或受损发质专用产品）。 护发素通常涂抹在发中到发梢，避免直接接触头皮，以免堵塞毛孔或导致油腻 停留时间：一般 1–3 分钟即可，不需要太久。 冲洗干净：避免残留导致头皮油腻或长痘。 吹头发 减少热力伤害：吹干头发时，使用中低档温度，吹风机保持一定距离。避免高温造型工具，减少烫发、染发的频率。 避免拉扯：使用宽齿梳轻柔梳理，避免湿发时大力拉扯。避免扎过紧的发型。 改善生活方式 保证充足睡眠（7-8小时/晚），减少压力，可通过冥想、瑜伽或运动缓解 尽量在 23 点前睡觉，避免长期熬夜。 定型调节头发生长方向头发的生长方向可以一定程度上被“调节”或“训练”，但不能完全改变其天生的生长模式。 头发的生长方向主要由毛囊的形状和角度决定，这些是基因决定的，深植于头皮中，难以彻底改变。 然而，通过一些方法，可以逐渐引导头发适应新的造型方向 因为毛囊周围的头皮和毛发会逐渐适应新的拉力和定型方式。
+彻底改变生长方向（例如180度反转）几乎不可能，但可以让头发更倾向于你想要的造型。</description></item><item><title>Homepage</title><link>https://zhenda-hub.github.io/posts/tools/homepage/</link><pubDate>Tue, 23 Sep 2025 08:57:51 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/homepage/</guid><description>网站首页网站首页的核心价值是「快速传递定位 + 引导用户行动 + 建立品牌认知」
+首页常见模块 顶部 Banner / Hero 区 一句话标题：说明网站核心价值（例如：“管理你的黄金投资，从这里开始”）。 简短描述：一两句话介绍功能。 一个显眼的 CTA 按钮（比如 “立即开始” / “查看数据”）。 配合背景图、插画或动态图表。
+核心功能展示
+用 3–4 个卡片介绍主要功能： 图标 + 标题 + 简短描述 比如 “实时黄金价格走势”、“智能投资分析”、“数据可视化报告”
+底部（Footer） 公司/网站信息、版权、联系方式、常见问题。</description></item><item><title>Virtual</title><link>https://zhenda-hub.github.io/posts/social/virtual/</link><pubDate>Thu, 18 Sep 2025 00:53:19 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/social/virtual/</guid><description>生活中的虚拟化应用场景扩展
+本质上，只要涉及「唯一标识」的地方，都能加一层“虚拟”。 目的无非是：
+✅ 保护隐私（不暴露真实资源） ✅ 可控性强（随时注销、替换） ✅ 灵活扩展（比如一对多、多对一的映射）
+真实资源 虚拟化方式 作用/特点 level 电话号码 虚拟号码 / 一次性号码 / VoIP 号 隐私保护、可随时更换、通话和短信可转发到真实号码 1 邮箱地址 邮箱别名 / 一次性邮箱 注册服务、接收邮件不暴露真实邮箱 银行卡 / 信用卡 虚拟信用卡 / 预付费虚拟卡 限额消费、保护真实账户、防止盗刷 身份信息 虚拟身份 / 平台ID 游戏、社交或在线服务中保护真实身份 IP 地址 VPN / 代理 / 虚拟 IP 上网匿名、隐藏真实地理位置 电脑 / 服务器 虚拟机 (VM) 多系统运行在同一物理机、隔离测试环境 存储设备 虚拟磁盘 / 云盘卷 抽象物理存储，方便管理、扩展和快照 2 网络设备 虚拟网卡 / 虚拟交换机 软件层模拟网络设备，支持隔离和灵活网络配置 实体地址 虚拟地址 / 代收地址 电商、转运服务中保护真实居住地址 客服 / 人员 虚拟客服 / 机器人 代替真人接待，支持自动化响应 社交账号 / 小号 临时账号 / 小号 测试、隐私保护或短期使用 门禁 / 访问控制 虚拟门禁卡 / 数字密钥 允许短期访问，避免真实门禁被滥用</description></item><item><title>Harassing Calls</title><link>https://zhenda-hub.github.io/posts/social/harassing-calls/</link><pubDate>Wed, 17 Sep 2025 20:43:31 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/social/harassing-calls/</guid><description>电话系统概念实际电话：路由依赖于唯一真实号码 虚拟号码：本质上是 运营商或服务提供者在真实号码之上“映射”出来的一个中间号码
+虚拟号码获取方式：
+Google Voice、Skype Number、Twilio、 阿里云、腾讯云 VoIP云呼叫中心服务 骚扰电话防治短期解决 — 拦截骚扰手机设置黑名单
+中期解决 — 使用虚拟号码 就像普通人无法给市长，省长等领导人直接打电话一样。 不让任何商业平台拿到你的真实号码，用 虚拟号码/二级号码 替代。 VoIP 虚拟号码：
+SIP 或 WebRTC 账号，生成可接电话/发短信的虚拟号码。 软件/云服务：Linphone、Twilio（海外）、国内部分 VoIP 提供商。 优点：可以随时换号，保护真实号码。 长期解决 — 自建小型电话系统需要学习 Asterisk/FreeSWITCH 配置，需要服务器/树莓派等硬件
+流程： 外部来电先进虚拟号码 → 由 PBX 转接到手机或电脑
+可以设定规则：
+黑名单自动拒接 可自定义自动语音回复（如“忙线”） 效果：
+完全掌控来电 可以生成多个虚拟号码 拦截骚扰电话和垃圾短信 对运营商几乎完全透明 怎么防止流氓公司： 京东，美团， 三天两头打推销电话？有效的三步：
+关闭京东/美团 App 内的营销电话权限 明确要求客服把你加到“拒绝联系名单” 投诉 12315 / 12321，留下证据 平台到底有多少虚拟号？（一个可怕的数字）这是一个无法精确统计，但规模绝对超乎想象的数字。
+它们不是一个固定的池子，而是动态生成、近乎无限的。
+号池循环：平台通常与运营商或虚拟号码服务商合作，拥有一个巨大的号码池。当一个快递订单完成，那个虚拟号码就会被系统回收，放进池子里，可能几分钟后就会被重新分配给另一个订单或营销任务。
+海量生成：对于美团、京东这样日订单量数千万甚至上亿的平台，它们每天需要生成和回收的虚拟号码数量是百万级甚至千万级的。
+所以您的感觉没错：您会觉得骚扰电话的来源“无穷无尽”，因为背后的号码资源池本身就是海量且循环使用的。您拉黑一个，根本不影响它下一秒换个新号码继续打。
+平台这样做有什么资金成本？ 收益能覆盖成本吗？这是一个非常核心的商业逻辑问题。您问到了点子上——如果这件事不赚钱，平台绝不会如此大规模地去做。
+答案是：对于平台来说，提供虚拟号码和营销工具的成本极低，而收益巨大，完全是一本万利的生意。 它不仅覆盖成本，更是平台重要的利润来源之一。
+我们来详细拆解一下它的成本和收益模型：</description></item><item><title>Readme Guide</title><link>https://zhenda-hub.github.io/posts/tools/readme-guide/</link><pubDate>Fri, 12 Sep 2025 10:35:02 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/readme-guide/</guid><description>readme优化一个优秀的 GitHub README 就像是 项目的门面，不仅对别人，对未来的自己也很重要。尤其是项目在不断开发中，README 需要既能快速介绍项目，又能随着进展更新。
+中英文README模板:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 # 项目名称 s english readme ## 介绍 ## 特性 ## 示例 ## 快速开始 ## 参与贡献 - Fork 本仓库 - 新建 Feat_xxx 分支 - 提交代码 - 新建 Pull Request ## 问题反馈 在 GitHub Issues 中提交问题。 ## 许可证 ## 致谢 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 # Project Name ## Overview ## Features ## Examples ## Quick Start ## Contributing - Fork the repository - Create Feat_xxx branch - Commit your code - Create Pull Request ## Issue Reporting Submit issues in GitHub Issues.</description></item><item><title>Invest</title><link>https://zhenda-hub.github.io/posts/tech/invest/</link><pubDate>Thu, 28 Aug 2025 00:12:11 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/invest/</guid><description>基础概念指数（Index）定义：指数是一种 指标，用来反映某一市场、行业或一篮子股票的整体表现。
+常见的指数：沪深300、标普500、纳斯达克100、中证500等。
+特点：
+不能直接买卖（它只是一个数字/公式）。 由一组成分股加权计算得出。 比较方式:
+不同国家的股票市场指数（如上证指数、标普500、日经225、沪深300等）的单位（数值大小）并不相同，而且它们的计算方法、基期、基点也各不相同，因此直接比较指数的“点数”是没有意义的 它们就像用不同尺子量出来的“得分”，只能看百分比涨幅、总回报率、估值等指标来比较实际表现 不同的计算方式:
+计算方式 代表指数 核心逻辑 优点 缺点 适合什么市场 / 谁最喜欢用？ 价格加权 道琼斯工业平均指数、日经225 只看股票价格，价格越高权重越大 计算最简单、历史最悠久 一只股票拆股就权重暴跌（如英伟达拆股后权重大幅下降）
+完全不反映公司实际经济规模 美国/日本传统媒体头条最爱用，因为数字大、波动夸张，好吸引眼球 总股本加权 上证指数、上证50 权重 = 股价 × 总股本（含非流通股） 计算最简单，中国早期大量非流通国有股，只能这么算 非流通股拉高权重，导致“中石油拖累上证”现象严重失真 只适合2005年前的中国A股，现在已被机构和市场广泛吐槽 流通市值加权 沪深300、标普500、深证成指、创业板指、科创50、恒生指数、纳斯达克100、MSCI系列 权重 = 股价 × 自由流通股本 最能反映市场真实资金供求和公司实际市值 大盘股容易一家独大（如美股七巨头） 全世界机构投资者、ETF、国际指数公司最认可的标准做法 等权加权 美股S&amp;amp;P 500 Equal Weight、日本TOPIX Equal Weight 每只股票权重都一样（如1/500） 小盘股有发言权，避免巨头垄断 需要每季度大幅调仓，交易成本高 主动型基金经理喜欢用来证明“小盘股也能跑赢大盘” 全收益指数（Total Return） 德国DAX、标普500 TR版、沪深300全收益指数 价格指数 + 自动把分红再投资 真实反映投资者实际拿到手的长期回报 点数涨得太夸张（DAX从1000涨到近2万） 欧洲最爱用，养老基金、长期业绩比较的唯一正确指标 指数名称 国家/地区 基期 基点 当前点位（2025.</description></item><item><title>Jiandie</title><link>https://zhenda-hub.github.io/posts/social/jiandie/</link><pubDate>Wed, 20 Aug 2025 11:57:51 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/social/jiandie/</guid><description>以下是根据现有信息整理的现代世界主要国家和地区的秘密特务组织，涵盖其职能、特点及历史背景：
+一、以色列 摩萨德（Mossad） 全称：以色列情报和特殊使命局 成立时间：1948年（前身“沙亚”成立于1948年前） 职能： 间谍活动、反恐、暗杀、反间谍、海外情报搜集。 以“飞箭”特工队闻名，目标包括外国机要部门和敌对势力。 特点： 行动效率高，成功率接近100%（据前特工米什克描述）。 特工需精通多国语言，擅长伪装和高科技手段。 案例： 成功追捕纳粹战犯艾希曼（1960年）；暗杀伊朗核科学家法赫里扎德（2010年）。 二、美国 中央情报局（CIA）
+成立时间：1947年（前身可追溯至独立战争时期的海军谍报机构） 职能： 全球情报搜集、反恐、政治颠覆、军事行动支持。 与FBI分工明确，CIA专注海外，FBI负责国内。 特点： 拥有庞大的全球网络，与多国合作渗透敌对政权。 以“颠覆性行动”著称，例如策划伊朗1953年政变。 案例： 哈瓦那综合征（2016年疑似定向声波攻击事件）。 国家安全局（NSA）
+职能： 电子监控、网络情报搜集（如“棱镜计划”）。 通过卫星、光纤等技术窃听全球通信。 三、俄罗斯 联邦安全局（FSB）
+前身：苏联克格勃（KGB） 成立时间：1991年（克格勃解体后） 职能： 国内反恐、反间谍、政治监控、经济犯罪调查。 继承克格勃的海外情报职能（部分转移至SVR）。 特点： 以“美人计”和暗杀手段闻名，如用蓖麻毒素毒杀马尔科夫（2018年）。 深度渗透能源、金融等领域，维护普京政权稳定。 对外情报局（SVR）
+职能： 接管克格勃的对外情报工作，专注国际间谍活动。 案例： 在乌克兰危机中通过网络战和代理人渗透影响局势。 四、英国 军情六处（MI6）
+全称：秘密情报局（SIS） 成立时间：1909年（前身可追溯至都铎王朝时期） 职能： 全球反恐、反间谍、海外情报搜集。 与军情五处（MI5，专注国内）分工协作。 特点： 低调运作，总部位于伦敦维多利亚火车站地下。 擅长利用外交身份掩护特工活动。 政府通信总部（GCHQ）
+职能： 电子监控、网络情报分析，与NSA合作密切。 曾参与“五眼联盟”（美、英、加、澳、新）监听项目。 五、中国 国家安全部（MSS）
+职能： 国内反间谍、反恐、政治监控。 与公安系统协作，维护社会稳定。 特点： 对台湾、香港等地的渗透活动频繁，如“统一战线”工作。 通过互联网审查和“和谐社会”系统监控网络言论。 中国人民解放军总参谋部第二部
+职能： 军事情报搜集、海外情报网络建设。 负责军事行动中的情报支持。 六、法国 对外安全总局（DGSE） 成立时间：1982年（前身“第七局”成立于1946年） 职能： 海外情报搜集、反恐、反间谍。 在非洲、中东地区有较强渗透能力。 特点： 以“游泳池”代称总部，行动风格灵活多变。 七、德国 联邦宪法保卫局（BfV） 职能： 反恐、反间谍、监控极端组织（右翼、左翼激进分子）。 与德国联邦刑事调查局（BKA）分工协作。 八、日本 对外保安调查厅（NISPO） 职能： 海外情报搜集，专注东亚、东南亚地区。 曾被曝与CIA合作监听朝鲜领导人金正日（2010年）。 九、印度 研究分析局（RAW） 成立时间：1968年 职能： 海外情报搜集、反恐、政治颠覆。 在巴基斯坦、斯里兰卡等地有渗透网络。 十、其他地区 台湾地区</description></item><item><title>Electron Stu</title><link>https://zhenda-hub.github.io/posts/web/electron-stu/</link><pubDate>Tue, 12 Aug 2025 16:12:13 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/electron-stu/</guid><description>quickstart 1 2 npm init -y npm install electron --save-dev 1 2 3 4 5 6 // package.json &amp;#34;main&amp;#34;: &amp;#34;main.js&amp;#34;, &amp;#34;scripts&amp;#34;: { &amp;#34;start&amp;#34;: &amp;#34;electron .&amp;#34;, &amp;#34;test&amp;#34;: &amp;#34;echo \&amp;#34;Error: no test specified\&amp;#34; &amp;amp;&amp;amp; exit 1&amp;#34; }, 1 npm run start 1 2 // 加载页面 .loadFile() 为了将 Electron 的不同类型的进程桥接在一起，我们需要使用被称为 预加载 的特殊脚本。
+package最简单的软件要300M
+前置环境 1 2 npm install --save-dev @electron-forge/cli npx electron-forge import 如果发布rpm包, 需要安装环境
+1 sudo apt install rpm 添加 元数据 1 2 3 // package.</description></item><item><title>IDE Shortcut Key</title><link>https://zhenda-hub.github.io/posts/tools/ide-shortcut-key/</link><pubDate>Wed, 23 Apr 2025 17:12:39 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/ide-shortcut-key/</guid><description>vscode快捷键 功能 快捷键 类型 导航 alt ,&amp;lt;- 查看 alt ,-&amp;gt; 递归折叠全文 ctrl, k，0 ctrl, k，j 递归折叠 ctrl, k， [ ctrl, k， ] 折叠 ctrl, shift, [ ctrl, shift, ] 参数提示 ctrl，shift，space 搜索时,查看下一个变量 ctrl, f3 换行 ctrl,enter 编辑 移动代码 alt ,上箭头 alt ,下箭头 复制一行代码 shift,alt,下 规范化代码 alt, shift, f 多行编辑 shift alt 拖动 vscode 内存管理 整合项目到工作区, 替代多实例运行（Multi-root Workspace） 每个实例都是独立进程组（主进程 + 渲染进程 + 插件进程 + 语言服务进程），4-5 个实例就意味着 4-5 套独立的资源占用，且 “偶尔用” 的实例并不会自动释放内存，反而持续占用资源 安装的插件（比如 ESLint、Prettier、GitLens）会在每个 VS Code 实例中单独加载 浏览器内存管理 设置 → 系统与性能 → 启用 节省内存模式 Edge / Chrome：用“收藏夹”+“阅读列表”。 浏览器多窗口,不需要改为一个窗口</description></item><item><title>World Affairs</title><link>https://zhenda-hub.github.io/posts/social/world-affairs/</link><pubDate>Wed, 09 Apr 2025 10:13:09 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/social/world-affairs/</guid><description>经济模式中的驱动类型 国家 类型 资源驱动型经济 沙特阿拉伯, 澳大利亚, 俄罗斯, 挪威 先天 投资(基础设施和重工业)驱动型经济 中国, 印度, 巴西, 韩国 内需 政府驱动型经济 朝鲜,古巴 内需驱动型经济 印度, 巴西 消费驱动型经济 美国, 英国, 加拿大, 澳大利亚 贸易 出口驱动型经济 德国, 日本, 韩国 服务业驱动型经济 瑞士,新加坡, 英国 技术(创新)驱动型经济 以色列, 芬兰, 瑞典 农业驱动型经济 新西兰, 阿根廷, 肯尼亚 旅游驱动型经济 泰国, 希腊, 马尔代夫 城市 市域总面积（km²） 2024 年 GDP（亿元） 经济密度（亿元 /km²） 2024 年常住人口（万人） 2024 年人均 GDP（万元 / 人） 北京 16410.54 43760.0 2.6666 2185.80 20.02 上海 6340.50 47319.1 7.4630 2475.</description></item><item><title>Pc Cmd</title><link>https://zhenda-hub.github.io/posts/system/pc-cmd/</link><pubDate>Mon, 10 Feb 2025 16:03:26 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/system/pc-cmd/</guid><description>省电用核显 更改电源模式
+检查电源状态 1 2 upower -e upower -i /org/freedesktop/UPower/devices/battery_BAT0 1 powercfg/batteryreport</description></item><item><title>Sqlalchemy Stu</title><link>https://zhenda-hub.github.io/posts/tech/sqlalchemy-stu/</link><pubDate>Fri, 07 Feb 2025 12:19:54 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/sqlalchemy-stu/</guid><description>https://docs.sqlalchemy.org/en/20/orm/quickstart.html https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html#one-to-many https://docs.sqlalchemy.org/en/20/orm/queryguide/select.html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 本身知识点 概念： 通过ORM（对象和表的映射）操作数据库的框架 步骤 创建基类 engine = create_engine（URL） Base = declarative_base（engine ） 定义映射 子类 表名 __tablename__ = &amp;#39;&amp;#39; 备注 __table_args__ = {&amp;#39;&amp;#39;: &amp;#39;&amp;#39;} Column（） 类型 db.</description></item><item><title>Multi_sys</title><link>https://zhenda-hub.github.io/posts/system/multi_sys/</link><pubDate>Thu, 06 Feb 2025 23:26:55 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/system/multi_sys/</guid><description>系统 虚拟系统 PVE!!!! pvesource ESXi 虚拟软件 virtualbox vmware 其他系统 win linux firPE UNRAID iKuai OpenWRT 系统安装u盘启动工具 ETCHER ventoy!!!! , 开源 作用 为主机安装多系统 把多系统装进U盘 iso, img 固件引导方式和固件引导程序计算机在加载操作系统之前，由底层固件（固件就是存储在主板上、在系统上电时最先运行的软件）来初始化硬件、检测系统状态和加载引导加载器的过程
+BIOS xorboot grub grub2win grub4dos UEFI refind virtualboxhttps://www.virtualbox.org/wiki/Downloads
+扩展插件:
+VirtualBox Guest Additions VirtualBox Extension Pack https://www.cnblogs.com/litifeng/p/18193323#:~:text=VirtualBox%20Extension%20Pack&amp;text=VirtualBox%20RDP%E6%94%AF%E6%8C%81%EF%BC%9AExtension%20Pack,%E7%8E%AF%E5%A2%83%E7%9A%84%E5%9C%BA%E6%99%AF%E9%9D%9E%E5%B8%B8%E6%9C%89%E7%94%A8%E3%80%82
+ubuntu 上使用 virtualbox的问题:Q: 创建虚拟机报错 A: 关闭 Secure Boot
+Q: VirtualBox is not currently allowed to access USB devices. You can change this by adding your user to the &amp;lsquo;vboxusers&amp;rsquo; group.</description></item><item><title>Prompts</title><link>https://zhenda-hub.github.io/posts/ai/prompts/</link><pubDate>Thu, 16 Jan 2025 10:20:23 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/ai/prompts/</guid><description> 1 2 3 4 xxx领域有哪些重要概念? AA和BB, 有什么区别和联系? 1 2 3 4 5 设计一个公共布局组件. 定义网站整体布局 使用 Element Plus提供的响应式属性 用简单的方法实现 用户模块 即可, 但是这个方案要通用, 可扩展, 先梳理方案,随后写代码</description></item><item><title>Bible Words</title><link>https://zhenda-hub.github.io/posts/bible_stu/bible-words/</link><pubDate>Sat, 11 Jan 2025 19:50:33 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/bible_stu/bible-words/</guid><description>Bible Words word cloud Numbers The claim of the daughters of Zelophehad is legitimate. You must give them a grant of land along with their father&amp;rsquo;s relatives. Assign them the property that would have been given to their father.
+(Numbers 27:7 NLT)
+Job He said, &amp;ldquo;I came naked from my mother&amp;rsquo;s womb, and I will be naked when I leave. The LORD gave me what I had, and the LORD gave has taken it away.</description></item><item><title>Python Import</title><link>https://zhenda-hub.github.io/posts/programming_language/python-import/</link><pubDate>Fri, 10 Jan 2025 15:37:28 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python-import/</guid><description>python 中的 import导包方式 1 2 3 4 import xxx import xxx as xxx2 from xxx import func1, func2 from xxx import * 相对导入 绝对导入
+当前目录: 命令行执行的目录 导包目录: 被执行文件的目录会默认被加入pythonpath的第一个位置
+包名， 文件名 要区分开
+常见问题导入失败python import 失败 大概率是因为 项目根目录不在 pythonpath 里
+解决方法:
+1 使用 -m运行
+1 python -m xxx.file 添加 项目根目录到 pythonpath 里 2.1. 命令行解决
+1 export PYTHONPATH=./ 1 set PYTHONPATH=./ 2.2. 代码解决
+1 2 import sys, os sys.path.insert(0, os.cwd()) 循环导入解决方案:
+重构项目结构, 在外层新建文件导入后使用</description></item><item><title>Js Ts Base</title><link>https://zhenda-hub.github.io/posts/programming_language/js-ts-base/</link><pubDate>Tue, 31 Dec 2024 15:48:54 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/js-ts-base/</guid><description>[toc]
+应用场景 网页应用： 像 Notion、Trello 这种漂亮的 Web 工具。 浏览器插件： 比如给自己做一个“去广告”或者“网页翻译”的小插件，这非常有成就感。 跨平台 App： 用一套代码（如 React Native）同时做出 iOS 和安卓应用。 执行环境 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 +---------------------------------------+ | JavaScript 代码 | +------------------+--------------------+ ↓ +---------------------------------------+ | V8 引擎 | | - 解析器 Parse | | - 字节码 Ignition | | - JIT 编译 TurboFan | | - 调用栈 Call Stack | | - 垃圾回收 GC | +------------------+--------------------+ ↓（触发异步） +---------------------------------------+ | 浏览器 Web APIs / Node.</description></item><item><title>English Stu</title><link>https://zhenda-hub.github.io/posts/english-stu/</link><pubDate>Thu, 26 Dec 2024 17:52:42 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/english-stu/</guid><description>&amp;lt;zhenda-hub.github.io/english-note/&amp;gt;</description></item><item><title>Algorithm</title><link>https://zhenda-hub.github.io/posts/tech/algorithm/</link><pubDate>Tue, 24 Dec 2024 11:08:01 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/algorithm/</guid><description>数据结构和算法[toc]
+重要性面试需要: 公司不在乎False Negative（漏才）：他们有无限备选，宁可错杀1000，不愿放过1个“潜在隐患”。
+时间复杂度大O表示法 (Big O notation): 会忽略常数项、低阶项和系数。例如，一个算法的执行次数是 3n² + 2n + 5，其时间复杂度为 O(n2)
+结构类型 代码示例 复杂度 口诀 常数操作 return arr[0] O(1) 直接返回 → 常数时间 两指针线性扫 i, j 向前推进一次 O(n) 每元素访问一次 单层循环 for i in range(n) O(n) 一层遍历 → 线性 双层循环 嵌套两层循环 O(n²) 二层嵌套 → 平方 三层循环 嵌套三层循环 O(n³) 三层嵌套 → 立方 二分查找 while left &amp;lt; right: mid = (left + right) // 2 O(log n) 每次折半 → 对数 分治算法（如快排） 递归 T(n)=2T(n/2)+O(n) O(n log n) 分治递归 → n log n 递归（斐波那契） fibonacci(n) O(2ⁿ) 每次分支翻倍 → 指数时间 全排列 permute(nums) O(n!</description></item><item><title>Crawler</title><link>https://zhenda-hub.github.io/posts/web/crawler/</link><pubDate>Wed, 18 Dec 2024 18:56:31 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/crawler/</guid><description>爬数据流程查看 代码 请求 获取requests
+httpx
+selenium
+playwright
+解析xml
+parse() xpath() lxml
+parse() find_all() bs4
+保存其他Scrapy
+fiddler</description></item><item><title>Industry Dev</title><link>https://zhenda-hub.github.io/posts/social/industry-dev/</link><pubDate>Tue, 03 Dec 2024 16:13:01 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/social/industry-dev/</guid><description>和年龄无关 作家 画家 音乐家 摄影师 飞行员 越老越吃香 公务员 医生 律师 老师 建筑师 厨师 越老越不值钱 程序员 快递员 模特 运动员 服务员 流水线工人 转型 岗位 职责 级别 产品经理 PM 研究数据,市场,用户的需求,产品设计流程,基础的数据分析方法和竞争对手和用户体验 高 项目经理 PJ 项目计划,项目进度,保质量按时完成 技术负责人（TL） 通常负责技术方向的决策、团队的技术管理和技术实施的监督 中 测试经理 QA QA经理不仅要确保软件的质量，还要推动改进测试流程和质量管理体系 UX 设计师 通过设计和优化用户界面，确保产品的交互流畅、愉悦 低 营销经理（MM） 通过有效的营销活动来提高品牌知名度、市场份额并增加收入 数据分析师（DA） 分析用户行为、市场数据，为产品策略提供数据支持 资源经理 RM 人力, 设置, 预算 风险经理 RC 识别评估项目失败或延误的风险 增长经理 GM 专注于推动用户增长和公司收入增长 https://w2solo.com/topics/5582
+残酷现实：80% 的代码活不过 2 年，过度设计=慢性自杀
+建议：
+抢占市场先机 系统稳定性风险 向产品经理学 “敏捷思维”：先用最简方案跑通 MVP，再迭代优化</description></item><item><title>My Business</title><link>https://zhenda-hub.github.io/posts/social/my-business/</link><pubDate>Wed, 27 Nov 2024 00:15:56 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/social/my-business/</guid><description>开网店, 接单[toc]
+渠道upwork yama
+发现真实痛点用户愿意花钱解决它
+卖货用&amp;quot;烟雾测试&amp;quot;：先卖概念，有人付费再做产品
+物流，支付
+从小红书、抖音、微信等大流量平台起步，低成本获客。
+为货讲故事, 平台宣传：图文，视频
+定价
+用户反馈
+产品构建MVP（最小可行产品）不要追求完美，先做一个能用的版本。
+MVP 开发时间规划（1-4 周）
+时间 任务 核心目标 第 1 周 需求梳理 + 技术选型 确定核心功能，选好框架 / 工具 第 2-3 周 开发核心功能 实现 “能解决问题” 的最小版本，不纠结 UI 美观 第 4 周 测试 + 上线 找 3-5 个种子用户测试，修复关键 bug，上线到公网 1-10迭代与增长收集反馈
+进货 供应商代发 仓储+物流 批发进货 淘宝 1688 并嘻嘻 存货 仓库 预售 团队要有共同愿景和互补能力 技能互补比性格相投更重要。典型的“铁三角”是：
+销售 产品 技术/hr/财务。 成本 供应商 物流 员工 写一份商业计划书（BP），包括：问题、解决方案、目标用户、市场规模、竞争分析、收入模式、初步成本。 投资人更看重“真实数据和盈利路径”
+个人数据主权工具</description></item><item><title>Ai Tool</title><link>https://zhenda-hub.github.io/posts/ai/ai-tool/</link><pubDate>Wed, 13 Nov 2024 21:08:52 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/ai/ai-tool/</guid><description>[toc]
+cuda 1 nvcc -V 1 2 3 4 5 nvcc: NVIDIA (R) Cuda compiler driver Copyright (c) 2005-2022 NVIDIA Corporation Built on Tue_Mar__8_18:36:24_Pacific_Standard_Time_2022 Cuda compilation tools, release 11.6, V11.6.124 Build cuda_11.6.r11.6/compiler.31057947_0 ollama本地大模型工具
+https://ollama.com/ https://github.com/ollama/ollama/blob/main/docs/api.md https://blog.csdn.net/asd54090/article/details/140775636 1 2 3 4 5 6 7 8 ollama list ollama ps ollama run xxx ollama pull xxx ollama show xxx ollama rm xxx restful api
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 curl http://localhost:11434/api/embeddings -d &amp;#39;{ &amp;#34;model&amp;#34;: &amp;#34;nomic-embed-text&amp;#34;, &amp;#34;prompt&amp;#34;: &amp;#34;The sky is blue because of Rayleigh scattering&amp;#34; }&amp;#39; curl http://localhost:11434/api/chat -d &amp;#39;{ &amp;#34;model&amp;#34;: &amp;#34;llama3&amp;#34;, &amp;#34;messages&amp;#34;: [ { &amp;#34;role&amp;#34;: &amp;#34;user&amp;#34;, &amp;#34;content&amp;#34;: &amp;#34;why is the sky blue?</description></item><item><title>Win Shell</title><link>https://zhenda-hub.github.io/posts/system/win-shell/</link><pubDate>Tue, 12 Nov 2024 20:32:30 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/system/win-shell/</guid><description>cmd 1 2 3 4 5 6 7 8 9 # 环境变量的增删改查 set set Path set Path=xxx set Path=%Path%;xxx set Path= windows powershell 5windows自带 shell
+1 $PSVersionTable 5.x.x powershell7跨平台shell， 需要商店单独安装
+1 $PSVersionTable 7.x.x 1 2 3 4 5 6 7 8 9 10 # 环境变量的增删改查 ls env: ls env:MY_VAR* $env:MY_VAR $env:MY_VAR = &amp;#34;InitialValue&amp;#34; $env:MY_VAR += &amp;#34;;new_value&amp;#34; rm env:MY_VAR 查看自带缩写 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 gal 位于命令管道位置 1 的 cmdlet Invoke-WebRequest 请为以下参数提供值: Uri: PS C:\Users\xxx&amp;gt; gal CommandType Name Version Source ----------- ---- ------- ------ Alias % -&amp;gt; ForEach-Object Alias ?</description></item><item><title>Fastapi Tutorial</title><link>https://zhenda-hub.github.io/posts/web/fastapi-tutorial/</link><pubDate>Sat, 09 Nov 2024 22:57:03 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/fastapi-tutorial/</guid><description>[toc]
+link https://fastapi.tiangolo.com/zh/tutorial/first-steps/
+快速开始 1 uvicorn main:app --reload --port 8000 查看restful 文档:
+http://127.0.0.1:8000/docs http://127.0.0.1:8000/redoc 前置内容异步async await
+pydantic 类型https://docs.pydantic.dev/latest/concepts/models/ https://docs.pydantic.dev/latest/examples/orms/#__tabbed_1_2
+Annotated 和 pydantic 结合:
+1 2 3 4 from typing import Annotated from pydantic import BaseModel, Field Annotated[str, Field(min_length=2, max_length=5)] view函数请求参数和校验 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 from pydantic import BaseModel, Field app = FastAPI() # 请求体定义 class Item(BaseModel): name: str description: str | None = Field( default=None, title=&amp;#34;The description of the item&amp;#34;, max_length=300 ) price: float = Field(gt=0, description=&amp;#34;The price must be greater than zero&amp;#34;) tax: float | None = None @app.</description></item><item><title>Decentralization</title><link>https://zhenda-hub.github.io/posts/tech/decentralization/</link><pubDate>Thu, 07 Nov 2024 02:07:14 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/decentralization/</guid><description>去中心化在去中心化网络中，设计出合理的规则和技术方案，让每个节点在不依赖中心机构的情况下，能够公平、透明地参与到网络运行中，是去中心化技术的关键。
+信任问题是去中心化系统需要解决的核心问题。它通过共识机制、防恶意行为、数据一致性、隐私保护、激励机制等手段，来保证网络的安全性、稳定性和可持续发展。
+p2p网络P2P网络是一种去中心化的网络结构，节点之间直接连接，不需要依赖中心服务器。
+每个节点既是客户端又是服务器，能够向其他节点提供服务。
+节点数量10 &amp;lt; 小网络 &amp;lt; 50 &amp;lt; 中网络 &amp;lt; 1000 &amp;lt; 大网络(10000)
+节点选择理想的去中心化网络需要广泛分布的节点。如果节点集中在一个地区或由少数人控制，去中心化会受到限制，即使节点数量较多。
+因此，节点的地理分布和所有权多样性对于去中心化至关重要。
+区块链相关概念区块链是去中心化的基础技术，用于支持加密货币、智能合约和去中心化金融（DeFi）等应用。
+它通过节点的去中心化存储和验证，使得单一实体无法对数据进行控制。
+特点:
+不能改，只能新增 链式哈希结构 → 改旧记录必坏链 缺点
+数据永远不能删除 存储成本高 私密数据要谨慎 | 区块链编程工具 | Truffle | 以太坊开发框架，提供编译、测试、部署等功能 | JavaScript, Solidity | | | Hardhat | 以太坊开发框架，支持更复杂的开发流程，如自动化测试和合约部署 | JavaScript, Solidity | | | Anchor | Solana 开发框架，简化 Rust 智能合约开发，支持高效构建 DApp | Rust |
+分类公链: 智能合约: 自动执行、不可修改的程序 Solidity rust Dapp: 是通过使用智能合约来与区块链交互 go js 钱包: 用户与公链的交易入口 go js</description></item><item><title>Python Pip</title><link>https://zhenda-hub.github.io/posts/programming_language/python-pip/</link><pubDate>Tue, 05 Nov 2024 16:42:27 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python-pip/</guid><description>python 工具 pip
+用来安装第三方包
+命令
+类别 命令 含义 在线安装 pip install xxx pip install -r requirements.txt 在线换源安装 pip config list 查看源 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple xxx 换源 离线安装, 公司很多情况不联网 pip download -r requirements.txt -d ./pkgs 批量下载离线安装包 tar.gz或whl pip install --no-index --find-links=xxxx/packages/ -r requirements.txt 使用requirements.txt 批量安装包, 需要全部验证通过了,才开始安装包 pip download mkdocs -d ./pkgs 批量下载大型的安装包 tar.gz或whl pip install --no-index --find-links=xxxx/packages/ mkdocs 批量安装大型的包 tar.gz tar -xzvf xxx.tag.gz &amp;amp;&amp;amp; cd xxx &amp;amp;&amp;amp; pip install . whl pip install xxx.</description></item><item><title>Go_base</title><link>https://zhenda-hub.github.io/posts/programming_language/go_base/</link><pubDate>Wed, 25 Sep 2024 17:17:57 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/go_base/</guid><description>[toc]
+应用场景Web 后端（高并发） → Go（必选） 命令行工具（发布） → Go（体验好）
+资料 https://go.dev/doc/#references https://tour.go-zh.org/basics/1 https://pkg.go.dev/std 一个Go项目中只能有一个 main 包和一个 main() 函数 在Go语言中，所有可执行代码必须在函数内部（通常是main函数）。
+你会直接编辑 go.mod（虽然通常通过 Go 命令来做），但永远不应该手动编辑 go.sum 用于管理项目的依赖关系。它们共同保证了项目的构建过程的可靠性和可重复性
+go 版本切换
+gvm asdf go env 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 zhenda@yoga-13s-2021:~$ go env GOPATH=&amp;#39;/home/zhenda/go&amp;#39; GOROOT=&amp;#39;/usr/local/go&amp;#39; GOPROXY=&amp;#39;https://proxy.</description></item><item><title>Python_basic</title><link>https://zhenda-hub.github.io/posts/programming_language/python_basic/</link><pubDate>Wed, 18 Sep 2024 15:15:14 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python_basic/</guid><description>应用场景 数据分析（几行代码处理Excel） Web开发（Flask/Django） 自动化脚本（批量处理文件、爬虫） AI/机器学习（最强生态） python 数据类型和绝大多数的文件或编程语言一样
+基础的: num str None 复杂的: list, dict, set
+python 函数中, 参数的定义顺序 1 2 3 4 5 6 7 8 9 10 def func( pos1, # 位置参数 pos2, # 位置参数 pos3: int = 10, # 带默认值的参数 *args, # 可变位置参数 kw1, # 关键字参数 kw2: str = &amp;#34;test&amp;#34;, # 带默认值的关键字参数 **kwargs # 可变关键字参数 ): pass python 类知识点 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 class Student: def __init__(self, name: str, age: int): self.</description></item><item><title>Css Guide</title><link>https://zhenda-hub.github.io/posts/web/css-guide/</link><pubDate>Thu, 27 Jun 2024 15:35:55 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/css-guide/</guid><description>css选择器 https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Basic_selectors https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Combinators 常用属性 属性 描述 类型 color 设置文本颜色 color text-decoration 设置文本装饰（如下划线、删除线等） text-align 设置文本对齐方式 font-family 设置字体族系 font font-size 设置字体大小 font-weight 设置字体粗细 line-height 设置行高 letter-spacing 设置字符间距 background-color 设置背景颜色 background background-image 设置背景图片 background-size 设置背景图片大小 margin 外边距 margin padding 内边距 padding border 边框 border width 设置宽度 height 设置高度 display 元素的显示方式（如block、inline、flex、none等） display position 元素的定位方式（static、relative、absolute、fixed等） position top, right, bottom, left 设置定位元素的位置 float 设置浮动 clear 清除浮动效果 flex-direction 设置Flexbox布局的主轴方向 justify-content 设置Flexbox布局主轴上子元素的对齐方式 align-items 设置Flexbox布局交叉轴上子元素的对齐方式 grid-template-columns, grid-template-rows 设置Grid布局的列和行的大小和数量 grid-column, grid-row 设置Grid布局元素所占的列和行范围 transition 设置过渡效果 animation 设置动画效果 box-shadow 设置阴影效果 overflow 设置元素内容溢出效果(scroll, hidden, visible) overflow opacity 设置透明度 opacity 布局 https://developer.</description></item><item><title>圣经主题</title><link>https://zhenda-hub.github.io/posts/bible_stu/bible-themes/</link><pubDate>Sun, 23 Jun 2024 18:17:06 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/bible_stu/bible-themes/</guid><description>信Romans If you openly declare that Jesus is Lord and believe in your heart that God raised him from the dead, you will be saved.
+For it is by believing in your heart that you are made right with God, and it is by openly declaring your faith that you are saved.
+As the Scriptures tell us, &amp;ldquo;Anynoe who trusts in him will never be disgraced.&amp;rdquo;
+(Romans 10:9-11 NLT)
+So faith comes from hearing, that is, hearing the Good News about Christ.</description></item><item><title>传福音</title><link>https://zhenda-hub.github.io/posts/bible_stu/evangelism/</link><pubDate>Sun, 23 Jun 2024 18:14:07 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/bible_stu/evangelism/</guid><description>祷告寻求神的帮助，圣灵的引导
+受众建立个人的关系建立个人关系，当人们信任你时，他们更有可能对你的信息持开放态度。
+关注他人的需求将心比心
+分享个人的信仰故事自己信后的变化。
+信仰的内容使徒信经圣经神的话语
+有神信有神，且赏赐那寻求他的人
+与神的关系-罪人 因为世人都犯了罪，亏缺了神的荣耀 罪的工价乃是死 恢复与神的关系-赦罪 若不流血，罪就不得赦免 主，降卑为人，替人赎罪，死亡，复活。 信耶稣 答疑</description></item><item><title>Python Small Tools</title><link>https://zhenda-hub.github.io/posts/programming_language/python-small-tools/</link><pubDate>Mon, 03 Jun 2024 13:06:57 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python-small-tools/</guid><description>其他小工具 格式化 json pprint pprint pformat 性能测试 line_profiler kernprof -l -v script_name.py 生成结果 cprofile python -m cProfile py 文件 运行时查看性能 py-spy 可视化分析 schedule 各种定时任务 argparser ArgumentParser() 设置规则 add_argument() 参数 参数类型 位置参数 xxx 可选参数 &amp;ndash;xxx -x 短选项 设置相关 主要 type help default choices=[1,2,3] 规定参数范围 次要 action store 默认存储 布尔 store_true store_false 有参数则为标记值，否则为相反值 列表 append 可多次调用传参 计数 count dest 指定属性名 互斥组 parser.add_mutually_exclusive_group() parse_args() 运行 -h 查看帮助 作用 命令行解析 mkdocs sphinx docstring numpy google sphinx-quickstart 创建 设置分离 make html 创建 make clean 清除 添加 html 文档 python 和命令行 python -m http.</description></item><item><title>Cloud Servers</title><link>https://zhenda-hub.github.io/posts/system/cloud-servers/</link><pubDate>Mon, 03 Jun 2024 09:49:51 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/system/cloud-servers/</guid><description>关键配置 安全组 开放端口 应用 git docker nginx 服务器 快照 记录历史 反监控 云厂商的机器自动合规安全检查具体怎么扫描违法内容? 步骤 具体操作 通俗解释 耗时 1. 分级分流 先把用户数据按类型分类：文本（文档 / 聊天）、图片、音视频、文件、网络流量等，不同类型走不同检测通道 就像医院分诊：发烧的去发热科，咳嗽的去呼吸科，不混在一起查 毫秒级 2. 基础特征匹配（核心步） 用「规则引擎」匹配监管要求的核心违规特征：- 文本：扫敏感词库（涉黄 / 涉恐 / 违法关键词），还识别变体（拼音、谐音、拆字，比如 “赌 * 博”→匹配 “赌博”）- 图片：先 OCR 提文字，再匹配违禁图像特征（比如管制刀具、敏感场景）- 音视频：音频转文字（ASR），视频抽关键帧（每秒 1-2 帧）做图像检测 像安检机扫行李：只认 “刀具、打火机” 这些预设违禁品，不认你包里的文件、口红 毫秒级（90% 的内容这一步就完成） 3. AI 语义补漏（进阶步） 对第一步没命中但疑似风险的内容，用 AI 模型做深层分析：- 文本：理解上下文（比如区分 “电影很黄”（涉黄）和 “香蕉很黄”（正常））- 图片 / 视频：识别隐晦违规（比如看似正常但实际涉黄的场景） 像安检员二次检查：机器没扫出来的 “伪装违禁品”，用 AI 再确认 10-50 毫秒（仅针对疑似内容） 4. 风险评分与处置 给内容打 0-100 分的风险分，按阈值处理：- 高风险（≥80 分）：自动拦截 / 屏蔽，记日志上报监管- 中风险（50-79 分）：标记待人工复核，不拦截- 低风险（&amp;lt;50 分）：直接放行，不留存完整内容 像交警判罚：闯红灯（高风险）直接罚，压线（中风险）看情况，正常行驶（低风险）直接过 毫秒级 5.</description></item><item><title>Tornado Tutorial</title><link>https://zhenda-hub.github.io/posts/web/tornado-tutorial/tornado-tutorial/</link><pubDate>Sun, 26 May 2024 01:17:25 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/tornado-tutorial/tornado-tutorial/</guid><description>websocket 概念 可以双向发送消息 WebSocket 允许服务器主动向客户端推送数据，实现实时性更强的通信 WebSocketHandler web RequestHandler
+调用的执行顺序 set_default_headers
+initialize
+子类初始化 入口
+get
+self.request
+self.get_argument(&amp;lsquo;k&amp;rsquo;) # 获取一个参数
+self.get_arguments(&amp;lsquo;k&amp;rsquo;) # 获取一个参数列表
+post
+json.loads(self.request.body) put
+delete
+prepare
+on_finish
+redirect
+write
+所有 JSON 输出都应该包装在一个字典中 render()
+返回 html header
+cookies
+get_current_user
+status
+authenticated
+用户认证 tornado.ioloop.PeriodicCallback()
+定时任务 https://www.tornadoweb.org/en/stable/web.html</description></item><item><title>Flask Tutorial</title><link>https://zhenda-hub.github.io/posts/web/flask-tutorial/</link><pubDate>Sun, 26 May 2024 01:17:16 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/flask-tutorial/</guid><description>[toc]
+link: https://flask.palletsprojects.com/en/stable/
+快速开始 1 2 3 4 5 6 7 from flask import Flask app = Flask(__name__) @app.route(&amp;#34;/&amp;#34;) def hello_world(): return &amp;#34;&amp;lt;p&amp;gt;Hello, World!&amp;lt;/p&amp;gt;&amp;#34; 其他有用函数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 from flask import request, url_for, render_template, abort, redirect, make_response, session with app.</description></item><item><title>Browser</title><link>https://zhenda-hub.github.io/posts/tools/browser/</link><pubDate>Sun, 26 May 2024 01:02:36 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/browser/</guid><description>快捷键链接
+https://support.google.com/chrome/answer/157179?sjid=2513882154096599191-NC https://support.microsoft.com/zh-cn/microsoft-edge/microsoft-edge-%E4%B8%AD%E7%9A%84%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F-50d3edab-30d9-c7e4-21ce-37fe2713cfad 操作 按键 类型 打开上次关闭的内容 ctrl，shift，t 日常 关闭当前网页 ctrl, w 切换下一网页 ctrl, tab 切换上一网页 ctrl, shift, tab 字体控制大 ctrl，+ 字体控制小 ctrl，- 保存 ctrl，p 刷新 ctrl，r 硬刷新 ctrl，shift，r 开发 开发者 f12 内存排查shift, esc 打开浏览器的管理器</description></item><item><title>Flow Chart</title><link>https://zhenda-hub.github.io/posts/tools/flow-chart/flow-chart/</link><pubDate>Sun, 26 May 2024 00:21:47 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/flow-chart/flow-chart/</guid><description/></item><item><title>Instruments</title><link>https://zhenda-hub.github.io/posts/tools/instruments/</link><pubDate>Sat, 25 May 2024 16:24:32 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/instruments/</guid><description>弦乐器 小提琴 古典风格 大提琴 吉他 现代风格 分类 民谣 古典 电吉他 竖琴 中提琴 古筝 琵琶 管乐器 长笛 萨克斯风 小号 大号 长号 单簧管 双簧管 键盘乐器 钢琴 电子琴 管风琴 手风琴 打击乐器 架子鼓 小鼓 大鼓 钟琴 马林巴琴 锣 镲 声乐器 人声（歌唱）</description></item><item><title>Markdown</title><link>https://zhenda-hub.github.io/posts/tools/markdown/</link><pubDate>Sat, 25 May 2024 15:47:33 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/markdown/</guid><description>参考链接 https://markdown.com.cn/basic-syntax/headings.html https://mermaid.js.org/intro/ 基础 标题 title 无序列表- * 分割线 有序列表 aaa bbb 取消 markdown 语法 代码块 多行代码 1 print(&amp;#39;hello&amp;#39;) 单行代码 cmd 转义 \ 字体 字体加粗 斜体 粗斜体 引用块 法斯蒂芬森地方 法斯蒂芬森地方 法斯蒂芬森地方
+sdfsdfsdf sdfsdfsdf
+sdfsdfsdf
+换行 注释 进阶 图片 超链接地址 link1 link2 表格 左对其 居中 右对其 top1 1222222 2212 6565 656565656 top2 6565 656565656 6565 656565656 html 设置各种 css 颜色 勾选框 添加停用词配置 预览 背景混乱 数学公式 $E = mc^2$ $$E = mc^2$$ 高级Mermaid Diagram</description></item><item><title>进击的巨人</title><link>https://zhenda-hub.github.io/posts/videos/%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA/</link><pubDate>Fri, 24 May 2024 11:24:12 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/videos/%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA/</guid><description>主角团 艾伦 进击的巨人继承者 存活 13 年 帕拉迪岛 吉克 艾伦哥哥 希斯特利亚 女王 三笠 一姐 利威尔 大佬 历史 尤弥尔 巨人之力 因怪诞虫所获 可以重生 有超能力 路空间 弗利兹王 艾尔迪亚国 马莱国 大地恶魔</description></item><item><title>海贼王</title><link>https://zhenda-hub.github.io/posts/videos/%E6%B5%B7%E8%B4%BC%E7%8E%8B/</link><pubDate>Fri, 24 May 2024 11:19:38 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/videos/%E6%B5%B7%E8%B4%BC%E7%8E%8B/</guid><description> 个人
+海贼王罗杰 雷利 路飞师傅 光月玉田 罗克斯 大蛇 组织
+制衡
+四皇（海贼王） 大妈 style=&amp;ldquo;color: red;&amp;rdquo; 黑胡子 黑暗之力 凯多 白胡子 最强？？ 地震 香克斯 海军 传说 卡普 路飞爷爷？？ 战国 三大将 赤犬 岩浆 青志 冰冻 藤虎 黄源 绿牛 七武海（被政府招安的海贼，黑白通吃） 鹰眼（剑豪） 明哥 大 boss 线线果实 修复能力 大熊 女帝 沙哥 罗 对抗
+天龙人
+护卫队
+cp9
+海军
+革命军
+大哥 路飞爸爸 萨博 主角
+路飞 橡胶果实 艾斯 萨博 索隆 山治（抽烟） 罗宾 乌索普 娜美</description></item><item><title>火影忍者</title><link>https://zhenda-hub.github.io/posts/videos/%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85/</link><pubDate>Fri, 24 May 2024 11:00:04 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/videos/%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85/</guid><description>关系梳理 大 boss（辉夜） 六道仙人（羽衣） 因陀罗（精神强大） 斑 佐助 阿修罗（肉体强大） 初代（柱间） 鸣人 世界 自来也 长门（佩恩） 大蛇丸 纲手（奶妈） 带土 卡卡西 半藏 羽村 黑绝 十尾（神树） 尾兽 蛤蟆仙人 标记含义 斜体 反派 加粗 正派</description></item><item><title>Computer Science Crash Course</title><link>https://zhenda-hub.github.io/posts/videos/computer-science-crash-course/</link><pubDate>Fri, 24 May 2024 10:25:32 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/videos/computer-science-crash-course/</guid><description>起源 算盘 机械齿轮 硬件 开关 继电器 电磁感应 吸引来开关 真空管 电产生光 晶体管 半导体 材料：硅 两级 布尔 真，假 not，and，or xor 真真得假 二进制 8 位二进制 字节 byte 正负 在 32 位二进制中用第一位表示 小数点 在 32 位二进制中用 2-9 位表示 文字 美国标准 ASCII 1963 仅限英语和标点 7 位二进制 128 个数 大小写 0-9 标点符号 全球标准 Unicode 1992 16 位 一百万个数 alu ALU 计算 加法运算 half adder xor full adder 3 个参数变 2 个参数 减法 ++ -- 不改变 逻辑 operation code 加减乘除 flags overflow 最大位装不下数值 zero ab 相等 negative ab 比大小 内存 memory（ram） and-or latch or 和交变电流 用于记忆 and 删除 门锁 一群门锁叫寄存器 register 输入输出线太多，所以 矩阵 matrix cpu 动作顺序 CLOCK SPEED 取指令 fetch 解码 decode 执行 execute 结构 ram control unit instruction address register instruction register OPCODE 取 RAM 的值 data register alu instruction program CPU 设计 RAM 通过 bus 线和 cpu 连 cache（缓存）直接在 cpu 里，更快取得数据 高端 CPU 单核 流水线设计（pipeline） 预测指令地址 一 cpu 多核（core） 多 cpu 软件 编程起源</description></item><item><title>AI教程</title><link>https://zhenda-hub.github.io/posts/ai/ai%E6%95%99%E7%A8%8B/</link><pubDate>Fri, 24 May 2024 10:16:53 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/ai/ai%E6%95%99%E7%A8%8B/</guid><description>[toc]
+&amp;lt;baidu.com&amp;gt;
+模型细化模型蒸馏大模型指导小模型
+优化效果很明显:
+在NLP领域，知识蒸馏可以用于提升小模型的推理性能，同时减少模型的参数量，提高模型的运行速度。例如，DistilBERT与BERT相比减少了40%的参数，同时保留了BERT 97%的性能，但提高了60%的速度
+思维链&amp;hellip;预训练: 通常是在大规模无标注数据上通过自监督学习得到的，它们具有对一般自然语言结构的良好理解能力
+微调: 针对具体下游任务（如文本分类、问答系统、命名实体识别等），使用相对较小规模但有标签的目标数据集对该模型的部分或全部参数进行进一步的训练。
+在 prompt 中添加“Let’s think step by step”或“请一步步推理”等指令，无需示例也能触发内生的分步生成。
+大模型一旦超越某规模阈值，链式推理成功率呈指数级跃升
+DeepSeek通过思维链技术将复杂问题拆解为一系列连贯的中间推理步骤
+机器学习：特别是深度学习，使代理可以从大量数据中学习模式，并据此作出预测或决策。 强化学习：一种特殊的机器学习形式，其中代理通过尝试不同的行动并在每次尝试后接收奖励或惩罚来学习最优策略。 (1) 强化学习的作用
+目标：通过GRPO算法，模型学习生成更详细、更合理的推理步骤（长CoT）以提高奖励（如答案正确性）。 机制：训练时生成多个候选答案，奖励信号不仅评估最终答案正误，还隐式鼓励逻辑连贯的推理路径（如通过格式奖励）。 奖励模型（Reward Model）: 使用奖励模型替代奖励函数,模拟人类偏好, 用来优化别的模型
+对于复杂的数学问题、逻辑推理或者需要多步操作的任务而言，链式思考提示尤为有效
+记忆功能&amp;hellip;
+MOE路由器（Router） + n个专家
+可扩展性：添加更多专家可扩展模型能力，无需重新训练整个网络。 灵活性：动态适配不同任务需求（如NLP、CV、语音识别）。
+中电九天的LoRA-MoE专利通过任务嵌入矩阵和线性转换层生成专家权重，需联合微调门控网络和专家参数。
+MCP通过 MCP，AI 模型可以安全地访问本地文件、数据库、API 等外部资源。
+常见问题欠拟合: 训练集误差大.处理方法:
+使用复杂的模型 特征工程 修改optim 过拟合: 训练集误差小, 测试集误差大.处理方法:
+增加数据 数据增强 降低模型复杂度 dropout: 随机丢弃神经网络中的神经元，防止过拟合 对损失函数, 正则化 early stopping? Dropout: nn.Dropout 通过随机丢弃神经元来强制模型学习鲁棒特征，主要适用于深度神经网络。
+正则化:（尤其是L1和L2）通过在损失函数中添加惩罚项来限制模型复杂度，有效地防止模型过拟合，提高模型的泛化能力, 适用于广泛的机器学习模型。
+梯度消失：参数更新过小，在每次更新时几乎不会移动，导致模型无法学习。
+使用ReLU等激活函数
+梯度爆炸：参数更新过大，破坏了模型的稳定收敛；
+梯度裁剪
+避免陷入局部极小值 参数初始化 更换好的优化器 动量梯度下降 为了打破对称性，实践中常采用随机初始化的方法为每个神经元分配不同的初始权重。例如，Xavier/Glorot初始化、He初始化等方法都是基于不同的理论基础来随机初始化权重，以确保每个神经元从训练开始就具有一定的独特性，促进更有效的学习</description></item><item><title>Vue教程</title><link>https://zhenda-hub.github.io/posts/web/vue%E6%95%99%E7%A8%8B/</link><pubDate>Fri, 24 May 2024 10:16:28 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/vue%E6%95%99%E7%A8%8B/</guid><description>[toc]
+document https://cn.vuejs.org/ https://cn.vuejs.org/tutorial/ https://www.vueframework.com/docs/v3/cn/style-guide https://cn.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram 前置知识 名称 作用 nvm node版本管理工具 node 运行环境 npm node的包管理工具 nvm 命令:
+1 2 3 4 5 6 7 8 9 10 11 # 查看 nvm ls nvm ls-remote # 设置默认版本 nvm alias default xxx.xxx.xxx # 使用 nvm use xxx.xxx.xxx nvm install xxx.xxx.xxx nvm uninstall xxx.xxx.xxx node 命令:
+1 2 node -v node xxx.js npm 命令:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 # 配置源 npm get registry npm config set registry 地址 # 查看版本 npm -v npm config list # 生成 package.</description></item><item><title>Programming Paradigm</title><link>https://zhenda-hub.github.io/posts/programming_language/programming-paradigm/</link><pubDate>Wed, 22 May 2024 11:19:53 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/programming-paradigm/</guid><description>编程范式https://www.freecodecamp.org/chinese/news/an-introduction-to-programming-paradigms/
+面向过程
+c unix shells 面向对象（耦合度较高，并发执行可能出现错误）
+java 函数式（耦合度很低）
+特点 函数的实现仍然会使用局部变量，但不会修改全局变量或者有其他副作用 不存在共享状态，因此并发执行更安全 编程语言所对应的范式 编程语言 支持的编程范式 Python 面向对象编程（OOP）、过程式编程、函数式编程、事件驱动编程 JavaScript 面向对象编程（OOP）、函数式编程、事件驱动编程、过程式编程 Java 面向对象编程（OOP）、过程式编程、并发编程 C++ 面向对象编程（OOP）、过程式编程、泛型编程、函数式编程 C# 面向对象编程（OOP）、过程式编程、泛型编程、函数式编程、事件驱动编程 Ruby 面向对象编程（OOP）、过程式编程、函数式编程 Swift 面向对象编程（OOP）、函数式编程、过程式编程 Kotlin 面向对象编程（OOP）、函数式编程、过程式编程 Go 过程式编程、并发编程 Rust 过程式编程、并发编程、函数式编程 SQL 声明式编程 python 的编程范式 函数式 迭代器 生成器 内置函数 filter map enumerate sorted any all zip itertools &amp;hellip; functools &amp;hellip;</description></item><item><title>Django教程</title><link>https://zhenda-hub.github.io/posts/web/django%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 30 Apr 2024 14:07:14 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/django%E6%95%99%E7%A8%8B/</guid><description>[toc]
+网站开发逻辑 数据 页面 api 通信协议 层级 协议及描述 应用层 - HTTP: 网页浏览的基础协议，用于传输网页内容。 - HTTPS: HTTP 的加密版本。 - FTP: 文件传输协议。 - SMTP: 简单邮件传输协议，用于发送电子邮件。 - POP3: 用于接收电子邮件。 - IMAP: 用于同步和管理电子邮件。 - DNS: 将域名解析为 IP 地址。 - SSH: 安全远程管理协议。 - Telnet: 早期的远程登录协议，已被 SSH 取代。 - WebSocket: 用于建立持久的双向通信。 传输层 - TCP: 面向连接的协议，提供可靠的数据传输。 - UDP: 无连接的协议，适用于实时应用。 - QUIC: 基于 UDP 的新传输层协议，提供更高的效率。 网络层 - IP: 网络层的基本协议，负责数据包的传输。 - IPv4: 使用 32 位地址。 - IPv6: 使用 128 位地址，解决 IP 地址枯竭问题。 - ICMP: 网络诊断信息协议（如 ping）。 - ARP: 将 IP 地址解析为物理地址。 数据链路层 - Ethernet: 局域网的有线通信协议。 - Wi-Fi: 无线局域网协议。 - PPP: 点对点协议，用于数据传输。 - STP: 防止网络环路的生成树协议。 物理层 - Ethernet（物理层部分）: 定义电信号如何传输。 - Wi-Fi（物理层部分）: 定义无线信号的传输。 - Bluetooth: 短距离无线通信协议。 会话层、表示层 - SSL/TLS: 提供加密连接，保护数据传输。 - RPC: 允许远程过程调用。 其他协议 - MQTT: 轻量级发布/订阅消息协议，适用于物联网。 - AMQP: 企业级消息队列协议。 - gRPC: 基于 HTTP/2 的远程过程调用框架。 - SFTP: 基于 SSH 的安全文件传输协议。 HTTP 请求方式 传参方式 示例 GET 查询字符串 (Query Parameters) GET /users?</description></item><item><title>Ubuntu使用配置</title><link>https://zhenda-hub.github.io/posts/system/ubuntu%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/</link><pubDate>Tue, 30 Apr 2024 13:43:06 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/system/ubuntu%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/</guid><description>[toc]
+install toolapt snap store, snap 各种问题 brew asdf
+1 2 # 罗列所有的snap软件 ll ~/snap install and removesys_update.sh
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 #!/bin/bash # 更新软件包列表 echo &amp;#34;更新软件包列表...&amp;#34; sudo apt update -y # 升级已安装的软件包 echo &amp;#34;升级已安装的软件包...&amp;#34; sudo apt upgrade -y # 删除不再需要的包 echo &amp;#34;删除不再需要的包...&amp;#34; sudo apt autoremove -y # 清理软件包缓存 echo &amp;#34;清理缓存...&amp;#34; sudo apt clean echo &amp;#34;系统更新和清理完成！&amp;#34; install</description></item><item><title>Docker指南</title><link>https://zhenda-hub.github.io/posts/tech/docker%E6%8C%87%E5%8D%97/</link><pubDate>Tue, 09 Jan 2024 00:04:35 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/docker%E6%8C%87%E5%8D%97/</guid><description>[toc]
+docker介绍 Docker Desktop https://docs.docker.com/desktop/ Docker Engine Docker Daemon（dockerd）https://docs.docker.com/engine/ REST API Docker CLI scout Compose k8s why use docker? 环境一致性, 让开发和部署保持一致, DevOps 真正落地 适合构建微服务架构 安装docker engine 推荐安装 docker desktop 可以不安装
+把自己加入 docker 组
+1 2 getent group docker sudo usermod -aG docker $USER 相关教程 https://docker-practice.github.io/zh-cn/introduction/ https://juejin.cn/post/7154437479955693598 快速入门概念 -&amp;gt; 操作方法 -&amp;gt; 使用Container
+Docker 基本概念Container是实际使用的实例, 主要通过以下两种方法生成:
+Repository -&amp;gt; Image -&amp;gt; Container Dockerfile -&amp;gt; Image -&amp;gt; Container
+Volume: 存储数据 Network: 容器网络通信 宿主机: 本人使用的电脑</description></item><item><title>数据可视化资源</title><link>https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 08 Jan 2024 23:38:55 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8C%87%E5%8D%97/</guid><description>dash官方文档: https://dash.plotly.com/tutorial
+streamlit官方文档: https://docs.streamlit.io/
+plotly官方文档: https://plotly.com/python/getting-started/
+demo
+1 2 3 4 5 6 7 8 9 import plotly.express as px fig = px.bar(x=[&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;], y=[1, 3, 2]) # fig = px.pie(x=[&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;], y=[1, 3, 2]) # fig = px.line(x=[&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;], y=[1, 3, 2]) # fig = px.scatter(x=[&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;], y=[1, 3, 2]) fig.show() # write_html() subplots demo
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 from plotly.</description></item><item><title>数据分析资源</title><link>https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 08 Jan 2024 23:38:45 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8C%87%E5%8D%97/</guid><description>numpy官方文档: https://numpy.org/doc/stable/user/absolute_beginners.html
+pandas官方文档: https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 import pandas as pd In [45]: d = {&amp;#34;one&amp;#34;: [1.0, 2.0, 3.0, 4.0], &amp;#34;two&amp;#34;: [4.0, 3.0, 2.0, 1.0]} In [46]: pd.DataFrame(d) Out[46]: one two 0 1.0 4.0 1 2.0 3.0 2 3.0 2.0 3 4.0 1.0 In [49]: data = [(1, 2.0, &amp;#34;Hello&amp;#34;), (2, 3.0, &amp;#34;World&amp;#34;)] In [52]: pd.</description></item><item><title>Git资源</title><link>https://zhenda-hub.github.io/posts/tools/git-guide/git%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 08 Jan 2024 23:37:30 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/git-guide/git%E6%8C%87%E5%8D%97/</guid><description>[toc]
+官方文档https://git-scm.com/book/zh/v2
+git 重要概念 commit 以 commit 节点为根基, 记录历史, 当前 commit 为 HEAD branch 分支实际上是可移动的指针, 代表一系列commit 用于并行开发 创建删除非常轻量 代码仓库 远程仓库 部署在服务器中，供用户访问 本地仓库 信息都存放在 .git文件夹 里面， .git文件夹 所在的文件夹就是仓库 git 远程仓库平台 github
+最强大的国际git平台，海量的优秀仓库
+actions
+CICD pages
+静态网页部署 编写 md 发布到全网 railway
+部署 web 项目 gitlab
+支持自建远程仓库 https://docs.gitlab.com/ee/update/package/#upgrade-using-the-official-repositories ci/cd gitee
+国内使用方便 CICD 需要自己弄服务器 大体流程 工作区 本地仓库 远程仓库 git 使用方法基础使用使用前提: 安装 -&amp;gt; 配置 -&amp;gt; 远程仓库 -&amp;gt; 本地仓库
+安装&amp;hellip;
+配置个人信息~/.gitconfig
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 # 查看 git 信息 git config -l # 编辑个人信息来显示提交记录 git config --global user.</description></item><item><title>Pyqt5指南</title><link>https://zhenda-hub.github.io/posts/tech/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</link><pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</guid><description>使用 python 我们也可以开发桌面应用（在 pc 上运行的软件，pyqt5 好像还不支持手机 app）平时做做小工具还是挺方便的。这次我们一起学习一下 pyqt5
+环境安装 1 2 pip install pyqt5 pip install pyqt5-tools python 版本不要过高， 需要适配 pyqt5 ，像 3.8，3.9 是可以的，高版本可能会出现适配问题
+设计理念 mvc view 界面 controller 用户交互逻辑 model 后台执行逻辑 开发流程整体开发逻辑可以类比网页，有很多相似之处：
+各种控件 相当于 html 的各种标签
+窗口
+mainwindow
+全面 高级功能 菜单栏 工具栏 状态栏 dialog
+object 设置类名 场景 简洁 无最大最小化按钮 常用控件
+button push button checkbox radio button 设置组 界面中，选中多个设置组 代码中，使用 QButtonGroup label containers tab 多个页面 tabtext 编辑名称 group 分组 ctrl 拖动 set checkable 设置区域是否激活 input lineedit 输入框 text（） 获取数据 setText（） 设置数据 placeholder 提示内容 copy() clear() 设置密码 信号 returnPressed 按下回车的信号 editingfinished 停止编辑信号 combo box 信号 activated browser text 复杂控件</description></item><item><title>Linux系统教程</title><link>https://zhenda-hub.github.io/posts/system/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/</link><pubDate>Sat, 25 Nov 2023 11:29:37 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/system/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/</guid><description>[toc]
+文章目的希望 linux 初学者可以通过本章内容，快速入门 linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片
+linux 的必要性linux 是一个稳定， 安全， 开源，免费的操作系统内核。 支持多用户同时使用。成为了各大公司服务器的首选。
+掌握 Linux 可以提高技术就业竞争力。许多 IT 岗位将熟练使用 Linux 作为必备技能。
+基于 linux 内核的主流发行版 发行版 基础 特点描述 适合用户类型 软件安装工具 Debian 独立 强调自由软件，非常稳定，是许多其他发行版的基础。 需要高度稳定性的用户 apt, apt-get, dpkg Ubuntu Debian 易于使用，提供桌面和服务器版本，有长期支持版本（LTS）。 广泛应用于个人电脑、服务器及云计算 apt, snap Fedora 独立 包含最新开源软件包和技术，由Red Hat赞助，强调创新和技术领先性。 追求新技术特性的高级用户 dnf Red Hat Enterprise Linux (RHEL) 独立 面向企业的付费发行版，提供高度的安全性和稳定性，适合关键业务应用。 企业级用户 yum / dnf SUSE Linux Enterprise (SLE) 独立 企业级发行版，在欧洲市场流行，openSUSE为社区版本，提供Leap（稳定）和Tumbleweed（滚动发布）。 需要企业级服务和支持的用户 zypper Arch Linux 独立 滚动发布，适合喜欢自己动手定制系统的高级用户，始终获得最新的软件包。 技术爱好者和高级用户 pacman Manjaro Arch Linux 提供更友好的安装过程和默认设置，基于Arch Linux但对新手更加友好。 新手及希望体验Arch Linux的用户 pacman Linux Mint Ubuntu 提供更加传统的桌面体验，默认带有媒体编解码器等实用工具，非常适合从Windows过渡过来的新手用户。 Windows用户迁移或寻求简单易用的用户 apt Elementary OS Ubuntu 受macOS启发的设计风格，美观且直观的桌面环境，旨在提供简洁高效的计算体验。 寻求美观高效界面的用户 apt 1 2 # 查看发行版 cat /etc/os-release 初级阶段systemd服务管理器systemd 是 Linux 系统中一个强大的初始化系统和服务管理器</description></item><item><title>Python基础 类2</title><link>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/</link><pubDate>Thu, 23 Nov 2023 22:49:27 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/</guid><description>这次我们补充说明 类的关系 这一非常重要的概念
+类之间的关系has关系： 使用依赖依赖：当B类 has A类时，在 B类中 使用 A类的对象
+特点：通过A类对象，使用A类所有东西。
+举例说明：人有手，有脚，但手不是人，脚也不是人，只是人的一部分
+再比如： 一个班级， 可以有很多学生，它们之间的关系就应该是依赖的关系
+再比如： 一个人， 可以有一个电脑，人可以使用电脑做各种事情。人和电脑之间的关系就应该是依赖的关系
+这种思想经常使用，甚至 比人们耳熟能详的继承，多态， 还要重要！！
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 class Computer: def __init__(self, brand) -&amp;gt; None: self.brand = brand def run_game(self): print(&amp;#39;运行lol&amp;#39;) def run_ide(self): print(&amp;#39;运行vscode&amp;#39;) class People: def __init__(self, name, computer: Computer) -&amp;gt; None: self.</description></item><item><title>Python基础 类</title><link>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/</link><pubDate>Thu, 23 Nov 2023 21:54:28 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/</guid><description>一：概念阐述面向对象因为提高了代码的复用性，开发效率高，而且便于扩展迭代，所以成为了主流的开发思想。其中的核心概念就是类，在面向对象的思想中，可以用类来抽象一切的事物
+类抽象一类事物为一个模型。用 属性 和 方法 来描述。
+属性描述一类事物的属性，本质上是类中的变量。包括两种：
+实例属性：这个类的对象的一种 个体的属性
+类属性：这个类所有对象的一种 整体的属性
+方法描述一类事物的行为，本质上是类中的函数。包括三种：
+实例方法：
+self: 实例方法中，自动添加的一个参数，代表调用此方法的对象。
+类方法：
+cls: 实例方法中，自动添加的一个参数，代表调用此方法的类。用@classmethod装饰
+静态方法：
+既不使用self，也不使用cls的方法。用@staticmethod装饰
+调用方法的两种方式：
+对象调用方法
+类名调用方法
+对象是具体的一个一个的事物，由 类 制造而成。
+实例化类制造对象的过程
+1 2 3 4 5 class Person(object): # 创建类 pass if __name__ == &amp;#39;__main__&amp;#39;: p1 = Person() # 类加括号：实例化一个对象 二：python中的顶级父类及其属性和方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &amp;#34;&amp;#34;&amp;#34; object：顶级父类，继承的源头，默认继承它 __class__: 查看实例化这个对象的类 __bases__：查看父类 __dict__: 字典形式显示属性 dir(obj)：查看obj拥有的方法 __new__(): 创建对象 __init__()：初始化对象的属性，创建对象自动调用，可以设置默认参数 __str__()：打印对象信息，必须return字符串，print(对象)的时候 __repr__()：打印对象信息，必须return字符串，print(对象容器)的时候，例如[obj1, obj2,.</description></item><item><title>Python基础 虚拟环境管理 Anaconda</title><link>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/</link><pubDate>Thu, 23 Nov 2023 21:49:57 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/</guid><description>[toc]
+python虚拟环境的必要性背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正常执行。
+痛点：
+只使用一个环境运行所有python项目时，会出现版本不兼容的问题。 当第三方库很多，不便于项目迁移和部署。 方案：使用python虚拟环境。
+python虚拟环境的基本原理 python程序和一般电脑上的程序不同，一般程序只能安装一次，但是python程序可以 多次安装在系统的不同位置，不同位置的python程序可以安装各自的第三方包 使用运行python程序中的activate文件，可以修改 操作系统的环境变量(让操作系统知道我们想用的程序在哪)，来使用不同位置的python程序 Python 包管理工具工具层出不穷, 还没学会一个, 就来两个
+工具 推荐等级 代表年份（首次出现 / 走红） 备注 &amp;amp; 来源 uv ✔✔✔（最推荐） 2024–2025. (GitHub) Astral 的新一代工具，2024 起公开活跃并在 2024–2025 年迅速流行。 Rye ✔（备选） 2024. (Armin Ronacher&amp;rsquo;s Thoughts and Writings) Armin/胴体团队 2024 年左右推出并宣传为“one-stop”方案。 PDM ✔ 2020（早期 2020 年开始活跃）. (PDM Project) PDM 的 release/开发记录从 2020 年可见明显活动。 Poetry 部分场景适合 2018（初始发布）. (Poetry) 官方 history 显示 0.1.0 在 2018-02-28 发布。 Hatch 适合写库 2017（项目起始） / v1 稳定版 2022.</description></item><item><title>Python基础 编程章法2</title><link>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/</link><pubDate>Thu, 23 Nov 2023 00:37:34 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/</guid><description>今天继续分享一下自己的近期心得：
+python之禅 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 Python 3.10.11 | packaged by Anaconda, Inc. | (main, Apr 20 2023, 18:56:50) [MSC v.1916 64 bit (AMD64)] on win32 Type &amp;#34;help&amp;#34;, &amp;#34;copyright&amp;#34;, &amp;#34;credits&amp;#34; or &amp;#34;license&amp;#34; for more information. &amp;gt;&amp;gt;&amp;gt; import this The Zen of Python, by Tim Peters Beautiful is better than ugly.</description></item><item><title>Python基础 编程章法</title><link>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/</link><pubDate>Thu, 23 Nov 2023 00:31:29 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/</guid><description>对于初学者，学习完了各种基础之后，开始真正编程时，会发现写的代码有点乱，没有规范，逻辑，这样是不行的。需要一套方法论才可以更好的实践
+今天我分享一下自己的套路：
+优秀代码的特质 高内聚，低耦合 可扩展 可读性 可测试 心得分享记得有一句名言：程序 = 数据结构 + 算法。
+数据结构用（类的属性， 变量）来承载， 算法用（类的方法， 函数）来承载。
+这些 相互关联的 数据结构和算法结合起来, 形成了编程的 函数，类。
+因此函数和类是可以 随时转化 的。本质都是 输入数据结构-&amp;gt;算法-&amp;gt;输出数据结构。
+当一个函数很复杂，可以拆分成类。当一个类很复杂可以拆分成多个类.
+几千行的函数-&amp;gt;几百行的函数组成的类-&amp;gt; 几十行的函数组成的多个类
+这是一个慢慢变优秀的过程
+代码设计原则最重要的原则：
+1 2 3 KISS 原则（Keep It Simple, Stupid）—— 核心含义：代码 / 架构 / 设计要尽可能简单，避免不必要的复杂，能用简单方案解决的问题，绝不使用复杂方案。 单一职责原则（Single Responsibility Principle，SRP）核心含义：一个代码单元（函数 / 类 / 模块 / 文件），只负责一件事，只有一个引起它变化的原因。 Explicit is Better Than Implicit (显式优于隐式) SOLID： 是面向对象开发的 5 个基础原则solid5原则讲解的很具体，但是个人认为只要掌握了前两条就够了，这两条原则对于函数和类，都是适用的。
+单一职责原则（Single Responsibility Principle，SRP）核心含义：一个代码单元（函数 / 类 / 模块 / 文件），只负责一件事，只有一个引起它变化的原因。 开闭原则（Open/Closed Principle，OCP）核心含义：对扩展开放，对修改关闭。</description></item><item><title>Puppet - Getting Started</title><link>https://zhenda-hub.github.io/posts/hugo_guide/getting-started/</link><pubDate>Tue, 09 Aug 2022 15:38:30 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_guide/getting-started/</guid><description>&lt;p>Puppet is a responsive, simple and clean &lt;a href="https://gohugo.io/" target="_blank">Hugo&lt;/a> theme based on the &lt;a href="https://github.com/Huxpro/huxpro.github.io" target="_blank">Huxblog Jekyll theme&lt;/a>.&lt;/p></description></item><item><title>Markdown Syntax Guide</title><link>https://zhenda-hub.github.io/posts/hugo_guide/markdown-syntax/</link><pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_guide/markdown-syntax/</guid><description>&lt;p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p></description></item><item><title>Rich Content</title><link>https://zhenda-hub.github.io/posts/hugo_guide/rich-content/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_guide/rich-content/</guid><description>&lt;p>Hugo ships with several &lt;a href="https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes" target="_blank">Built-in Shortcodes&lt;/a> for rich content, along with a &lt;a href="https://gohugo.io/about/hugo-and-gdpr/" target="_blank">Privacy Config&lt;/a> and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p></description></item><item><title>Placeholder Text</title><link>https://zhenda-hub.github.io/posts/hugo_guide/placeholder-text/</link><pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_guide/placeholder-text/</guid><description>&lt;p>Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p></description></item><item><title>Math Typesetting</title><link>https://zhenda-hub.github.io/posts/hugo_guide/math-typesetting/</link><pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_guide/math-typesetting/</guid><description>&lt;p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p></description></item><item><title>Emoji Support</title><link>https://zhenda-hub.github.io/posts/hugo_guide/emoji-support/</link><pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_guide/emoji-support/</guid><description>&lt;p>Emoji can be enabled in a Hugo project in a number of ways.&lt;/p></description></item><item><title>About Hugo</title><link>https://zhenda-hub.github.io/posts/hugo_guide/about-hugo/</link><pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_guide/about-hugo/</guid><description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hugo makes use of a variety of open source projects including:
+https://github.com/yuin/goldmark https://github.</description></item></channel></rss>

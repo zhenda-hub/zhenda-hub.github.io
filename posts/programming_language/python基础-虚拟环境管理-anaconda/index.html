@@ -1,0 +1,241 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Python基础 虚拟环境管理 Anaconda | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content="[toc]
+python虚拟环境的必要性背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正常执行。
+痛点：
+只使用一个环境运行所有python项目时，会出现版本不兼容的问题。 当第三方库很多，不便于项目迁移和部署。 方案：使用python虚拟环境。
+python虚拟环境的基本原理 python程序和一般电脑上的程序不同，一般程序只能安装一次，但是python程序可以 多次安装在系统的不同位置，不同位置的python程序可以安装各自的第三方包 使用运行python程序中的activate文件，可以修改 操作系统的环境变量(让操作系统知道我们想用的程序在哪)，来使用不同位置的python程序 Python 包管理工具工具层出不穷, 还没学会一个, 就来两个
+工具 推荐等级 代表年份（首次出现 / 走红） 备注 & 来源 uv ✔✔✔（最推荐） 2024–2025. (GitHub) Astral 的新一代工具，2024 起公开活跃并在 2024–2025 年迅速流行。 Rye ✔（备选） 2024. (Armin Ronacher&rsquo;s Thoughts and Writings) Armin/胴体团队 2024 年左右推出并宣传为“one-stop”方案。 PDM ✔ 2020（早期 2020 年开始活跃）. (PDM Project) PDM 的 release/开发记录从 2020 年可见明显活动。 Poetry 部分场景适合 2018（初始发布）. (Poetry) 官方 history 显示 0.1.0 在 2018-02-28 发布。 Hatch 适合写库 2017（项目起始） / v1 稳定版 2022."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Python基础 虚拟环境管理 Anaconda"><meta name=twitter:description content="[toc]
+python虚拟环境的必要性背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正常执行。
+痛点：
+只使用一个环境运行所有python项目时，会出现版本不兼容的问题。 当第三方库很多，不便于项目迁移和部署。 方案：使用python虚拟环境。
+python虚拟环境的基本原理 python程序和一般电脑上的程序不同，一般程序只能安装一次，但是python程序可以 多次安装在系统的不同位置，不同位置的python程序可以安装各自的第三方包 使用运行python程序中的activate文件，可以修改 操作系统的环境变量(让操作系统知道我们想用的程序在哪)，来使用不同位置的python程序 Python 包管理工具工具层出不穷, 还没学会一个, 就来两个
+工具 推荐等级 代表年份（首次出现 / 走红） 备注 & 来源 uv ✔✔✔（最推荐） 2024–2025. (GitHub) Astral 的新一代工具，2024 起公开活跃并在 2024–2025 年迅速流行。 Rye ✔（备选） 2024. (Armin Ronacher’s Thoughts and Writings) Armin/胴体团队 2024 年左右推出并宣传为“one-stop”方案。 PDM ✔ 2020（早期 2020 年开始活跃）. (PDM Project) PDM 的 release/开发记录从 2020 年可见明显活动。 Poetry 部分场景适合 2018（初始发布）. (Poetry) 官方 history 显示 0.1.0 在 2018-02-28 发布。 Hatch 适合写库 2017（项目起始） / v1 稳定版 2022."><meta property="og:url" content="https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="Python基础 虚拟环境管理 Anaconda"><meta property="og:description" content="[toc]
+python虚拟环境的必要性背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正常执行。
+痛点：
+只使用一个环境运行所有python项目时，会出现版本不兼容的问题。 当第三方库很多，不便于项目迁移和部署。 方案：使用python虚拟环境。
+python虚拟环境的基本原理 python程序和一般电脑上的程序不同，一般程序只能安装一次，但是python程序可以 多次安装在系统的不同位置，不同位置的python程序可以安装各自的第三方包 使用运行python程序中的activate文件，可以修改 操作系统的环境变量(让操作系统知道我们想用的程序在哪)，来使用不同位置的python程序 Python 包管理工具工具层出不穷, 还没学会一个, 就来两个
+工具 推荐等级 代表年份（首次出现 / 走红） 备注 & 来源 uv ✔✔✔（最推荐） 2024–2025. (GitHub) Astral 的新一代工具，2024 起公开活跃并在 2024–2025 年迅速流行。 Rye ✔（备选） 2024. (Armin Ronacher’s Thoughts and Writings) Armin/胴体团队 2024 年左右推出并宣传为“one-stop”方案。 PDM ✔ 2020（早期 2020 年开始活跃）. (PDM Project) PDM 的 release/开发记录从 2020 年可见明显活动。 Poetry 部分场景适合 2018（初始发布）. (Poetry) 官方 history 显示 0.1.0 在 2018-02-28 发布。 Hatch 适合写库 2017（项目起始） / v1 稳定版 2022."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-11-23T21:49:57+08:00"><meta property="article:modified_time" content="2023-11-23T21:49:57+08:00"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python-import/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python-pip/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python_basic/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python-small-tools/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags></div><h1>Python基础 虚拟环境管理 Anaconda</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Thu, Nov 23, 2023</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><p>[toc]</p><h2 id=python虚拟环境的必要性>python虚拟环境的必要性<a class=anchorjs-link href=#python%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83%e7%9a%84%e5%bf%85%e8%a6%81%e6%80%a7></a></h2><p>背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正常执行。</p><p>痛点：</p><ol><li>只使用一个环境运行所有python项目时，会出现版本不兼容的问题。</li><li>当第三方库很多，不便于项目迁移和部署。</li></ol><p>方案：使用python虚拟环境。</p><h2 id=python虚拟环境的基本原理>python虚拟环境的基本原理<a class=anchorjs-link href=#python%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%8e%9f%e7%90%86></a></h2><ol><li>python程序和一般电脑上的程序不同，一般程序只能安装一次，但是python程序可以 <strong>多次安装在系统的不同位置，不同位置的python程序可以安装各自的第三方包</strong></li><li>使用运行python程序中的activate文件，可以修改 <strong>操作系统的环境变量</strong>(让操作系统知道我们想用的程序在哪)，来使用不同位置的python程序</li></ol><hr><h2 id=python-包管理工具>Python 包管理工具<a class=anchorjs-link href=#python-%e5%8c%85%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7></a></h2><p>工具层出不穷, 还没学会一个, 就来两个</p><table><thead><tr><th>工具</th><th style=text-align:right>推荐等级</th><th style=text-align:right>代表年份（首次出现 / 走红）</th><th>备注 & 来源</th></tr></thead><tbody><tr><td><strong>uv</strong></td><td style=text-align:right>✔✔✔（最推荐）</td><td style=text-align:right><strong>2024–2025</strong>. (<a href=https://github.com/astral-sh/uv title="GitHub - astral-sh/uv: An extremely fast Python package and project manager, written in Rust." target=_blank>GitHub</a>)</td><td>Astral 的新一代工具，2024 起公开活跃并在 2024–2025 年迅速流行。</td></tr><tr><td><strong>Rye</strong></td><td style=text-align:right>✔（备选）</td><td style=text-align:right><strong>2024</strong>. (<a href="https://lucumr.pocoo.org/2024/2/4/rye-a-vision/?utm_source=chatgpt.com" title="Rye: A Vision Continued" target=_blank>Armin Ronacher&rsquo;s Thoughts and Writings</a>)</td><td>Armin/胴体团队 2024 年左右推出并宣传为“one-stop”方案。</td></tr><tr><td><strong>PDM</strong></td><td style=text-align:right>✔</td><td style=text-align:right><strong>2020</strong>（早期 2020 年开始活跃）. (<a href="https://pdm-project.org/latest/dev/changelog/?utm_source=chatgpt.com" title=Changelog target=_blank>PDM Project</a>)</td><td>PDM 的 release/开发记录从 2020 年可见明显活动。</td></tr><tr><td><strong>Poetry</strong></td><td style=text-align:right>部分场景适合</td><td style=text-align:right><strong>2018（初始发布）</strong>. (<a href=https://python-poetry.org/history/ title="History | Poetry - Python dependency management and packaging made easy" target=_blank>Poetry</a>)</td><td>官方 history 显示 0.1.0 在 2018-02-28 发布。</td></tr><tr><td><strong>Hatch</strong></td><td style=text-align:right>适合写库</td><td style=text-align:right><strong>2017（项目起始） / v1 稳定版 2022</strong>. (<a href=https://hatch.pypa.io/1.13/history/hatch/ title="Hatch history - Hatch" target=_blank>Hatch</a>)</td><td>Hatch 项目自 2017 开始，v1 稳定重写并在 2022 年成为稳定主线。</td></tr><tr><td><strong>pip-tools</strong></td><td style=text-align:right>老旧但稳</td><td style=text-align:right><strong>2015（pip-tools 1.0）</strong>. (<a href=https://nvie.com/posts/pip-tools-10-released/ title="pip-tools 1.0 released » nvie.com" target=_blank>nvie.com</a>)</td><td>pip-tools 1.0 在 2015 年发布（pip-compile / pip-sync）。</td></tr><tr><td><strong>pip + venv</strong></td><td style=text-align:right>基础水平</td><td style=text-align:right><strong>pip 2008；venv（标准库）2013 前后普及</strong>. (<a href=https://en.wikipedia.org/wiki/Pip_%28package_manager%29 title="pip (package manager) - Wikipedia" target=_blank>维基百科</a>)</td><td>pip 最早可追溯到 2008，venv 随 Python3.x 标准化后在 2012–2014 逐步成为常用方案。</td></tr></tbody></table><h3 id=conda常用命令>conda常用命令<a class=anchorjs-link href=#conda%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 禁用默认base,防止污染终端</span>
+</span></span><span style=display:flex><span>conda config --set auto_activate_base <span style=color:#a90d91>false</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 虚拟环境管理</span>
+</span></span><span style=display:flex><span><span style=color:#177500># 查看所有环境和当前环境(前面有*标记的)</span>
+</span></span><span style=display:flex><span>conda info --envs
+</span></span><span style=display:flex><span><span style=color:#177500># 切换并进入环境</span>
+</span></span><span style=display:flex><span>conda activate 环境名
+</span></span><span style=display:flex><span><span style=color:#177500># 退出环境</span>
+</span></span><span style=display:flex><span>conda deactivate
+</span></span><span style=display:flex><span><span style=color:#177500># 创建指定版本的python环境</span>
+</span></span><span style=display:flex><span>conda create --name 环境名 <span style=color:#000>python</span><span style=color:#000>=</span>3.9
+</span></span><span style=display:flex><span><span style=color:#177500># 删除环境</span>
+</span></span><span style=display:flex><span>conda remove --name 环境名 --all
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 环境中的包管理</span>
+</span></span><span style=display:flex><span>conda list
+</span></span><span style=display:flex><span><span style=color:#177500># 更新所有包到最新的兼容版本</span>
+</span></span><span style=display:flex><span>conda update --all
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 导出环境包</span>
+</span></span><span style=display:flex><span>conda env <span style=color:#a90d91>export</span> &gt; freeze.yml
+</span></span><span style=display:flex><span><span style=color:#177500># 导入, 注意防止环境名重复</span>
+</span></span><span style=display:flex><span>conda env create -f freeze.yml
+</span></span></code></pre></td></tr></table></div></div><h3 id=venv>venv<a class=anchorjs-link href=#venv></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 创建环境</span>
+</span></span><span style=display:flex><span>python3 -m venv myenv
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 激活环境</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>source</span> myenv/bin/activate
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 安装包</span>
+</span></span><span style=display:flex><span>pip install &lt;package&gt;
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cmd data-lang=cmd><span style=display:flex><span>.venv\Scripts\activate
+</span></span></code></pre></td></tr></table></div></div><h3 id=pip-tools--pipdeptree>pip-tools + pipdeptree<a class=anchorjs-link href=#pip-tools--pipdeptree></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pip install pip-tools
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>pip-compile requirements.in
+</span></span><span style=display:flex><span><span style=color:#177500># 会删除多余包, 包严格一致</span>
+</span></span><span style=display:flex><span>pip-sync requirements.txt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 更新依赖包 requirements.txt</span>
+</span></span><span style=display:flex><span>pip-compile --upgrade
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=display:flex><span><span style=color:#a90d91>FROM</span><span style=color:#c41a16> python:3.11-slim</span><span style=color:#000>
+</span></span></span><span style=display:flex><span><span style=color:#000>
+</span></span></span><span style=display:flex><span><span style=color:#000></span><span style=color:#a90d91>WORKDIR</span><span style=color:#c41a16> /app</span><span style=color:#000>
+</span></span></span><span style=display:flex><span><span style=color:#000></span><span style=color:#a90d91>COPY</span> requirements.in .<span style=color:#000>
+</span></span></span><span style=display:flex><span><span style=color:#000></span><span style=color:#a90d91>RUN</span> pip install pip-tools <span style=color:#c41a16>\
+</span></span></span><span style=display:flex><span><span style=color:#c41a16></span>    <span style=color:#000>&amp;&amp;</span> pip-compile requirements.in <span style=color:#c41a16>\
+</span></span></span><span style=display:flex><span><span style=color:#c41a16></span>    <span style=color:#000>&amp;&amp;</span> pip-sync requirements.txt<span style=color:#000>
+</span></span></span><span style=display:flex><span><span style=color:#000>
+</span></span></span><span style=display:flex><span><span style=color:#000></span><span style=color:#a90d91>COPY</span> . .<span style=color:#000>
+</span></span></span><span style=display:flex><span><span style=color:#000>
+</span></span></span><span style=display:flex><span><span style=color:#000></span><span style=color:#a90d91>CMD</span> [<span style=color:#c41a16>&#34;python&#34;</span>, <span style=color:#c41a16>&#34;main.py&#34;</span>]<span style=color:#000>
+</span></span></span></code></pre></td></tr></table></div></div><p>pipdeptree:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pip install pipdeptree
+</span></span><span style=display:flex><span><span style=color:#177500># pipdeptree 默认是分析当前环境里的包</span>
+</span></span><span style=display:flex><span>pipdeptree
+</span></span></code></pre></td></tr></table></div></div><h3 id=uv>uv<a class=anchorjs-link href=#uv></a></h3><p>灵活切换python版本</p><p><a href="https://github.com/astral-sh/uv?tab=readme-ov-file" target=_blank>https://github.com/astral-sh/uv?tab=readme-ov-file</a>
+<a href=https://docs.astral.sh/uv/guides/migration/pip-to-project/#next-steps target=_blank>https://docs.astral.sh/uv/guides/migration/pip-to-project/#next-steps</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>uv python -h
+</span></span><span style=display:flex><span>uv python list
+</span></span><span style=display:flex><span><span style=color:#177500># 最新python版本</span>
+</span></span><span style=display:flex><span>uv python install
+</span></span><span style=display:flex><span><span style=color:#177500># 指定python版本创建项目</span>
+</span></span><span style=display:flex><span>uv python install 3.12
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>uv pip tree
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 制定项目最低的python版本</span>
+</span></span><span style=display:flex><span>uv init -p 3.8
+</span></span><span style=display:flex><span><span style=color:#177500># 同步环境</span>
+</span></span><span style=display:flex><span>uv venv -p 3.9
+</span></span><span style=display:flex><span>uv sync                    <span style=color:#177500># 第一次会创建 .venv</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 管理包</span>
+</span></span><span style=display:flex><span>uv add requests
+</span></span><span style=display:flex><span>uv remove requests
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 运行python</span>
+</span></span><span style=display:flex><span>uv run python main.py
+</span></span><span style=display:flex><span>uv run python --version
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 和 requirements.txt 交互</span>
+</span></span><span style=display:flex><span>uv add -r requirements.txt
+</span></span><span style=display:flex><span>uv <span style=color:#a90d91>export</span> -o requirements.txt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># pylock.toml</span>
+</span></span><span style=display:flex><span>uv <span style=color:#a90d91>export</span> -o pylock.toml
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> <span style=color:#177500># 查看可更新的包</span>
+</span></span><span style=display:flex><span> uv outdated
+</span></span><span style=display:flex><span> <span style=color:#177500># 更新所有依赖到最新兼容版本</span>
+</span></span><span style=display:flex><span> uv upgrade
+</span></span></code></pre></td></tr></table></div></div><h3 id=poetry>poetry<a class=anchorjs-link href=#poetry></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>poetry new myproject
+</span></span><span style=display:flex><span>poetry add &lt;package&gt;
+</span></span></code></pre></td></tr></table></div></div><h3 id=pyenv>pyenv<a class=anchorjs-link href=#pyenv></a></h3><p>不太支持windows</p><table><thead><tr><th>命令</th><th>功能说明</th></tr></thead><tbody><tr><td><code>pyenv install &lt;version></code></td><td>安装指定版本的 Python，例如 <code>pyenv install 3.9.7</code></td></tr><tr><td><code>pyenv uninstall &lt;version></code></td><td>卸载指定版本的 Python</td></tr><tr><td><code>pyenv versions</code></td><td>列出已安装的所有 Python 版本</td></tr><tr><td><code>pyenv version</code></td><td>显示当前使用的 Python 版本</td></tr><tr><td><code>pyenv global &lt;version></code></td><td>设置全局的 Python 版本，例如 <code>pyenv global 3.9.7</code></td></tr><tr><td><code>pyenv local &lt;version></code></td><td>在当前目录设置本地的 Python 版本，例如 <code>pyenv local 3.8.5</code></td></tr><tr><td><code>pyenv shell &lt;version></code></td><td>为当前 shell 会话临时设置 Python 版本，例如 <code>pyenv shell 3.7.3</code></td></tr><tr><td><code>pyenv rehash</code></td><td>重新生成 <code>shims</code>，每次安装或卸载 Python 版本后需要执行</td></tr><tr><td><code>pyenv which &lt;command></code></td><td>显示当前 Python 环境中某个命令的绝对路径，例如 <code>pyenv which python</code></td></tr><tr><td><code>pyenv doctor</code></td><td>检查 pyenv 是否安装正确并配置好</td></tr><tr><td><code>pyenv update</code></td><td>更新 pyenv 本身及其插件</td></tr></tbody></table><p>其他有用的插件命令</p><table><thead><tr><th>命令</th><th>功能说明</th></tr></thead><tbody><tr><td><code>pyenv virtualenv &lt;version> &lt;name></code></td><td>创建一个基于指定 Python 版本的虚拟环境</td></tr><tr><td><code>pyenv virtualenvs</code></td><td>列出所有使用 pyenv 创建的虚拟环境</td></tr><tr><td><code>pyenv activate &lt;name></code></td><td>激活指定的虚拟环境</td></tr><tr><td><code>pyenv deactivate</code></td><td>退出当前的虚拟环境</td></tr></tbody></table><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/ data-toggle=tooltip data-placement=top title="Python基础 编程章法2">Previous<br><span>Python基础 编程章法2</span></a></li><li class=next><a href=/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/ data-toggle=tooltip data-placement=top title="Python基础 类">Next<br><span>Python基础 类</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script></body></html>

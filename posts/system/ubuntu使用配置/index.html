@@ -1,0 +1,685 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Ubuntu使用配置 | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content='[toc]
+install toolapt snap store, snap 各种问题 brew asdf
+1 2 # 罗列所有的snap软件 ll ~/snap install and removesys_update.sh
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 #!/bin/bash # 更新软件包列表 echo "更新软件包列表..." sudo apt update -y # 升级已安装的软件包 echo "升级已安装的软件包..." sudo apt upgrade -y # 删除不再需要的包 echo "删除不再需要的包..." sudo apt autoremove -y # 清理软件包缓存 echo "清理缓存..." sudo apt clean echo "系统更新和清理完成！" install'><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ubuntu使用配置"><meta name=twitter:description content='[toc]
+install toolapt snap store, snap 各种问题 brew asdf
+1 2 # 罗列所有的snap软件 ll ~/snap install and removesys_update.sh
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 #!/bin/bash # 更新软件包列表 echo "更新软件包列表..." sudo apt update -y # 升级已安装的软件包 echo "升级已安装的软件包..." sudo apt upgrade -y # 删除不再需要的包 echo "删除不再需要的包..." sudo apt autoremove -y # 清理软件包缓存 echo "清理缓存..." sudo apt clean echo "系统更新和清理完成！" install'><meta property="og:url" content="https://zhenda-hub.github.io/posts/system/ubuntu%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="Ubuntu使用配置"><meta property="og:description" content='[toc]
+install toolapt snap store, snap 各种问题 brew asdf
+1 2 # 罗列所有的snap软件 ll ~/snap install and removesys_update.sh
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 #!/bin/bash # 更新软件包列表 echo "更新软件包列表..." sudo apt update -y # 升级已安装的软件包 echo "升级已安装的软件包..." sudo apt upgrade -y # 删除不再需要的包 echo "删除不再需要的包..." sudo apt autoremove -y # 清理软件包缓存 echo "清理缓存..." sudo apt clean echo "系统更新和清理完成！" install'><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-04-30T13:43:06+08:00"><meta property="article:modified_time" content="2024-04-30T13:43:06+08:00"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/multi-user/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/pc-cmd/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/multi_sys/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/win-shell/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/cloud-servers/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags></div><h1>Ubuntu使用配置</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Tue, Apr 30, 2024</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><p>[toc]</p><h2 id=install-tool>install tool<a class=anchorjs-link href=#install-tool></a></h2><p>apt
+snap store, snap 各种问题
+brew
+asdf</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 罗列所有的snap软件</span>
+</span></span><span style=display:flex><span>ll ~/snap
+</span></span></code></pre></td></tr></table></div></div><h2 id=install-and-remove>install and remove<a class=anchorjs-link href=#install-and-remove></a></h2><p>sys_update.sh</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#633820>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#633820></span>
+</span></span><span style=display:flex><span><span style=color:#177500># 更新软件包列表</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;更新软件包列表...&#34;</span>
+</span></span><span style=display:flex><span>sudo apt update -y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 升级已安装的软件包</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;升级已安装的软件包...&#34;</span>
+</span></span><span style=display:flex><span>sudo apt upgrade -y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 删除不再需要的包</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;删除不再需要的包...&#34;</span>
+</span></span><span style=display:flex><span>sudo apt autoremove -y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 清理软件包缓存</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;清理缓存...&#34;</span>
+</span></span><span style=display:flex><span>sudo apt clean
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;系统更新和清理完成！&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>install</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install &lt;path to .deb file&gt;
+</span></span><span style=display:flex><span><span style=color:#177500># 备用</span>
+</span></span><span style=display:flex><span>sudo dpkg -i &lt;path to .deb file&gt;
+</span></span></code></pre></td></tr></table></div></div><p>remove</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查询软件名</span>
+</span></span><span style=display:flex><span>dpkg -l | grep electron-stu
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 仅仅删除程序</span>
+</span></span><span style=display:flex><span>sudo apt remove xxxx*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo apt autoremove
+</span></span><span style=display:flex><span><span style=color:#177500># 备用</span>
+</span></span><span style=display:flex><span>sudo dpkg -P &lt;path to .deb file&gt;
+</span></span></code></pre></td></tr></table></div></div><h2 id=基本设置>基本设置<a class=anchorjs-link href=#%e5%9f%ba%e6%9c%ac%e8%ae%be%e7%bd%ae></a></h2><h3 id=中文>中文<a class=anchorjs-link href=#%e4%b8%ad%e6%96%87></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install ibus-pinyin
+</span></span></code></pre></td></tr></table></div></div><h3 id=keyboard>keyboard<a class=anchorjs-link href=#keyboard></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ibus restart
+</span></span><span style=display:flex><span>ibus-setup
+</span></span></code></pre></td></tr></table></div></div><h3 id=设置远程访问>设置远程访问<a class=anchorjs-link href=#%e8%ae%be%e7%bd%ae%e8%bf%9c%e7%a8%8b%e8%ae%bf%e9%97%ae></a></h3><h4 id=ssh-远程访问>ssh 远程访问<a class=anchorjs-link href=#ssh-%e8%bf%9c%e7%a8%8b%e8%ae%bf%e9%97%ae></a></h4><p>服务端设置 ssh</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 安装 SSH 服务</span>
+</span></span><span style=display:flex><span>sudo apt install net-tools
+</span></span><span style=display:flex><span>sudo apt install openssh-server
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 检查 SSH 服务状态</span>
+</span></span><span style=display:flex><span>sudo systemctl status ssh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 如果需要，启用服务</span>
+</span></span><span style=display:flex><span>sudo systemctl <span style=color:#a90d91>enable</span> ssh
+</span></span><span style=display:flex><span>sudo systemctl start ssh
+</span></span></code></pre></td></tr></table></div></div><p>客户端使用 ssh</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ssh -v 用户名@ip地址
+</span></span><span style=display:flex><span><span style=color:#a90d91>exit</span>
+</span></span><span style=display:flex><span>scp ... ...
+</span></span></code></pre></td></tr></table></div></div><ul><li>多用户访问</li><li>桌面远程访问</li></ul><h3 id=settings>settings<a class=anchorjs-link href=#settings></a></h3><p>再次点击图标实现最小化</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gsettings <span style=color:#a90d91>set</span> org.gnome.shell.extensions.dash-to-dock click-action <span style=color:#c41a16>&#39;minimize&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=ip设置固定>ip设置固定<a class=anchorjs-link href=#ip%e8%ae%be%e7%bd%ae%e5%9b%ba%e5%ae%9a></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看现在网络</span>
+</span></span><span style=display:flex><span>ip a
+</span></span><span style=display:flex><span>route -n
+</span></span><span style=display:flex><span>ip route | grep default
+</span></span></code></pre></td></tr></table></div></div><p>iphone 热点连接配置</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>网段：   172.20.10.0/28
+</span></span><span style=display:flex><span>网关：   172.20.10.1
+</span></span><span style=display:flex><span>掩码：   255.255.255.240
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>DNS:     8.8.8.8, 1.1.1.1
+</span></span></code></pre></td></tr></table></div></div><p>静态 IP 必须避开 DHCP 已经分配的 IP</p><h3 id=显示隐藏文件xxxxx>显示隐藏文件(.xxxxx)<a class=anchorjs-link href=#%e6%98%be%e7%a4%ba%e9%9a%90%e8%97%8f%e6%96%87%e4%bb%b6xxxxx></a></h3><p>按 ctrl + h</p><h2 id=常用软件>常用软件<a class=anchorjs-link href=#%e5%b8%b8%e7%94%a8%e8%bd%af%e4%bb%b6></a></h2><h3 id=gnome-extension>gnome extension<a class=anchorjs-link href=#gnome-extension></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install gnome-shell-extensions chrome-gnome-shell gnome-tweaks
+</span></span></code></pre></td></tr></table></div></div><p><a href=https://extensions.gnome.org/ target=_blank>https://extensions.gnome.org/</a></p><ul><li>lipboard Indicator</li><li>Vitals</li><li>OpenWeather</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install inetutils-traceroute
+</span></span><span style=display:flex><span>sudo apt-get install gnome-shell-pomodoro
+</span></span></code></pre></td></tr></table></div></div><h3 id=preload>preload<a class=anchorjs-link href=#preload></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt -y install preload
+</span></span><span style=display:flex><span>sudo preload -l
+</span></span><span style=display:flex><span>sudo systemctl status preload.service
+</span></span><span style=display:flex><span>sudo cat /var/log/preload.log
+</span></span></code></pre></td></tr></table></div></div><h3 id=preview-image-video>preview image, video<a class=anchorjs-link href=#preview-image-video></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install gnome-sushi
+</span></span></code></pre></td></tr></table></div></div><h3 id=appimage-类型的软件>AppImage 类型的软件<a class=anchorjs-link href=#appimage-%e7%b1%bb%e5%9e%8b%e7%9a%84%e8%bd%af%e4%bb%b6></a></h3><p>不好用，不如deb</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 安装依赖</span>
+</span></span><span style=display:flex><span>sudo apt install fuse3
+</span></span><span style=display:flex><span>sudo apt install libfuse2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>chmod +x ./xxx.AppImage
+</span></span><span style=display:flex><span>./xxx.AppImage
+</span></span></code></pre></td></tr></table></div></div><h3 id=flameshot-截图>flameshot 截图<a class=anchorjs-link href=#flameshot-%e6%88%aa%e5%9b%be></a></h3><p><a href=https://zhuanlan.zhihu.com/p/166559142 target=_blank>https://zhuanlan.zhihu.com/p/166559142</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install flameshot
+</span></span><span style=display:flex><span>flameshot gui
+</span></span></code></pre></td></tr></table></div></div><h3 id=办公软件>办公软件<a class=anchorjs-link href=#%e5%8a%9e%e5%85%ac%e8%bd%af%e4%bb%b6></a></h3><h4 id=libreoffice>libreoffice<a class=anchorjs-link href=#libreoffice></a></h4><p>兼容office太差, 建议卸载</p><h4 id=onlyoffice>onlyoffice<a class=anchorjs-link href=#onlyoffice></a></h4><p>兼容office好</p><h4 id=wps>wps<a class=anchorjs-link href=#wps></a></h4><p>有一些字体报错， 需要安装字体包（在星火商店）</p><h2 id=默认打开方式>默认打开方式<a class=anchorjs-link href=#%e9%bb%98%e8%ae%a4%e6%89%93%e5%bc%80%e6%96%b9%e5%bc%8f></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>xdg-open .
+</span></span></code></pre></td></tr></table></div></div><p>右键 属性 打开方式
+<a href=https://blog.csdn.net/weixin_43994864/article/details/110468818 target=_blank>https://blog.csdn.net/weixin_43994864/article/details/110468818</a></p><h2 id=使用技巧>使用技巧<a class=anchorjs-link href=#%e4%bd%bf%e7%94%a8%e6%8a%80%e5%b7%a7></a></h2><h3 id=右键添加文件>右键添加文件<a class=anchorjs-link href=#%e5%8f%b3%e9%94%ae%e6%b7%bb%e5%8a%a0%e6%96%87%e4%bb%b6></a></h3><p><a href="https://cn.linux-console.net/?p=18873" target=_blank>https://cn.linux-console.net/?p=18873</a></p><p>在 <code>~/Templates</code> 里面 放置一些想创建的文件, 右键就可以新建了</p><h3 id=open-image>open image<a class=anchorjs-link href=#open-image></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>eog xxx.png
+</span></span></code></pre></td></tr></table></div></div><h2 id=进阶设置>进阶设置<a class=anchorjs-link href=#%e8%bf%9b%e9%98%b6%e8%ae%be%e7%bd%ae></a></h2><h3 id=查看重启记录>查看重启记录<a class=anchorjs-link href=#%e6%9f%a5%e7%9c%8b%e9%87%8d%e5%90%af%e8%ae%b0%e5%bd%95></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>
+</span></span><span style=display:flex><span>last reboot
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>reboot   system boot  6.14.0-28-generi Tue Sep <span style=color:#1c01ce>23</span> 00:14   still running
+</span></span><span style=display:flex><span>reboot   system boot  6.14.0-28-generi Mon Sep <span style=color:#1c01ce>22</span> 21:22 - 00:14  <span style=color:#000>(</span>02:52<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.14.0-27-generi Wed Aug <span style=color:#1c01ce>13</span> 00:05 - 00:14 <span style=color:#000>(</span>41+00:08<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.14.0-24-generi Tue Jul <span style=color:#1c01ce>22</span> 22:40 - 00:14 <span style=color:#000>(</span>62+01:33<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.14.0-24-generi Fri Jul <span style=color:#1c01ce>18</span> 21:41 - 22:40 <span style=color:#000>(</span>4+00:58<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-26-generi Sun Jun <span style=color:#1c01ce>22</span> 01:52 - 21:41 <span style=color:#000>(</span>26+19:48<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-25-generi Mon May <span style=color:#1c01ce>12</span> 23:20 - 21:41 <span style=color:#000>(</span>66+22:21<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-21-generi Thu Apr <span style=color:#1c01ce>17</span> 00:27 - 23:19 <span style=color:#000>(</span>25+22:52<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-21-generi Wed Apr <span style=color:#1c01ce>16</span> 01:35 - 23:19 <span style=color:#000>(</span>26+21:44<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-21-generi Wed Apr <span style=color:#1c01ce>16</span> 00:20 - 23:19 <span style=color:#000>(</span>26+22:59<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-21-generi Mon Apr <span style=color:#1c01ce>14</span> 23:54 - 23:19 <span style=color:#000>(</span>27+23:24<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-21-generi Fri Apr  <span style=color:#1c01ce>4</span> 00:54 - 23:19 <span style=color:#000>(</span>38+22:24<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-19-generi Sun Mar <span style=color:#1c01ce>23</span> 23:11 - 00:54 <span style=color:#000>(</span>11+01:42<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-17-generi Sun Feb <span style=color:#1c01ce>23</span> 20:52 - 00:54 <span style=color:#000>(</span>39+04:01<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-17-generi Sun Feb <span style=color:#1c01ce>23</span> 20:22 - 20:52  <span style=color:#000>(</span>00:30<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>reboot   system boot  6.11.0-17-generi Sun Feb <span style=color:#1c01ce>23</span> 19:52 - 20:21  <span style=color:#000>(</span>00:29<span style=color:#000>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=xxx>xxx<a class=anchorjs-link href=#xxx></a></h3><p>sing-box
+v2rayA
+X-ui面板</p><h3 id=改server脚本>改server脚本<a class=anchorjs-link href=#%e6%94%b9server%e8%84%9a%e6%9c%ac></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">102
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">103
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">104
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#633820>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#633820></span><span style=color:#177500># Ubuntu Desktop → 简化伪服务器优化脚本（去掉健康监控，保留模式切换）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;=== Ubuntu Desktop → 伪服务器优化（简化版） ===&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 1️⃣ 禁用休眠 / 挂起</span>
+</span></span><span style=display:flex><span>sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ 已禁用休眠和挂起&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 2️⃣ 禁用自动更新重启</span>
+</span></span><span style=display:flex><span>sudo systemctl disable --now unattended-upgrades
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ 已禁用 unattended-upgrades 自动重启&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 3️⃣ 模式选择：Desktop / Server</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;选择运行模式：&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;1) 保留桌面环境（Desktop）&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;2) 切换命令行模式（Server）&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>read</span> -p <span style=color:#c41a16>&#34;请选择 (1/2): &#34;</span> GUI_CHOICE
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>if</span> <span style=color:#000>[[</span> <span style=color:#c41a16>&#34;</span><span style=color:#000>$GUI_CHOICE</span><span style=color:#c41a16>&#34;</span> <span style=color:#000>==</span> <span style=color:#c41a16>&#34;2&#34;</span> <span style=color:#000>]]</span>; <span style=color:#a90d91>then</span>
+</span></span><span style=display:flex><span>    sudo systemctl set-default multi-user.target
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ 已切换到命令行模式（Server）&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>else</span>
+</span></span><span style=display:flex><span>    sudo systemctl set-default graphical.target
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ 保留桌面模式（Desktop）&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>fi</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 4️⃣ 禁用非必要桌面服务</span>
+</span></span><span style=display:flex><span><span style=color:#177500># services=( &#34;bluetooth.service&#34; &#34;cups.service&#34; &#34;cups-browsed.service&#34; &#34;avahi-daemon.service&#34; &#34;ModemManager.service&#34; )</span>
+</span></span><span style=display:flex><span><span style=color:#000>services</span><span style=color:#000>=(</span> <span style=color:#c41a16>&#34;cups.service&#34;</span> <span style=color:#c41a16>&#34;cups-browsed.service&#34;</span> <span style=color:#c41a16>&#34;avahi-daemon.service&#34;</span> <span style=color:#c41a16>&#34;ModemManager.service&#34;</span> <span style=color:#000>)</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>for</span> service in <span style=color:#c41a16>&#34;</span><span style=color:#c41a16>${</span><span style=color:#000>services</span>[@]<span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>; <span style=color:#a90d91>do</span>
+</span></span><span style=display:flex><span>    sudo systemctl disable <span style=color:#c41a16>&#34;</span><span style=color:#000>$service</span><span style=color:#c41a16>&#34;</span> 2&gt;/dev/null
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ 已禁用 </span><span style=color:#000>$service</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>done</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 5️⃣ 日志优化</span>
+</span></span><span style=display:flex><span>sudo journalctl --vacuum-size<span style=color:#000>=</span>200M
+</span></span><span style=display:flex><span>grep -q <span style=color:#c41a16>&#34;SystemMaxUse&#34;</span> /etc/systemd/journald.conf <span style=color:#000>||</span> <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;SystemMaxUse=200M&#34;</span> | sudo tee -a /etc/systemd/journald.conf
+</span></span><span style=display:flex><span>sudo systemctl restart systemd-journald
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ 日志限制完成（最大 200M）&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 6️⃣ Swap 优化</span>
+</span></span><span style=display:flex><span><span style=color:#000>SWAPFILE</span><span style=color:#000>=</span>/swapfile
+</span></span><span style=display:flex><span><span style=color:#a90d91>if</span> <span style=color:#000>[</span> ! -f <span style=color:#c41a16>&#34;</span><span style=color:#000>$SWAPFILE</span><span style=color:#c41a16>&#34;</span> <span style=color:#000>]</span>; <span style=color:#a90d91>then</span>
+</span></span><span style=display:flex><span>    sudo fallocate -l 4G <span style=color:#000>$SWAPFILE</span>
+</span></span><span style=display:flex><span>    sudo chmod <span style=color:#1c01ce>600</span> <span style=color:#000>$SWAPFILE</span>
+</span></span><span style=display:flex><span>    sudo mkswap <span style=color:#000>$SWAPFILE</span>
+</span></span><span style=display:flex><span>    sudo swapon <span style=color:#000>$SWAPFILE</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;</span><span style=color:#000>$SWAPFILE</span><span style=color:#c41a16> none swap sw 0 0&#34;</span> | sudo tee -a /etc/fstab
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ 创建 4G swap&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>else</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ swap 已存在，跳过创建&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>fi</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo sysctl vm.swappiness<span style=color:#000>=</span><span style=color:#1c01ce>10</span>
+</span></span><span style=display:flex><span>grep -q <span style=color:#c41a16>&#34;vm.swappiness=10&#34;</span> /etc/sysctl.conf <span style=color:#000>||</span> <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;vm.swappiness=10&#34;</span> | sudo tee -a /etc/sysctl.conf
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ swappiness 设置完成&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 7️⃣ Docker 自启（如果安装了 Docker）</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>if</span> <span style=color:#a90d91>command</span> -v docker &amp;&gt; /dev/null; <span style=color:#a90d91>then</span>
+</span></span><span style=display:flex><span>    sudo systemctl <span style=color:#a90d91>enable</span> docker
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ Docker 服务自启&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>else</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;⚠ 未检测到 Docker，跳过 Docker 设置&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>fi</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 8️⃣ 创建模式切换脚本</span>
+</span></span><span style=display:flex><span>sudo tee /usr/local/bin/server-mode <span style=color:#c41a16>&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>case $1 in
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    &#34;desktop&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        sudo systemctl set-default graphical.target
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        sudo systemctl start gdm3 2&gt;/dev/null
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        echo &#34;✅ 已切换到桌面模式&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        ;;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    &#34;server&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        sudo systemctl set-default multi-user.target
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        sudo systemctl stop gdm3 2&gt;/dev/null
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        echo &#34;✅ 已切换到服务器模式&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        ;;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    &#34;status&#34;)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        echo &#34;当前模式: $(systemctl get-default)&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        echo &#34;运行时间: $(uptime -p)&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        echo &#34;内存使用: $(free -h | grep Mem | awk &#39;{print $3&#34;/&#34;$2}&#39;)&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        echo &#34;磁盘使用: $(df -h / | awk &#39;NR==2{print $5}&#39;)&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        ;;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    *)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        echo &#34;用法: server-mode [desktop|server|status]&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>        ;;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>esac
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>EOF</span>
+</span></span><span style=display:flex><span>sudo chmod +x /usr/local/bin/server-mode
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;✅ 已创建模式切换脚本 /usr/local/bin/server-mode&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;🎉 优化完成！&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;• 使用 server-mode desktop/server/status 切换和查看模式&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;• 建议重启系统以生效所有优化&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>read</span> -p <span style=color:#c41a16>&#34;是否现在重启？(y/N): &#34;</span> -n <span style=color:#1c01ce>1</span> -r
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>if</span> <span style=color:#000>[[</span> <span style=color:#000>$REPLY</span> <span style=color:#000>=</span>~ ^<span style=color:#000>[</span>Yy<span style=color:#000>]</span>$ <span style=color:#000>]]</span>; <span style=color:#a90d91>then</span>
+</span></span><span style=display:flex><span>    sudo reboot
+</span></span><span style=display:flex><span><span style=color:#a90d91>fi</span>
+</span></span></code></pre></td></tr></table></div></div><p>使用方法</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 保存为文件，例如：</span>
+</span></span><span style=display:flex><span>nano ~/ubuntu-server-lite.sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 赋予执行权限：</span>
+</span></span><span style=display:flex><span>chmod +x ~/ubuntu-server-lite.sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 执行脚本：</span>
+</span></span><span style=display:flex><span>sudo ~/ubuntu-server-lite.sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 查看状态：</span>
+</span></span><span style=display:flex><span>server-mode status
+</span></span><span style=display:flex><span><span style=color:#177500># 切换到桌面：</span>
+</span></span><span style=display:flex><span>server-mode desktop
+</span></span><span style=display:flex><span><span style=color:#177500># 切换到命令行模式：</span>
+</span></span><span style=display:flex><span>server-mode server
+</span></span></code></pre></td></tr></table></div></div><h3 id=内存扩充>内存扩充<a class=anchorjs-link href=#%e5%86%85%e5%ad%98%e6%89%a9%e5%85%85></a></h3><h4 id=resize-memswap>resize memswap<a class=anchorjs-link href=#resize-memswap></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># look swap</span>
+</span></span><span style=display:flex><span>swapon --show
+</span></span><span style=display:flex><span>free -h
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># off swap</span>
+</span></span><span style=display:flex><span>sudo swapoff -a
+</span></span><span style=display:flex><span>sudo rm /swapfile
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># mk swap, 设置和内存一样大，可以休眠到磁盘</span>
+</span></span><span style=display:flex><span>sudo dd <span style=color:#a90d91>if</span><span style=color:#000>=</span>/dev/zero <span style=color:#000>of</span><span style=color:#000>=</span>/swapfile <span style=color:#000>bs</span><span style=color:#000>=</span>1G <span style=color:#000>count</span><span style=color:#000>=</span><span style=color:#1c01ce>16</span>
+</span></span><span style=display:flex><span>sudo chmod <span style=color:#1c01ce>0600</span> /swapfile
+</span></span><span style=display:flex><span>sudo mkswap /swapfile
+</span></span><span style=display:flex><span>sudo swapon /swapfile
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 编辑 /etc/fstab，把对应行注释掉。</span>
+</span></span><span style=display:flex><span><span style=color:#177500># /swapfile none swap sw 0 0</span>
+</span></span><span style=display:flex><span>sudo swapon -a <span style=color:#177500># 根据 /etc/fstab 启动， 系统开机会自动执行</span>
+</span></span></code></pre></td></tr></table></div></div><p><a href=https://askubuntu.com/questions/178712/how-to-increase-swap-space target=_blank>https://askubuntu.com/questions/178712/how-to-increase-swap-space</a>
+<a href=https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F target=_blank>https://help.ubuntu.com/community/SwapFaq#Why_is_my_swap_not_being_used.3F</a></p><h4 id=zswap>zswap<a class=anchorjs-link href=#zswap></a></h4><p>查看</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 是否开启</span>
+</span></span><span style=display:flex><span>cat /sys/module/zswap/parameters/enabled
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>mount | grep debugfs
+</span></span><span style=display:flex><span><span style=color:#177500># 如果没输出，挂载它（临时，重启失效）</span>
+</span></span><span style=display:flex><span>sudo mount -t debugfs none /sys/kernel/debug
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 实时观察</span>
+</span></span><span style=display:flex><span>sudo grep -r . /sys/kernel/debug/zswap/
+</span></span><span style=display:flex><span>watch -n <span style=color:#1c01ce>2</span> <span style=color:#c41a16>&#34;sudo grep -r . /sys/kernel/debug/zswap/ | sed &#39;s|.*/||&#39;&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>开启：</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo nano /etc/default/grub
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash zswap.enabled=1 zswap.compressor=zstd zswap.zpool=zsmalloc zswap.max_pool_percent=30&#34;
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo update-grub
+</span></span><span style=display:flex><span>sudo reboot
+</span></span></code></pre></td></tr></table></div></div><h4 id=swappiness>swappiness<a class=anchorjs-link href=#swappiness></a></h4><p>保持默认60. 如果想更多的用zswap, 需要加大数值</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo nano /etc/sysctl.conf
+</span></span><span style=display:flex><span>vm.swappiness<span style=color:#000>=</span><span style=color:#1c01ce>60</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo sysctl -p
+</span></span></code></pre></td></tr></table></div></div><h3 id=屏幕详情>屏幕详情<a class=anchorjs-link href=#%e5%b1%8f%e5%b9%95%e8%af%a6%e6%83%85></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>xrandr
+</span></span></code></pre></td></tr></table></div></div><h3 id=dns-setting>dns setting<a class=anchorjs-link href=#dns-setting></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo nano /etc/resolv.conf
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>nameserver 8.8.8.8
+</span></span><span style=display:flex><span>nameserver 8.8.4.4
+</span></span></code></pre></td></tr></table></div></div><h3 id=gnome>gnome<a class=anchorjs-link href=#gnome></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 重启</span>
+</span></span><span style=display:flex><span>sudo systemctl restart gdm
+</span></span></code></pre></td></tr></table></div></div><h3 id=x11-wayland-区别>X11 wayland 区别<a class=anchorjs-link href=#x11-wayland-%e5%8c%ba%e5%88%ab></a></h3><p>两个图形显示框架</p><p><a href=https://zhuanlan.zhihu.com/p/26028490976 target=_blank>https://zhuanlan.zhihu.com/p/26028490976</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看当前会话类型</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#000>$XDG_SESSION_TYPE</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo vi /etc/gdm3/custom.conf
+</span></span><span style=display:flex><span><span style=color:#177500># wayland -&gt; X11</span>
+</span></span><span style=display:flex><span><span style=color:#177500># 注意第7行是 #WaylandEnable=false，去掉注释，改成WaylandEnable=false，保存</span>
+</span></span><span style=display:flex><span>sudo systemctl restart gdm3
+</span></span></code></pre></td></tr></table></div></div><h3 id=音频工具ffmpeg>音频工具ffmpeg<a class=anchorjs-link href=#%e9%9f%b3%e9%a2%91%e5%b7%a5%e5%85%b7ffmpeg></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install ffmpeg
+</span></span><span style=display:flex><span>ffmpeg -i 音乐文件.mp3
+</span></span></code></pre></td></tr></table></div></div><h3 id=多用户>多用户<a class=anchorjs-link href=#%e5%a4%9a%e7%94%a8%e6%88%b7></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看session</span>
+</span></span><span style=display:flex><span>loginctl list-sessions
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 结束session</span>
+</span></span><span style=display:flex><span>loginctl terminate-session &lt;id&gt;
+</span></span><span style=display:flex><span>loginctl terminate-user &lt;user&gt;
+</span></span></code></pre></td></tr></table></div></div><h2 id=常见问题>常见问题<a class=anchorjs-link href=#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98></a></h2><h3 id=无法打开terminal>无法打开terminal<a class=anchorjs-link href=#%e6%97%a0%e6%b3%95%e6%89%93%e5%bc%80terminal></a></h3><p><a href=https://blog.csdn.net/u010092716/article/details/130968032 target=_blank>https://blog.csdn.net/u010092716/article/details/130968032</a></p><h3 id=无法进入设置>无法进入设置<a class=anchorjs-link href=#%e6%97%a0%e6%b3%95%e8%bf%9b%e5%85%a5%e8%ae%be%e7%bd%ae></a></h3><p><a href=https://blog.csdn.net/qq_38500436/article/details/106652746 target=_blank>https://blog.csdn.net/qq_38500436/article/details/106652746</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt update
+</span></span><span style=display:flex><span>sudo apt install gnome-control-center
+</span></span></code></pre></td></tr></table></div></div><h3 id=wifi-搜索不到网路>wifi 搜索不到网路<a class=anchorjs-link href=#wifi-%e6%90%9c%e7%b4%a2%e4%b8%8d%e5%88%b0%e7%bd%91%e8%b7%af></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>nmcli device
+</span></span><span style=display:flex><span><span style=color:#177500># 如果有 断开连接, 继续下面命令</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo lspci -k | grep -A <span style=color:#1c01ce>3</span> -i network
+</span></span><span style=display:flex><span><span style=color:#177500># 寻找 kernel driver in use: mt7921e</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo modprobe -r mt7921e
+</span></span><span style=display:flex><span>sleep <span style=color:#1c01ce>2</span>
+</span></span><span style=display:flex><span>sudo modprobe mt7921e
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo systemctl restart NetworkManager
+</span></span><span style=display:flex><span>nmcli device wifi list
+</span></span></code></pre></td></tr></table></div></div><h2 id=遗留问题>遗留问题<a class=anchorjs-link href=#%e9%81%97%e7%95%99%e9%97%ae%e9%a2%98></a></h2><ul><li>查看所有的 history</li><li>视频没有预览图</li><li>ping 很多网站不通</li></ul><h3 id=sys-update>sys update<a class=anchorjs-link href=#sys-update></a></h3><p>常见一场提示, 原因是改了 apt源</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>您的 sources.list 中的一些第三方源被禁用。您可以在升级后用&#34;软件源&#34;工具或包管理器来重新启用它们
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>在更新您的软件包信息后，无法定位必要的软件包“ubuntu-minimal”。这可能是因为您没有在软件源中使用官方镜像，或您正在使用的镜像负载过重。请查看 /etc/apt/sources.list 文件了解软件源当前的配置列表。
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看系统升级日志</span>
+</span></span><span style=display:flex><span>cat /var/log/dist-upgrade/main.log
+</span></span><span style=display:flex><span><span style=color:#177500># 查看异常的包</span>
+</span></span><span style=display:flex><span>apt-cache policy ubuntu-minimal
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 检查系统更新</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>do</span>-release-upgrade -c
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># apt源 配置文件</span>
+</span></span><span style=display:flex><span>cat /etc/apt/sources.list
+</span></span><span style=display:flex><span><span style=color:#177500># 查看所有第三方源</span>
+</span></span><span style=display:flex><span>ls /etc/apt/sources.list.d/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 升级系统</span>
+</span></span><span style=display:flex><span>sudo apt update
+</span></span><span style=display:flex><span>sudo apt upgrade -y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 2选1</span>
+</span></span><span style=display:flex><span>update-manager
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo <span style=color:#a90d91>do</span>-release-upgrade
+</span></span></code></pre></td></tr></table></div></div><h2 id=有价值的链接>有价值的链接<a class=anchorjs-link href=#%e6%9c%89%e4%bb%b7%e5%80%bc%e7%9a%84%e9%93%be%e6%8e%a5></a></h2><p><a href=https://www.ufans.top/index.php/archives/148/ target=_blank>https://www.ufans.top/index.php/archives/148/</a></p><h2 id=snap-tracker>snap tracker<a class=anchorjs-link href=#snap-tracker></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo systemctl stop snapd
+</span></span><span style=display:flex><span>pkill tracker
+</span></span></code></pre></td></tr></table></div></div><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/tech/docker%E6%8C%87%E5%8D%97/ data-toggle=tooltip data-placement=top title=Docker指南>Previous<br><span>Docker指南</span></a></li><li class=next><a href=/posts/web/django%E6%95%99%E7%A8%8B/ data-toggle=tooltip data-placement=top title=Django教程>Next<br><span>Django教程</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script></body></html>

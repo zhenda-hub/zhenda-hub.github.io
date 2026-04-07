@@ -1,0 +1,582 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Linux系统教程 | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content="[toc]
+文章目的希望 linux 初学者可以通过本章内容，快速入门 linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片
+linux 的必要性linux 是一个稳定， 安全， 开源，免费的操作系统内核。 支持多用户同时使用。成为了各大公司服务器的首选。
+掌握 Linux 可以提高技术就业竞争力。许多 IT 岗位将熟练使用 Linux 作为必备技能。
+基于 linux 内核的主流发行版 发行版 基础 特点描述 适合用户类型 软件安装工具 Debian 独立 强调自由软件，非常稳定，是许多其他发行版的基础。 需要高度稳定性的用户 apt, apt-get, dpkg Ubuntu Debian 易于使用，提供桌面和服务器版本，有长期支持版本（LTS）。 广泛应用于个人电脑、服务器及云计算 apt, snap Fedora 独立 包含最新开源软件包和技术，由Red Hat赞助，强调创新和技术领先性。 追求新技术特性的高级用户 dnf Red Hat Enterprise Linux (RHEL) 独立 面向企业的付费发行版，提供高度的安全性和稳定性，适合关键业务应用。 企业级用户 yum / dnf SUSE Linux Enterprise (SLE) 独立 企业级发行版，在欧洲市场流行，openSUSE为社区版本，提供Leap（稳定）和Tumbleweed（滚动发布）。 需要企业级服务和支持的用户 zypper Arch Linux 独立 滚动发布，适合喜欢自己动手定制系统的高级用户，始终获得最新的软件包。 技术爱好者和高级用户 pacman Manjaro Arch Linux 提供更友好的安装过程和默认设置，基于Arch Linux但对新手更加友好。 新手及希望体验Arch Linux的用户 pacman Linux Mint Ubuntu 提供更加传统的桌面体验，默认带有媒体编解码器等实用工具，非常适合从Windows过渡过来的新手用户。 Windows用户迁移或寻求简单易用的用户 apt Elementary OS Ubuntu 受macOS启发的设计风格，美观且直观的桌面环境，旨在提供简洁高效的计算体验。 寻求美观高效界面的用户 apt 1 2 # 查看发行版 cat /etc/os-release 初级阶段systemd服务管理器systemd 是 Linux 系统中一个强大的初始化系统和服务管理器"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux系统教程"><meta name=twitter:description content="[toc]
+文章目的希望 linux 初学者可以通过本章内容，快速入门 linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片
+linux 的必要性linux 是一个稳定， 安全， 开源，免费的操作系统内核。 支持多用户同时使用。成为了各大公司服务器的首选。
+掌握 Linux 可以提高技术就业竞争力。许多 IT 岗位将熟练使用 Linux 作为必备技能。
+基于 linux 内核的主流发行版 发行版 基础 特点描述 适合用户类型 软件安装工具 Debian 独立 强调自由软件，非常稳定，是许多其他发行版的基础。 需要高度稳定性的用户 apt, apt-get, dpkg Ubuntu Debian 易于使用，提供桌面和服务器版本，有长期支持版本（LTS）。 广泛应用于个人电脑、服务器及云计算 apt, snap Fedora 独立 包含最新开源软件包和技术，由Red Hat赞助，强调创新和技术领先性。 追求新技术特性的高级用户 dnf Red Hat Enterprise Linux (RHEL) 独立 面向企业的付费发行版，提供高度的安全性和稳定性，适合关键业务应用。 企业级用户 yum / dnf SUSE Linux Enterprise (SLE) 独立 企业级发行版，在欧洲市场流行，openSUSE为社区版本，提供Leap（稳定）和Tumbleweed（滚动发布）。 需要企业级服务和支持的用户 zypper Arch Linux 独立 滚动发布，适合喜欢自己动手定制系统的高级用户，始终获得最新的软件包。 技术爱好者和高级用户 pacman Manjaro Arch Linux 提供更友好的安装过程和默认设置，基于Arch Linux但对新手更加友好。 新手及希望体验Arch Linux的用户 pacman Linux Mint Ubuntu 提供更加传统的桌面体验，默认带有媒体编解码器等实用工具，非常适合从Windows过渡过来的新手用户。 Windows用户迁移或寻求简单易用的用户 apt Elementary OS Ubuntu 受macOS启发的设计风格，美观且直观的桌面环境，旨在提供简洁高效的计算体验。 寻求美观高效界面的用户 apt 1 2 # 查看发行版 cat /etc/os-release 初级阶段systemd服务管理器systemd 是 Linux 系统中一个强大的初始化系统和服务管理器"><meta property="og:url" content="https://zhenda-hub.github.io/posts/system/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/linux%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="Linux系统教程"><meta property="og:description" content="[toc]
+文章目的希望 linux 初学者可以通过本章内容，快速入门 linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片
+linux 的必要性linux 是一个稳定， 安全， 开源，免费的操作系统内核。 支持多用户同时使用。成为了各大公司服务器的首选。
+掌握 Linux 可以提高技术就业竞争力。许多 IT 岗位将熟练使用 Linux 作为必备技能。
+基于 linux 内核的主流发行版 发行版 基础 特点描述 适合用户类型 软件安装工具 Debian 独立 强调自由软件，非常稳定，是许多其他发行版的基础。 需要高度稳定性的用户 apt, apt-get, dpkg Ubuntu Debian 易于使用，提供桌面和服务器版本，有长期支持版本（LTS）。 广泛应用于个人电脑、服务器及云计算 apt, snap Fedora 独立 包含最新开源软件包和技术，由Red Hat赞助，强调创新和技术领先性。 追求新技术特性的高级用户 dnf Red Hat Enterprise Linux (RHEL) 独立 面向企业的付费发行版，提供高度的安全性和稳定性，适合关键业务应用。 企业级用户 yum / dnf SUSE Linux Enterprise (SLE) 独立 企业级发行版，在欧洲市场流行，openSUSE为社区版本，提供Leap（稳定）和Tumbleweed（滚动发布）。 需要企业级服务和支持的用户 zypper Arch Linux 独立 滚动发布，适合喜欢自己动手定制系统的高级用户，始终获得最新的软件包。 技术爱好者和高级用户 pacman Manjaro Arch Linux 提供更友好的安装过程和默认设置，基于Arch Linux但对新手更加友好。 新手及希望体验Arch Linux的用户 pacman Linux Mint Ubuntu 提供更加传统的桌面体验，默认带有媒体编解码器等实用工具，非常适合从Windows过渡过来的新手用户。 Windows用户迁移或寻求简单易用的用户 apt Elementary OS Ubuntu 受macOS启发的设计风格，美观且直观的桌面环境，旨在提供简洁高效的计算体验。 寻求美观高效界面的用户 apt 1 2 # 查看发行版 cat /etc/os-release 初级阶段systemd服务管理器systemd 是 Linux 系统中一个强大的初始化系统和服务管理器"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-11-25T11:29:37+08:00"><meta property="article:modified_time" content="2023-11-25T11:29:37+08:00"><meta property="article:tag" content="Linux"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/multi-user/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/pc-cmd/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/multi_sys/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/win-shell/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/cloud-servers/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/system/ubuntu%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags><a class=tag href=/tags/linux/ title=Linux>Linux</a></div><h1>Linux系统教程</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Sat, Nov 25, 2023</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><p>[toc]</p><h2 id=文章目的>文章目的<a class=anchorjs-link href=#%e6%96%87%e7%ab%a0%e7%9b%ae%e7%9a%84></a></h2><p>希望 linux 初学者可以通过本章内容，快速入门 linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片</p><h2 id=linux-的必要性>linux 的必要性<a class=anchorjs-link href=#linux-%e7%9a%84%e5%bf%85%e8%a6%81%e6%80%a7></a></h2><p>linux 是一个稳定， 安全， 开源，免费的操作系统内核。 支持多用户同时使用。成为了各大公司服务器的首选。</p><p>掌握 Linux 可以提高技术就业竞争力。许多 IT 岗位将熟练使用 Linux 作为必备技能。</p><h2 id=基于-linux-内核的主流发行版>基于 linux 内核的主流发行版<a class=anchorjs-link href=#%e5%9f%ba%e4%ba%8e-linux-%e5%86%85%e6%a0%b8%e7%9a%84%e4%b8%bb%e6%b5%81%e5%8f%91%e8%a1%8c%e7%89%88></a></h2><table><thead><tr><th>发行版</th><th>基础</th><th>特点描述</th><th>适合用户类型</th><th>软件安装工具</th></tr></thead><tbody><tr><td><strong>Debian</strong></td><td>独立</td><td>强调自由软件，非常稳定，是许多其他发行版的基础。</td><td>需要高度稳定性的用户</td><td><code>apt</code>, <code>apt-get</code>, <code>dpkg</code></td></tr><tr><td><strong>Ubuntu</strong></td><td>Debian</td><td>易于使用，提供桌面和服务器版本，有长期支持版本（LTS）。</td><td>广泛应用于个人电脑、服务器及云计算</td><td><code>apt</code>, <code>snap</code></td></tr><tr><td>Fedora</td><td>独立</td><td>包含最新开源软件包和技术，由Red Hat赞助，强调创新和技术领先性。</td><td>追求新技术特性的高级用户</td><td><code>dnf</code></td></tr><tr><td>Red Hat Enterprise Linux (RHEL)</td><td>独立</td><td>面向企业的付费发行版，提供高度的安全性和稳定性，适合关键业务应用。</td><td>企业级用户</td><td><code>yum</code> / <code>dnf</code></td></tr><tr><td>SUSE Linux Enterprise (SLE)</td><td>独立</td><td>企业级发行版，在欧洲市场流行，openSUSE为社区版本，提供Leap（稳定）和Tumbleweed（滚动发布）。</td><td>需要企业级服务和支持的用户</td><td><code>zypper</code></td></tr><tr><td><strong>Arch Linux</strong></td><td>独立</td><td>滚动发布，适合喜欢自己动手定制系统的高级用户，始终获得最新的软件包。</td><td>技术爱好者和高级用户</td><td><code>pacman</code></td></tr><tr><td><strong>Manjaro</strong></td><td>Arch Linux</td><td>提供更友好的安装过程和默认设置，基于Arch Linux但对新手更加友好。</td><td>新手及希望体验Arch Linux的用户</td><td><code>pacman</code></td></tr><tr><td><strong>Linux Mint</strong></td><td>Ubuntu</td><td>提供更加传统的桌面体验，默认带有媒体编解码器等实用工具，非常适合从Windows过渡过来的新手用户。</td><td>Windows用户迁移或寻求简单易用的用户</td><td><code>apt</code></td></tr><tr><td>Elementary OS</td><td>Ubuntu</td><td>受macOS启发的设计风格，美观且直观的桌面环境，旨在提供简洁高效的计算体验。</td><td>寻求美观高效界面的用户</td><td><code>apt</code></td></tr></tbody></table><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看发行版</span>
+</span></span><span style=display:flex><span>cat /etc/os-release
+</span></span></code></pre></td></tr></table></div></div><h2 id=初级阶段>初级阶段<a class=anchorjs-link href=#%e5%88%9d%e7%ba%a7%e9%98%b6%e6%ae%b5></a></h2><h3 id=systemd服务管理器>systemd服务管理器<a class=anchorjs-link href=#systemd%e6%9c%8d%e5%8a%a1%e7%ae%a1%e7%90%86%e5%99%a8></a></h3><p>systemd 是 Linux 系统中一个强大的初始化系统和服务管理器</p><p>systemctl 是 systemd 的一个命令行工具，用于管理 systemd 系统和服务。通过 systemctl，我们可以方便地控制系统和服务的启动、停止、重启、查看状态等</p><p>以mysql为例子</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看所有服务</span>
+</span></span><span style=display:flex><span>systemctl list-units --type<span style=color:#000>=</span>service
+</span></span><span style=display:flex><span>systemctl status mysql
+</span></span><span style=display:flex><span>systemctl start mysql
+</span></span><span style=display:flex><span>systemctl stop mysql
+</span></span><span style=display:flex><span>systemctl restart mysql
+</span></span><span style=display:flex><span>systemctl reload mysql
+</span></span><span style=display:flex><span><span style=color:#177500># 开机自动启动</span>
+</span></span><span style=display:flex><span>systemctl <span style=color:#a90d91>enable</span> mysql
+</span></span><span style=display:flex><span>systemctl disable mysql
+</span></span></code></pre></td></tr></table></div></div><h3 id=用户与-linux-系统交互的基本原理>用户与 Linux 系统交互的基本原理<a class=anchorjs-link href=#%e7%94%a8%e6%88%b7%e4%b8%8e-linux-%e7%b3%bb%e7%bb%9f%e4%ba%a4%e4%ba%92%e7%9a%84%e5%9f%ba%e6%9c%ac%e5%8e%9f%e7%90%86></a></h3><p>用户使用终端（Terminal）通过<strong>命令或脚本</strong>与 Shell 进行通信， shell 与操作系统进行通信</p><pre class=mermaid>graph TB
+    U[用户] -->|输入命令| T[终端 Terminal]
+    T -->|提供界面| S[Shell]
+    S -->|解释命令| P[命令解析]
+    S -->|管理环境变量| E[环境变量]
+    S -->|处理脚本| SC[脚本执行]
+
+    P --> K[内核系统调用]
+    E --> K
+    SC --> K
+
+    K -->|文件操作| F[文件系统]
+    K -->|进程管理| PM[进程管理]
+    K -->|内存管理| M[内存管理]
+    K -->|设备管理| D[设备驱动]
+
+    subgraph Shell层
+        S
+        P
+        E
+        SC
+    end
+
+    subgraph 操作系统层
+        K
+        F
+        PM
+        M
+        D
+    end
+
+    style T fill:#f9f,stroke:#333,stroke-width:2px
+    style S fill:#bbf,stroke:#333,stroke-width:2px
+    style K fill:#bfb,stroke:#333,stroke-width:2px
+</pre><p>相关概念总结:</p><table><thead><tr><th>名称</th><th>作用</th></tr></thead><tbody><tr><td>终端</td><td>一个供用户输入的黑框</td></tr><tr><td>shell</td><td>一个命令解释器，它不仅仅是提供了<strong>命令解释</strong>的功能，还<strong>允许用户编写脚本</strong>，将多个命令组合在一起以完成更复杂的任务。</td></tr><tr><td>命令</td><td>操作系统中提供的工具（可执行文件），供用户使用。</td></tr></tbody></table><h3 id=shell相关知识>shell相关知识<a class=anchorjs-link href=#shell%e7%9b%b8%e5%85%b3%e7%9f%a5%e8%af%86></a></h3><ol><li><p>常见的 linux shell 包括： bash(默认 shell), zsh, fish, csh, dash</p></li><li><p>bash 的配置文件:</p></li></ol><table><thead><tr><th>状态</th><th>文件路径</th></tr></thead><tbody><tr><td>非登录(子shell)</td><td>~/.bashrc</td></tr><tr><td>登录(首次登录系统的shell)</td><td>~/.bash_profile, ~/.bash_login, ~/.profile</td></tr></tbody></table><p>加载配置文件的配置到当前 bash： source ~/.bashrc</p><ol start=3><li>shell启动和退出时加载的文件</li></ol><table><thead><tr><th>文件路径</th><th>描述</th><th>设置内容</th></tr></thead><tbody><tr><td><code>/etc/profile</code></td><td>所有用户的默认环境设置</td><td></td></tr><tr><td><code>/etc/bash.bashrc</code></td><td>全局 Bash 配置文件</td><td></td></tr><tr><td><code>~/.bash_profile</code></td><td>用户级的 登录Shell(首次登录系统的shell) 配置文件</td><td></td></tr><tr><td><code>~/.profile</code></td><td>没有 <code>~/.bash_profile</code> 时被读取, 通常会调用 <code>~/.bashrc</code></td><td>环境变量, bin</td></tr><tr><td><code>~/.bashrc</code></td><td>用户级的 非登录Shell(子shell) 配置文件</td><td>alias, 函数</td></tr><tr><td><code>~/.bash_logout</code></td><td>用户注销时执行的脚本</td><td></td></tr><tr><td><code>~/.inputrc</code></td><td>配置 readline 库的行为</td><td></td></tr><tr><td><code>~/.Xresources</code> 或 <code>~/.Xdefaults</code></td><td>配置 X11 环境</td><td></td></tr><tr><td><code>~/.xsession</code> 或 <code>~/.xinitrc</code></td><td>启动图形界面会话时读取的文件</td><td></td></tr></tbody></table><h3 id=命令>命令<a class=anchorjs-link href=#%e5%91%bd%e4%bb%a4></a></h3><p>命令学习手册, 可以查看命令的作用和相关参数</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># man是自带的工具</span>
+</span></span><span style=display:flex><span>man zip
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># tlrc是另一个开源的命令学习手册</span>
+</span></span><span style=display:flex><span>brew install tlrc
+</span></span><span style=display:flex><span>tlrc zip
+</span></span></code></pre></td></tr></table></div></div><p>命令的优势</p><ul><li>相比于图形界面 GUI，命令可以更方便的通过脚本，自动化执行一系列的操作</li><li>输入命令，完成各种操作，比图形界面 GUI 更高效</li></ul><h3 id=环境变量>环境变量<a class=anchorjs-link href=#%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f></a></h3><ol><li>概念</li></ol><p>操作系统提供给程序的一种配置机制, 以键值对存储，它可以存储系统和用户自定义的配置信息。通过设置环境变量，我们可以灵活地配置程序的行为，提高系统的可配置性和可移植性。</p><ol start=2><li>重要的环境变量</li></ol><table><thead><tr><th>名称</th><th>作用</th></tr></thead><tbody><tr><td>PATH</td><td>指定了可执行文件的搜索路径，使得在命令行中可以直接运行这些程序，而无需输入完整路径</td></tr><tr><td>USER</td><td>当前用户</td></tr><tr><td>HOME</td><td>家目录</td></tr><tr><td>SHELL</td><td>当前shell类型</td></tr></tbody></table><ol start=3><li>增删改查</li></ol><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查</span>
+</span></span><span style=display:flex><span>env
+</span></span><span style=display:flex><span>env | grep path
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 增改</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 仅终端设置, 关闭终端后, 设置的环境变量失效</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>export</span> <span style=color:#000>AAA</span><span style=color:#000>=</span><span style=color:#1c01ce>111</span>
+</span></span><span style=display:flex><span><span style=color:#177500># 用户级别设置, 影响所有后续登录的终端</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#39;export AAA=111&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span style=display:flex><span><span style=color:#a90d91>source</span> ~/.bashrc
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 删除</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>unset</span> AAA
+</span></span></code></pre></td></tr></table></div></div><h3 id=文件管理>文件管理<a class=anchorjs-link href=#%e6%96%87%e4%bb%b6%e7%ae%a1%e7%90%86></a></h3><p>linux 中 一切皆文件</p><p>linux 目录结构：<a href=https://www.runoob.com/linux/linux-system-contents.html target=_blank>https://www.runoob.com/linux/linux-system-contents.html</a></p><p>以下是 Linux 系统中根目录（<code>/</code>）下的常见一级目录及其功能简要说明。</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>| 目录     | 作用说明                                                                 | 常见使用场景                                   |
+</span></span><span style=display:flex><span>| -------- | ------------------------------------------------------------------------ | ---------------------------------------------- |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/`</span>      | 根目录，一切从此开始，是所有文件和目录的起点。                           | 一般不会直接操作；系统启动时自动挂载。         |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/bin`</span>   | 存放系统启动和基本操作所需的二进制可执行文件（如 <span style=color:#c41a16>`ls`</span>, <span style=color:#c41a16>`cp`</span>, <span style=color:#c41a16>`rm`</span> 等）。 | 恢复模式下使用基础命令；系统正常运行依赖。     |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/boot`</span>  | 存放启动加载器（如 GRUB）相关文件及 Linux 内核（如 <span style=color:#c41a16>`vmlinuz`</span>）。         | 内核升级、修复启动引导问题。                   |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/dev`</span>   | 包含系统中的设备文件，如硬盘、终端、USB 等（设备以文件形式存在）。       | 查看磁盘 <span style=color:#c41a16>`/dev/sd*`</span>；与挂载、格式化有关操作。  |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/etc`</span>   | 存放系统和应用程序的配置文件，几乎所有系统配置都在这里。                 | 编辑网络、服务、用户配置等；如 <span style=color:#c41a16>`/etc/hosts`</span>。  |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/home`</span>  | 普通用户的主目录，如 <span style=color:#c41a16>`/home/username`</span>。                                  | 用户文件存储、桌面环境配置、个人数据备份。     |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/lib`</span>   | 系统启动和 <span style=color:#c41a16>`/bin`</span> 程序运行所需的共享库。                                 | 程序运行依赖；开发时查阅库路径。               |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/media`</span> | 挂载可移动媒体设备（如 U 盘、CD-ROM）的挂载点。                          | 插入 U 盘、自动挂载路径。                      |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/mnt`</span>   | 临时挂载其他文件系统的目录，常用于手动挂载。                             | 临时访问硬盘、ISO 文件、远程文件系统。         |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/opt`</span>   | 可选软件包的安装目录（通常是第三方软件）。                               | 安装非系统标准路径的应用，如 Chrome。          |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/proc`</span>  | 内存中的虚拟文件系统，提供系统和进程信息接口，如 <span style=color:#c41a16>`/proc/cpuinfo`</span>。       | 查看硬件信息、内核参数、运行进程。             |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/root`</span>  | 超级用户（root）的主目录（不是 <span style=color:#c41a16>`/home/root`</span>）。                          | <span style=color:#c41a16>`sudo -i`</span> 后默认进入的目录；管理员的私有空间。 |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/run`</span>   | 系统运行时的信息（PID 文件、套接字等），是临时目录。                     | 临时文件、守护进程 PID 文件、socket 通信等。   |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/sbin`</span>  | 存放系统管理员使用的二进制命令，如 <span style=color:#c41a16>`shutdown`</span>, <span style=color:#c41a16>`mount`</span> 等。              | 系统管理操作，如重启、挂载、网络配置。         |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/srv`</span>   | 服务数据目录，如 FTP、HTTP 的根目录等。                                  | 搭建网站、FTP 服务器时使用。                   |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/sys`</span>   | 内核提供的系统和硬件信息接口，通常只读。                                 | 观察设备信息，热插拔设备自动更新。             |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/tmp`</span>   | 临时文件存储目录，系统重启后通常会清空。                                 | 程序或用户临时存放文件。                       |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/usr`</span>   | 包含只读的用户应用程序和文件（如 <span style=color:#c41a16>`/usr/bin`</span>, <span style=color:#c41a16>`/usr/lib`</span>）。              | 安装软件、运行系统级应用。                     |
+</span></span><span style=display:flex><span>| <span style=color:#c41a16>`/var`</span>   | 存放可变数据文件，如日志、缓存、邮件等。                                 | 查看系统日志 <span style=color:#c41a16>`/var/log`</span>，服务缓存等。          |
+</span></span></code></pre></td></tr></table></div></div><p>文件类型:</p><ul><li>文件 f</li><li>文件夹 d</li><li>符号链接 l</li></ul><p>文件路径分类</p><ul><li>绝对路径<ul><li>从根目录/开始</li></ul></li><li>相对路径<ul><li>. 当前路径</li><li>.. 当前路径的上级路径</li></ul></li></ul><p>相关命令</p><ul><li>最基本命令<ul><li>pwd ：当前绝对路径</li><li>cd 路径：移动</li><li>ls ：查看当前文件夹内容<ul><li><code>ls -1 | wc -l</code>: 查看文件夹内的文件数量</li></ul></li><li>tree： 以树形结构查看当前文件夹内容<ul><li><code>tree -L 2</code>: 查看两层深度</li></ul></li></ul></li><li>文件文件夹相关<ul><li>mkdir 文件夹名： 创建文件夹, {}内不能有空格!!!<ul><li>mkdir -p fold1/{subfold1,subfold2}</li></ul></li><li>touch 文件名：创建文件, {}内不能有空格!!!<ul><li>touch xxx/{aaa.txt,bbb.json}</li></ul></li><li>rm 文件名： 删除文件或文件夹</li><li>mv 文件名 移动位置： 移动文件或文件夹</li><li>cp 文件名 新文件名：复制文件或文件夹</li><li>cat 文件名：查看文件</li><li>tail 文件名：查看文件末尾</li></ul></li></ul><h3 id=文件编辑>文件编辑<a class=anchorjs-link href=#%e6%96%87%e4%bb%b6%e7%bc%96%e8%be%91></a></h3><h4 id=编辑配置-xxxrc-file-settings>编辑配置 ~/.xxxrc file settings<a class=anchorjs-link href=#%e7%bc%96%e8%be%91%e9%85%8d%e7%bd%ae-xxxrc-file-settings></a></h4><ul><li><p>~/.bashrc</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># auto ls</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>function</span> <span style=color:#a90d91>cd</span> <span style=color:#000>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>builtin</span> <span style=color:#a90d91>cd</span> <span style=color:#c41a16>&#34;</span><span style=color:#000>$@</span><span style=color:#c41a16>&#34;</span> <span style=color:#000>&amp;&amp;</span> ls
+</span></span><span style=display:flex><span><span style=color:#000>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># alias</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>alias</span> <span style=color:#000>ls</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;ls --time-style=long-iso&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>alias</span> <span style=color:#000>ll</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;ls -alFh&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># browser</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>alias</span> <span style=color:#000>edge</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;microsoft-edge&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>alias</span> <span style=color:#000>chrome</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;google-chrome&#39;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>~/.profile</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash></code></pre></td></tr></table></div></div></li><li><p>~/.vimrc</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>syntax on
+</span></span><span style=display:flex><span><span style=color:#a90d91>set</span> autoindent
+</span></span><span style=display:flex><span><span style=color:#a90d91>set</span> <span style=color:#000>tabstop</span><span style=color:#000>=</span><span style=color:#1c01ce>4</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>set</span> <span style=color:#000>shiftwidth</span><span style=color:#000>=</span><span style=color:#1c01ce>4</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>set</span> cursorline
+</span></span><span style=display:flex><span><span style=color:#a90d91>set</span> backup
+</span></span><span style=display:flex><span><span style=color:#a90d91>set</span> <span style=color:#000>backupdir</span><span style=color:#000>=</span>~/.vim/undo
+</span></span></code></pre></td></tr></table></div></div></li><li><p>~/.nanorc</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>include <span style=color:#c41a16>&#34;/usr/share/nano/*.nanorc&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>set</span> tabsize <span style=color:#1c01ce>4</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>set</span> backup
+</span></span></code></pre></td></tr></table></div></div></li></ul><h4 id=nano编辑>nano编辑<a class=anchorjs-link href=#nano%e7%bc%96%e8%be%91></a></h4><p>快捷键用如下方式进行表示：
+控制键序列使用一个“^”符号标记，它可以用 Ctrl键或按 Esc 键两次的方式进行输入。
+Meta 键序列使用“M-”符号标记，它可以用Alt、Cmd 或 Esc 键输入，具体取决于您的键盘设置。</p><table><thead><tr><th>快捷键</th><th>功能描述</th></tr></thead><tbody><tr><td>^G (F1)</td><td>显示帮助</td></tr><tr><td>^X (F2)</td><td>关闭当前缓冲区 / 离开 nano</td></tr><tr><td>M-U</td><td>撤销上次操作</td></tr><tr><td>M-E</td><td>重做撤销的操作</td></tr><tr><td>M-Q</td><td>向后搜索下一个出现位置</td></tr><tr><td>M-W</td><td>向前搜索下一个出现位置</td></tr><tr><td>M-Del</td><td>去除当前行（或者标记的行）</td></tr></tbody></table><h4 id=vivim-编辑>vi/vim 编辑<a class=anchorjs-link href=#vivim-%e7%bc%96%e8%be%91></a></h4><p>配置文件 ~/.vimrc</p><p>三种模式</p><ul><li>命令模式<ul><li>操作<ul><li>查找： / 关键字 ， 之后按 n 找下一个匹配， 按 N 找上一个匹配</li></ul></li></ul></li><li>编辑模式<ul><li>进入方式<ul><li>a 增加的方式进入编辑模式</li><li>i 插入的方式进入编辑模式</li><li>o 另起一行的方式进入编辑模式</li></ul></li><li>退出方式<ul><li>esc</li></ul></li></ul></li><li>末行模式<ul><li>进入方式<ul><li>: 进入末行模式</li></ul></li><li>退出方式<ul><li>enter 退出末行模式</li></ul></li><li>操作<ul><li>退出保存 wq</li><li>退出不保存 q!</li><li><figure><a class=paragraph-image><img data-src=../imgs/vim2.jpg data-action=zoom alt=vim class=lazyload></a></figure></li></ul></li></ul></li></ul><h3 id=磁盘管理>磁盘管理<a class=anchorjs-link href=#%e7%a3%81%e7%9b%98%e7%ae%a1%e7%90%86></a></h3><p>相关命令</p><ul><li><code>df -h</code> ：检查pc的磁盘空间占用情况</li><li><code>du -hd 1 | sort -rh</code> ：查看各文件大小, 有些文件看不到</li><li><code>du -sh * | sort -rh</code> ：查看各文件大小</li></ul><p>sudo apt install ncdu</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-gdscript3 data-lang=gdscript3><span style=display:flex><span><span style=color:#177500># 分析当前目录</span>
+</span></span><span style=display:flex><span><span style=color:#000>ncdu</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 分析指定目录</span>
+</span></span><span style=display:flex><span><span style=color:#000>ncdu</span> <span style=color:#000>/</span><span style=color:#a90d91>var</span><span style=color:#000>/</span><span style=color:#a90d91>log</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=软件安装>软件安装<a class=anchorjs-link href=#%e8%bd%af%e4%bb%b6%e5%ae%89%e8%a3%85></a></h3><p>如果下载很慢的话，需要<strong>切换下载源</strong></p><p>相关命令</p><ul><li>ubuntu<ul><li>sudo apt update && sudo apt upgrade : 更新</li><li>sudo apt install xxx : 下载</li><li>sudo apt remove xxx : 卸载</li></ul></li><li>centos<ul><li>yum update : 更新</li><li>yum install xxx : 下载</li><li>yum remove xxx : 卸载</li></ul></li></ul><h2 id=中级阶段>中级阶段<a class=anchorjs-link href=#%e4%b8%ad%e7%ba%a7%e9%98%b6%e6%ae%b5></a></h2><h3 id=文件进阶>文件进阶<a class=anchorjs-link href=#%e6%96%87%e4%bb%b6%e8%bf%9b%e9%98%b6></a></h3><h4 id=shell-通配符模式glob-pattern>Shell 通配符模式（Glob Pattern）<a class=anchorjs-link href=#shell-%e9%80%9a%e9%85%8d%e7%ac%a6%e6%a8%a1%e5%bc%8fglob-pattern></a></h4><p>Glob Pattern (Shell 通配符模式): 是一种用于<strong>匹配文件名</strong>的模式匹配工具，广泛应用于 Unix 和类 Unix 操作系统（如 Linux 和 macOS）的命令行界面中</p><p>regex: 更适合细致或复杂的文本分析</p><p>字符集功能:</p><p>在 ASCII 编码中：</p><p>数字字符（0-9）按顺序排列。
+小写字母（a-z）按顺序排列。
+大写字母（A-Z）按顺序排列。</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># * 匹配任意数量的任意字符</span>
+</span></span><span style=display:flex><span>*.jpg
+</span></span><span style=display:flex><span>*report*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>**/*.txt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># ? 匹配任意单个的任意字符</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>?.txt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># []</span>
+</span></span><span style=display:flex><span><span style=color:#000>[</span>1-9<span style=color:#000>]</span>.jpg
+</span></span><span style=display:flex><span><span style=color:#000>[</span>a-z<span style=color:#000>]</span>.jpg
+</span></span><span style=display:flex><span><span style=color:#000>[</span>A-Z<span style=color:#000>]</span>.jpg
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># [!]</span>
+</span></span><span style=display:flex><span><span style=color:#000>[</span>!A<span style=color:#000>]</span>.jpg <span style=color:#177500># 匹配除了A的其他字符</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=find-删除>find 删除<a class=anchorjs-link href=#find-%e5%88%a0%e9%99%a4></a></h4><p>仅用于文件名匹配</p><p>文本处理</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># yeshi duocengji?</span>
+</span></span><span style=display:flex><span>find . -name <span style=color:#c41a16>&#34;*your-regex-pattern*&#34;</span> -print
+</span></span><span style=display:flex><span>find . -name <span style=color:#c41a16>&#34;*your-regex-pattern*&#34;</span> -delete
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 多层级</span>
+</span></span><span style=display:flex><span>find . -wholename <span style=color:#c41a16>&#34;./**/*4eaG8*&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># # 正则</span>
+</span></span><span style=display:flex><span><span style=color:#177500># find . -maxdepth 1 -regex &#34;.*your-regex-pattern.*&#34; -print</span>
+</span></span><span style=display:flex><span><span style=color:#177500># find . -maxdepth 1 -regex &#34;.*your-regex-pattern.*&#34; -delete</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=diff比较>diff比较<a class=anchorjs-link href=#diff%e6%af%94%e8%be%83></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 比较文件</span>
+</span></span><span style=display:flex><span>diff file1/ file2/
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 比较文件夹</span>
+</span></span><span style=display:flex><span>diff -r dir1/ dir2/
+</span></span></code></pre></td></tr></table></div></div><h4 id=文件共享>文件共享<a class=anchorjs-link href=#%e6%96%87%e4%bb%b6%e5%85%b1%e4%ba%ab></a></h4><p>/tmp：</p><p>通常用于存放临时文件，可能位于磁盘或内存中，具体取决于系统配置。
+适合存放需要在系统重启后仍然保留的临时数据。</p><p>/dev/shm：</p><p>专为共享内存设计，位于 RAM 中，访问速度更快。
+适合存放需要高速访问且不需要持久化的数据。</p><h4 id=打包和压缩>打包和压缩<a class=anchorjs-link href=#%e6%89%93%e5%8c%85%e5%92%8c%e5%8e%8b%e7%bc%a9></a></h4><table><thead><tr><th>属性</th><th>tar(打包)+gzip(压缩, 大小约为打包文件的 1/7)</th><th>zip</th></tr></thead><tbody><tr><td>文件后缀</td><td><code>.tar.gz</code> 或 <code>.tgz</code></td><td><code>.zip</code></td></tr><tr><td>多文件支持</td><td>使用 <code>tar</code> 打包多个文件并压缩</td><td>原生支持多文件和目录结构</td></tr><tr><td>压缩率</td><td>高，适合大文件和数据集</td><td>一般，适合较小的文件或目录</td></tr><tr><td>兼容性</td><td>Linux/Unix 中常用工具，Windows 较少用</td><td>Windows、Mac、Linux 全面支持</td></tr><tr><td>是否支持加密</td><td>不支持，需借助其他工具</td><td>支持基本密码加密</td></tr><tr><td>是否支持分卷压缩</td><td>不支持</td><td>支持</td></tr></tbody></table><p>命令:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># tar</span>
+</span></span><span style=display:flex><span>tar -czvf xxx.tar.gz f1 f2 f3
+</span></span><span style=display:flex><span>tar -xzvf xxx.tar.gz
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># zip</span>
+</span></span><span style=display:flex><span>zip -r xxx.zip f1 f2
+</span></span><span style=display:flex><span>unzip xxx.zip -d xxx
+</span></span></code></pre></td></tr></table></div></div><h3 id=文件权限和用户管理>文件权限和用户管理<a class=anchorjs-link href=#%e6%96%87%e4%bb%b6%e6%9d%83%e9%99%90%e5%92%8c%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86></a></h3><blockquote><p>linux 系统支持<strong>多用户同时使用</strong>。可以为每个用户设置群组， 通过群组间接进行权限控制.
+组的主要作用是简化权限管理.
+超级用户 root, 拥有最高权限.
+普通用户, 拥有有限的权限.
+sudo 命令 提升权限 visudo. <code>sudo -i</code></p></blockquote><p>用户 和 组 是 多对多的关系</p><p>文件信息</p><ul><li>/etc/passwd 用户的信息文件</li><li>/etc/group 用户组的信息文件</li></ul><h4 id=filepermission>FilePermission<a class=anchorjs-link href=#filepermission></a></h4><p><a href=https://www.runoob.com/linux/linux-file-attr-permission.html target=_blank>Linux 文件基本属性 | 菜鸟教程 (runoob.com)</a></p><p>权限分类</p><ul><li>r 4 读权限(read)</li><li>w 2 写权限(write)</li><li>x 1 执行权限(execute)</li></ul><p>常用权限</p><ul><li>755： 自己可读可写可执行，用户组和其他人可读可执行，不可写</li><li>700： 自己可读可写可执行，用户组和其他人没有任何权限</li></ul><p>文件权限的设置</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看权限</span>
+</span></span><span style=display:flex><span>ls -l
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>chown -R newowner:newgroup filename
+</span></span><span style=display:flex><span>chown :newgroup filename
+</span></span><span style=display:flex><span>chmod -R <span style=color:#1c01ce>775</span> filename
+</span></span></code></pre></td></tr></table></div></div><h4 id=group>Group<a class=anchorjs-link href=#group></a></h4><p>组的增删改查</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>getent group
+</span></span><span style=display:flex><span>groupadd 组名
+</span></span><span style=display:flex><span>groupmod -n 新组名 旧组名
+</span></span><span style=display:flex><span>groupdel 组名
+</span></span></code></pre></td></tr></table></div></div><h4 id=user>User<a class=anchorjs-link href=#user></a></h4><p>组中 用户的增删改查</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 组内用户</span>
+</span></span><span style=display:flex><span>getent group 组名
+</span></span><span style=display:flex><span><span style=color:#177500># 组内用户</span>
+</span></span><span style=display:flex><span>id 用户名
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>gpasswd -a 用户名 组名
+</span></span><span style=display:flex><span>gpasswd -d 用户名 组名
+</span></span></code></pre></td></tr></table></div></div><h3 id=进程管理>进程管理<a class=anchorjs-link href=#%e8%bf%9b%e7%a8%8b%e7%ae%a1%e7%90%86></a></h3><p>相关概念</p><ul><li>进程：操作系统进行资源分配的基本单位</li><li>线程：进程中最小的执行单位</li><li>协程：用户态线程</li></ul><p>进程分类</p><ul><li>孤儿进程</li><li>僵尸进程</li></ul><p>相关命令</p><ul><li>top ：查看进程，内存，交换空间等， 相当于 windows 的 任务管理器</li><li>htop：top 的彩色加强版， 需要安装, 但是无法复制文字</li><li>glances: top 的彩色加强版 plus，需要安装</li><li>ps ：查看进程</li><li>kill -9 pid：杀死进程</li></ul><h4 id=top>top<a class=anchorjs-link href=#top></a></h4><p>h 帮助文档
+xb &lt;> 自由排序</p><p>f 设置
+按 Shift + W（大写 W）
+这个命令会把当前配置写入 ~/.toprc 文件</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>Help <span style=color:#a90d91>for</span> Interactive Commands - procps-ng 3.3.17
+</span></span><span style=display:flex><span>Window 1:Def: Cumulative mode Off.  System: Delay 3.0 secs; Secure mode Off.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  Z,B,E,e   Global: <span style=color:#c41a16>&#39;Z&#39;</span> colors; <span style=color:#c41a16>&#39;B&#39;</span> bold; <span style=color:#c41a16>&#39;E&#39;</span>/<span style=color:#c41a16>&#39;e&#39;</span> summary/task memory scale
+</span></span><span style=display:flex><span>  l,t,m,I   Toggle: <span style=color:#c41a16>&#39;l&#39;</span> load avg; <span style=color:#c41a16>&#39;t&#39;</span> task/cpu; <span style=color:#c41a16>&#39;m&#39;</span> memory; <span style=color:#c41a16>&#39;I&#39;</span> Irix mode
+</span></span><span style=display:flex><span>  0,1,2,3,4 Toggle: <span style=color:#c41a16>&#39;0&#39;</span> zeros; <span style=color:#c41a16>&#39;1/2/3&#39;</span> cpu/numa views; <span style=color:#c41a16>&#39;4&#39;</span> cpus two abreast
+</span></span><span style=display:flex><span>  f,F,X     Fields: <span style=color:#c41a16>&#39;f&#39;</span>/<span style=color:#c41a16>&#39;F&#39;</span> add/remove/order/sort; <span style=color:#c41a16>&#39;X&#39;</span> increase fixed-width
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  L,&amp;,&lt;,&gt; . Locate: <span style=color:#c41a16>&#39;L&#39;</span>/<span style=color:#c41a16>&#39;&amp;&#39;</span> find/again; Move sort column: <span style=color:#c41a16>&#39;&lt;&#39;</span>/<span style=color:#c41a16>&#39;&gt;&#39;</span> left/right
+</span></span><span style=display:flex><span>  R,H,J,C . Toggle: <span style=color:#c41a16>&#39;R&#39;</span> Sort; <span style=color:#c41a16>&#39;H&#39;</span> Threads; <span style=color:#c41a16>&#39;J&#39;</span> Num justify; <span style=color:#c41a16>&#39;C&#39;</span> Coordinates
+</span></span><span style=display:flex><span>  c,i,S,j . Toggle: <span style=color:#c41a16>&#39;c&#39;</span> Cmd name/line; <span style=color:#c41a16>&#39;i&#39;</span> Idle; <span style=color:#c41a16>&#39;S&#39;</span> Time; <span style=color:#c41a16>&#39;j&#39;</span> Str justify
+</span></span><span style=display:flex><span>  x,y     . Toggle highlights: <span style=color:#c41a16>&#39;x&#39;</span> sort field; <span style=color:#c41a16>&#39;y&#39;</span> running tasks
+</span></span><span style=display:flex><span>  z,b     . Toggle: <span style=color:#c41a16>&#39;z&#39;</span> color/mono; <span style=color:#c41a16>&#39;b&#39;</span> bold/reverse <span style=color:#000>(</span>only <span style=color:#a90d91>if</span> <span style=color:#c41a16>&#39;x&#39;</span> or <span style=color:#c41a16>&#39;y&#39;</span><span style=color:#000>)</span>
+</span></span><span style=display:flex><span>  u,U,o,O . Filter by: <span style=color:#c41a16>&#39;u&#39;</span>/<span style=color:#c41a16>&#39;U&#39;</span> effective/any user; <span style=color:#c41a16>&#39;o&#39;</span>/<span style=color:#c41a16>&#39;O&#39;</span> other criteria
+</span></span><span style=display:flex><span>  n,#,^O  . Set: <span style=color:#c41a16>&#39;n&#39;</span>/<span style=color:#c41a16>&#39;#&#39;</span> max tasks displayed; Show: Ctrl+<span style=color:#c41a16>&#39;O&#39;</span> other filter<span style=color:#000>(</span>s<span style=color:#000>)</span>
+</span></span><span style=display:flex><span>  V,v     . Toggle: <span style=color:#c41a16>&#39;V&#39;</span> forest view; <span style=color:#c41a16>&#39;v&#39;</span> hide/show forest view children
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  k,r       操作进程：<span style=color:#c41a16>&#39;k&#39;</span> 杀死；<span style=color:#c41a16>&#39;r&#39;</span> 设置优先级
+</span></span><span style=display:flex><span>  d or s    设定更新间隔
+</span></span><span style=display:flex><span>  W,Y,!     Write config file <span style=color:#c41a16>&#39;W&#39;</span>; Inspect other output <span style=color:#c41a16>&#39;Y&#39;</span>; Combine Cpus <span style=color:#c41a16>&#39;!&#39;</span>
+</span></span><span style=display:flex><span>  q         Quit
+</span></span><span style=display:flex><span>          <span style=color:#000>(</span> commands shown with <span style=color:#c41a16>&#39;.&#39;</span> require a visible task display window <span style=color:#000>)</span>
+</span></span><span style=display:flex><span>Press <span style=color:#c41a16>&#39;h&#39;</span> or <span style=color:#c41a16>&#39;?&#39;</span> <span style=color:#a90d91>for</span> <span style=color:#a90d91>help</span> with Windows,
+</span></span></code></pre></td></tr></table></div></div><h4 id=htop-使用>htop 使用<a class=anchorjs-link href=#htop-%e4%bd%bf%e7%94%a8></a></h4><ul><li>f10 失灵的问题: 快捷键冲突</li><li>自定义列名: f2进入添加 swap ppid</li><li>显示混乱:
+按 H<ul><li>H = Hide user threads（隐藏用户线程）
+这样就能让列表干净很多，避免一堆重复的线程。</li></ul></li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 配置文件位置</span>
+</span></span><span style=display:flex><span>~/.config/htop/htoprc
+</span></span></code></pre></td></tr></table></div></div><p>ps -p 4155167 -o pid,ppid,cmd</p><h4 id=shell-后台作业>shell 后台作业<a class=anchorjs-link href=#shell-%e5%90%8e%e5%8f%b0%e4%bd%9c%e4%b8%9a></a></h4><p>一个shell 可以同时运行多个进程. 有的可见, 有的不可见. 就像桌面, 多窗口切换</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 暂停前台任务，将其放到后台</span>
+</span></span><span style=display:flex><span>ctrl+z
+</span></span><span style=display:flex><span><span style=color:#177500># 终止指定的后台任务</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>kill</span> %&lt;job_id&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 后台关闭也始终运行</span>
+</span></span><span style=display:flex><span><span style=color:#177500># 默认输出 nohup.out</span>
+</span></span><span style=display:flex><span>nohup 命令 &amp;
+</span></span><span style=display:flex><span><span style=color:#177500># 指定文件输出</span>
+</span></span><span style=display:flex><span>nohup 命令 &gt; output.log 2&gt;&amp;<span style=color:#1c01ce>1</span> &amp;
+</span></span></code></pre></td></tr></table></div></div><h2 id=高级阶段>高级阶段<a class=anchorjs-link href=#%e9%ab%98%e7%ba%a7%e9%98%b6%e6%ae%b5></a></h2><h3 id=ssh>ssh<a class=anchorjs-link href=#ssh></a></h3><p>ssh 是一种<strong>安全的网络协议</strong>。 可以安全的远程连接电脑。</p><p>远程连接的意义</p><ul><li>方便随时随地的查看状态，处理故障</li><li>可以远程连接多个地区的服务器，统一管理
+可以看出 远程连接服务器的优势： <strong>高效，安全</strong></li></ul><p>相关命令</p><ul><li>ssh 用户名@服务器IP地址</li></ul><p>fail2ban - 入侵防护系统</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 安装</span>
+</span></span><span style=display:flex><span>sudo apt install fail2ban
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># fail2ban基本配置</span>
+</span></span><span style=display:flex><span>sudo systemctl <span style=color:#a90d91>enable</span> fail2ban
+</span></span><span style=display:flex><span>sudo systemctl start fail2ban
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 创建SSH防护配置（可选）</span>
+</span></span><span style=display:flex><span>sudo tee /etc/fail2ban/jail.local <span style=color:#c41a16>&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>[sshd]
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>enabled = true
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>port = ssh
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>filter = sshd
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>logpath = /var/log/auth.log
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>maxretry = 3
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>bantime = 3600
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>EOF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo systemctl restart fail2ban
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># 查看fail2ban状态
+</span></span><span style=display:flex><span>sudo fail2ban-client status
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 查看SSH防护状态
+</span></span><span style=display:flex><span>sudo fail2ban-client status sshd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 手动解封IP
+</span></span><span style=display:flex><span>sudo fail2ban-client set sshd unbanip 192.168.1.100
+</span></span></code></pre></td></tr></table></div></div><h3 id=scp>scp<a class=anchorjs-link href=#scp></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>scp localfile.txt username@remoteip:/directory
+</span></span><span style=display:flex><span>scp username@remoteip:/file.txt /local_directory
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>scp -r localfiles username@remoteip:/directory
+</span></span><span style=display:flex><span>scp -r username@remoteip:/directory /local_directory
+</span></span></code></pre></td></tr></table></div></div><h3 id=sftp>sftp<a class=anchorjs-link href=#sftp></a></h3><p>FTP: 客户端和服务器之间传输文件的标准网络协议</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash></code></pre></td></tr></table></div></div><h3 id=网络管理>网络管理<a class=anchorjs-link href=#%e7%bd%91%e7%bb%9c%e7%ae%a1%e7%90%86></a></h3><p>常用命令</p><ul><li><p>ifconfig</p></li><li><p>ping</p></li><li><p>curl</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 网上文件下载</span>
+</span></span><span style=display:flex><span>curl httpaddr -o filename
+</span></span><span style=display:flex><span><span style=color:#177500># 发送post请求</span>
+</span></span><span style=display:flex><span>curl -X POST <span style=color:#c41a16>&#34;http://xxxxx&#34;</span> -H <span style=color:#c41a16>&#34;&#34;</span> -d<span style=color:#c41a16>&#39;{&#34;k1&#34;:&#34;v1&#34;, &#34;k2&#34;:&#34;v2&#34;}&#39;</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>wget</p></li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
+</span></span></code></pre></td></tr></table></div></div><h4 id=查看port>查看port<a class=anchorjs-link href=#%e6%9f%a5%e7%9c%8bport></a></h4><p>本机</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>netstat -tulnp | grep :3306
+</span></span><span style=display:flex><span>ss -tulnp | grep <span style=color:#1c01ce>3306</span>
+</span></span><span style=display:flex><span>lsof -i:3306
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>kill</span> -9 <span style=color:#1c01ce>3306</span>
+</span></span></code></pre></td></tr></table></div></div><p>远程机器</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl ip:port
+</span></span></code></pre></td></tr></table></div></div><h3 id=防火墙>防火墙<a class=anchorjs-link href=#%e9%98%b2%e7%81%ab%e5%a2%99></a></h3><p>常用命令</p><ul><li>iptables</li></ul><h3 id=shell-脚本>shell 脚本<a class=anchorjs-link href=#shell-%e8%84%9a%e6%9c%ac></a></h3><p>概念： 在文件中，按照语法规则，编写一系列的能够被 shell 解释的<strong>shell 命令</strong>，供操作系统执行， 这个文件就是 shell 脚本。 通常命名为*.sh</p><p>shell 脚本的优势：</p><ul><li><strong>自动化执行一系列操作</strong>，无需手动一个一个命令的执行</li><li>可以设置定时执行</li><li>学习难度不大</li></ul><p>主要学习内容：</p><ul><li>编写范式</li><li>判断</li><li>条件</li><li>循环</li><li>函数</li><li>debug</li></ul><p>学习 link： <a href=https://wangdoc.com/bash/intro target=_blank>https://wangdoc.com/bash/intro</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看系统已经配置的shell</span>
+</span></span><span style=display:flex><span>cat /etc/shells
+</span></span></code></pre></td></tr></table></div></div><p>示例shell:</p><ul><li>首行, 指明文件类型</li><li>设置安全检查</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#633820>#!/bin/sh
+</span></span></span><span style=display:flex><span><span style=color:#633820></span><span style=color:#a90d91>set</span> -eu
+</span></span></code></pre></td></tr></table></div></div><h4 id=安全检查工具>安全检查工具<a class=anchorjs-link href=#%e5%ae%89%e5%85%a8%e6%a3%80%e6%9f%a5%e5%b7%a5%e5%85%b7></a></h4><p>shellcheck</p><h3 id=文件服务>文件服务<a class=anchorjs-link href=#%e6%96%87%e4%bb%b6%e6%9c%8d%e5%8a%a1></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#a90d91>cd</span> target_path
+</span></span><span style=display:flex><span>python -m http.server <span style=color:#1c01ce>8080</span>
+</span></span></code></pre></td></tr></table></div></div><p>局域网访问文件</p><h3 id=路径跳转>路径跳转<a class=anchorjs-link href=#%e8%b7%af%e5%be%84%e8%b7%b3%e8%bd%ac></a></h3><ul><li>autojump</li></ul><p>autojump 会根据你访问目录的频率来“记住”你常去的路径, 智能模糊匹配,</p><p>安装:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>apt install autojump
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 在 ~/.bashrc 添加</span>
+</span></span><span style=display:flex><span><span style=color:#000>[[</span> -s /usr/share/autojump/autojump.sh <span style=color:#000>]]</span> <span style=color:#000>&amp;&amp;</span> <span style=color:#a90d91>source</span> /usr/share/autojump/autojump.sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>source</span> ~/.bashrc
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 路径导航</span>
+</span></span><span style=display:flex><span>j xxx
+</span></span><span style=display:flex><span><span style=color:#177500># 查看权重</span>
+</span></span><span style=display:flex><span>j -s
+</span></span></code></pre></td></tr></table></div></div><ul><li>alias</li></ul><p>命令缩写</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#a90d91>alias</span> <span style=color:#000>ll</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;cd /aa/bb/cc&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><p>查看 alias</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#a90d91>alias</span>
+</span></span></code></pre></td></tr></table></div></div><p>怎么排查内存占用情况的历史</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo apt install sysstat
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 看昨天内存情况</span>
+</span></span><span style=display:flex><span>sar -r
+</span></span><span style=display:flex><span><span style=color:#177500># ps aux --sort=-%mem | head</span>
+</span></span><span style=display:flex><span>sar -r -u -p
+</span></span><span style=display:flex><span>ps aux --sort<span style=color:#000>=</span>-%mem | head
+</span></span></code></pre></td></tr></table></div></div><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/ data-toggle=tooltip data-placement=top title="Python基础 类2">Previous<br><span>Python基础 类2</span></a></li><li class=next><a href=/posts/tech/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/ data-toggle=tooltip data-placement=top title=Pyqt5指南>Next<br><span>Pyqt5指南</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script><script type=module>
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script></body></html>

@@ -1,0 +1,876 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Django教程 | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content="[toc]
+网站开发逻辑 数据 页面 api 通信协议 层级 协议及描述 应用层 - HTTP: 网页浏览的基础协议，用于传输网页内容。 - HTTPS: HTTP 的加密版本。 - FTP: 文件传输协议。 - SMTP: 简单邮件传输协议，用于发送电子邮件。 - POP3: 用于接收电子邮件。 - IMAP: 用于同步和管理电子邮件。 - DNS: 将域名解析为 IP 地址。 - SSH: 安全远程管理协议。 - Telnet: 早期的远程登录协议，已被 SSH 取代。 - WebSocket: 用于建立持久的双向通信。 传输层 - TCP: 面向连接的协议，提供可靠的数据传输。 - UDP: 无连接的协议，适用于实时应用。 - QUIC: 基于 UDP 的新传输层协议，提供更高的效率。 网络层 - IP: 网络层的基本协议，负责数据包的传输。 - IPv4: 使用 32 位地址。 - IPv6: 使用 128 位地址，解决 IP 地址枯竭问题。 - ICMP: 网络诊断信息协议（如 ping）。 - ARP: 将 IP 地址解析为物理地址。 数据链路层 - Ethernet: 局域网的有线通信协议。 - Wi-Fi: 无线局域网协议。 - PPP: 点对点协议，用于数据传输。 - STP: 防止网络环路的生成树协议。 物理层 - Ethernet（物理层部分）: 定义电信号如何传输。 - Wi-Fi（物理层部分）: 定义无线信号的传输。 - Bluetooth: 短距离无线通信协议。 会话层、表示层 - SSL/TLS: 提供加密连接，保护数据传输。 - RPC: 允许远程过程调用。 其他协议 - MQTT: 轻量级发布/订阅消息协议，适用于物联网。 - AMQP: 企业级消息队列协议。 - gRPC: 基于 HTTP/2 的远程过程调用框架。 - SFTP: 基于 SSH 的安全文件传输协议。 HTTP 请求方式 传参方式 示例 GET 查询字符串 (Query Parameters) GET /users?"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Django教程"><meta name=twitter:description content="[toc]
+网站开发逻辑 数据 页面 api 通信协议 层级 协议及描述 应用层 - HTTP: 网页浏览的基础协议，用于传输网页内容。 - HTTPS: HTTP 的加密版本。 - FTP: 文件传输协议。 - SMTP: 简单邮件传输协议，用于发送电子邮件。 - POP3: 用于接收电子邮件。 - IMAP: 用于同步和管理电子邮件。 - DNS: 将域名解析为 IP 地址。 - SSH: 安全远程管理协议。 - Telnet: 早期的远程登录协议，已被 SSH 取代。 - WebSocket: 用于建立持久的双向通信。 传输层 - TCP: 面向连接的协议，提供可靠的数据传输。 - UDP: 无连接的协议，适用于实时应用。 - QUIC: 基于 UDP 的新传输层协议，提供更高的效率。 网络层 - IP: 网络层的基本协议，负责数据包的传输。 - IPv4: 使用 32 位地址。 - IPv6: 使用 128 位地址，解决 IP 地址枯竭问题。 - ICMP: 网络诊断信息协议（如 ping）。 - ARP: 将 IP 地址解析为物理地址。 数据链路层 - Ethernet: 局域网的有线通信协议。 - Wi-Fi: 无线局域网协议。 - PPP: 点对点协议，用于数据传输。 - STP: 防止网络环路的生成树协议。 物理层 - Ethernet（物理层部分）: 定义电信号如何传输。 - Wi-Fi（物理层部分）: 定义无线信号的传输。 - Bluetooth: 短距离无线通信协议。 会话层、表示层 - SSL/TLS: 提供加密连接，保护数据传输。 - RPC: 允许远程过程调用。 其他协议 - MQTT: 轻量级发布/订阅消息协议，适用于物联网。 - AMQP: 企业级消息队列协议。 - gRPC: 基于 HTTP/2 的远程过程调用框架。 - SFTP: 基于 SSH 的安全文件传输协议。 HTTP 请求方式 传参方式 示例 GET 查询字符串 (Query Parameters) GET /users?"><meta property="og:url" content="https://zhenda-hub.github.io/posts/web/django%E6%95%99%E7%A8%8B/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="Django教程"><meta property="og:description" content="[toc]
+网站开发逻辑 数据 页面 api 通信协议 层级 协议及描述 应用层 - HTTP: 网页浏览的基础协议，用于传输网页内容。 - HTTPS: HTTP 的加密版本。 - FTP: 文件传输协议。 - SMTP: 简单邮件传输协议，用于发送电子邮件。 - POP3: 用于接收电子邮件。 - IMAP: 用于同步和管理电子邮件。 - DNS: 将域名解析为 IP 地址。 - SSH: 安全远程管理协议。 - Telnet: 早期的远程登录协议，已被 SSH 取代。 - WebSocket: 用于建立持久的双向通信。 传输层 - TCP: 面向连接的协议，提供可靠的数据传输。 - UDP: 无连接的协议，适用于实时应用。 - QUIC: 基于 UDP 的新传输层协议，提供更高的效率。 网络层 - IP: 网络层的基本协议，负责数据包的传输。 - IPv4: 使用 32 位地址。 - IPv6: 使用 128 位地址，解决 IP 地址枯竭问题。 - ICMP: 网络诊断信息协议（如 ping）。 - ARP: 将 IP 地址解析为物理地址。 数据链路层 - Ethernet: 局域网的有线通信协议。 - Wi-Fi: 无线局域网协议。 - PPP: 点对点协议，用于数据传输。 - STP: 防止网络环路的生成树协议。 物理层 - Ethernet（物理层部分）: 定义电信号如何传输。 - Wi-Fi（物理层部分）: 定义无线信号的传输。 - Bluetooth: 短距离无线通信协议。 会话层、表示层 - SSL/TLS: 提供加密连接，保护数据传输。 - RPC: 允许远程过程调用。 其他协议 - MQTT: 轻量级发布/订阅消息协议，适用于物联网。 - AMQP: 企业级消息队列协议。 - gRPC: 基于 HTTP/2 的远程过程调用框架。 - SFTP: 基于 SSH 的安全文件传输协议。 HTTP 请求方式 传参方式 示例 GET 查询字符串 (Query Parameters) GET /users?"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-04-30T14:07:14+08:00"><meta property="article:modified_time" content="2024-04-30T14:07:14+08:00"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/web/wechat-app/wechat-app/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tools/homepage/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/web/electron-stu/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/web/crawler/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/web/fastapi-tutorial/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/web/css-guide/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/web/tornado-tutorial/tornado-tutorial/"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags></div><h1>Django教程</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Tue, Apr 30, 2024</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><p>[toc]</p><h2 id=网站开发逻辑>网站开发逻辑<a class=anchorjs-link href=#%e7%bd%91%e7%ab%99%e5%bc%80%e5%8f%91%e9%80%bb%e8%be%91></a></h2><ul><li>数据</li><li>页面</li><li>api</li></ul><h2 id=通信协议>通信协议<a class=anchorjs-link href=#%e9%80%9a%e4%bf%a1%e5%8d%8f%e8%ae%ae></a></h2><table><thead><tr><th>层级</th><th>协议及描述</th></tr></thead><tbody><tr><td><strong>应用层</strong></td><td>- <strong>HTTP</strong>: 网页浏览的基础协议，用于传输网页内容。</td></tr><tr><td></td><td>- <strong>HTTPS</strong>: HTTP 的加密版本。</td></tr><tr><td></td><td>- <strong>FTP</strong>: 文件传输协议。</td></tr><tr><td></td><td>- <strong>SMTP</strong>: 简单邮件传输协议，用于发送电子邮件。</td></tr><tr><td></td><td>- <strong>POP3</strong>: 用于接收电子邮件。</td></tr><tr><td></td><td>- <strong>IMAP</strong>: 用于同步和管理电子邮件。</td></tr><tr><td></td><td>- <strong>DNS</strong>: 将域名解析为 IP 地址。</td></tr><tr><td></td><td>- <strong>SSH</strong>: 安全远程管理协议。</td></tr><tr><td></td><td>- <strong>Telnet</strong>: 早期的远程登录协议，已被 SSH 取代。</td></tr><tr><td></td><td>- <strong>WebSocket</strong>: 用于建立持久的双向通信。</td></tr><tr><td><strong>传输层</strong></td><td>- <strong>TCP</strong>: 面向连接的协议，提供可靠的数据传输。</td></tr><tr><td></td><td>- <strong>UDP</strong>: 无连接的协议，适用于实时应用。</td></tr><tr><td></td><td>- <strong>QUIC</strong>: 基于 UDP 的新传输层协议，提供更高的效率。</td></tr><tr><td><strong>网络层</strong></td><td>- <strong>IP</strong>: 网络层的基本协议，负责数据包的传输。</td></tr><tr><td></td><td>- <strong>IPv4</strong>: 使用 32 位地址。</td></tr><tr><td></td><td>- <strong>IPv6</strong>: 使用 128 位地址，解决 IP 地址枯竭问题。</td></tr><tr><td></td><td>- <strong>ICMP</strong>: 网络诊断信息协议（如 ping）。</td></tr><tr><td></td><td>- <strong>ARP</strong>: 将 IP 地址解析为物理地址。</td></tr><tr><td><strong>数据链路层</strong></td><td>- <strong>Ethernet</strong>: 局域网的有线通信协议。</td></tr><tr><td></td><td>- <strong>Wi-Fi</strong>: 无线局域网协议。</td></tr><tr><td></td><td>- <strong>PPP</strong>: 点对点协议，用于数据传输。</td></tr><tr><td></td><td>- <strong>STP</strong>: 防止网络环路的生成树协议。</td></tr><tr><td><strong>物理层</strong></td><td>- <strong>Ethernet（物理层部分）</strong>: 定义电信号如何传输。</td></tr><tr><td></td><td>- <strong>Wi-Fi（物理层部分）</strong>: 定义无线信号的传输。</td></tr><tr><td></td><td>- <strong>Bluetooth</strong>: 短距离无线通信协议。</td></tr><tr><td><strong>会话层、表示层</strong></td><td>- <strong>SSL/TLS</strong>: 提供加密连接，保护数据传输。</td></tr><tr><td></td><td>- <strong>RPC</strong>: 允许远程过程调用。</td></tr><tr><td><strong>其他协议</strong></td><td>- <strong>MQTT</strong>: 轻量级发布/订阅消息协议，适用于物联网。</td></tr><tr><td></td><td>- <strong>AMQP</strong>: 企业级消息队列协议。</td></tr><tr><td></td><td>- <strong>gRPC</strong>: 基于 HTTP/2 的远程过程调用框架。</td></tr><tr><td></td><td>- <strong>SFTP</strong>: 基于 SSH 的安全文件传输协议。</td></tr></tbody></table><ul><li>HTTP</li></ul><table><thead><tr><th>请求方式</th><th>传参方式</th><th>示例</th></tr></thead><tbody><tr><td>GET</td><td>查询字符串 (Query Parameters)</td><td><code>GET /users?id=123</code></td></tr><tr><td></td><td>路径参数 (Path Parameters)</td><td><code>GET /users/123</code></td></tr><tr><td></td><td>请求头 (Headers)</td><td><code>Authorization: Bearer token</code></td></tr><tr><td>POST</td><td>请求体 (Request Body)</td><td><code>POST /users</code><br><code>{ "name": "John", "age": 30 }</code></td></tr><tr><td></td><td>表单数据 (Form Data)</td><td><code>POST /users</code><br><code>name=John&amp;age=30</code></td></tr><tr><td></td><td>请求头 (Headers)</td><td><code>Content-Type: application/json</code></td></tr><tr><td>PUT</td><td>请求体 (Request Body)</td><td><code>PUT /users/123</code><br><code>{ "name": "Jane", "age": 25 }</code></td></tr><tr><td></td><td>路径参数 (Path Parameters)</td><td><code>PUT /users/123</code></td></tr><tr><td></td><td>请求头 (Headers)</td><td><code>Content-Type: application/json</code></td></tr><tr><td>PATCH</td><td>请求体 (Request Body)</td><td><code>PATCH /users/123</code><br><code>{ "age": 31 }</code></td></tr><tr><td></td><td>路径参数 (Path Parameters)</td><td><code>PATCH /users/123</code></td></tr><tr><td></td><td>请求头 (Headers)</td><td><code>Content-Type: application/json</code></td></tr><tr><td>DELETE</td><td>路径参数 (Path Parameters)</td><td><code>DELETE /users/123</code></td></tr><tr><td></td><td>请求头 (Headers)</td><td><code>Authorization: Bearer token</code></td></tr></tbody></table><pre><code>-   get
+    -   url传参(对数据长度有限制(大约 2048 个字符)
+        -   http://example.com/api?k1=v1&amp;k2=v2
+-   post
+    -   传参
+        -   类型
+            -   request header
+                -   Content-Type 指明数据格式
+            -   request body
+                -   json
+                -   form-data
+                -   text
+        -   url传参
+-   put
+    -   传参同 post, 只是需要对象存在
+-   delete
+</code></pre><h2 id=数据获取方式总结>数据获取方式总结<a class=anchorjs-link href=#%e6%95%b0%e6%8d%ae%e8%8e%b7%e5%8f%96%e6%96%b9%e5%bc%8f%e6%80%bb%e7%bb%93></a></h2><table><thead><tr><th>方式</th><th>描述</th><th>适用场景</th><th>优点</th><th>缺点</th><th>市场占有率</th></tr></thead><tbody><tr><td>文件系统</td><td>读取本地或远程文件</td><td>静态数据存储</td><td>简单易用</td><td>访问速度可能较慢</td><td>极高</td></tr><tr><td>爬虫</td><td>从网页抓取数据</td><td>数据采集、信息挖掘</td><td>获取大量数据</td><td>可能违反网站的爬虫协议</td><td>较高，但因法律法规限制而波动</td></tr><tr><td>SQL数据库</td><td>结构化数据存储和查询</td><td>大量结构化数据的存储和查询</td><td>数据一致性强、查询灵活</td><td>可能存在性能瓶颈</td><td>极高</td></tr><tr><td>NoSQL数据库</td><td>非关系型数据库</td><td>海量非结构化数据存储</td><td>灵活扩展、高性能</td><td>数据模型设计复杂</td><td>较高，尤其在大数据领域</td></tr><tr><td><strong>HTTP</strong></td><td>超文本传输协议，最常用的请求-响应式通信协议。</td><td>Web 应用、API 调用、文件传输等。</td><td>简单、成熟、广泛支持，适用于大多数应用场景。</td><td>不支持实时双向通信，高延迟，不适用于需要频繁更新的场景。</td><td><strong>极高</strong>（几乎所有 Web 应用都依赖）</td></tr><tr><td><strong>TCP/UDP</strong></td><td>低级网络通信协议，允许通过套接字进行直接的数据传输。TCP 提供可靠传输，UDP 提供不可靠但快速的传输。</td><td>实时视频/音频流、在线游戏、文件传输、自定义协议实现等。</td><td>低延迟、高灵活性，适用于高性能和实时性要求的应用。</td><td>需要手动管理连接和错误处理，开发复杂度高，UDP 不保证数据传输的可靠性。</td><td><strong>高</strong>（基础通信协议，应用广泛）</td></tr><tr><td><strong>Email/SMS</strong></td><td>通过电子邮件或短信发送数据或通知的方式。</td><td>用户通知、报警系统、验证消息、营销活动等。</td><td>覆盖面广、易于使用，适用于发送重要通知和广泛传播信息。</td><td>延迟较高，不适合实时性要求高的场景，短信的全球覆盖可能受限。</td><td><strong>高</strong>（传统通信方式，普及率高）</td></tr><tr><td><strong>MQTT</strong></td><td>轻量级的发布/订阅消息传输协议，适用于资源受限设备和不稳定网络环境。</td><td>物联网（IoT）、传感器数据收集、智能家居设备通信等。</td><td>低带宽开销、实时性好、支持不稳定网络环境。</td><td>传输量小，支持较为基础，不适合处理复杂的数据结构或大规模数据。</td><td><strong>较高</strong>，尤其在IoT领域</td></tr><tr><td><strong>Kafka</strong></td><td>分布式流处理平台，用于构建实时数据管道和流应用，基于发布/订阅消息传输模式。</td><td>大数据处理、日志聚合、事件流处理、实时分析等。</td><td>高吞吐量、高可扩展性、适用于大规模数据流处理。</td><td>需要较复杂的部署和维护，学习曲线较陡，延迟可能较高。</td><td><strong>较高</strong>，尤其在大数据和流处理领域</td></tr><tr><td><strong>WebSocket</strong></td><td>全双工通信协议，允许服务器和客户端之间进行实时双向通信。</td><td>实时聊天、在线游戏、股票行情推送、实时通知等。</td><td>实时性强、低延迟、适合需要频繁数据更新的应用。</td><td>不适合长时间空闲连接，占用资源多，不适用于传输大数据量的场景。</td><td>中（实时应用逐渐普及）</td></tr><tr><td><strong>gRPC</strong></td><td>高性能、开源的远程过程调用（RPC）框架，基于 HTTP/2 协议，使用 Protocol Buffers 进行数据序列化。</td><td>微服务架构、分布式系统、移动设备与后端服务通信等。</td><td>高效、支持多语言、支持双向流式通信、强类型定义。</td><td>使用复杂，依赖于 HTTP/2 和 Protocol Buffers，不如 REST API 普及。</td><td>中（微服务架构中逐渐普及）</td></tr><tr><td>AMQP</td><td>高级消息队列协议，提供消息的安全、可靠传输，支持复杂的消息路由和队列机制。</td><td>企业消息系统、分布式应用、金融交易系统、微服务通信等。</td><td>功能丰富、可靠性高、支持事务和队列，适用于复杂的消息传递需求。</td><td>协议复杂，学习成本高，部署和维护难度较大。</td><td>中（企业级消息系统使用广泛）</td></tr><tr><td>Webhooks</td><td>基于 HTTP 回调的事件驱动通信方式，当特定事件发生时，一个系统向另一个系统发送通知。</td><td>事件通知、第三方服务集成、自动化工作流程等。</td><td>简单、即时通知、易于集成，减少轮询需求。</td><td>无法保证消息的送达率或顺序，需要处理重复或丢失的消息。</td><td>中（被广泛用于自动化通知）</td></tr><tr><td>FTP/SFTP</td><td>文件传输协议</td><td>文件传输</td><td>简单易用</td><td>速度较慢、安全性较低（FTP）</td><td>中等，逐渐被SFTP和更安全的协议替代</td></tr><tr><td>NFS</td><td>网络文件系统</td><td>共享文件系统</td><td>方便共享文件</td><td>配置复杂</td><td>中等，主要用于内部网络</td></tr><tr><td>P2P</td><td>点对点通信方式，设备之间直接连接并交换数据，无需中心服务器。</td><td>文件共享、区块链网络、分布式计算、实时通信应用等。</td><td>去中心化、可扩展性强、资源利用高效，适用于分布式和去中心化的应用场景。</td><td>依赖节点的可用性，可能导致数据传输不稳定，网络连接管理复杂。</td><td>中（去中心化应用领域使用）</td></tr><tr><td>XMPP</td><td>即时消息和在线协作协议</td><td>即时通讯、在线协作</td><td>功能丰富</td><td>社区相对较小</td><td>较低</td></tr><tr><td>CoAP</td><td>专为物联网设备设计的轻量级协议，基于 UDP，类似于精简版的 HTTP。</td><td>低功耗、资源受限的设备通信，如传感器网络、智能城市等。</td><td>轻量级、低开销、支持组播，适用于受限环境。</td><td>基于 UDP 传输，可靠性不如 TCP，适用场景有限，功能较简单。</td><td>低（物联网中逐渐普及）</td></tr></tbody></table><h3 id=http>http<a class=anchorjs-link href=#http></a></h3><p>requests 同步请求
+httpx 异步请求</p><h3 id=发布订阅消息传输协议>发布/订阅消息传输协议<a class=anchorjs-link href=#%e5%8f%91%e5%b8%83%e8%ae%a2%e9%98%85%e6%b6%88%e6%81%af%e4%bc%a0%e8%be%93%e5%8d%8f%e8%ae%ae></a></h3><h4 id=mqtt>mqtt<a class=anchorjs-link href=#mqtt></a></h4><p>核心概念:</p><table><thead><tr><th>名词</th><th>概念</th></tr></thead><tbody><tr><td>Broker</td><td>消息代理，负责接收、存储和转发消息到订阅者。</td></tr><tr><td>Client</td><td>客户端，可以是发布者或订阅者。</td></tr><tr><td>Topic</td><td>主题，用于标识消息的分类和路由。</td></tr><tr><td>Message</td><td>消息，由发布者发送并由代理转发给订阅者。</td></tr><tr><td>Subscription</td><td>订阅，客户端订阅一个或多个主题，以接收相关的消息。</td></tr><tr><td>Publication</td><td>发布，客户端发布消息到某个主题。</td></tr></tbody></table><p>关系流程:</p><pre class=mermaid>graph TD
+    ClientA[Client A: Publisher] -->|Publish| Broker((MQTT Broker))
+    ClientB[Client B: Publisher] -->|Publish| Broker
+    Broker -->|Forward| ClientC[Client C: Subscriber]
+    Broker -->|Forward| ClientD[Client D: Subscriber]
+</pre><h4 id=kafka>kafka<a class=anchorjs-link href=#kafka></a></h4><p>特点: 提供持久性存储</p><p>关系流程:</p><pre class=mermaid>flowchart LR
+    subgraph Producers[生产者]
+        P[Producer]
+    end
+
+    subgraph Kafka[Kafka Cluster]
+        subgraph Broker1[Broker Leader]
+            T1[Topic-Partition1]
+        end
+
+        subgraph Broker2[Broker Follower]
+            R1[Replica]
+        end
+    end
+
+    subgraph Consumers[消费者]
+        C1[Consumer Group]
+    end
+
+    %% 核心流程
+    P -->|1.发送消息| T1
+    T1 -->|2.同步复制| R1
+    T1 -->|3.消费消息| C1
+
+    %% 添加说明
+    classDef broker fill:#f9f,stroke:#333,stroke-width:2px;
+    class Broker1,Broker2 broker;
+</pre><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>kafka</span> <span style=color:#a90d91>import</span> <span style=color:#000>KafkaConsumer</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>import</span> <span style=color:#000>json</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>consumer</span> <span style=color:#000>=</span> <span style=color:#000>KafkaConsumer</span>(
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#39;your_topic_name&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>bootstrap_servers</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;your_kafka_broker:9092&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>group_id</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;your_consumer_group&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>value_deserializer</span><span style=color:#000>=</span><span style=color:#a90d91>lambda</span> <span style=color:#000>v</span>: <span style=color:#000>json</span><span style=color:#000>.</span><span style=color:#000>loads</span>(<span style=color:#000>v</span><span style=color:#000>.</span><span style=color:#000>decode</span>(<span style=color:#c41a16>&#39;utf-8&#39;</span>))  <span style=color:#177500># Deserialize JSON</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 阻塞</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>for</span> <span style=color:#000>i</span> <span style=color:#000>in</span> <span style=color:#000>consumer</span>:
+</span></span><span style=display:flex><span>    <span style=color:#000>...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 非阻塞</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>while</span> <span style=color:#1c01ce>1</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>for</span> <span style=color:#000>topic</span>, <span style=color:#000>msg</span> <span style=color:#000>in</span> <span style=color:#000>consumer</span><span style=color:#000>.</span><span style=color:#000>poll</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>...</span>
+</span></span></code></pre></td></tr></table></div></div><p>常见问题:</p><p>kafka nobrokersavailable</p><h2 id=前后端数据交互的类型>前后端数据交互的类型<a class=anchorjs-link href=#%e5%89%8d%e5%90%8e%e7%ab%af%e6%95%b0%e6%8d%ae%e4%ba%a4%e4%ba%92%e7%9a%84%e7%b1%bb%e5%9e%8b></a></h2><h3 id=header-请求头>header 请求头:<a class=anchorjs-link href=#header-%e8%af%b7%e6%b1%82%e5%a4%b4></a></h3><p>包含了基本的请求信息, method, url, 协议, 和一些 kv.</p><p>常见kv如下:</p><table><thead><tr><th>key</th><th>meaning</th></tr></thead><tbody><tr><td>Accept</td><td>客户端可接受的响应类型</td></tr><tr><td>Accept-Language</td><td>客户端可接受的语言</td></tr><tr><td>Content-Type</td><td>body数据类型</td></tr><tr><td>Cookie</td><td>用于用户认证</td></tr><tr><td>Host</td><td>请求服务器地址</td></tr><tr><td>User-Agent</td><td>客户端信息</td></tr></tbody></table><h3 id=body-请求体>body 请求体:<a class=anchorjs-link href=#body-%e8%af%b7%e6%b1%82%e4%bd%93></a></h3><p>数据类型 在header里的 <strong>Content-Type</strong> 可以查看</p><p>有三种数据格式:</p><ul><li>application/json</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#000>&#34;username&#34;</span>: <span style=color:#c41a16>&#34;john_doe&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#000>&#34;email&#34;</span>: <span style=color:#c41a16>&#34;john@example.com&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#000>&#34;age&#34;</span>: <span style=color:#1c01ce>30</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><ul><li>form<ul><li>application/x-www-form-urlencoded<ul><li><code>username=john_doe&amp;email=john@example.com</code></li></ul></li><li>multipart/form-data<ul><li>上传文件</li></ul></li></ul></li></ul><h3 id=query-params>query params:<a class=anchorjs-link href=#query-params></a></h3><p><code>/api/users?username=john_doe&amp;email=john@example.com</code></p><h2 id=网站开发逻辑梳理>网站开发逻辑梳理<a class=anchorjs-link href=#%e7%bd%91%e7%ab%99%e5%bc%80%e5%8f%91%e9%80%bb%e8%be%91%e6%a2%b3%e7%90%86></a></h2><ul><li>前端<ul><li>template</li><li>form</li></ul></li><li>后端<ul><li>model</li><li>view</li><li>url</li></ul></li></ul><h3 id=初级阶段使用-admin-后台快速建站>初级阶段，使用 admin 后台快速建站<a class=anchorjs-link href=#%e5%88%9d%e7%ba%a7%e9%98%b6%e6%ae%b5%e4%bd%bf%e7%94%a8-admin-%e5%90%8e%e5%8f%b0%e5%bf%ab%e9%80%9f%e5%bb%ba%e7%ab%99></a></h3><p><a href="https://docs.djangoproject.com/en/5.1/ref/models/fields/#:~:text=ForeignKey" target=_blank>https://docs.djangoproject.com/en/5.1/ref/models/fields/#:~:text=ForeignKey</a></p><p>Field:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>null=True  # 数据库层面
+</span></span><span style=display:flex><span>blank=True  # 表单层面
+</span></span></code></pre></td></tr></table></div></div><ul><li><p>model</p><ul><li>model 分类<ul><li>普通的继承</li><li>abstruct 抽象基类</li><li>proxy 添加额外的方法</li></ul></li><li>模型管理器<ul><li>objects =</li></ul></li><li>自定义 BaseModel</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>BaseModel</span>(<span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>Model</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;为模型类补充字段&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>create_time</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>DateTimeField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;创建时间&#39;</span>, <span style=color:#000>auto_now_add</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>update_time</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>DateTimeField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;更新时间&#39;</span>, <span style=color:#000>auto_now</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>class</span> <span style=color:#3f6e75>Meta</span>:
+</span></span><span style=display:flex><span>        <span style=color:#177500># 说明是抽象模型类</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>abstract</span> <span style=color:#000>=</span> <span style=color:#a90d91>True</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>ProjectModel</span>(<span style=color:#000>BaseModel</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;项目&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>user</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>ForeignKey</span>(<span style=color:#000>User</span>, <span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;用户&#39;</span>, <span style=color:#000>on_delete</span><span style=color:#000>=</span><span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>CASCADE</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>name</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>CharField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;项目名&#39;</span>, <span style=color:#000>max_length</span><span style=color:#000>=</span><span style=color:#1c01ce>30</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>what</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>TextField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;项目描述&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>why</span> <span style=color:#000>=</span> <span style=color:#000>RichTextUploadingField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;项目意义&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>priority_choices</span> <span style=color:#000>=</span> ((<span style=color:#1c01ce>0</span>, <span style=color:#c41a16>&#39;不重要不紧急&#39;</span>), (<span style=color:#1c01ce>1</span>, <span style=color:#c41a16>&#39;不重要紧急&#39;</span>), (<span style=color:#1c01ce>2</span>, <span style=color:#c41a16>&#39;重要不紧急&#39;</span>), (<span style=color:#1c01ce>3</span>, <span style=color:#c41a16>&#39;重要紧急&#39;</span>))
+</span></span><span style=display:flex><span>    <span style=color:#000>priority</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>IntegerField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;优先级&#39;</span>, <span style=color:#000>default</span><span style=color:#000>=</span><span style=color:#1c01ce>0</span>, <span style=color:#000>choices</span><span style=color:#000>=</span><span style=color:#000>priority_choices</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>public</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>BooleanField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;是否公开&#39;</span>, <span style=color:#000>default</span><span style=color:#000>=</span><span style=color:#a90d91>False</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>start_date</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>DateField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;计划开始日期&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>end_date</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>DateField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;计划完成日期&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># how = RichTextUploadingField(verbose_name=&#39;执行步骤&#39;, config_name=&#39;default&#39;)</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>how</span> <span style=color:#000>=</span> <span style=color:#000>MDTextField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;执行步骤&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>attachments</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>FileField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;附件&#39;</span>, <span style=color:#000>upload_to</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;attachments/%Y/%m/</span><span style=color:#c41a16>%d</span><span style=color:#c41a16>/&#39;</span>, <span style=color:#000>null</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>, <span style=color:#000>blank</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>status</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>BooleanField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;是否完成&#39;</span>, <span style=color:#000>default</span><span style=color:#000>=</span><span style=color:#a90d91>False</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>think</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>TextField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;项目感想&#39;</span>, <span style=color:#000>null</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>, <span style=color:#000>blank</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>class</span> <span style=color:#3f6e75>Meta</span>:
+</span></span><span style=display:flex><span>        <span style=color:#000>verbose_name</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;项目&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>verbose_name_plural</span> <span style=color:#000>=</span> <span style=color:#000>verbose_name</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>__str__</span>(<span style=color:#5b269a>self</span>):
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>name</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>admin 后台管理</p><ul><li><p>管理模型类</p><ul><li><p>添加模型类到 admin</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># 直接添加</span>
+</span></span><span style=display:flex><span><span style=color:#000>admin</span><span style=color:#000>.</span><span style=color:#000>site</span><span style=color:#000>.</span><span style=color:#000>register</span>(<span style=color:#000>ProjectModel</span>)
+</span></span></code></pre></td></tr></table></div></div></li><li><p>自定义模型类的功能页面</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># 自定义模型类的admin</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>ProjectModelAdmin</span>(<span style=color:#000>admin</span><span style=color:#000>.</span><span style=color:#000>ModelAdmin</span>):
+</span></span><span style=display:flex><span>    <span style=color:#177500># list页面</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>list_display</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;user&#39;</span>, <span style=color:#c41a16>&#39;name&#39;</span>, <span style=color:#c41a16>&#39;what&#39;</span>, <span style=color:#c41a16>&#39;priority&#39;</span>, <span style=color:#c41a16>&#39;end_date&#39;</span>, <span style=color:#c41a16>&#39;duration&#39;</span>, <span style=color:#c41a16>&#39;status&#39;</span>]
+</span></span><span style=display:flex><span>    <span style=color:#000>list_filter</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;user&#39;</span>, <span style=color:#c41a16>&#39;status&#39;</span>, <span style=color:#c41a16>&#39;priority&#39;</span>, <span style=color:#c41a16>&#39;end_date&#39;</span>]
+</span></span><span style=display:flex><span>    <span style=color:#000>search_fields</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;name&#39;</span>, <span style=color:#c41a16>&#39;what&#39;</span>, <span style=color:#c41a16>&#39;why&#39;</span>, <span style=color:#c41a16>&#39;how&#39;</span>, <span style=color:#c41a16>&#39;think&#39;</span>]
+</span></span><span style=display:flex><span>    <span style=color:#000>ordering</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;status&#39;</span>, <span style=color:#c41a16>&#39;-priority&#39;</span>, <span style=color:#c41a16>&#39;end_date&#39;</span>]
+</span></span><span style=display:flex><span>    <span style=color:#177500># detail页面</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>readonly_fields</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;user&#39;</span>]  <span style=color:#177500># 只读字段，不能编辑</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 添加自定义的ProjectModelAdmin</span>
+</span></span><span style=display:flex><span><span style=color:#000>admin</span><span style=color:#000>.</span><span style=color:#000>site</span><span style=color:#000>.</span><span style=color:#000>register</span>(<span style=color:#000>ProjectModel</span>, <span style=color:#000>ProjectModelAdmin</span>)
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><h2 id=邮件重置密码>邮件重置密码<a class=anchorjs-link href=#%e9%82%ae%e4%bb%b6%e9%87%8d%e7%bd%ae%e5%af%86%e7%a0%81></a></h2></li></ul></li></ul><h3 id=直接编写后台逻辑和前台模板页面>直接编写后台逻辑和前台模板页面<a class=anchorjs-link href=#%e7%9b%b4%e6%8e%a5%e7%bc%96%e5%86%99%e5%90%8e%e5%8f%b0%e9%80%bb%e8%be%91%e5%92%8c%e5%89%8d%e5%8f%b0%e6%a8%a1%e6%9d%bf%e9%a1%b5%e9%9d%a2></a></h3><p><a href=https://python.plainenglish.io/building-a-basic-crud-using-django-b218d6859206 target=_blank>https://python.plainenglish.io/building-a-basic-crud-using-django-b218d6859206</a></p><ul><li><p>url</p><ul><li>include()<ul><li>name</li><li>namespace</li></ul></li><li>view 中访问<ul><li>reverse()</li></ul></li><li>基本格式<ul><li>''</li><li>create/</li><li>&lt;int:pk>/</li><li>&lt;int:pk>/update/</li><li>&lt;int:pk>/delete/</li></ul></li><li>传参数<ul><li>使用&lt;>来传参</li></ul></li><li><h2 id=嵌套的-url>嵌套的 url<a class=anchorjs-link href=#%e5%b5%8c%e5%a5%97%e7%9a%84-url></a></h2></li></ul></li><li><p>view</p><ul><li><p>概念：处理请求， 返回响应。通常会操作数据库</p></li><li><p>请求和响应</p><ul><li><a href=https://docs.djangoproject.com/zh-hans/5.0/ref/request-response/ target=_blank>https://docs.djangoproject.com/zh-hans/5.0/ref/request-response/</a></li><li>HttpRequest<ul><li>可以在中间件中设置各种需要的属性</li><li>GET</li><li>POST</li><li>body</li></ul></li><li>HttpResponse<ul><li>分类<ul><li>HttpResponse</li><li>JsonResponse / drf 的 Response</li><li>render</li><li>redirect</li></ul></li></ul></li></ul></li><li><p>数据库操作</p><ul><li><p><a href=https://docs.djangoproject.com/en/5.0/ref/models/querysets/#get target=_blank>https://docs.djangoproject.com/en/5.0/ref/models/querysets/#get</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>django.db.models</span> <span style=color:#a90d91>import</span> <span style=color:#000>Q</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 查询</span>
+</span></span><span style=display:flex><span><span style=color:#000>Book</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>filter</span>(<span style=color:#000>**</span><span style=color:#000>dct</span>)
+</span></span><span style=display:flex><span><span style=color:#000>Entry</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>order_by</span>(<span style=color:#c41a16>&#34;blog__name&#34;</span>, <span style=color:#c41a16>&#34;headline&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#000>Poll</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>get</span>(
+</span></span><span style=display:flex><span>    <span style=color:#000>Q</span>(<span style=color:#000>question__startswith</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;Who&#34;</span>),
+</span></span><span style=display:flex><span>    <span style=color:#000>Q</span>(<span style=color:#000>pub_date</span><span style=color:#000>=</span><span style=color:#000>date</span>(<span style=color:#1c01ce>2005</span>, <span style=color:#1c01ce>5</span>, <span style=color:#1c01ce>2</span>)) <span style=color:#000>|</span> <span style=color:#000>Q</span>(<span style=color:#000>pub_date</span><span style=color:#000>=</span><span style=color:#000>date</span>(<span style=color:#1c01ce>2005</span>, <span style=color:#1c01ce>5</span>, <span style=color:#1c01ce>6</span>)),
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 增改删</span>
+</span></span><span style=display:flex><span><span style=color:#000>Book</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>create</span>(<span style=color:#000>**</span><span style=color:#000>dct</span>)
+</span></span><span style=display:flex><span><span style=color:#000>Book</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>update_or_create</span>(<span style=color:#000>**</span><span style=color:#000>dct</span>)
+</span></span><span style=display:flex><span><span style=color:#000>Book</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>filter</span>(<span style=color:#000>**</span><span style=color:#000>dct</span>)<span style=color:#000>.</span><span style=color:#000>delete</span>()
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># update_or_create</span>
+</span></span><span style=display:flex><span><span style=color:#000>defaults</span> <span style=color:#000>=</span> {<span style=color:#c41a16>&#34;first_name&#34;</span>: <span style=color:#c41a16>&#34;Bob&#34;</span>}
+</span></span><span style=display:flex><span><span style=color:#000>create_defaults</span> <span style=color:#000>=</span> {<span style=color:#c41a16>&#34;first_name&#34;</span>: <span style=color:#c41a16>&#34;Bob&#34;</span>, <span style=color:#c41a16>&#34;birthday&#34;</span>: <span style=color:#000>date</span>(<span style=color:#1c01ce>1940</span>, <span style=color:#1c01ce>10</span>, <span style=color:#1c01ce>9</span>)}
+</span></span><span style=display:flex><span><span style=color:#a90d91>try</span>:
+</span></span><span style=display:flex><span>    <span style=color:#000>obj</span> <span style=color:#000>=</span> <span style=color:#000>Person</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>get</span>(<span style=color:#000>first_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;John&#34;</span>, <span style=color:#000>last_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;Lennon&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>for</span> <span style=color:#000>key</span>, <span style=color:#000>value</span> <span style=color:#000>in</span> <span style=color:#000>defaults</span><span style=color:#000>.</span><span style=color:#000>items</span>():
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>setattr</span>(<span style=color:#000>obj</span>, <span style=color:#000>key</span>, <span style=color:#000>value</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>obj</span><span style=color:#000>.</span><span style=color:#000>save</span>()
+</span></span><span style=display:flex><span><span style=color:#a90d91>except</span> <span style=color:#000>Person</span><span style=color:#000>.</span><span style=color:#000>DoesNotExist</span>:
+</span></span><span style=display:flex><span>    <span style=color:#000>new_values</span> <span style=color:#000>=</span> {<span style=color:#c41a16>&#34;first_name&#34;</span>: <span style=color:#c41a16>&#34;John&#34;</span>, <span style=color:#c41a16>&#34;last_name&#34;</span>: <span style=color:#c41a16>&#34;Lennon&#34;</span>}
+</span></span><span style=display:flex><span>    <span style=color:#000>new_values</span><span style=color:#000>.</span><span style=color:#000>update</span>(<span style=color:#000>create_defaults</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>obj</span> <span style=color:#000>=</span> <span style=color:#000>Person</span>(<span style=color:#000>**</span><span style=color:#000>new_values</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>obj</span><span style=color:#000>.</span><span style=color:#000>save</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>obj</span>, <span style=color:#000>created</span> <span style=color:#000>=</span> <span style=color:#000>Person</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>update_or_create</span>(
+</span></span><span style=display:flex><span>    <span style=color:#000>first_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;John&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>last_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;Lennon&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>defaults</span><span style=color:#000>=</span>{<span style=color:#c41a16>&#34;first_name&#34;</span>: <span style=color:#c41a16>&#34;Bob&#34;</span>},  <span style=color:#177500># 更新的数据</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>create_defaults</span><span style=color:#000>=</span>{<span style=color:#c41a16>&#34;first_name&#34;</span>: <span style=color:#c41a16>&#34;Bob&#34;</span>, <span style=color:#c41a16>&#34;birthday&#34;</span>: <span style=color:#000>date</span>(<span style=color:#1c01ce>1940</span>, <span style=color:#1c01ce>10</span>, <span style=color:#1c01ce>9</span>)},  <span style=color:#177500># 创建的数据</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 分组</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>django.db.omdels</span> <span style=color:#a90d91>import</span> <span style=color:#000>Count</span>
+</span></span><span style=display:flex><span><span style=color:#177500># [{&#39;type1&#39;: xxx, &#39;type2&#39;: xxx, &#39;id&#39;: xxx}]</span>
+</span></span><span style=display:flex><span><span style=color:#000>type1_lst</span> <span style=color:#000>=</span> <span style=color:#000>MyModel</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>values</span>(<span style=color:#c41a16>&#39;type1&#39;</span>, <span style=color:#c41a16>&#39;type2&#39;</span>)<span style=color:#000>.</span><span style=color:#000>annotate</span>(<span style=color:#000>count</span><span style=color:#000>=</span><span style=color:#000>Count</span>(<span style=color:#c41a16>&#39;id&#39;</span>))
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p>FBV</p><ul><li>很直观，完全自主可控的写法</li></ul></li><li><p>CBV</p><ul><li>django提供了一些类来作为view, 不是很好用</li></ul></li><li><p>状态码</p><table><thead><tr><th>代码</th><th>含义</th></tr></thead><tbody><tr><td>200</td><td>ok</td></tr><tr><td>400</td><td>bad request</td></tr><tr><td>401</td><td>auth fail</td></tr><tr><td>403</td><td>permission</td></tr><tr><td>404</td><td>not found</td></tr><tr><td>500</td><td>server error</td></tr></tbody></table></li><li><p>中间件， 钩子</p><ul><li>概念：在HttpRequest到达view的前后，自定义额外的处理逻辑</li></ul></li></ul></li><li><p>template</p><ul><li>页面的主要类型<ul><li>list</li><li>detail</li><li>delete_confirm</li></ul></li><li>语法<ul><li>tags<ul><li>常用语法<ul><li>{% extends &lsquo;xxx.html&rsquo; %} <strong>必须在 html 的最开头</strong></li><li>{% load xxx %} <strong>每个模板页都要 load 自己使用的 tag， 而不能通过 extend 继承</strong></li><li>{% include xxx %}</li><li>{% block xxx %} {% endblock xxx %}</li><li>{% url &rsquo;namespace:name&rsquo; %}</li></ul></li><li>自定义 tag<ul><li>在 app 内创建 templatetags/demo.py</li><li>{% include demo %}</li></ul></li></ul></li><li>variables<ul><li>{{ var1 }}</li></ul></li><li>filters</li><li>comments</li></ul></li><li>overwrite<ul><li>模板加载顺序 DIRS -> APP_DIRS -> others</li></ul></li></ul></li><li><p>form</p><ul><li>Form: 灵活设置需要的字段</li><li>ModelForm：针对模型，添加了数据的验证和保存的功能</li></ul></li></ul><h2 id=具体功能>具体功能<a class=anchorjs-link href=#%e5%85%b7%e4%bd%93%e5%8a%9f%e8%83%bd></a></h2><h3 id=认证-jwt>认证 jwt<a class=anchorjs-link href=#%e8%ae%a4%e8%af%81-jwt></a></h3><p>jwt存储方式:</p><ul><li>cookie<ul><li>优点<ul><li>可设置 HttpOnly 属性： 可以设置 HttpOnly 属性，防止客户端 JavaScript 访问 Cookie，提高安全性，防止 XSS 攻击。</li><li>可设置 Secure 属性： 可以设置 Secure 属性，只允许在 HTTPS 连接中发送 Cookie，防止中间人攻击。</li><li>可设置 SameSite 属性： 可以设置 SameSite 属性，防止 CSRF 攻击</li><li>自动发送</li></ul></li><li>缺点<ul><li>不能跨域, 需要 cors</li><li>大小有限制, 通常为4KB</li></ul></li></ul></li></ul><p>jwt基础流程:</p><p>登录 -> 前端存储 -> 请求 -> 后端验证 -> 返回</p><p>JWT 续期:</p><ol><li>前端检测到 JWT 过期，使用刷新 token 请求新 JWT。</li><li>后端验证刷新 token，生成并返回新 JWT。</li><li>如果token也过期，则需要用户重新登录</li><li>设置 HttpOnly, Secure, SameSite 属性</li></ol><p>认证类型:</p><ul><li>Bearer: 通过 Authorization 请求头传递 JWT 令牌</li><li>Basic Authentication: 使用 Base64 编码的用户名和密码</li><li>Digest Authentication: 基于哈希签名的认证</li><li>OAuth 2.0 Authorization Bearer Token: 用于 OAuth 2.0 框架中的访问令牌</li><li>Hawk Authentication: 基于签名的认证，用于高安全性场景</li></ul><h3 id=用户和邮箱>用户和邮箱<a class=anchorjs-link href=#%e7%94%a8%e6%88%b7%e5%92%8c%e9%82%ae%e7%ae%b1></a></h3><p>新项目的用户模型</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># app/models.py</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>django.contrib.auth.models</span> <span style=color:#a90d91>import</span> <span style=color:#000>AbstractUser</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>User</span>(<span style=color:#000>AbstractUser</span>):
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>pass</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># project/settings.py</span>
+</span></span><span style=display:flex><span><span style=color:#000>settings</span><span style=color:#000>.</span><span style=color:#000>AUTH_USER_MODEL</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;appname.User&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># app.admin.py</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>django.contrib.auth.admin</span> <span style=color:#a90d91>import</span> <span style=color:#000>UserAdmin</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CustomUserAdmin</span>(<span style=color:#000>UserAdmin</span>):
+</span></span><span style=display:flex><span>    <span style=color:#000>...</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>fieldsets</span> <span style=color:#000>=</span> <span style=color:#000>UserAdmin</span><span style=color:#000>.</span><span style=color:#000>fieldsets</span> <span style=color:#000>+</span> ((<span style=color:#a90d91>None</span>, {<span style=color:#c41a16>&#34;fields&#34;</span>: [<span style=color:#c41a16>&#34;custom_field&#34;</span>]}),)
+</span></span><span style=display:flex><span>    <span style=color:#000>add_fieldsets</span> <span style=color:#000>=</span> <span style=color:#000>UserAdmin</span><span style=color:#000>.</span><span style=color:#000>add_fieldsets</span> <span style=color:#000>+</span> ((<span style=color:#a90d91>None</span>, {<span style=color:#c41a16>&#34;fields&#34;</span>: [<span style=color:#c41a16>&#34;custom_field&#34;</span>]}),)
+</span></span></code></pre></td></tr></table></div></div><p>老项目的用户模型</p><p>使用OneToOneField, <strong>可以多个 OneToOneField</strong></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>django.contrib.auth.models</span> <span style=color:#a90d91>import</span> <span style=color:#000>User</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>Employee</span>(<span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>Model</span>):
+</span></span><span style=display:flex><span>    <span style=color:#000>user</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>OneToOneField</span>(<span style=color:#000>User</span>, <span style=color:#000>on_delete</span><span style=color:#000>=</span><span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>CASCADE</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>department</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>CharField</span>(<span style=color:#000>max_length</span><span style=color:#000>=</span><span style=color:#1c01ce>100</span>)
+</span></span></code></pre></td></tr></table></div></div><h3 id=权限>权限<a class=anchorjs-link href=#%e6%9d%83%e9%99%90></a></h3><ul><li>RBAC： 基于角色控制访问</li><li>权限分类<ul><li>retrieve list</li><li>retrieve detail</li><li>create</li><li>update detail</li><li>delete detail</li></ul></li></ul><h3 id=异步任务和定时任务>异步任务和定时任务<a class=anchorjs-link href=#%e5%bc%82%e6%ad%a5%e4%bb%bb%e5%8a%a1%e5%92%8c%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1></a></h3><p>Celery 是一个分布式任务队列系统，广泛用于处理异步任务和定时任务。</p><p><a href=https://docs.celeryq.dev/en/stable/index.html target=_blank>https://docs.celeryq.dev/en/stable/index.html</a></p><table><thead><tr><th>组件</th><th>功能描述</th><th>示意图</th></tr></thead><tbody><tr><td><strong>worker</strong></td><td>执行任务</td><td>负责从消息队列中获取任务并执行。</td></tr><tr><td><strong>beat</strong></td><td>任务调度器</td><td>定期检查任务并将其添加到消息队列中。</td></tr><tr><td><strong>broker</strong></td><td>消息中间件</td><td>存储待执行的任务，是 worker 和 beat 之间的桥梁。常见的有 RabbitMQ、Redis、Amazon SQS 等。</td></tr><tr><td><strong>backend</strong></td><td>结果存储</td><td>存储任务执行的结果。常见的有 SQLAlchemy、Redis、MongoDB 等。</td></tr></tbody></table><pre class=mermaid>graph TD
+    A[Celery Beat] -->|调度任务| B(消息队列)
+    B -->|发送任务| C[Celery Worker 1]
+    B -->|发送任务| D[Celery Worker 2]
+    B -->|发送任务| E[Celery Worker N]
+    F[客户端应用] -->|发送任务| B
+    C -->|存储结果| G[Backend]
+    D -->|存储结果| G
+    E -->|存储结果| G
+</pre><p>常用命令</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 启动worker, 异步处理 耗时任务</span>
+</span></span><span style=display:flex><span>celery -A djangoProject worker -l INFO -P eventlet
+</span></span><span style=display:flex><span><span style=color:#177500># 启动beat, 调用定时任务</span>
+</span></span><span style=display:flex><span>celery -A djangoProject beat -l INFO
+</span></span></code></pre></td></tr></table></div></div><h4 id=定时任务>定时任务<a class=anchorjs-link href=#%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># 5点执行</span>
+</span></span><span style=display:flex><span><span style=color:#000>@periodic_task</span>(<span style=color:#000>run_every</span><span style=color:#000>=</span><span style=color:#000>crontab</span>(<span style=color:#000>hour</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;5&#34;</span>))
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>func1</span>():
+</span></span><span style=display:flex><span>    <span style=color:#000>...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 每5小时执行</span>
+</span></span><span style=display:flex><span><span style=color:#000>@periodic_task</span>(<span style=color:#000>run_every</span><span style=color:#000>=</span><span style=color:#000>crontab</span>(<span style=color:#000>hour</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;*/5&#34;</span>))
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>func1</span>():
+</span></span><span style=display:flex><span>    <span style=color:#000>...</span>
+</span></span></code></pre></td></tr></table></div></div><p>常见api:</p><ul><li>查所有</li><li>增</li><li>查 状态,结果</li><li>删</li></ul><p>前端获取结果的方式:</p><ul><li>前端轮循</li><li>websocket</li></ul><h3 id=缓存>缓存<a class=anchorjs-link href=#%e7%bc%93%e5%ad%98></a></h3><h3 id=查询优化>查询优化<a class=anchorjs-link href=#%e6%9f%a5%e8%af%a2%e4%bc%98%e5%8c%96></a></h3><p><a href=https://docs.djangoproject.com/en/5.1/ref/models/querysets/#select-related target=_blank>https://docs.djangoproject.com/en/5.1/ref/models/querysets/#select-related</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># select_related(): foreign key and one-to-one</span>
+</span></span><span style=display:flex><span><span style=color:#000>books</span> <span style=color:#000>=</span> <span style=color:#000>Book</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>select_related</span>(<span style=color:#c41a16>&#39;author&#39;</span>)<span style=color:#000>.</span><span style=color:#000>all</span>()
+</span></span><span style=display:flex><span><span style=color:#a90d91>for</span> <span style=color:#000>book</span> <span style=color:#000>in</span> <span style=color:#000>books</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>print</span>(<span style=color:#000>book</span><span style=color:#000>.</span><span style=color:#000>author</span><span style=color:#000>.</span><span style=color:#000>name</span>)  <span style=color:#177500># 这里不会触发额外的查询，因为作者信息已经被预取</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># prefetch_related(): 支持多对多和反向关系</span>
+</span></span><span style=display:flex><span><span style=color:#000>articles</span> <span style=color:#000>=</span> <span style=color:#000>Article</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>prefetch_related</span>(<span style=color:#c41a16>&#39;tags&#39;</span>)<span style=color:#000>.</span><span style=color:#000>all</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>for</span> <span style=color:#000>article</span> <span style=color:#000>in</span> <span style=color:#000>articles</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>print</span>(<span style=color:#000>article</span><span style=color:#000>.</span><span style=color:#000>title</span>, [<span style=color:#000>tag</span><span style=color:#000>.</span><span style=color:#000>name</span> <span style=color:#a90d91>for</span> <span style=color:#000>tag</span> <span style=color:#000>in</span> <span style=color:#000>article</span><span style=color:#000>.</span><span style=color:#000>tags</span><span style=color:#000>.</span><span style=color:#000>all</span>()])  <span style=color:#177500># 不会触发额外查询</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=前后端分离>前后端分离<a class=anchorjs-link href=#%e5%89%8d%e5%90%8e%e7%ab%af%e5%88%86%e7%a6%bb></a></h2><p>TODO:</p><h3 id=api>api<a class=anchorjs-link href=#api></a></h3><p>前后端 通过api来进行交互</p><p>优秀api的规范</p><ul><li>restful<ul><li>大多数现代 RESTful API 都使用<code>-</code>作为分隔符</li></ul></li><li>文档</li><li>验证</li></ul><h4 id=drf>DRF<a class=anchorjs-link href=#drf></a></h4><ul><li><a href=https://q1mi.github.io/Django-REST-framework-documentation/ target=_blank>https://q1mi.github.io/Django-REST-framework-documentation/</a></li><li><a href=https://q1mi.github.io/Django-REST-framework-documentation/api-guide/serializers_zh/ target=_blank>https://q1mi.github.io/Django-REST-framework-documentation/api-guide/serializers_zh/</a></li></ul><p>概念: 对 django 框架进一步封装的第三方包，以便于写出 restfulAPI</p><h5 id=auth>auth<a class=anchorjs-link href=#auth></a></h5><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># 提供session登陆</span>
+</span></span><span style=display:flex><span><span style=color:#000>path</span>(<span style=color:#c41a16>&#34;api-auth/&#34;</span>, <span style=color:#000>include</span>(<span style=color:#c41a16>&#34;rest_framework.urls&#34;</span>))
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># 默认的drf 配置</span>
+</span></span><span style=display:flex><span><span style=color:#000>REST_FRAMEWORK</span> <span style=color:#000>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#177500># 支持auth的种类</span>
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#39;DEFAULT_AUTHENTICATION_CLASSES&#39;</span>: [
+</span></span><span style=display:flex><span>        <span style=color:#c41a16>&#39;rest_framework.authentication.SessionAuthentication&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#c41a16>&#39;rest_framework.authentication.BasicAuthentication&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#177500># &#39;rest_framework.authentication.TokenAuthentication&#39;,</span>
+</span></span><span style=display:flex><span>    ],
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#39;DEFAULT_PERMISSION_CLASSES&#39;</span>: [
+</span></span><span style=display:flex><span>        <span style=color:#c41a16>&#39;rest_framework.permissions.AllowAny&#39;</span>, <span style=color:#177500># 全局默认允许所有人访问</span>
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><h5 id=serializer>Serializer<a class=anchorjs-link href=#serializer></a></h5><p>REST framework中的serializers与Django的Form和ModelForm类非常像。</p><p>作用: 简化view函数的实现, 数据库的数据转json. json转数据, 加数据验证</p><table><thead><tr><th>Django</th><th>DRF</th><th>特点</th></tr></thead><tbody><tr><td>Form</td><td>Serializer</td><td>灵活,定制化</td></tr><tr><td>ModelForm</td><td>ModelSerializer</td><td>固定, 方便</td></tr></tbody></table><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 定义</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>rest_framework</span> <span style=color:#a90d91>import</span> <span style=color:#000>serializers</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CommentSerializer</span>(<span style=color:#000>serializers</span><span style=color:#000>.</span><span style=color:#000>Serializer</span>):
+</span></span><span style=display:flex><span>    <span style=color:#000>email</span> <span style=color:#000>=</span> <span style=color:#000>serializers</span><span style=color:#000>.</span><span style=color:#000>EmailField</span>()
+</span></span><span style=display:flex><span>    <span style=color:#000>content</span> <span style=color:#000>=</span> <span style=color:#000>serializers</span><span style=color:#000>.</span><span style=color:#000>CharField</span>(<span style=color:#000>max_length</span><span style=color:#000>=</span><span style=color:#1c01ce>200</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>created</span> <span style=color:#000>=</span> <span style=color:#000>serializers</span><span style=color:#000>.</span><span style=color:#000>DateTimeField</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>create</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>update</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>save</span>():
+</span></span><span style=display:flex><span>        <span style=color:#000>...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>validate</span>():
+</span></span><span style=display:flex><span>        <span style=color:#177500># 重写 对象 验证逻辑</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>validate_xxxx</span>():
+</span></span><span style=display:flex><span>        <span style=color:#177500># 重写 field 验证逻辑</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>...</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>to_representation</span>():
+</span></span><span style=display:flex><span>        <span style=color:#177500># 重写序列化逻辑</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>...</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># 嵌套 nest</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>django.db</span> <span style=color:#a90d91>import</span> <span style=color:#000>models</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>Website</span>(<span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>Model</span>):
+</span></span><span style=display:flex><span>    <span style=color:#000>name</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>CharField</span>(<span style=color:#000>max_length</span><span style=color:#000>=</span><span style=color:#1c01ce>255</span>, <span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;网站名称&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>url</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>URLField</span>(<span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;网站URL&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>__str__</span>(<span style=color:#5b269a>self</span>):
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>name</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>Audio</span>(<span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>Model</span>):
+</span></span><span style=display:flex><span>    <span style=color:#000>website</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>ForeignKey</span>(<span style=color:#000>Website</span>, <span style=color:#000>on_delete</span><span style=color:#000>=</span><span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>CASCADE</span>, <span style=color:#000>related_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;audios&#39;</span>, <span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;所属网站&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>title</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>CharField</span>(<span style=color:#000>max_length</span><span style=color:#000>=</span><span style=color:#1c01ce>255</span>, <span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;音频标题&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>file_path</span> <span style=color:#000>=</span> <span style=color:#000>models</span><span style=color:#000>.</span><span style=color:#000>FileField</span>(<span style=color:#000>upload_to</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;audio_files/&#39;</span>, <span style=color:#000>verbose_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;音频文件路径&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>__str__</span>(<span style=color:#5b269a>self</span>):
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>title</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>rest_framework</span> <span style=color:#a90d91>import</span> <span style=color:#000>serializers</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>.models</span> <span style=color:#a90d91>import</span> <span style=color:#000>Website</span>, <span style=color:#000>Audio</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>AudioSerializer</span>(<span style=color:#000>serializers</span><span style=color:#000>.</span><span style=color:#000>ModelSerializer</span>):
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>class</span> <span style=color:#3f6e75>Meta</span>:
+</span></span><span style=display:flex><span>        <span style=color:#000>model</span> <span style=color:#000>=</span> <span style=color:#000>Audio</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>fields</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;id&#39;</span>, <span style=color:#c41a16>&#39;title&#39;</span>, <span style=color:#c41a16>&#39;file_path&#39;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>WebsiteSerializer</span>(<span style=color:#000>serializers</span><span style=color:#000>.</span><span style=color:#000>ModelSerializer</span>):
+</span></span><span style=display:flex><span>    <span style=color:#000>audios</span> <span style=color:#000>=</span> <span style=color:#000>AudioSerializer</span>(<span style=color:#000>many</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>, <span style=color:#000>read_only</span><span style=color:#000>=</span><span style=color:#a90d91>True</span>)  <span style=color:#177500># 附带</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>class</span> <span style=color:#3f6e75>Meta</span>:
+</span></span><span style=display:flex><span>        <span style=color:#000>model</span> <span style=color:#000>=</span> <span style=color:#000>Website</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>fields</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;id&#39;</span>, <span style=color:#c41a16>&#39;name&#39;</span>, <span style=color:#c41a16>&#39;url&#39;</span>, <span style=color:#c41a16>&#39;audios&#39;</span>]
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 使用</span>
+</span></span><span style=display:flex><span><span style=color:#000>@csrf_exempt</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>snippet_detail</span>(<span style=color:#000>request</span>, <span style=color:#000>pk</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    获取，更新或删除一个 code snippet。
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>try</span>:
+</span></span><span style=display:flex><span>        <span style=color:#000>snippet</span> <span style=color:#000>=</span> <span style=color:#000>Snippet</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>get</span>(<span style=color:#000>pk</span><span style=color:#000>=</span><span style=color:#000>pk</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>except</span> <span style=color:#000>Snippet</span><span style=color:#000>.</span><span style=color:#000>DoesNotExist</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>HttpResponse</span>(<span style=color:#000>status</span><span style=color:#000>=</span><span style=color:#1c01ce>404</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>if</span> <span style=color:#000>request</span><span style=color:#000>.</span><span style=color:#000>method</span> <span style=color:#000>==</span> <span style=color:#c41a16>&#39;GET&#39;</span>:
+</span></span><span style=display:flex><span>        <span style=color:#000>serializer</span> <span style=color:#000>=</span> <span style=color:#000>SnippetSerializer</span>(<span style=color:#000>snippet</span>)
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>JSONResponse</span>(<span style=color:#000>serializer</span><span style=color:#000>.</span><span style=color:#000>data</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>elif</span> <span style=color:#000>request</span><span style=color:#000>.</span><span style=color:#000>method</span> <span style=color:#000>==</span> <span style=color:#c41a16>&#39;PUT&#39;</span>:
+</span></span><span style=display:flex><span>        <span style=color:#000>data</span> <span style=color:#000>=</span> <span style=color:#000>JSONParser</span>()<span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#000>request</span>)
+</span></span><span style=display:flex><span>        <span style=color:#000>serializer</span> <span style=color:#000>=</span> <span style=color:#000>SnippetSerializer</span>(<span style=color:#000>snippet</span>, <span style=color:#000>data</span><span style=color:#000>=</span><span style=color:#000>data</span>)
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>if</span> <span style=color:#000>serializer</span><span style=color:#000>.</span><span style=color:#000>is_valid</span>():
+</span></span><span style=display:flex><span>            <span style=color:#000>serializer</span><span style=color:#000>.</span><span style=color:#000>save</span>()
+</span></span><span style=display:flex><span>            <span style=color:#a90d91>return</span> <span style=color:#000>JSONResponse</span>(<span style=color:#000>serializer</span><span style=color:#000>.</span><span style=color:#000>data</span>)
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>JSONResponse</span>(<span style=color:#000>serializer</span><span style=color:#000>.</span><span style=color:#000>errors</span>, <span style=color:#000>status</span><span style=color:#000>=</span><span style=color:#1c01ce>400</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>elif</span> <span style=color:#000>request</span><span style=color:#000>.</span><span style=color:#000>method</span> <span style=color:#000>==</span> <span style=color:#c41a16>&#39;DELETE&#39;</span>:
+</span></span><span style=display:flex><span>        <span style=color:#000>snippet</span><span style=color:#000>.</span><span style=color:#000>delete</span>()
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>HttpResponse</span>(<span style=color:#000>status</span><span style=color:#000>=</span><span style=color:#1c01ce>204</span>)
+</span></span></code></pre></td></tr></table></div></div><h5 id=viewset>Viewset<a class=anchorjs-link href=#viewset></a></h5><table><thead><tr><th>类</th><th>特点</th></tr></thead><tbody><tr><td>View</td><td></td></tr><tr><td><code>APIView</code></td><td>View+ authentication_classes, throttle_classes, permission_classes</td></tr><tr><td>GenericAPIView</td><td><code>APIView</code>+ pagination_class, filter_backends, serializer_class</td></tr><tr><td>ViewSet</td><td><code>APIView</code>+ DefaultRouter</td></tr><tr><td><code>GenericViewSet</code></td><td>GenericAPIView+ DefaultRouter</td></tr><tr><td>ModelViewSet</td><td><code>GenericViewSet</code>+ mixin</td></tr></tbody></table><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CreateListRetrieveViewSet</span>(<span style=color:#000>mixins</span><span style=color:#000>.</span><span style=color:#000>CreateModelMixin</span>,
+</span></span><span style=display:flex><span>                                <span style=color:#000>mixins</span><span style=color:#000>.</span><span style=color:#000>ListModelMixin</span>,
+</span></span><span style=display:flex><span>                                <span style=color:#000>mixins</span><span style=color:#000>.</span><span style=color:#000>RetrieveModelMixin</span>,
+</span></span><span style=display:flex><span>                                <span style=color:#000>viewsets</span><span style=color:#000>.</span><span style=color:#000>GenericViewSet</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    A viewset that provides `retrieve`, `create`, and `list` actions.
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>queryset</span> <span style=color:#000>=</span> <span style=color:#000>Account</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>all</span>()
+</span></span><span style=display:flex><span>    <span style=color:#000>serializer_class</span> <span style=color:#000>=</span> <span style=color:#000>AccountSerializer</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>AccountViewSet</span>(<span style=color:#000>viewsets</span><span style=color:#000>.</span><span style=color:#000>ReadOnlyModelViewSet</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    A simple ViewSet for viewing accounts.
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>queryset</span> <span style=color:#000>=</span> <span style=color:#000>Account</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>all</span>()
+</span></span><span style=display:flex><span>    <span style=color:#000>serializer_class</span> <span style=color:#000>=</span> <span style=color:#000>AccountSerializer</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>rest_framework.decorators</span> <span style=color:#a90d91>import</span> <span style=color:#000>action</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>rest_framework.filters</span> <span style=color:#a90d91>import</span> <span style=color:#000>SearchFilter</span>, <span style=color:#000>OrderingFilter</span>
+</span></span><span style=display:flex><span><span style=color:#177500># django_filters</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>django_filters.rest_framework</span> <span style=color:#a90d91>import</span> <span style=color:#000>DjangoFilterBackend</span>, <span style=color:#000>FilterSet</span>
+</span></span><span style=display:flex><span><span style=color:#177500># drf-dynamic-fields</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>UserFilter</span>(<span style=color:#000>FilterSet</span>):
+</span></span><span style=display:flex><span>    <span style=color:#000>username</span> <span style=color:#000>=</span> <span style=color:#000>filters</span><span style=color:#000>.</span><span style=color:#000>CharFilter</span>(<span style=color:#000>field_name</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;username&#34;</span>, <span style=color:#000>lookup_expr</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;icontains&#39;</span>)  <span style=color:#177500># 模糊匹配用户名</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>class</span> <span style=color:#3f6e75>Meta</span>:
+</span></span><span style=display:flex><span>        <span style=color:#000>model</span> <span style=color:#000>=</span> <span style=color:#000>Account</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>fields</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;username&#39;</span>, <span style=color:#c41a16>&#39;email&#39;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>AccountViewSet</span>(<span style=color:#000>viewsets</span><span style=color:#000>.</span><span style=color:#000>ModelViewSet</span>):
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>queryset</span> <span style=color:#000>=</span> <span style=color:#000>Account</span><span style=color:#000>.</span><span style=color:#000>objects</span><span style=color:#000>.</span><span style=color:#000>all</span>()
+</span></span><span style=display:flex><span>    <span style=color:#000>serializer_class</span> <span style=color:#000>=</span> <span style=color:#000>AccountSerializer</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 自定义各种配置</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 权限</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>authentication_classes</span> <span style=color:#000>=</span> [] <span style=color:#177500># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>permission_classes</span> <span style=color:#000>=</span> [] <span style=color:#177500># 2</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>throttle_classes</span> <span style=color:#000>=</span> [] <span style=color:#177500># 3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># 功能</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>filter_backends</span> <span style=color:#000>=</span> [<span style=color:#000>SearchFilter</span>, <span style=color:#000>OrderingFilter</span>, <span style=color:#000>DjangoFilterBackend</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># GET /mymodels/?search=example</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>search_fields</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;name&#39;</span>, <span style=color:#c41a16>&#39;description&#39;</span>]  <span style=color:#177500># 指定搜索字段</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># GET /mymodels/?ordering=-created_at</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>ordering_fields</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;created_at&#39;</span>, <span style=color:#c41a16>&#39;name&#39;</span>]  <span style=color:#177500># 指定排序字段</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>ordering</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;-created_at&#39;</span>]  <span style=color:#177500># 默认排序规则</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># DjangoFilterBackend</span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># GET /mymodels/?username=xxxx</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>filterset_fields</span> <span style=color:#000>=</span> [<span style=color:#c41a16>&#39;username&#39;</span>, <span style=color:#c41a16>&#39;email&#39;</span>]  <span style=color:#177500># 可以过滤的字段</span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># filter_class = UserFilter</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>pagination_class</span> <span style=color:#000>=</span> <span style=color:#000>MyPageClass</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>@action</span>(<span style=color:#000>methods</span><span style=color:#000>=</span>[<span style=color:#c41a16>&#39;get&#39;</span>], <span style=color:#000>detail</span><span style=color:#000>=</span><span style=color:#a90d91>False</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>my_method</span>(<span style=color:#5b269a>self</span>):
+</span></span><span style=display:flex><span>        <span style=color:#000>...</span>
+</span></span></code></pre></td></tr></table></div></div><h5 id=filter>Filter<a class=anchorjs-link href=#filter></a></h5><table><thead><tr><th>过滤后端</th><th>功能描述</th><th>示例代码片段</th></tr></thead><tbody><tr><td><code>SearchFilter</code></td><td>全文搜索</td><td><code>filter_backends = [SearchFilter]</code></td></tr><tr><td><code>OrderingFilter</code></td><td>排序</td><td><code>filter_backends = [OrderingFilter]</code></td></tr><tr><td><code>DjangoFilterBackend</code></td><td>复杂条件过滤</td><td><code>filter_backends = [DjangoFilterBackend]</code></td></tr><tr><td>自定义过滤后端</td><td>实现个性化过滤逻辑</td><td>继承 <code>BaseFilterBackend</code></td></tr></tbody></table><h5 id=pagination>Pagination<a class=anchorjs-link href=#pagination></a></h5><p><a href=https://q1mi.github.io/Django-REST-framework-documentation/api-guide/pagination_zh/ target=_blank>https://q1mi.github.io/Django-REST-framework-documentation/api-guide/pagination_zh/</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># PageNumberPagination</span>
+</span></span><span style=display:flex><span><span style=color:#000>?</span><span style=color:#000>page</span><span style=color:#000>=</span><span style=color:#1c01ce>4</span><span style=color:#000>&amp;</span><span style=color:#000>page_size</span><span style=color:#000>=</span><span style=color:#1c01ce>100</span>
+</span></span><span style=display:flex><span><span style=color:#177500># LimitOffsetPagination</span>
+</span></span><span style=display:flex><span><span style=color:#000>?</span><span style=color:#000>limit</span><span style=color:#000>=</span><span style=color:#1c01ce>100</span><span style=color:#000>&amp;</span><span style=color:#000>offset</span><span style=color:#000>=</span><span style=color:#1c01ce>300</span>
+</span></span><span style=display:flex><span><span style=color:#177500># CursorPagination</span>
+</span></span></code></pre></td></tr></table></div></div><h5 id=drf-源码逻辑>drf 源码逻辑<a class=anchorjs-link href=#drf-%e6%ba%90%e7%a0%81%e9%80%bb%e8%be%91></a></h5><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>APIView</span>(<span style=color:#000>View</span>):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># The following policies may be set at either globally, or per-view.</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>renderer_classes</span> <span style=color:#000>=</span> <span style=color:#000>api_settings</span><span style=color:#000>.</span><span style=color:#000>DEFAULT_RENDERER_CLASSES</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>parser_classes</span> <span style=color:#000>=</span> <span style=color:#000>api_settings</span><span style=color:#000>.</span><span style=color:#000>DEFAULT_PARSER_CLASSES</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>authentication_classes</span> <span style=color:#000>=</span> <span style=color:#000>api_settings</span><span style=color:#000>.</span><span style=color:#000>DEFAULT_AUTHENTICATION_CLASSES</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>throttle_classes</span> <span style=color:#000>=</span> <span style=color:#000>api_settings</span><span style=color:#000>.</span><span style=color:#000>DEFAULT_THROTTLE_CLASSES</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>permission_classes</span> <span style=color:#000>=</span> <span style=color:#000>api_settings</span><span style=color:#000>.</span><span style=color:#000>DEFAULT_PERMISSION_CLASSES</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>content_negotiation_class</span> <span style=color:#000>=</span> <span style=color:#000>api_settings</span><span style=color:#000>.</span><span style=color:#000>DEFAULT_CONTENT_NEGOTIATION_CLASS</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>metadata_class</span> <span style=color:#000>=</span> <span style=color:#000>api_settings</span><span style=color:#000>.</span><span style=color:#000>DEFAULT_METADATA_CLASS</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>versioning_class</span> <span style=color:#000>=</span> <span style=color:#000>api_settings</span><span style=color:#000>.</span><span style=color:#000>DEFAULT_VERSIONING_CLASS</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#177500># Allow dependency injection of other settings to make testing easier.</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>settings</span> <span style=color:#000>=</span> <span style=color:#000>api_settings</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>schema</span> <span style=color:#000>=</span> <span style=color:#000>DefaultSchema</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>initial</span>(<span style=color:#5b269a>self</span>, <span style=color:#000>request</span>, <span style=color:#000>*</span><span style=color:#000>args</span>, <span style=color:#000>**</span><span style=color:#000>kwargs</span>):
+</span></span><span style=display:flex><span>        <span style=color:#000>...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#177500># Ensure that the incoming request is permitted</span>
+</span></span><span style=display:flex><span>        <span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>perform_authentication</span>(<span style=color:#000>request</span>)
+</span></span><span style=display:flex><span>        <span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>check_permissions</span>(<span style=color:#000>request</span>)
+</span></span><span style=display:flex><span>        <span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>check_throttles</span>(<span style=color:#000>request</span>)
+</span></span></code></pre></td></tr></table></div></div><p>TODO: 源码设计优劣</p><p>django flask</p><ul><li>APIView<ul><li>Request<ul><li>data</li><li>query_params</li></ul></li><li>Response<ul><li>status.xxx</li></ul></li><li>顺序<ul><li>as_view()<ul><li>dispatch()<ul><li>Authentication</li><li>Permission</li><li>Throttling</li></ul></li></ul></li><li>view func</li></ul></li></ul></li><li>Router</li><li>CORS 报错<ul><li>pip install django-cors-headers</li><li><a href=https://www.cnblogs.com/WiseAdministrator/articles/11488681.html target=_blank>https://www.cnblogs.com/WiseAdministrator/articles/11488681.html</a></li></ul></li><li>VUE</li></ul><h2 id=网站部署>网站部署<a class=anchorjs-link href=#%e7%bd%91%e7%ab%99%e9%83%a8%e7%bd%b2></a></h2><p>多个服务， 负载均衡（可以用nginx， 用户请求入口）
+Nginx 只负责“用户层面的流量”，即：前端网页 + 后端 API</p><h3 id=公共服务-一起安装起来>公共服务, 一起安装起来<a class=anchorjs-link href=#%e5%85%ac%e5%85%b1%e6%9c%8d%e5%8a%a1-%e4%b8%80%e8%b5%b7%e5%ae%89%e8%a3%85%e8%b5%b7%e6%9d%a5></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pythono manage.py check --deploy
+</span></span></code></pre></td></tr></table></div></div><p>使用docker compose 配置 uwsgi 或者 gunicore</p><h3 id=端口管理>端口管理：<a class=anchorjs-link href=#%e7%ab%af%e5%8f%a3%e7%ae%a1%e7%90%86></a></h3><p>只需要暴露Nginx的80和443端口到主机。
+Django应用和数据库的端口不需要对外暴露</p><table><thead><tr><th>ip</th><th>作用</th></tr></thead><tbody><tr><td>80</td><td>HTTP服务</td></tr><tr><td>443</td><td>HTTPS服务</td></tr><tr><td>22</td><td>SSH服务</td></tr></tbody></table><h3 id=nginx配置>nginx配置<a class=anchorjs-link href=#nginx%e9%85%8d%e7%bd%ae></a></h3><p>proxy_pass 实际服务地址</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>proxy_pass http://127.0.0.1:8080;
+</span></span><span style=display:flex><span>proxy_pass http://127.0.0.1:8081;
+</span></span></code></pre></td></tr></table></div></div><h4 id=nginx配置多个项目>nginx配置多个项目<a class=anchorjs-link href=#nginx%e9%85%8d%e7%bd%ae%e5%a4%9a%e4%b8%aa%e9%a1%b9%e7%9b%ae></a></h4><ul><li>location 不同路径</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>location /project1/
+</span></span><span style=display:flex><span>location /project2/
+</span></span></code></pre></td></tr></table></div></div><ul><li>server_name 不同域名</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>server_name project1.localhost;
+</span></span><span style=display:flex><span>server_name project2.localhost;
+</span></span></code></pre></td></tr></table></div></div><ul><li>listen 不同端口</li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>listen 8080;
+</span></span><span style=display:flex><span>listen 8081;
+</span></span></code></pre></td></tr></table></div></div><h2 id=高并发问题>高并发问题<a class=anchorjs-link href=#%e9%ab%98%e5%b9%b6%e5%8f%91%e9%97%ae%e9%a2%98></a></h2><p>为什么需要分布式？
+因为单台机器有天花板：</p><ul><li>CPU、内存、硬盘、带宽都有限</li><li>一台机器最多扛10万QPS，再多就挂了</li><li>一台机器坏了，整个服务就宕机</li></ul><p>为什么需要微服务？
+改个功能不需要全站重启</p><h2 id=django-源码风格>django 源码风格<a class=anchorjs-link href=#django-%e6%ba%90%e7%a0%81%e9%a3%8e%e6%a0%bc></a></h2><p>广泛使用 Minin 和 decorator</p><h2 id=相关文档>相关文档<a class=anchorjs-link href=#%e7%9b%b8%e5%85%b3%e6%96%87%e6%a1%a3></a></h2><ul><li><a href=https://docs.djangoproject.com/zh-hans/5.0/ target=_blank>Django Doc</a></li><li><a href=https://www.django-rest-framework.org/tutorial/quickstart/ target=_blank>DRF Doc</a></li></ul><h2 id=常见问题>常见问题<a class=anchorjs-link href=#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98></a></h2><h3 id=cors>CORS<a class=anchorjs-link href=#cors></a></h3><p>在前后端分离开发时, 经常遇到</p><p>CORS 浏览器的同源策略: 是一个重要的安全机制. 默认禁止不同源访问. 允许服务器声明哪些源可以访问它的资源。这需要<strong>服务器设置response来允许跨域</strong>。</p><p>源由协议、域名和端口号组成, 例如</p><ul><li><code>http://127.0.0.1:8000</code></li><li><code>ws://127.0.0.1:8000</code></li></ul><p>设置response来允许跨域:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>django.utils.deprecation</span> <span style=color:#a90d91>import</span> <span style=color:#000>MiddlewareMixin</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CorsMiddleware</span>(<span style=color:#000>MiddlewareMixin</span>):
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>process_response</span>(<span style=color:#5b269a>self</span>, <span style=color:#000>request</span>, <span style=color:#000>response</span>):
+</span></span><span style=display:flex><span>        <span style=color:#177500># 主要是response 设置三个值, 统配设置</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>response</span>[<span style=color:#c41a16>&#34;Access-Control-Allow-Origin&#34;</span>] <span style=color:#000>=</span> <span style=color:#c41a16>&#34;*&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>response</span>[<span style=color:#c41a16>&#34;Access-Control-Allow-Headers&#34;</span>] <span style=color:#000>=</span> <span style=color:#c41a16>&#34;*&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>response</span>[<span style=color:#c41a16>&#34;Access-Control-Allow-Methods&#34;</span>] <span style=color:#000>=</span> <span style=color:#c41a16>&#34;GET, POST, PUT, PATCH, DELETE, OPTIONS&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>response</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>process_response</span>(<span style=color:#5b269a>self</span>, <span style=color:#000>request</span>, <span style=color:#000>response</span>):
+</span></span><span style=display:flex><span>        <span style=color:#177500># 主要是response 设置三个值, 具体设置</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#000>origin</span> <span style=color:#000>=</span> <span style=color:#c41a16>f</span><span style=color:#c41a16>&#39;</span><span style=color:#c41a16>{</span><span style=color:#000>request</span><span style=color:#000>.</span><span style=color:#000>scheme</span><span style=color:#c41a16>}</span><span style=color:#c41a16>://</span><span style=color:#c41a16>{</span><span style=color:#000>request</span><span style=color:#000>.</span><span style=color:#000>get_host</span>()<span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>if</span> <span style=color:#000>origin</span> <span style=color:#000>in</span> [<span style=color:#c41a16>&#39;origin1&#39;</span>, <span style=color:#c41a16>&#39;origin2&#39;</span>, <span style=color:#c41a16>&#39;origin3&#39;</span>]:
+</span></span><span style=display:flex><span>            <span style=color:#000>response</span>[<span style=color:#c41a16>&#34;Access-Control-Allow-Origin&#34;</span>] <span style=color:#000>=</span> <span style=color:#000>origin</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#000>response</span>[<span style=color:#c41a16>&#34;Access-Control-Allow-Headers&#34;</span>] <span style=color:#000>=</span> <span style=color:#c41a16>&#34;Authorization, Content-Type&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>response</span>[<span style=color:#c41a16>&#34;Access-Control-Allow-Methods&#34;</span>] <span style=color:#000>=</span> <span style=color:#c41a16>&#34;GET, POST, PUT, PATCH, DELETE, OPTIONS&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>response</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=csrf>CSRF<a class=anchorjs-link href=#csrf></a></h3><p>是一种攻击方式，攻击者利用已登录的session进行攻击, 因此使用一个token来二次验证</p><p>默认情况下，Django 的 CsrfViewMiddleware 会对所有非安全请求（如 POST、PUT、DELETE 等）进行 CSRF 验证.</p><p>drf auth跳过方式:</p><p>SessionAuthentication 改为 TokenAuthentication
+或自定义 <code>authentication_classes</code></p><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/system/ubuntu%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE/ data-toggle=tooltip data-placement=top title=Ubuntu使用配置>Previous<br><span>Ubuntu使用配置</span></a></li><li class=next><a href=/posts/programming_language/programming-paradigm/ data-toggle=tooltip data-placement=top title="Programming Paradigm">Next<br><span>Programming Paradigm</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script><script type=module>
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script></body></html>

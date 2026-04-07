@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Zhenda's Blog</title><link>https://zhenda-hub.github.io/tags/python/</link><description>Recent content in Python on Zhenda's Blog</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2023-2026 Zhenda. All Rights Reserved.</copyright><lastBuildDate>Fri, 07 Feb 2025 12:19:54 +0800</lastBuildDate><atom:link href="https://zhenda-hub.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Sqlalchemy Stu</title><link>https://zhenda-hub.github.io/posts/tech/sqlalchemy-stu/</link><pubDate>Fri, 07 Feb 2025 12:19:54 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/sqlalchemy-stu/</guid><description>https://docs.sqlalchemy.org/en/20/orm/quickstart.html https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html#one-to-many https://docs.sqlalchemy.org/en/20/orm/queryguide/select.html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 本身知识点 概念： 通过ORM（对象和表的映射）操作数据库的框架 步骤 创建基类 engine = create_engine（URL） Base = declarative_base（engine ） 定义映射 子类 表名 __tablename__ = &amp;#39;&amp;#39; 备注 __table_args__ = {&amp;#39;&amp;#39;: &amp;#39;&amp;#39;} Column（） 类型 db.</description></item><item><title>数据可视化资源</title><link>https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 08 Jan 2024 23:38:55 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8C%87%E5%8D%97/</guid><description>dash官方文档: https://dash.plotly.com/tutorial
+streamlit官方文档: https://docs.streamlit.io/
+plotly官方文档: https://plotly.com/python/getting-started/
+demo
+1 2 3 4 5 6 7 8 9 import plotly.express as px fig = px.bar(x=[&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;], y=[1, 3, 2]) # fig = px.pie(x=[&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;], y=[1, 3, 2]) # fig = px.line(x=[&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;], y=[1, 3, 2]) # fig = px.scatter(x=[&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;], y=[1, 3, 2]) fig.show() # write_html() subplots demo
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 from plotly.</description></item><item><title>数据分析资源</title><link>https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 08 Jan 2024 23:38:45 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8C%87%E5%8D%97/</guid><description>numpy官方文档: https://numpy.org/doc/stable/user/absolute_beginners.html
+pandas官方文档: https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 import pandas as pd In [45]: d = {&amp;#34;one&amp;#34;: [1.0, 2.0, 3.0, 4.0], &amp;#34;two&amp;#34;: [4.0, 3.0, 2.0, 1.0]} In [46]: pd.DataFrame(d) Out[46]: one two 0 1.0 4.0 1 2.0 3.0 2 3.0 2.0 3 4.0 1.0 In [49]: data = [(1, 2.0, &amp;#34;Hello&amp;#34;), (2, 3.0, &amp;#34;World&amp;#34;)] In [52]: pd.</description></item><item><title>Pyqt5指南</title><link>https://zhenda-hub.github.io/posts/tech/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</link><pubDate>Sat, 25 Nov 2023 11:48:21 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tech/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/</guid><description>使用 python 我们也可以开发桌面应用（在 pc 上运行的软件，pyqt5 好像还不支持手机 app）平时做做小工具还是挺方便的。这次我们一起学习一下 pyqt5
+环境安装 1 2 pip install pyqt5 pip install pyqt5-tools python 版本不要过高， 需要适配 pyqt5 ，像 3.8，3.9 是可以的，高版本可能会出现适配问题
+设计理念 mvc view 界面 controller 用户交互逻辑 model 后台执行逻辑 开发流程整体开发逻辑可以类比网页，有很多相似之处：
+各种控件 相当于 html 的各种标签
+窗口
+mainwindow
+全面 高级功能 菜单栏 工具栏 状态栏 dialog
+object 设置类名 场景 简洁 无最大最小化按钮 常用控件
+button push button checkbox radio button 设置组 界面中，选中多个设置组 代码中，使用 QButtonGroup label containers tab 多个页面 tabtext 编辑名称 group 分组 ctrl 拖动 set checkable 设置区域是否激活 input lineedit 输入框 text（） 获取数据 setText（） 设置数据 placeholder 提示内容 copy() clear() 设置密码 信号 returnPressed 按下回车的信号 editingfinished 停止编辑信号 combo box 信号 activated browser text 复杂控件</description></item><item><title>Python基础 类2</title><link>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/</link><pubDate>Thu, 23 Nov 2023 22:49:27 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/</guid><description>这次我们补充说明 类的关系 这一非常重要的概念
+类之间的关系has关系： 使用依赖依赖：当B类 has A类时，在 B类中 使用 A类的对象
+特点：通过A类对象，使用A类所有东西。
+举例说明：人有手，有脚，但手不是人，脚也不是人，只是人的一部分
+再比如： 一个班级， 可以有很多学生，它们之间的关系就应该是依赖的关系
+再比如： 一个人， 可以有一个电脑，人可以使用电脑做各种事情。人和电脑之间的关系就应该是依赖的关系
+这种思想经常使用，甚至 比人们耳熟能详的继承，多态， 还要重要！！
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 class Computer: def __init__(self, brand) -&amp;gt; None: self.brand = brand def run_game(self): print(&amp;#39;运行lol&amp;#39;) def run_ide(self): print(&amp;#39;运行vscode&amp;#39;) class People: def __init__(self, name, computer: Computer) -&amp;gt; None: self.</description></item><item><title>Python基础 类</title><link>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/</link><pubDate>Thu, 23 Nov 2023 21:54:28 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/</guid><description>一：概念阐述面向对象因为提高了代码的复用性，开发效率高，而且便于扩展迭代，所以成为了主流的开发思想。其中的核心概念就是类，在面向对象的思想中，可以用类来抽象一切的事物
+类抽象一类事物为一个模型。用 属性 和 方法 来描述。
+属性描述一类事物的属性，本质上是类中的变量。包括两种：
+实例属性：这个类的对象的一种 个体的属性
+类属性：这个类所有对象的一种 整体的属性
+方法描述一类事物的行为，本质上是类中的函数。包括三种：
+实例方法：
+self: 实例方法中，自动添加的一个参数，代表调用此方法的对象。
+类方法：
+cls: 实例方法中，自动添加的一个参数，代表调用此方法的类。用@classmethod装饰
+静态方法：
+既不使用self，也不使用cls的方法。用@staticmethod装饰
+调用方法的两种方式：
+对象调用方法
+类名调用方法
+对象是具体的一个一个的事物，由 类 制造而成。
+实例化类制造对象的过程
+1 2 3 4 5 class Person(object): # 创建类 pass if __name__ == &amp;#39;__main__&amp;#39;: p1 = Person() # 类加括号：实例化一个对象 二：python中的顶级父类及其属性和方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &amp;#34;&amp;#34;&amp;#34; object：顶级父类，继承的源头，默认继承它 __class__: 查看实例化这个对象的类 __bases__：查看父类 __dict__: 字典形式显示属性 dir(obj)：查看obj拥有的方法 __new__(): 创建对象 __init__()：初始化对象的属性，创建对象自动调用，可以设置默认参数 __str__()：打印对象信息，必须return字符串，print(对象)的时候 __repr__()：打印对象信息，必须return字符串，print(对象容器)的时候，例如[obj1, obj2,.</description></item><item><title>Python基础 编程章法2</title><link>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/</link><pubDate>Thu, 23 Nov 2023 00:37:34 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%952/</guid><description>今天继续分享一下自己的近期心得：
+python之禅 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 Python 3.10.11 | packaged by Anaconda, Inc. | (main, Apr 20 2023, 18:56:50) [MSC v.1916 64 bit (AMD64)] on win32 Type &amp;#34;help&amp;#34;, &amp;#34;copyright&amp;#34;, &amp;#34;credits&amp;#34; or &amp;#34;license&amp;#34; for more information. &amp;gt;&amp;gt;&amp;gt; import this The Zen of Python, by Tim Peters Beautiful is better than ugly.</description></item><item><title>Python基础 编程章法</title><link>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/</link><pubDate>Thu, 23 Nov 2023 00:31:29 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%BC%96%E7%A8%8B%E7%AB%A0%E6%B3%95/</guid><description>对于初学者，学习完了各种基础之后，开始真正编程时，会发现写的代码有点乱，没有规范，逻辑，这样是不行的。需要一套方法论才可以更好的实践
+今天我分享一下自己的套路：
+优秀代码的特质 高内聚，低耦合 可扩展 可读性 可测试 心得分享记得有一句名言：程序 = 数据结构 + 算法。
+数据结构用（类的属性， 变量）来承载， 算法用（类的方法， 函数）来承载。
+这些 相互关联的 数据结构和算法结合起来, 形成了编程的 函数，类。
+因此函数和类是可以 随时转化 的。本质都是 输入数据结构-&amp;gt;算法-&amp;gt;输出数据结构。
+当一个函数很复杂，可以拆分成类。当一个类很复杂可以拆分成多个类.
+几千行的函数-&amp;gt;几百行的函数组成的类-&amp;gt; 几十行的函数组成的多个类
+这是一个慢慢变优秀的过程
+代码设计原则最重要的原则：
+1 2 3 KISS 原则（Keep It Simple, Stupid）—— 核心含义：代码 / 架构 / 设计要尽可能简单，避免不必要的复杂，能用简单方案解决的问题，绝不使用复杂方案。 单一职责原则（Single Responsibility Principle，SRP）核心含义：一个代码单元（函数 / 类 / 模块 / 文件），只负责一件事，只有一个引起它变化的原因。 Explicit is Better Than Implicit (显式优于隐式) SOLID： 是面向对象开发的 5 个基础原则solid5原则讲解的很具体，但是个人认为只要掌握了前两条就够了，这两条原则对于函数和类，都是适用的。
+单一职责原则（Single Responsibility Principle，SRP）核心含义：一个代码单元（函数 / 类 / 模块 / 文件），只负责一件事，只有一个引起它变化的原因。 开闭原则（Open/Closed Principle，OCP）核心含义：对扩展开放，对修改关闭。</description></item></channel></rss>

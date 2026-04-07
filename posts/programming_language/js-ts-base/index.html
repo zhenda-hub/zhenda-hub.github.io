@@ -1,0 +1,925 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Js Ts Base | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content="[toc]
+应用场景 网页应用： 像 Notion、Trello 这种漂亮的 Web 工具。 浏览器插件： 比如给自己做一个“去广告”或者“网页翻译”的小插件，这非常有成就感。 跨平台 App： 用一套代码（如 React Native）同时做出 iOS 和安卓应用。 执行环境 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 +---------------------------------------+ | JavaScript 代码 | +------------------+--------------------+ ↓ +---------------------------------------+ | V8 引擎 | | - 解析器 Parse | | - 字节码 Ignition | | - JIT 编译 TurboFan | | - 调用栈 Call Stack | | - 垃圾回收 GC | +------------------+--------------------+ ↓（触发异步） +---------------------------------------+ | 浏览器 Web APIs / Node."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Js Ts Base"><meta name=twitter:description content="[toc]
+应用场景 网页应用： 像 Notion、Trello 这种漂亮的 Web 工具。 浏览器插件： 比如给自己做一个“去广告”或者“网页翻译”的小插件，这非常有成就感。 跨平台 App： 用一套代码（如 React Native）同时做出 iOS 和安卓应用。 执行环境 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 +---------------------------------------+ | JavaScript 代码 | +------------------+--------------------+ ↓ +---------------------------------------+ | V8 引擎 | | - 解析器 Parse | | - 字节码 Ignition | | - JIT 编译 TurboFan | | - 调用栈 Call Stack | | - 垃圾回收 GC | +------------------+--------------------+ ↓（触发异步） +---------------------------------------+ | 浏览器 Web APIs / Node."><meta property="og:url" content="https://zhenda-hub.github.io/posts/programming_language/js-ts-base/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="Js Ts Base"><meta property="og:description" content="[toc]
+应用场景 网页应用： 像 Notion、Trello 这种漂亮的 Web 工具。 浏览器插件： 比如给自己做一个“去广告”或者“网页翻译”的小插件，这非常有成就感。 跨平台 App： 用一套代码（如 React Native）同时做出 iOS 和安卓应用。 执行环境 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 +---------------------------------------+ | JavaScript 代码 | +------------------+--------------------+ ↓ +---------------------------------------+ | V8 引擎 | | - 解析器 Parse | | - 字节码 Ignition | | - JIT 编译 TurboFan | | - 调用栈 Call Stack | | - 垃圾回收 GC | +------------------+--------------------+ ↓（触发异步） +---------------------------------------+ | 浏览器 Web APIs / Node."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-12-31T15:48:54+08:00"><meta property="article:modified_time" content="2024-12-31T15:48:54+08:00"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/go_base/"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags></div><h1>Js Ts Base</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Tue, Dec 31, 2024</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><p>[toc]</p><h3 id=应用场景>应用场景<a class=anchorjs-link href=#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af></a></h3><ul><li>网页应用： 像 Notion、Trello 这种漂亮的 Web 工具。</li><li>浏览器插件： 比如给自己做一个“去广告”或者“网页翻译”的小插件，这非常有成就感。</li><li>跨平台 App： 用一套代码（如 React Native）同时做出 iOS 和安卓应用。</li></ul><h2 id=执行环境>执行环境<a class=anchorjs-link href=#%e6%89%a7%e8%a1%8c%e7%8e%af%e5%a2%83></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>+---------------------------------------+
+</span></span><span style=display:flex><span>|            JavaScript 代码            |
+</span></span><span style=display:flex><span>+------------------+--------------------+
+</span></span><span style=display:flex><span>                   ↓
+</span></span><span style=display:flex><span>+---------------------------------------+
+</span></span><span style=display:flex><span>|                V8 引擎                |
+</span></span><span style=display:flex><span>| - 解析器 Parse                         |
+</span></span><span style=display:flex><span>| - 字节码 Ignition                     |
+</span></span><span style=display:flex><span>| - JIT 编译 TurboFan                   |
+</span></span><span style=display:flex><span>| - 调用栈 Call Stack                    |
+</span></span><span style=display:flex><span>| - 垃圾回收 GC                          |
+</span></span><span style=display:flex><span>+------------------+--------------------+
+</span></span><span style=display:flex><span>                   ↓（触发异步）
+</span></span><span style=display:flex><span>+---------------------------------------+
+</span></span><span style=display:flex><span>|    浏览器 Web APIs / Node.js libuv    |
+</span></span><span style=display:flex><span>| - setTimeout                           |
+</span></span><span style=display:flex><span>| - fetch                                 |
+</span></span><span style=display:flex><span>| - 文件 IO                               |
+</span></span><span style=display:flex><span>| - 网络 IO                               |
+</span></span><span style=display:flex><span>+------------------+--------------------+
+</span></span><span style=display:flex><span>                   ↓（事件循环调度）
+</span></span><span style=display:flex><span>+---------------------------------------+
+</span></span><span style=display:flex><span>|             Event Loop                 |
+</span></span><span style=display:flex><span>|   - Microtasks（Promise…）            |
+</span></span><span style=display:flex><span>|   - Macrotasks（Timeout…）            |
+</span></span><span style=display:flex><span>+---------------------------------------+
+</span></span></code></pre></td></tr></table></div></div><h2 id=js>js<a class=anchorjs-link href=#js></a></h2><p>书写:</p><ul><li>在html中 用"&ldquo;写js代码</li><li>script 一般写在 <strong>body里面的最后</strong><ul><li>这样做的好处是 javaScript 代码可以在整个页面加载完成之后读取</li></ul></li><li>单独写入js文件</li></ul><p>规范:</p><ul><li>小驼峰</li><li>常量, 全大写</li></ul><p>js是弱类型的语言，运算时，自动转换类型</p><h2 id=基础>基础<a class=anchorjs-link href=#%e5%9f%ba%e7%a1%80></a></h2><h3 id=调试>调试<a class=anchorjs-link href=#%e8%b0%83%e8%af%95></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#000>console</span>.<span style=color:#000>log</span>(<span style=color:#c41a16>`a:</span><span style=color:#c41a16>${</span><span style=color:#000>a</span><span style=color:#c41a16>}</span><span style=color:#c41a16>, b:</span><span style=color:#c41a16>${</span><span style=color:#000>b</span><span style=color:#c41a16>}</span><span style=color:#c41a16>`</span>)
+</span></span><span style=display:flex><span><span style=color:#000>console</span>.<span style=color:#000>dir</span>()
+</span></span><span style=display:flex><span><span style=color:#000>console</span>.<span style=color:#000>table</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>debugger</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>//查看类型
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>instanceof</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>typeof</span> <span style=color:#000>a</span> <span style=color:#177500>// 不准确, array和null 都认为是 object;
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>Object</span>.<span style=color:#000>prototype</span>.<span style=color:#000>toString</span>.<span style=color:#000>call</span>(<span style=color:#000>a</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>this</span> <span style=color:#177500>//面向对象语言中 this 表示当前对象的一个引用
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=基础-1>基础<a class=anchorjs-link href=#%e5%9f%ba%e7%a1%80-1></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#177500>// 定义
+</span></span></span><span style=display:flex><span><span style=color:#177500>// 块级作用域：用一对花括号创建的作用域（块）。
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>const</span> <span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;haha&#34;</span>; <span style=color:#177500>// 作用域在{}块内, 只读常量
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>let</span> <span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#1c01ce>13</span>; <span style=color:#177500>// 作用域在{}块内
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>var</span> <span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;haha&#34;</span>; <span style=color:#177500>// 作用域在函数内
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>typeof</span> <span style=color:#1c01ce>43</span>;
+</span></span><span style=display:flex><span><span style=color:#a90d91>typeof</span> <span style=color:#c41a16>&#34;43&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#a90d91>typeof</span> <span style=color:#000>ture</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// 三元运算
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>const</span> <span style=color:#000>canVote</span> <span style=color:#000>=</span> <span style=color:#000>age</span> <span style=color:#000>&gt;=</span> <span style=color:#1c01ce>18</span> <span style=color:#000>?</span> <span style=color:#c41a16>&#34;Yes&#34;</span> <span style=color:#000>:</span> <span style=color:#c41a16>&#34;No&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// 赋值表达式的返回值为右边
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>y</span> <span style=color:#000>=</span> <span style=color:#000>x</span> <span style=color:#000>=</span> <span style=color:#1c01ce>90</span> <span style=color:#000>+</span> <span style=color:#1c01ce>5</span>;
+</span></span><span style=display:flex><span><span style=color:#000>y</span>;
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#177500>/* 值和类型都判断, 优先使用, 能不用 == 就不用, 它会转换类型判断, 遗留的功能
+</span></span></span><span style=display:flex><span><span style=color:#177500>
+</span></span></span><span style=display:flex><span><span style=color:#177500>=== 到底做了什么？（底层规则）
+</span></span></span><span style=display:flex><span><span style=color:#177500>对原始类型
+</span></span></span><span style=display:flex><span><span style=color:#177500>值 === 值
+</span></span></span><span style=display:flex><span><span style=color:#177500>
+</span></span></span><span style=display:flex><span><span style=color:#177500>对引用类型
+</span></span></span><span style=display:flex><span><span style=color:#177500>内存地址 === 内存地址
+</span></span></span><span style=display:flex><span><span style=color:#177500>
+</span></span></span><span style=display:flex><span><span style=color:#177500>*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>jsdoc</span>
+</span></span><span style=display:flex><span><span style=color:#177500>/**
+</span></span></span><span style=display:flex><span><span style=color:#177500> *
+</span></span></span><span style=display:flex><span><span style=color:#177500> */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// void
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>&lt;</span><span style=color:#000>a</span> <span style=color:#000>href</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;javascript:void(document.form.submit())&#34;</span><span style=color:#000>&gt;</span><span style=color:#000>Click</span> <span style=color:#000>here</span> <span style=color:#000>to</span> <span style=color:#000>submit</span><span style=color:#000>&lt;</span><span style=color:#000>/a&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=常用的内置数据类型>常用的内置数据类型<a class=anchorjs-link href=#%e5%b8%b8%e7%94%a8%e7%9a%84%e5%86%85%e7%bd%ae%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b></a></h3><table><thead><tr><th style=text-align:left>类型</th><th style=text-align:left>用途</th><th style=text-align:left>常用方法</th></tr></thead><tbody><tr><td style=text-align:left>Array</td><td style=text-align:left>数组</td><td style=text-align:left>push, pop, shift, unshift, slice, splice, map, filter, reduce</td></tr><tr><td style=text-align:left>Map</td><td style=text-align:left>键值对集合</td><td style=text-align:left>set, get, has, delete, clear</td></tr><tr><td style=text-align:left>Set</td><td style=text-align:left>去重集合</td><td style=text-align:left>add, has, delete, clear</td></tr><tr><td style=text-align:left>Object</td><td style=text-align:left>对象</td><td style=text-align:left>keys, values, entries, assign</td></tr><tr><td style=text-align:left>String</td><td style=text-align:left>字符串</td><td style=text-align:left>split, substring, slice, indexOf, replace, toUpperCase</td></tr><tr><td style=text-align:left>Number</td><td style=text-align:left>数字</td><td style=text-align:left>parseInt, parseFloat, toFixed, isNaN</td></tr><tr><td style=text-align:left>Math</td><td style=text-align:left>数学运算</td><td style=text-align:left>Math.max, Math.min, Math.sqrt, Math.floor, Math.ceil</td></tr><tr><td style=text-align:left>Date</td><td style=text-align:left>日期时间</td><td style=text-align:left>now, getTime, getFullYear, getMonth</td></tr><tr><td style=text-align:left>RegExp</td><td style=text-align:left>正则表达式</td><td style=text-align:left>test, exec, match, replace</td></tr><tr><td style=text-align:left>JSON</td><td style=text-align:left>JSON 处理</td><td style=text-align:left>stringify, parse</td></tr></tbody></table><p>Symbol</p><ul><li>Undefine</li><li>Null</li></ul><p>TODO: 原型链</p><p>概念
+创建属性方法的东西
+定义构造函数后
+结构
+prototype
+constructor
+定义的构造函数
+使用
+Object.prototype.func1 = function(){}
+为所有对象创建属性，方法
+函数名.prototype
+为这个构造函数创建属性，方法
+使用方法
+Object.create({})</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>&gt; <span style=color:#a90d91>let</span> <span style=color:#000>demo</span> <span style=color:#000>=</span> <span style=color:#000>[</span>1,2,3,4,5<span style=color:#000>]</span>
+</span></span><span style=display:flex><span>undefined
+</span></span><span style=display:flex><span>&gt; demo
+</span></span><span style=display:flex><span><span style=color:#000>[</span> 1, 2, 3, 4, <span style=color:#1c01ce>5</span> <span style=color:#000>]</span>
+</span></span><span style=display:flex><span>&gt; demo.splice<span style=color:#000>(</span>2,1<span style=color:#000>)</span>
+</span></span><span style=display:flex><span><span style=color:#000>[</span> <span style=color:#1c01ce>3</span> <span style=color:#000>]</span>
+</span></span><span style=display:flex><span>&gt; demo
+</span></span><span style=display:flex><span><span style=color:#000>[</span> 1, 2, 4, <span style=color:#1c01ce>5</span> <span style=color:#000>]</span>
+</span></span><span style=display:flex><span>&gt; demo.splice<span style=color:#000>(</span>1,2<span style=color:#000>)</span>
+</span></span><span style=display:flex><span><span style=color:#000>[</span> 2, <span style=color:#1c01ce>4</span> <span style=color:#000>]</span>
+</span></span><span style=display:flex><span>&gt; demo
+</span></span><span style=display:flex><span><span style=color:#000>[</span> 1, <span style=color:#1c01ce>5</span> <span style=color:#000>]</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">102
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">103
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">104
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">105
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">106
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">107
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">108
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">109
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">110
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">111
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">112
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">113
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">114
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">115
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">116
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">117
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">118
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">119
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">120
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">121
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">122
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">123
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#177500>// Array
+</span></span></span><span style=display:flex><span><span style=color:#177500>// 只有 Array 和 Object 不用 new, 其他都需要 new
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>let</span> <span style=color:#000>arr</span> <span style=color:#000>=</span> [<span style=color:#1c01ce>1</span>, <span style=color:#1c01ce>2</span>, <span style=color:#1c01ce>3</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>arr</span>.<span style=color:#000>push</span>(<span style=color:#1c01ce>4</span>);          <span style=color:#177500>// [1, 2, 3, 4]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>arr</span>.<span style=color:#000>pop</span>();            <span style=color:#177500>// [1, 2, 3]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span><span style=color:#000>arr</span>.<span style=color:#000>unshift</span>(<span style=color:#1c01ce>0</span>)  <span style=color:#177500>// [0, 1, 2, 3]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>arr</span>.<span style=color:#000>shift</span>()     <span style=color:#177500>// [1, 2, 3]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span><span style=color:#000>arr</span>.<span style=color:#000>slice</span>(<span style=color:#1c01ce>0</span>, <span style=color:#1c01ce>2</span>);     <span style=color:#177500>// [1, 2]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>arr</span>.<span style=color:#000>splice</span>(<span style=color:#1c01ce>1</span>, <span style=color:#1c01ce>1</span>);    <span style=color:#177500>// [1, 3]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>arr</span>.<span style=color:#000>map</span>(<span style=color:#000>x</span> =&gt; <span style=color:#000>x</span> <span style=color:#000>*</span> <span style=color:#1c01ce>2</span>); <span style=color:#177500>// [2, 4, 6]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>arr</span>.<span style=color:#000>filter</span>(<span style=color:#000>x</span> =&gt; <span style=color:#000>x</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>1</span>); <span style=color:#177500>// [2, 3]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>arr</span>.<span style=color:#000>reduce</span>((<span style=color:#000>a</span>, <span style=color:#000>b</span>) =&gt; <span style=color:#000>a</span> <span style=color:#000>+</span> <span style=color:#000>b</span>, <span style=color:#1c01ce>0</span>); <span style=color:#177500>// 6
+</span></span></span><span style=display:flex><span><span style=color:#177500>//循环
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>fruits</span>.<span style=color:#000>forEach</span>((<span style=color:#000>item</span>, <span style=color:#000>index</span>, <span style=color:#000>array</span>) =&gt; {<span style=color:#000>console</span>.<span style=color:#000>log</span>(<span style=color:#000>item</span>, <span style=color:#000>index</span>);});
+</span></span><span style=display:flex><span><span style=color:#177500>//深拷贝
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>const</span> <span style=color:#000>fruitsCopy</span> <span style=color:#000>=</span> [...<span style=color:#000>fruits</span>];
+</span></span><span style=display:flex><span><span style=color:#177500>//解构
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>var</span> [<span style=color:#000>one</span>, <span style=color:#000>two</span>, <span style=color:#000>three</span>] <span style=color:#000>=</span> [<span style=color:#1c01ce>1</span>,<span style=color:#1c01ce>2</span>,<span style=color:#1c01ce>3</span>];
+</span></span><span style=display:flex><span><span style=color:#177500>//扩展
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>const</span> <span style=color:#000>nums</span> <span style=color:#000>=</span> [<span style=color:#1c01ce>1</span>, <span style=color:#1c01ce>2</span>, <span style=color:#1c01ce>3</span>];
+</span></span><span style=display:flex><span><span style=color:#a90d91>const</span> <span style=color:#000>more</span> <span style=color:#000>=</span> [...<span style=color:#000>nums</span>, <span style=color:#1c01ce>4</span>, <span style=color:#1c01ce>5</span>];  <span style=color:#177500>// [1,2,3,4,5]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>flat</span>() <span style=color:#177500>//转为1维度的
+</span></span></span><span style=display:flex><span><span style=color:#177500>//绑定属性
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>[].<span style=color:#000>a1</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;qq&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// 二维 array
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>const</span> <span style=color:#000>graph</span> <span style=color:#000>=</span> <span style=color:#a90d91>Array</span>.<span style=color:#000>from</span>({ <span style=color:#000>length</span><span style=color:#000>:</span> <span style=color:#000>numCourses</span> }, () =&gt; []);
+</span></span><span style=display:flex><span><span style=color:#a90d91>const</span> <span style=color:#000>arr</span> <span style=color:#000>=</span> <span style=color:#a90d91>Array</span>.<span style=color:#000>from</span>(<span style=color:#c41a16>&#39;abc&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// Map
+</span></span></span><span style=display:flex><span><span style=color:#177500>// key 可以是任何值（函数，对象...）转json没有原生支持
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>let</span> <span style=color:#000>map</span> <span style=color:#000>=</span> <span style=color:#a90d91>new</span> <span style=color:#000>Map</span>();
+</span></span><span style=display:flex><span><span style=color:#000>map</span>.<span style=color:#000>set</span>(<span style=color:#c41a16>&#39;a&#39;</span>, <span style=color:#1c01ce>1</span>);
+</span></span><span style=display:flex><span><span style=color:#000>map</span>.<span style=color:#000>get</span>(<span style=color:#c41a16>&#39;a&#39;</span>); <span style=color:#177500>// 1
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>map</span>.<span style=color:#000>has</span>(<span style=color:#c41a16>&#39;a&#39;</span>); <span style=color:#177500>// true
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>map</span>.<span style=color:#a90d91>delete</span>(<span style=color:#c41a16>&#39;a&#39;</span>);
+</span></span><span style=display:flex><span><span style=color:#000>map</span>.<span style=color:#000>clear</span>();
+</span></span><span style=display:flex><span><span style=color:#177500>// Set
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>let</span> <span style=color:#000>set</span> <span style=color:#000>=</span> <span style=color:#a90d91>new</span> <span style=color:#000>Set</span>();
+</span></span><span style=display:flex><span><span style=color:#000>set</span>.<span style=color:#000>add</span>(<span style=color:#1c01ce>1</span>);
+</span></span><span style=display:flex><span><span style=color:#000>set</span>.<span style=color:#000>has</span>(<span style=color:#1c01ce>1</span>); <span style=color:#177500>// true
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>set</span>.<span style=color:#a90d91>delete</span>(<span style=color:#1c01ce>1</span>);
+</span></span><span style=display:flex><span><span style=color:#000>set</span>.<span style=color:#000>clear</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// Object 和 JSON
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#177500>/*
+</span></span></span><span style=display:flex><span><span style=color:#177500>Object：key 会被强制转成字符串
+</span></span></span><span style=display:flex><span><span style=color:#177500>key类型 String, Symbol
+</span></span></span><span style=display:flex><span><span style=color:#177500>除了json, 其他用Map
+</span></span></span><span style=display:flex><span><span style=color:#177500>
+</span></span></span><span style=display:flex><span><span style=color:#177500>json格式:
+</span></span></span><span style=display:flex><span><span style=color:#177500>只有属性，没有方法
+</span></span></span><span style=display:flex><span><span style=color:#177500>属性或字符串使用双引号
+</span></span></span><span style=display:flex><span><span style=color:#177500>*/</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>let</span> <span style=color:#000>obj</span> <span style=color:#000>=</span> {<span style=color:#000>a</span><span style=color:#000>:</span> <span style=color:#1c01ce>1</span>, <span style=color:#000>b</span><span style=color:#000>:</span> <span style=color:#1c01ce>2</span>};
+</span></span><span style=display:flex><span><span style=color:#177500>// 迭代方法
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>Object</span>.<span style=color:#000>keys</span>(<span style=color:#000>obj</span>);   <span style=color:#177500>// [&#39;a&#39;, &#39;b&#39;]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>Object</span>.<span style=color:#000>values</span>(<span style=color:#000>obj</span>); <span style=color:#177500>// [1, 2]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>Object</span>.<span style=color:#000>entries</span>(<span style=color:#000>obj</span>); <span style=color:#177500>// [[&#39;a&#39;, 1], [&#39;b&#39;, 2]]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>Object</span>.<span style=color:#000>assign</span>(<span style=color:#000>obj</span>, {<span style=color:#000>c</span><span style=color:#000>:</span> <span style=color:#1c01ce>3</span>}); <span style=color:#177500>// {a: 1, b: 2, c: 3}
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>let</span> <span style=color:#000>obj</span> <span style=color:#000>=</span> {<span style=color:#c41a16>&#34;a&#34;</span><span style=color:#000>:</span><span style=color:#1c01ce>1</span>,<span style=color:#c41a16>&#34;b&#34;</span><span style=color:#000>:</span><span style=color:#1c01ce>2</span>};
+</span></span><span style=display:flex><span><span style=color:#a90d91>let</span> <span style=color:#000>jsonStr</span> <span style=color:#000>=</span> <span style=color:#000>JSON</span>.<span style=color:#000>stringify</span>(<span style=color:#000>obj</span>, <span style=color:#a90d91>null</span>, <span style=color:#1c01ce>2</span>); <span style=color:#177500>// &#39;{&#34;a&#34;:1,&#34;b&#34;:2}&#39;
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>JSON</span>.<span style=color:#000>parse</span>(<span style=color:#000>jsonStr</span>); <span style=color:#177500>// {a: 1, b: 2}
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>let</span> <span style=color:#000>jsonStr</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;{&#34;a&#34;:1,&#34;b&#34;:2}&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#a90d91>let</span> <span style=color:#000>obj</span> <span style=color:#000>=</span> <span style=color:#000>JSON</span>.<span style=color:#000>parse</span>(<span style=color:#000>jsonStr</span>); <span style=color:#177500>// {a: 1, b: 2}
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>JSON</span>.<span style=color:#000>stringify</span>(<span style=color:#000>obj</span>, <span style=color:#a90d91>null</span>, <span style=color:#1c01ce>2</span>); <span style=color:#177500>// &#39;{&#34;a&#34;:1,&#34;b&#34;:2}&#39;
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// String
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>let</span> <span style=color:#000>str</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;hello world&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#000>str</span>.<span style=color:#000>split</span>(<span style=color:#c41a16>&#34; &#34;</span>);        <span style=color:#177500>// [&#39;hello&#39;, &#39;world&#39;]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>str</span>.<span style=color:#000>substring</span>(<span style=color:#1c01ce>0</span>, <span style=color:#1c01ce>5</span>);  <span style=color:#177500>// &#39;hello&#39;
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>str</span>.<span style=color:#000>indexOf</span>(<span style=color:#c41a16>&#34;world&#34;</span>); <span style=color:#177500>// 6
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>str</span>.<span style=color:#000>replace</span>(<span style=color:#c41a16>&#34;world&#34;</span>, <span style=color:#c41a16>&#34;JS&#34;</span>); <span style=color:#177500>// &#39;hello JS&#39;
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>str</span>.<span style=color:#000>toUpperCase</span>();    <span style=color:#177500>// &#39;HELLO WORLD&#39;
+</span></span></span><span style=display:flex><span><span style=color:#177500>// 和array转换
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#c41a16>&#39;&#39;</span>.<span style=color:#000>split</span><span style=color:#000>（”“）</span><span style=color:#177500>//字符串转数组
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>[].<span style=color:#000>join</span><span style=color:#000>（”“）</span><span style=color:#177500>//数组转字符串
+</span></span></span><span style=display:flex><span><span style=color:#177500>// 模板可以换行
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#c41a16>`hi is </span><span style=color:#c41a16>${</span><span style=color:#000>age</span><span style=color:#c41a16>}</span><span style=color:#c41a16> years old`</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// Number
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>let</span> <span style=color:#000>num</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;42.5&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#a90d91>parseInt</span>(<span style=color:#000>num</span>);    <span style=color:#177500>// 42
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>parseFloat</span>(<span style=color:#000>num</span>);  <span style=color:#177500>// 42.5
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>num</span>.<span style=color:#000>toFixed</span>(<span style=color:#1c01ce>1</span>);   <span style=color:#177500>// &#39;42.5&#39;
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>isNaN</span>(<span style=color:#000>num</span>);      <span style=color:#177500>// false
+</span></span></span><span style=display:flex><span><span style=color:#177500>// Math
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>Math</span>.<span style=color:#000>max</span>(<span style=color:#1c01ce>1</span>, <span style=color:#1c01ce>5</span>, <span style=color:#1c01ce>3</span>);    <span style=color:#177500>// 5
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>Math</span>.<span style=color:#000>min</span>(<span style=color:#1c01ce>1</span>, <span style=color:#1c01ce>5</span>, <span style=color:#1c01ce>3</span>);    <span style=color:#177500>// 1
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>Math</span>.<span style=color:#000>sqrt</span>(<span style=color:#1c01ce>16</span>);       <span style=color:#177500>// 4
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>Math</span>.<span style=color:#000>floor</span>(<span style=color:#1c01ce>4.7</span>);    <span style=color:#177500>// 4
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>Math</span>.<span style=color:#000>ceil</span>(<span style=color:#1c01ce>4.2</span>);     <span style=color:#177500>// 5
+</span></span></span><span style=display:flex><span><span style=color:#177500>// Date
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>let</span> <span style=color:#000>now</span> <span style=color:#000>=</span> <span style=color:#a90d91>new</span> <span style=color:#a90d91>Date</span>();
+</span></span><span style=display:flex><span><span style=color:#000>now</span>.<span style=color:#000>getFullYear</span>();  <span style=color:#177500>// 当前年份
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>now</span>.<span style=color:#000>getMonth</span>();     <span style=color:#177500>// 当前月份 (0-11)
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>now</span>.<span style=color:#000>getDate</span>();      <span style=color:#177500>// 当前日期
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>now</span>.<span style=color:#000>getTime</span>();      <span style=color:#177500>// 时间戳
+</span></span></span><span style=display:flex><span><span style=color:#177500>// RegExp
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>let</span> <span style=color:#000>regex</span> <span style=color:#000>=</span> <span style=color:#c41a16>/hello/i</span>;
+</span></span><span style=display:flex><span><span style=color:#000>regex</span>.<span style=color:#000>test</span>(<span style=color:#c41a16>&#34;Hello World&#34;</span>); <span style=color:#177500>// true
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#c41a16>&#34;hello world&#34;</span>.<span style=color:#000>match</span>(<span style=color:#000>regex</span>); <span style=color:#177500>// [&#39;hello&#39;]
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#c41a16>&#34;hello world&#34;</span>.<span style=color:#000>replace</span>(<span style=color:#000>regex</span>, <span style=color:#c41a16>&#34;hi&#34;</span>); <span style=color:#177500>// &#39;hi world&#39;
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span><span style=color:#177500>//类型转换
+</span></span></span><span style=display:flex><span><span style=color:#177500>//num-&gt;str
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>String</span>(<span style=color:#1c01ce>123.54</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>//str-&gt;num
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>Number</span>(<span style=color:#c41a16>&#39;432&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#a90d91>parseInt</span>(<span style=color:#c41a16>&#39;432&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#a90d91>parseFloat</span>(<span style=color:#c41a16>&#39;432&#39;</span>)
+</span></span></code></pre></td></tr></table></div></div><h3 id=函数>函数<a class=anchorjs-link href=#%e5%87%bd%e6%95%b0></a></h3><p>创建</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#a90d91>const</span> <span style=color:#000>func1</span> <span style=color:#000>=</span> (<span style=color:#000>x</span>, <span style=color:#000>y</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#000>x</span> <span style=color:#000>-</span> <span style=color:#000>y</span>;
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>let</span> <span style=color:#000>fun2</span> <span style=color:#000>=</span> <span style=color:#a90d91>function</span> () {
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>let</span> <span style=color:#000>m</span> <span style=color:#000>=</span> <span style=color:#000>grid</span>.<span style=color:#000>length</span>,
+</span></span><span style=display:flex><span>        <span style=color:#000>n</span> <span style=color:#000>=</span> <span style=color:#000>grid</span>[<span style=color:#1c01ce>0</span>].<span style=color:#000>length</span>;
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>function</span> <span style=color:#000>fun1</span>(<span style=color:#000>a</span>, <span style=color:#000>b</span> <span style=color:#000>=</span> <span style=color:#1c01ce>12</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>a</span> <span style=color:#000>*</span> <span style=color:#000>b</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#177500>// if
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>if</span> (<span style=color:#000>condition</span>) {
+</span></span><span style=display:flex><span>} <span style=color:#a90d91>else</span> {
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// for
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>let</span> <span style=color:#000>arr</span> <span style=color:#000>=</span> [<span style=color:#1c01ce>3</span>, <span style=color:#1c01ce>5</span>, <span style=color:#1c01ce>7</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>for</span> (<span style=color:#a90d91>let</span> <span style=color:#000>i</span> <span style=color:#a90d91>of</span> <span style=color:#000>iter</span>) {
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>for</span> (<span style=color:#a90d91>const</span> [<span style=color:#000>i</span>, <span style=color:#000>v</span>] <span style=color:#a90d91>of</span> <span style=color:#000>arr</span>.<span style=color:#000>entries</span>()) {
+</span></span><span style=display:flex><span>    <span style=color:#000>console</span>.<span style=color:#000>log</span>(<span style=color:#000>i</span>, <span style=color:#000>v</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// error
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>throw</span> <span style=color:#a90d91>new</span> <span style=color:#a90d91>Error</span>(<span style=color:#c41a16>&#34;Not Equal&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>/*
+</span></span></span><span style=display:flex><span><span style=color:#177500>try... catch... finally...
+</span></span></span><span style=display:flex><span><span style=color:#177500>throw...
+</span></span></span><span style=display:flex><span><span style=color:#177500>*/</span>
+</span></span></code></pre></td></tr></table></div></div><p>IIFE
+迭代器
+需要显式地维护其内部状态，不推荐
+生成器函数
+function* foo() { yield 1; yield 2; yield 3;}</p><h3 id=多模块>多模块<a class=anchorjs-link href=#%e5%a4%9a%e6%a8%a1%e5%9d%97></a></h3><p>ES模块</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#177500>// math.js
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>export</span> <span style=color:#a90d91>function</span> <span style=color:#000>add</span>(<span style=color:#000>a</span>, <span style=color:#000>b</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>a</span> <span style=color:#000>+</span> <span style=color:#000>b</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// app.js
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>import</span> { <span style=color:#000>add</span> <span style=color:#000>as</span> <span style=color:#000>ad</span> } <span style=color:#000>from</span> <span style=color:#c41a16>&#34;./math.js&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#000>console</span>.<span style=color:#000>log</span>(<span style=color:#000>ad</span>(<span style=color:#1c01ce>2</span>, <span style=color:#1c01ce>3</span>)); <span style=color:#177500>// 输出: 5
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=异步请求>异步请求<a class=anchorjs-link href=#%e5%bc%82%e6%ad%a5%e8%af%b7%e6%b1%82></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#177500>// async await
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>async</span> <span style=color:#a90d91>function</span> <span style=color:#000>getUser</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>try</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>const</span> <span style=color:#000>res</span> <span style=color:#000>=</span> <span style=color:#a90d91>await</span> <span style=color:#000>fetch</span>(<span style=color:#c41a16>&#34;/api/user&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>if</span> (<span style=color:#000>!</span><span style=color:#000>res</span>.<span style=color:#000>ok</span>) <span style=color:#a90d91>throw</span> <span style=color:#a90d91>new</span> <span style=color:#a90d91>Error</span>(<span style=color:#c41a16>&#34;Request failed&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>const</span> <span style=color:#000>data</span> <span style=color:#000>=</span> <span style=color:#a90d91>await</span> <span style=color:#000>res</span>.<span style=color:#000>json</span>();
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>data</span>;
+</span></span><span style=display:flex><span>    } <span style=color:#a90d91>catch</span> (<span style=color:#000>err</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#000>console</span>.<span style=color:#000>error</span>(<span style=color:#000>err</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// Promise
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>fetch</span>(<span style=color:#c41a16>&#34;/api/user&#34;</span>)
+</span></span><span style=display:flex><span>    .<span style=color:#000>then</span>((<span style=color:#000>res</span>) =&gt; <span style=color:#000>res</span>.<span style=color:#000>json</span>())
+</span></span><span style=display:flex><span>    .<span style=color:#000>then</span>((<span style=color:#000>data</span>) =&gt; <span style=color:#000>console</span>.<span style=color:#000>log</span>(<span style=color:#000>data</span>))
+</span></span><span style=display:flex><span>    .<span style=color:#a90d91>catch</span>((<span style=color:#000>err</span>) =&gt; <span style=color:#000>console</span>.<span style=color:#000>error</span>(<span style=color:#000>err</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>/*=======================out了================== */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// jQuery.ajax
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>$</span>.<span style=color:#000>ajax</span>({
+</span></span><span style=display:flex><span>    <span style=color:#000>url</span><span style=color:#000>:</span> <span style=color:#c41a16>&#34;/api/user&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>success</span>(<span style=color:#000>res</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#000>console</span>.<span style=color:#000>log</span>(<span style=color:#000>res</span>);
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>// XMLHttpRequest()
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>const</span> <span style=color:#000>xhr</span> <span style=color:#000>=</span> <span style=color:#a90d91>new</span> <span style=color:#000>XMLHttpRequest</span>();
+</span></span><span style=display:flex><span><span style=color:#000>xhr</span>.<span style=color:#000>open</span>(<span style=color:#c41a16>&#34;GET&#34;</span>, <span style=color:#c41a16>&#34;/api/user&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#000>xhr</span>.<span style=color:#000>onload</span> <span style=color:#000>=</span> () =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#000>console</span>.<span style=color:#000>log</span>(<span style=color:#000>xhr</span>.<span style=color:#000>responseText</span>);
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span><span style=color:#000>xhr</span>.<span style=color:#000>send</span>();
+</span></span></code></pre></td></tr></table></div></div><h2 id=cdn>CDN<a class=anchorjs-link href=#cdn></a></h2><p>是包含可分享代码库的服务器网络</p><h2 id=类>类<a class=anchorjs-link href=#%e7%b1%bb></a></h2><p>ES5 引入 原型链
+ES6 引入 class</p><ul><li>类<ul><li>class</li><li>封装<ul><li>#属性</li><li>#方法</li></ul></li><li>继承<ul><li>extends</li></ul></li></ul></li></ul><h2 id=bom>BOM<a class=anchorjs-link href=#bom></a></h2><p>browser object model
+作用
+控制浏览器
+window.
+概念
+js的全局对象，表示浏览器窗口
+全局变量
+存储内容
+document
+弹框
+alert()
+消息弹框
+confirm()
+确认框
+let name = prompt()
+输入字符串
+location
+含义： 当前url
+href
+完整地址
+protocol
+origin
+host
+hostname+port
+hostname
+ip的域名
+port
+pathname
+定时器
+间隔
+x = setInterval()
+clearInterval(x)
+倒计时
+x = setTimeout()
+clearTiemout(x)
+打开关闭页面
+open()
+close()
+移动浏览器
+scrollTo(0,0)
+滚动到指定位置
+history
+back()
+forword()
+go(index)
+screen
+avaliWidth
+avaliHeight
+navigator</p><h2 id=dom>DOM<a class=anchorjs-link href=#dom></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#a90d91>window</span>.<span style=color:#a90d91>document</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>window</span>.<span style=color:#000>location</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#a90d91>window</span>.<span style=color:#000>setInterval</span>(<span style=color:#1c01ce>3</span>);
+</span></span><span style=display:flex><span><span style=color:#a90d91>window</span>.<span style=color:#000>clearInterval</span>(<span style=color:#000>a</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#a90d91>window</span>.<span style=color:#000>setTimeout</span>(<span style=color:#1c01ce>3</span>);
+</span></span><span style=display:flex><span><span style=color:#a90d91>window</span>.<span style=color:#000>clearTimeout</span>(<span style=color:#000>a</span>);
+</span></span></code></pre></td></tr></table></div></div><p>document object model
+概念
+html文档可以看成一颗树，DOM树
+作用
+获取各个节点的值，进行增删改查
+元素操作
+查
+直接获取元素的方式
+document.getElementById()
+document.getElementByClassName()
+document.getElementTagName()
+document.getElementName()
+改
+属性和样式
+document.getAttriobute(&ldquo;value&rdquo;)
+document.setAttribute(&ldquo;value&rdquo;, &ldquo;&rdquo;)
+修改值
+ele.innerHTML = &lsquo;qwer&rsquo;;
+ele.k = v;
+ele.style.color = &ldquo;blue&rdquo;;
+js的事件
+页面加载事件
+操作
+onunload
+用户离开页面时被触发
+onload
+用户进入页面时被触发
+作用
+全部扫描完body后，才使用js函数。防止js运行失败
+鼠标事件
+点击
+onclick
+ondblclick
+状态
+进出控件边界
+onmouseenter
+onmouseleave
+在控件上
+onmouseover
+onmousemove
+在控件上移动
+onmouseout
+手指放下抬起
+onmousedown
+onmouseup
+键盘事件
+onkeydown
+onkeyup
+onkeypress
+form表单事件
+提交
+onsubmit
+onreset
+焦点
+onfocus
+onblur
+失去焦点
+文本
+onchange
+离开输入框时
+oninput
+绑定js事件
+直接1</p><body onload=checkCookies()>直接2
+ele.onclick = function(){};
+间接
+document.addEventListener()
+document.addEventListener('click', function(event) { console.log('Clicked element ID:', event.target.id);});
+ele.addEventListener()
+document.removeEventListener()
+ele.removeEventListener()
+添加删除
+创建子控件
+document.createElement("")
+document.createTextNode("这是一个新的段落。");
+增删子控件
+appendChild()
+removeChild()<h2 id=jquery>jQuery<a class=anchorjs-link href=#jquery></a></h2><p>使用
+使用本地
+放到js文件夹里
+src选择路径
+使用cdn
+教程
+What is jQuery? (tutorialsteacher.com)
+jquery编写位置
+确保 DOM 已完全加载
+这是在编写任何jQuery代码之前需要编写的第一件事。您始终需要检查文档是否已准备就绪，以便安全地与 DOM 进行交互
+原理
+添加jQuery属性</p><p>选择器
+$("#id&rdquo;)
+$(&ldquo;标签名&rdquo;)
+$(".class名")
+jq的DOM
+属性
+添加属性
+$(#id).attr(&ldquo;color&rdquo;,&ldquo;red&rdquo;)
+删除属性
+$("#id").removeAttr(&ldquo;color&rdquo;)
+使用 jQuery 操作 HTML 属性 (tutorialsteacher.com)
+样式
+$("#id").css(&ldquo;color&rdquo;, &ldquo;blue&rdquo;)
+class操作
+添加
+$("#id").addClass(&ldquo;b&rdquo;)
+删除
+$("#id").removeClass(&ldquo;b&rdquo;)
+切换
+$("#id").toggleClass(&ldquo;b&rdquo;)
+文本
+$("#id").text()
+$("#id").html()
+<font>$("#id").val()
+元素
+母元素内部增加子元素
+append()
+appendTo()
+前增加
+before()
+insertBefore()
+后增加
+after()
+insertAfter()
+删除
+删除子
+empty()
+删除母
+remove()
+与原生DOM的转换
+原生->jq
+$(div1)
+jq->原生
+div2[0]
+div2.get(0)
+遍历
+for
+each(fun1(i, e){})
+e是原生的DOM
+i是下标
+事件
+直接调用
+click()
+点击绑定函数
+mouseleaves
+指定事件名调用
+on(&rsquo;&rsquo;, function() {})
+bind（“”, function（））
+unbind（）
+one（）
+只执行一次
+事件汇总
+jQuery 事件方法 (w3schools.com)
+DOM Manipulation Methods Reference - jQuery (tutorialsteacher.com)
+ajax
+ajax
+示例
+参数
+type
+get
+post
+put
+delete
+jQuery.ajax() | jQuery API Documentation
+get
+post
+load
+动画
+默认
+$("#div1").show(3000)
+$("#div1").hide(3000)
+$("#div1").toggle(3000)
+切换隐藏和显示
+自定义
+$("#div1").animate(a, b, c)
+折叠收起</p><h2 id=ts>ts<a class=anchorjs-link href=#ts></a></h2><p>所有合法的 JavaScript 代码，直接复制粘贴到 .ts 文件里，就是合法的 TypeScript 代码；
+TS 只是比 JS 多了「类型注解」，其余写法完全一致</p><h3 id=类型注解>类型注解<a class=anchorjs-link href=#%e7%b1%bb%e5%9e%8b%e6%b3%a8%e8%a7%a3></a></h3><p>常用的类型注解</p><ul><li>string</li><li>number</li><li>boolean</li><li>unknown</li><li>void</li></ul><p>类型注解怎么使用？</p><ul><li>优先让 TypeScript 推断：在声明变量并直接赋值时，通常可以省略类型注解，让 TS 自动推断。</li><li>明确函数签名<ul><li>函数的参数和返回值类型建议明确标注。</li><li>空数组初始化</li></ul></li></ul><h3 id=运行>运行<a class=anchorjs-link href=#%e8%bf%90%e8%a1%8c></a></h3><p>TypeScript 源代码，它不能直接被执行，需要转换为 JavaScript</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 无.js 文件生成，所有编译过程在内存中完成</span>
+</span></span><span style=display:flex><span>npm install -g ts-node
+</span></span><span style=display:flex><span>ts-node xxxx.ts
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># .js 文件生成, node 运行 js</span>
+</span></span><span style=display:flex><span>npm install -g typescript
+</span></span><span style=display:flex><span>tsc xxxx.ts
+</span></span><span style=display:flex><span>node xxxx.js
+</span></span></code></pre></td></tr></table></div></div><h3 id=ts特有语法>ts特有语法<a class=anchorjs-link href=#ts%e7%89%b9%e6%9c%89%e8%af%ad%e6%b3%95></a></h3><p>接口（Interfaces）：定义对象的结构</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#177500>// 最直接的方式：使用接口 (Interface)，更易于复用
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#a90d91>interface</span> <span style=color:#000>User</span> {
+</span></span><span style=display:flex><span>    <span style=color:#000>name</span>: <span style=color:#a90d91>string</span>;
+</span></span><span style=display:flex><span>    <span style=color:#000>age</span>: <span style=color:#a90d91>number</span>;
+</span></span><span style=display:flex><span>    <span style=color:#000>isStudent?</span>: <span style=color:#a90d91>boolean</span>; <span style=color:#177500>// 可选属性，用 ? 标记
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>    <span style=color:#a90d91>readonly</span> <span style=color:#000>id</span>: <span style=color:#a90d91>number</span>; <span style=color:#177500>// 只读属性，初始化后不能修改
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>let</span> <span style=color:#000>user</span>: <span style=color:#a90d91>Person</span> <span style=color:#000>=</span> { <span style=color:#000>name</span><span style=color:#000>:</span> <span style=color:#c41a16>&#34;李四&#34;</span>, <span style=color:#000>age</span>: <span style=color:#a90d91>30</span>, <span style=color:#000>id</span>: <span style=color:#a90d91>1</span> };
+</span></span><span style=display:flex><span><span style=color:#000>user</span>.<span style=color:#000>age</span> <span style=color:#000>=</span> <span style=color:#1c01ce>31</span>; <span style=color:#177500>// ✅ 可以修改
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#000>user</span>.<span style=color:#000>id</span> <span style=color:#000>=</span> <span style=color:#1c01ce>2</span>; <span style=color:#177500>// ❌ 错误：id是只读的
+</span></span></span></code></pre></td></tr></table></div></div><p>泛型（Generics）：创建可复用的组件</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#a90d91>function</span> <span style=color:#000>identity</span>&lt;<span style=color:#000>T</span>&gt;(<span style=color:#000>arg</span>: <span style=color:#a90d91>T</span>)<span style=color:#000>:</span> <span style=color:#000>T</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>arg</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>枚举（Enums）：定义一组命名常量</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#a90d91>enum</span> <span style=color:#000>Color</span> {
+</span></span><span style=display:flex><span>    <span style=color:#000>Red</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>Green</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>Blue</span>,
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/english-stu/ data-toggle=tooltip data-placement=top title="English Stu">Previous<br><span>English Stu</span></a></li><li class=next><a href=/posts/programming_language/python-import/ data-toggle=tooltip data-placement=top title="Python Import">Next<br><span>Python Import</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script></body></html>

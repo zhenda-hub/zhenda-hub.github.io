@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web on Zhenda's Blog</title><link>https://zhenda-hub.github.io/series/web/</link><description>Recent content in Web on Zhenda's Blog</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2023-2026 Zhenda. All Rights Reserved.</copyright><lastBuildDate>Tue, 31 Mar 2026 00:21:10 +0800</lastBuildDate><atom:link href="https://zhenda-hub.github.io/series/web/index.xml" rel="self" type="application/rss+xml"/><item><title>Wechat App</title><link>https://zhenda-hub.github.io/posts/web/wechat-app/wechat-app/</link><pubDate>Tue, 31 Mar 2026 00:21:10 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/wechat-app/wechat-app/</guid><description>微信小程序注册限制 主体类型 可注册小程序数量上限 备注 个人主体（身份证） 5 个 每个邮箱只能申请 1 个小程序 个体工商户 5 个 主管理员必须为法人 企业 / 政府 / 媒体 / 组织 50 个 适用于多业务线布局 关键原则：
+一个小程序账号只能对应发布一个小程序 数量限制基于&amp;quot;主体&amp;quot;（营业执照或身份证） 每个小程序需要独立的、未被注册过的邮箱 2025年新规：每个小程序需独立完成备案 合作流程阶段一：前期准备客户需要准备 营业执照（企业）或身份证（个人） 未注册过微信小程序的邮箱 企业对公账户信息（如需微信认证） 小程序名称、功能描述、类目 开发者需要提供 开发需求清单（功能列表、页面设计） 开发周期预估 费用报价（开发费、认证费、服务器等） 阶段二：客户注册小程序账号建议：由客户自行注册，确保所有权归属客户。
+注册步骤 访问 微信公众平台 点击&amp;quot;立即注册&amp;quot;，选择&amp;quot;小程序&amp;quot; 填写邮箱、密码、账号名称 选择主体类型（个人/企业） 填写主体信息并验证 完成注册 等待审核 企业：1-7个工作日 个人：通常即时或1-3个工作日 阶段三：设置开发者权限客户操作 登录小程序后台 进入&amp;quot;设置&amp;quot; → &amp;ldquo;人员设置&amp;rdquo; 点击&amp;quot;绑定开发者&amp;quot; 输入开发者的微信号/QQ号 选择权限级别： 开发者：可开发、调试、提交代码 体验者：仅可体验测试版本 项目成员：拥有部分管理权限 开发者操作 收到邀请通知 在微信中确认接受邀请 登录 微信开发者工具 验证权限 阶段四：备案（2025新规）客户操作 准备备案材料（营业执照、法人身份证等） 在小程序后台提交备案申请 等待管局审核（7-20个工作日） 注意：个人/个体户首次备案需逐个顺序提交，无法同时进行。</description></item><item><title>Homepage</title><link>https://zhenda-hub.github.io/posts/tools/homepage/</link><pubDate>Tue, 23 Sep 2025 08:57:51 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/homepage/</guid><description>网站首页网站首页的核心价值是「快速传递定位 + 引导用户行动 + 建立品牌认知」
+首页常见模块 顶部 Banner / Hero 区 一句话标题：说明网站核心价值（例如：“管理你的黄金投资，从这里开始”）。 简短描述：一两句话介绍功能。 一个显眼的 CTA 按钮（比如 “立即开始” / “查看数据”）。 配合背景图、插画或动态图表。
+核心功能展示
+用 3–4 个卡片介绍主要功能： 图标 + 标题 + 简短描述 比如 “实时黄金价格走势”、“智能投资分析”、“数据可视化报告”
+底部（Footer） 公司/网站信息、版权、联系方式、常见问题。</description></item><item><title>Electron Stu</title><link>https://zhenda-hub.github.io/posts/web/electron-stu/</link><pubDate>Tue, 12 Aug 2025 16:12:13 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/electron-stu/</guid><description>quickstart 1 2 npm init -y npm install electron --save-dev 1 2 3 4 5 6 // package.json &amp;#34;main&amp;#34;: &amp;#34;main.js&amp;#34;, &amp;#34;scripts&amp;#34;: { &amp;#34;start&amp;#34;: &amp;#34;electron .&amp;#34;, &amp;#34;test&amp;#34;: &amp;#34;echo \&amp;#34;Error: no test specified\&amp;#34; &amp;amp;&amp;amp; exit 1&amp;#34; }, 1 npm run start 1 2 // 加载页面 .loadFile() 为了将 Electron 的不同类型的进程桥接在一起，我们需要使用被称为 预加载 的特殊脚本。
+package最简单的软件要300M
+前置环境 1 2 npm install --save-dev @electron-forge/cli npx electron-forge import 如果发布rpm包, 需要安装环境
+1 sudo apt install rpm 添加 元数据 1 2 3 // package.</description></item><item><title>Crawler</title><link>https://zhenda-hub.github.io/posts/web/crawler/</link><pubDate>Wed, 18 Dec 2024 18:56:31 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/crawler/</guid><description>爬数据流程查看 代码 请求 获取requests
+httpx
+selenium
+playwright
+解析xml
+parse() xpath() lxml
+parse() find_all() bs4
+保存其他Scrapy
+fiddler</description></item><item><title>Fastapi Tutorial</title><link>https://zhenda-hub.github.io/posts/web/fastapi-tutorial/</link><pubDate>Sat, 09 Nov 2024 22:57:03 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/fastapi-tutorial/</guid><description>[toc]
+link https://fastapi.tiangolo.com/zh/tutorial/first-steps/
+快速开始 1 uvicorn main:app --reload --port 8000 查看restful 文档:
+http://127.0.0.1:8000/docs http://127.0.0.1:8000/redoc 前置内容异步async await
+pydantic 类型https://docs.pydantic.dev/latest/concepts/models/ https://docs.pydantic.dev/latest/examples/orms/#__tabbed_1_2
+Annotated 和 pydantic 结合:
+1 2 3 4 from typing import Annotated from pydantic import BaseModel, Field Annotated[str, Field(min_length=2, max_length=5)] view函数请求参数和校验 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 from pydantic import BaseModel, Field app = FastAPI() # 请求体定义 class Item(BaseModel): name: str description: str | None = Field( default=None, title=&amp;#34;The description of the item&amp;#34;, max_length=300 ) price: float = Field(gt=0, description=&amp;#34;The price must be greater than zero&amp;#34;) tax: float | None = None @app.</description></item><item><title>Css Guide</title><link>https://zhenda-hub.github.io/posts/web/css-guide/</link><pubDate>Thu, 27 Jun 2024 15:35:55 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/css-guide/</guid><description>css选择器 https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Basic_selectors https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Attribute_selectors https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/Styling_basics/Combinators 常用属性 属性 描述 类型 color 设置文本颜色 color text-decoration 设置文本装饰（如下划线、删除线等） text-align 设置文本对齐方式 font-family 设置字体族系 font font-size 设置字体大小 font-weight 设置字体粗细 line-height 设置行高 letter-spacing 设置字符间距 background-color 设置背景颜色 background background-image 设置背景图片 background-size 设置背景图片大小 margin 外边距 margin padding 内边距 padding border 边框 border width 设置宽度 height 设置高度 display 元素的显示方式（如block、inline、flex、none等） display position 元素的定位方式（static、relative、absolute、fixed等） position top, right, bottom, left 设置定位元素的位置 float 设置浮动 clear 清除浮动效果 flex-direction 设置Flexbox布局的主轴方向 justify-content 设置Flexbox布局主轴上子元素的对齐方式 align-items 设置Flexbox布局交叉轴上子元素的对齐方式 grid-template-columns, grid-template-rows 设置Grid布局的列和行的大小和数量 grid-column, grid-row 设置Grid布局元素所占的列和行范围 transition 设置过渡效果 animation 设置动画效果 box-shadow 设置阴影效果 overflow 设置元素内容溢出效果(scroll, hidden, visible) overflow opacity 设置透明度 opacity 布局 https://developer.</description></item><item><title>Tornado Tutorial</title><link>https://zhenda-hub.github.io/posts/web/tornado-tutorial/tornado-tutorial/</link><pubDate>Sun, 26 May 2024 01:17:25 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/tornado-tutorial/tornado-tutorial/</guid><description>websocket 概念 可以双向发送消息 WebSocket 允许服务器主动向客户端推送数据，实现实时性更强的通信 WebSocketHandler web RequestHandler
+调用的执行顺序 set_default_headers
+initialize
+子类初始化 入口
+get
+self.request
+self.get_argument(&amp;lsquo;k&amp;rsquo;) # 获取一个参数
+self.get_arguments(&amp;lsquo;k&amp;rsquo;) # 获取一个参数列表
+post
+json.loads(self.request.body) put
+delete
+prepare
+on_finish
+redirect
+write
+所有 JSON 输出都应该包装在一个字典中 render()
+返回 html header
+cookies
+get_current_user
+status
+authenticated
+用户认证 tornado.ioloop.PeriodicCallback()
+定时任务 https://www.tornadoweb.org/en/stable/web.html</description></item><item><title>Flask Tutorial</title><link>https://zhenda-hub.github.io/posts/web/flask-tutorial/</link><pubDate>Sun, 26 May 2024 01:17:16 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/flask-tutorial/</guid><description>[toc]
+link: https://flask.palletsprojects.com/en/stable/
+快速开始 1 2 3 4 5 6 7 from flask import Flask app = Flask(__name__) @app.route(&amp;#34;/&amp;#34;) def hello_world(): return &amp;#34;&amp;lt;p&amp;gt;Hello, World!&amp;lt;/p&amp;gt;&amp;#34; 其他有用函数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 from flask import request, url_for, render_template, abort, redirect, make_response, session with app.</description></item><item><title>Vue教程</title><link>https://zhenda-hub.github.io/posts/web/vue%E6%95%99%E7%A8%8B/</link><pubDate>Fri, 24 May 2024 10:16:28 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/vue%E6%95%99%E7%A8%8B/</guid><description>[toc]
+document https://cn.vuejs.org/ https://cn.vuejs.org/tutorial/ https://www.vueframework.com/docs/v3/cn/style-guide https://cn.vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram 前置知识 名称 作用 nvm node版本管理工具 node 运行环境 npm node的包管理工具 nvm 命令:
+1 2 3 4 5 6 7 8 9 10 11 # 查看 nvm ls nvm ls-remote # 设置默认版本 nvm alias default xxx.xxx.xxx # 使用 nvm use xxx.xxx.xxx nvm install xxx.xxx.xxx nvm uninstall xxx.xxx.xxx node 命令:
+1 2 node -v node xxx.js npm 命令:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 # 配置源 npm get registry npm config set registry 地址 # 查看版本 npm -v npm config list # 生成 package.</description></item><item><title>Django教程</title><link>https://zhenda-hub.github.io/posts/web/django%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 30 Apr 2024 14:07:14 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/web/django%E6%95%99%E7%A8%8B/</guid><description>[toc]
+网站开发逻辑 数据 页面 api 通信协议 层级 协议及描述 应用层 - HTTP: 网页浏览的基础协议，用于传输网页内容。 - HTTPS: HTTP 的加密版本。 - FTP: 文件传输协议。 - SMTP: 简单邮件传输协议，用于发送电子邮件。 - POP3: 用于接收电子邮件。 - IMAP: 用于同步和管理电子邮件。 - DNS: 将域名解析为 IP 地址。 - SSH: 安全远程管理协议。 - Telnet: 早期的远程登录协议，已被 SSH 取代。 - WebSocket: 用于建立持久的双向通信。 传输层 - TCP: 面向连接的协议，提供可靠的数据传输。 - UDP: 无连接的协议，适用于实时应用。 - QUIC: 基于 UDP 的新传输层协议，提供更高的效率。 网络层 - IP: 网络层的基本协议，负责数据包的传输。 - IPv4: 使用 32 位地址。 - IPv6: 使用 128 位地址，解决 IP 地址枯竭问题。 - ICMP: 网络诊断信息协议（如 ping）。 - ARP: 将 IP 地址解析为物理地址。 数据链路层 - Ethernet: 局域网的有线通信协议。 - Wi-Fi: 无线局域网协议。 - PPP: 点对点协议，用于数据传输。 - STP: 防止网络环路的生成树协议。 物理层 - Ethernet（物理层部分）: 定义电信号如何传输。 - Wi-Fi（物理层部分）: 定义无线信号的传输。 - Bluetooth: 短距离无线通信协议。 会话层、表示层 - SSL/TLS: 提供加密连接，保护数据传输。 - RPC: 允许远程过程调用。 其他协议 - MQTT: 轻量级发布/订阅消息协议，适用于物联网。 - AMQP: 企业级消息队列协议。 - gRPC: 基于 HTTP/2 的远程过程调用框架。 - SFTP: 基于 SSH 的安全文件传输协议。 HTTP 请求方式 传参方式 示例 GET 查询字符串 (Query Parameters) GET /users?</description></item></channel></rss>

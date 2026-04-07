@@ -1,0 +1,114 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>AI教程 | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content="[toc]
+<baidu.com>
+模型细化模型蒸馏大模型指导小模型
+优化效果很明显:
+在NLP领域，知识蒸馏可以用于提升小模型的推理性能，同时减少模型的参数量，提高模型的运行速度。例如，DistilBERT与BERT相比减少了40%的参数，同时保留了BERT 97%的性能，但提高了60%的速度
+思维链&mldr;预训练: 通常是在大规模无标注数据上通过自监督学习得到的，它们具有对一般自然语言结构的良好理解能力
+微调: 针对具体下游任务（如文本分类、问答系统、命名实体识别等），使用相对较小规模但有标签的目标数据集对该模型的部分或全部参数进行进一步的训练。
+在 prompt 中添加“Let’s think step by step”或“请一步步推理”等指令，无需示例也能触发内生的分步生成。
+大模型一旦超越某规模阈值，链式推理成功率呈指数级跃升
+DeepSeek通过思维链技术将复杂问题拆解为一系列连贯的中间推理步骤
+机器学习：特别是深度学习，使代理可以从大量数据中学习模式，并据此作出预测或决策。 强化学习：一种特殊的机器学习形式，其中代理通过尝试不同的行动并在每次尝试后接收奖励或惩罚来学习最优策略。 (1) 强化学习的作用
+目标：通过GRPO算法，模型学习生成更详细、更合理的推理步骤（长CoT）以提高奖励（如答案正确性）。 机制：训练时生成多个候选答案，奖励信号不仅评估最终答案正误，还隐式鼓励逻辑连贯的推理路径（如通过格式奖励）。 奖励模型（Reward Model）: 使用奖励模型替代奖励函数,模拟人类偏好, 用来优化别的模型
+对于复杂的数学问题、逻辑推理或者需要多步操作的任务而言，链式思考提示尤为有效
+记忆功能&mldr;
+MOE路由器（Router） + n个专家
+可扩展性：添加更多专家可扩展模型能力，无需重新训练整个网络。 灵活性：动态适配不同任务需求（如NLP、CV、语音识别）。
+中电九天的LoRA-MoE专利通过任务嵌入矩阵和线性转换层生成专家权重，需联合微调门控网络和专家参数。
+MCP通过 MCP，AI 模型可以安全地访问本地文件、数据库、API 等外部资源。
+常见问题欠拟合: 训练集误差大.处理方法:
+使用复杂的模型 特征工程 修改optim 过拟合: 训练集误差小, 测试集误差大.处理方法:
+增加数据 数据增强 降低模型复杂度 dropout: 随机丢弃神经网络中的神经元，防止过拟合 对损失函数, 正则化 early stopping? Dropout: nn.Dropout 通过随机丢弃神经元来强制模型学习鲁棒特征，主要适用于深度神经网络。
+正则化:（尤其是L1和L2）通过在损失函数中添加惩罚项来限制模型复杂度，有效地防止模型过拟合，提高模型的泛化能力, 适用于广泛的机器学习模型。
+梯度消失：参数更新过小，在每次更新时几乎不会移动，导致模型无法学习。
+使用ReLU等激活函数
+梯度爆炸：参数更新过大，破坏了模型的稳定收敛；
+梯度裁剪
+避免陷入局部极小值 参数初始化 更换好的优化器 动量梯度下降 为了打破对称性，实践中常采用随机初始化的方法为每个神经元分配不同的初始权重。例如，Xavier/Glorot初始化、He初始化等方法都是基于不同的理论基础来随机初始化权重，以确保每个神经元从训练开始就具有一定的独特性，促进更有效的学习"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="AI教程"><meta name=twitter:description content="[toc]
+<baidu.com>
+模型细化模型蒸馏大模型指导小模型
+优化效果很明显:
+在NLP领域，知识蒸馏可以用于提升小模型的推理性能，同时减少模型的参数量，提高模型的运行速度。例如，DistilBERT与BERT相比减少了40%的参数，同时保留了BERT 97%的性能，但提高了60%的速度
+思维链…预训练: 通常是在大规模无标注数据上通过自监督学习得到的，它们具有对一般自然语言结构的良好理解能力
+微调: 针对具体下游任务（如文本分类、问答系统、命名实体识别等），使用相对较小规模但有标签的目标数据集对该模型的部分或全部参数进行进一步的训练。
+在 prompt 中添加“Let’s think step by step”或“请一步步推理”等指令，无需示例也能触发内生的分步生成。
+大模型一旦超越某规模阈值，链式推理成功率呈指数级跃升
+DeepSeek通过思维链技术将复杂问题拆解为一系列连贯的中间推理步骤
+机器学习：特别是深度学习，使代理可以从大量数据中学习模式，并据此作出预测或决策。 强化学习：一种特殊的机器学习形式，其中代理通过尝试不同的行动并在每次尝试后接收奖励或惩罚来学习最优策略。 (1) 强化学习的作用
+目标：通过GRPO算法，模型学习生成更详细、更合理的推理步骤（长CoT）以提高奖励（如答案正确性）。 机制：训练时生成多个候选答案，奖励信号不仅评估最终答案正误，还隐式鼓励逻辑连贯的推理路径（如通过格式奖励）。 奖励模型（Reward Model）: 使用奖励模型替代奖励函数,模拟人类偏好, 用来优化别的模型
+对于复杂的数学问题、逻辑推理或者需要多步操作的任务而言，链式思考提示尤为有效
+记忆功能…
+MOE路由器（Router） + n个专家
+可扩展性：添加更多专家可扩展模型能力，无需重新训练整个网络。 灵活性：动态适配不同任务需求（如NLP、CV、语音识别）。
+中电九天的LoRA-MoE专利通过任务嵌入矩阵和线性转换层生成专家权重，需联合微调门控网络和专家参数。
+MCP通过 MCP，AI 模型可以安全地访问本地文件、数据库、API 等外部资源。
+常见问题欠拟合: 训练集误差大.处理方法:
+使用复杂的模型 特征工程 修改optim 过拟合: 训练集误差小, 测试集误差大.处理方法:
+增加数据 数据增强 降低模型复杂度 dropout: 随机丢弃神经网络中的神经元，防止过拟合 对损失函数, 正则化 early stopping? Dropout: nn.Dropout 通过随机丢弃神经元来强制模型学习鲁棒特征，主要适用于深度神经网络。
+正则化:（尤其是L1和L2）通过在损失函数中添加惩罚项来限制模型复杂度，有效地防止模型过拟合，提高模型的泛化能力, 适用于广泛的机器学习模型。
+梯度消失：参数更新过小，在每次更新时几乎不会移动，导致模型无法学习。
+使用ReLU等激活函数
+梯度爆炸：参数更新过大，破坏了模型的稳定收敛；
+梯度裁剪
+避免陷入局部极小值 参数初始化 更换好的优化器 动量梯度下降 为了打破对称性，实践中常采用随机初始化的方法为每个神经元分配不同的初始权重。例如，Xavier/Glorot初始化、He初始化等方法都是基于不同的理论基础来随机初始化权重，以确保每个神经元从训练开始就具有一定的独特性，促进更有效的学习"><meta property="og:url" content="https://zhenda-hub.github.io/posts/ai/ai%E6%95%99%E7%A8%8B/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="AI教程"><meta property="og:description" content="[toc]
+<baidu.com>
+模型细化模型蒸馏大模型指导小模型
+优化效果很明显:
+在NLP领域，知识蒸馏可以用于提升小模型的推理性能，同时减少模型的参数量，提高模型的运行速度。例如，DistilBERT与BERT相比减少了40%的参数，同时保留了BERT 97%的性能，但提高了60%的速度
+思维链…预训练: 通常是在大规模无标注数据上通过自监督学习得到的，它们具有对一般自然语言结构的良好理解能力
+微调: 针对具体下游任务（如文本分类、问答系统、命名实体识别等），使用相对较小规模但有标签的目标数据集对该模型的部分或全部参数进行进一步的训练。
+在 prompt 中添加“Let’s think step by step”或“请一步步推理”等指令，无需示例也能触发内生的分步生成。
+大模型一旦超越某规模阈值，链式推理成功率呈指数级跃升
+DeepSeek通过思维链技术将复杂问题拆解为一系列连贯的中间推理步骤
+机器学习：特别是深度学习，使代理可以从大量数据中学习模式，并据此作出预测或决策。 强化学习：一种特殊的机器学习形式，其中代理通过尝试不同的行动并在每次尝试后接收奖励或惩罚来学习最优策略。 (1) 强化学习的作用
+目标：通过GRPO算法，模型学习生成更详细、更合理的推理步骤（长CoT）以提高奖励（如答案正确性）。 机制：训练时生成多个候选答案，奖励信号不仅评估最终答案正误，还隐式鼓励逻辑连贯的推理路径（如通过格式奖励）。 奖励模型（Reward Model）: 使用奖励模型替代奖励函数,模拟人类偏好, 用来优化别的模型
+对于复杂的数学问题、逻辑推理或者需要多步操作的任务而言，链式思考提示尤为有效
+记忆功能…
+MOE路由器（Router） + n个专家
+可扩展性：添加更多专家可扩展模型能力，无需重新训练整个网络。 灵活性：动态适配不同任务需求（如NLP、CV、语音识别）。
+中电九天的LoRA-MoE专利通过任务嵌入矩阵和线性转换层生成专家权重，需联合微调门控网络和专家参数。
+MCP通过 MCP，AI 模型可以安全地访问本地文件、数据库、API 等外部资源。
+常见问题欠拟合: 训练集误差大.处理方法:
+使用复杂的模型 特征工程 修改optim 过拟合: 训练集误差小, 测试集误差大.处理方法:
+增加数据 数据增强 降低模型复杂度 dropout: 随机丢弃神经网络中的神经元，防止过拟合 对损失函数, 正则化 early stopping? Dropout: nn.Dropout 通过随机丢弃神经元来强制模型学习鲁棒特征，主要适用于深度神经网络。
+正则化:（尤其是L1和L2）通过在损失函数中添加惩罚项来限制模型复杂度，有效地防止模型过拟合，提高模型的泛化能力, 适用于广泛的机器学习模型。
+梯度消失：参数更新过小，在每次更新时几乎不会移动，导致模型无法学习。
+使用ReLU等激活函数
+梯度爆炸：参数更新过大，破坏了模型的稳定收敛；
+梯度裁剪
+避免陷入局部极小值 参数初始化 更换好的优化器 动量梯度下降 为了打破对称性，实践中常采用随机初始化的方法为每个神经元分配不同的初始权重。例如，Xavier/Glorot初始化、He初始化等方法都是基于不同的理论基础来随机初始化权重，以确保每个神经元从训练开始就具有一定的独特性，促进更有效的学习"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-05-24T10:16:53+08:00"><meta property="article:modified_time" content="2024-05-24T10:16:53+08:00"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/ai/prompts/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/ai/ai-tool/"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags></div><h1>AI教程</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Fri, May 24, 2024</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><p>[toc]</p><p>&lt;baidu.com></p><h2 id=模型细化>模型细化<a class=anchorjs-link href=#%e6%a8%a1%e5%9e%8b%e7%bb%86%e5%8c%96></a></h2><h3 id=模型蒸馏>模型蒸馏<a class=anchorjs-link href=#%e6%a8%a1%e5%9e%8b%e8%92%b8%e9%a6%8f></a></h3><p>大模型指导小模型</p><p>优化效果很明显:</p><p>在NLP领域，知识蒸馏可以用于提升小模型的推理性能，同时减少模型的参数量，提高模型的运行速度。例如，DistilBERT与BERT相比减少了40%的参数，同时保留了BERT 97%的性能，但提高了60%的速度</p><h3 id=思维链>思维链&mldr;<a class=anchorjs-link href=#%e6%80%9d%e7%bb%b4%e9%93%be></a></h3><p>预训练: 通常是在大规模无标注数据上通过自监督学习得到的，它们具有对一般自然语言结构的良好理解能力</p><p>微调: 针对具体下游任务（如文本分类、问答系统、命名实体识别等），使用相对较小规模但<strong>有标签的目标数据集</strong>对该模型的<strong>部分或全部参数</strong>进行进一步的训练。</p><p>在 prompt 中添加“Let’s think step by step”或“请一步步推理”等指令，无需示例也能触发内生的分步生成。</p><p>大模型一旦超越某规模阈值，链式推理成功率呈指数级跃升</p><p>DeepSeek通过<strong>思维链技术</strong>将复杂问题<strong>拆解</strong>为一系列连贯的中间推理步骤</p><p>机器学习：特别是深度学习，使代理可以从大量数据中学习模式，并据此作出预测或决策。
+强化学习：一种特殊的机器学习形式，其中代理通过尝试不同的行动并在每次尝试后接收奖励或惩罚来学习最优策略。
+(1) 强化学习的作用</p><ul><li>目标：通过GRPO算法，模型学习生成更详细、更合理的推理步骤（长CoT）以提高奖励（如答案正确性）。</li><li>机制：训练时生成多个候选答案，奖励信号不仅评估最终答案正误，还隐式鼓励逻辑连贯的推理路径（如通过格式奖励）。</li></ul><p>奖励模型（Reward Model）: 使用奖励模型替代奖励函数,模拟人类偏好, 用来优化别的模型</p><p>对于复杂的数学问题、逻辑推理或者需要多步操作的任务而言，链式思考提示尤为有效</p><h3 id=记忆功能>记忆功能<a class=anchorjs-link href=#%e8%ae%b0%e5%bf%86%e5%8a%9f%e8%83%bd></a></h3><p>&mldr;</p><h3 id=moe>MOE<a class=anchorjs-link href=#moe></a></h3><p>路由器（Router） + n个专家</p><p>可扩展性：添加更多专家可扩展模型能力，无需重新训练整个网络。
+灵活性：动态适配不同任务需求（如NLP、CV、语音识别）。</p><p>中电九天的LoRA-MoE专利通过任务嵌入矩阵和线性转换层生成专家权重，需联合微调门控网络和专家参数。</p><h3 id=mcp>MCP<a class=anchorjs-link href=#mcp></a></h3><p>通过 MCP，AI 模型可以安全地访问本地文件、数据库、API 等外部资源。</p><h2 id=常见问题>常见问题<a class=anchorjs-link href=#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98></a></h2><h3 id=欠拟合-训练集误差大>欠拟合: 训练集误差大.<a class=anchorjs-link href=#%e6%ac%a0%e6%8b%9f%e5%90%88-%e8%ae%ad%e7%bb%83%e9%9b%86%e8%af%af%e5%b7%ae%e5%a4%a7></a></h3><p>处理方法:</p><ul><li>使用复杂的模型</li><li>特征工程</li><li>修改optim</li></ul><h3 id=过拟合-训练集误差小-测试集误差大>过拟合: 训练集误差小, 测试集误差大.<a class=anchorjs-link href=#%e8%bf%87%e6%8b%9f%e5%90%88-%e8%ae%ad%e7%bb%83%e9%9b%86%e8%af%af%e5%b7%ae%e5%b0%8f-%e6%b5%8b%e8%af%95%e9%9b%86%e8%af%af%e5%b7%ae%e5%a4%a7></a></h3><p>处理方法:</p><ul><li>增加数据<ul><li>数据增强</li></ul></li><li>降低模型复杂度<ul><li>dropout: 随机丢弃神经网络中的神经元，防止过拟合</li><li>对损失函数, 正则化</li></ul></li><li>early stopping?</li></ul><p>Dropout: <code>nn.Dropout</code> 通过随机丢弃神经元来强制模型学习鲁棒特征，主要适用于深度神经网络。</p><p>正则化:（尤其是L1和L2）通过在损失函数中添加惩罚项来限制模型复杂度，有效地防止模型过拟合，提高模型的泛化能力, 适用于广泛的机器学习模型。</p><p>梯度消失：参数更新过小，在每次更新时几乎不会移动，导致模型无法学习。</p><p>使用ReLU等激活函数</p><p>梯度爆炸：参数更新过大，破坏了模型的稳定收敛；</p><p>梯度裁剪</p><h3 id=避免陷入局部极小值>避免陷入局部极小值<a class=anchorjs-link href=#%e9%81%bf%e5%85%8d%e9%99%b7%e5%85%a5%e5%b1%80%e9%83%a8%e6%9e%81%e5%b0%8f%e5%80%bc></a></h3><ul><li>参数初始化</li><li>更换好的优化器<ul><li>动量梯度下降</li></ul></li></ul><p>为了打破对称性，实践中常采用随机初始化的方法为每个神经元分配不同的初始权重。例如，Xavier/Glorot初始化、He初始化等方法都是基于不同的理论基础来随机初始化权重，以确保每个神经元从训练开始就具有一定的独特性，促进更有效的学习</p><h2 id=其他名词>其他名词<a class=anchorjs-link href=#%e5%85%b6%e4%bb%96%e5%90%8d%e8%af%8d></a></h2><table><thead><tr><th>名词</th><th>概念</th></tr></thead><tbody><tr><td>鲁棒性</td><td>指的是模型对数据中的噪声、异常值或分布变化的抵抗能力</td></tr><tr><td>对称性</td><td>指的是神经网络中不同神经元之间由于参数初始化相同而导致的相似或相同的行为</td></tr><tr><td>最大路径长度（Maximum Path Length）</td><td>指的是在网络中，从序列的一个位置到另一个位置传递信息所需经过的最大步骤数。这一指标反映了<strong>模型捕获长距离依赖关系的效率</strong></td></tr><tr><td>词元（Token）</td><td>模型可处理文本的最小单元, 包括 单词, 子词(词根root),字符等</td></tr><tr><td>词元化(Tokenization)</td><td>把文本分解成 单词,字符的过程</td></tr><tr><td>正则化（Regularization）</td><td>防止过拟合，提高模型泛化能力; 调整<strong>损失函数</strong>来控制<strong>模型参数</strong></td></tr><tr><td>激活值（Activation Value）</td><td>是指每个神经元在接收到输入信号后，经过加权求和和激活函数处理后产生的输出值</td></tr><tr><td>归一化（Normalization）</td><td>加快训练速度; 调整 输入数据或神经网络的激活值的<strong>分布</strong></td></tr><tr><td>原始输出（logits）</td><td>未经过 Sigmoid 激活的输出</td></tr><tr><td>predictions</td><td>输出经过 Sigmoid 激活函数</td></tr></tbody></table><table><thead><tr><th>方法</th><th>归一化维度</th><th>对批量大小敏感</th><th>适用场景</th><th>备注说明</th></tr></thead><tbody><tr><td>Batch Normalization (BN)</td><td>对每个特征在整个批次上归一化</td><td>是</td><td>卷积神经网络（CNN）等大批量训练</td><td>加速训练，减小内部协变量偏移，但在小批量或RNN中效果不佳。</td></tr><tr><td>Layer Normalization (LN)</td><td>对每个样本的所有特征归一化</td><td>否</td><td>循环神经网络（RNN）、Transformer等</td><td>对序列建模有效，适用于小批量训练。</td></tr><tr><td>Instance Normalization (IN)</td><td>对每个样本的每个通道归一化</td><td>否</td><td>图像风格迁移、图像生成等</td><td>强调图像的风格特征，常用于生成任务。</td></tr><tr><td>Group Normalization (GN)</td><td>对每个样本的通道分组归一化</td><td>否</td><td>小批量训练的卷积神经网络（CNN）</td><td>在小批量训练中表现稳定，兼具BN和LN的优点。</td></tr><tr><td>Weight Normalization (WN)</td><td>对神经网络的权重向量归一化</td><td>否</td><td>各类神经网络</td><td>加速训练，减少对初始化的敏感性。</td></tr><tr><td>Spectral Normalization (SN)</td><td>对权重矩阵的谱范数归一化</td><td>否</td><td>生成对抗网络（GAN）等</td><td>控制Lipschitz常数，提升训练稳定性。</td></tr></tbody></table><h2 id=番外>番外<a class=anchorjs-link href=#%e7%95%aa%e5%a4%96></a></h2><h3 id=用摄像头监控员工>用摄像头监控员工<a class=anchorjs-link href=#%e7%94%a8%e6%91%84%e5%83%8f%e5%a4%b4%e7%9b%91%e6%8e%a7%e5%91%98%e5%b7%a5></a></h3><p>这种做法可能会带来一些严重的问题:</p><ul><li>侵犯隐私：持续摄像监控会严重侵犯员工的隐私权。</li><li>破坏信任：这表明公司不信任员工，会极大损害员工与管理层之间的关系。</li><li>增加压力：被持续监视会给员工带来巨大的精神压力，可能导致工作效率下降和健康问题。</li><li>法律风险：在许多地方,这种做法可能违反劳动法和隐私法。</li><li>误判问题：简单的视频监控很难准确判断一个人是否在工作。思考、讨论等看似"不工作"的行为可能是工作过程的重要组成部分。</li><li>士气低落：这种管理方式会严重打击员工积极性,可能导致优秀员工离职。</li></ul><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/web/vue%E6%95%99%E7%A8%8B/ data-toggle=tooltip data-placement=top title=Vue教程>Previous<br><span>Vue教程</span></a></li><li class=next><a href=/posts/videos/computer-science-crash-course/ data-toggle=tooltip data-placement=top title="Computer Science Crash Course">Next<br><span>Computer Science Crash Course</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script></body></html>

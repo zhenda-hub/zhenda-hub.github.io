@@ -1,0 +1,182 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Sqlalchemy Stu | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content="https://docs.sqlalchemy.org/en/20/orm/quickstart.html https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html#one-to-many https://docs.sqlalchemy.org/en/20/orm/queryguide/select.html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 本身知识点 概念： 通过ORM（对象和表的映射）操作数据库的框架 步骤 创建基类 engine = create_engine（URL） Base = declarative_base（engine ） 定义映射 子类 表名 __tablename__ = '' 备注 __table_args__ = {'': ''} Column（） 类型 db."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Sqlalchemy Stu"><meta name=twitter:description content="https://docs.sqlalchemy.org/en/20/orm/quickstart.html https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html#one-to-many https://docs.sqlalchemy.org/en/20/orm/queryguide/select.html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 本身知识点 概念： 通过ORM（对象和表的映射）操作数据库的框架 步骤 创建基类 engine = create_engine（URL） Base = declarative_base（engine ） 定义映射 子类 表名 __tablename__ = '' 备注 __table_args__ = {'': ''} Column（） 类型 db."><meta property="og:url" content="https://zhenda-hub.github.io/posts/tech/sqlalchemy-stu/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="Sqlalchemy Stu"><meta property="og:description" content="https://docs.sqlalchemy.org/en/20/orm/quickstart.html https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html#one-to-many https://docs.sqlalchemy.org/en/20/orm/queryguide/select.html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 本身知识点 概念： 通过ORM（对象和表的映射）操作数据库的框架 步骤 创建基类 engine = create_engine（URL） Base = declarative_base（engine ） 定义映射 子类 表名 __tablename__ = '' 备注 __table_args__ = {'': ''} Column（） 类型 db."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-02-07T12:19:54+08:00"><meta property="article:modified_time" content="2025-02-07T12:19:54+08:00"><meta property="article:tag" content="Python"><meta property="article:tag" content="Sql"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/invest/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/algorithm/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/decentralization/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/docker%E6%8C%87%E5%8D%97/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E6%8C%87%E5%8D%97/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/tech/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8C%87%E5%8D%97/"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags><a class=tag href=/tags/python/ title=Python>Python</a>
+<a class=tag href=/tags/sql/ title=Sql>Sql</a></div><h1>Sqlalchemy Stu</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Fri, Feb 7, 2025</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><ul><li><a href=https://docs.sqlalchemy.org/en/20/orm/quickstart.html target=_blank>https://docs.sqlalchemy.org/en/20/orm/quickstart.html</a></li><li><a href=https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html#one-to-many target=_blank>https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html#one-to-many</a></li><li><a href=https://docs.sqlalchemy.org/en/20/orm/queryguide/select.html target=_blank>https://docs.sqlalchemy.org/en/20/orm/queryguide/select.html</a></li></ul><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">74
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-gdscript3 data-lang=gdscript3><span style=display:flex><span><span style=color:#000>本身知识点</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>概念：</span> <span style=color:#000>通过</span><span style=color:#000>ORM</span><span style=color:#000>（对象和表的映射）操作数据库的框架</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>步骤</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>创建基类</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>engine</span> <span style=color:#000>=</span> <span style=color:#000>create_engine</span><span style=color:#000>（</span><span style=color:#000>URL</span><span style=color:#000>）</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>Base</span> <span style=color:#000>=</span> <span style=color:#000>declarative_base</span><span style=color:#000>（</span><span style=color:#000>engine</span> <span style=color:#000>）</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>定义映射</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>子类</span>
+</span></span><span style=display:flex><span>                <span style=color:#000>表名</span>
+</span></span><span style=display:flex><span>                    <span style=color:#000>__tablename__</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;&#39;</span>
+</span></span><span style=display:flex><span>                <span style=color:#000>备注</span>
+</span></span><span style=display:flex><span>                    <span style=color:#000>__table_args__</span> <span style=color:#000>=</span> {<span style=color:#c41a16>&#39;&#39;</span>: <span style=color:#c41a16>&#39;&#39;</span>}
+</span></span><span style=display:flex><span>                <span style=color:#000>Column</span><span style=color:#000>（）</span>
+</span></span><span style=display:flex><span>                    <span style=color:#000>类型</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>db</span><span style=color:#000>.</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>Int</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>float</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>double</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>String</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>text</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>longtext</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>Date</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>time</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>datetime</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>bool</span>
+</span></span><span style=display:flex><span>                                <span style=color:#a90d91>enum</span>
+</span></span><span style=display:flex><span>                    <span style=color:#000>参数</span>
+</span></span><span style=display:flex><span>                            <span style=color:#000>primary_key</span><span style=color:#000>=</span><span style=color:#000>True</span>
+</span></span><span style=display:flex><span>                            <span style=color:#000>autoincrement</span><span style=color:#000>=</span><span style=color:#000>True</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>default</span><span style=color:#000>=</span>
+</span></span><span style=display:flex><span>                            <span style=color:#000>doc</span><span style=color:#000>=</span>
+</span></span><span style=display:flex><span>                            <span style=color:#000>comment</span><span style=color:#000>=</span>
+</span></span><span style=display:flex><span>                    <span style=color:#000>外键类</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>ForeignKey</span>(<span style=color:#c41a16>&#39;表名.属性&#39;</span>)
+</span></span><span style=display:flex><span>                            <span style=color:#000>ondelete</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;&#39;</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>CASCADE</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>DELETE</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>RESTRICT</span>
+</span></span><span style=display:flex><span>                <span style=color:#000>relationship</span>(<span style=color:#c41a16>&#39;类名&#39;</span>)
+</span></span><span style=display:flex><span>                    <span style=color:#000>一对多</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>backref</span><span style=color:#000>=</span><span style=color:#000>True</span>
+</span></span><span style=display:flex><span>                    <span style=color:#000>一对一</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>子表</span>
+</span></span><span style=display:flex><span>                            <span style=color:#000>backref</span><span style=color:#000>=</span><span style=color:#000>backref</span>(<span style=color:#c41a16>&#39;属性&#39;</span>, <span style=color:#000>uselist</span><span style=color:#000>=</span><span style=color:#000>False</span>)
+</span></span><span style=display:flex><span>                    <span style=color:#000>多对多</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>先用</span><span style=color:#000>Table</span>()<span style=color:#000>设立中间表</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>backref</span><span style=color:#000>=</span><span style=color:#000>True</span><span style=color:#000>，</span> <span style=color:#000>secondary</span><span style=color:#000>=</span><span style=color:#000>中间表变量名</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>表的操作</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>Base</span><span style=color:#000>.</span><span style=color:#000>metadata</span><span style=color:#000>.</span><span style=color:#000>drop_all</span>()
+</span></span><span style=display:flex><span>            <span style=color:#000>Base</span><span style=color:#000>.</span><span style=color:#000>metadata</span><span style=color:#000>.</span><span style=color:#000>create_all</span>()
+</span></span><span style=display:flex><span>        <span style=color:#000>CRUD</span>
+</span></span><span style=display:flex><span>                <span style=color:#000>session</span> <span style=color:#000>=</span> <span style=color:#000>sessionmaker</span>(<span style=color:#000>engine</span> )<span style=color:#000>（）</span>
+</span></span><span style=display:flex><span>                    <span style=color:#000>增</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>子类对象</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>session</span> <span style=color:#000>=</span> <span style=color:#000>add</span>(<span style=color:#000>子类对象</span>)
+</span></span><span style=display:flex><span>                    <span style=color:#000>查</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>session</span><span style=color:#000>.</span><span style=color:#000>query</span>(<span style=color:#000>子类名</span>)<span style=color:#000>.</span><span style=color:#000>filter</span>()
+</span></span><span style=display:flex><span>                            <span style=color:#000>first</span>()
+</span></span><span style=display:flex><span>                    <span style=color:#000>高级</span>
+</span></span><span style=display:flex><span>                        <span style=color:#000>session</span><span style=color:#000>.</span><span style=color:#000>query</span>()<span style=color:#000>.</span><span style=color:#000>order_by</span>()
+</span></span><span style=display:flex><span>                            <span style=color:#000>all</span>()
+</span></span><span style=display:flex><span>                        <span style=color:#000>分页查询</span>
+</span></span><span style=display:flex><span>                            <span style=color:#000>方法</span><span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>session</span><span style=color:#000>.</span><span style=color:#000>query</span>()<span style=color:#000>.</span><span style=color:#000>slice</span>()
+</span></span><span style=display:flex><span>                                    <span style=color:#000>all</span>()
+</span></span><span style=display:flex><span>                            <span style=color:#000>方法</span><span style=color:#1c01ce>2</span>
+</span></span><span style=display:flex><span>                                <span style=color:#000>session</span><span style=color:#000>.</span><span style=color:#000>query</span>()<span style=color:#000>.</span><span style=color:#000>offset</span>()<span style=color:#000>.</span><span style=color:#000>limit</span>()
+</span></span><span style=display:flex><span>                                    <span style=color:#000>all</span>()
+</span></span><span style=display:flex><span>                <span style=color:#000>session</span><span style=color:#000>.</span><span style=color:#000>commit</span>()
+</span></span><span style=display:flex><span>        <span style=color:#000>其他</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>with_entities</span><span style=color:#000>（）</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>子类</span><span style=color:#000>.</span><span style=color:#000>sort</span><span style=color:#000>.</span><span style=color:#000>asc</span>()
+</span></span><span style=display:flex><span><span style=color:#000>alembic</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>数据库版本管理</span>
+</span></span></code></pre></td></tr></table></div></div><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/system/multi_sys/ data-toggle=tooltip data-placement=top title=Multi_sys>Previous<br><span>Multi_sys</span></a></li><li class=next><a href=/posts/system/pc-cmd/ data-toggle=tooltip data-placement=top title="Pc Cmd">Next<br><span>Pc Cmd</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script></body></html>

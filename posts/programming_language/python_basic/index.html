@@ -1,0 +1,312 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Python_basic | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content='应用场景 数据分析（几行代码处理Excel） Web开发（Flask/Django） 自动化脚本（批量处理文件、爬虫） AI/机器学习（最强生态） python 数据类型和绝大多数的文件或编程语言一样
+基础的: num str None 复杂的: list, dict, set
+python 函数中, 参数的定义顺序 1 2 3 4 5 6 7 8 9 10 def func( pos1, # 位置参数 pos2, # 位置参数 pos3: int = 10, # 带默认值的参数 *args, # 可变位置参数 kw1, # 关键字参数 kw2: str = "test", # 带默认值的关键字参数 **kwargs # 可变关键字参数 ): pass python 类知识点 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 class Student: def __init__(self, name: str, age: int): self.'><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Python_basic"><meta name=twitter:description content='应用场景 数据分析（几行代码处理Excel） Web开发（Flask/Django） 自动化脚本（批量处理文件、爬虫） AI/机器学习（最强生态） python 数据类型和绝大多数的文件或编程语言一样
+基础的: num str None 复杂的: list, dict, set
+python 函数中, 参数的定义顺序 1 2 3 4 5 6 7 8 9 10 def func( pos1, # 位置参数 pos2, # 位置参数 pos3: int = 10, # 带默认值的参数 *args, # 可变位置参数 kw1, # 关键字参数 kw2: str = "test", # 带默认值的关键字参数 **kwargs # 可变关键字参数 ): pass python 类知识点 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 class Student: def __init__(self, name: str, age: int): self.'><meta property="og:url" content="https://zhenda-hub.github.io/posts/programming_language/python_basic/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="Python_basic"><meta property="og:description" content='应用场景 数据分析（几行代码处理Excel） Web开发（Flask/Django） 自动化脚本（批量处理文件、爬虫） AI/机器学习（最强生态） python 数据类型和绝大多数的文件或编程语言一样
+基础的: num str None 复杂的: list, dict, set
+python 函数中, 参数的定义顺序 1 2 3 4 5 6 7 8 9 10 def func( pos1, # 位置参数 pos2, # 位置参数 pos3: int = 10, # 带默认值的参数 *args, # 可变位置参数 kw1, # 关键字参数 kw2: str = "test", # 带默认值的关键字参数 **kwargs # 可变关键字参数 ): pass python 类知识点 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 class Student: def __init__(self, name: str, age: int): self.'><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-09-18T15:15:14+08:00"><meta property="article:modified_time" content="2024-09-18T15:15:14+08:00"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python-import/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python-pip/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python-small-tools/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/python%E5%9F%BA%E7%A1%80-%E7%B1%BB2/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E7%B1%BB/"><meta property="og:see_also" content="https://zhenda-hub.github.io/posts/programming_language/python%E5%9F%BA%E7%A1%80-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86-anaconda/"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags></div><h1>Python_basic</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Wed, Sep 18, 2024</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><h2 id=应用场景>应用场景<a class=anchorjs-link href=#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af></a></h2><ul><li>数据分析（几行代码处理Excel）</li><li>Web开发（Flask/Django）</li><li>自动化脚本（批量处理文件、爬虫）</li><li>AI/机器学习（最强生态）</li></ul><h2 id=python-数据类型>python 数据类型<a class=anchorjs-link href=#python-%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b></a></h2><p>和绝大多数的文件或编程语言一样</p><p>基础的: num str None
+复杂的: list, dict, set</p><h2 id=python-函数中-参数的定义顺序>python 函数中, 参数的定义顺序<a class=anchorjs-link href=#python-%e5%87%bd%e6%95%b0%e4%b8%ad-%e5%8f%82%e6%95%b0%e7%9a%84%e5%ae%9a%e4%b9%89%e9%a1%ba%e5%ba%8f></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>func</span>(
+</span></span><span style=display:flex><span>    <span style=color:#000>pos1</span>,              <span style=color:#177500># 位置参数</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>pos2</span>,              <span style=color:#177500># 位置参数</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>pos3</span>: <span style=color:#a90d91>int</span> <span style=color:#000>=</span> <span style=color:#1c01ce>10</span>,    <span style=color:#177500># 带默认值的参数</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>*</span><span style=color:#000>args</span>,             <span style=color:#177500># 可变位置参数</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>kw1</span>,               <span style=color:#177500># 关键字参数</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>kw2</span>: <span style=color:#a90d91>str</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;test&#34;</span>, <span style=color:#177500># 带默认值的关键字参数</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>**</span><span style=color:#000>kwargs</span>           <span style=color:#177500># 可变关键字参数</span>
+</span></span><span style=display:flex><span>):
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>pass</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=python-类知识点>python 类知识点<a class=anchorjs-link href=#python-%e7%b1%bb%e7%9f%a5%e8%af%86%e7%82%b9></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>Student</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>__init__</span>(<span style=color:#5b269a>self</span>, <span style=color:#000>name</span>: <span style=color:#a90d91>str</span>, <span style=color:#000>age</span>: <span style=color:#a90d91>int</span>):
+</span></span><span style=display:flex><span>        <span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>name</span> <span style=color:#000>=</span> <span style=color:#000>name</span>
+</span></span><span style=display:flex><span>        <span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>age</span> <span style=color:#000>=</span> <span style=color:#000>age</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>    <span style=color:#000>@classmethod</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>from_dict</span>(<span style=color:#5b269a>cls</span>, <span style=color:#000>data</span>: <span style=color:#a90d91>dict</span>):
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#5b269a>cls</span>(<span style=color:#000>name</span><span style=color:#000>=</span><span style=color:#000>data</span>[<span style=color:#c41a16>&#34;name&#34;</span>], <span style=color:#000>age</span><span style=color:#000>=</span><span style=color:#000>data</span>[<span style=color:#c41a16>&#34;age&#34;</span>])
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#000>@staticmethod</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>is_valid_age</span>(<span style=color:#000>age</span>: <span style=color:#a90d91>int</span>) <span style=color:#000>-&gt;</span> <span style=color:#a90d91>bool</span>:
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#000>age</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>say_hello</span>(<span style=color:#5b269a>self</span>):
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>print</span>(<span style=color:#c41a16>f</span><span style=color:#c41a16>&#34;Hello, my name is </span><span style=color:#c41a16>{</span><span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>name</span><span style=color:#c41a16>}</span><span style=color:#c41a16> and I am </span><span style=color:#c41a16>{</span><span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>age</span><span style=color:#c41a16>}</span><span style=color:#c41a16> years old.&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>def</span> <span style=color:#000>__repr__</span>(<span style=color:#5b269a>self</span>):
+</span></span><span style=display:flex><span>        <span style=color:#177500># eval(repr(obj))</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>return</span> <span style=color:#c41a16>f</span><span style=color:#c41a16>&#34;Student(name=</span><span style=color:#c41a16>{</span><span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>name</span><span style=color:#c41a16>!r}</span><span style=color:#c41a16>, age=</span><span style=color:#c41a16>{</span><span style=color:#5b269a>self</span><span style=color:#000>.</span><span style=color:#000>age</span><span style=color:#c41a16>}</span><span style=color:#c41a16>)&#34;</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#177500># dct = {</span>
+</span></span><span style=display:flex><span>        <span style=color:#177500>#     &#34;name&#34;: self.name,</span>
+</span></span><span style=display:flex><span>        <span style=color:#177500>#     &#34;age&#34;: self.age</span>
+</span></span><span style=display:flex><span>        <span style=color:#177500># }</span>
+</span></span><span style=display:flex><span>        <span style=color:#177500># return f&#34;Student.from_dict({dct})&#34;</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>dir</span>(<span style=color:#000>Student</span>)  <span style=color:#177500># To see all attributes and methods of the class</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#000>Student</span><span style=color:#000>.</span><span style=color:#000>__mro__</span>)  <span style=color:#177500># Output: (&lt;class &#39;__main__.Student&#39;&gt;, &lt;class &#39;object&#39;&gt;)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 属性操作</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>hasattr</span>()
+</span></span><span style=display:flex><span><span style=color:#a90d91>getattr</span>()
+</span></span><span style=display:flex><span><span style=color:#a90d91>setattr</span>()
+</span></span><span style=display:flex><span><span style=color:#a90d91>delattr</span>()
+</span></span></code></pre></td></tr></table></div></div><h3 id=f-string使用>f-string使用<a class=anchorjs-link href=#f-string%e4%bd%bf%e7%94%a8></a></h3><p>数字 格式化</p><table><thead><tr><th>需求</th><th>f-string (推荐)</th></tr></thead><tbody><tr><td>保留2位小数</td><td>&ldquo;f&rdquo;"{pi:.2f}"""</td></tr><tr><td>千位分隔符</td><td>&ldquo;f&rdquo;"{num:,}"""</td></tr><tr><td>百分比(1位)</td><td>&ldquo;f&rdquo;"{ratio:.1%}"""</td></tr><tr><td>补零(总宽5)</td><td>&ldquo;f&rdquo;"{num:05d}"""</td></tr><tr><td>右对齐(总宽10)</td><td>&ldquo;f&rdquo;"{num:>10}"""</td></tr></tbody></table><h3 id=repr-r的用法>repr !r的用法<a class=anchorjs-link href=#repr-r%e7%9a%84%e7%94%a8%e6%b3%95></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>import</span> <span style=color:#000>datetime</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>now</span> <span style=color:#000>=</span> <span style=color:#000>datetime</span><span style=color:#000>.</span><span style=color:#000>datetime</span><span style=color:#000>.</span><span style=color:#000>now</span>()
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#c41a16>f</span><span style=color:#c41a16>&#34;Current time: </span><span style=color:#c41a16>{</span><span style=color:#000>now</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>)  <span style=color:#177500># 使用 str()</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#c41a16>f</span><span style=color:#c41a16>&#34;Current time (repr): </span><span style=color:#c41a16>{</span><span style=color:#000>now</span><span style=color:#c41a16>!r}</span><span style=color:#c41a16>&#34;</span>)  <span style=color:#177500># 使用 repr()</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=多行import--换行>多行import, 换行<a class=anchorjs-link href=#%e5%a4%9a%e8%a1%8cimport--%e6%8d%a2%e8%a1%8c></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>from</span> <span style=color:#000>.utils.helpers</span> <span style=color:#a90d91>import</span> (
+</span></span><span style=display:flex><span>    <span style=color:#000>format_datetime</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>calculate_price</span>,
+</span></span><span style=display:flex><span>    <span style=color:#000>generate_order_number</span>,
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></td></tr></table></div></div><h2 id=except>except<a class=anchorjs-link href=#except></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>try</span>:
+</span></span><span style=display:flex><span>    <span style=color:#1c01ce>1</span><span style=color:#000>/</span><span style=color:#1c01ce>0</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>except</span> <span style=color:#000>Exception</span> <span style=color:#a90d91>as</span> <span style=color:#000>e</span>:
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>print</span>(<span style=color:#000>e</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>raise</span> <span style=color:#000>e</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=-和->* 和 **<a class=anchorjs-link href=#-%e5%92%8c-></a></h2><p>unpack</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>&gt;&gt;&gt; a, b, *c <span style=color:#000>=</span> <span style=color:#000>[</span>1,2,3,3,4,5,6<span style=color:#000>]</span>
+</span></span><span style=display:flex><span>&gt;&gt;&gt; a,b,c
+</span></span><span style=display:flex><span><span style=color:#000>(</span>1, 2, <span style=color:#000>[</span>3, 3, 4, 5, 6<span style=color:#000>])</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&gt;&gt;&gt; a, *b, <span style=color:#000>c</span> <span style=color:#000>=</span> <span style=color:#000>[</span>1,2,3,3,4,5,6<span style=color:#000>]</span>
+</span></span><span style=display:flex><span>&gt;&gt;&gt; a,b,c
+</span></span><span style=display:flex><span><span style=color:#000>(</span>1, <span style=color:#000>[</span>2, 3, 3, 4, 5<span style=color:#000>]</span>, 6<span style=color:#000>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>[] 和 {}</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#177500># 列表合并</span>
+</span></span><span style=display:flex><span><span style=color:#000>a</span> <span style=color:#000>=</span> [<span style=color:#1c01ce>1</span>, <span style=color:#1c01ce>2</span>]
+</span></span><span style=display:flex><span><span style=color:#000>b</span> <span style=color:#000>=</span> [<span style=color:#1c01ce>3</span>, <span style=color:#1c01ce>4</span>]
+</span></span><span style=display:flex><span><span style=color:#000>c</span> <span style=color:#000>=</span> [<span style=color:#000>*</span><span style=color:#000>a</span>, <span style=color:#000>*</span><span style=color:#000>b</span>, <span style=color:#1c01ce>5</span>]     <span style=color:#177500># → [1, 2, 3, 4, 5]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 字典合并</span>
+</span></span><span style=display:flex><span><span style=color:#000>d1</span> <span style=color:#000>=</span> {<span style=color:#c41a16>&#34;a&#34;</span>: <span style=color:#1c01ce>1</span>, <span style=color:#c41a16>&#34;b&#34;</span>: <span style=color:#1c01ce>2</span>}
+</span></span><span style=display:flex><span><span style=color:#000>d2</span> <span style=color:#000>=</span> {<span style=color:#c41a16>&#34;b&#34;</span>: <span style=color:#1c01ce>3</span>, <span style=color:#c41a16>&#34;c&#34;</span>: <span style=color:#1c01ce>4</span>}
+</span></span><span style=display:flex><span><span style=color:#000>d3</span> <span style=color:#000>=</span> {<span style=color:#000>**</span><span style=color:#000>d1</span>, <span style=color:#000>**</span><span style=color:#000>d2</span>}   <span style=color:#177500># → {&#39;a&#39;: 1, &#39;b&#39;: 3, &#39;c&#39;: 4}</span>
+</span></span></code></pre></td></tr></table></div></div><p>传参</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>add</span>(<span style=color:#000>a</span>, <span style=color:#000>b</span>, <span style=color:#000>c</span>):
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#000>a</span> <span style=color:#000>+</span> <span style=color:#000>b</span> <span style=color:#000>+</span> <span style=color:#000>c</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>lst</span> <span style=color:#000>=</span> [<span style=color:#1c01ce>10</span>, <span style=color:#1c01ce>20</span>, <span style=color:#1c01ce>30</span>]
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#000>add</span>(<span style=color:#000>*</span><span style=color:#000>lst</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>greet</span>(<span style=color:#000>name</span>, <span style=color:#000>age</span>):
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>print</span>(<span style=color:#c41a16>f</span><span style=color:#c41a16>&#34;Hello </span><span style=color:#c41a16>{</span><span style=color:#000>name</span><span style=color:#c41a16>}</span><span style=color:#c41a16>, you are </span><span style=color:#c41a16>{</span><span style=color:#000>age</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>info</span> <span style=color:#000>=</span> {<span style=color:#c41a16>&#34;name&#34;</span>: <span style=color:#c41a16>&#34;Tom&#34;</span>, <span style=color:#c41a16>&#34;age&#34;</span>: <span style=color:#1c01ce>18</span>}
+</span></span><span style=display:flex><span><span style=color:#000>greet</span>(<span style=color:#000>**</span><span style=color:#000>info</span>)   <span style=color:#177500># 等价于 greet(name=&#34;Tom&#34;, age=18)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=多list>多list<a class=anchorjs-link href=#%e5%a4%9alist></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>&gt;&gt;&gt; from itertools import chain
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&gt;&gt;&gt; <span style=color:#000>[</span>i <span style=color:#a90d91>for</span> i in chain<span style=color:#000>([</span>1,3,2<span style=color:#000>]</span>, <span style=color:#000>[</span><span style=color:#c41a16>&#39;a&#39;</span>,<span style=color:#c41a16>&#39;c&#39;</span>,<span style=color:#c41a16>&#39;e&#39;</span><span style=color:#000>])]</span>
+</span></span><span style=display:flex><span><span style=color:#000>[</span>1, 3, 2, <span style=color:#c41a16>&#39;a&#39;</span>, <span style=color:#c41a16>&#39;c&#39;</span>, <span style=color:#c41a16>&#39;e&#39;</span><span style=color:#000>]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&gt;&gt;&gt; <span style=color:#000>[</span>i <span style=color:#a90d91>for</span> i in zip<span style=color:#000>([</span>1,3,2<span style=color:#000>]</span>, <span style=color:#000>[</span><span style=color:#c41a16>&#39;a&#39;</span>,<span style=color:#c41a16>&#39;c&#39;</span>,<span style=color:#c41a16>&#39;e&#39;</span><span style=color:#000>])]</span>
+</span></span><span style=display:flex><span><span style=color:#000>[(</span>1, <span style=color:#c41a16>&#39;a&#39;</span><span style=color:#000>)</span>, <span style=color:#000>(</span>3, <span style=color:#c41a16>&#39;c&#39;</span><span style=color:#000>)</span>, <span style=color:#000>(</span>2, <span style=color:#c41a16>&#39;e&#39;</span><span style=color:#000>)]</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=set操作>set操作<a class=anchorjs-link href=#set%e6%93%8d%e4%bd%9c></a></h2><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#000>A</span> <span style=color:#000>=</span> {<span style=color:#1c01ce>1</span>, <span style=color:#1c01ce>2</span>, <span style=color:#1c01ce>3</span>}
+</span></span><span style=display:flex><span><span style=color:#000>B</span> <span style=color:#000>=</span> {<span style=color:#1c01ce>3</span>, <span style=color:#1c01ce>4</span>, <span style=color:#1c01ce>5</span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#000>A</span> <span style=color:#000>&amp;</span> <span style=color:#000>B</span>)   <span style=color:#177500># {3}</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#000>A</span> <span style=color:#000>|</span> <span style=color:#000>B</span>)   <span style=color:#177500># {1, 2, 3, 4, 5}</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#000>A</span> <span style=color:#000>-</span> <span style=color:#000>B</span>)   <span style=color:#177500># {1, 2}</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>print</span>(<span style=color:#000>A</span> <span style=color:#000>^</span> <span style=color:#000>B</span>)   <span style=color:#177500># {1, 2, 4, 5}</span>
+</span></span></code></pre></td></tr></table></div></div><p>其他常用
+- collection.
+- Counter()
+- 统计个数神器
+- most_comon()
+- pop
+- update
+- deque()
+- 双端队列
+- 1
+- append()
+- appendleft()
+- 2
+- popleft()
+- pop()
+- clear()
+- namedtuple
+- 创建一个结构体的东西
+- 不可修改
+- 简单数据
+- 方法
+- 创建
+- _make()
+- _replace()
+- 返回新实例
+- 查看
+- _asdict()
+- 返回字典
+- _fields
+- 所有字段
+- orderdict()
+- defaultdict(lambda:&ldquo;none&rdquo;)
+- 为不存在的 key 设置默认值
+- itertools.
+- 排列组合
+- 排列
+- permutations（）
+- 不放回，元素不重复
+- product（）
+- 多组
+- 组合
+- combinations
+- 不放回，元素不重复
+- combinations_with_replacement()
+- 多组
+- 1
+- 使用 for
+- 使用 list()
+- repeat()
+- cycle()
+- dataclass
+- 可以修改
+- 较复杂数据</p><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/web/css-guide/ data-toggle=tooltip data-placement=top title="Css Guide">Previous<br><span>Css Guide</span></a></li><li class=next><a href=/posts/programming_language/go_base/ data-toggle=tooltip data-placement=top title=Go_base>Next<br><span>Go_base</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script></body></html>

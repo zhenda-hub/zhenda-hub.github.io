@@ -1,0 +1,907 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Git资源 | Zhenda's Blog</title>
+<meta name=author content="Zhenda"><meta name=description content="[toc]
+官方文档https://git-scm.com/book/zh/v2
+git 重要概念 commit 以 commit 节点为根基, 记录历史, 当前 commit 为 HEAD branch 分支实际上是可移动的指针, 代表一系列commit 用于并行开发 创建删除非常轻量 代码仓库 远程仓库 部署在服务器中，供用户访问 本地仓库 信息都存放在 .git文件夹 里面， .git文件夹 所在的文件夹就是仓库 git 远程仓库平台 github
+最强大的国际git平台，海量的优秀仓库
+actions
+CICD pages
+静态网页部署 编写 md 发布到全网 railway
+部署 web 项目 gitlab
+支持自建远程仓库 https://docs.gitlab.com/ee/update/package/#upgrade-using-the-official-repositories ci/cd gitee
+国内使用方便 CICD 需要自己弄服务器 大体流程 工作区 本地仓库 远程仓库 git 使用方法基础使用使用前提: 安装 -> 配置 -> 远程仓库 -> 本地仓库
+安装&mldr;
+配置个人信息~/.gitconfig
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 # 查看 git 信息 git config -l # 编辑个人信息来显示提交记录 git config --global user."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Git资源"><meta name=twitter:description content="[toc]
+官方文档https://git-scm.com/book/zh/v2
+git 重要概念 commit 以 commit 节点为根基, 记录历史, 当前 commit 为 HEAD branch 分支实际上是可移动的指针, 代表一系列commit 用于并行开发 创建删除非常轻量 代码仓库 远程仓库 部署在服务器中，供用户访问 本地仓库 信息都存放在 .git文件夹 里面， .git文件夹 所在的文件夹就是仓库 git 远程仓库平台 github
+最强大的国际git平台，海量的优秀仓库
+actions
+CICD pages
+静态网页部署 编写 md 发布到全网 railway
+部署 web 项目 gitlab
+支持自建远程仓库 https://docs.gitlab.com/ee/update/package/#upgrade-using-the-official-repositories ci/cd gitee
+国内使用方便 CICD 需要自己弄服务器 大体流程 工作区 本地仓库 远程仓库 git 使用方法基础使用使用前提: 安装 -> 配置 -> 远程仓库 -> 本地仓库
+安装…
+配置个人信息~/.gitconfig
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 # 查看 git 信息 git config -l # 编辑个人信息来显示提交记录 git config --global user."><meta property="og:url" content="https://zhenda-hub.github.io/posts/tools/git-guide/git%E6%8C%87%E5%8D%97/"><meta property="og:site_name" content="Zhenda's Blog"><meta property="og:title" content="Git资源"><meta property="og:description" content="[toc]
+官方文档https://git-scm.com/book/zh/v2
+git 重要概念 commit 以 commit 节点为根基, 记录历史, 当前 commit 为 HEAD branch 分支实际上是可移动的指针, 代表一系列commit 用于并行开发 创建删除非常轻量 代码仓库 远程仓库 部署在服务器中，供用户访问 本地仓库 信息都存放在 .git文件夹 里面， .git文件夹 所在的文件夹就是仓库 git 远程仓库平台 github
+最强大的国际git平台，海量的优秀仓库
+actions
+CICD pages
+静态网页部署 编写 md 发布到全网 railway
+部署 web 项目 gitlab
+支持自建远程仓库 https://docs.gitlab.com/ee/update/package/#upgrade-using-the-official-repositories ci/cd gitee
+国内使用方便 CICD 需要自己弄服务器 大体流程 工作区 本地仓库 远程仓库 git 使用方法基础使用使用前提: 安装 -> 配置 -> 远程仓库 -> 本地仓库
+安装…
+配置个人信息~/.gitconfig
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 # 查看 git 信息 git config -l # 编辑个人信息来显示提交记录 git config --global user."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-01-08T23:37:30+08:00"><meta property="article:modified_time" content="2024-01-08T23:37:30+08:00"><meta property="article:tag" content="Git"><meta property="article:tag" content="Tools"><link rel=stylesheet href=/css/bootstrap.min.css crossorigin=anonymous><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/sass/main.css><link rel=stylesheet href=/zoomjs/zoom.min.css><script src=/js/lazysizes.min.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]}}</script></head><body><nav class="navbar navbar-default navbar-custom navbar-fixed-top invert"><div class=container-fluid><div class="navbar-header page-scroll"><button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://zhenda-hub.github.io/>Zhenda's Blog</a></div><div id=huxblog_navbar><div class=navbar-collapse><ul class="nav navbar-nav navbar-right"><li><a href=/ title=Home>Home</a></li><li><a href=/archive/ title=Archive>Archive</a></li><li><a href=/series/ title=Series>Series</a></li><li><a href=/about/ title=About>About</a></li><li><a href=https://github.com/zhenda-hub/ title=Github>Github</a></li><li class=search-icon><a href=javascript:void(0)><i class="fa fa-search"></i></a></li></ul></div></div></div></nav><script>var $body=document.body,$toggle=document.querySelector(".navbar-toggle"),$navbar=document.querySelector("#huxblog_navbar"),$collapse=document.querySelector(".navbar-collapse"),__HuxNav__={close:function(){$navbar.className=" ",setTimeout(function(){$navbar.className.indexOf("in")<0&&($collapse.style.height="0px")},400)},open:function(){$collapse.style.height="auto",$navbar.className+=" in"}};$toggle.addEventListener("click",function(){$navbar.className.indexOf("in")>0?__HuxNav__.close():__HuxNav__.open()}),document.addEventListener("click",function(e){if(e.target==$toggle)return;if(e.target.className=="icon-bar")return;__HuxNav__.close()})</script><div class=search-page><div class=search-icon-close-container><span class=search-icon-close><i class="fa fa-chevron-down"></i></span></div><div class="search-main container"><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><form></form><input type=text id=search-input placeholder="$ grep..."></form><div id=search-results class=mini-post-list></div></div></div></div></div><style type=text/css>header.intro-header{position:relative;background-image:url('')}</style><header class="intro-header style-text"><div class=header-mask></div><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><div class=tags><a class=tag href=/tags/git/ title=Git>Git</a>
+<a class=tag href=/tags/tools/ title=Tools>Tools</a></div><h1>Git资源</h1><h2 class=subheading></h2><span class=meta>Posted by Zhenda
+on Mon, Jan 8, 2024</span></div></div></div></div></header><article><div><div class=row><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+post-container"><span id=busuanzi_container_page_pv>Total Views: <span id=busuanzi_value_page_pv></span></span><p>[toc]</p><h2 id=官方文档>官方文档<a class=anchorjs-link href=#%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3></a></h2><p><a href=https://git-scm.com/book/zh/v2 target=_blank>https://git-scm.com/book/zh/v2</a></p><h2 id=git-重要概念>git 重要概念<a class=anchorjs-link href=#git-%e9%87%8d%e8%a6%81%e6%a6%82%e5%bf%b5></a></h2><ul><li>commit<ul><li>以 commit 节点为根基, 记录历史, 当前 commit 为 HEAD</li></ul></li><li>branch<ul><li>分支实际上是可移动的指针, 代表一系列commit</li><li>用于并行开发</li><li>创建删除非常轻量</li></ul></li><li>代码仓库<ul><li>远程仓库<ul><li>部署在服务器中，供用户访问</li></ul></li><li>本地仓库<ul><li>信息都存放在 <strong>.git文件夹</strong> 里面， <strong>.git文件夹</strong> 所在的文件夹就是仓库</li></ul></li></ul></li></ul><h2 id=git-远程仓库平台>git 远程仓库平台<a class=anchorjs-link href=#git-%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e5%b9%b3%e5%8f%b0></a></h2><ul><li><p>github</p><ul><li><p>最强大的国际git平台，海量的优秀仓库</p></li><li><p>actions</p><ul><li>CICD</li></ul></li><li><p>pages</p><ul><li>静态网页部署</li><li>编写 md 发布到全网</li></ul></li><li><p>railway</p><ul><li>部署 web 项目</li></ul></li></ul></li><li><p>gitlab</p><ul><li>支持自建远程仓库<ul><li><a href=https://docs.gitlab.com/ee/update/package/#upgrade-using-the-official-repositories target=_blank>https://docs.gitlab.com/ee/update/package/#upgrade-using-the-official-repositories</a></li></ul></li><li>ci/cd</li></ul></li><li><p>gitee</p><ul><li>国内使用方便</li><li>CICD<ul><li>需要自己弄服务器</li></ul></li></ul></li></ul><h2 id=大体流程>大体流程<a class=anchorjs-link href=#%e5%a4%a7%e4%bd%93%e6%b5%81%e7%a8%8b></a></h2><p><figure><a class=paragraph-image><img data-src=../imgs/git-liucheng.jpg data-action=zoom alt=流程图 class=lazyload></a></figure></p><ul><li>工作区</li><li>本地仓库</li><li>远程仓库</li></ul><h2 id=git-使用方法>git 使用方法<a class=anchorjs-link href=#git-%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95></a></h2><h3 id=基础使用>基础使用<a class=anchorjs-link href=#%e5%9f%ba%e7%a1%80%e4%bd%bf%e7%94%a8></a></h3><p>使用前提:
+<strong>安装 -> 配置 -> 远程仓库 -> 本地仓库</strong></p><h4 id=安装>安装<a class=anchorjs-link href=#%e5%ae%89%e8%a3%85></a></h4><p>&mldr;</p><h4 id=配置个人信息>配置个人信息<a class=anchorjs-link href=#%e9%85%8d%e7%bd%ae%e4%b8%aa%e4%ba%ba%e4%bf%a1%e6%81%af></a></h4><p>~/.gitconfig</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看 git 信息</span>
+</span></span><span style=display:flex><span>git config -l
+</span></span><span style=display:flex><span><span style=color:#177500># 编辑个人信息来显示提交记录</span>
+</span></span><span style=display:flex><span>git config --global user.name <span style=color:#c41a16>&#34;Your Name&#34;</span>
+</span></span><span style=display:flex><span>git config --global user.email <span style=color:#c41a16>&#34;Your Email&#34;</span>
+</span></span><span style=display:flex><span>git config --global pull.rebase <span style=color:#a90d91>false</span>
+</span></span><span style=display:flex><span><span style=color:#177500># 禁止git改换行, (win, linux 换行符不同)</span>
+</span></span><span style=display:flex><span>git config --global core.autocrlf <span style=color:#a90d91>false</span>
+</span></span><span style=display:flex><span><span style=color:#177500># 多系统配置</span>
+</span></span><span style=display:flex><span>git config --global core.autocrlf input <span style=color:#177500># linux</span>
+</span></span><span style=display:flex><span>git config --global core.autocrlf <span style=color:#a90d91>true</span> <span style=color:#177500># windows</span>
+</span></span><span style=display:flex><span><span style=color:#177500># 防止中文乱码！！！禁止git对非 ASCII 转义</span>
+</span></span><span style=display:flex><span>git config --global core.quotepath <span style=color:#a90d91>false</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 撤销修改</span>
+</span></span><span style=display:flex><span>git config --global --unset core.quotepath
+</span></span></code></pre></td></tr></table></div></div><h4 id=远程仓库>远程仓库<a class=anchorjs-link href=#%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93></a></h4><p>最好使用英文，方便国际化仓库</p><p>主要 md 文件</p><ul><li>README.md 介绍项目</li><li>CHANGELOG.md 更新日志</li><li>CODE_OF_CONDUCT.md 代码准则</li><li>CONTRIBUTING.md 贡献指南</li></ul><h5 id=gitignore>.gitignore<a class=anchorjs-link href=#gitignore></a></h5><p>作用: 设置忽略跟踪的文件或文件夹</p><p>.gitignore文件编辑的规则:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 忽略.log 结尾的文件</span>
+</span></span><span style=display:flex><span>*.log
+</span></span><span style=display:flex><span><span style=color:#177500># 忽略.vscode文件夹</span>
+</span></span><span style=display:flex><span>.vscode/
+</span></span><span style=display:flex><span><span style=color:#177500># 多级目录下的 config</span>
+</span></span><span style=display:flex><span>**/config
+</span></span><span style=display:flex><span><span style=color:#177500># 只忽略根目录下的 fd</span>
+</span></span><span style=display:flex><span>/fd/
+</span></span></code></pre></td></tr></table></div></div><p>命令</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看是否被忽略</span>
+</span></span><span style=display:flex><span>git check-ignore -v 文件
+</span></span><span style=display:flex><span><span style=color:#177500># 删除远程仓库</span>
+</span></span><span style=display:flex><span>git rm-r -cached 文件名
+</span></span></code></pre></td></tr></table></div></div><h4 id=本地仓库>本地仓库<a class=anchorjs-link href=#%e6%9c%ac%e5%9c%b0%e4%bb%93%e5%ba%93></a></h4><p>获得本地仓库</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 克隆</span>
+</span></span><span style=display:flex><span>git clone 远程的 ssh
+</span></span><span style=display:flex><span><span style=color:#177500># 初始化!!!!!!!!!!!!!</span>
+</span></span><span style=display:flex><span>git init
+</span></span><span style=display:flex><span>git remote add origin sshxxx
+</span></span><span style=display:flex><span>git push --set-upstream origin main
+</span></span></code></pre></td></tr></table></div></div><p>使用流程:
+<strong>pull dev -> new分支 -> 编辑 -> add -> commit -> push</strong></p><h4 id=branch>branch<a class=anchorjs-link href=#branch></a></h4><p><strong>一个功能: 一个branch, 多个commit</strong></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 默认分支命名:</span>
+</span></span><span style=display:flex><span>main  <span style=color:#177500># 分支保护, 稳定可发布的分支</span>
+</span></span><span style=display:flex><span>dev
+</span></span><span style=display:flex><span>origin/xxx-bbb <span style=color:#177500># 远程分支的默认名称是 origin</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 自定义分支名:</span>
+</span></span><span style=display:flex><span>feature/xxx-bbb
+</span></span><span style=display:flex><span>debug/xxx-bbb
+</span></span><span style=display:flex><span>refactor/xxx-bbb
+</span></span><span style=display:flex><span>docs/xxx-bbb
+</span></span><span style=display:flex><span>tests/xxx-bbb
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>backup/xxx-bbb
+</span></span><span style=display:flex><span>tmp/xxx-bbb
+</span></span></code></pre></td></tr></table></div></div><p>pull request: 开发分支发起对主分支的合并请求</p><p>远程和本地关联</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查看关联</span>
+</span></span><span style=display:flex><span>git remote -v
+</span></span><span style=display:flex><span><span style=color:#177500># 关联</span>
+</span></span><span style=display:flex><span>git remote add origin 远程的 ssh
+</span></span><span style=display:flex><span><span style=color:#177500># 取消关联</span>
+</span></span><span style=display:flex><span>git remote rm origin
+</span></span><span style=display:flex><span><span style=color:#177500># 直接设置</span>
+</span></span><span style=display:flex><span>git remote set-url origin xxx
+</span></span></code></pre></td></tr></table></div></div><p>切换自己的分支写代码</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git checkout dev
+</span></span><span style=display:flex><span>git pull
+</span></span><span style=display:flex><span>git checkout -b xxx/xxx_branch
+</span></span></code></pre></td></tr></table></div></div><h4 id=commit>commit<a class=anchorjs-link href=#commit></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git add demo.py
+</span></span><span style=display:flex><span>git commit -m <span style=color:#c41a16>&#34;add: demo.py&#34;</span>
+</span></span><span style=display:flex><span>git push
+</span></span></code></pre></td></tr></table></div></div><h4 id=git-diff>git diff<a class=anchorjs-link href=#git-diff></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 比较文件内容</span>
+</span></span><span style=display:flex><span>git diff
+</span></span><span style=display:flex><span>git diff commitidxxx -- ./path1/path2/xxx.py
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 查看commit</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># e y 上下 , q 退出</span>
+</span></span><span style=display:flex><span>git config --global alias.lg <span style=color:#c41a16>&#34;log --oneline --graph --decorate --all&#34;</span>
+</span></span><span style=display:flex><span>git lg
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git show --stat commmitid
+</span></span><span style=display:flex><span>git show commmitid
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git reflog branch_name
+</span></span></code></pre></td></tr></table></div></div><h4 id=撤销>撤销<a class=anchorjs-link href=#%e6%92%a4%e9%94%80></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 撤销工作区的文件</span>
+</span></span><span style=display:flex><span>git checkout xxx.py
+</span></span><span style=display:flex><span><span style=color:#177500># 撤销指定文件的add状态</span>
+</span></span><span style=display:flex><span>git reset xxx.py
+</span></span><span style=display:flex><span><span style=color:#177500># 撤销add -&gt; 0</span>
+</span></span><span style=display:flex><span>git reset
+</span></span><span style=display:flex><span><span style=color:#177500># 撤销 commit -&gt; add</span>
+</span></span><span style=display:flex><span>git reset --soft id
+</span></span><span style=display:flex><span><span style=color:#177500># 撤销 commit -&gt; 0</span>
+</span></span><span style=display:flex><span>git reset --hard id
+</span></span></code></pre></td></tr></table></div></div><h3 id=进阶使用>进阶使用<a class=anchorjs-link href=#%e8%bf%9b%e9%98%b6%e4%bd%bf%e7%94%a8></a></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 本地feature1分支, 同步 远程dev分支 的最新更改</span>
+</span></span><span style=display:flex><span>git pull --rebase origin dev
+</span></span></code></pre></td></tr></table></div></div><h4 id=开发了一半>开发了一半<a class=anchorjs-link href=#%e5%bc%80%e5%8f%91%e4%ba%86%e4%b8%80%e5%8d%8a></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git stash <span style=color:#000>&amp;&amp;</span> git stash drop
+</span></span><span style=display:flex><span>git stash save <span style=color:#c41a16>&#39;xxx&#39;</span>
+</span></span><span style=display:flex><span>git stash pop
+</span></span><span style=display:flex><span>git stash list
+</span></span><span style=display:flex><span>git stash clear
+</span></span></code></pre></td></tr></table></div></div><h4 id=指定文件>指定文件<a class=anchorjs-link href=#%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 拉去指定文件</span>
+</span></span><span style=display:flex><span>git checkout 分支名 文件名
+</span></span><span style=display:flex><span><span style=color:#177500># 查看指定文件提交历史</span>
+</span></span><span style=display:flex><span>git reflog 文件名
+</span></span><span style=display:flex><span><span style=color:#177500># 回退旧版本</span>
+</span></span><span style=display:flex><span>git checkout commitid 文件名
+</span></span><span style=display:flex><span><span style=color:#177500># 回到最新版</span>
+</span></span><span style=display:flex><span>git checkout HEAD
+</span></span></code></pre></td></tr></table></div></div><h4 id=tag>tag<a class=anchorjs-link href=#tag></a></h4><p>tag 很稳定</p><p>通常对main分支的commit, 创建 tag</p><p>命名规则: v1.0.0-20230525</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 查所有</span>
+</span></span><span style=display:flex><span>git tag
+</span></span><span style=display:flex><span><span style=color:#177500># 查详情</span>
+</span></span><span style=display:flex><span>git show tag 名
+</span></span><span style=display:flex><span><span style=color:#177500># 增加</span>
+</span></span><span style=display:flex><span>git tag -a 版本名 -m<span style=color:#c41a16>&#39;&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#177500># 删除</span>
+</span></span><span style=display:flex><span>git tag -d 版本名
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 切换, 和分支一样</span>
+</span></span><span style=display:flex><span>git checkout tag 名
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 远程仓库交互</span>
+</span></span><span style=display:flex><span>git pull --tags
+</span></span><span style=display:flex><span>git push --tags
+</span></span></code></pre></td></tr></table></div></div><h3 id=保持完美提交的方法>保持完美提交的方法<a class=anchorjs-link href=#%e4%bf%9d%e6%8c%81%e5%ae%8c%e7%be%8e%e6%8f%90%e4%ba%a4%e7%9a%84%e6%96%b9%e6%b3%95></a></h3><p>提交格式</p><p>功能（作用域）：描述</p><p>功能:</p><table><thead><tr><th>功能名称</th><th>含义</th></tr></thead><tbody><tr><td>refactor</td><td>重构</td></tr><tr><td>fix</td><td>改功能</td></tr><tr><td>revert</td><td>撤销提交</td></tr><tr><td>feat</td><td>新功能</td></tr><tr><td>test</td><td>测试</td></tr><tr><td>docs</td><td>文档</td></tr><tr><td>ci</td><td>ci流水线</td></tr><tr><td>xx!</td><td>表示不兼容</td></tr></tbody></table><p>个人使用</p><ul><li>add： xxx</li><li>delete： xxx</li><li>update</li></ul><h4 id=相关命令>相关命令<a class=anchorjs-link href=#%e7%9b%b8%e5%85%b3%e5%91%bd%e4%bb%a4></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># git rebase 整理 本地commit</span>
+</span></span><span style=display:flex><span>git rebase -i commitid
+</span></span><span style=display:flex><span>git rebase -i HEAD~3
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git rebase --continue
+</span></span><span style=display:flex><span>git rebase --abort
+</span></span><span style=display:flex><span>git rebase --skip
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vim data-lang=vim><span style=display:flex><span><span style=color:#000>pick</span> <span style=color:#1c01ce>2</span>a<span style=color:#1c01ce>923</span>b<span style=color:#1c01ce>73</span> <span style=color:#000>fix</span>: <span style=color:#000>conf</span>
+</span></span><span style=display:flex><span><span style=color:#000>pick</span> <span style=color:#000>b5b06654</span> <span style=color:#000>remove</span>: <span style=color:#000>entrypoint</span>.<span style=color:#000>sh</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># <span style=color:#000>Rebase</span> <span style=color:#1c01ce>5</span>aa<span style=color:#1c01ce>07</span>cc<span style=color:#1c01ce>4</span>..<span style=color:#000>b5b06654</span> <span style=color:#000>onto</span> <span style=color:#1c01ce>5</span>aa<span style=color:#1c01ce>07</span>cc<span style=color:#1c01ce>4</span> (<span style=color:#1c01ce>2</span> <span style=color:#000>commands</span>)
+</span></span><span style=display:flex><span>#
+</span></span><span style=display:flex><span># <span style=color:#000>Commands</span>:
+</span></span><span style=display:flex><span># <span style=color:#000>p</span>, <span style=color:#000>pick</span> &lt;<span style=color:#000>commit</span>&gt; = <span style=color:#000>use</span> <span style=color:#000>commit</span>
+</span></span><span style=display:flex><span># <span style=color:#000>r</span>, <span style=color:#000>reword</span> &lt;<span style=color:#000>commit</span>&gt; = <span style=color:#000>use</span> <span style=color:#000>commit</span>, <span style=color:#000>but</span> <span style=color:#000>edit</span> <span style=color:#000>the</span> <span style=color:#000>commit</span> <span style=color:#000>message</span>
+</span></span><span style=display:flex><span># <span style=color:#000>e</span>, <span style=color:#000>edit</span> &lt;<span style=color:#000>commit</span>&gt; = <span style=color:#000>use</span> <span style=color:#000>commit</span>, <span style=color:#000>but</span> <span style=color:#000>stop</span> <span style=color:#000>for</span> <span style=color:#000>amending</span>
+</span></span><span style=display:flex><span># <span style=color:#000>s</span>, <span style=color:#000>squash</span> &lt;<span style=color:#000>commit</span>&gt; = <span style=color:#000>use</span> <span style=color:#000>commit</span>, <span style=color:#000>but</span> <span style=color:#000>meld</span> <span style=color:#000>into</span> <span style=color:#000>previous</span> <span style=color:#000>commit</span>
+</span></span><span style=display:flex><span># <span style=color:#000>f</span>, <span style=color:#000>fixup</span> [-<span style=color:#000>C</span> | -<span style=color:#000>c</span>] &lt;<span style=color:#000>commit</span>&gt; = <span style=color:#000>like</span> <span style=color:#c41a16>&#34;squash&#34;</span> <span style=color:#000>but</span> <span style=color:#000>keep</span> <span style=color:#000>only</span> <span style=color:#000>the</span> <span style=color:#000>previous</span>
+</span></span><span style=display:flex><span>#                    <span style=color:#000>commit</span>&#39;<span style=color:#000>s</span> <span style=color:#000>log</span> <span style=color:#000>message</span>, <span style=color:#000>unless</span> -<span style=color:#000>C</span> <span style=color:#000>is</span> <span style=color:#000>used</span>, <span style=color:#000>in</span> <span style=color:#000>which</span> <span style=color:#000>case</span>
+</span></span><span style=display:flex><span>#                    <span style=color:#000>keep</span> <span style=color:#000>only</span> <span style=color:#000>this</span> <span style=color:#000>commit</span>&#39;<span style=color:#000>s</span> <span style=color:#000>message</span>; -<span style=color:#000>c</span> <span style=color:#000>is</span> <span style=color:#000>same</span> <span style=color:#000>as</span> -<span style=color:#000>C</span> <span style=color:#000>but</span>
+</span></span><span style=display:flex><span>#                    <span style=color:#000>opens</span> <span style=color:#000>the</span> <span style=color:#000>editor</span>
+</span></span><span style=display:flex><span># <span style=color:#000>x</span>, <span style=color:#000>exec</span> &lt;<span style=color:#000>command</span>&gt; = <span style=color:#000>run</span> <span style=color:#000>command</span> (<span style=color:#000>the</span> <span style=color:#000>rest</span> <span style=color:#000>of</span> <span style=color:#000>the</span> <span style=color:#000>line</span>) <span style=color:#000>using</span> <span style=color:#000>shell</span>
+</span></span><span style=display:flex><span># <span style=color:#000>b</span>, <span style=color:#000>break</span> = <span style=color:#000>stop</span> <span style=color:#000>here</span> (<span style=color:#000>continue</span> <span style=color:#000>rebase</span> <span style=color:#000>later</span> <span style=color:#000>with</span> <span style=color:#c41a16>&#39;git rebase --continue&#39;</span>)
+</span></span><span style=display:flex><span># <span style=color:#000>d</span>, <span style=color:#000>drop</span> &lt;<span style=color:#000>commit</span>&gt; = <span style=color:#000>remove</span> <span style=color:#000>commit</span>
+</span></span><span style=display:flex><span># <span style=color:#000>l</span>, <span style=color:#000>label</span> &lt;<span style=color:#000>label</span>&gt; = <span style=color:#000>label</span> <span style=color:#000>current</span> <span style=color:#000>HEAD</span> <span style=color:#000>with</span> <span style=color:#000>a</span> <span style=color:#000>name</span>
+</span></span><span style=display:flex><span># <span style=color:#000>t</span>, <span style=color:#000>reset</span> &lt;<span style=color:#000>label</span>&gt; = <span style=color:#000>reset</span> <span style=color:#000>HEAD</span> <span style=color:#000>to</span> <span style=color:#000>a</span> <span style=color:#000>label</span>
+</span></span><span style=display:flex><span># <span style=color:#000>m</span>, <span style=color:#000>merge</span> [-<span style=color:#000>C</span> &lt;<span style=color:#000>commit</span>&gt; | -<span style=color:#000>c</span> &lt;<span style=color:#000>commit</span>&gt;] &lt;<span style=color:#000>label</span>&gt; [# &lt;<span style=color:#000>oneline</span>&gt;]
+</span></span><span style=display:flex><span># .       <span style=color:#000>create</span> <span style=color:#000>a</span> <span style=color:#000>merge</span> <span style=color:#000>commit</span> <span style=color:#000>using</span> <span style=color:#000>the</span> <span style=color:#000>original</span> <span style=color:#000>merge</span> <span style=color:#000>commit</span>&#39;<span style=color:#000>s</span>
+</span></span><span style=display:flex><span># .       <span style=color:#000>message</span> (<span style=color:#000>or</span> <span style=color:#000>the</span> <span style=color:#000>oneline</span>, <span style=color:#a90d91>if</span> <span style=color:#000>no</span> <span style=color:#000>original</span> <span style=color:#000>merge</span> <span style=color:#000>commit</span> <span style=color:#000>was</span>
+</span></span><span style=display:flex><span># .       <span style=color:#000>specified</span>); <span style=color:#000>use</span> -<span style=color:#000>c</span> &lt;<span style=color:#000>commit</span>&gt; <span style=color:#000>to</span> <span style=color:#000>reword</span> <span style=color:#000>the</span> <span style=color:#000>commit</span> <span style=color:#000>message</span>
+</span></span><span style=display:flex><span>#
+</span></span><span style=display:flex><span># <span style=color:#000>These</span> <span style=color:#000>lines</span> <span style=color:#000>can</span> <span style=color:#000>be</span> <span style=color:#000>re</span>-<span style=color:#000>ordered</span>; <span style=color:#000>they</span> <span style=color:#000>are</span> <span style=color:#000>executed</span> <span style=color:#000>from</span> <span style=color:#000>top</span> <span style=color:#000>to</span> <span style=color:#000>bottom</span>.
+</span></span><span style=display:flex><span>#
+</span></span><span style=display:flex><span># <span style=color:#000>If</span> <span style=color:#000>you</span> <span style=color:#000>remove</span> <span style=color:#000>a</span> <span style=color:#000>line</span> <span style=color:#000>here</span> <span style=color:#000>THAT</span> <span style=color:#000>COMMIT</span> <span style=color:#000>WILL</span> <span style=color:#000>BE</span> <span style=color:#000>LOST</span>.
+</span></span><span style=display:flex><span>#
+</span></span><span style=display:flex><span># <span style=color:#000>However</span>, <span style=color:#a90d91>if</span> <span style=color:#000>you</span> <span style=color:#000>remove</span> <span style=color:#000>everything</span>, <span style=color:#000>the</span> <span style=color:#000>rebase</span> <span style=color:#000>will</span> <span style=color:#000>be</span> <span style=color:#000>aborted</span>.
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 修改上次commit</span>
+</span></span><span style=display:flex><span>git commit --amend -m <span style=color:#c41a16>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 撤销提交记录</span>
+</span></span><span style=display:flex><span>git reset --hard xxx
+</span></span><span style=display:flex><span>git push -f
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 空提交, 为了触发自动化动作</span>
+</span></span><span style=display:flex><span>git commit -m <span style=color:#c41a16>&#34;retrigger checks&#34;</span> --allow-empty
+</span></span></code></pre></td></tr></table></div></div><h4 id=cherry-pick-合并特定commit>cherry-pick 合并特定commit<a class=anchorjs-link href=#cherry-pick-%e5%90%88%e5%b9%b6%e7%89%b9%e5%ae%9acommit></a></h4><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git checkout main
+</span></span><span style=display:flex><span>git cherry-pick commitidxxxx
+</span></span><span style=display:flex><span><span style=color:#177500># 有冲突</span>
+</span></span><span style=display:flex><span>git add xxx
+</span></span><span style=display:flex><span>git cherry-pick --continue
+</span></span><span style=display:flex><span><span style=color:#177500># 取消 operation</span>
+</span></span><span style=display:flex><span>git cherry-pick --abort
+</span></span><span style=display:flex><span><span style=color:#177500># skip patch</span>
+</span></span><span style=display:flex><span>git cherry-pick --skip
+</span></span></code></pre></td></tr></table></div></div><h2 id=其他>其他<a class=anchorjs-link href=#%e5%85%b6%e4%bb%96></a></h2><h3 id=子模块>子模块<a class=anchorjs-link href=#%e5%ad%90%e6%a8%a1%e5%9d%97></a></h3><p>使用场景: 一个仓库内嵌套另一个仓库，需要维护好总的仓库</p><p>作用: 管理好嵌套结构</p><p>标志文件: .gitmodules</p><p>命令:</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 一次性 clone 包括子仓库的主仓库</span>
+</span></span><span style=display:flex><span>git clone --recurse sshxxxx
+</span></span><span style=display:flex><span><span style=color:#177500># 查看状态</span>
+</span></span><span style=display:flex><span>git submodule status
+</span></span><span style=display:flex><span><span style=color:#177500># 详细状态</span>
+</span></span><span style=display:flex><span>git submodule summary
+</span></span><span style=display:flex><span><span style=color:#177500># 添加</span>
+</span></span><span style=display:flex><span>git submodule add sshxxx &lt;not existed path&gt;
+</span></span><span style=display:flex><span><span style=color:#177500># 删除</span>
+</span></span><span style=display:flex><span>git submodule remove &lt;path&gt;
+</span></span><span style=display:flex><span><span style=color:#177500># 批量更新</span>
+</span></span><span style=display:flex><span>git submodule update --remote
+</span></span><span style=display:flex><span><span style=color:#177500>#</span>
+</span></span><span style=display:flex><span>git submodule init
+</span></span><span style=display:flex><span><span style=color:#177500># 对子模块批量操作</span>
+</span></span><span style=display:flex><span>git submodule foreach 命令
+</span></span><span style=display:flex><span><span style=color:#177500># 对子模块批量操作</span>
+</span></span><span style=display:flex><span>git submodule update --remote --rebase
+</span></span></code></pre></td></tr></table></div></div><h3 id=cicd>ci/cd<a class=anchorjs-link href=#cicd></a></h3><ul><li>概念<ul><li>自动测试/自动部署</li></ul></li><li>实现原理<ul><li>使用命令自动化执行任务</li></ul></li><li>流程<ul><li>工具<ul><li>travis ci</li><li>github<ul><li>actions<ul><li>自动推送</li></ul></li></ul></li><li>gitee</li><li>gitlab</li></ul></li><li>配置文件</li><li>触发条件<ul><li>提交代码</li><li>定时</li></ul></li></ul></li><li>ci<ul><li>开发和代码前通过测试用例</li><li>yaml<ul><li>stages</li><li>beforescript<ul><li>stage</li><li>script<ul><li>test1</li><li>test2</li></ul></li><li>tags</li><li>artifacts<ul><li>when<ul><li>on_success</li><li>always</li></ul></li><li>paths</li></ul></li><li>allow_failure</li><li>retry<ul><li>2</li></ul></li><li>only</li></ul></li></ul></li></ul></li><li>cd<ul><li>推送部署<ul><li>服务器</li><li>第三方平台</li></ul></li><li>回滚</li></ul></li></ul><h3 id=使用ssh-免密码访问>使用ssh, 免密码访问<a class=anchorjs-link href=#%e4%bd%bf%e7%94%a8ssh-%e5%85%8d%e5%af%86%e7%a0%81%e8%ae%bf%e9%97%ae></a></h3><ol><li>创建密钥</li></ol><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># 生成 sshkey</span>
+</span></span><span style=display:flex><span>ssh-keygen -t rsa
+</span></span><span style=display:flex><span><span style=color:#177500># 查看 pubkey</span>
+</span></span><span style=display:flex><span>cat ~/.ssh/id_rsa.pub
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># 测试连接</span>
+</span></span><span style=display:flex><span>ssh -T git@github.com
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li>添加 ssh 公钥 (pub) 到代码仓库 github 或 其他平台</li></ol><p>SSH 默认使用端口 22, 如果网络阻止访问, 可以改为 443</p><p>~/.ssh/config</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-plaintext data-lang=plaintext><span style=display:flex><span>Host github.com
+</span></span><span style=display:flex><span>    Hostname ssh.github.com
+</span></span><span style=display:flex><span>    Port 443
+</span></span></code></pre></td></tr></table></div></div><p>验证</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>ssh -T git@github.com
+</span></span></code></pre></td></tr></table></div></div><h3 id=git-large-file-storage>Git Large File Storage<a class=anchorjs-link href=#git-large-file-storage></a></h3><p><a href=https://git-lfs.com/ target=_blank>https://git-lfs.com/</a></p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>Examples
+</span></span><span style=display:flex><span>--------
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>To get started with Git LFS, the following commands can be used.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>. Setup Git LFS on your system. You only have to <span style=color:#a90d91>do</span> this once per user
+</span></span><span style=display:flex><span>account:
+</span></span><span style=display:flex><span>+
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git lfs install
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>. Choose the <span style=color:#a90d91>type</span> of files you want to track, <span style=color:#a90d91>for</span> examples all ISO
+</span></span><span style=display:flex><span>images, with git lfs track:
+</span></span><span style=display:flex><span>+
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git lfs track <span style=color:#c41a16>&#34;*.iso&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>. The above stores this information in gitattributes<span style=color:#000>(</span>5<span style=color:#000>)</span> files, so that
+</span></span><span style=display:flex><span>file needs to be added to the repository:
+</span></span><span style=display:flex><span>+
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git add .gitattributes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>. Commit, push and work with the files normally:
+</span></span><span style=display:flex><span>+
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>git add file.iso
+</span></span><span style=display:flex><span>git commit -m <span style=color:#c41a16>&#34;Add disk image&#34;</span>
+</span></span><span style=display:flex><span>git push
+</span></span></code></pre></td></tr></table></div></div><h3 id=参与开源项目>参与开源项目<a class=anchorjs-link href=#%e5%8f%82%e4%b8%8e%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae></a></h3><ul><li>提交 issue</li><li>提交代码<ul><li>fork</li><li>在分支编写代码</li><li>pull request</li></ul></li><li>检查代码<ul><li>review pr</li></ul></li></ul><h3 id=github-仓库重命名>GitHub 仓库重命名<a class=anchorjs-link href=#github-%e4%bb%93%e5%ba%93%e9%87%8d%e5%91%bd%e5%90%8d></a></h3><ol><li><p>在 GitHub 上重命名仓库：</p><ul><li>访问 <code>https://github.com/yourusername/my-agent/settings</code></li><li>Repository name 改为 <code>book-rag</code></li></ul></li><li><p>更新本地仓库：</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git remote set-url origin git@github.com:yourusername/book-rag.git
+</span></span><span style=display:flex><span>git push -u origin main
+</span></span></code></pre></td></tr></table></div></div></li></ol><h3 id=github-工具>github 工具<a class=anchorjs-link href=#github-%e5%b7%a5%e5%85%b7></a></h3><p>deepwiki.com
+gitingest.com</p><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">102
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">103
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">104
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">105
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">106
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">107
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">108
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">109
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">110
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">111
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">112
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">113
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">114
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">115
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">116
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">117
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">118
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">119
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">120
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">121
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">122
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">123
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">124
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">125
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">126
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">127
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">128
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">129
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">130
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">131
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">132
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">133
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">134
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">135
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">136
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">137
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">138
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">139
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">140
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">141
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">142
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">143
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">144
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">145
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">146
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">147
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">148
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">149
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">150
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">151
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">152
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">153
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">154
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">155
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">156
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">157
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">158
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">159
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">160
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">161
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">162
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">163
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">164
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">165
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">166
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">167
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">168
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">169
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">170
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">171
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">172
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">173
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">174
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">175
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">176
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">177
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">178
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">179
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">180
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">181
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">182
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">183
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>-   基础
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    -   下载 git软件
+</span></span><span style=display:flex><span>    -   ssh
+</span></span><span style=display:flex><span>        -   作用
+</span></span><span style=display:flex><span>            -   免密码 pull push 代码
+</span></span><span style=display:flex><span>        -   安装后，配置密钥
+</span></span><span style=display:flex><span>            -   ssh-keygen -t rsa -C &#39;你的邮箱地址&#39;
+</span></span><span style=display:flex><span>                -   生成 ssh
+</span></span><span style=display:flex><span>        -   在网站创建远程仓库
+</span></span><span style=display:flex><span>            -   添加 ssh 公钥 (pub)
+</span></span><span style=display:flex><span>            -   仓库名后缀
+</span></span><span style=display:flex><span>    -   创建远程仓库
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        -   命名规则
+</span></span><span style=display:flex><span>            -   小写字符，中横线
+</span></span><span style=display:flex><span>        -   开源协议类型
+</span></span><span style=display:flex><span>            -   ![开源协议](../imgs/licenses.jpg)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    -   创建本地仓库
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        ```bash
+</span></span><span style=display:flex><span>        # 克隆，初始化二选一
+</span></span><span style=display:flex><span>        # 克隆
+</span></span><span style=display:flex><span>        git clone 远程的 ssh
+</span></span><span style=display:flex><span>        # 初始化
+</span></span><span style=display:flex><span>        git remote add origin sshxxx
+</span></span><span style=display:flex><span>        git push --set-upstream origin main
+</span></span><span style=display:flex><span>        ```
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>-   进阶
+</span></span><span style=display:flex><span>    -   多个远程仓库关联
+</span></span><span style=display:flex><span>        -   fork
+</span></span><span style=display:flex><span>            -   获取别人远程仓库，创建一个副本仓库
+</span></span><span style=display:flex><span>            -   命令
+</span></span><span style=display:flex><span>                -   建立联系
+</span></span><span style=display:flex><span>                    -   查
+</span></span><span style=display:flex><span>                        -   git remote -v
+</span></span><span style=display:flex><span>                    -   增
+</span></span><span style=display:flex><span>                        -   git remote add upstream xxxx
+</span></span><span style=display:flex><span>                            -   添加上游仓库
+</span></span><span style=display:flex><span>                    -   改
+</span></span><span style=display:flex><span>                        -   git remote set_url upstream xxxx
+</span></span><span style=display:flex><span>                    -   删
+</span></span><span style=display:flex><span>                        -   git remote remove upstream
+</span></span><span style=display:flex><span>                -   拉代码
+</span></span><span style=display:flex><span>                    -   git fetch upstream
+</span></span><span style=display:flex><span>                    -   git pull upstream dev
+</span></span><span style=display:flex><span>                -   推代码
+</span></span><span style=display:flex><span>        -   pull request
+</span></span><span style=display:flex><span>            -   发给别人远程仓库进行代码合并
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    -   增删改查
+</span></span><span style=display:flex><span>            -   git reflog 分支名
+</span></span><span style=display:flex><span>                -   按照分支查询
+</span></span><span style=display:flex><span>                    -   越往下 越老版本
+</span></span><span style=display:flex><span>        -   撤回
+</span></span><span style=display:flex><span>            -   git reset
+</span></span><span style=display:flex><span>                -   版本号
+</span></span><span style=display:flex><span>                -   HEAD~1
+</span></span><span style=display:flex><span>            -   git reset --hard
+</span></span><span style=display:flex><span>                -   版本号
+</span></span><span style=display:flex><span>                -   origin/分支名
+</span></span><span style=display:flex><span>        -   增删改
+</span></span><span style=display:flex><span>            -   本地仓库
+</span></span><span style=display:flex><span>                -   看修改内容
+</span></span><span style=display:flex><span>                    -   git status
+</span></span><span style=display:flex><span>                        -   查看暂存区
+</span></span><span style=display:flex><span>                    -   查看区别
+</span></span><span style=display:flex><span>                        -   比较分支
+</span></span><span style=display:flex><span>                            -   git diff 分支 1 分支 2 文件路径
+</span></span><span style=display:flex><span>                            -   git diff 要比较的分支
+</span></span><span style=display:flex><span>                            -   git diff branch1 branch2 --stat
+</span></span><span style=display:flex><span>                        -   比较 commit
+</span></span><span style=display:flex><span>                            -   git diff commitid1 commitid2
+</span></span><span style=display:flex><span>                        -   git diff
+</span></span><span style=display:flex><span>                            -   工作区和暂存区区别
+</span></span><span style=display:flex><span>                        -   git diff --cached
+</span></span><span style=display:flex><span>                            -   本地仓库和暂存区区别
+</span></span><span style=display:flex><span>                -   编辑
+</span></span><span style=display:flex><span>                    -   新建
+</span></span><span style=display:flex><span>                        -   git add
+</span></span><span style=display:flex><span>                            -   .
+</span></span><span style=display:flex><span>                                -   所有文件
+</span></span><span style=display:flex><span>                            -   文件名
+</span></span><span style=display:flex><span>                    -   删除文件
+</span></span><span style=display:flex><span>                        -   保留工作区的文件
+</span></span><span style=display:flex><span>                            -   git rm -r --cached .
+</span></span><span style=display:flex><span>                                -   远程仓库上传错了，就用这个删除
+</span></span><span style=display:flex><span>                            -   git rm --cached 文件
+</span></span><span style=display:flex><span>                        -   git rm -f 文件名
+</span></span><span style=display:flex><span>                    -   撤销
+</span></span><span style=display:flex><span>                        -   撤销工作区操作
+</span></span><span style=display:flex><span>                            -   git checkout -- .
+</span></span><span style=display:flex><span>                                -   工作区不要了
+</span></span><span style=display:flex><span>                            -   git checkout -- 文件名
+</span></span><span style=display:flex><span>                        -   撤销暂存区 add
+</span></span><span style=display:flex><span>                            -   git reset
+</span></span><span style=display:flex><span>                        -   撤销 commit 到 add
+</span></span><span style=display:flex><span>                            -   git reset --soft id
+</span></span><span style=display:flex><span>                        -   撤销 commit 到 0
+</span></span><span style=display:flex><span>                            -   git reset --hard id
+</span></span><span style=display:flex><span>                -   本地提交
+</span></span><span style=display:flex><span>                    -   撤销远程提交
+</span></span><span style=display:flex><span>                        -   git revert id1 id2
+</span></span><span style=display:flex><span>                    -   git commit --amend -m“”
+</span></span><span style=display:flex><span>                        -   commit 写错了，重新提交
+</span></span><span style=display:flex><span>                    -   提交已经 git add 的文件, 不用再次 git add
+</span></span><span style=display:flex><span>                        -   git commit -am &#39;&#39;
+</span></span><span style=display:flex><span>            -   上传操作
+</span></span><span style=display:flex><span>                -   拉去最新远程代码
+</span></span><span style=display:flex><span>                    -   git pull --rebase origin 远程分支
+</span></span><span style=display:flex><span>                    -   git pull origin 远程分支
+</span></span><span style=display:flex><span>                        -   处理冲突
+</span></span><span style=display:flex><span>                            -   编辑代码重新提交 或 git rebase --skip
+</span></span><span style=display:flex><span>                        -   -u 表示默认远程分支
+</span></span><span style=display:flex><span>                    -   上传
+</span></span><span style=display:flex><span>                        -   git push origin 远程分支
+</span></span><span style=display:flex><span>                        -   git push --force
+</span></span><span style=display:flex><span>                            -   强制推送 reset 后的代码
+</span></span><span style=display:flex><span>                    *   git config --global push.default simple
+</span></span><span style=display:flex><span>                        -   设置默认
+</span></span><span style=display:flex><span>    -   分支
+</span></span><span style=display:flex><span>        -   概念
+</span></span><span style=display:flex><span>            -   master
+</span></span><span style=display:flex><span>                -   对外发布的版本，是主分支
+</span></span><span style=display:flex><span>            -   dev
+</span></span><span style=display:flex><span>                -   在测试版写，写好了放到 master
+</span></span><span style=display:flex><span>            -   其他分支
+</span></span><span style=display:flex><span>                -   按照功能或问题来创建分支
+</span></span><span style=display:flex><span>        -   每一次开发，创建一个分支，合入后删除分支
+</span></span><span style=display:flex><span>        -   需要远程共享代码时
+</span></span><span style=display:flex><span>            -   远程仓库和本地仓库的分支一致
+</span></span><span style=display:flex><span>            -   查看
+</span></span><span style=display:flex><span>                -   git remote prune origin
+</span></span><span style=display:flex><span>                    -   删除不存在的远程分支
+</span></span><span style=display:flex><span>                    -   git branch
+</span></span><span style=display:flex><span>                        -   查看本地所有分支
+</span></span><span style=display:flex><span>                        -   退出
+</span></span><span style=display:flex><span>                            -   q
+</span></span><span style=display:flex><span>                    -   git branch -r
+</span></span><span style=display:flex><span>                        -   查看远程分支
+</span></span><span style=display:flex><span>                    -   git branch -vv
+</span></span><span style=display:flex><span>                        -   查看分支的映射关系
+</span></span><span style=display:flex><span>                        -   git branch -u origin/xxx xxx
+</span></span><span style=display:flex><span>                            -   绑定本地分支和远程分支
+</span></span><span style=display:flex><span>                    -   git branch -a
+</span></span><span style=display:flex><span>                        -   查看本地和远程分支
+</span></span><span style=display:flex><span>            -   创建
+</span></span><span style=display:flex><span>                -   创建本地分支
+</span></span><span style=display:flex><span>                    -   git checkout -b 分支名
+</span></span><span style=display:flex><span>                        -   创建并切换分支
+</span></span><span style=display:flex><span>                    -   git branch 分支名
+</span></span><span style=display:flex><span>                        -   在这个分支基础上创建分支
+</span></span><span style=display:flex><span>                    -   有一个本地分支
+</span></span><span style=display:flex><span>                        -   git push -u origin 分支名
+</span></span><span style=display:flex><span>                            -   创建并绑定
+</span></span><span style=display:flex><span>                    -   有一个远程分支
+</span></span><span style=display:flex><span>                        -   git fetch
+</span></span><span style=display:flex><span>                        -   2 选 1
+</span></span><span style=display:flex><span>                            -   git checkout 同名的分支名
+</span></span><span style=display:flex><span>                            -   git checkout -b 本地分支 origin/远程分支
+</span></span><span style=display:flex><span>                                -   创建本地分支并拉取
+</span></span><span style=display:flex><span>                -   本地远程分支关联
+</span></span><span style=display:flex><span>                    -   git branch --set-upstream-to=origin/main main
+</span></span><span style=display:flex><span>            -   删
+</span></span><span style=display:flex><span>                -   删除本地分支
+</span></span><span style=display:flex><span>                    -   git branch -d 分支名
+</span></span><span style=display:flex><span>                -   删除远程分支
+</span></span><span style=display:flex><span>                    -   git push origin -d 分支名
+</span></span><span style=display:flex><span>            -   改
+</span></span><span style=display:flex><span>                -   切换分支
+</span></span><span style=display:flex><span>                    -   git checkout 想切换的分支
+</span></span><span style=display:flex><span>            -   合并
+</span></span><span style=display:flex><span>                -   git pull
+</span></span><span style=display:flex><span>                -   git merge 本地或远程分支名
+</span></span><span style=display:flex><span>                    -   保持最新代码！！！！！！！！！
+</span></span><span style=display:flex><span>                    -   需要保持一个版本差异
+</span></span><span style=display:flex><span>                    -   远程分支
+</span></span><span style=display:flex><span>                        -   origin/dev
+</span></span><span style=display:flex><span>                -   git rebase
+</span></span></code></pre></td></tr></table></div></div><h2 id=文件类型>文件类型<a class=anchorjs-link href=#%e6%96%87%e4%bb%b6%e7%b1%bb%e5%9e%8b></a></h2><ul><li>结构化数据: 格式固定、易于查询和存储的数据，通常以<strong>行列的形式</strong>存储在关系型数据库（RDBMS）或表格中</li><li>半结构化数据: 介于结构化和非结构化数据之间，具有一定的组织结构但不完全符合传统的关系型数据库模式。常见的半结构化数据格式包括 <strong>JSON、XML 和 YAML</strong>。</li><li>非结构化数据: 如<strong>文本、图像、音频和视频</strong>等，通常<strong>没有固定的格式或模式</strong>，难以直接存储在传统的关系型数据库中。</li></ul><h3 id=git平台中-常见的软件安装包>git平台中, 常见的软件安装包<a class=anchorjs-link href=#git%e5%b9%b3%e5%8f%b0%e4%b8%ad-%e5%b8%b8%e8%a7%81%e7%9a%84%e8%bd%af%e4%bb%b6%e5%ae%89%e8%a3%85%e5%8c%85></a></h3><table><thead><tr><th>文件名示例</th><th>平台（系统）</th><th>架构 / 适配设备</th><th>说明</th><th>推荐</th></tr></thead><tbody><tr><td>.dmg</td><td>macOS</td><td>x64：Intel / arm64：M1/M2/M3</td><td>Mac 安装包，双击安装即可</td><td></td></tr><tr><td>.dmg.blockmap</td><td></td><td></td><td>自动更新</td><td>O</td></tr><tr><td>.rpm</td><td>Linux</td><td>x64, arm64, armv7l</td><td>适用于 Fedora / RedHat 系 <code>.rpm</code>包</td><td></td></tr><tr><td>.deb</td><td></td><td></td><td>Debian/Ubuntu 系统使用的 <code>.deb</code> 包</td><td></td></tr><tr><td>.pacman</td><td></td><td></td><td>Arch Linux / Manjaro 专用 <code>.pacman</code> 包</td><td></td></tr><tr><td>.AppImage</td><td></td><td></td><td>通用 Linux <code>可执行包</code>，免安装</td><td>O</td></tr><tr><td>.Setup.exe</td><td>Windows</td><td>x64, x86, arm64, win7</td><td>安装包</td><td></td></tr><tr><td>.blockmap</td><td></td><td></td><td>支持自动更新</td><td>O</td></tr><tr><td>.7z</td><td></td><td></td><td>绿色版压缩包（无需安装，解压即用）</td><td>O</td></tr></tbody></table><h3 id=文件压缩>文件压缩<a class=anchorjs-link href=#%e6%96%87%e4%bb%b6%e5%8e%8b%e7%bc%a9></a></h3><p>为什么会压缩?</p><p>图片、音频和视频文件往往包含大量的数据。如果不进行压缩，存储和传输这些文件将变得非常困难
+压缩可以减少文件大小，使得音频更容易存储(节省大量空间)和传输(提高传输效率)</p><p>不同文件的压缩</p><p>对于文本文件，无损压缩是常见的，因为任何数据的丢失都可能导致信息意义的改变。
+而对于多媒体文件，有时可以使用有损压缩，因为人眼或人耳可能不会察觉到细微的质量损失，从而可以在可接受的范围内大幅减少文件大小。</p><p>压缩分类</p><table><thead><tr><th>压缩类型</th><th>定义</th><th>优点</th><th>缺点</th><th>适用场景</th></tr></thead><tbody><tr><td>有损压缩</td><td>压缩过程中会丢失一些数据，但通常对最终用户体验影响不大</td><td>文件大小显著减小</td><td>无法完全恢复原始数据，可能有一定质量损失</td><td>图片（如JPEG）、音频（如MP3）、视频（如H.264）</td></tr><tr><td>无损压缩</td><td>压缩过程中不丢失任何数据，可以完全恢复原始文件</td><td>文件大小有所减小，且无质量损失</td><td>压缩率相对较低，文件大小减小不明显</td><td>文本文件（如ZIP）、某些图片格式（如PNG）、音频（如FLAC）</td></tr><tr><td>不压缩</td><td>文件未经压缩，保留所有原始数据</td><td>无质量损失，数据完整</td><td>文件大小较大，占用更多存储空间和带宽</td><td>专业音频处理（如PCM）、某些图片格式（如BMP）</td></tr></tbody></table><h3 id=文本>文本<a class=anchorjs-link href=#%e6%96%87%e6%9c%ac></a></h3><table><thead><tr><th>文本格式</th><th>文件扩展名</th><th>描述</th><th>用途</th><th>兼容性</th></tr></thead><tbody><tr><td>plain text</td><td>.txt</td><td>纯文本，无格式信息</td><td>文本编辑、数据存储</td><td>极高，所有文本编辑器</td></tr><tr><td>Rich Text Format</td><td>.rtf</td><td>富文本格式，包含格式信息</td><td>文本编辑、跨平台文档交换</td><td>高，多数文本编辑器</td></tr><tr><td>Microsoft Word</td><td>.doc/.docx</td><td>Word文档格式，包含格式和对象</td><td>文档编辑、排版</td><td>高，Microsoft Word及兼容软件</td></tr><tr><td>OpenDocument Text</td><td>.odt</td><td>开放文档格式，包含格式和对象</td><td>文档编辑、排版</td><td>较高，OpenOffice、LibreOffice等</td></tr><tr><td>Portable Document Format</td><td>.pdf</td><td>用于文档交换的格式，保留格式和布局</td><td>文档展示、打印</td><td>极高，Adobe Reader及多数浏览器</td></tr><tr><td>Markdown</td><td>.md</td><td>轻量级标记语言，转换为HTML</td><td>文档编写、博客</td><td>较高，Markdown编辑器及部分文本编辑器</td></tr><tr><td>LaTeX</td><td>.tex</td><td>排版系统，用于学术文档</td><td>学术写作、复杂排版</td><td>较高，LaTeX编辑器</td></tr><tr><td>HyperText Markup Language</td><td>.html/.htm</td><td>超文本标记语言，关注数据的表现形式, 用于网页</td><td>网页制作、显示</td><td>高，所有网页浏览器</td></tr><tr><td>XML</td><td>.xml</td><td>可扩展标记语言,关注数据的结构和内容</td><td>用于数据存储和传输</td><td>高</td></tr></tbody></table><h3 id=电子书>电子书<a class=anchorjs-link href=#%e7%94%b5%e5%ad%90%e4%b9%a6></a></h3><table><thead><tr><th>格式</th><th>全称 / 来源</th><th>支持设备/软件</th><th>特点</th><th>适用场景</th></tr></thead><tbody><tr><td><strong>EPUB</strong></td><td>Electronic Publication</td><td>几乎所有阅读器、APP</td><td>开放标准，排版灵活，可重排</td><td>主流通用格式</td></tr><tr><td><strong>MOBI</strong></td><td>Mobipocket (亚马逊收购)</td><td>Kindle（旧版）</td><td>老 Kindle 格式，功能较简单</td><td>旧 Kindle 用户</td></tr><tr><td>AZW3</td><td>Kindle Format 8</td><td>Kindle</td><td>MOBI 的升级版，支持更复杂排版</td><td>Kindle 专用</td></tr><tr><td>KFX</td><td>Kindle Format 10</td><td>新 Kindle</td><td>亚马逊最新格式，支持增强功能</td><td>Kindle 专用</td></tr><tr><td><strong>PDF</strong></td><td>Portable Document Format</td><td>所有设备</td><td>固定版式，保真度高，但不利小屏阅读</td><td>学术论文、教材</td></tr><tr><td>DJVU</td><td>Déjà Vu</td><td>部分阅读器/软件支持</td><td>高压缩率，适合扫描书籍</td><td>扫描文档、老书</td></tr><tr><td>CBR</td><td>Comic Book RAR</td><td>漫画阅读器（Komga等）</td><td>RAR 打包漫画图片</td><td>漫画</td></tr><tr><td>CBZ</td><td>Comic Book ZIP</td><td>漫画阅读器（Komga等）</td><td>ZIP 打包漫画图片</td><td>漫画</td></tr><tr><td>TXT</td><td>纯文本</td><td>所有设备</td><td>无排版，仅文字，极轻量</td><td>小说原文档、笔记</td></tr><tr><td>FB2</td><td>FictionBook</td><td>部分阅读器（KOReader等）</td><td>基于 XML 的开放格式，东欧常见</td><td>小众电子书</td></tr></tbody></table><h3 id=图片>图片<a class=anchorjs-link href=#%e5%9b%be%e7%89%87></a></h3><table><thead><tr><th>格式</th><th>特点</th><th>是否支持透明度</th><th>是否支持动画</th><th>压缩方式</th><th>文件大小</th><th>适用场景</th></tr></thead><tbody><tr><td><strong>JPEG/JPG</strong></td><td>广泛使用，支持高质量压缩</td><td>否</td><td>否</td><td>有损</td><td>小</td><td>照片、复杂图像</td></tr><tr><td>WebP</td><td>现代格式，支持高质量压缩和透明度</td><td>是</td><td>是</td><td>有损/无损</td><td>小</td><td>网页图片、动图</td></tr><tr><td><strong>PNG</strong></td><td>支持无损压缩和透明度</td><td>是</td><td>否</td><td>无损</td><td>中等</td><td>图标、需要透明背景的图像</td></tr><tr><td>BMP</td><td>位图格式，不压缩或简单压缩</td><td>否</td><td>否</td><td>无损</td><td>大</td><td>高质量图像存储（较少使用）</td></tr><tr><td>SVG</td><td>矢量图形，基于 XML 描述</td><td>是</td><td>否</td><td>无损</td><td>小</td><td>图标、Logo、可缩放图形</td></tr><tr><td>GIF</td><td>支持简单动画和有限颜色</td><td>是（仅1位透明）</td><td>是</td><td>无损</td><td>小</td><td>动图、简单图形</td></tr><tr><td>ICO</td><td>用于图标文件，支持多分辨率</td><td>是</td><td>否</td><td>无损</td><td>小</td><td>网站图标、桌面图标</td></tr><tr><td>TIFF/TIF</td><td>高质量图像存储，常用于印刷</td><td>是</td><td>否</td><td>无损</td><td>大</td><td>专业图像处理、印刷</td></tr></tbody></table><h3 id=音频>音频<a class=anchorjs-link href=#%e9%9f%b3%e9%a2%91></a></h3><table><thead><tr><th>格式</th><th>特点</th><th>压缩方式</th><th>音质</th><th>文件大小</th><th>兼容性</th><th>是否含有字幕</th></tr></thead><tbody><tr><td><strong>MP3</strong></td><td>广泛流行，高压缩比</td><td>有损</td><td>中</td><td>小</td><td>高</td><td>否（需外部LRC文件）</td></tr><tr><td>AAC</td><td>MP3的继任者，音质更好, 兼容性有待提高</td><td>有损</td><td>高</td><td>较小</td><td>中至高</td><td>否（需外部文件）</td></tr><tr><td><strong>OGG</strong></td><td>开放源代码，音质良好</td><td>有损</td><td>中至高</td><td>小</td><td>中</td><td>是（可包含字幕）</td></tr><tr><td><strong>WAV</strong></td><td>微软开发，支持多种编码</td><td>无损/有损</td><td>高</td><td>大</td><td>高</td><td>否（需外部文件）</td></tr><tr><td>WMA</td><td>微软开发，支持版权保护</td><td>无损/有损</td><td>中至高</td><td>小</td><td>中</td><td>否（需外部文件）</td></tr><tr><td>AIFF</td><td>苹果开发，类似WAV</td><td>无损/有损</td><td>高</td><td>大</td><td>中</td><td>否（需外部文件）</td></tr><tr><td>ALAC</td><td>苹果无损格式，音质无损</td><td>无损</td><td>高</td><td>中等</td><td>中</td><td>否（需外部文件）</td></tr><tr><td>FLAC</td><td>无损压缩，音质无损</td><td>无损</td><td>高</td><td>中等</td><td>中</td><td>否（需外部文件）</td></tr><tr><td><strong>M4A</strong></td><td>苹果推广, 基于MP4容器，常用AAC编码</td><td>无损/有损</td><td>高</td><td>较小</td><td>中至高</td><td>是（可包含字幕）</td></tr><tr><td>PCM</td><td>专业音频处理、原始音频数据存储</td><td>无压缩</td><td>最高</td><td>最大</td><td>专用设备</td><td>否（需外部文件）</td></tr></tbody></table><h3 id=视频>视频<a class=anchorjs-link href=#%e8%a7%86%e9%a2%91></a></h3><table><thead><tr><th>格式</th><th>特点</th><th>压缩方式</th><th>视频质量</th><th>文件大小</th><th>兼容性</th><th>是否含有字幕</th></tr></thead><tbody><tr><td><strong>MP4</strong></td><td>广泛使用，支持多种编码</td><td>有损</td><td>高</td><td>较小</td><td>高</td><td>是</td></tr><tr><td><strong>WMV .wmv</strong></td><td>微软开发，适合流媒体</td><td>有损</td><td>中至高</td><td>小</td><td>中</td><td>是</td></tr><tr><td>WebM</td><td>开源格式，专为网页优化</td><td>有损</td><td>中至高</td><td>小</td><td>中</td><td>是</td></tr><tr><td>MPEG</td><td>数字电视、DVD</td><td>有损</td><td>中等</td><td>中等</td><td>广泛</td><td>否（需外部文件）</td></tr><tr><td>FLV</td><td>Adobe开发，常用于网络视频</td><td>有损</td><td>中</td><td>小</td><td>中</td><td>否（需外部文件）</td></tr><tr><td>AVCHD</td><td>专为高清视频设计，常用在摄像机</td><td>有损</td><td>高</td><td>中等</td><td>中</td><td>否（需外部文件）</td></tr><tr><td>3GP</td><td>专为移动设备优化</td><td>有损</td><td>中</td><td>小</td><td>中</td><td>否（需外部文件）</td></tr><tr><td><strong>MKV MKA</strong></td><td>开放标准，支持多音轨和字幕</td><td>无损/有损</td><td>高</td><td>中等</td><td>中</td><td>是</td></tr><tr><td>MOV .mov</td><td>苹果开发，高质量视频</td><td>无损/有损</td><td>高</td><td>大</td><td>中</td><td>是</td></tr><tr><td>AVI .avi</td><td>微软开发，兼容性强</td><td>无损/有损</td><td>高</td><td>大</td><td>高</td><td>否（需外部文件）</td></tr></tbody></table><h3 id=字幕>字幕<a class=anchorjs-link href=#%e5%ad%97%e5%b9%95></a></h3><ul><li>字幕分离</li></ul><table><thead><tr><th>格式</th><th>特点</th><th>兼容性</th><th>支持嵌入元数据（如标题、作者等）</th></tr></thead><tbody><tr><td>WebVTT (.vtt)</td><td>用于网页视频的字幕文件，支持时间同步、样式和元数据</td><td>高（现代浏览器）</td><td>是</td></tr><tr><td><strong>ASS (.ass)</strong></td><td>高级字幕格式，支持复杂样式、字体、颜色、位置等</td><td>中</td><td>是</td></tr><tr><td>SSA (.ssa)</td><td>ASS 的早期版本，功能类似，但兼容性稍差</td><td>中</td><td>是</td></tr><tr><td>SMI (.smi)</td><td>SAMI 字幕格式，主要用于 Windows Media Player，支持样式</td><td>中</td><td>是</td></tr><tr><td>JSON (.json)</td><td>基于 JSON 的字幕格式，适合程序化处理，结构灵活</td><td>中</td><td>是</td></tr><tr><td>STL (.stl)</td><td>用于广播字幕的文件格式，包含丰富的元数据和样式信息</td><td>专业设备兼容</td><td>是</td></tr><tr><td>TTML (.ttml)</td><td>结构化字幕文件，用于多种媒体，支持丰富的样式和元数据</td><td>较广泛兼容</td><td>是</td></tr><tr><td><strong>SRT (.srt)</strong></td><td>简单文本格式，包含时间轴和字幕内容，不支持样式和元数据</td><td>高</td><td>否</td></tr><tr><td><strong>LRC (.lrc)</strong></td><td>歌词字幕格式，常用于音乐播放器，结构简单</td><td>中</td><td>否</td></tr><tr><td>SUB (.sub)</td><td>MicroDVD 字幕格式，通常与视频文件配合使用，支持帧计时</td><td>中</td><td>否</td></tr><tr><td>SBV (.sbv)</td><td>YouTube 使用的字幕格式，类似于 SRT，结构简单</td><td>中</td><td>否</td></tr><tr><td>MPL2 (.mpl)</td><td>简单字幕文件，用于某些媒体播放器，使用帧计时</td><td>低</td><td>否</td></tr><tr><td>TXT (.txt)</td><td>非正式的简单字幕文件，通常用于测试或临时用途</td><td>低</td><td>否</td></tr></tbody></table><ul><li>字幕嵌入</li></ul><p>MP3 文件可以通过 ID3v2 标签嵌入歌词信息。</p><p>支持两种类型的歌词：</p><ul><li>USLT（Unsynchronized Lyrics）：非同步歌词，仅包含歌词文本。广泛支持</li><li>SYLT（Synchronized Lyrics）：同步歌词，包含时间戳信息，实现歌词与音乐同步显示. 支持较少</li></ul><hr style=visibility:hidden><ul class=pager><li class=previous><a href=/posts/tech/pyqt5%E6%8C%87%E5%8D%97/pyqt5%E6%8C%87%E5%8D%97/ data-toggle=tooltip data-placement=top title=Pyqt5指南>Previous<br><span>Pyqt5指南</span></a></li><li class=next><a href=/posts/tech/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8C%87%E5%8D%97/ data-toggle=tooltip data-placement=top title=数据分析资源>Next<br><span>数据分析资源</span></a></li></ul><hr style=visibility:hidden><div class=giscus id=comments></div><script src=https://giscus.app/client.js data-repo=zhenda-hub/zhenda-hub.github.io data-repo-id=R_kgDOKvQVww data-category=Announcements data-category-id=DIC_kwDOKvQVw84CfdFG data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script></div><div class="col-lg-2 col-lg-offset-0
+visible-lg-block
+sidebar-container
+catalog-container"><div class=side-catalog><hr class="hidden-sm hidden-xs"><h5><a class=catalog-toggle href=#>CATALOG</a></h5><ul class=catalog-body></ul></div></div><div class="col-lg-8 col-lg-offset-2
+col-md-10 col-md-offset-1
+sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5>FEATURED TAGS</h5><div class=tags><a href=/tags/data/>Data</a>
+<a href=/tags/docker/>Docker</a>
+<a href=/tags/emoji/>Emoji</a>
+<a href=/tags/git/>Git</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/gui/>Gui</a>
+<a href=/tags/guide/>Guide</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/markdown/>MarkDown</a>
+<a href=/tags/privacy/>Privacy</a>
+<a href=/tags/pyqt5/>Pyqt5</a>
+<a href=/tags/python/>Python</a>
+<a href=/tags/software-architecture/>Software Architecture</a>
+<a href=/tags/sql/>Sql</a>
+<a href=/tags/subjects/>Subjects</a>
+<a href=/tags/tools/>Tools</a></div></section><hr><h5>FRIENDS</h5><ul class=list-inline><li><a href=https://gohugo.io target=_blank>John Doe</a></li><li><a href=https://iweec.com/ target=_blank>梅塔沃克 - 专注跨境</a></li></ul></div></div></div></article><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li><a href=https://github.com/zhenda-hub target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href=/index.xml target=_blank><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="copyright text-muted">Copyright © 2023-2026 Zhenda. All Rights Reserved.<br><span id=busuanzi_container_site_pv>Total visits to this site: <span id=busuanzi_value_site_pv></span> times· </span><span id=busuanzi_container_site_uv>You are the <span id=busuanzi_value_site_uv></span>th visitor</span><br>Powered by <a href=https://gohugo.io>Hugo</a></p></div></div></div></footer><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script src=/js/jquery.min.js></script><script src=/js/bootstrap.min.js crossorigin=anonymous></script><script src=/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js></script><script src=/js/simple-jekyll-search.min.js></script><script src=/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js></script><script type=text/javascript>function generateCatalog(e){_containerSelector="div.post-container";var t,n,s,o,i,a=$(_containerSelector),r=a.find("h1,h2,h3,h4");return $(e).html(""),r.each(function(){t=$(this).prop("tagName").toLowerCase(),o="#"+$(this).prop("id"),n=$(this).text(),i=$('<a href="'+o+'" rel="nofollow">'+n+"</a>"),s=$('<li class="'+t+'_nav"></li>').append(i),$(e).append(s)}),!0}generateCatalog(".catalog-body"),$(".catalog-toggle").click(function(e){e.preventDefault(),$(".side-catalog").toggleClass("fold")})</script><script type=text/javascript src=/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js></script><script>$(document).ready(function(){$(".catalog-body").onePageNav({currentClass:"active",changeHash:!1,easing:"swing",filter:"",scrollSpeed:700,scrollOffset:0,scrollThreshold:.2,begin:null,end:null,scrollChange:null,padding:80})})</script><script src=/zoomjs/zoom.min.js></script></body></html>
