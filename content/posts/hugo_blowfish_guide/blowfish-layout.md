@@ -10,40 +10,62 @@ series = ['Hugo Blowfish 指南']
 
 # Blowfish 布局配置
 
-## Homepage Layout（主页布局）
+## 首页布局
 
-| 布局 | 特点 | 适用场景 |
-|------|------|----------|
-| **profile** | 头像+简介+社交链接，居中显示 | 个人博客 |
-| **page** | 纯 Markdown 内容 | 静态网站 |
-| **hero** | profile + Markdown 内容 | 综合型 |
-| **background** | 类似 hero，更平滑，需背景图 | 视觉型 |
-| **card** | Markdown + 图片卡片 | 作品展示 |
-| **custom** | 完全自定义 | 高级用户 |
-
-**配置示例**：
 ```toml
 [homepage]
-  layout = "profile"  # 或 page, hero, background, card, custom
-  showRecent = true
-  showRecentItems = 9
+  layout = "page"        # profile, page, hero, background, card
   cardView = true
-  showMoreLink = true
+  showRecentItems = 9
 ```
 
-## Header Layout（头部布局）
-
-| 布局 | 特点 |
+| 布局 | 说明 |
 |------|------|
-| **basic** | 普通流动布局，随页面滚动 |
-| **fixed** | 固定在顶部，始终可见 |
-| **fixed-fill** | 固定 + 背景填充色 |
-| **fixed-fill-blur** | 固定 + 填充 + 背景模糊效果（毛玻璃） |
+| profile | 头像+简介+社交链接 |
+| page | 纯 Markdown 内容 |
+| hero | 大标题 + Markdown |
+| background | 背景图 + 内容 |
+| card | 卡片式文章列表 |
 
-**推荐**：`fixed` 或 `fixed-fill`
+## 列表页布局
 
-**配置示例**：
+```toml
+[list]
+  cardView = true        # 卡片视图（true）或列表视图（false）
+  showSummary = true     # 显示摘要
+  groupByYear = true     # 按年份分组
+```
+
+## 导航栏布局
+
 ```toml
 [header]
-  layout = "fixed"  # 或 basic, fixed-fill, fixed-fill-blur
+  layout = "fixed"      # basic, fixed, fixed-fill, fixed-fill-blur
+```
+
+| 布局 | 说明 |
+|------|------|
+| basic | 普通流动 |
+| fixed | 固定顶部 |
+| fixed-fill | 固定+填充色 |
+| fixed-fill-blur | 固定+毛玻璃 |
+
+## 文章 Hero
+
+```toml
+[article]
+  showHero = true
+  heroStyle = "big"     # basic, big, background, thumbAndBackground
+```
+
+## 切换方法
+
+**全局配置**: 修改 `config/_default/params.toml`
+
+**文章级别**: 在 frontmatter 中覆盖
+```toml
++++
+[params]
+  cardView = false
++++
 ```
