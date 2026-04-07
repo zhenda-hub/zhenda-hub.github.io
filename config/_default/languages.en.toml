@@ -28,4 +28,5 @@ title = "Zhenda's Blog"
     repoId = "R_kgDOKvQVww"
     category = "Announcements"
     categoryId = "DIC_kwDOKvQVw84CfdFG"
-    theme = "transparent"  # 自动跟随页面主题
+    theme = "dark_dimmed"  # 自动检测并匹配主题
+

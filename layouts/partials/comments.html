@@ -10,9 +10,46 @@
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="top"
-        data-theme="preferred_color_scheme"
+        data-theme="{{ site.Params.giscus.theme | default "light" }}"
         data-lang="en"
         crossorigin="anonymous"
         async>
+</script>
+
+<script>
+// 动态更新 Giscus 主题以匹配页面主题
+function updateGiscusTheme() {
+  const isDark = document.documentElement.classList.contains('dark') ||
+                 document.documentElement.dataset.theme === 'dark';
+  const theme = isDark ? 'dark' : 'light';
+
+  const iframe = document.querySelector('iframe[src*="giscus"]');
+  if (iframe) {
+    iframe.contentWindow.postMessage({
+      giscus: {
+        setConfig: {
+          theme: theme
+        }
+      }
+    }, 'https://giscus.app');
+  }
+}
+
+// 监听主题切换
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.attributeName === 'class' || mutation.attributeName === 'data-theme') {
+      updateGiscusTheme();
+    }
+  });
+});
+
+observer.observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ['class', 'data-theme']
+});
+
+// 页面加载完成后立即更新一次
+window.addEventListener('load', updateGiscusTheme);
 </script>
 {{- end -}}
