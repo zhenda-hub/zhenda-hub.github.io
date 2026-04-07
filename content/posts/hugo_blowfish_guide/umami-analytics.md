@@ -245,7 +245,15 @@ git push
 2. 打开浏览器开发者工具（F12）
 3. 切换到 **Network** 面板
 4. 刷新页面
-5. 查找 `你的项目.railway.app/script.js` 的加载请求
+5. 在 Filter 中输入 `umami` 或 `railway.app`
+6. 查找 `你的项目.railway.app/script.js` 的加载请求
+
+**验证成功标志：**
+```
+umami-production-xxx.up.railway.app/script.js  ✅ 200 OK
+```
+
+如果看到 `✅ 200 OK`，说明 Umami 脚本加载成功！
 
 **检查 Umami 面板：**
 
