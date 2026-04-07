@@ -46,12 +46,12 @@ series = ['Hugo Blowfish 指南']
 - ✅ 分类标签 (`article.showTaxonomies = true`)
 - ✅ 按年份分组 (`list.groupByYear = true`)
 - ✅ 卡片视图 (`list.cardView = true`)
+- ⏸️ Giscus 评论（需要自定义 partial）
+- ⏸️ 文章缩略图（可选）
+- ⏸️ 面包屑导航
 
 ## 待配置功能
 
-- ⏸️ Giscus 评论（需要自定义 partial）
 - ⏸️ 作者头像（需要添加图片）
-- ⏸️ 文章缩略图（可选）
 - ⏸️ 分享按钮
 - ⏸️ Hero 图片
-- ⏸️ 面包屑导航
