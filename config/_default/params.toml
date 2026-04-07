@@ -76,3 +76,8 @@ keywords = ["blog", "developer", "personal"]
   messagingSenderId = "YOUR_SENDER_ID"
   appId = "YOUR_APP_ID"
   # measurementId = "YOUR_MEASUREMENT_ID"  # Optional
+
+[umamiAnalytics]
+  websiteid = "YOUR_websiteid"
+  domain = "YOUR_domain"
+  enableTrackEvent = true
