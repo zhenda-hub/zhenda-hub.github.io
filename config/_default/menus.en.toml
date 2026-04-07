@@ -14,11 +14,6 @@
   weight = 20
 
 [[main]]
-  name = "Stats"
-  pageRef = "/posts/blog-stats/"
-  weight = 25
-
-[[main]]
   name = "Links"
   identifier = "links"
   weight = 40
