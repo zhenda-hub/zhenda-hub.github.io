@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Zhenda's Blog</title><link>https://zhenda-hub.github.io/tags/git/</link><description>Recent content in Git on Zhenda's Blog</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2023-2026 Zhenda. All Rights Reserved.</copyright><lastBuildDate>Mon, 08 Jan 2024 23:37:30 +0800</lastBuildDate><atom:link href="https://zhenda-hub.github.io/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git资源</title><link>https://zhenda-hub.github.io/posts/tools/git-guide/git%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 08 Jan 2024 23:37:30 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/git-guide/git%E6%8C%87%E5%8D%97/</guid><description>[toc]
-官方文档https://git-scm.com/book/zh/v2
-git 重要概念 commit 以 commit 节点为根基, 记录历史, 当前 commit 为 HEAD branch 分支实际上是可移动的指针, 代表一系列commit 用于并行开发 创建删除非常轻量 代码仓库 远程仓库 部署在服务器中，供用户访问 本地仓库 信息都存放在 .git文件夹 里面， .git文件夹 所在的文件夹就是仓库 git 远程仓库平台 github
-最强大的国际git平台，海量的优秀仓库
-actions
-CICD pages
-静态网页部署 编写 md 发布到全网 railway
-部署 web 项目 gitlab
-支持自建远程仓库 https://docs.gitlab.com/ee/update/package/#upgrade-using-the-official-repositories ci/cd gitee
-国内使用方便 CICD 需要自己弄服务器 大体流程 工作区 本地仓库 远程仓库 git 使用方法基础使用使用前提: 安装 -&amp;gt; 配置 -&amp;gt; 远程仓库 -&amp;gt; 本地仓库
-安装&amp;hellip;
-配置个人信息~/.gitconfig
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 # 查看 git 信息 git config -l # 编辑个人信息来显示提交记录 git config --global user.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Zhenda's Blog</title><link>https://zhenda-hub.github.io/tags/git/</link><description>Recent content in Git on Zhenda's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2023-2026 Zhenda. All Rights Reserved.</copyright><lastBuildDate>Mon, 08 Jan 2024 23:37:30 +0800</lastBuildDate><atom:link href="https://zhenda-hub.github.io/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Git资源</title><link>https://zhenda-hub.github.io/posts/tools/git-guide/git%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 08 Jan 2024 23:37:30 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/tools/git-guide/git%E6%8C%87%E5%8D%97/</guid><description/></item></channel></rss>

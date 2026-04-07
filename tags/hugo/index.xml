@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on Zhenda's Blog</title><link>https://zhenda-hub.github.io/tags/hugo/</link><description>Recent content in Hugo on Zhenda's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2023-2026 Zhenda. All Rights Reserved.</copyright><lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://zhenda-hub.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Blowfish 图表使用</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/charts/</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/charts/</guid><description/></item><item><title>KaTeX 数学公式</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/katex-math/</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/katex-math/</guid><description>&lt;h1 class="relative group"&gt;KaTeX 数学公式
+&lt;div id="katex-数学公式" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#katex-%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h1&gt;
+&lt;p&gt;Blowfish 主题使用 KaTeX 渲染数学公式。KaTeX 是一个快速的数学排版库。&lt;/p&gt;
+&lt;h2 class="relative group"&gt;启用方法
+&lt;div id="启用方法" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%90%af%e7%94%a8%e6%96%b9%e6%b3%95" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h2&gt;
+&lt;p&gt;在文章中添加 &lt;code&gt;
+&lt;/code&gt; shortcode（放在任意位置）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+++
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;title = &amp;#34;文章标题&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+++
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;文章内容...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 class="relative group"&gt;支持的公式格式
+&lt;div id="支持的公式格式" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%94%af%e6%8c%81%e7%9a%84%e5%85%ac%e5%bc%8f%e6%a0%bc%e5%bc%8f" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h2&gt;
+&lt;h3 class="relative group"&gt;行内公式
+&lt;div id="行内公式" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a1%8c%e5%86%85%e5%85%ac%e5%bc%8f" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;\(...\)&lt;/code&gt; 包裹：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;行内公式: \(E = mc^2\)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：行内公式: \(E = mc^2\)&lt;/p&gt;
+&lt;h3 class="relative group"&gt;块级公式
+&lt;div id="块级公式" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9d%97%e7%ba%a7%e5%85%ac%e5%bc%8f" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;$$...$$&lt;/code&gt; 或 &lt;code&gt;\[...\]&lt;/code&gt; 包裹：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;\varphi = \frac{1 + \sqrt{5}}{2} = 1.6180339887…
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;/p&gt;
+$$
+\varphi = \frac{1 + \sqrt{5}}{2} = 1.6180339887…
+$$
+&lt;h2 class="relative group"&gt;配置原理
+&lt;div id="配置原理" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h2&gt;
+&lt;h3 class="relative group"&gt;两层配置
+&lt;div id="两层配置" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%b8%a4%e5%b1%82%e9%85%8d%e7%bd%ae" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;层级&lt;/th&gt;
+&lt;th&gt;文件&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Hugo Goldmark&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;config/_default/markup.toml&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;保留 LaTeX 语法，不转换为 HTML 实体&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KaTeX auto-render&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;themes/blowfish/assets/lib/katex/auto-render.min.js&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;渲染数学公式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="relative group"&gt;Hugo Goldmark 配置
+&lt;div id="hugo-goldmark-配置" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#hugo-goldmark-%e9%85%8d%e7%bd%ae" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;config/_default/markup.toml&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-toml" data-lang="toml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;goldmark&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;extensions&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;passthrough&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;delimiters&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;block&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;\[&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;\]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;$$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;$$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;inline&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;\(&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;\)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这告诉 Hugo：不要转义这些分隔符之间的内容。&lt;/p&gt;
+&lt;h3 class="relative group"&gt;KaTeX delimiters 定义
+&lt;div id="katex-delimiters-定义" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#katex-delimiters-%e5%ae%9a%e4%b9%89" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;KaTeX auto-render 的默认分隔符（在 &lt;code&gt;auto-render.min.js&lt;/code&gt; 中）：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;分隔符&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;$$...$$&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;块级&lt;/td&gt;
+&lt;td&gt;标准块级公式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\(...\)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;行内&lt;/td&gt;
+&lt;td&gt;标准行内公式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\[...\]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;块级&lt;/td&gt;
+&lt;td&gt;LaTeX 标准块级&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\begin{equation}...\end{equation}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;块级&lt;/td&gt;
+&lt;td&gt;equation 环境&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;\begin{align}...\end{align}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;块级&lt;/td&gt;
+&lt;td&gt;align 环境&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：默认配置&lt;strong&gt;不支持&lt;/strong&gt; &lt;code&gt;$...$&lt;/code&gt; 作为行内公式分隔符。&lt;/p&gt;
+&lt;h2 class="relative group"&gt;常见问题
+&lt;div id="常见问题" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h2&gt;
+&lt;h3 class="relative group"&gt;Q: 为什么 &lt;code&gt;$E = mc^2$&lt;/code&gt; 不渲染？
+&lt;div id="q-为什么-e--mc2-不渲染" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#q-%e4%b8%ba%e4%bb%80%e4%b9%88-e--mc2-%e4%b8%8d%e6%b8%b2%e6%9f%93" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;A: KaTeX 默认不支持 &lt;code&gt;$...$&lt;/code&gt; 分隔符。使用 &lt;code&gt;\(...\)&lt;/code&gt; 代替：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;❌ $E = mc^2$
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;✅ \(E = mc^2\)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 class="relative group"&gt;Q: 如何添加 &lt;code&gt;$...$&lt;/code&gt; 支持？
+&lt;div id="q-如何添加--支持" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#q-%e5%a6%82%e4%bd%95%e6%b7%bb%e5%8a%a0--%e6%94%af%e6%8c%81" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;A: 需要自定义 KaTeX 配置。创建 &lt;code&gt;layouts/partials/extend-head.html&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;DOMContentLoaded&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;renderMathInElement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;delimiters&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;$$&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;$$&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;$&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;$&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;\\(&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;\\)&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;\\[&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;\\]&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 class="relative group"&gt;Q: 中文文章自动摘要不工作？
+&lt;div id="q-中文文章自动摘要不工作" class="anchor"&gt;&lt;/div&gt;
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none"&gt;
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#q-%e4%b8%ad%e6%96%87%e6%96%87%e7%ab%a0%e8%87%aa%e5%8a%a8%e6%91%98%e8%a6%81%e4%b8%8d%e5%b7%a5%e4%bd%9c" aria-label="Anchor"&gt;#&lt;/a&gt;
+&lt;/span&gt;
+&lt;/h3&gt;
+&lt;p&gt;A: Hugo 的 &lt;code&gt;.Summary&lt;/code&gt; 基于空格分词，对中文不适用。使用 `&lt;/p&gt;</description></item><item><title>Umami 统计部署指南</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/umami-analytics/</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/umami-analytics/</guid><description/></item><item><title>Blowfish 布局说明</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-layout/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-layout/</guid><description/></item><item><title>Blowfish 搜索功能</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/search-functionality/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/search-functionality/</guid><description/></item><item><title>Blowfish 迁移记录</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-migration/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-migration/</guid><description/></item><item><title>Blowfish 配置指南</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-config/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-config/</guid><description/></item><item><title>Firebase 集成指南</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/firebase-setup/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/firebase-setup/</guid><description/></item><item><title>Hugo 主题对比</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/theme-comparison/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/theme-comparison/</guid><description/></item><item><title>Hugo 缓存问题</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/hugo-cache/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/hugo-cache/</guid><description/></item><item><title>Mermaid 图表支持</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/mermaid-diagrams/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/mermaid-diagrams/</guid><description/></item><item><title>如何自定义文章标题</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/how-to-customize-article-title/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/how-to-customize-article-title/</guid><description/></item></channel></rss>
