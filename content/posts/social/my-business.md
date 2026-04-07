@@ -1,5 +1,5 @@
 +++
-title = 'My Business'
+title = '个人商业'
 subtitle = ""
 date = 2024-11-27T00:15:56+08:00
 draft = false

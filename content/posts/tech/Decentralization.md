@@ -1,13 +1,11 @@
 +++
-title = 'Decentralization'
+title = '去中心化'
 subtitle = ""
 date = 2024-11-07T02:07:14+08:00
 draft = false
 toc = true
 series = ["tech"]
 +++
-
-# 去中心化
 
 在去中心化网络中，设计出合理的规则和技术方案，让每个节点在不依赖中心机构的情况下，能够公平、透明地参与到网络运行中，是去中心化技术的关键。
 

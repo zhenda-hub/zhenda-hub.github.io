@@ -1,5 +1,5 @@
 +++
-title = 'Industry Dev'
+title = '行业发展'
 subtitle = ""
 date = 2024-12-03T16:13:01+08:00
 draft = false

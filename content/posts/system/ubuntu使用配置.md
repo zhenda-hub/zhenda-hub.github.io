@@ -275,11 +275,11 @@ reboot   system boot  6.11.0-17-generi Sun Feb 23 20:22 - 20:52  (00:30)
 reboot   system boot  6.11.0-17-generi Sun Feb 23 19:52 - 20:21  (00:29)
 ```
 
-### xxx
+### 科学
 
-sing-box
-v2rayA
-X-ui面板
+- sing-box
+- v2rayA
+- X-ui面板
 
 ### 改server脚本
 

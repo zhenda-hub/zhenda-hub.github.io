@@ -1,13 +1,11 @@
 +++
-title = 'Virtual'
+title = '生活中的虚拟化'
 subtitle = ""
 date = 2025-09-18T00:53:19+08:00
 draft = false
 toc = true
 series = ['social']
 +++
-
-# 生活中的虚拟化
 
 应用场景扩展
 
