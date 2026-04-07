@@ -44,7 +44,7 @@ series = ['Hugo Blowfish 指南']
 - ✅ 字数统计 (`article.showWordCount = true`)
 - ✅ 标题锚点 (`article.showHeadingAnchors = true`)
 - ✅ 分类标签 (`article.showTaxonomies = true`)
-- ✅ 按年份分组 (`list.groupByYear = true`)
+- ❌ 按年份分组 (`list.groupByYear = false`)
 - ✅ 卡片视图 (`list.cardView = true`)
 - ⏸️ Giscus 评论（需要自定义 partial）
 - ⏸️ 文章缩略图（可选）
@@ -55,3 +55,57 @@ series = ['Hugo Blowfish 指南']
 - ⏸️ 作者头像（需要添加图片）
 - ⏸️ 分享按钮
 - ⏸️ Hero 图片
+
+## 文章创建配置
+
+修改 `archetypes/default.md` 可设置新文章的默认 front matter：
+
+```toml
++++
+title = '{{ replace .File.ContentBaseName "-" " " | title }}'
+subtitle = ""
+date = {{ .Date }}
+draft = false  # 默认发布状态
+toc = true
+series = []
++++
+```
+
+创建新文章时使用：
+```bash
+hugo new posts/my-new-article.md
+```
+
+## 文章摘要配置
+
+Blowfish 主题根据文章开头格式自动生成摘要：
+
+| 开头格式 | 摘要来源 | 示例 |
+|---------|---------|------|
+| 正文 + `<!--more-->` | `<!--more-->` 前的内容 | `这是摘要...<!--more-->## 正文` |
+| `# 一级标题` + 正文 | 一级标题后的正文 | `# 标题\n这是摘要...` |
+| `[toc]` / `## 二级标题` | ❌ 无摘要 | `[toc]\n## 正文` |
+
+**添加摘要的方法：**
+
+**方法 1：使用 `<!--more-->` 分隔符**
+```markdown
++++
+title = "文章标题"
++++
+
+这是文章摘要，会显示在列表页...
+
+<!--more-->
+
+## 正文内容
+正文开始...
+```
+
+**方法 2：使用 `summary` 参数**
+```toml
++++
+title = "文章标题"
+summary = "这是自定义摘要"
++++
+```
