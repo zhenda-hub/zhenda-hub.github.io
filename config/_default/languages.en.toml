@@ -22,10 +22,9 @@ title = "Zhenda's Blog"
       { rss = "/index.xml" },
     ]
 
-# Giscus Comments - TODO: Create custom partial
-# [comments.giscus]
-#   enabled = true
-#   repo = "zhenda-hub/zhenda-hub.github.io"
-#   repoId = "R_kgDOKvQVww"
-#   category = "Announcements"
-#   categoryId = "DIC_kwDOKvQVw84CfdFG"
+  [params.giscus]
+    enabled = true
+    repo = "zhenda-hub/zhenda-hub.github.io"
+    repoId = "R_kgDOKvQVww"
+    category = "Announcements"
+    categoryId = "DIC_kwDOKvQVw84CfdFG"

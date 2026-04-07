@@ -2,6 +2,8 @@
 title = "About Me"
 description = "I'm zhenda. A Full Stack Developer"
 date = "2024-03-28"
+layout = "single"
+showComments = true
 +++
 
 欢迎来到我的个人博客！我是zhenda，一名热爱技术、写作和探索的人。在这个小小的网络角落，我将与你分享我的思考、见解、以及一些有趣的故事。
