@@ -228,4 +228,238 @@ $$
  &lt;/span&gt;
  
 &lt;/h3&gt;
-&lt;p&gt;A: Hugo 的 &lt;code&gt;.Summary&lt;/code&gt; 基于空格分词，对中文不适用。使用 `&lt;/p&gt;</description></item><item><title>Umami 统计部署指南</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/umami-analytics/</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/umami-analytics/</guid><description/></item><item><title>Blowfish 布局说明</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-layout/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-layout/</guid><description/></item><item><title>Blowfish 搜索功能</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/search-functionality/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/search-functionality/</guid><description/></item><item><title>Blowfish 迁移记录</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-migration/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-migration/</guid><description/></item><item><title>Blowfish 配置指南</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-config/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-config/</guid><description/></item><item><title>Firebase 集成指南</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/firebase-setup/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/firebase-setup/</guid><description/></item><item><title>Hugo 主题对比</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/theme-comparison/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/theme-comparison/</guid><description/></item><item><title>Hugo 缓存问题</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/hugo-cache/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/hugo-cache/</guid><description/></item><item><title>Mermaid 图表支持</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/mermaid-diagrams/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/mermaid-diagrams/</guid><description/></item><item><title>如何自定义文章标题</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/how-to-customize-article-title/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/how-to-customize-article-title/</guid><description/></item></channel></rss>
+&lt;p&gt;A: Hugo 的 &lt;code&gt;.Summary&lt;/code&gt; 基于空格分词，对中文不适用。使用 `&lt;/p&gt;</description></item><item><title>Umami 统计部署指南</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/umami-analytics/</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/umami-analytics/</guid><description/></item><item><title>Blowfish 布局说明</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-layout/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-layout/</guid><description/></item><item><title>Blowfish 搜索功能</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/search-functionality/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/search-functionality/</guid><description/></item><item><title>Blowfish 迁移记录</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-migration/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-migration/</guid><description/></item><item><title>Blowfish 配置指南</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-config/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-config/</guid><description>&lt;h1 class="relative group"&gt;Blowfish 配置选项
+ &lt;div id="blowfish-配置选项" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#blowfish-%e9%85%8d%e7%bd%ae%e9%80%89%e9%a1%b9" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h1&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;配置项&lt;/th&gt;
+ &lt;th&gt;当前值&lt;/th&gt;
+ &lt;th&gt;可选值&lt;/th&gt;
+ &lt;th&gt;说明&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;外观&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;colorScheme&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;blowfish&lt;/td&gt;
+ &lt;td&gt;blowfish, avocado, fire, ocean, forest, neon, etc.&lt;/td&gt;
+ &lt;td&gt;主题配色&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;defaultAppearance&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;light&lt;/td&gt;
+ &lt;td&gt;light, dark&lt;/td&gt;
+ &lt;td&gt;默认外观&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;autoSwitchAppearance&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;true&lt;/td&gt;
+ &lt;td&gt;true, false&lt;/td&gt;
+ &lt;td&gt;自动切换深浅色&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;导航栏&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;header.layout&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;fixed&lt;/td&gt;
+ &lt;td&gt;basic, fixed, fixed-fill, fixed-fill-blur&lt;/td&gt;
+ &lt;td&gt;导航栏样式&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;首页&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;homepage.layout&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;profile&lt;/td&gt;
+ &lt;td&gt;profile, page, hero, card, background, custom&lt;/td&gt;
+ &lt;td&gt;首页布局&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;homepage.showRecentItems&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;999&lt;/td&gt;
+ &lt;td&gt;数字&lt;/td&gt;
+ &lt;td&gt;显示文章数&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;homepage.cardView&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;true&lt;/td&gt;
+ &lt;td&gt;true, false&lt;/td&gt;
+ &lt;td&gt;卡片视图&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;文章&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;article.showHero&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;false&lt;/td&gt;
+ &lt;td&gt;true, false&lt;/td&gt;
+ &lt;td&gt;显示 Hero 图片&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;article.heroStyle&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;-&lt;/td&gt;
+ &lt;td&gt;basic, big, background, thumbAndBackground&lt;/td&gt;
+ &lt;td&gt;Hero 样式&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;article.showBreadcrumbs&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;false&lt;/td&gt;
+ &lt;td&gt;true, false&lt;/td&gt;
+ &lt;td&gt;面包屑导航&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;article.sharingLinks&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;-&lt;/td&gt;
+ &lt;td&gt;bluesky, email, facebook, linkedin, mastodon, etc.&lt;/td&gt;
+ &lt;td&gt;分享按钮&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;列表页&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;list.showHero&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;false&lt;/td&gt;
+ &lt;td&gt;true, false&lt;/td&gt;
+ &lt;td&gt;列表 Hero 图片&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;list.showSummary&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;false&lt;/td&gt;
+ &lt;td&gt;true, false&lt;/td&gt;
+ &lt;td&gt;显示摘要&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;其他&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;footer.showAppearanceSwitcher&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;false&lt;/td&gt;
+ &lt;td&gt;true, false&lt;/td&gt;
+ &lt;td&gt;底部外观切换&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;smartTOC&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;-&lt;/td&gt;
+ &lt;td&gt;true, false&lt;/td&gt;
+ &lt;td&gt;智能 TOC 高亮&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 class="relative group"&gt;当前已启用的功能
+ &lt;div id="当前已启用的功能" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%bd%93%e5%89%8d%e5%b7%b2%e5%90%af%e7%94%a8%e7%9a%84%e5%8a%9f%e8%83%bd" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ 搜索 (&lt;code&gt;enableSearch = true&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;✅ 代码复制 (&lt;code&gt;enableCodeCopy = true&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;✅ 固定导航栏 (&lt;code&gt;header.layout = &amp;quot;fixed&amp;quot;&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;✅ 文章目录 (&lt;code&gt;article.showTableOfContents = true&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;✅ 阅读时间 (&lt;code&gt;article.showReadingTime = true&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;✅ 字数统计 (&lt;code&gt;article.showWordCount = true&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;✅ 标题锚点 (&lt;code&gt;article.showHeadingAnchors = true&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;✅ 分类标签 (&lt;code&gt;article.showTaxonomies = true&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;❌ 按年份分组 (&lt;code&gt;list.groupByYear = false&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;✅ 卡片视图 (&lt;code&gt;list.cardView = true&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;⏸️ Giscus 评论（需要自定义 partial）&lt;/li&gt;
+&lt;li&gt;⏸️ 文章缩略图（可选）&lt;/li&gt;
+&lt;li&gt;⏸️ 面包屑导航&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 class="relative group"&gt;待配置功能
+ &lt;div id="待配置功能" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%be%85%e9%85%8d%e7%bd%ae%e5%8a%9f%e8%83%bd" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;⏸️ 作者头像（需要添加图片）&lt;/li&gt;
+&lt;li&gt;⏸️ 分享按钮&lt;/li&gt;
+&lt;li&gt;⏸️ Hero 图片&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 class="relative group"&gt;文章创建配置
+ &lt;div id="文章创建配置" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%87%e7%ab%a0%e5%88%9b%e5%bb%ba%e9%85%8d%e7%bd%ae" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;修改 &lt;code&gt;archetypes/default.md&lt;/code&gt; 可设置新文章的默认 front matter：&lt;/p&gt;
+&lt;div class="highlight-wrapper"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-toml" data-lang="toml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;+++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;title&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{{ replace .File.ContentBaseName &amp;#34;-&amp;#34; &amp;#34; &amp;#34; | title }}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;subtitle&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;date&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{{&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Date&lt;/span&gt; &lt;span class="p"&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;draft&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt; &lt;span class="c"&gt;# 默认发布状态&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;toc&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;series&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;+++&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;创建新文章时使用：&lt;/p&gt;
+&lt;div class="highlight-wrapper"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo new posts/my-new-article.md&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 class="relative group"&gt;文章摘要配置
+ &lt;div id="文章摘要配置" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%96%87%e7%ab%a0%e6%91%98%e8%a6%81%e9%85%8d%e7%bd%ae" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Blowfish 主题根据文章开头格式自动生成摘要：&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;开头格式&lt;/th&gt;
+ &lt;th&gt;摘要来源&lt;/th&gt;
+ &lt;th&gt;示例&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;正文 + `&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>Firebase 集成指南</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/firebase-setup/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/firebase-setup/</guid><description/></item><item><title>Hugo 主题对比</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/theme-comparison/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/theme-comparison/</guid><description/></item><item><title>Hugo 缓存问题</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/hugo-cache/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/hugo-cache/</guid><description/></item><item><title>Mermaid 图表支持</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/mermaid-diagrams/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/mermaid-diagrams/</guid><description/></item><item><title>如何自定义文章标题</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/how-to-customize-article-title/</link><pubDate>Sun, 06 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/how-to-customize-article-title/</guid><description/></item></channel></rss>
