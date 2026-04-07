@@ -1,8 +1,8 @@
 +++
-title = 'Version'
+title = '圣经译本'
 subtitle = ""
 date = 2026-03-21T15:59:01+08:00
-draft = true
+draft = false
 toc = true
 series = []
 +++
