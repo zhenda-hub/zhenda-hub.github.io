@@ -1,68 +1,37 @@
-name: Deploy to gh-pages
+# .github/workflows/hugo.yml
+name: GitHub Pages
 
 on:
   push:
     branches:
-      - main               # 从 main 分支部署
-      - migrate/blowfish   # 或从 migrate/blowfish 分支部署
-  workflow_dispatch:       # 允许手动触发
-
-# 设置权限
-permissions:
-  contents: write
-  push:
-    branches:
-      - main               # 从 main 分支部署
-      - migrate/blowfish   # 或从 migrate/blowfish 分支部署
-  workflow_dispatch:       # 允许手动触发
+      - main
+  pull_request:
 
 jobs:
-  build-deploy:
-    runs-on: ubuntu-24.04
+  deploy:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
-          submodules: true
-          fetch-depth: 0
-
-      # 从 GitHub Secrets 生成配置文件
-      - name: Setup production config
-        run: |
-          mkdir -p config/production
-          cat > config/production/params.toml << 'EOF'
-          # Production configuration
-          # Auto-generated from GitHub Secrets
-
-          [firebase]
-            apiKey = "${{ secrets.FIREBASE_API_KEY }}"
-            authDomain = "${{ secrets.FIREBASE_AUTH_DOMAIN }}"
-            projectId = "${{ secrets.FIREBASE_PROJECT_ID }}"
-            storageBucket = "${{ secrets.FIREBASE_STORAGE_BUCKET }}"
-            messagingSenderId = "${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}"
-            appId = "${{ secrets.FIREBASE_APP_ID }}"
-            measurementId = "${{ secrets.FIREBASE_MEASUREMENT_ID }}"
-
-          [umamiAnalytics]
-            websiteid = "${{ secrets.UMAMI_WEBSITE_ID }}"
-            domain = "${{ secrets.UMAMI_DOMAIN }}"
-            enableTrackEvent = true
-          EOF
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.128.0"
-          extended: true
+          hugo-version: "0.110.0"
 
       - name: Build
-        run: hugo --minify --environment production
+        run: hugo --minify
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
           publish_dir: ./public
+          # publish_branch: gh-pages  # default
