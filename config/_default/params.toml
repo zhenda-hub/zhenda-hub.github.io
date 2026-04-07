@@ -59,7 +59,7 @@ keywords = ["blog", "developer", "personal"]
   # basic、big、background、thumbAndBackground
   # showEdit = true
 [list]
-  groupByYear = true
+  groupByYear = false
   cardView = true
   showSummary = true
   showViews = true
