@@ -19,21 +19,21 @@
   weight = 25
 
 [[main]]
+  name = "Links"
+  identifier = "links"
+  weight = 40
+
+[[main]]
   name = "RSS"
+  parent = "links"
   url = "/index.xml"
-  weight = 26
 
 [[main]]
   name = "Github"
+  parent = "links"
   url = "https://github.com/zhenda-hub/"
-  weight = 40
 
 [[main]]
   name = "About"
   pageRef = "/about/"
   weight = 50
-
-[[main]]
-  name = "Links"
-  pageRef = "/link/"
-  weight = 60
