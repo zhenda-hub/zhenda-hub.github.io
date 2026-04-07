@@ -1,10 +1,11 @@
 +++
-title = 'My Sys'
+title = '我的生态系统(鱼缸)'
 subtitle = ""
 date = 2025-12-28T22:33:38+08:00
 draft = false
 toc = true
 series = ['life']
+featureimage = "https://picx.zhimg.com/70/v2-01caa71cb6ada1ef0b488f275a3b77b3_1440w.avis?source=172ae18b&biz_tag=Post"
 +++
 [toc]
 
