@@ -3,8 +3,9 @@ name: Deploy to gh-pages
 on:
   push:
     branches:
-      - migrate/blowfish  # 从这个分支部署
-  workflow_dispatch:      # 允许手动触发
+      - main               # 从 main 分支部署
+      - migrate/blowfish   # 或从 migrate/blowfish 分支部署
+  workflow_dispatch:       # 允许手动触发
 
 jobs:
   build-deploy:
