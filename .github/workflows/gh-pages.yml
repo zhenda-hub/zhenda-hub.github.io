@@ -7,6 +7,15 @@ on:
       - migrate/blowfish   # 或从 migrate/blowfish 分支部署
   workflow_dispatch:       # 允许手动触发
 
+# 设置权限
+permissions:
+  contents: write
+  push:
+    branches:
+      - main               # 从 main 分支部署
+      - migrate/blowfish   # 或从 migrate/blowfish 分支部署
+  workflow_dispatch:       # 允许手动触发
+
 jobs:
   build-deploy:
     runs-on: ubuntu-24.04
