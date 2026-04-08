@@ -16,11 +16,6 @@ title = "Zhenda's Blog"
     name = "Zhenda"
     # image = "img/avatar.jpg"  # TODO: Add avatar to assets/
     headline = "Stay hungry, stay humble, and keep shipping value."
-    bio = "A personal website"
-    links = [
-      { github = "https://github.com/zhenda-hub" },
-      { rss = "/index.xml" },
-    ]
 
   [params.giscus]
     enabled = true
