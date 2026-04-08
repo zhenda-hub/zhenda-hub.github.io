@@ -13,9 +13,8 @@ series = ['bible']
 
 ## word cloud
 
-![bbe_wordcloud](../imgs/bbe_wordcloud.png)
-
-![hgb_wordcloud](../imgs/hgb_wordcloud.png)
+- ![bbe_wordcloud](bbe_wordcloud.png)
+- ![hgb_wordcloud](hgb_wordcloud.png)
 
 ## Numbers
 
