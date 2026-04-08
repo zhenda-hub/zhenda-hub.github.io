@@ -19,9 +19,8 @@
 <script>
 // 动态更新 Giscus 主题以匹配页面主题
 function updateGiscusTheme() {
-  const isDark = document.documentElement.classList.contains('dark') ||
-                 document.documentElement.dataset.theme === 'dark';
-  const theme = isDark ? 'dark' : 'light';
+  const isDark = document.documentElement.classList.contains('dark');
+  const theme = isDark ? 'dark_dimmed' : 'light';
 
   const iframe = document.querySelector('iframe[src*="giscus"]');
   if (iframe) {
@@ -38,7 +37,7 @@ function updateGiscusTheme() {
 // 监听主题切换
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
-    if (mutation.attributeName === 'class' || mutation.attributeName === 'data-theme') {
+    if (mutation.attributeName === 'class') {
       updateGiscusTheme();
     }
   });
@@ -46,10 +45,13 @@ const observer = new MutationObserver((mutations) => {
 
 observer.observe(document.documentElement, {
   attributes: true,
-  attributeFilter: ['class', 'data-theme']
+  attributeFilter: ['class']
 });
 
-// 页面加载完成后立即更新一次
-window.addEventListener('load', updateGiscusTheme);
+// 页面加载完成后更新主题
+// 使用 setTimeout 确保 Giscus iframe 已完全初始化
+window.addEventListener('load', () => {
+  setTimeout(updateGiscusTheme, 1000);
+});
 </script>
 {{- end -}}
