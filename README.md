@@ -35,6 +35,7 @@ https://github.com/roninro/hugo-theme-puppet
 ### comments
 
 use giscus:
+
 - https://giscus.app/zh-CN
 - https://blog.highp.ing/p/giscus/
 - https://fengchao.pro/blog/comment-system-with-giscus/
@@ -59,9 +60,6 @@ use giscus:
 - Hemingway
 - uBlogger
 
-
-
-
 ```bash
 git submodule update --init --recursive # needed when you reclone your repo (submodules may not get cloned automatically)
 
@@ -82,24 +80,18 @@ git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
 git submodule add https://github.com/zhenda-hub/hugo-theme-puppet.git themes/puppet_zd
 ```
 
-
-
-
 ```toml
 theme = "主题名"
 ```
-
 
 ```bash
 # 当使用CI/CD部署Hugo网站时，确保在运行hugo命令之前执行以下命令至关重要。
 git submodule update --init
 ```
 
-
-
 ```bash
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
-Web Server is available at http://localhost:1313/ (bind address 127.0.0.1) 
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
 
@@ -107,3 +99,8 @@ Press Ctrl+C to stop
 
 umami
 Firebase (Google Analytics 4)
+
+TODO:
+
+- BuyMeACoffee
+- Advertisement
