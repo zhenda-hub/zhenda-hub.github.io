@@ -108,9 +108,11 @@ series = ['bible']
 
 ## Isaiah
 
-<!--> This is what the LORD says--the Holy One of Israel and your Creator:" Do you question what I do for my children? Do you give me orders about the work of my hands?
+<!--
+This is what the LORD says--the Holy One of Israel and your Creator:" Do you question what I do for my children? Do you give me orders about the work of my hands?
 
-> _(Isaiah 45:11 NLT)_-->
+_(Isaiah 45:11 NLT)_
+-->
 
 ## Jeremiah
 
