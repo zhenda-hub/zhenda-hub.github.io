@@ -80,16 +80,16 @@ tags = ['tools']
 
 Mermaid Diagram
 
-```mermaid
+{{< mermaid >}}
 graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
 
-```
+{{< /mermaid >}}
 
-```mermaid
+{{< mermaid >}}
 gantt
 dateFormat  YYYY-MM-DD
 title Adding GANTT diagram to mermaid
@@ -101,9 +101,9 @@ Active task               :active,  des2, 2014-01-09, 3d
 Future task               :         des3, after des2, 5d
 Future task2               :         des4, after des3, 5d
 
-```
+{{< /mermaid >}}
 
-```mermaid
+{{< mermaid >}}
 journey
     title My working day
     section Go to work
@@ -114,9 +114,9 @@ journey
       Go downstairs: 5: Me
       Sit down: 5: Me
 
-```
+{{< /mermaid >}}
 
-```mermaid
+{{< mermaid >}}
 sankey-beta
 
 %% source,target,value
@@ -124,9 +124,9 @@ Electricity grid,Over generation / exports,104.453
 Electricity grid,Heating and cooling - homes,113.726
 Electricity grid,H2 conversion,27.14
 
-```
+{{< /mermaid >}}
 
-```mermaid
+{{< mermaid >}}
 ---
 title: Simple sample
 ---
@@ -139,18 +139,18 @@ stateDiagram-v2
     Moving --> Crash
     Crash --> [*]
 
-```
+{{< /mermaid >}}
 
-```mermaid
+{{< mermaid >}}
 flowchart TB
     A --> C
     A --> D
     B --> C
     B --> D
 
-```
+{{< /mermaid >}}
 
-```mermaid
+{{< mermaid >}}
 mindmap
 Root
     A
@@ -166,4 +166,4 @@ Root
             2
             3
 
-```
+{{< /mermaid >}}

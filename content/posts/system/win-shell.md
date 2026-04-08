@@ -286,7 +286,7 @@ bcdedit /set hypervisorlaunchtype off
 
 无缝协作：Windows 跑 IDE/浏览器/微信，WSL 跑服务/构建，剪贴板/网络互通
 
-```mermaid
+{{< mermaid >}}
 flowchart LR
     subgraph W[Windows 主机]
         A[VS Code / IDE<br>（作为代码编辑器前端）]
@@ -306,7 +306,7 @@ flowchart LR
 
     D <-->|高速读写| E
     E <-->|构建与运行| F
-```
+{{< /mermaid >}}
 
 ### 安装
 

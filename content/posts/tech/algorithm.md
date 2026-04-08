@@ -462,7 +462,7 @@ combinations_with_replacement() # 多组
 - heap
 - shell
 
-```mermaid
+{{< mermaid >}}
 graph TD
     A[Insertion Sort] --> B[Binary Insertion Sort]
     A --> C[Shell Sort]
@@ -476,7 +476,7 @@ graph TD
     I[Heap Sort] --> H
     A --> H
 
-```
+{{< /mermaid >}}
 
 ```python
 def insertion_sort(arr):
@@ -740,7 +740,7 @@ while l<r:
 
 ## 算法题 和 实际项目 差异
 
-```mermaid
+{{< mermaid >}}
 graph TD
     A[算法世界] --> B[LeetCode]
     A --> C[数据结构]
@@ -754,7 +754,7 @@ graph TD
 
     B --> K[面试通过]
     G --> L[系统不崩]
-```
+{{< /mermaid >}}
 
 数据结构
 一维度

@@ -132,14 +132,14 @@ httpx 异步请求
 
 关系流程:
 
-```mermaid
+{{< mermaid >}}
 graph TD
     ClientA[Client A: Publisher] -->|Publish| Broker((MQTT Broker))
     ClientB[Client B: Publisher] -->|Publish| Broker
     Broker -->|Forward| ClientC[Client C: Subscriber]
     Broker -->|Forward| ClientD[Client D: Subscriber]
 
-```
+{{< /mermaid >}}
 
 #### kafka
 
@@ -147,7 +147,7 @@ graph TD
 
 关系流程:
 
-```mermaid
+{{< mermaid >}}
 flowchart LR
     subgraph Producers[生产者]
         P[Producer]
@@ -175,7 +175,7 @@ flowchart LR
     %% 添加说明
     classDef broker fill:#f9f,stroke:#333,stroke-width:2px;
     class Broker1,Broker2 broker;
-```
+{{< /mermaid >}}
 
 ```python
 from kafka import KafkaConsumer
@@ -563,7 +563,7 @@ Celery 是一个分布式任务队列系统，广泛用于处理异步任务和�
 | **broker**  | 消息中间件 | 存储待执行的任务，是 worker 和 beat 之间的桥梁。常见的有 RabbitMQ、Redis、Amazon SQS 等。 |
 | **backend** | 结果存储   | 存储任务执行的结果。常见的有 SQLAlchemy、Redis、MongoDB 等。                              |
 
-```mermaid
+{{< mermaid >}}
 graph TD
     A[Celery Beat] -->|调度任务| B(消息队列)
     B -->|发送任务| C[Celery Worker 1]
@@ -574,7 +574,7 @@ graph TD
     D -->|存储结果| G
     E -->|存储结果| G
 
-```
+{{< /mermaid >}}
 
 常用命令
 

@@ -66,7 +66,7 @@ systemctl disable mysql
 
 用户使用终端（Terminal）通过**命令或脚本**与 Shell 进行通信， shell 与操作系统进行通信
 
-```mermaid
+{{< mermaid >}}
 graph TB
     U[用户] -->|输入命令| T[终端 Terminal]
     T -->|提供界面| S[Shell]
@@ -101,7 +101,7 @@ graph TB
     style T fill:#f9f,stroke:#333,stroke-width:2px
     style S fill:#bbf,stroke:#333,stroke-width:2px
     style K fill:#bfb,stroke:#333,stroke-width:2px
-```
+{{< /mermaid >}}
 
 相关概念总结:
 

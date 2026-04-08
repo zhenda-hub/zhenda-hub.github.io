@@ -28,7 +28,7 @@ python
 
 多人同时编辑文档，需要锁
 
-```mermaid
+{{< mermaid >}}
 
 sequenceDiagram
     participant T1 as Thread-1
@@ -41,7 +41,7 @@ sequenceDiagram
     T3->>R: lock() + append(result3) + unlock()
 
 
-```
+{{< /mermaid >}}
 
 go
 
@@ -51,7 +51,7 @@ go
 
 **其余步骤是并发的,结果写入是串行**
 
-```mermaid
+{{< mermaid >}}
 sequenceDiagram
     participant G1 as Goroutine-1
     participant G2 as Goroutine-2
@@ -66,4 +66,4 @@ sequenceDiagram
     M->>M: append result2 to list
     M->>M: append result3 to list
 
-```
+{{< /mermaid >}}

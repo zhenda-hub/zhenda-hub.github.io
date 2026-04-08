@@ -6,7 +6,7 @@ draft = false
 toc = true
 +++
 
-```mermaid
+{{< mermaid >}}
 mindmap
   root((数学))
     纯数学
@@ -54,7 +54,7 @@ mindmap
       数学物理
 
 
-```
+{{< /mermaid >}}
 
 - root((数学))
     - 纯数学

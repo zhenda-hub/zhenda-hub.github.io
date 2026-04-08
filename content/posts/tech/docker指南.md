@@ -1032,7 +1032,7 @@ K8s 负责把 Pod 分配到 Node 上，实现负载均衡和高可用
 | 日志/监控集成 | ❌      | ✅ 与 Prometheus、ELK 等完全集成          |
 | 网络策略      | ❌      | ✅ 可以控制 Pod 之间的访问权限            |
 
-```mermaid
+{{< mermaid >}}
 flowchart TB
     subgraph ControlPlane["Master / Control Plane"]
         APIServer[API Server]
@@ -1058,7 +1058,7 @@ flowchart TB
     Kubelet -->|汇报状态| APIServer
     KubeProxy -->|处理网络流量| Pod
 
-```
+{{< /mermaid >}}
 
 ### 关于 Docker Desktop 的使用
 
