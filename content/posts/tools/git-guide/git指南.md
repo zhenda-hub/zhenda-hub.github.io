@@ -478,7 +478,7 @@ ssh -T git@github.com
 
 2. 添加 ssh 公钥 (pub) 到代码仓库 github 或 其他平台
 
-SSH 默认使用端口 22, 如果网络阻止访问, 可以改为 443
+SSH 默认使用端口 22, 如果网络阻止访问(报错为 connection closed by xxx.xxx.xxx.xxx port 22), 可以改为 443
 
 ~/.ssh/config
 
