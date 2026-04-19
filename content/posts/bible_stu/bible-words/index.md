@@ -338,6 +338,10 @@ _(Isaiah 45:11 NLT)_
 
 ## Philippians
 
+> Yes, everything else is worthless when compared with the infinite value of knowing Christ Jesus my Lord. For his sake I have discarded everything else, counting it all as garbage, so that I could gain Christ
+>
+> _(Philippians 3:8 NLT)_
+
 > I don't mean to say that I have already achieved these things or that I have already reached perfection. But I press on to possess that perfection for which Christ Jesus first possessed me.
 >
 > No, dear brothers and sisters, I have not achieved it, but I focus on this one thing: Forgetting the past and looking forward to what lies ahead,
@@ -345,6 +349,10 @@ _(Isaiah 45:11 NLT)_
 > I press on to reach the end of the race and receive the heavenly prize for which God, through Christ Jesus, is calling us.
 >
 > _(Philippians 3:12-14 NLT)_
+
+> But we must hold on to the progress we have already made.
+>
+> _(Philippians 3:16 NLT)_
 
 > I know how to live on almost nothing or with everything. I have learned the secret of living in every situation, whether it is with a full stomach or empty, with plenty or little.
 >
