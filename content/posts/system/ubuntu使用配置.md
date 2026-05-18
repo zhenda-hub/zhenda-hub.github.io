@@ -133,12 +133,19 @@ https://docs.brew.sh/Homebrew-on-Linux -->
 
 ```bash
 # 查看现在网络
-ip a
-route -n
+# ip a 
+# route -n
+
+# 查看接口和当前 IP
+# ip addr show
+
+# 获取当前手机分配的 IP 和网关
 ip route | grep default
+
+# default via 10.173.65.211 dev wlp1s0 proto dhcp src 10.173.65.130 metric 600
 ```
 
-iphone 热点连接配置
+#### iphone 热点连接配置
 
 ```
 网段：   172.20.10.0/28
@@ -149,6 +156,27 @@ DNS:     8.8.8.8, 1.1.1.1
 ```
 
 静态 IP 必须避开 DHCP 已经分配的 IP
+
+#### android 热点连接配置
+
+IPv4 Method（方法）: 手动 (Manual)
+
+IP:      10.173.65.100
+Mask:    255.255.255.0
+Gateway: 10.173.65.211
+DNS:     8.8.8.8
+
+
+
+
+```bash
+sudo apt install avahi-daemon
+hostname
+
+xxx
+xxx.local
+```
+
 
 ### 显示隐藏文件(.xxxxx)
 
