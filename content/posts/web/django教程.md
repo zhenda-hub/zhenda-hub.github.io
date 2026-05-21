@@ -585,6 +585,27 @@ celery -A djangoProject worker -l INFO -P eventlet
 celery -A djangoProject beat -l INFO
 ```
 
+worker 优先级:
+
+- RabbitMQ 因为它原生支持消息优先级
+- 多队列方案
+
+ 
+worker启动多进程
+
+```python
+@app.task(
+    time_limit=60,       # 硬超时：60s 强杀进程
+    soft_time_limit=50,  # 软超时：50s 先抛异常，给你清理机会
+)
+def my_task():
+    try:
+        do_something()
+    except SoftTimeLimitExceeded:
+        cleanup()      
+```
+
+
 #### 定时任务
 
 ```python
