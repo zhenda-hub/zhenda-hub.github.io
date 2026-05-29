@@ -129,11 +129,39 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
 https://docs.brew.sh/Homebrew-on-Linux -->
 
+### 固定访问域名
+
+
+
+#### frp/内网穿透
+
+Tailscale 所有设备注册账号,  有可能不安全:数据,账号安全
+
+#### 开启 mDNS
+
+
+```bash
+sudo apt install avahi-daemon
+sudo apt install libnss-mdns
+
+sudo systemctl enable --now avahi-daemon
+
+# 查看主机名
+hostname
+         
+
+访问
+
+- SSH 访问： ssh 用户名@myserver.local
+- 浏览器访问： http://myserver.local:端口号
+
+
+
 ### ip设置固定
 
 ```bash
 # 查看现在网络
-# ip a 
+# ip a   
 # route -n
 
 # 查看接口和当前 IP
@@ -166,16 +194,6 @@ Mask:    255.255.255.0
 Gateway: 10.173.65.211
 DNS:     8.8.8.8
 
-
-
-
-```bash
-sudo apt install avahi-daemon
-hostname
-
-xxx
-xxx.local
-```
 
 
 ### 显示隐藏文件(.xxxxx)
