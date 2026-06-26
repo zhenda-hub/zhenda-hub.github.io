@@ -605,6 +605,22 @@ nmcli device wifi list
 
 ```
 
+### chrome
+
+chrome has locked the profile so that it doesn't get corrupted.  if you are sure no other processes are using this profile, you can unlock the profile and relaunch chrome.
+
+```bash
+cd ~/.config/google-chrome/
+
+ls -l Singleton*
+
+rm -f SingletonCookie SingletonLock SingletonSocket
+
+```
+
+
+
+
 ## 遗留问题
 
 - 查看所有的 history
