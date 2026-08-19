@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KaTeX on Zhenda's Blog</title><link>https://zhenda-hub.github.io/tags/katex/</link><description>Recent content in KaTeX on Zhenda's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2023-2026 Zhenda. All Rights Reserved.</copyright><lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://zhenda-hub.github.io/tags/katex/index.xml" rel="self" type="application/rss+xml"/><item><title>KaTeX 数学公式</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/katex-math/</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/katex-math/</guid><description>&lt;h1 class="relative group"&gt;KaTeX 数学公式
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KaTeX on 真达的博客 · Zhenda's Blog</title><link>https://zhenda-hub.github.io/tags/katex/</link><description>Recent content in KaTeX on 真达的博客 · Zhenda's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>Copyright © 2023-2026 真达 Zhenda. All Rights Reserved.</copyright><lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://zhenda-hub.github.io/tags/katex/index.xml" rel="self" type="application/rss+xml"/><item><title>KaTeX 数学公式</title><link>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/katex-math/</link><pubDate>Mon, 07 Apr 2025 00:00:00 +0800</pubDate><guid>https://zhenda-hub.github.io/posts/hugo_blowfish_guide/katex-math/</guid><description>&lt;h1 class="relative group"&gt;KaTeX 数学公式
  &lt;div id="katex-数学公式" class="anchor"&gt;&lt;/div&gt;
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#katex-%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#katex-%e6%95%b0%e5%ad%a6%e5%85%ac%e5%bc%8f" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h1&gt;
@@ -14,7 +14,7 @@
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%90%af%e7%94%a8%e6%96%b9%e6%b3%95" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%90%af%e7%94%a8%e6%96%b9%e6%b3%95" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h2&gt;
@@ -34,7 +34,7 @@
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%94%af%e6%8c%81%e7%9a%84%e5%85%ac%e5%bc%8f%e6%a0%bc%e5%bc%8f" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e6%94%af%e6%8c%81%e7%9a%84%e5%85%ac%e5%bc%8f%e6%a0%bc%e5%bc%8f" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h2&gt;
@@ -44,7 +44,7 @@
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a1%8c%e5%86%85%e5%85%ac%e5%bc%8f" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e8%a1%8c%e5%86%85%e5%85%ac%e5%bc%8f" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h3&gt;
@@ -57,7 +57,7 @@
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%9d%97%e7%ba%a7%e5%85%ac%e5%bc%8f" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%9d%97%e7%ba%a7%e5%85%ac%e5%bc%8f" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h3&gt;
@@ -74,7 +74,7 @@ $$
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h2&gt;
@@ -84,7 +84,7 @@ $$
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%a4%e5%b1%82%e9%85%8d%e7%bd%ae" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%b8%a4%e5%b1%82%e9%85%8d%e7%bd%ae" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h3&gt;
@@ -115,7 +115,7 @@ $$
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hugo-goldmark-%e9%85%8d%e7%bd%ae" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hugo-goldmark-%e9%85%8d%e7%bd%ae" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h3&gt;
@@ -130,7 +130,7 @@ $$
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#katex-delimiters-%e5%ae%9a%e4%b9%89" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#katex-delimiters-%e5%ae%9a%e4%b9%89" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h3&gt;
@@ -178,7 +178,7 @@ $$
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h2&gt;
@@ -188,7 +188,7 @@ $$
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q-%e4%b8%ba%e4%bb%80%e4%b9%88-e--mc2-%e4%b8%8d%e6%b8%b2%e6%9f%93" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q-%e4%b8%ba%e4%bb%80%e4%b9%88-e--mc2-%e4%b8%8d%e6%b8%b2%e6%9f%93" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h3&gt;
@@ -201,7 +201,7 @@ $$
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q-%e5%a6%82%e4%bd%95%e6%b7%bb%e5%8a%a0--%e6%94%af%e6%8c%81" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q-%e5%a6%82%e4%bd%95%e6%b7%bb%e5%8a%a0--%e6%94%af%e6%8c%81" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h3&gt;
@@ -224,7 +224,7 @@ $$
  
  &lt;span
  class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
- &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q-%e4%b8%ad%e6%96%87%e6%96%87%e7%ab%a0%e8%87%aa%e5%8a%a8%e6%91%98%e8%a6%81%e4%b8%8d%e5%b7%a5%e4%bd%9c" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#q-%e4%b8%ad%e6%96%87%e6%96%87%e7%ab%a0%e8%87%aa%e5%8a%a8%e6%91%98%e8%a6%81%e4%b8%8d%e5%b7%a5%e4%bd%9c" aria-label="锚点"&gt;#&lt;/a&gt;
  &lt;/span&gt;
  
 &lt;/h3&gt;
