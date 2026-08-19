@@ -13,6 +13,7 @@ import json
 import os
 import re
 import urllib.request
+from urllib.parse import unquote
 
 BASE = "https://zhenda-hub.github.io"
 PUB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "public")
@@ -47,6 +48,8 @@ def get_text(path, live):
 def main():
     ap = argparse.ArgumentParser(description="双语 SEO + GEO 体检")
     ap.add_argument("--live", action="store_true", help="检查线上站点（默认检查本地 public/）")
+    ap.add_argument("--summary", nargs="?", const="__env__",
+                    help="输出 Markdown 报告到 GITHUB_STEP_SUMMARY（或指定文件路径）")
     args = ap.parse_args()
     live = args.live
     mode = "线上" if live else "本地 public/"
@@ -100,23 +103,43 @@ def main():
     except Exception as e:
         check("首页", False, str(e))
 
-    # 5. 文章页 JSON-LD（抽查 3 篇）
-    for a in ["/posts/ai/prompts/", "/posts/hugo_blowfish_guide/umami-analytics/", "/posts/life/sleep/"]:
-        try:
-            h = get_text(a, live)
-            ld = re.findall(r'<script type="?application/ld\+json"?>(.*?)</script>', h, re.S)
-            types = []
-            for b in ld:
-                try:
-                    d = json.loads(b)
-                    types += [i.get("@type") for i in d] if isinstance(d, list) else [d.get("@type")]
-                except Exception:
-                    pass
-            check(f"文章 JSON-LD ({a.split('/')[-2]})",
-                  "Article" in types and "BreadcrumbList" in types,
-                  f"Article={'Article' in types} Breadcrumb={'BreadcrumbList' in types}")
-        except Exception as e:
-            check(f"文章 {a}", False, str(e))
+    # 5. 文章页 JSON-LD（全量检查：从 sitemap 提取所有文章 URL）
+    try:
+        sm = get_text("/sitemap.xml", live)
+        locs = re.findall(r"<loc>([^<]*)</loc>", sm)
+        articles = [u for u in locs
+                    if re.match(rf"^{re.escape(BASE)}/posts/[^/]+/[^/]+/$", u)]
+        passed, fails = 0, []
+        for u in articles:
+            try:
+                if live:
+                    h = fetch(u)
+                else:
+                    with open(os.path.join(PUB, unquote(u.replace(BASE + "/", "")), "index.html"),
+                              encoding="utf-8") as f:
+                        h = f.read()
+                ld = re.findall(r'<script type="?application/ld\+json"?>(.*?)</script>', h, re.S)
+                types = []
+                for b in ld:
+                    try:
+                        d = json.loads(b)
+                        types += [i.get("@type") for i in d] if isinstance(d, list) else [d.get("@type")]
+                    except Exception:
+                        pass
+                if "Article" in types and "BreadcrumbList" in types:
+                    passed += 1
+                else:
+                    fails.append(u)
+            except Exception as e:
+                fails.append(f"{u} ({e})")
+        detail = f"{passed}/{len(articles)} 篇通过"
+        if fails:
+            shown = "; ".join(fails[:3])
+            more = "…" if len(fails) > 3 else ""
+            detail += f"，失败: {shown}{more}"
+        check(f"文章 JSON-LD 全量 ({len(articles)} 篇)", not fails, detail)
+    except Exception as e:
+        check("文章 JSON-LD 全量", False, str(e))
 
     # 6. 本地 description 覆盖率（仅本地模式）
     if not live:
@@ -135,14 +158,39 @@ def main():
                     desc_count += 1
         check("文章 description 覆盖率（本地）", desc_count >= 10, f"{desc_count}/{total} 篇")
 
-    # 输出
+    # 输出（终端）
     print(f"{'检查项':38s} {'状态':4s} 说明")
     print("-" * 80)
     for name, ok, detail in results:
         print(f"{name:40s} {'✅' if ok else '❌':4s} {detail}")
     fails = sum(1 for _, ok, _ in results if not ok)
+    total_ok = len(results) - fails
     print("-" * 80)
-    print(f"通过 {len(results) - fails}/{len(results)} 项{'  → 可推送上线' if not live and fails == 0 else ''}")
+    print(f"通过 {total_ok}/{len(results)} 项{'  → 可推送上线' if not live and fails == 0 else ''}")
+
+    # --summary: 写 Markdown 报告（GitHub Actions Step Summary / 指定路径）
+    if args.summary:
+        if args.summary == "__env__":
+            summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+            if not summary_path:
+                print("[seo-check] 未设置 GITHUB_STEP_SUMMARY，跳过 summary 输出")
+                summary_path = None
+        else:
+            summary_path = args.summary
+        if summary_path:
+            lines = ["## SEO/GEO 体检报告", "",
+                     f"- 模式: {'线上' if live else '本地 public/'}", "",
+                     "| 检查项 | 状态 | 说明 |",
+                     "|--------|:----:|------|"]
+            for name, ok, detail in results:
+                lines.append(f"| {name} | {'✅' if ok else '❌'} | {detail} |")
+            lines.append("")
+            verdict = "✅ PASS" if fails == 0 else "❌ FAIL"
+            lines.append(f"**结果: 通过 {total_ok}/{len(results)} 项 → {verdict}**")
+            with open(summary_path, "a", encoding="utf-8") as f:
+                f.write("\n".join(lines) + "\n")
+            print(f"[seo-check] 报告已写入: {summary_path}")
+
     return 1 if fails else 0
 
 

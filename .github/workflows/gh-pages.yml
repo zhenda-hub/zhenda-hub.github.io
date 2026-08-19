@@ -52,6 +52,9 @@ jobs:
       - name: Build
         run: hugo --minify --environment production
 
+      - name: SEO/GEO check
+        run: python3 scripts/seo-check.py --summary
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
