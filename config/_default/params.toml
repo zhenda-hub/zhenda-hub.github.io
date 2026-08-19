@@ -81,10 +81,10 @@ defaultFeaturedImage = "img/default-cover.png"
   appId = "YOUR_APP_ID"
   # measurementId = "YOUR_MEASUREMENT_ID"  # Optional
 
-[umamiAnalytics]
-  websiteid = "YOUR_websiteid"
-  domain = "YOUR_domain"
-  enableTrackEvent = true
+# [umamiAnalytics]
+#   websiteid = "YOUR_websiteid"
+#   domain = "YOUR_domain"
+#   enableTrackEvent = true
 
 # Site verification (Search Console)
 # 注册后填入 token：https://search.google.com/search-console
