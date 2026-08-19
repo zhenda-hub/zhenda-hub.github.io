@@ -1,36 +1,36 @@
 {{- if hugo.IsProduction }}
 User-agent: *
-Allow: /
+Disallow: /
 
 # --- AI crawlers (GEO) ---
 User-agent: GPTBot
-Allow: /
+Disallow: /
 User-agent: OAI-SearchBot
-Allow: /
+Disallow: /
 User-agent: ChatGPT-User
-Allow: /
+Disallow: /
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
 User-agent: Claude-Web
-Allow: /
+Disallow: /
 User-agent: anthropic-ai
-Allow: /
+Disallow: /
 User-agent: PerplexityBot
-Allow: /
+Disallow: /
 User-agent: Google-Extended
-Allow: /
+Disallow: /
 User-agent: CCBot
-Allow: /
+Disallow: /
 User-agent: cohere-ai
-Allow: /
+Disallow: /
 User-agent: ai2bot
-Allow: /
+Disallow: /
 User-agent: Applebot-Extended
-Allow: /
+Disallow: /
 User-agent: meta-externalagent
-Allow: /
+Disallow: /
 User-agent: Bytespider
-Allow: /
+Disallow: /
 
 Sitemap: {{ "sitemap.xml" | absURL }}
 {{- else }}
