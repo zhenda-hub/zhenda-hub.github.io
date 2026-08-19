@@ -1,6 +1,7 @@
 +++
 title = 'Hugo 主题对比'
 subtitle = '各主题功能对比分析'
+description = "Hugo 主题对比分析：多主题版本兼容性与功能对比，选型参考。 | Hugo theme comparison: compatibility and feature matrix for choosing a theme."
 date = 2025-04-06T00:00:00+08:00
 draft = false
 toc = true

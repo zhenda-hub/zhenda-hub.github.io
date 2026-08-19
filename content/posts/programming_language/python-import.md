@@ -1,5 +1,6 @@
 +++
 title = 'Python Import'
+description = "Python import 机制详解：导包方式、模块与包的加载原理。 | A deep dive into Python's import system and packaging."
 subtitle = ""
 date = 2025-01-10T15:37:28+08:00
 draft = false

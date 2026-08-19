@@ -1,6 +1,7 @@
 +++
 title = 'Umami 统计部署指南'
 subtitle = '自建隐私友好的网站分析'
+description = "在 Railway 部署 Umami 统计：隐私友好的开源网站分析，替代 Google Analytics。 | Deploy Umami analytics on Railway: privacy-friendly, open-source alternative to Google Analytics."
 date = 2025-04-07T00:00:00+08:00
 draft = false
 toc = true

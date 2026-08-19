@@ -1,5 +1,6 @@
 +++
 title = 'Prompts'
+description = "提示词工程（Prompt Engineering）技巧与范例：结构化提问与跨领域提问模板。 | Prompt engineering tips and templates for better LLM output."
 subtitle = ""
 date = 2025-01-16T10:20:23+08:00
 draft = false

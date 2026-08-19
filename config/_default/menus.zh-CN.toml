@@ -1,20 +1,20 @@
 [[main]]
-  name = "Home"
+  name = "首页"
   pageRef = "/"
   weight = 10
 
 [[main]]
-  name = "Posts"
+  name = "文章"
   pageRef = "/posts/"
   weight = 15
 
 [[main]]
-  name = "Series"
+  name = "系列"
   pageRef = "/series/"
   weight = 20
 
 [[main]]
-  name = "Links"
+  name = "链接"
   identifier = "links"
   weight = 40
 
@@ -24,11 +24,11 @@
   url = "/index.xml"
 
 [[main]]
-  name = "Github"
+  name = "GitHub"
   parent = "links"
   url = "https://github.com/zhenda-hub/"
 
 [[main]]
-  name = "About"
+  name = "关于"
   pageRef = "/about/"
   weight = 50

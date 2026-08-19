@@ -20,7 +20,10 @@ autoSwitchAppearance = true
 
 enableSearch = true
 enableCodeCopy = true
-keywords = ["blog", "developer", "personal"]
+keywords = ["博客", "技术", "AI", "NAS", "开发者", "个人成长", "blog", "developer", "AI", "NAS"]
+robots = "index, follow, max-image-preview:large, max-snippet:-1"
+enableStructuredBreadcrumbs = true
+defaultSocialImage = "img/social-card.png"
 
 [header]
   layout = "fixed"
@@ -81,3 +84,9 @@ keywords = ["blog", "developer", "personal"]
   websiteid = "YOUR_websiteid"
   domain = "YOUR_domain"
   enableTrackEvent = true
+
+# Site verification (Search Console)
+# 注册后填入 token：https://search.google.com/search-console
+[verification]
+  google = ""
+  bing = ""

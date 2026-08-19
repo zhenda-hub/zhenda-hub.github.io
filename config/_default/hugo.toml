@@ -1,6 +1,6 @@
 # -- Site Configuration --
 baseURL = "https://zhenda-hub.github.io/"
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-CN"
 theme = "blowfish"
 enableRobotsTXT = true
 pagination.pagerSize = 6
@@ -8,7 +8,14 @@ summaryLength = 0
 hasCJKLanguage = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON", "llms"]
+
+[outputFormats]
+  [outputFormats.llms]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
 
 [taxonomies]
   tag = "tags"

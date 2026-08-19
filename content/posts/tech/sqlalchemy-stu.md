@@ -1,5 +1,6 @@
 +++
 title = 'Sqlalchemy Stu'
+description = "SQLAlchemy 2.0 ORM 学习笔记：快速开始、关系映射与查询实践。 | SQLAlchemy 2.0 ORM study notes: quickstart, relationships and queries."
 subtitle = ""
 date = 2025-02-07T12:19:54+08:00
 draft = false

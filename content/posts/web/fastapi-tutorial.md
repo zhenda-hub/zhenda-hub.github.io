@@ -1,5 +1,6 @@
 +++
 title = 'Fastapi Tutorial'
+description = "FastAPI 入门教程：快速开始、路由与依赖注入，附官方中文文档指引。 | FastAPI tutorial in Chinese: quickstart, routing and dependency injection."
 subtitle = ""
 date = 2024-11-09T22:57:03+08:00
 draft = false
