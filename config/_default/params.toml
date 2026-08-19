@@ -24,6 +24,7 @@ keywords = ["博客", "技术", "AI", "NAS", "开发者", "个人成长", "blog"
 robots = "index, follow, max-image-preview:large, max-snippet:-1"
 enableStructuredBreadcrumbs = true
 defaultSocialImage = "img/social-card.png"
+defaultFeaturedImage = "img/default-cover.png"
 
 [header]
   layout = "fixed"
