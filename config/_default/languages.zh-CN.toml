@@ -15,8 +15,16 @@ title = "真达的博客 · Zhenda's Blog"
 
   [params.author]
     name = "真达 Zhenda"
-    # image = "img/avatar.jpg"  # TODO: Add avatar to assets/
+    image = "img/avatar.png"
     headline = "Stay hungry, stay humble, and keep shipping value."
+
+    [[params.author.links]]
+      name = "github"
+      url = "https://github.com/zhenda-hub/"
+
+    [[params.author.links]]
+      name = "rss"
+      url = "/index.xml"
 
   [params.giscus]
     enabled = true

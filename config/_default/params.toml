@@ -1,5 +1,5 @@
 # -- Theme Options --
-colorScheme = "blowfish"
+colorScheme = "noir"
 # autumn
 # avocado
 # bloody
@@ -30,7 +30,7 @@ defaultSocialImage = "img/social-card.png"
   # basic、fixed、fixed-fill、and fixed-fill-blur
 
 [homepage]
-  layout = "page"
+  layout = "profile"
   # profile
   # page
   # hero
