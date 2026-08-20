@@ -69,7 +69,6 @@
 - [Algorithm](https://zhenda-hub.github.io/posts/tech/algorithm/)
 - [Crawler](https://zhenda-hub.github.io/posts/web/crawler/)
 - [行业发展](https://zhenda-hub.github.io/posts/social/industry-dev/)
-- [个人商业](https://zhenda-hub.github.io/posts/business/my-business/)
 - [个人商业](https://zhenda-hub.github.io/posts/social/my-business/)
 - [Ai Tool](https://zhenda-hub.github.io/posts/ai/ai-tool/)
 - [Win Shell](https://zhenda-hub.github.io/posts/system/win-shell/)
