@@ -15,6 +15,10 @@ series = ['social']
 
 upwork
 yama
+TikTok Shop
+速卖通 AliExpress
+Temu
+Amazon主阵地
 
 ## 发现真实痛点
 
@@ -74,6 +78,8 @@ MVP 开发时间规划（1-4 周）
 
 - 供应商
 - 物流
+- 平台
+- 广告
 - 员工
 
 写一份商业计划书（BP），包括：问题、解决方案、目标用户、市场规模、竞争分析、收入模式、初步成本。
