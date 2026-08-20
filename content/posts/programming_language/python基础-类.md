@@ -3,7 +3,7 @@ title = 'Python基础 类'
 date = 2023-11-23T21:54:28+08:00
 draft = false
 toc = true
-tags = ["Python", "Software Architecture"]
+tags = ["python", "software-architecture"]
 series = ['python']
 +++
 

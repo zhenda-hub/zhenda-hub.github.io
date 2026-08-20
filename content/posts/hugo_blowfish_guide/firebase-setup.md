@@ -5,7 +5,7 @@ date = 2025-04-06T00:00:00+08:00
 draft = false
 toc = true
 tags = ['Hugo', 'Blowfish', 'Firebase']
-series = ['Hugo Blowfish 指南']
+series = ['hugo-blowfish']
 +++
 
 # Firebase 配置指南

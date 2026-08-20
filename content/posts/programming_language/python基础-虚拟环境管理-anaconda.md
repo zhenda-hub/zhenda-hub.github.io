@@ -3,7 +3,7 @@ title = 'Python基础 虚拟环境管理 Anaconda'
 date = 2023-11-23T21:49:57+08:00
 draft = false
 toc = true
-series = ["Python"]
+series = ["python"]
 +++
 
 [toc]

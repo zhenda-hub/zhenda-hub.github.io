@@ -5,7 +5,7 @@ subtitle = ""
 date = 2025-01-16T10:20:23+08:00
 draft = false
 toc = true
-series = ['AI']
+series = ['ai']
 +++
 
 ```bash

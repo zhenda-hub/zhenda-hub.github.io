@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-12-31T15:48:54+08:00
 draft = false
 toc = true
-series = ["programming_language"]
+series = ["js"]
 +++
 
 [toc]

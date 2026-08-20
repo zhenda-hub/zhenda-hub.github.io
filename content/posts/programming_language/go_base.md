@@ -5,7 +5,7 @@ date = 2024-09-25T17:17:57+08:00
 draft = false
 toc = true
 tags = ["go"]
-series = ["programming_language"]
+series = ["go"]
 +++
 
 [toc]

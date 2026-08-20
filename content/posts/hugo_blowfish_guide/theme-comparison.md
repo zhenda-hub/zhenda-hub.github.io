@@ -6,7 +6,7 @@ date = 2025-04-06T00:00:00+08:00
 draft = false
 toc = true
 tags = ['Hugo', '主题', '对比']
-series = ['Hugo Blowfish 指南']
+series = ['hugo-blowfish']
 +++
 
 # Hugo 主题对比分析
