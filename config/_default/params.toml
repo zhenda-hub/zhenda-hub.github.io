@@ -69,6 +69,16 @@ defaultFeaturedImage = "img/default-cover.png"
   showViews = true
   showLikes = true
 
+[taxonomy]
+  showTermCount = true
+  cardView = true
+
+[term]
+  showHero = true
+  heroStyle = "basic"
+  groupByYear = false
+  cardView = false
+
 # Firebase configuration for views and likes
 # Get your config from: https://console.firebase.google.com/
 # Project settings → General → Your apps → Web app
