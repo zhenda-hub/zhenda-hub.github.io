@@ -1,5 +1,5 @@
-languageCode = "zh-CN"
-languageName = "中文"
+locale = "zh-CN"
+label = "中文"
 weight = 1
 
 title = "真达的博客 · Zhenda's Blog"
