@@ -1,0 +1,39 @@
+{{/* Zhenda Premium 覆盖: 编辑感纯文字列表项 (少图原则, 无图) */}}
+{{ $page := .Page }}
+<article class="zd-item group">
+  <a
+    {{ with $page.Params.externalUrl }}
+      href="{{ . }}" target="_blank" rel="external"
+    {{ else }}
+      href="{{ $page.RelPermalink }}"
+    {{ end }}
+    class="zd-item__link">
+    <div class="zd-item__meta">
+      <span class="zd-item__date">{{ $page.Date.Format "2006-01-02" }}</span>
+      {{ with $page.Params.categories }}
+        <span class="zd-item__kicker">{{ index . 0 }}</span>
+      {{ else }}
+        {{ with $page.Params.series }}
+          <span class="zd-item__kicker">{{ index . 0 }}</span>
+        {{ end }}
+      {{ end }}
+      {{ if .Draft }}
+        <span class="zd-item__kicker">{{ i18n "article.draft" | emojify }}</span>
+      {{ end }}
+    </div>
+    <h3 class="zd-item__title">
+      {{ .Title | emojify }}
+      {{ if .Params.externalUrl }}
+        <span class="zd-item__external">&#8599;</span>
+      {{ end }}
+    </h3>
+    {{ if .Params.showSummary | default (site.Params.list.showSummary | default false) }}
+      <p class="zd-item__excerpt">{{ .Summary | plainify | truncate 120 }}</p>
+    {{ end }}
+    <div class="zd-item__foot">
+      <span>{{ $page.WordCount }} 字</span>
+      <span class="zd-item__foot-dot">&middot;</span>
+      <span>{{ $page.ReadingTime }} 分钟</span>
+    </div>
+  </a>
+</article>

@@ -100,9 +100,9 @@
         <span class="sec-head__line"></span>
         <a class="sec-head__more" href="{{ "/posts/" | relLangURL }}">查看全部 →</a>
       </div>
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {{ range first 6 (after 1 $posts) }}
-          {{ partial "article-link/card.html" . }}
+      <div class="w-full">
+        {{ range first 7 (after 1 $posts) }}
+          {{ partial "article-link/simple.html" . }}
         {{ end }}
       </div>
     </section>

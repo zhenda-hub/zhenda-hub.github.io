@@ -47,7 +47,7 @@ mainSections = ["posts"]
   # basic(小横幅) / big(全宽) / background / thumbAndBackground
 [list]
   groupByYear = false
-  cardView = true
+  cardView = false
   showSummary = true
   showViews = false
   showLikes = false
@@ -60,7 +60,7 @@ mainSections = ["posts"]
   showHero = true
   heroStyle = "basic"
   groupByYear = false
-  cardView = true
+  cardView = false
 
 # Firebase configuration for views and likes
 # Get your config from: https://console.firebase.google.com/
