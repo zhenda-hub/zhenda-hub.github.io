@@ -1,36 +1,7 @@
-{{/* 精选文章 — 首页 Feature（编辑感大卡） */}}
-{{- $disableImageOptimization := site.Store.Get "disableImageOptimization" -}}
+{{/* 精选文章 — 纯文字编辑排版 (少图原则: 无需配图) */}}
 {{- $page := . -}}
-{{- $featuredURL := "" -}}
-{{- with partial "functions/feature-image.html" . -}}
-  {{- if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") -}}
-    {{- $featuredURL = . -}}
-  {{- else -}}
-    {{- $img := $page.Resources.Get . -}}
-    {{- if not $img }}{{ $img = resources.Get . }}{{ end -}}
-    {{- if $img }}{{ $featuredURL = $img.RelPermalink }}{{ end -}}
-  {{- end -}}
-{{- end -}}
-{{- if not $featuredURL -}}
-  {{- $images := .Resources.ByType "image" -}}
-  {{- range slice "*feature*" "*cover*" "*thumbnail*" -}}
-    {{- if not $featuredURL -}}
-      {{- $img := $images.GetMatch . -}}
-      {{- if $img }}{{ $featuredURL = $img.RelPermalink }}{{ end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- if not $featuredURL -}}
-  {{- $default := site.Store.Get "defaultFeaturedImage" -}}
-  {{- with $default.url }}{{ $featuredURL = . }}{{ end -}}
-  {{- with $default.obj }}{{ $featuredURL = .RelPermalink }}{{ end -}}
-{{- end -}}
 <article class="featured">
-  {{- with $featuredURL }}
-    <div class="featured__media">
-      <img src="{{ . }}" alt="{{ $page.Title }}" loading="lazy" decoding="async" />
-    </div>
-  {{- end }}
+  <div class="featured__rule"></div>
   <div class="featured__body">
     {{- with $page.Params.categories }}
       <div class="zd-card__kicker">
@@ -46,7 +17,7 @@
     <h2 class="featured__title">
       <a href="{{ $page.RelPermalink }}">{{ $page.Title | emojify }}</a>
     </h2>
-    <p class="featured__excerpt">{{ $page.Summary | plainify | truncate 140 }}</p>
+    <p class="featured__excerpt">{{ $page.Summary | plainify | truncate 160 }}</p>
     <div class="featured__meta">
       <span>{{ $page.Date.Format "2006-01-02" }}</span>
       <span class="dot">·</span>

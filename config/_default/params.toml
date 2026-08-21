@@ -43,8 +43,8 @@ mainSections = ["posts"]
   showZenMode = true
   showReadingProgress = true
   showHero = true
-  heroStyle = "big"
-  # basic / big / background / thumbAndBackground
+  heroStyle = "basic"
+  # basic(小横幅) / big(全宽) / background / thumbAndBackground
 [list]
   groupByYear = false
   cardView = true

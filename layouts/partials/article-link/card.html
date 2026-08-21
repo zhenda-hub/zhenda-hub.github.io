@@ -38,15 +38,7 @@
       {{ end }}
     {{ end }}
 
-    {{/* fallback to default */}}
-    {{ if not (or $featured $featuredURL) }}
-      {{ $default := site.Store.Get "defaultFeaturedImage" }}
-      {{ if $default.url }}
-        {{ $featuredURL = $default.url }}
-      {{ else if $default.obj }}
-        {{ $featured = $default.obj }}
-      {{ end }}
-    {{ end }}
+    {{/* fallback to default — 已移除: 无图文章不显示兜底封面 (少图原则) */}}
 
     {{/* generate image URL if not hotlink */}}
     {{ if not $featuredURL }}
