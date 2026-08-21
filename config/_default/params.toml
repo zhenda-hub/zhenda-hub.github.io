@@ -1,20 +1,7 @@
 # -- Theme Options --
-colorScheme = "noir"
-# autumn
-# avocado
-# bloody
-# blowfish
-# congo
-# fire
-# forest
-# github
-# marvel
-# neon
-# noir
-# one-light
-# princess
-# slate
-# terminal
+colorScheme = "zhenda-premium"
+# zhenda-premium (墨金: 暖灰底 + 琥珀金主色)
+# noir / blowfish / slate / forest / ocean / etc.
 defaultAppearance = "light"
 autoSwitchAppearance = true
 
@@ -27,16 +14,12 @@ defaultSocialImage = "img/social-card.png"
 defaultFeaturedImage = "img/default-cover.png"
 
 [header]
-  layout = "fixed"
-  # basic、fixed、fixed-fill、and fixed-fill-blur
+  layout = "fixed-fill-blur"
+  # basic / fixed / fixed-fill / fixed-fill-blur (毛玻璃效果最精致)
 
 [homepage]
-  layout = "profile"
-  # profile
-  # page
-  # hero
-  # background
-  # card
+  layout = "hero"
+  # hero (自定义渐变 Hero) / profile / page / background / card
 
   showRecent = true
   showRecentItems = 9
@@ -53,21 +36,19 @@ defaultFeaturedImage = "img/default-cover.png"
   showTableOfContents = true
   showBreadcrumbs = true
   showComments = true
-  showViews = true
-  showLikes = true
+  showViews = false
+  showLikes = false
   showPagination = false
   showZenMode = true
-  # seriesOpened = false
   showHero = true
   heroStyle = "big"
-  # basic、big、background、thumbAndBackground
-  # showEdit = true
+  # basic / big / background / thumbAndBackground
 [list]
   groupByYear = false
   cardView = true
   showSummary = true
-  showViews = true
-  showLikes = true
+  showViews = false
+  showLikes = false
 
 [taxonomy]
   showTermCount = true

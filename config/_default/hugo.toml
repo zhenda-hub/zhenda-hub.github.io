@@ -3,7 +3,7 @@ baseURL = "https://zhenda-hub.github.io/"
 defaultContentLanguage = "zh-CN"
 theme = "blowfish"
 enableRobotsTXT = true
-pagination.pagerSize = 6
+pagination.pagerSize = 12
 summaryLength = 0
 hasCJKLanguage = true
 

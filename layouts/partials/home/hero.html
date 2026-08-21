@@ -1,0 +1,86 @@
+{{- /* Zhenda Premium — 首页 Hero 区域
+   覆盖 Blowfish 默认 profile 布局, 改用全宽渐变 Hero + 简介 + 分类导航
+   */ -}}
+{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+
+<section class="z-hero z-reveal">
+  <div class="z-hero__bg"></div>
+  <div class="z-hero__content">
+    {{ with .Site.Params.Author.image }}
+      {{ $authorImage := "" }}
+      {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+        {{ $authorImage = resources.GetRemote . }}
+      {{ else }}
+        {{ $authorImage = resources.Get . }}
+      {{ end }}
+      {{ if $authorImage }}
+        {{ $final := $authorImage }}
+        {{ if not (or $disableImageOptimization (eq $authorImage.MediaType.SubType "svg")) }}
+          {{ $final = $authorImage.Fill (print "288x288 Center q" ( $.Site.Params.Author.imagequality | default "96" )) }}
+        {{ end }}
+        <img
+          class="z-hero__avatar"
+          width="144"
+          height="144"
+          alt="{{ $.Site.Params.Author.name | default `Author` }}"
+          loading="eager"
+          fetchpriority="high"
+          src="{{ $final.RelPermalink }}">
+      {{ end }}
+    {{ end }}
+    <h1 class="z-hero__title">
+      {{ .Site.Params.Author.name | default .Site.Title }}
+    </h1>
+    {{ with .Site.Params.Author.headline }}
+      <p class="z-hero__subtitle">
+        {{ . | markdownify }}
+      </p>
+    {{ end }}
+    {{ with .Site.Params.Author.links }}
+      <div class="z-hero__links">
+        {{ range $links := . }}
+          {{ range $name, $url := $links }}
+            {{ $isEmail := eq $name "email" }}
+            <a
+              href="{{ cond $isEmail "#" ($url | safeURL) }}"
+              {{ if $isEmail }}
+                data-email="{{ $url | base64Encode }}"
+                data-subject="Contact"
+              {{ end }}
+              target="_blank"
+              aria-label="{{ $name | title }}"
+              title="{{ $name | title }}"
+              rel="me noopener noreferrer">
+              {{ partial "icon.html" $name }}
+            </a>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+{{- /* 首页简介区 (Content from _index.md) */ -}}
+{{ with .Content }}
+  <section class="z-intro z-reveal">
+    <div class="lead">{{ . }}</div>
+  </section>
+{{ end }}
+
+{{- /* 分类导航卡 */ -}}
+{{ $categories := where .Site.Pages "Section" "in" (slice "posts") }}
+{{ $seriesCount := len (where .Site.Pages "Section" "eq" "series") }}
+<section class="z-categories z-reveal">
+  <a class="z-cat-card" href="{{ "posts/" | relLangURL }}">
+    <div class="z-cat-card__num">01 / 文章</div>
+    <div class="z-cat-card__title">全部文章</div>
+    <div class="z-cat-card__desc">编程、AI、NAS 与个人成长的思考与实践记录</div>
+    <span class="z-cat-card__more">浏览全部 &rarr;</span>
+  </a>
+  <a class="z-cat-card" href="{{ "series/" | relLangURL }}">
+    <div class="z-cat-card__num">02 / 系列</div>
+    <div class="z-cat-card__title">系列专栏</div>
+    <div class="z-cat-card__desc">按主题归类的系列教程与深度指南</div>
+    <span class="z-cat-card__more">查看专栏 &rarr;</span>
+  </a>
+</section>

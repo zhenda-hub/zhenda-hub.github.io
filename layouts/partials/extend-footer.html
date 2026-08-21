@@ -1,0 +1,3 @@
+{{- /* Zhenda Premium — 页脚扩展: 加载滚动显现动画 JS */ -}}
+{{- $js := resources.Get "js/scroll-reveal.js" | js.Build (dict "minify" true) | fingerprint (site.Params.fingerprintAlgorithm | default "sha512") -}}
+<script defer type="text/javascript" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>

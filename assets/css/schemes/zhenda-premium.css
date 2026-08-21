@@ -1,0 +1,43 @@
+/* ============================================================
+   Zhenda Premium Scheme — 「墨金」Ink & Amber
+   暖灰中性色 + 琥珀金主色 + 雾松绿辅色
+   摒弃廉价蓝紫, 追求杂志级质感
+   ============================================================ */
+:root {
+  /* 暖灰中性色: 带微暖棕调, 非冷蓝灰 */
+  --color-neutral: 250, 249, 247;
+  --color-neutral-50: 250, 249, 247;
+  --color-neutral-100: 244, 242, 238;
+  --color-neutral-200: 234, 230, 224;
+  --color-neutral-300: 206, 199, 189;
+  --color-neutral-400: 161, 151, 137;
+  --color-neutral-500: 110, 100, 89;
+  --color-neutral-600: 88, 79, 69;
+  --color-neutral-700: 63, 56, 48;
+  --color-neutral-800: 38, 34, 30;
+  --color-neutral-900: 22, 20, 18;
+
+  /* 琥珀金主色: 温润、稀缺、高级感 */
+  --color-primary-50: 253, 250, 244;
+  --color-primary-100: 251, 243, 230;
+  --color-primary-200: 247, 231, 200;
+  --color-primary-300: 240, 211, 155;
+  --color-primary-400: 229, 185, 106;
+  --color-primary-500: 200, 149, 74;
+  --color-primary-600: 168, 120, 50;
+  --color-primary-700: 130, 92, 38;
+  --color-primary-800: 97, 68, 28;
+  --color-primary-900: 64, 45, 19;
+
+  /* 雾松绿辅色: 内敛、互补 */
+  --color-secondary-50: 245, 250, 248;
+  --color-secondary-100: 230, 243, 238;
+  --color-secondary-200: 201, 230, 221;
+  --color-secondary-300: 156, 204, 191;
+  --color-secondary-400: 97, 153, 140;
+  --color-secondary-500: 56, 112, 101;
+  --color-secondary-600: 38, 89, 80;
+  --color-secondary-700: 30, 70, 63;
+  --color-secondary-800: 22, 52, 47;
+  --color-secondary-900: 15, 35, 32;
+}

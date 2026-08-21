@@ -1,0 +1,721 @@
+/* ============================================================
+   Zhenda Premium — 「墨金」高端覆写样式
+   Loaded after theme compiled CSS; plain CSS wins over Tailwind layers.
+
+   设计理念: 杂志级排版 · 暖灰底色 · 琥珀金点缀 · 克制动效
+   ============================================================ */
+
+/* ============================================================
+   1. 字体系统
+   ============================================================ */
+:root {
+  --font-sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    "Hiragino Sans GB", sans-serif;
+  --font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC",
+    "STSong", "SimSun", serif;
+  --font-brand: "Playfair Display", "Noto Serif SC", "Source Han Serif SC",
+    "Songti SC", serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "SFMono-Regular",
+    Menlo, Consolas, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  letter-spacing: 0.012em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 标题: 品牌衬线体 —— 杂志感 */
+h1, h2, h3, .single-title, .home-card__title,
+.article-link--card h2, .article-link--simple h2 {
+  font-family: var(--font-serif);
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+/* 正文阅读舒适度 */
+.prose {
+  font-size: 1.0625rem;
+  line-height: 1.95;
+}
+.prose p {
+  margin: 1.15em 0;
+}
+.prose h2 {
+  margin-top: 2.4em;
+  border-bottom: 1px solid rgb(var(--color-neutral-200));
+  padding-bottom: 0.5em;
+}
+html.dark .prose h2 {
+  border-bottom-color: rgb(var(--color-neutral-700));
+}
+.prose h3 {
+  margin-top: 1.8em;
+}
+.prose blockquote {
+  font-style: normal;
+  border-inline-start-width: 3px;
+  border-inline-start-color: rgb(var(--color-primary-400));
+  padding-inline-start: 1.2em;
+  color: rgb(var(--color-neutral-600));
+}
+html.dark .prose blockquote {
+  color: rgb(var(--color-neutral-400));
+  border-inline-start-color: rgb(var(--color-primary-600));
+}
+.prose blockquote p {
+  margin: 0.6em 0;
+}
+
+/* 代码字体 */
+.prose code, .chroma, pre, .highlight code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* ============================================================
+   2. 首页 Hero 区域
+   ============================================================ */
+.z-hero {
+  position: relative;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  min-height: 52vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+@media (min-width: 1024px) {
+  .z-hero { min-height: 62vh; }
+}
+
+/* 渐变底——暖灰到深墨, 不依赖图片 */
+.z-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(200, 149, 74, 0.14), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 70%, rgba(56, 112, 101, 0.12), transparent 55%),
+    linear-gradient(165deg, rgb(38, 34, 30) 0%, rgb(22, 20, 18) 50%, rgb(15, 14, 12) 100%);
+}
+html:not(.dark) .z-hero__bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(200, 149, 74, 0.10), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 70%, rgba(56, 112, 101, 0.08), transparent 55%),
+    linear-gradient(165deg, rgb(244, 242, 238) 0%, rgb(234, 230, 224) 50%, rgb(224, 219, 210) 100%);
+}
+
+/* 颗粒纹理叠层 —— 增加"纸"的质感 */
+.z-hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+}
+html:not(.dark) .z-hero__bg::after {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* 底部柔光过渡到页面背景 */
+.z-hero__bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, transparent 60%, rgb(var(--color-neutral-50)) 100%);
+}
+html.dark .z-hero__bg::before {
+  background: linear-gradient(to bottom, transparent 60%, rgb(var(--color-neutral-800)) 100%);
+}
+
+/* Hero 内容 */
+.z-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 4rem 1.5rem 5rem;
+  max-width: 44rem;
+}
+
+/* 头像 */
+.z-hero__avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  border: 3px solid rgba(200, 149, 74, 0.35);
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+html:not(.dark) .z-hero__avatar {
+  border-color: rgba(200, 149, 74, 0.25);
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.12);
+}
+@media (min-width: 1024px) {
+  .z-hero__avatar { width: 7rem; height: 7rem; }
+}
+
+/* 站点标题 */
+.z-hero__title {
+  font-family: var(--font-brand);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: rgb(var(--color-neutral-50));
+  margin: 0;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+}
+html:not(.dark) .z-hero__title {
+  color: rgb(var(--color-neutral-800));
+  text-shadow: none;
+}
+@media (min-width: 1024px) {
+  .z-hero__title { font-size: 4rem; }
+}
+
+/* 副标题 */
+.z-hero__subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(234, 230, 224, 0.8);
+  margin: 1rem 0 0;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+}
+html:not(.dark) .z-hero__subtitle {
+  color: rgb(var(--color-neutral-500));
+  text-shadow: none;
+}
+@media (min-width: 1024px) {
+  .z-hero__subtitle { font-size: 1.25rem; }
+}
+
+/* 社交链接 —— 药丸式 */
+.z-hero__links {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 1.8rem;
+  flex-wrap: wrap;
+}
+.z-hero__links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: rgba(234, 230, 224, 0.8);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.z-hero__links a:hover {
+  background: rgba(200, 149, 74, 0.2);
+  border-color: rgba(200, 149, 74, 0.5);
+  color: rgb(240, 211, 155);
+  transform: translateY(-3px);
+}
+html:not(.dark) .z-hero__links a {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: rgb(var(--color-neutral-600));
+}
+html:not(.dark) .z-hero__links a:hover {
+  background: rgba(200, 149, 74, 0.12);
+  border-color: rgba(200, 149, 74, 0.3);
+  color: rgb(168, 120, 50);
+}
+
+/* ============================================================
+   3. 首页简介区 (头像下方)
+   ============================================================ */
+.z-intro {
+  max-width: 42rem;
+  margin: 2.5rem auto 0;
+  text-align: left;
+}
+.z-intro .lead {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 2;
+  color: rgb(var(--color-neutral-600));
+}
+html.dark .z-intro .lead {
+  color: rgb(var(--color-neutral-300));
+}
+.z-intro .lead em {
+  font-style: normal;
+  color: rgb(var(--color-primary-600));
+  border-bottom: 2px solid rgb(var(--color-primary-300));
+}
+html.dark .z-intro .lead em {
+  color: rgb(var(--color-primary-400));
+  border-bottom-color: rgb(var(--color-primary-700));
+}
+
+/* 分类导航卡 */
+.z-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 640px) {
+  .z-categories { grid-template-columns: 1fr; }
+}
+.z-cat-card {
+  position: relative;
+  display: block;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgb(var(--color-neutral-200));
+  border-radius: 1rem;
+  background: rgb(var(--color-neutral-50));
+  text-decoration: none !important;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+  overflow: hidden;
+}
+html.dark .z-cat-card {
+  background: rgb(var(--color-neutral-800));
+  border-color: rgb(var(--color-neutral-700));
+}
+.z-cat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgb(var(--color-primary-300));
+  box-shadow: 0 16px 40px -16px rgba(38, 34, 30, 0.2);
+}
+html.dark .z-cat-card:hover {
+  box-shadow: 0 16px 44px -16px rgba(0, 0, 0, 0.6);
+}
+.z-cat-card__num {
+  font-family: var(--font-brand);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: rgb(var(--color-primary-500));
+}
+html.dark .z-cat-card__num { color: rgb(var(--color-primary-400)); }
+.z-cat-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.5rem;
+  color: rgb(var(--color-neutral-900));
+}
+html.dark .z-cat-card__title { color: rgb(var(--color-neutral-100)); }
+.z-cat-card__desc {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: rgb(var(--color-neutral-500));
+}
+html.dark .z-cat-card__desc { color: rgb(var(--color-neutral-400)); }
+.z-cat-card__more {
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  color: rgb(var(--color-primary-600));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: gap 0.3s ease;
+}
+html.dark .z-cat-card__more { color: rgb(var(--color-primary-400)); }
+.z-cat-card:hover .z-cat-card__more { gap: 0.55rem; }
+
+/* ============================================================
+   4. 文章卡片 —— 精致化
+   ============================================================ */
+.article-link--card {
+  border-radius: 1.1rem;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+}
+.article-link--card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 48px -20px rgba(38, 34, 30, 0.28);
+  border-color: rgb(var(--color-primary-300) / 0.7);
+}
+html.dark .article-link--card:hover {
+  box-shadow: 0 22px 52px -20px rgba(0, 0, 0, 0.7);
+  border-color: rgb(var(--color-primary-700) / 0.6);
+}
+.article-link--card .thumbnail_card {
+  border-radius: 1.1rem 1.1rem 0 0;
+}
+
+/* 卡片标题 hover 变金 */
+.article-link--card h2 {
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
+}
+.article-link--card:hover h2 {
+  color: rgb(var(--color-primary-600));
+}
+html.dark .article-link--card:hover h2 {
+  color: rgb(var(--color-primary-400));
+}
+
+/* 紧凑列表标题左侧金色竖条 */
+.article-link--simple h2 {
+  position: relative;
+  padding-inline-start: 0.9rem;
+}
+.article-link--simple h2::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.28rem;
+  height: 1.15em;
+  border-radius: 999px;
+  background: rgb(var(--color-primary-500));
+}
+.article-link--simple h2 {
+  transition: color 0.3s ease;
+}
+.article-link--simple:hover h2 {
+  color: rgb(var(--color-primary-600));
+}
+html.dark .article-link--simple:hover h2 {
+  color: rgb(var(--color-primary-400));
+}
+
+/* ============================================================
+   5. 无封面图文章 —— 渐变封面
+   ============================================================ */
+.z-gradient-cover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.1rem 1.2rem 1.3rem;
+  aspect-ratio: var(--thumbnail-aspect-ratio, 1.5);
+  overflow: hidden;
+  isolation: isolate;
+}
+.z-gradient-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+}
+.z-gradient-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.05) 45%, transparent 70%);
+}
+.z-gradient-cover__tag {
+  font-family: var(--font-brand);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+  padding: 0.2em 0.8em;
+  border-radius: 999px;
+}
+.z-gradient-cover__title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.18rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 14 组墨色渐变 —— 卡片封面 / 文章 hero 共用 */
+:root {
+  --grad-0: linear-gradient(135deg, #2a2520 0%, #1c1815 55%, #110e0c 100%);
+  --grad-1: linear-gradient(135deg, #2a3833 0%, #1a2620 55%, #0e1612 100%);
+  --grad-2: linear-gradient(135deg, #3a2e1c 0%, #28210f 55%, #181208 100%);
+  --grad-3: linear-gradient(135deg, #2e2530 0%, #1e1820 55%, #120e14 100%);
+  --grad-4: linear-gradient(135deg, #252e3a 0%, #18202a 55%, #0e1218 100%);
+  --grad-5: linear-gradient(135deg, #1e3530 0%, #122420 55%, #0a1612 100%);
+  --grad-6: linear-gradient(135deg, #3a2525 0%, #281818 55%, #180e0e 100%);
+  --grad-7: linear-gradient(135deg, #2a3036 0%, #1c2024 55%, #101416 100%);
+  --grad-8: linear-gradient(135deg, #303a20 0%, #202810 55%, #14180a 100%);
+  --grad-9: linear-gradient(135deg, #2e2838 0%, #1e1828 55%, #120e18 100%);
+  --grad-10: linear-gradient(135deg, #3a3020 0%, #282010 55%, #181208 100%);
+  --grad-11: linear-gradient(135deg, #203838 0%, #102020 55%, #0a1414 100%);
+  --grad-12: linear-gradient(135deg, #302038 0%, #201028 55%, #180a14 100%);
+  --grad-13: linear-gradient(135deg, #20383a 0%, #102428 55%, #0a1418 100%);
+}
+.z-gradient-cover--0 { background: var(--grad-0); }
+.z-gradient-cover--1 { background: var(--grad-1); }
+.z-gradient-cover--2 { background: var(--grad-2); }
+.z-gradient-cover--3 { background: var(--grad-3); }
+.z-gradient-cover--4 { background: var(--grad-4); }
+.z-gradient-cover--5 { background: var(--grad-5); }
+.z-gradient-cover--6 { background: var(--grad-6); }
+.z-gradient-cover--7 { background: var(--grad-7); }
+.z-gradient-cover--8 { background: var(--grad-8); }
+.z-gradient-cover--9 { background: var(--grad-9); }
+.z-gradient-cover--10 { background: var(--grad-10); }
+.z-gradient-cover--11 { background: var(--grad-11); }
+.z-gradient-cover--12 { background: var(--grad-12); }
+.z-gradient-cover--13 { background: var(--grad-13); }
+
+/* 文章页 hero 渐变横幅 */
+.z-hero-gradient {
+  position: relative;
+  height: 13rem;
+  isolation: isolate;
+}
+.z-hero-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+}
+.z-hero-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 55%);
+}
+.z-hero-gradient--0 { background: var(--grad-0); }
+.z-hero-gradient--1 { background: var(--grad-1); }
+.z-hero-gradient--2 { background: var(--grad-2); }
+.z-hero-gradient--3 { background: var(--grad-3); }
+.z-hero-gradient--4 { background: var(--grad-4); }
+.z-hero-gradient--5 { background: var(--grad-5); }
+.z-hero-gradient--6 { background: var(--grad-6); }
+.z-hero-gradient--7 { background: var(--grad-7); }
+.z-hero-gradient--8 { background: var(--grad-8); }
+.z-hero-gradient--9 { background: var(--grad-9); }
+.z-hero-gradient--10 { background: var(--grad-10); }
+.z-hero-gradient--11 { background: var(--grad-11); }
+.z-hero-gradient--12 { background: var(--grad-12); }
+.z-hero-gradient--13 { background: var(--grad-13); }
+
+/* 列表缩略图渐变 (无封面图文章) */
+.z-simple-gradient {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+.z-simple-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+}
+.z-simple-gradient__char {
+  font-family: var(--font-brand);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+.z-simple-gradient--0 { background: var(--grad-0); }
+.z-simple-gradient--1 { background: var(--grad-1); }
+.z-simple-gradient--2 { background: var(--grad-2); }
+.z-simple-gradient--3 { background: var(--grad-3); }
+.z-simple-gradient--4 { background: var(--grad-4); }
+.z-simple-gradient--5 { background: var(--grad-5); }
+.z-simple-gradient--6 { background: var(--grad-6); }
+.z-simple-gradient--7 { background: var(--grad-7); }
+.z-simple-gradient--8 { background: var(--grad-8); }
+.z-simple-gradient--9 { background: var(--grad-9); }
+.z-simple-gradient--10 { background: var(--grad-10); }
+.z-simple-gradient--11 { background: var(--grad-11); }
+.z-simple-gradient--12 { background: var(--grad-12); }
+.z-simple-gradient--13 { background: var(--grad-13); }
+
+/* ============================================================
+   6. 滚动显现动画
+   ============================================================ */
+.z-reveal {
+  opacity: 0;
+  transform: translateY(1.8rem);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+}
+.z-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* 逐元素错峰显现 */
+.z-reveal:nth-child(2) { transition-delay: 80ms; }
+.z-reveal:nth-child(3) { transition-delay: 160ms; }
+.z-reveal:nth-child(4) { transition-delay: 240ms; }
+.z-reveal:nth-child(5) { transition-delay: 320ms; }
+.z-reveal:nth-child(6) { transition-delay: 400ms; }
+@media (prefers-reduced-motion: reduce) {
+  .z-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================================
+   7. 细节润色
+   ============================================================ */
+/* 文字选中色 */
+::selection {
+  background: rgb(var(--color-primary-200));
+  color: rgb(var(--color-neutral-900));
+}
+html.dark ::selection {
+  background: rgb(var(--color-primary-700));
+  color: rgb(var(--color-neutral-100));
+}
+
+/* 链接下划线更克制 */
+.prose a {
+  text-underline-offset: 3px;
+  text-decoration-color: rgb(var(--color-primary-300));
+  text-decoration-thickness: 1.5px;
+  transition: color 0.2s ease;
+}
+.prose a:hover {
+  color: rgb(var(--color-primary-600));
+}
+html.dark .prose a {
+  text-decoration-color: rgb(var(--color-primary-700));
+}
+html.dark .prose a:hover {
+  color: rgb(var(--color-primary-400));
+}
+
+/* 滚动到顶按钮圆润 */
+#scroll-to-top {
+  border-radius: 999px;
+}
+
+/* 文章页标题呼吸感 */
+.single-title {
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+/* 页脚分隔 */
+footer {
+  margin-top: 4rem;
+}
+
+/* 标题首字大写装饰 —— 品牌感 */
+.single-title::first-letter {
+  font-size: 1.15em;
+}
+
+/* 表格行间柔光 */
+.prose table tbody tr:nth-child(even) {
+  background: rgb(var(--color-neutral-100) / 0.5);
+}
+html.dark .prose table tbody tr:nth-child(even) {
+  background: rgb(var(--color-neutral-700) / 0.3);
+}
+
+/* 分页按钮圆润 */
+.pagination a, .pagination span {
+  border-radius: 0.6rem;
+}
+
+/* 搜索框 */
+#search-query {
+  border-radius: 0.8rem;
+}
+
+/* ============================================================
+   8. 渐变文字 —— 用于标题强调
+   ============================================================ */
+.z-grad-text {
+  background: linear-gradient(135deg, rgb(var(--color-primary-500)), rgb(var(--color-primary-300)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================================
+   9. 最近文章区域标题
+   ============================================================ */
+.z-section-title {
+  font-family: var(--font-brand);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 3rem 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid rgb(var(--color-neutral-200));
+  position: relative;
+}
+.z-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  inset-inline-start: 0;
+  width: 3rem;
+  height: 2px;
+  background: rgb(var(--color-primary-500));
+}
+html.dark .z-section-title {
+  border-bottom-color: rgb(var(--color-neutral-700));
+}
+
+/* "查看更多" 链接 */
+.z-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgb(var(--color-neutral-300));
+  font-size: 0.9rem;
+  color: rgb(var(--color-neutral-600));
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+.z-more-link:hover {
+  border-color: rgb(var(--color-primary-400));
+  color: rgb(var(--color-primary-600));
+  gap: 0.6rem;
+}
+html.dark .z-more-link {
+  border-color: rgb(var(--color-neutral-600));
+  color: rgb(var(--color-neutral-400));
+}
+html.dark .z-more-link:hover {
+  border-color: rgb(var(--color-primary-600));
+  color: rgb(var(--color-primary-400));
+}
