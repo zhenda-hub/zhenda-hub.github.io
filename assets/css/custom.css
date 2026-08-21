@@ -814,110 +814,135 @@ html.dark .zd-item__title {
   color: var(--accent-soft);
 }
 
-/* ---------- 9c. 系列品牌卡 (series-card) ---------- */
-.series-card {
+/* ---------- 9c. 系列目录行 (series-row 杂志大列表) ---------- */
+.series-list {
+  margin-bottom: 3rem;
+}
+.series-row {
   position: relative;
   display: flex;
-  flex-direction: column;
-  padding: 1.6rem 1.5rem 1.4rem;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(var(--color-neutral-200), 0.95);
-  border-radius: 1rem;
-  overflow: hidden;
-  transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.55rem 0.5rem;
+  border-top: 1px solid rgba(var(--color-neutral-200), 0.9);
+  transition: padding-left 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.series-card::before {
+.series-list .series-row:last-child {
+  border-bottom: 1px solid rgba(var(--color-neutral-200), 0.9);
+}
+.series-row::before {
   content: "";
   position: absolute;
-  inset: 0 0 auto 0;
-  height: 2px;
+  left: 0;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  width: 2px;
   background: var(--accent-gradient);
   opacity: 0;
-  transform: scaleX(0.25);
-  transform-origin: left;
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scaleY(0.4);
+  transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.series-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(var(--color-primary-500), 0.5);
-  box-shadow: 0 20px 40px -20px rgba(var(--color-primary-700), 0.35);
+.series-row:hover {
+  padding-left: 1.1rem;
 }
-.series-card:hover::before {
+.series-row:hover::before {
   opacity: 1;
-  transform: scaleX(1);
+  transform: scaleY(1);
 }
-html.dark .series-card {
-  background: rgba(var(--color-neutral-800), 0.6);
-  border-color: rgba(var(--color-neutral-700), 0.9);
-}
-.series-card__num {
+.series-row__num {
+  flex: none;
+  width: 3.4rem;
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 0.9rem;
-  letter-spacing: 0.22em;
-  color: var(--accent-strong);
-  margin-bottom: 0.5rem;
-}
-.series-card__title {
-  font-family: var(--font-serif);
-  font-size: 1.32rem;
-  font-weight: 800;
-  line-height: 1.4;
-  color: var(--ink);
-  transition: color 0.25s;
-}
-.series-card:hover .series-card__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   color: var(--accent-strong);
 }
-html.dark .series-card__title {
-  color: rgb(var(--color-neutral-50));
-}
-.series-card__desc {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  line-height: 1.8;
-  color: rgb(var(--color-neutral-500));
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.series-card__foot {
-  margin-top: 1rem;
-  padding-top: 0.8rem;
+.series-row__body {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  border-top: 1px dashed rgba(var(--color-neutral-200), 0.9);
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  color: rgb(var(--color-neutral-400));
 }
-.series-card__count {
-  font-weight: 600;
+.series-row__title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--ink);
+  transition: color 0.25s;
+}
+.series-row:hover .series-row__title {
   color: var(--accent-strong);
-  letter-spacing: 0.1em;
 }
-.series-card__latest {
+html.dark .series-row__title {
+  color: rgb(var(--color-neutral-50));
+}
+.series-row__desc {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgb(var(--color-neutral-500));
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.series-card__go {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.9rem;
+.series-row__meta {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--accent-strong);
-  opacity: 0.85;
-  transition: all 0.25s;
+  letter-spacing: 0.05em;
+  color: rgb(var(--color-neutral-400));
 }
-.series-card:hover .series-card__go {
-  gap: 0.65rem;
+.series-row__count {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent-strong);
+}
+.series-row__latest {
+  max-width: 15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.series-row__arrow {
+  flex: none;
+  font-size: 1.1rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.series-row:hover .series-row__arrow {
   opacity: 1;
+  transform: translateX(0);
+}
+@media (max-width: 720px) {
+  .series-row {
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
+  }
+  .series-row__num {
+    width: 2.6rem;
+    font-size: 1.25rem;
+  }
+  .series-row__title {
+    font-size: 1.2rem;
+  }
+  .series-row__meta {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    padding-left: 3.7rem;
+  }
+  .series-row__arrow {
+    display: none;
+  }
 }
 
 /* ---------- 10. 文章页排版 (prose) ---------- */
