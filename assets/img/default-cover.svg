@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1C1813"/>
+      <stop offset="0.55" stop-color="#2A2118"/>
+      <stop offset="1" stop-color="#3B2E1E"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.15" r="0.55">
+      <stop offset="0" stop-color="#D9B068" stop-opacity="0.32"/>
+      <stop offset="0.6" stop-color="#C8954A" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#C8954A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#C8954A" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#E2BC7A"/>
+      <stop offset="1" stop-color="#C8954A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- 同心圆装饰 (左上) -->
+  <g stroke="#C8954A">
+    <circle cx="180" cy="190" r="52" fill="none" stroke-opacity="0.45" stroke-width="1.5"/>
+    <circle cx="180" cy="190" r="82" fill="none" stroke-opacity="0.24" stroke-width="1"/>
+    <circle cx="180" cy="190" r="114" fill="none" stroke-opacity="0.12" stroke-width="1"/>
+    <line x1="180" y1="120" x2="180" y2="160" stroke-opacity="0.35" stroke-width="1"/>
+    <line x1="180" y1="220" x2="180" y2="260" stroke-opacity="0.35" stroke-width="1"/>
+    <line x1="110" y1="190" x2="150" y2="190" stroke-opacity="0.35" stroke-width="1"/>
+    <line x1="210" y1="190" x2="250" y2="190" stroke-opacity="0.35" stroke-width="1"/>
+  </g>
+
+  <!-- 中央金线 + 品牌字 -->
+  <rect x="540" y="306" width="120" height="2" fill="url(#rule)"/>
+  <text x="600" y="352" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'Songti SC', serif" font-size="21" letter-spacing="9" fill="#D9B068" opacity="0.9">ZHENDA'S JOURNAL</text>
+
+  <!-- 四角金色 L 括号 (杂志框线) -->
+  <g stroke="#C8954A" fill="none" stroke-width="1.5">
+    <path d="M46 76 V56 H66" stroke-opacity="0.55"/>
+    <path d="M1154 76 V56 H1134" stroke-opacity="0.55"/>
+    <path d="M46 554 V574 H66" stroke-opacity="0.55"/>
+    <path d="M1154 554 V574 H1134" stroke-opacity="0.55"/>
+  </g>
+</svg>

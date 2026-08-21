@@ -231,6 +231,29 @@ html.dark .main-menu a.active {
   padding: 4.5rem 0 3.75rem;
   text-align: center;
 }
+.masthead::before {
+  content: "";
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(720px, 100%);
+  height: 340px;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(var(--color-primary-200), 0.4),
+    rgba(var(--color-primary-200), 0.08) 55%,
+    transparent 75%
+  );
+  pointer-events: none;
+}
+html.dark .masthead::before {
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(var(--color-primary-700), 0.28),
+    transparent 70%
+  );
+}
 .masthead__kicker {
   display: inline-flex;
   align-items: center;

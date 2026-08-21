@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - migrate/blowfish
+      - premium-design
   pull_request:
 
 jobs:
