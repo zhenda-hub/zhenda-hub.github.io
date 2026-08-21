@@ -231,6 +231,12 @@ html.dark .main-menu a.active {
   padding: 4.5rem 0 3.75rem;
   text-align: center;
 }
+.masthead--simple {
+  padding: 3.4rem 0 2.8rem;
+}
+.masthead--simple .masthead__title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+}
 .masthead::before {
   content: "";
   position: absolute;
