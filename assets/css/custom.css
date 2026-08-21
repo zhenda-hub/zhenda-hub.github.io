@@ -8,22 +8,22 @@
   --font-sans: "Noto Sans SC Variable", "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
-  --font-serif: "Newsreader Variable", "Noto Serif SC Variable", "Songti SC",
-    "STSong", "SimSun", "Times New Roman", serif;
-  --font-display: "Newsreader Variable", "Playfair Display Variable",
-    "Noto Serif SC Variable", "Songti SC", serif;
+  --font-serif: "Noto Serif SC Variable", "Songti SC", "STSong", "SimSun",
+    "Times New Roman", serif;
+  --font-display: "Playfair Display Variable", "Noto Serif SC Variable",
+    "Songti SC", serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo,
     Consolas, "Liberation Mono", monospace;
 
-  --accent: rgb(var(--color-primary-500));
-  --accent-strong: rgb(var(--color-primary-600));
-  --accent-soft: rgb(var(--color-primary-300));
-  --accent-ghost: rgb(var(--color-primary-100));
+  --gold: rgb(var(--color-primary-500));
+  --gold-strong: rgb(var(--color-primary-600));
+  --gold-soft: rgb(var(--color-primary-300));
+  --gold-ghost: rgb(var(--color-primary-100));
   --sage: rgb(var(--color-secondary-500));
   --paper: rgb(var(--color-neutral-50));
   --ink: rgb(var(--color-neutral-900));
   --ink-soft: rgb(var(--color-neutral-800));
-  --accent-gradient: linear-gradient(
+  --gold-gradient: linear-gradient(
     100deg,
     rgb(var(--color-primary-300)),
     rgb(var(--color-primary-500)) 55%,
@@ -33,9 +33,9 @@
 }
 
 html.dark {
-  --accent: rgb(var(--color-primary-400));
-  --accent-strong: rgb(var(--color-primary-300));
-  --accent-soft: rgb(var(--color-primary-500));
+  --gold: rgb(var(--color-primary-400));
+  --gold-strong: rgb(var(--color-primary-300));
+  --gold-soft: rgb(var(--color-primary-500));
   --hairline: rgb(var(--color-neutral-700));
 }
 
@@ -79,18 +79,18 @@ h6 {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--gold);
 }
 
 /* 金色细线 (杂志分隔线) */
 .gold-rule {
   height: 1px;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
   border: 0;
 }
 .gold-rule--thick {
   height: 2px;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
   border: 0;
 }
 
@@ -161,7 +161,7 @@ html.dark #menu-blur {
   color: rgb(var(--color-neutral-900));
 }
 .zd-brand__dot {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 html.dark .zd-brand__cn {
   color: rgb(var(--color-neutral-50));
@@ -189,7 +189,7 @@ html.dark .zd-brand__cn {
   bottom: -6px;
   height: 2px;
   width: 0;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
   transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .main-menu nav > a:hover::after {
@@ -197,7 +197,7 @@ html.dark .zd-brand__cn {
 }
 .main-menu nav > a:hover,
 .main-menu a.active {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 .main-menu nav > a {
   color: rgb(var(--color-neutral-600));
@@ -206,7 +206,7 @@ html.dark .main-menu nav > a {
   color: rgb(var(--color-neutral-300));
 }
 html.dark .main-menu a.active {
-  color: var(--accent);
+  color: var(--gold);
 }
 
 /* 搜索按钮 */
@@ -222,7 +222,7 @@ html.dark .main-menu a.active {
 
 /* 明暗切换按钮 hover */
 .bf-icon-color-hover:hover {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 
 /* ---------- 5. 报头 Masthead (首页) ---------- */
@@ -265,7 +265,7 @@ html.dark .masthead::before {
   content: "";
   width: 2.4rem;
   height: 1px;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
 }
 .masthead__title {
   font-family: var(--font-serif);
@@ -286,7 +286,7 @@ html.dark .masthead::before {
 .masthead__sub em {
   font-family: var(--font-display);
   font-style: italic;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 html.dark .masthead__title {
   color: rgb(var(--color-neutral-50));
@@ -304,7 +304,7 @@ html.dark .masthead__title {
   border-radius: 999px;
   transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.zd-btn--accent {
+.zd-btn--gold {
   color: #fff;
   background: linear-gradient(
     120deg,
@@ -313,7 +313,7 @@ html.dark .masthead__title {
   );
   box-shadow: 0 6px 18px -6px rgba(var(--color-primary-600), 0.55);
 }
-.zd-btn--accent:hover {
+.zd-btn--gold:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px -6px rgba(var(--color-primary-600), 0.65);
   filter: brightness(1.06);
@@ -324,8 +324,8 @@ html.dark .masthead__title {
   background: transparent;
 }
 .zd-btn--ghost:hover {
-  border-color: var(--accent);
-  color: var(--accent-strong);
+  border-color: var(--gold);
+  color: var(--gold-strong);
   transform: translateY(-2px);
 }
 html.dark .zd-btn--ghost {
@@ -333,8 +333,8 @@ html.dark .zd-btn--ghost {
   border-color: rgb(var(--color-neutral-600));
 }
 html.dark .zd-btn--ghost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--gold);
+  color: var(--gold);
 }
 
 /* 报头统计条 */
@@ -357,7 +357,7 @@ html.dark .zd-btn--ghost:hover {
   font-style: italic;
   font-size: 1.55rem;
   font-weight: 600;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
   line-height: 1;
 }
 .masthead__stats-label {
@@ -386,7 +386,7 @@ html.dark .zd-btn--ghost:hover {
   font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 .sec-head__cn {
   font-family: var(--font-serif);
@@ -414,7 +414,7 @@ html.dark .sec-head__cn {
   transition: color 0.2s;
 }
 .sec-head__more:hover {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 
 /* ---------- 7. 专题带 (四大板块) ---------- */
@@ -447,7 +447,7 @@ html.dark .sec-head__cn {
   position: absolute;
   inset: 0 0 auto 0;
   height: 2px;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
   opacity: 0;
   transform: scaleX(0.3);
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -470,7 +470,7 @@ html.dark .pillar {
   font-style: italic;
   font-size: 0.85rem;
   letter-spacing: 0.2em;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
   margin-bottom: 0.6rem;
 }
 .pillar__title {
@@ -495,7 +495,7 @@ html.dark .pillar__title {
   margin-top: 0.9rem;
   font-size: 0.78rem;
   letter-spacing: 0.14em;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
   opacity: 0.85;
   transition: all 0.25s;
 }
@@ -530,7 +530,7 @@ html.dark .featured {
   transform: translateX(-50%);
   width: 72px;
   height: 3px;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
 }
 .featured__body {
   display: flex;
@@ -552,7 +552,7 @@ html.dark .featured {
   transition: color 0.25s;
 }
 .featured:hover .featured__title {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 .featured__title a::after {
   content: "";
@@ -578,7 +578,7 @@ html.dark .featured__title {
   color: rgb(var(--color-neutral-400));
 }
 .featured__meta .dot {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 .featured__readmore {
   display: inline-flex;
@@ -588,7 +588,7 @@ html.dark .featured__title {
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.16em;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
   transition: gap 0.25s;
 }
 .featured:hover .featured__readmore {
@@ -613,7 +613,7 @@ html.dark .featured__title {
   position: absolute;
   inset: 0 0 auto 0;
   height: 2px;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
   opacity: 0;
   transform: scaleX(0.25);
   transform-origin: left;
@@ -674,12 +674,12 @@ html.dark .zd-card {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 .zd-card__kicker .zd-card__kicker-line {
   width: 1.4rem;
   height: 1px;
-  background: var(--accent);
+  background: var(--gold);
   opacity: 0.7;
 }
 .zd-card__title {
@@ -695,7 +695,7 @@ html.dark .zd-card {
   transition: color 0.25s;
 }
 .zd-card:hover .zd-card__title {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 html.dark .zd-card__title {
   color: rgb(var(--color-neutral-100));
@@ -722,15 +722,14 @@ html.dark .zd-card__title {
   border-top: 1px dashed rgba(var(--color-neutral-200), 0.9);
 }
 .zd-card__meta .zd-card__meta-dot {
-  color: var(--accent-soft);
+  color: var(--gold-soft);
 }
 
 /* ---------- 10. 文章页排版 (prose) ---------- */
 .article-content {
   font-size: 1.0625rem;
-  line-height: 1.85;
+  line-height: 1.95;
   letter-spacing: 0.012em;
-  font-family: var(--font-serif);
 }
 .article-content p {
   margin: 1.25em 0;
@@ -750,7 +749,7 @@ html.dark .article-content p {
   font-weight: 800;
   margin: 2.2em 0 0.9em;
   padding-left: 0.85rem;
-  border-left: 3px solid var(--accent-strong);
+  border-left: 3px solid var(--gold-strong);
   line-height: 1.4;
 }
 .article-content h3 {
@@ -768,17 +767,17 @@ html.dark .article-content h3 {
   margin: 1.6em 0 0.6em;
 }
 .article-content a {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
   text-decoration: underline;
   text-decoration-color: rgba(var(--color-primary-500), 0.4);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.2s;
 }
 .article-content a:hover {
-  text-decoration-color: var(--accent-strong);
+  text-decoration-color: var(--gold-strong);
 }
 html.dark .article-content a {
-  color: var(--accent);
+  color: var(--gold);
 }
 .article-content strong {
   font-weight: 600;
@@ -793,7 +792,7 @@ html.dark .article-content strong {
   position: relative;
   margin: 1.8em 0;
   padding: 0.9em 1.4em 0.9em 1.6em;
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--gold);
   background: linear-gradient(
     90deg,
     rgba(var(--color-primary-100), 0.55),
@@ -907,9 +906,6 @@ html.dark .article-content pre {
 }
 
 /* 文章页标题区 */
-#single_header {
-  padding-top: 1.6rem;
-}
 #single_header h1 {
   font-size: clamp(2rem, 4.6vw, 2.9rem);
   font-weight: 900;
@@ -926,7 +922,7 @@ html.dark .article-content pre {
   gap: 0.4rem;
 }
 #single_header .article-meta .dot {
-  color: var(--accent);
+  color: var(--gold);
 }
 
 /* ---------- 11. TOC ---------- */
@@ -942,14 +938,14 @@ html.dark .article-content pre {
 }
 .toc nav > ul > li:hover,
 .toc nav > ul > li.active {
-  border-left-color: var(--accent);
+  border-left-color: var(--gold);
 }
 .toc nav a {
   color: rgb(var(--color-neutral-500));
   transition: color 0.2s;
 }
 .toc nav a:hover {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 
 /* ---------- 12. 标签 ---------- */
@@ -967,8 +963,8 @@ html.dark .article-content pre {
 .taxonomy-taxonomy-tags a:hover,
 .article-tags a:hover,
 .taxonomy a:hover {
-  border-color: var(--accent);
-  color: var(--accent-strong);
+  border-color: var(--gold);
+  color: var(--gold-strong);
   background: rgba(var(--color-primary-100), 0.4);
 }
 
@@ -979,7 +975,7 @@ html.dark .article-content pre {
   color: rgb(var(--color-neutral-400));
 }
 .breadcrumbs a:hover {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 
 /* ---------- 14. 分页 ---------- */
@@ -991,7 +987,7 @@ html.dark .article-content pre {
 }
 .pagination a:hover,
 .pagination button:hover {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
   border-color: rgba(var(--color-primary-500), 0.6);
 }
 .pagination .active a,
@@ -1024,12 +1020,12 @@ html.dark #site-footer .zd-footer-brand {
   color: rgb(var(--color-neutral-50));
 }
 #site-footer a:hover {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 
 /* ---------- 16. 阅读进度 / 返回顶部 ---------- */
 #reading-progress {
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
 }
 #scroll-to-top a {
   border: 1px solid rgba(var(--color-neutral-300), 0.9);
@@ -1038,8 +1034,8 @@ html.dark #site-footer .zd-footer-brand {
   transition: all 0.25s;
 }
 #scroll-to-top a:hover {
-  border-color: var(--accent);
-  color: var(--accent-strong);
+  border-color: var(--gold);
+  color: var(--gold-strong);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px -8px rgba(var(--color-primary-600), 0.5);
 }
@@ -1076,7 +1072,7 @@ html.dark #scroll-to-top a {
   font-size: clamp(5rem, 14vw, 8.5rem);
   font-weight: 700;
   line-height: 1;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
