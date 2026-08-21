@@ -340,8 +340,9 @@ html.dark .zd-btn--ghost:hover {
 /* 报头统计条 */
 .masthead__stats {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2.6rem;
+  gap: 1.4rem 2.6rem;
   margin-top: 2.4rem;
   padding-top: 1.6rem;
   border-top: 1px solid rgba(var(--color-neutral-200), 0.9);

@@ -54,7 +54,7 @@ mainSections = ["posts"]
 
 [taxonomy]
   showTermCount = true
-  cardView = true
+  cardView = false
 
 [term]
   showHero = true
