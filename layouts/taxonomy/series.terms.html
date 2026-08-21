@@ -1,0 +1,44 @@
+{{/* Zhenda Premium: 系列总览 — 品牌卡网格 (仅 /series/, 不影响 tags/categories) */}}
+{{ define "main" }}
+  {{ $terms := sort .Data.Terms "Count" "desc" }}
+  {{ $roman := slice "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" "XI" "XII" "XIII" "XIV" "XV" "XVI" "XVII" "XVIII" "XIX" "XX" }}
+
+  {{/* 页头 */}}
+  <header class="list-hero mb-10 border-b border-neutral-200/90 pb-8 dark:border-neutral-700/90">
+    <span class="kicker">Zhenda&rsquo;s Journal &mdash; Series</span>
+    <h1 class="mt-2 mb-3 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      写作系列
+    </h1>
+    <p class="mt-0 mb-2 max-w-2xl text-sm leading-7 text-neutral-500 dark:text-neutral-400">
+      按主题长期更新的系列文章 —— 从技术实践、建站经验到生活思考，选择感兴趣的方向开始阅读。
+    </p>
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs tracking-widest text-neutral-400">
+      <span>共 {{ len $terms }} 个系列</span>
+      <span class="text-primary-400">&middot;</span>
+      <span>持续更新中</span>
+    </div>
+    <hr class="gold-rule mt-6 w-16" />
+  </header>
+
+  {{/* 品牌卡网格 */}}
+  <section class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {{ range $i, $term := $terms }}
+      {{ with $term.Page }}
+        <a href="{{ .RelPermalink }}" class="series-card group">
+          <div class="series-card__num">{{ index $roman $i }}</div>
+          <div class="series-card__title">{{ .Title }}</div>
+          <div class="series-card__desc">{{ .Description | default "持续更新的写作系列" }}</div>
+          <div class="series-card__foot">
+            <span class="series-card__count">{{ $term.Count }} 篇</span>
+            {{ with $term.Pages }}
+              {{ with index . 0 }}
+                <span class="series-card__latest">最新 &middot; {{ .Title | truncate 16 }}</span>
+              {{ end }}
+            {{ end }}
+          </div>
+          <span class="series-card__go">进入系列 →</span>
+        </a>
+      {{ end }}
+    {{ end }}
+  </section>
+{{ end }}
