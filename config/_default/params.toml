@@ -1,5 +1,6 @@
 # -- Theme Options --
-colorScheme = "zhenda-premium"
+colorScheme = "zhenda-cyan"
+# zhenda-cyan (青色中性: 冷灰底 + 青色主色, 阅读导向)
 # zhenda-premium (墨金: 暖灰底 + 琥珀金主色)
 # noir / blowfish / slate / forest / ocean / etc.
 defaultAppearance = "light"
@@ -42,9 +43,9 @@ mainSections = ["posts"]
   showPagination = false
   showZenMode = true
   showReadingProgress = true
-  showHero = true
+  showHero = false
+  # 无 hero: 纯阅读排版 (阅读导向)
   heroStyle = "basic"
-  # basic(小横幅) / big(全宽) / background / thumbAndBackground
 [list]
   groupByYear = false
   cardView = true
