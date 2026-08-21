@@ -13,6 +13,7 @@ enableStructuredBreadcrumbs = true
 defaultSocialImage = "img/social-card.png"
 defaultFeaturedImage = "img/default-cover.svg"
 mainSections = ["posts"]
+highlightCurrentMenuArea = true
 
 [header]
   layout = "fixed-fill-blur"

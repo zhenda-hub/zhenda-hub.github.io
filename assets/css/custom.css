@@ -156,12 +156,17 @@ html.dark #menu-blur {
 .zd-brand__cn {
   font-family: var(--font-serif);
   font-weight: 900;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   letter-spacing: 0.04em;
   color: rgb(var(--color-neutral-900));
 }
 .zd-brand__dot {
   color: var(--gold-strong);
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.zd-brand:hover .zd-brand__dot {
+  transform: scale(1.45);
 }
 html.dark .zd-brand__cn {
   color: rgb(var(--color-neutral-50));
@@ -176,17 +181,25 @@ html.dark .zd-brand__cn {
   color: rgb(var(--color-neutral-400));
 }
 
-/* 主导航: 金线 hover + 当前项金底 */
+/* 主导航: 金线 hover + 当前页金色高亮 */
 .main-menu a {
   position: relative;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   letter-spacing: 0.06em;
+}
+.main-menu nav > a {
+  font-weight: 500;
+  color: rgb(var(--color-neutral-600));
+  transition: color 0.2s ease;
+}
+html.dark .main-menu nav > a {
+  color: rgb(var(--color-neutral-300));
 }
 .main-menu nav > a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -7px;
   height: 2px;
   width: 0;
   background: var(--gold-gradient);
@@ -196,21 +209,17 @@ html.dark .zd-brand__cn {
   width: 100%;
 }
 .main-menu nav > a:hover,
-.main-menu a.active {
+.main-menu nav > a span.active {
   color: var(--gold-strong);
 }
-.main-menu nav > a {
-  color: rgb(var(--color-neutral-600));
-}
-html.dark .main-menu nav > a {
-  color: rgb(var(--color-neutral-300));
-}
-html.dark .main-menu a.active {
+html.dark .main-menu nav > a span.active {
   color: var(--gold);
 }
 
-/* 搜索按钮 */
+/* 搜索按钮: 胶囊 + 金边 hover + 快捷键金底 */
 #search-button {
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
   border-color: rgba(var(--color-neutral-300), 0.8);
   background: rgba(var(--color-neutral-100), 0.6);
   transition: all 0.25s ease;
@@ -218,6 +227,27 @@ html.dark .main-menu a.active {
 #search-button:hover {
   border-color: rgba(var(--color-primary-500), 0.7);
   background: rgba(var(--color-primary-100), 0.5);
+}
+#search-button kbd {
+  padding: 0.08rem 0.35rem;
+  border-radius: 0.3rem;
+  background: rgba(var(--color-primary-200), 0.45);
+  color: rgb(var(--color-neutral-600));
+}
+html.dark #search-button kbd {
+  background: rgba(var(--color-primary-800), 0.5);
+  color: rgb(var(--color-neutral-300));
+}
+
+/* 下拉菜单 (链接→RSS/GitHub) */
+.menuhide a {
+  transition: color 0.2s;
+}
+.menuhide a:hover {
+  color: var(--gold-strong);
+}
+html.dark .menuhide a:hover {
+  color: var(--gold);
 }
 
 /* 明暗切换按钮 hover */
@@ -751,7 +781,7 @@ html.dark .zd-card__title {
   top: 1.6rem;
   bottom: 1.6rem;
   width: 2px;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
   opacity: 0;
   transform: scaleY(0.4);
   transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
@@ -781,7 +811,7 @@ html.dark .zd-card__title {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 .zd-item__title {
   font-family: var(--font-serif);
@@ -792,7 +822,7 @@ html.dark .zd-card__title {
   transition: color 0.25s;
 }
 .zd-item:hover .zd-item__title {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 html.dark .zd-item__title {
   color: rgb(var(--color-neutral-50));
@@ -817,7 +847,7 @@ html.dark .zd-item__title {
   color: rgb(var(--color-neutral-400));
 }
 .zd-item__foot-dot {
-  color: var(--accent-soft);
+  color: var(--gold-soft);
 }
 
 /* ---------- 9c. 系列目录行 (series-row 杂志大列表) ---------- */
@@ -843,7 +873,7 @@ html.dark .zd-item__title {
   top: 1.4rem;
   bottom: 1.4rem;
   width: 2px;
-  background: var(--accent-gradient);
+  background: var(--gold-gradient);
   opacity: 0;
   transform: scaleY(0.4);
   transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
@@ -863,7 +893,7 @@ html.dark .zd-item__title {
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.1em;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 .series-row__body {
   flex: 1;
@@ -881,7 +911,7 @@ html.dark .zd-item__title {
   transition: color 0.25s;
 }
 .series-row:hover .series-row__title {
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 html.dark .series-row__title {
   color: rgb(var(--color-neutral-50));
@@ -907,7 +937,7 @@ html.dark .series-row__title {
 .series-row__count {
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: var(--accent-strong);
+  color: var(--gold-strong);
 }
 .series-row__latest {
   max-width: 15rem;
@@ -918,7 +948,7 @@ html.dark .series-row__title {
 .series-row__arrow {
   flex: none;
   font-size: 1.1rem;
-  color: var(--accent);
+  color: var(--gold);
   opacity: 0;
   transform: translateX(-8px);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
