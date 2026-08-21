@@ -12,6 +12,7 @@ robots = "index, follow, max-image-preview:large, max-snippet:-1"
 enableStructuredBreadcrumbs = true
 defaultSocialImage = "img/social-card.png"
 defaultFeaturedImage = "img/default-cover.png"
+mainSections = ["posts"]
 
 [header]
   layout = "fixed-fill-blur"
@@ -40,6 +41,7 @@ defaultFeaturedImage = "img/default-cover.png"
   showLikes = false
   showPagination = false
   showZenMode = true
+  showReadingProgress = true
   showHero = true
   heroStyle = "big"
   # basic / big / background / thumbAndBackground
@@ -58,7 +60,7 @@ defaultFeaturedImage = "img/default-cover.png"
   showHero = true
   heroStyle = "basic"
   groupByYear = false
-  cardView = false
+  cardView = true
 
 # Firebase configuration for views and likes
 # Get your config from: https://console.firebase.google.com/

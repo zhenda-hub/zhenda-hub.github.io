@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <section class="zd-404">
+    <div class="zd-404__code">404</div>
+    <p class="zd-404__msg">这一页尚未写下 —— 它可能迷路了，或还在草稿箱里。</p>
+    <div class="flex items-center justify-center gap-4">
+      <a href="{{ "" | relLangURL }}" class="zd-btn zd-btn--gold">返回首页</a>
+      <a href="{{ "/posts/" | relLangURL }}" class="zd-btn zd-btn--ghost">浏览文章</a>
+    </div>
+  </section>
+{{ end }}

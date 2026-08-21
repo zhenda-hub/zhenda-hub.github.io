@@ -1,0 +1,194 @@
+{{ define "main" }}
+  {{- $posts := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+  {{- $postCount := len $posts -}}
+  {{- $seriesCount := len site.Taxonomies.series -}}
+  {{- $words := 0 -}}
+  {{- range $posts }}{{ $words = add $words .WordCount }}{{ end -}}
+  {{- $wan := div $words 10000 -}}
+
+  {{/* ==================== 1. 报头 Masthead ==================== */}}
+  <section class="masthead zd-fade-up">
+    <div class="masthead__kicker">
+      <span class="playfair">Zhenda&rsquo;s Journal</span>
+    </div>
+    <h1 class="masthead__title">
+      在代码、AI 与生活之间<br class="hidden sm:block" />持续写作
+    </h1>
+    <p class="masthead__sub">
+      你好，我是真达。这里是我持续输出的自留地 —— 记录
+      <em>编程实践</em>、<em>Hugo 建站</em>、<em>NAS 自托管</em> 与 <em>个人成长</em>。
+      Stay hungry, stay humble, and keep shipping value.
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="{{ "/posts/" | relLangURL }}" class="zd-btn zd-btn--gold">
+        开始阅读
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="{{ "/about/" | relLangURL }}" class="zd-btn zd-btn--ghost">关于我</a>
+    </div>
+    <div class="masthead__stats">
+      <div class="masthead__stats-item">
+        <span class="masthead__stats-num">{{ $postCount }}</span>
+        <span class="masthead__stats-label">篇文章</span>
+      </div>
+      <div class="masthead__stats-item">
+        <span class="masthead__stats-num">{{ $seriesCount }}</span>
+        <span class="masthead__stats-label">写作系列</span>
+      </div>
+      <div class="masthead__stats-item">
+        <span class="masthead__stats-num">{{ if $wan }}{{ $wan }}{{ else }}1{{ end }}万+</span>
+        <span class="masthead__stats-label">累计字数</span>
+      </div>
+      <div class="masthead__stats-item">
+        <span class="masthead__stats-num">4</span>
+        <span class="masthead__stats-label">年持续写作</span>
+      </div>
+    </div>
+  </section>
+
+  {{/* ==================== 2. 专题带 ==================== */}}
+  <section class="mb-20">
+    <div class="sec-head">
+      <div class="sec-head__left">
+        <span class="sec-head__en">Fields</span>
+        <span class="sec-head__cn">写作领域</span>
+      </div>
+      <span class="sec-head__line"></span>
+    </div>
+    <div class="pillars">
+      {{ $pillars := slice
+        (dict "num" "I" "title" "技术实践" "desc" "Python / Web 开发 / AI 应用 / 效率工具，把踩过的坑写成可复用的经验。" "url" "/series/tech/")
+        (dict "num" "II" "title" "Hugo 建站" "desc" "Blowfish 主题配置、布局定制与系列教程，从零搭出个人站。" "url" "/series/hugo-blowfish/")
+        (dict "num" "III" "title" "NAS 与自托管" "desc" "Docker 部署、家庭数据中心与私有化服务实践。" "url" "/series/system/")
+        (dict "num" "IV" "title" "生活成长" "desc" "健康管理、效率方法、圣经学习与个人思考。" "url" "/series/life/")
+      }}
+      {{ range $pillars }}
+        <a href="{{ .url | relLangURL }}" class="pillar">
+          <div class="pillar__num">{{ .num }}</div>
+          <div class="pillar__title">{{ .title }}</div>
+          <div class="pillar__desc">{{ .desc }}</div>
+          <span class="pillar__go">进入专题 →</span>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ==================== 3. 精选文章 ==================== */}}
+  {{ with first 1 $posts }}
+    <section class="mb-20">
+      <div class="sec-head">
+        <div class="sec-head__left">
+          <span class="sec-head__en">Feature</span>
+          <span class="sec-head__cn">精选文章</span>
+        </div>
+        <span class="sec-head__line"></span>
+      </div>
+      {{ range . }}
+        {{ partial "home/featured.html" . }}
+      {{ end }}
+    </section>
+  {{ end }}
+
+  {{/* ==================== 4. 最近文章 ==================== */}}
+  {{ if site.Params.homepage.showRecent | default true }}
+    <section class="mb-20">
+      <div class="sec-head">
+        <div class="sec-head__left">
+          <span class="sec-head__en">Recent</span>
+          <span class="sec-head__cn">最近更新</span>
+        </div>
+        <span class="sec-head__line"></span>
+        <a class="sec-head__more" href="{{ "/posts/" | relLangURL }}">查看全部 →</a>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {{ range first 6 $posts }}
+          {{ partial "article-link/card.html" . }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ==================== 5. 系列推荐 ==================== */}}
+  {{ with site.Taxonomies.series }}
+    {{ if . }}
+      <section class="mb-20">
+        <div class="sec-head">
+          <div class="sec-head__left">
+            <span class="sec-head__en">Series</span>
+            <span class="sec-head__cn">写作系列</span>
+          </div>
+          <span class="sec-head__line"></span>
+          <a class="sec-head__more" href="{{ "/series/" | relLangURL }}">全部系列 →</a>
+        </div>
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {{ range first 6 (sort .ByCount "Count" "desc") }}
+            <a href="{{ .Page.RelPermalink }}" class="pillar">
+              <div class="pillar__num">{{ .Count }} 篇</div>
+              <div class="pillar__title">{{ .Page.Title }}</div>
+              <div class="pillar__desc">{{ .Page.Description | default "持续更新的写作系列" }}</div>
+              <span class="pillar__go">进入系列 →</span>
+            </a>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{/* ==================== 6. 关于条 ==================== */}}}
+  {{ with site.Params.author }}
+    <section class="mb-10">
+      <div class="sec-head">
+        <div class="sec-head__left">
+          <span class="sec-head__en">About</span>
+          <span class="sec-head__cn">关于我</span>
+        </div>
+        <span class="sec-head__line"></span>
+        <a class="sec-head__more" href="{{ "/about/" | relLangURL }}">完整故事 →</a>
+      </div>
+      <div
+        class="flex flex-col sm:flex-row items-center gap-6 rounded-2xl border border-neutral-200/90 bg-white/70 px-8 py-7 dark:border-neutral-700/90 dark:bg-neutral-800/50">
+        {{ with .image }}
+          {{ $avatar := resources.Get . }}
+          {{ if $avatar }}
+            {{ $avatar = $avatar.Fill "120x120 Center" }}
+            <img
+              src="{{ $avatar.RelPermalink }}"
+              alt="{{ $.Site.Params.author.name }}"
+              class="h-24 w-24 rounded-full object-cover ring-2 ring-primary-300/60 ring-offset-4 ring-offset-neutral-50 dark:ring-offset-neutral-900"
+              loading="lazy" />
+          {{ end }}
+        {{ end }}
+        <div class="text-center sm:text-left">
+          <div class="mb-1 font-serif text-xl font-bold text-neutral-900 dark:text-neutral-50">
+            {{ .name }}
+          </div>
+          <div class="mb-2 text-sm text-neutral-500 dark:text-neutral-400">
+            {{ .headline | markdownify }}
+          </div>
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 text-sm">
+            {{ range $links := .links }}
+              {{ range $name, $url := $links }}
+                {{ $isEmail := eq $name "email" }}
+                <a
+                  class="inline-flex items-center gap-1.5 text-neutral-500 transition-colors hover:text-primary-600 dark:text-neutral-400 dark:hover:text-primary-400"
+                  href="{{ cond $isEmail "#" ($url | safeURL) }}"
+                  {{ if $isEmail }}data-email="{{ $url | base64Encode }}" data-subject="Contact"{{ end }}
+                  {{ if not $isEmail }}target="_blank" rel="me noopener noreferrer"{{ end }}
+                  aria-label="{{ $name | title }}"
+                  title="{{ $name | title }}">
+                  {{ partial "icon.html" $name }}
+                  <span class="capitalize">{{ $name }}</span>
+                </a>
+              {{ end }}
+            {{ end }}
+            <a class="inline-flex items-center gap-1.5 text-neutral-500 transition-colors hover:text-primary-600 dark:text-neutral-400 dark:hover:text-primary-400"
+              href="{{ "/index.xml" | relLangURL }}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+              <span>RSS</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

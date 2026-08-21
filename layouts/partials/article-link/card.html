@@ -1,20 +1,18 @@
-{{/* Zhenda Premium — 文章卡片 (cardView)
-   覆盖 Blowfish 默认 card.html, 无封面图时自动生成墨色渐变封面
-   Used by list.html, term.html, recent-articles
+{{/* Used by
+  1. list.html and term.html (when the cardView option is enabled)
+  2. Recent articles template (when the cardView option is enabled)
+  3. Shortcode list.html
+
+  Zhenda Premium override: 编辑感卡片 (zd-card)
 */}}
 {{ $disableImageOptimization := site.Store.Get "disableImageOptimization" }}
 
 {{ $page := .Page }}
 {{ $featured := "" }}
 {{ $featuredURL := "" }}
-{{ $thumbnailAspectRatio := site.Params.thumbnailAspectRatio | default "1.5" }}
-{{ $thumbnailAspectRatio = replaceRE "[^0-9.]" "" $thumbnailAspectRatio }}
-{{ if eq $thumbnailAspectRatio "" }}{{ $thumbnailAspectRatio = "1.5" }}{{ end }}
-{{ $featureImageHover := site.Params.list.featureImageHover | default false }}
-{{ if isset .Params "featureImageHover" }}{{ $featureImageHover = .Params.featureImageHover }}{{ end }}
 {{ $featureImagePosition := .Params.imagePositionFeature | default site.Params.imagePositionFeature | default site.Params.imagePosition }}
-{{ $gradIndex := partial "functions/gradient-index.html" . }}
 {{ if not .Params.hideFeatureImage }}
+  {{/* frontmatter */}}
   {{ with $page }}
     {{ $p := . }}
     {{ with partial "functions/feature-image.html" . }}
@@ -32,6 +30,7 @@
       {{ end }}
     {{ end }}
 
+    {{/* page resources */}}
     {{ if not (or $featured $featuredURL) }}
       {{ $images := .Resources.ByType "image" }}
       {{ range slice "*feature*" "*cover*" "*thumbnail*" }}
@@ -39,6 +38,7 @@
       {{ end }}
     {{ end }}
 
+    {{/* fallback to default */}}
     {{ if not (or $featured $featuredURL) }}
       {{ $default := site.Store.Get "defaultFeaturedImage" }}
       {{ if $default.url }}
@@ -48,6 +48,7 @@
       {{ end }}
     {{ end }}
 
+    {{/* generate image URL if not hotlink */}}
     {{ if not $featuredURL }}
       {{ with $featured }}
         {{ $featuredURL = .RelPermalink }}
@@ -61,89 +62,56 @@
   {{ end }}
 {{ end }}
 
-
-<article
-  class="article-link--card group relative min-h-full min-w-full overflow-hidden rounded-lg border border-neutral-300/80 bg-white/60 backdrop-blur-xl dark:border-neutral-600/80 dark:bg-neutral-900/50">
+<article class="zd-card group">
   {{ with $featuredURL }}
-    <div
-      class="flex-none relative overflow-hidden thumbnail_card"
-      style="--thumbnail-aspect-ratio: {{ $thumbnailAspectRatio }}">
+    <div class="zd-card__media">
       <img
         src="{{ . }}"
         alt="{{ $page.Title }}"
         loading="lazy"
         decoding="async"
         fetchpriority="low"
-        class="not-prose absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] {{ if $featureImageHover }}group-hover:scale-[1.03]{{ end }}"
         {{ with $featureImagePosition }}style="object-position: {{ . }};"{{ end }} />
-    </div>
-  {{ else }}
-    {{/* 无封面图: 自动生成墨色渐变封面 */}}
-    <div
-      class="flex-none relative overflow-hidden thumbnail_card z-gradient-cover z-gradient-cover--{{ $gradIndex }}"
-      style="--thumbnail-aspect-ratio: {{ $thumbnailAspectRatio }}">
-      {{ $cat := "随笔" }}
-      {{ with $page.Params.Categories }}{{ $cat = index . 0 }}{{ end }}
-      <span class="z-gradient-cover__tag">{{ $cat }}</span>
-      <h2 class="z-gradient-cover__title">{{ $page.Title | emojify }}</h2>
     </div>
   {{ end }}
   {{ if and .Draft .Site.Params.article.showDraftLabel }}
-    <span class="absolute top-0 right-0 m-2">
+    <span class="absolute top-2 right-2 z-10">
       {{ partial "badge.html" (i18n "article.draft" | emojify) }}
     </span>
   {{ end }}
-  {{ if not $featuredURL }}
-    {{/* 渐变封面已含标题, 这里只放 meta + summary */}}
-    <div class="p-4 pt-3">
+  <div class="zd-card__body">
+    <div class="zd-card__kicker">
+      <span class="zd-card__kicker-line"></span>
+      <span>{{ with $page.Params.categories }}{{ index . 0 }}{{ else }}{{ with $page.Params.series }}{{ index . 0 }}{{ else }}随笔{{ end }}{{ end }}</span>
+    </div>
+    <h3 class="zd-card__title">
       <a
         {{ with $page.Params.externalUrl }}
           href="{{ . }}" target="_blank" rel="external"
         {{ else }}
           href="{{ $page.RelPermalink }}"
         {{ end }}
-        class="not-prose before:absolute before:inset-0 decoration-primary-500">
-        {{/* 标题已在渐变封面中显示, 这里放一个视觉占位但不重复标题 */}}
+        class="after:absolute after:inset-0">
+        {{ .Title | emojify }}
+        {{ if .Params.externalUrl }}
+          <span class="cursor-default align-top text-xs text-neutral-400 dark:text-neutral-500">
+            <span class="rtl:hidden">&#8599;</span>
+            <span class="ltr:hidden">&#8598;</span>
+          </span>
+        {{ end }}
       </a>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        {{ partial "article-meta/basic.html" . }}
-      </div>
-      {{ if .Params.showSummary | default (.Site.Params.list.showSummary | default false) }}
-        <div class="article-link__summary prose dark:prose-invert mt-1 line-clamp-3">
-          {{ .Summary | plainify }}
-        </div>
-      {{ end }}
+    </h3>
+    {{ if .Params.showSummary | default (.Site.Params.list.showSummary | default false) }}
+      <p class="zd-card__excerpt">
+        {{ .Summary | plainify }}
+      </p>
+    {{ end }}
+    <div class="zd-card__meta">
+      <span>{{ $page.Date.Format "2006-01-02" }}</span>
+      <span class="zd-card__meta-dot">·</span>
+      <span>{{ $page.WordCount }} 字</span>
+      <span class="zd-card__meta-dot">·</span>
+      <span>{{ $page.ReadingTime }} 分钟</span>
     </div>
-  {{ else }}
-    <div class="p-4">
-      <header>
-        <a
-          {{ with $page.Params.externalUrl }}
-            href="{{ . }}" target="_blank" rel="external"
-          {{ else }}
-            href="{{ $page.RelPermalink }}"
-          {{ end }}
-          class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
-          <h2>
-            {{ .Title | emojify }}
-            {{ if .Params.externalUrl }}
-              <span class="cursor-default align-top text-xs text-neutral-400 dark:text-neutral-500">
-                <span class="rtl:hidden">&#8599;</span>
-                <span class="ltr:hidden">&#8598;</span>
-              </span>
-            {{ end }}
-          </h2>
-        </a>
-      </header>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        {{ partial "article-meta/basic.html" . }}
-      </div>
-      {{ if .Params.showSummary | default (.Site.Params.list.showSummary | default false) }}
-        <div class="article-link__summary prose dark:prose-invert mt-1 line-clamp-5">
-          {{ .Summary | plainify }}
-        </div>
-      {{ end }}
-    </div>
-  {{ end }}
-  <div class="px-6 pt-4 pb-2"></div>
+  </div>
 </article>

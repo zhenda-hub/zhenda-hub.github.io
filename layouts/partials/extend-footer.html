@@ -1,3 +1,10 @@
-{{- /* Zhenda Premium — 页脚扩展: 加载滚动显现动画 JS */ -}}
-{{- $js := resources.Get "js/scroll-reveal.js" | js.Build (dict "minify" true) | fingerprint (site.Params.fingerprintAlgorithm | default "sha512") -}}
-<script defer type="text/javascript" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+{{/* Zhenda Premium: 页脚品牌区（在主题页脚内容上方） */}}
+<div class="mt-8 pt-8 text-center">
+  <hr class="gold-rule mx-auto mb-8 w-24" />
+  <div class="mb-1 font-serif text-xl font-extrabold tracking-wide text-neutral-900 dark:text-neutral-50">
+    真达<span class="text-primary-500">.</span>
+  </div>
+  <p class="playfair text-sm text-neutral-400">
+    Zhenda&rsquo;s Journal &mdash; stay hungry, stay humble, keep shipping value.
+  </p>
+</div>
