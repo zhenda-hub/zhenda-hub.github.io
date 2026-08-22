@@ -3,6 +3,7 @@ title = "关于我 About"
 description = "关于真达 Zhenda：全栈开发者，热爱技术与写作。记录编程、AI、NAS 与个人成长。 | About Zhenda: Full Stack Developer who loves coding and writing — sharing code, AI, NAS and personal growth."
 date = "2024-03-28"
 layout = "single"
+showAuthor = false
 showComments = true
 +++
 
