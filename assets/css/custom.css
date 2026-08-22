@@ -1107,29 +1107,27 @@ html.dark .article-content pre {
   line-height: 1.75;
 }
 
-/* 表格: 暖色斑马纹 + 圆角修正 */
+/* 表格: 无外框杂志风 — 金色表头 + 行分隔 + 斑马纹 */
 .article-content table {
   margin: 1.8em auto;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid rgba(var(--color-neutral-300), 0.9);
-  border-radius: 0.8rem;
-  overflow: hidden;
+  border: 0;
   font-size: 0.92em;
   width: 100%;
 }
 .article-content th {
   background: linear-gradient(
     180deg,
-    rgba(var(--color-primary-200), 0.75),
-    rgba(var(--color-primary-100), 0.55)
+    rgba(var(--color-primary-300), 0.55),
+    rgba(var(--color-primary-200), 0.4)
   );
   font-weight: 600;
   color: rgb(var(--color-neutral-800));
-  border-bottom: 1px solid rgba(var(--color-primary-300), 0.7);
+  border-bottom: 1px solid rgba(var(--color-primary-400), 0.7);
 }
 .article-content tr:nth-child(even) td {
-  background: rgba(var(--color-neutral-200), 0.5);
+  background: rgba(var(--color-neutral-200), 0.6);
 }
 html.dark .article-content tr:nth-child(even) td {
   background: rgba(var(--color-neutral-700), 0.35);
@@ -1326,9 +1324,7 @@ html.dark #site-footer .zd-footer-brand {
 }
 
 /* ---------- 16. 阅读进度 / 返回顶部 ---------- */
-#reading-progress {
-  background: var(--gold-gradient);
-}
+/* 阅读进度条: 使用主题默认 bg-primary-500 / dark:bg-primary-400 */
 #scroll-to-top a {
   border: 1px solid rgba(var(--color-neutral-300), 0.9);
   background: rgba(var(--color-neutral-50), 0.85);
