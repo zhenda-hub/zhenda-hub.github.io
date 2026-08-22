@@ -10,7 +10,7 @@
 
 ## 站点地图 Site Map
 
-## Posts
+## 文章 · Posts
 - [开公司创业笔记](https://zhenda-hub.github.io/posts/business/company/)
 - [演讲结构笔记](https://zhenda-hub.github.io/posts/business/speech/)
 - [Festival](https://zhenda-hub.github.io/posts/bible_stu/festival/)
