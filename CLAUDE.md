@@ -95,10 +95,28 @@ header_img = "img/image.jpg"  # Background image for article header
 
 ### Deployment
 - GitHub Actions workflow: `.github/workflows/hugo.yml`
-- Triggered on push to `main` branch
-- Builds with Hugo 0.128.0, minifies output
+- Triggered on push to `main` / `premium-design` branch
+- Builds with Hugo 0.165.0, minifies output
 - Deploys to GitHub Pages
 - CI/CD requires: `git submodule update --init` before `hugo` command
+
+### 图文文章排版规范 (premium-design)
+文章页样式（图片/表格/引用/标题）已全局美化，写作时遵循以下约定即可获得最佳效果：
+
+**图片**
+- 单图：用 `figure` 短代码 + 中文图注（自动居中、圆角边框阴影、点击放大）
+  ```md
+  {{< figure src="image1.jpg" alt="多肉植物养护" caption="多肉植物养护实拍" >}}
+  ```
+- 多图/图集：用 `gallery` 短代码
+- 正文不要用裸 `![](img.jpg)`（无图注、无法利用优化）
+- 文章横幅图：页面资源命名为 `featured.jpg` / `cover.jpg`（自动匹配），或 frontmatter 用 `featureimage`
+
+**表格**：普通 markdown 表格即可，自动获得圆角 + 金色表头 + 斑马纹
+
+**引用/强调**：口诀、名言用 `> 引用`，自动金色衬线样式
+
+**标题层级**：正文用 `##` 起手（h2 带金色左边线），章节内用 `###`
 
 ### Key Configuration
 - `config.toml` - Main Hugo configuration

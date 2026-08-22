@@ -1107,32 +1107,62 @@ html.dark .article-content pre {
   line-height: 1.75;
 }
 
-/* 表格: 暖色斑马纹 */
+/* 表格: 暖色斑马纹 + 圆角修正 */
 .article-content table {
+  margin: 1.8em auto;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid rgba(var(--color-neutral-200), 0.95);
+  border: 1px solid rgba(var(--color-neutral-300), 0.9);
   border-radius: 0.8rem;
   overflow: hidden;
   font-size: 0.92em;
+  width: 100%;
 }
 .article-content th {
-  background: rgba(var(--color-primary-100), 0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-primary-200), 0.75),
+    rgba(var(--color-primary-100), 0.55)
+  );
   font-weight: 600;
   color: rgb(var(--color-neutral-800));
-  border-bottom: 1px solid rgba(var(--color-primary-300), 0.6);
+  border-bottom: 1px solid rgba(var(--color-primary-300), 0.7);
 }
 .article-content tr:nth-child(even) td {
-  background: rgba(var(--color-neutral-100), 0.45);
+  background: rgba(var(--color-neutral-200), 0.5);
+}
+html.dark .article-content tr:nth-child(even) td {
+  background: rgba(var(--color-neutral-700), 0.35);
 }
 .article-content td,
 .article-content th {
   border: 0;
-  border-bottom: 1px solid rgba(var(--color-neutral-200), 0.7);
-  padding: 0.6em 0.95em;
+  border-bottom: 1px solid rgba(var(--color-neutral-300), 0.7);
+  padding: 0.62em 0.95em;
 }
 .article-content tr:last-child td {
   border-bottom: 0;
+}
+/* 圆角: table 不裁剪子元素, 由四个角 cell 补齐 */
+.article-content th:first-child {
+  border-radius: 0.8rem 0 0 0;
+}
+.article-content th:last-child {
+  border-radius: 0 0.8rem 0 0;
+}
+.article-content tr:last-child td:first-child {
+  border-radius: 0 0 0 0.8rem;
+}
+.article-content tr:last-child td:last-child {
+  border-radius: 0 0 0.8rem 0;
+}
+html.dark .article-content th {
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-primary-800), 0.5),
+    rgba(var(--color-primary-900), 0.35)
+  );
+  color: rgb(var(--color-neutral-100));
 }
 
 /* 水平分隔线 */
@@ -1149,16 +1179,32 @@ html.dark .article-content pre {
   width: 60%;
 }
 
-/* 图片与说明 */
+/* 图片: 圆角 + 暖色细边框 + 柔和阴影, 居中 */
+.article-content figure {
+  margin: 2.1em auto;
+  text-align: center;
+}
+.article-content figure > img {
+  border: 1px solid rgba(var(--color-neutral-200), 0.9);
+  border-radius: 0.9rem;
+  box-shadow: 0 16px 40px -22px rgba(var(--color-neutral-800), 0.55);
+}
+html.dark .article-content figure > img {
+  border-color: rgba(var(--color-neutral-700), 0.9);
+}
 .article-content img {
-  border-radius: 0.8rem;
-  box-shadow: 0 12px 32px -18px rgba(var(--color-neutral-800), 0.45);
+  border-radius: 0.9rem;
 }
 .article-content figcaption {
+  margin-top: 0.7rem;
   font-size: 0.82rem;
   text-align: center;
-  color: rgb(var(--color-neutral-400));
-  letter-spacing: 0.04em;
+  color: rgb(var(--color-neutral-500));
+  letter-spacing: 0.05em;
+}
+.article-content figcaption::before {
+  content: "— ";
+  color: rgba(var(--color-primary-500), 0.9);
 }
 
 /* 文章页标题区 */
