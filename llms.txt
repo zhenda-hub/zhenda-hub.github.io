@@ -11,6 +11,7 @@
 ## 站点地图 Site Map
 
 ## 文章 · Posts
+- [局域网传大文件：从 1 MB/s 爬回 3.7 MB/s 的完整排障记录](https://zhenda-hub.github.io/posts/life/lan-transfer-troubleshoot/)
 - [老台式机改造全流程：加内存、换 SSD、装 Win10](https://zhenda-hub.github.io/posts/life/oldpc-update/)
 - [DNF 世界观与主线故事梳理](https://zhenda-hub.github.io/posts/games/dnf/)
 - [机械键盘按键错乱](https://zhenda-hub.github.io/posts/system/keyboard/)
