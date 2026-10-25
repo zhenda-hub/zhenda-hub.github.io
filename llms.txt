@@ -11,6 +11,7 @@
 ## 站点地图 Site Map
 
 ## 文章 · Posts
+- [拯救者 Y700 四代玩英雄联盟手游一卡一卡：完整排查复盘](https://zhenda-hub.github.io/posts/life/y700-lolm-fix/)
 - [局域网传大文件：从 1 MB/s 爬回 3.7 MB/s 的完整排障记录](https://zhenda-hub.github.io/posts/life/lan-transfer-troubleshoot/)
 - [老台式机改造全流程：加内存、换 SSD、装 Win10](https://zhenda-hub.github.io/posts/life/oldpc-update/)
 - [DNF 世界观与主线故事梳理](https://zhenda-hub.github.io/posts/games/dnf/)
