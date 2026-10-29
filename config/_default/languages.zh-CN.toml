@@ -2,29 +2,31 @@ locale = "zh-CN"
 label = "中文"
 weight = 1
 
-title = "真达的博客 · Zhenda's Blog"
+title = "星图与尘埃 · Starmap & Dust"
 
 [params]
-  displayName = "ZH"
+  displayName = "SD"
   isoCode = "zh-CN"
   htmlCode = "zh-CN"
   rtl = false
   dateFormat = "2006-01-02"
-  description = "真达的博客：记录编程、AI、NAS 与个人成长的思考与实践。中文为主，附双语元信息。 | Zhenda's Blog: code, AI, NAS and personal growth — Chinese-first, bilingual metadata."
-  copyright = "Copyright © 2023-2026 真达 Zhenda. All Rights Reserved."
+  description = "星图与尘埃：记录编程、AI、NAS 与个人成长的思考与实践。中文为主，附双语元信息。 | Starmap & Dust: code, AI, NAS and personal growth — Chinese-first, bilingual metadata."
+  copyright = "Copyright © 2023-2026 星图与尘埃 Starmap & Dust. All Rights Reserved."
 
   [params.author]
-    name = "真达 Zhenda"
+    name = "星图与尘埃 Starmap & Dust"
     image = "img/avatar.png"
+    imagequality = "96"
     headline = "Stay hungry, stay humble, and keep shipping value."
+    bio = "记录编程、AI、NAS 自托管与个人成长的思考与实践。"
+
+    # 注意：blowfish 的 author-links / hero 模板用 `range $name, $url := $links`，
+    # 每一项必须是「单键映射」(图标名 = 链接)，不能写成 name = / url = 两个键。
+    [[params.author.links]]
+      github = "https://github.com/zhenda-hub/"
 
     [[params.author.links]]
-      name = "github"
-      url = "https://github.com/zhenda-hub/"
-
-    [[params.author.links]]
-      name = "rss"
-      url = "/index.xml"
+      rss = "/index.xml"
 
   [params.giscus]
     enabled = true

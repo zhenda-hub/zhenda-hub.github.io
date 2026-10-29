@@ -1,13 +1,13 @@
 +++
 title = "关于我 About"
-description = "关于真达 Zhenda：全栈开发者，热爱技术与写作。记录编程、AI、NAS 与个人成长。 | About Zhenda: Full Stack Developer who loves coding and writing — sharing code, AI, NAS and personal growth."
+description = "关于星图与尘埃 Starmap & Dust：全栈开发者，热爱技术与写作。记录编程、AI、NAS 与个人成长。 | About Starmap & Dust: Full Stack Developer who loves coding and writing — sharing code, AI, NAS and personal growth."
 date = "2024-03-28"
 layout = "single"
-showAuthor = false
+showAuthor = true
 showComments = true
 +++
 
-欢迎来到我的个人博客！我是zhenda，一名热爱技术、写作和探索的人。在这个小小的网络角落，我将与你分享我的思考、见解、以及一些有趣的故事。
+欢迎来到我的个人博客！我是星图与尘埃的作者，一名热爱技术、写作和探索的人。在这个小小的网络角落，我将与你分享我的思考、见解、以及一些有趣的故事。
 
 ## 写作目的
 我创建这个博客的初衷是希望能够记录自己的思考和感悟，同时也希望能够启发和帮助到更多的人。在这里，我会分享一些个人见解和经验，希望能够与大家共同成长。
