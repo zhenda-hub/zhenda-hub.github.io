@@ -61,6 +61,8 @@ imagePositionFeature = "center"
   showAuthorLinks = false
   # 草稿文章是否显示「Draft」标记
   showDraftLabel = false
+  # 系列提示条：false = 只在文末显示一次（默认），true = 文首也显示
+  showSeriesAtTop = false
   showReadingTime = true
   showWordCount = true
   showHeadingAnchors = true
