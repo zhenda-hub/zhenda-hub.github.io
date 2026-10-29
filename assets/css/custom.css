@@ -1240,3 +1240,13 @@ html.dark #scroll-to-top a {
 @media print {
   .masthead,
 }
+
+/* ---------- 22. 兼容层：主题预编译 CSS 里缺失的工具类 ---------- */
+/* blowfish 的 compiled/main.css 是预编译产物，Hugo 不会为项目模板重新
+   跑 Tailwind，因此项目模板里新用到的工具类必须在这里给出等价定义。
+   新增模板用到未定义的 Tailwind 类时，在此追加即可。 */
+.pb-7 { padding-bottom: 1.75rem; }
+.gap-x-3 { column-gap: 0.75rem; }
+.gap-y-1 { row-gap: 0.25rem; }
+.tracking-widest { letter-spacing: 0.1em; }
+.right-2 { right: 0.5rem; }
