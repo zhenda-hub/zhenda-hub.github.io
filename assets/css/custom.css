@@ -1138,4 +1138,105 @@ html.dark .article-content figure > img {
   color: var(--gold-strong);
 }
 
-/* ---------- 12. 标签 ---------- */
+/* ---------- 15. 页脚 ---------- */
+#site-footer {
+  border-top: 1px solid rgba(var(--color-neutral-200), 0.9);
+  margin-top: 2rem;
+}
+html.dark #site-footer {
+  border-top-color: rgba(var(--color-neutral-700), 0.9);
+}
+#site-footer a:hover {
+  color: var(--gold-strong);
+}
+
+/* ---------- 16. 阅读进度 / 返回顶部 ---------- */
+/* 阅读进度条: 使用主题默认 bg-primary-500 / dark:bg-primary-400 */
+#scroll-to-top a {
+  border: 1px solid rgba(var(--color-neutral-300), 0.9);
+  background: rgba(var(--color-neutral-50), 0.85);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s;
+}
+#scroll-to-top a:hover {
+  border-color: var(--gold);
+  color: var(--gold-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px -8px rgba(var(--color-primary-600), 0.5);
+}
+html.dark #scroll-to-top a {
+  background: rgba(var(--color-neutral-800), 0.85);
+  border-color: rgba(var(--color-neutral-600), 0.9);
+}
+
+/* ---------- 17. 系列页 / 列表页 hero ---------- */
+.term-hero,
+.list-hero {
+  padding: 2.4rem 0 1.6rem;
+}
+.term-hero h1,
+.list-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 2.7rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+.term-hero .kicker,
+.list-hero .kicker {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- 18. 404 ---------- */
+.zd-404 {
+  text-align: center;
+  padding: 5rem 0 6rem;
+}
+.zd-404__code {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(5rem, 14vw, 8.5rem);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.zd-404__msg {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: rgb(var(--color-neutral-500));
+  margin: 1.4rem 0 2.2rem;
+}
+
+/* ---------- 19. 搜索面板 ---------- */
+#search-modal .bg-neutral-50,
+#search-modal .dark\:bg-neutral-800 {
+  border: 1px solid rgba(var(--color-primary-400), 0.4);
+  border-radius: 1rem;
+  box-shadow: 0 24px 60px -20px rgba(var(--color-primary-900), 0.35);
+}
+#search-modal input:focus {
+  border-color: rgba(var(--color-primary-500), 0.7) !important;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-400), 0.2) !important;
+}
+
+/* ---------- 20. 动画 ---------- */
+@keyframes zdFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.zd-fade-up {
+  animation: zdFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---------- 21. 打印 ---------- */
+@media print {
+  .masthead,
+}
