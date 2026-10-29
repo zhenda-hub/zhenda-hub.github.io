@@ -85,13 +85,15 @@ def main():
     # 4. 首页
     try:
         home = get_text("/", live)
-        check("首页 lang=zh-CN", re.search(r'<html lang="?zh-CN', home) is not None)
+        check("首页 lang=zh-CN", re.search(r'<html[^>]*lang="?zh-CN', home, re.S) is not None)
         title = re.search(r"<title>([^<]*)</title>", home)
         check("首页标题中文", bool(title and re.search(r"[\u4e00-\u9fff]", title.group(1))),
               title.group(1)[:40] if title else "无")
-        desc = re.search(r'name="?description"? content="([^"]*)"', home)
+        desc = re.search(r'name="?description"? content="([^"]*)"', home, re.S)
+        # 双语判定：含中文 + 含拉丁字母（不硬编码品牌名，改名不会误报）
         check("首页 description 双语",
-              bool(desc and re.search(r"[\u4e00-\u9fff]", desc.group(1)) and "Zhenda" in desc.group(1)),
+              bool(desc and re.search(r"[\u4e00-\u9fff]", desc.group(1))
+                   and re.search(r"[A-Za-z]", desc.group(1))),
               (desc.group(1)[:50] + "…") if desc else "无")
         rmeta = re.search(r'name="?robots"? content="([^"]*)"', home)
         check("robots meta (GEO)", bool(rmeta and "max-snippet" in rmeta.group(1)))
