@@ -28,6 +28,22 @@ title = "星图与尘埃 · Starmap & Dust"
     [[params.author.links]]
       rss = "/index.xml"
 
+    # ---- 自媒体平台（链接为占位：先看图标样式，拿到真实主页后只改 url）----
+    [[params.author.links]]
+      bilibili = "https://www.bilibili.com/"
+
+    [[params.author.links]]
+      xiaohongshu = "https://www.xiaohongshu.com/"
+
+    [[params.author.links]]
+      douyin = "https://www.douyin.com/"
+
+    [[params.author.links]]
+      wechat = "https://mp.weixin.qq.com/"
+
+    [[params.author.links]]
+      netease = "https://www.163.com/"
+
   [params.giscus]
     enabled = true
     repo = "zhenda-hub/zhenda-hub.github.io"
