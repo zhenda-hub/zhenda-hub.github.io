@@ -1,10 +1,10 @@
-# 真达的博客 · Zhenda's Blog
+# 星图与尘埃 · Starmap & Dust
 
-> 真达的博客：记录编程、AI、NAS 与个人成长的思考与实践。中文为主，附双语元信息。 | Zhenda's Blog: code, AI, NAS and personal growth — Chinese-first, bilingual metadata.
+> 星图与尘埃：记录编程、AI、NAS 与个人成长的思考与实践。中文为主，附双语元信息。 | Starmap & Dust: code, AI, NAS and personal growth — Chinese-first, bilingual metadata.
 
 ## About
 
-- 作者 Author: 真达 Zhenda
+- 作者 Author: 星⁠图⁠与⁠尘⁠埃 Starmap & Dust
 - 语言 Language: zh-CN（中文为主，附双语元信息 / Chinese-first with bilingual metadata）
 - 主题 Topics: 编程 Programming · AI · NAS / 自托管 Self-hosting · Hugo 建站 · 个人成长 Personal Growth · 圣经学习 Bible Study
 
