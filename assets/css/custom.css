@@ -267,18 +267,11 @@ html.dark .menuhide a:hover {
 .masthead__avatar{display:block;width:88px;height:88px;margin:0 auto 1.25rem;border-radius:50%;object-fit:cover;
   box-shadow:0 0 0 1px rgb(var(--color-neutral-200)),0 0 0 5px var(--gold-soft),0 10px 28px rgba(0,0,0,.12)}
 
-/* ---------- 5b. 页脚社交图标行 ---------- */
-#site-footer nav{justify-content:center}
-#site-footer nav ul{justify-content:center;width:100%;flex-wrap:wrap;row-gap:.75rem}
-#site-footer nav a .icon svg{width:20px;height:20px}
-
-/* 作者卡：窄屏缩小图标，7 个排一行 */
-@media (max-width:640px){
-  .flex.author .text-2xl a .icon svg{width:18px;height:18px}
-  .flex.author .text-2xl>.flex{gap:.5rem;font-size:0}
-  .flex.author .text-2xl>.flex>*{margin:0!important}
-}
-@media (max-width:360px){.flex.author .text-2xl a .icon svg{width:16px;height:16px}}
+/* ---------- 5b. 首页报头社交图标行 ---------- */
+.masthead__social{display:flex;flex-wrap:wrap;justify-content:center;gap:.95rem;margin:0 0 1.9rem}
+.masthead__social a{color:rgb(var(--color-neutral-400));line-height:0}
+.masthead__social a:hover{color:var(--gold-strong)}
+.masthead__social .icon svg{width:20px;height:20px}
 
 /* 版权行：窄屏与「强力驱动」自动堆叠 */
 #site-footer>.flex.items-center.justify-between{flex-wrap:wrap;gap:.5rem 1.25rem}

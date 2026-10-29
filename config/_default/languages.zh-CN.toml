@@ -25,9 +25,6 @@ title = "星图与尘埃 · Starmap & Dust"
     [[params.author.links]]
       github = "https://github.com/zhenda-hub/"
 
-    [[params.author.links]]
-      rss = "/index.xml"
-
     # ---- 自媒体平台（链接为占位：先看图标样式，拿到真实主页后只改 url）----
     [[params.author.links]]
       bilibili = "https://www.bilibili.com/"
@@ -43,6 +40,9 @@ title = "星图与尘埃 · Starmap & Dust"
 
     [[params.author.links]]
       netease = "https://www.163.com/"
+
+    [[params.author.links]]
+      rss = "/index.xml"
 
   [params.giscus]
     enabled = true
