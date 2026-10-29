@@ -1,11 +1,11 @@
-{{/* Zhenda Premium: 系列总览 — 品牌卡网格 (仅 /series/, 不影响 tags/categories) */}}
+{{/* Starmap & Dust Premium: 系列总览 — 品牌卡网格 (仅 /series/, 不影响 tags/categories) */}}
 {{ define "main" }}
   {{ $terms := sort .Data.Terms "Count" "desc" }}
   {{ $roman := slice "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" "XI" "XII" "XIII" "XIV" "XV" "XVI" "XVII" "XVIII" "XIX" "XX" }}
 
   {{/* 页头 */}}
   <header class="list-hero mb-10 border-b border-neutral-200/90 pb-8 dark:border-neutral-700/90">
-    <span class="kicker">Zhenda&rsquo;s Journal &mdash; Series</span>
+    <span class="kicker">Starmap &amp; Dust &mdash; Series</span>
     <h1 class="mt-2 mb-3 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
       写作系列
     </h1>

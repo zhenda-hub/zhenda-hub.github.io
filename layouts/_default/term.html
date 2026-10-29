@@ -15,7 +15,7 @@
     {{ if .Params.showBreadcrumbs | default (site.Params.term.showBreadcrumbs | default false) }}
       {{ partial "breadcrumbs.html" . }}
     {{ end }}
-    <span class="kicker">{{ .Data.Singular | default "Series" }} &mdash; Zhenda&rsquo;s Journal</span>
+    <span class="kicker">{{ .Data.Singular | default "Series" }} &mdash; Starmap &amp; Dust</span>
     <h1 class="mt-2 mb-3 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
     {{ with .Description }}
       <p class="mt-0 mb-2 max-w-2xl text-sm leading-7 text-neutral-500 dark:text-neutral-400">

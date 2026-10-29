@@ -33,7 +33,7 @@
 
   <!-- 中央金线 + 品牌字 -->
   <rect x="540" y="306" width="120" height="2" fill="url(#rule)"/>
-  <text x="600" y="352" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'Songti SC', serif" font-size="21" letter-spacing="9" fill="#D9B068" opacity="0.9">ZHENDA'S JOURNAL</text>
+  <text x="600" y="352" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'Songti SC', serif" font-size="21" letter-spacing="9" fill="#D9B068" opacity="0.9">STARMAP &amp; DUST</text>
 
   <!-- 四角金色 L 括号 (杂志框线) -->
   <g stroke="#C8954A" fill="none" stroke-width="1.5">

@@ -1,6 +1,6 @@
 baseURL = "http://localhost:1313/"
 languageCode = "en-us"
-title = "Zhenda Hub"
+title = "Starmap & Dust"
 theme = "hextra"
 
 # prevent build failures when using Hugo's template _internal/opengraph.html 

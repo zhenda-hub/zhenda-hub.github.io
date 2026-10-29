@@ -1,11 +1,11 @@
 +++
-author = "Zhenda"
-description = "真达的博客 · Zhenda's Blog：记录编程、AI、NAS 与个人成长的思考与实践。中文为主，附双语元信息。"
+author = "Starmap & Dust"
+description = "星图与尘埃 · Starmap & Dust：记录编程、AI、NAS 与个人成长的思考与实践。中文为主，附双语元信息。"
 +++
 
-## 欢迎来到真达的博客
+## 欢迎来到星图与尘埃
 
-这里是 **真达（Zhenda）** 的个人博客，记录<em>编程、AI、NAS、Hugo 建站</em>与个人成长的思考与实践。
+这里是 **星图与尘埃（Starmap & Dust）** 的个人博客，记录<em>编程、AI、NAS、Hugo 建站</em>与个人成长的思考与实践。
 
 > 博客是思考的沉淀，也是分享的开始。中文为主，附双语摘要。
 
