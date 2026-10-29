@@ -20,6 +20,9 @@
     <hr class="gold-rule mt-6 w-16" />
   </header>
 
+  {{/* 顶部：文章分类饼图（数据同 /posts/blog-stats/） */}}
+  {{ partial "series-stats.html" . }}
+
   {{/* 杂志目录大列表 */}}
   <section class="series-list">
     {{ range $i, $term := $terms }}

@@ -1261,3 +1261,42 @@ html.dark #scroll-to-top a {
   max-width: 65ch;
   margin-inline: auto;
 }
+
+/* ---------- 25. 系列页顶部饼图 ---------- */
+.series-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  max-width: 860px;
+  margin: .5rem auto 2.75rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgb(var(--color-neutral-200));
+  border-radius: 14px;
+  background: rgba(var(--color-neutral-50), .6);
+}
+html.dark .series-stats {
+  border-color: rgb(var(--color-neutral-700));
+  background: rgba(var(--color-neutral-800), .45);
+}
+.series-stats__chart { position: relative; flex: 1 1 300px; min-width: 0; height: 300px; }
+.series-stats__legend {
+  flex: 1 1 260px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  font-size: .84rem;
+  line-height: 1.4;
+}
+.series-stats__legend li { display: flex; align-items: center; gap: .5rem; }
+.series-stats__dot { flex: none; width: 9px; height: 9px; border-radius: 50%; }
+.series-stats__name { flex: 1 1 auto; color: rgb(var(--color-neutral-600)); }
+html.dark .series-stats__name { color: rgb(var(--color-neutral-300)); }
+.series-stats__count { flex: none; font-variant-numeric: tabular-nums; color: rgb(var(--color-neutral-400)); }
+@media (max-width: 760px) {
+  .series-stats { flex-direction: column; align-items: stretch; gap: 1.1rem; padding: 1rem; }
+  .series-stats__chart { flex: none; height: 260px; }
+  .series-stats__legend { flex: none; }
+}
