@@ -63,6 +63,8 @@ imagePositionFeature = "center"
   showDraftLabel = false
   # 系列提示条：false = 只在文末显示一次（默认），true = 文首也显示
   showSeriesAtTop = false
+  # 系列提示条是否默认展开（文末那个），单篇可用 frontmatter seriesOpened 覆盖
+  seriesOpened = true
   showReadingTime = true
   showWordCount = true
   showHeadingAnchors = true

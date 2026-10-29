@@ -1,0 +1,16 @@
+{{- /* 覆盖 blowfish 的 series/series-closed.html（文末系列提示条）
+
+   主题原版把这个 <details> 硬编码为「收起」，没有开合配置。
+   本版改为跟随 seriesOpened：
+     文章 frontmatter seriesOpened > params.article.seriesOpened > 默认 false
+
+   本站 params.toml 里 [article] seriesOpened = true，即默认展开。
+   单篇文章想收起，在 frontmatter 写 seriesOpened = false 即可。
+*/ -}}
+{{ if .Params.series }}
+  <details
+    class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5"
+    {{ if .Params.seriesOpened | default (.Site.Params.article.seriesOpened | default false) }}open{{ end }}>
+    {{ partial "series/series_base.html" . }}
+  </details>
+{{ end }}
