@@ -446,6 +446,19 @@ html.dark .masthead::before {
   font-style: italic;
   color: var(--gold-strong);
 }
+/* 副标题里的英文格言：单独一行、降一级 */
+.masthead__sub-en {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.82em;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  opacity: 0.72;
+  /* 移动端折行时均分两行，避免末尾孤字 */
+  text-wrap: balance;
+}
 html.dark .masthead__title {
   color: rgb(var(--color-neutral-50));
 }
