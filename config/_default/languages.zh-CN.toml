@@ -11,10 +11,10 @@ title = "星图与尘埃 · Starmap & Dust"
   rtl = false
   dateFormat = "2006-01-02"
   description = "星图与尘埃：记录编程、AI、NAS 与个人成长的思考与实践。中文为主，附双语元信息。 | Starmap & Dust: code, AI, NAS and personal growth — Chinese-first, bilingual metadata."
-  copyright = "Copyright © 2023-2026 星图与尘埃 Starmap & Dust. All Rights Reserved."
+  copyright = "Copyright © 2023-2026 星⁠图⁠与⁠尘⁠埃 Starmap & Dust. All Rights Reserved."
 
   [params.author]
-    name = "星图与尘埃 Starmap & Dust"
+    name = "星⁠图⁠与⁠尘⁠埃 Starmap & Dust"
     image = "img/avatar.png"
     imagequality = "96"
     headline = "Stay hungry, stay humble, and keep shipping value."
