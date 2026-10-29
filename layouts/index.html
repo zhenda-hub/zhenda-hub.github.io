@@ -1,74 +1,105 @@
+{{- /*
+  首页调度器（官方推荐做法：覆盖模板但要保留主题的可配置性）
+
+  homepage.layout 可选值：
+    custom    ← 默认，本站自定义报头（下面第一个分支）
+    hero / profile / page / background / card / landing
+              ← 转交主题 partials/home/<layout>.html，与主题原生行为一致
+
+  以前这里直接写死报头，导致 homepage.layout 完全失效。
+*/ -}}
 {{ define "main" }}
-  {{- $posts := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+  {{- $layout := site.Params.homepage.layout | default "custom" -}}
 
-  {{/* ==================== 极简报头 ==================== */}}
-  <section class="masthead masthead--simple zd-fade-up">
-    {{ with .Site.Params.Author.image }}
-      {{ $authorImage := resources.Get . }}
-      {{ if not $authorImage }}{{ $authorImage = resources.GetRemote . }}{{ end }}
-      {{ if $authorImage }}
-        {{ $final := $authorImage }}
-        {{ if not (or $.Site.Params.disableImageOptimization (eq $authorImage.MediaType.SubType "svg")) }}
-          {{ $final = $authorImage.Fill (print "288x288 Center q" ($.Site.Params.Author.imagequality | default "96")) }}
-        {{ end }}
-        <img
-          class="masthead__avatar"
-          width="88"
-          height="88"
-          alt="{{ $.Site.Params.Author.name | default `Author` }}"
-          loading="eager"
-          fetchpriority="high"
-          src="{{ $final.RelPermalink }}">
-      {{ end }}
-    {{ end }}
-    <div class="masthead__kicker">
-      <span class="playfair">Starmap &amp; Dust</span>
-    </div>
-    <h1 class="masthead__title">星图与尘埃</h1>
-    <p class="masthead__sub">
-      记录 <em>编程</em>、<em>AI</em>、<em>NAS 自托管</em> 与 <em>个人成长</em>。
-      <span class="masthead__sub-en">Stay hungry, stay humble, and keep shipping value.</span>
-    </p>
-    {{/* 自媒体平台图标：与 author.links 共用同一份数据 */}}
-    {{ with .Site.Params.Author.links }}
-      <div class="masthead__social">
-        {{ range $links := . }}
-          {{ range $name, $url := $links }}
-            <a
-              href="{{ $url | safeURL }}"
-              target="_blank"
-              rel="me noopener noreferrer"
-              aria-label="{{ $name | title }}"
-              title="{{ $name | title }}">
-              {{ partial "icon.html" $name }}
-            </a>
+  {{- if eq $layout "custom" -}}
+    {{- /* ==================== 自定义报头 ==================== */ -}}
+    {{- $posts := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+
+    <section class="masthead masthead--simple zd-fade-up">
+      {{ with .Site.Params.Author.image }}
+        {{ $authorImage := resources.Get . }}
+        {{ if not $authorImage }}{{ $authorImage = resources.GetRemote . }}{{ end }}
+        {{ if $authorImage }}
+          {{ $final := $authorImage }}
+          {{ if not (or $.Site.Params.disableImageOptimization (eq $authorImage.MediaType.SubType "svg")) }}
+            {{ $final = $authorImage.Fill (print "288x288 Center q" ($.Site.Params.Author.imagequality | default "96")) }}
           {{ end }}
+          <img
+            class="masthead__avatar"
+            width="88"
+            height="88"
+            alt="{{ $.Site.Params.Author.name | default `Author` }}"
+            loading="eager"
+            fetchpriority="high"
+            src="{{ $final.RelPermalink }}">
+        {{ end }}
+      {{ end }}
+      <div class="masthead__kicker">
+        <span class="playfair">{{ site.Params.homepage.kicker | default "Starmap & Dust" }}</span>
+      </div>
+      <h1 class="masthead__title">{{ site.Params.homepage.title | default site.Title }}</h1>
+      <p class="masthead__sub">
+        {{ site.Params.homepage.subtitle | default site.Title | markdownify }}
+        <span class="masthead__sub-en">{{ site.Params.Author.headline }}</span>
+      </p>
+      {{/* 自媒体平台图标：与 author.links 共用同一份数据 */}}
+      {{ with .Site.Params.Author.links }}
+        <div class="masthead__social">
+          {{ range $links := . }}
+            {{ range $name, $url := $links }}
+              <a
+                href="{{ $url | safeURL }}"
+                target="_blank"
+                rel="me noopener noreferrer"
+                aria-label="{{ $name | title }}"
+                title="{{ $name | title }}">
+                {{ partial "icon.html" $name }}
+              </a>
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ end }}
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="{{ "/posts/" | relLangURL }}" class="zd-btn zd-btn--gold">
+          开始阅读
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="{{ "/about/" | relLangURL }}" class="zd-btn zd-btn--ghost">关于我</a>
+      </div>
+    </section>
+
+    {{- /* ==================== 最近更新 ==================== */ -}}
+    <section class="mb-20">
+      <div class="sec-head">
+        <div class="sec-head__left">
+          <span class="sec-head__en">Recent</span>
+          <span class="sec-head__cn">最近更新</span>
+        </div>
+        <span class="sec-head__line"></span>
+        <a class="sec-head__more" href="{{ "/posts/" | relLangURL }}">查看全部 →</a>
+      </div>
+      <div class="w-full">
+        {{ range first (site.Params.homepage.showRecentItems | default 10) $posts }}
+          {{ partial "article-link/simple.html" . }}
         {{ end }}
       </div>
-    {{ end }}
-    <div class="flex flex-wrap items-center justify-center gap-4">
-      <a href="{{ "/posts/" | relLangURL }}" class="zd-btn zd-btn--gold">
-        开始阅读
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-      <a href="{{ "/about/" | relLangURL }}" class="zd-btn zd-btn--ghost">关于我</a>
-    </div>
-  </section>
+    </section>
 
-  {{/* ==================== 最近更新 ==================== */}}
-  <section class="mb-20">
-    <div class="sec-head">
-      <div class="sec-head__left">
-        <span class="sec-head__en">Recent</span>
-        <span class="sec-head__cn">最近更新</span>
-      </div>
-      <span class="sec-head__line"></span>
-      <a class="sec-head__more" href="{{ "/posts/" | relLangURL }}">查看全部 →</a>
-    </div>
-    <div class="w-full">
-      {{ range first 10 $posts }}
-        {{ partial "article-link/simple.html" . }}
-      {{ end }}
-    </div>
-  </section>
+  {{- else -}}
+    {{- /* ==================== 主题原生版式 ==================== */ -}}
+    {{- if site.Params.homepage.layoutSwitcher | default false -}}
+      {{ partial "home/layout-switcher.html" . }}
+    {{- else -}}
+      {{- $partial := printf "home/%s.html" $layout -}}
+      {{- if templates.Exists (printf "partials/%s" $partial) -}}
+        {{ partial $partial . }}
+      {{- else -}}
+        {{ warnf "homepage.layout = %q 不存在，回退到 profile" $layout }}
+        {{ partial "home/profile.html" . }}
+      {{- end -}}
+    {{- end -}}
+    <section>
+      {{ partial "recent-articles/main.html" . }}
+    </section>
+  {{- end -}}
 {{ end }}

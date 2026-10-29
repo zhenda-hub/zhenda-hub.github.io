@@ -20,8 +20,16 @@ highlightCurrentMenuArea = true
   # basic / fixed / fixed-fill / fixed-fill-blur (毛玻璃效果最精致)
 
 [homepage]
-  layout = "hero"
-  # hero (自定义渐变 Hero) / profile / page / background / card
+  # 可选：custom（本站自定义报头） / hero / profile / page / background / card / landing
+  # 想实时预览各版式可临时设 layoutSwitcher = true（主题的切换浮层，仅调试用）
+  layout = "custom"
+  # 使用 hero / background 时必须配图，否则白底淡字看不清
+  # homepageImage = "img/home-hero.jpg"
+
+  # 自定义报头（layout = custom）的文案，改站名/口号不用改模板
+  title = "星图与尘埃"
+  kicker = "Starmap & Dust"
+  subtitle = '记录 <em>编程</em>、<em>AI</em>、<em>NAS 自托管</em> 与 <em>个人成长</em>。'
 
   showRecent = true
   showRecentItems = 9
