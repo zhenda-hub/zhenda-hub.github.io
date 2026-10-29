@@ -1,6 +1,12 @@
-{{/* Zhenda Premium 覆盖: 编辑感纯文字列表项 (少图原则, 无图) */}}
+{{/* Zhenda Premium 覆盖: 编辑感纯文字列表项（少图原则，不渲染封面图）
+   因此 list.featureImageHover / imagePositionFeature / hotlinkFeatureImage
+   这类“图片相关”参数在本版式中无意义；但下面两项仍与主题保持一致：
+     list.constrainItemsWidth   行宽限制
+     article.showDraftLabel     草稿标记
+*/}}
 {{ $page := .Page }}
-<article class="zd-item group">
+{{ $constrainItemsWidth := site.Params.list.constrainItemsWidth | default false }}
+<article class="zd-item group{{ if $constrainItemsWidth }} zd-item--constrained{{ end }}">
   <a
     {{ with $page.Params.externalUrl }}
       href="{{ . }}" target="_blank" rel="external"
@@ -17,7 +23,7 @@
           <span class="zd-item__kicker">{{ index . 0 }}</span>
         {{ end }}
       {{ end }}
-      {{ if .Draft }}
+      {{ if and .Draft (site.Params.article.showDraftLabel | default false) }}
         <span class="zd-item__kicker">{{ i18n "article.draft" | emojify }}</span>
       {{ end }}
     </div>

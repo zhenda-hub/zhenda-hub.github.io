@@ -11,6 +11,12 @@
 {{ $featured := "" }}
 {{ $featuredURL := "" }}
 {{ $featureImagePosition := .Params.imagePositionFeature | default site.Params.imagePositionFeature | default site.Params.imagePosition }}
+{{/* 封面图比例与悬停缩放：保留主题 list.featureImageHover / thumbnailAspectRatio 能力 */}}
+{{ $thumbnailAspectRatio := site.Params.thumbnailAspectRatio | default "3 / 2" }}
+{{ $thumbnailAspectRatio = replaceRE "[^0-9./ ]" "" $thumbnailAspectRatio }}
+{{ if eq (trim $thumbnailAspectRatio " ") "" }}{{ $thumbnailAspectRatio = "3 / 2" }}{{ end }}
+{{ $featureImageHover := site.Params.list.featureImageHover | default false }}
+{{ if isset .Params "featureImageHover" }}{{ $featureImageHover = .Params.featureImageHover }}{{ end }}
 {{ if not .Params.hideFeatureImage }}
   {{/* frontmatter */}}
   {{ with $page }}
@@ -56,7 +62,8 @@
 
 <article class="zd-card group">
   {{ with $featuredURL }}
-    <div class="zd-card__media">
+    <div class="zd-card__media{{ if $featureImageHover }} zd-card__media--hover{{ end }}"
+         style="--thumbnail-aspect-ratio: {{ $thumbnailAspectRatio | safeCSS }};">
       <img
         src="{{ . }}"
         alt="{{ $page.Title }}"

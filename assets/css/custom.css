@@ -574,7 +574,8 @@ html.dark .zd-card {
 .zd-card__media {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 3 / 2;
+  /* 可由 params.thumbnailAspectRatio 或文章 frontmatter 覆盖 */
+  aspect-ratio: var(--thumbnail-aspect-ratio, 3 / 2);
   flex: none;
 }
 .zd-card__media::after {
@@ -592,9 +593,12 @@ html.dark .zd-card {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+/* 仅当 list.featureImageHover = true（或文章 frontmatter 开启）时才缩放 */
+.zd-card__media--hover img {
   transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.zd-card:hover .zd-card__media img {
+.zd-card:hover .zd-card__media--hover img {
   transform: scale(1.05);
 }
 .zd-card__body {
@@ -1250,3 +1254,9 @@ html.dark #scroll-to-top a {
 .gap-y-1 { row-gap: 0.25rem; }
 .tracking-widest { letter-spacing: 0.1em; }
 .right-2 { right: 0.5rem; }
+
+/* ---------- 23. 列表行宽限制（对应 list.constrainItemsWidth） ---------- */
+.zd-item--constrained {
+  max-width: 65ch;
+  margin-inline: auto;
+}
