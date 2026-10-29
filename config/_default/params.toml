@@ -60,7 +60,7 @@ imagePositionFeature = "center"
   # 作者卡是否显示社交图标：本站图标统一放在首页报头，作者卡默认不显示
   showAuthorLinks = false
   # 草稿文章是否显示「Draft」标记
-  showDraftLabel = false
+  showDraftLabel = true
   # 系列提示条：false = 只在文末显示一次（默认），true = 文首也显示
   showSeriesAtTop = false
   # 系列提示条是否默认展开（文末那个），单篇可用 frontmatter seriesOpened 覆盖
