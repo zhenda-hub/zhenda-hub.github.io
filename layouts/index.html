@@ -34,13 +34,9 @@
             src="{{ $final.RelPermalink }}">
         {{ end }}
       {{ end }}
-      <div class="masthead__kicker">
-        <span class="playfair">{{ site.Params.homepage.kicker | default "Starmap & Dust" }}</span>
-      </div>
       <h1 class="masthead__title">{{ site.Params.homepage.title | default site.Title }}</h1>
       <p class="masthead__sub">
         {{ site.Params.homepage.subtitle | default site.Title | markdownify }}
-        <span class="masthead__sub-en">{{ site.Params.Author.headline }}</span>
       </p>
       {{/* 自媒体平台图标：与 author.links 共用同一份数据 */}}
       {{ with .Site.Params.Author.links }}
@@ -59,13 +55,6 @@
           {{ end }}
         </div>
       {{ end }}
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="{{ "/posts/" | relLangURL }}" class="zd-btn zd-btn--gold">
-          开始阅读
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-        <a href="{{ "/about/" | relLangURL }}" class="zd-btn zd-btn--ghost">关于我</a>
-      </div>
     </section>
 
     {{- /* ==================== 最近更新 ==================== */ -}}

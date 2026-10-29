@@ -261,14 +261,14 @@ html.dark .menuhide a:hover {
   text-align: center;
 }
 .masthead--simple {
-  padding: 3.4rem 0 2.8rem;
+  padding: 2.4rem 0 1.4rem;
 }
 /* 报头头像：圆形 + 金色细环 */
-.masthead__avatar{display:block;width:88px;height:88px;margin:0 auto 1.25rem;border-radius:50%;object-fit:cover;
+.masthead__avatar{display:block;width:88px;height:88px;margin:0 auto .85rem;border-radius:50%;object-fit:cover;
   box-shadow:0 0 0 1px rgb(var(--color-neutral-200)),0 0 0 5px var(--gold-soft),0 10px 28px rgba(0,0,0,.12)}
 
 /* ---------- 5b. 首页报头社交图标行 ---------- */
-.masthead__social{display:flex;flex-wrap:wrap;justify-content:center;gap:.95rem;margin:0 0 1.9rem}
+.masthead__social{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem;margin:1.1rem 0 0}
 .masthead__social a{color:rgb(var(--color-neutral-400));line-height:0}
 .masthead__social a:hover{color:var(--gold-strong)}
 .masthead__social .icon svg{width:20px;height:20px}
@@ -318,17 +318,18 @@ html.dark .masthead::before {
 .masthead__title {
   font-family: var(--font-serif);
   font-weight: 900;
-  font-size: clamp(2.4rem, 6vw, 3.9rem);
-  line-height: 1.22;
+  font-size: clamp(2.1rem, 4.6vw, 3.1rem);
+  line-height: 1.15;
   letter-spacing: 0.02em;
   color: var(--ink);
-  margin: 0 0 1.1rem;
+  margin: 0 0 .5rem;
 }
 .masthead__sub {
-  max-width: 42rem;
-  margin: 0 auto 2.1rem;
+  max-width: 46rem;
+  margin: 0 auto;
   font-size: 1.05rem;
-  line-height: 1.95;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
   color: rgb(var(--color-neutral-500));
 }
 .masthead__sub em {
