@@ -11,7 +11,7 @@ keywords = ["博客", "技术", "AI", "NAS", "开发者", "个人成长", "blog"
 robots = "index, follow, max-image-preview:large, max-snippet:-1"
 enableStructuredBreadcrumbs = true
 defaultSocialImage = "img/social-card.png"
-defaultFeaturedImage = "img/default-cover.svg"
+# defaultFeaturedImage：文章卡片默认封面已移除（不使用）
 mainSections = ["posts"]
 highlightCurrentMenuArea = true
 
