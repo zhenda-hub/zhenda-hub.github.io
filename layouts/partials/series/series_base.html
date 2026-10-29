@@ -1,0 +1,44 @@
+{{- /* 覆盖 blowfish 的 series/series_base.html（系列提示条本体）
+
+   主题原版三个问题：
+   1. 标题直接输出 frontmatter 原始值（slug），如 "hugo-blowfish"，
+      不显示系列页 title（「Hugo Blowfish 主题指南」）
+   2. 当前文章那行输出 i18n article.part（值为「§」）+「本文」→「§ : 本文」
+   3. 条目顺序按 Params.series_order 排，而本站文章没写这个字段 → 顺序杂乱
+
+   本版：标题取系列页 Title；条目显示「序号. 文章标题」，当前文章标注（本文）；
+   有 series_order 就按它排，否则按发布日期排。
+*/ -}}
+{{ if .Params.series }}
+  {{ $key := strings.ToLower (index .Params.series 0) }}
+  {{ $term := site.GetPage (printf "/series/%s" $key) }}
+  {{ $pages := index .Site.Taxonomies.series $key }}
+
+  {{ $hasOrder := false }}
+  {{ range $pages }}{{ with .Params.series_order }}{{ $hasOrder = true }}{{ end }}{{ end }}
+  {{ if $hasOrder }}
+    {{ $pages = sort $pages "Params.series_order" }}
+  {{ else }}
+    {{ $pages = sort $pages "Date" }}
+  {{ end }}
+
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 -ms-5 ps-5 dark:bg-primary-800 dark:text-neutral-100">
+    {{ with $term }}{{ .Title }}{{ else }}{{ index $.Params.series 0 }}{{ end }}
+    &middot;
+    {{ i18n "article.part_of_series" }}
+  </summary>
+
+  {{ range $i, $post := $pages }}
+    {{ $seq := add $i 1 }}
+    {{ with $post.Params.series_order }}{{ $seq = . }}{{ end }}
+    <div class="py-1 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+      {{ if eq $post.Permalink $.Page.Permalink }}
+        {{ $seq }}. {{ $post.Title }}
+        <span class="text-neutral-500 dark:text-neutral-400">（{{ i18n "article.this_article" }}）</span>
+      {{ else }}
+        <a href="{{ $post.RelPermalink }}">{{ $seq }}. {{ $post.Title }}</a>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
