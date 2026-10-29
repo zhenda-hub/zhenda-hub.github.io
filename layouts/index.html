@@ -3,10 +3,28 @@
 
   {{/* ==================== 极简报头 ==================== */}}
   <section class="masthead masthead--simple zd-fade-up">
+    {{ with .Site.Params.Author.image }}
+      {{ $authorImage := resources.Get . }}
+      {{ if not $authorImage }}{{ $authorImage = resources.GetRemote . }}{{ end }}
+      {{ if $authorImage }}
+        {{ $final := $authorImage }}
+        {{ if not (or $.Site.Params.disableImageOptimization (eq $authorImage.MediaType.SubType "svg")) }}
+          {{ $final = $authorImage.Fill (print "288x288 Center q" ($.Site.Params.Author.imagequality | default "96")) }}
+        {{ end }}
+        <img
+          class="masthead__avatar"
+          width="88"
+          height="88"
+          alt="{{ $.Site.Params.Author.name | default `Author` }}"
+          loading="eager"
+          fetchpriority="high"
+          src="{{ $final.RelPermalink }}">
+      {{ end }}
+    {{ end }}
     <div class="masthead__kicker">
-      <span class="playfair">Zhenda&rsquo;s Journal</span>
+      <span class="playfair">Starmap &amp; Dust</span>
     </div>
-    <h1 class="masthead__title">真达 Zhenda</h1>
+    <h1 class="masthead__title">星图与尘埃 Starmap &amp; Dust</h1>
     <p class="masthead__sub">
       记录 <em>编程</em>、<em>AI</em>、<em>NAS 自托管</em> 与 <em>个人成长</em>。
       Stay hungry, stay humble, and keep shipping value.

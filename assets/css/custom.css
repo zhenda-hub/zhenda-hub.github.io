@@ -264,6 +264,46 @@ html.dark .menuhide a:hover {
 .masthead--simple {
   padding: 3.4rem 0 2.8rem;
 }
+/* 报头头像：圆形 + 金色细环 */
+.masthead__avatar {
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background: rgb(var(--color-neutral-100));
+  /* 内层白边 + 外层金色环 + 柔影 */
+  box-shadow:
+    0 0 0 1px rgb(var(--color-neutral-200)),
+    0 0 0 4px transparent,
+    0 0 0 5px var(--gold-soft),
+    0 10px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.masthead__avatar:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgb(var(--color-neutral-200)),
+    0 0 0 4px transparent,
+    0 0 0 5px var(--gold),
+    0 14px 32px rgba(0, 0, 0, 0.16);
+}
+html.dark .masthead__avatar {
+  background: rgb(var(--color-neutral-800));
+  box-shadow:
+    0 0 0 1px rgb(var(--color-neutral-700)),
+    0 0 0 4px transparent,
+    0 0 0 5px var(--gold-soft),
+    0 10px 28px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 640px) {
+  .masthead__avatar {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 1rem;
+  }
+}
 .masthead--simple .masthead__title {
   font-size: clamp(2.2rem, 5vw, 3.2rem);
 }
