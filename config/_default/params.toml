@@ -39,6 +39,8 @@ highlightCurrentMenuArea = true
 [article]
   showDate = true
   showAuthor = true
+  # 作者卡是否显示社交图标：本站图标统一放在首页报头，作者卡默认不显示
+  showAuthorLinks = false
   showReadingTime = true
   showWordCount = true
   showHeadingAnchors = true

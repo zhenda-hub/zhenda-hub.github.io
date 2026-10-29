@@ -1,9 +1,32 @@
-{{/* Zhenda Premium: 品牌字标 + 导航 */}}
+{{/* Zhenda Premium: 品牌字标 + 导航
+   保留主题的两项可配置能力：
+     params.header.Logo                 → 用图片/SVG 作为站头 logo
+     params.header.disableTextInHeader  → true 时隐藏文字字标
+*/}}
 <div class="main-menu flex items-center w-full gap-2 p-1 pl-0">
-  <a href="{{ "" | relLangURL }}" class="zd-brand shrink-0" aria-label="{{ .Site.Title }}">
-    <span class="zd-brand__cn">星图与尘埃<span class="zd-brand__dot">.</span></span>
-    <span class="zd-brand__en hidden sm:inline">Starmap &amp; Dust</span>
-  </a>
+  {{ with .Site.Params.Logo }}
+    {{ $logo := resources.Get . }}
+    {{ with $logo }}
+      <a href="{{ "" | relLangURL }}" class="flex shrink-0" aria-label="{{ site.Title }}">
+        {{ if eq .MediaType.SubType "svg" }}
+          <span class="logo object-scale-down object-left nozoom">{{ .Content | safeHTML }}</span>
+        {{ else }}
+          <img
+            src="{{ .RelPermalink }}"
+            width="{{ div .Width 2 }}"
+            height="{{ div .Height 2 }}"
+            class="logo max-h-20 max-w-20 object-scale-down object-left nozoom"
+            alt="">
+        {{ end }}
+      </a>
+    {{ end }}
+  {{ end }}
+  {{ if not (.Site.Params.disableTextInHeader | default false) }}
+    <a href="{{ "" | relLangURL }}" class="zd-brand shrink-0" aria-label="{{ .Site.Title }}">
+      <span class="zd-brand__cn">星图与尘埃<span class="zd-brand__dot">.</span></span>
+      <span class="zd-brand__en hidden sm:inline">Starmap &amp; Dust</span>
+    </a>
+  {{ end }}
   <div class="flex items-center ms-auto">
     <div class="hidden md:flex">
       {{ partial "header/components/desktop-menu.html" . }}
