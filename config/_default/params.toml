@@ -15,6 +15,22 @@ defaultSocialImage = "img/social-card.png"
 mainSections = ["posts"]
 highlightCurrentMenuArea = true
 
+# ---------------------------------------------------------------
+# 可选主题参数（必须写在顶层，不能放进下面任何 [xxx] 段，否则不生效）
+# ---------------------------------------------------------------
+# 站头图片/SVG 标（资源放在 assets/img/ 下）；启用后与文字字标并存
+# Logo = "img/logo.svg"
+# true = 隐藏「星图与尘埃.」文字字标（仅用 Logo 图）
+disableTextInHeader = false
+# 卡片封面比例，可用 "3 / 2" 或 1.5 / 2.4 / 16 / 9；默认 3/2
+thumbnailAspectRatio = "3 / 2"
+# true = 封面图直接用远程 URL，不下载到本地处理（省构建时间）
+hotlinkFeatureImage = false
+# 封面图 object-position 默认值（文章页 hero）
+imagePosition = "center"
+# 列表卡片封面的 object-position（可用文章 frontmatter 单篇覆盖）
+imagePositionFeature = "center"
+
 [header]
   layout = "fixed-fill-blur"
   # basic / fixed / fixed-fill / fixed-fill-blur (毛玻璃效果最精致)
@@ -25,6 +41,8 @@ highlightCurrentMenuArea = true
   layout = "custom"
   # 使用 hero / background 时必须配图，否则白底淡字看不清
   # homepageImage = "img/home-hero.jpg"
+  # 主题自带的版式切换浮层，仅本地调试用，线上保持 false
+  layoutSwitcher = false
 
   # 自定义报头（layout = custom）的文案，改站名/口号不用改模板
   title = "星图与尘埃"
@@ -41,6 +59,8 @@ highlightCurrentMenuArea = true
   showAuthor = true
   # 作者卡是否显示社交图标：本站图标统一放在首页报头，作者卡默认不显示
   showAuthorLinks = false
+  # 草稿文章是否显示「Draft」标记
+  showDraftLabel = false
   showReadingTime = true
   showWordCount = true
   showHeadingAnchors = true
@@ -62,6 +82,10 @@ highlightCurrentMenuArea = true
   showSummary = true
   showViews = false
   showLikes = false
+  # 列表行宽限制到 65ch 并居中（阅读更舒适）
+  constrainItemsWidth = false
+  # 卡片封面悬停缓放（需要封面图；可用 frontmatter 单篇覆盖）
+  featureImageHover = false
 
 [taxonomy]
   showTermCount = true
