@@ -47,7 +47,7 @@ imagePositionFeature = "center"
   # 自定义报头（layout = custom）的文案，改站名/口号不用改模板
   title = "星图与尘埃"
   kicker = "Starmap & Dust"
-  subtitle = '记录 <em>编程</em>、<em>AI</em>、<em>NAS 自托管</em> 与 <em>个人成长</em>。'
+  subtitle = '记录 <em>编程</em>、<em>AI</em>、<em>自媒体</em> 与 <em>个人成长</em>。'
 
   showRecent = true
   showRecentItems = 9

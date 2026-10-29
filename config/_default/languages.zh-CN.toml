@@ -18,7 +18,7 @@ title = "星图与尘埃 · Starmap & Dust"
     image = "img/avatar.png"
     imagequality = "96"
     headline = "Stay hungry, stay humble, and keep shipping value."
-    bio = "记录编程、AI、NAS 自托管与个人成长的思考与实践。"
+    bio = "记录编程、AI、自媒体与个人成长的思考与实践。"
 
     # 注意：blowfish 的 author-links / hero 模板用 `range $name, $url := $links`，
     # 每一项必须是「单键映射」(图标名 = 链接)，不能写成 name = / url = 两个键。
