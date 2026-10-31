@@ -11,6 +11,7 @@
 ## 站点地图 Site Map
 
 ## 文章 · Posts
+- [本来只想让风扇安静点：一台家用 NAS 的一夜整改](https://zhenda-hub.github.io/posts/life/nas-rebuild-2026-11-01/)
 - [Blowfish 自定义规范与本博客的轻量做法](https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-customization-rules/)
 - [拯救者 Y700 四代玩英雄联盟手游一卡一卡：完整排查复盘](https://zhenda-hub.github.io/posts/life/y700-lolm-fix/)
 - [局域网传大文件：从 1 MB/s 爬回 3.7 MB/s 的完整排障记录](https://zhenda-hub.github.io/posts/life/lan-transfer-troubleshoot/)
