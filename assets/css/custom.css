@@ -91,7 +91,7 @@ h6 {
 
 /* ---------- 2b. 中英混排断行基线 ---------- */
 body{line-break:strict;word-break:normal;overflow-wrap:break-word;text-wrap:pretty}
-h1,h2,h3,.masthead__title,.masthead__kicker,.list-hero h1,.zd-card__title,.zd-item__title,.series-row__title{text-wrap:balance}
+h1,h2,h3,.masthead__title,.list-hero h1,.zd-card__title,.zd-item__title,.series-row__title{text-wrap:balance}
 
 /* ---------- 3. 选中 / 滚动条 / 焦点 ---------- */
 ::selection {
@@ -302,19 +302,6 @@ html.dark .masthead::before {
     transparent 70%
   );
 }
-.masthead__kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1.4rem;
-}
-.masthead__kicker::before,
-.masthead__kicker::after {
-  content: "";
-  width: 2.4rem;
-  height: 1px;
-  background: var(--gold-gradient);
-}
 .masthead__title {
   font-family: var(--font-serif);
   font-weight: 900;
@@ -338,9 +325,6 @@ html.dark .masthead::before {
   color: var(--gold-strong);
 }
 /* 副标题英文格言：独立一行、降一级 */
-.masthead__sub-en{display:block;margin-top:.5rem;font-family:var(--font-display);font-style:italic;
-  font-size:.82em;line-height:1.7;letter-spacing:.03em;opacity:.72;text-wrap:balance}
-
 html.dark .masthead__title {
   color: rgb(var(--color-neutral-50));
 }
