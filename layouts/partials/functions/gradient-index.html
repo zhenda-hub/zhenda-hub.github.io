@@ -1,0 +1,5 @@
+{{- /* Zhenda Premium — 渐变索引选择器
+   根据页面路径+标题长度分配 0-13 的渐变索引, 保证同一文章每次渲染颜色一致
+   */ -}}
+{{- $index := mod (add (len .RelPermalink) (len .Title)) 14 -}}
+{{- $index -}}

@@ -1,38 +1,53 @@
 # -- Theme Options --
-colorScheme = "blowfish"
-# autumn
-# avocado
-# bloody
-# blowfish
-# congo
-# fire
-# forest
-# github
-# marvel
-# neon
-# noir
-# one-light
-# princess
-# slate
-# terminal
+colorScheme = "zhenda-premium"
+# zhenda-premium (墨金: 暖灰底 + 琥珀金主色)
+# noir / blowfish / slate / forest / ocean / etc.
 defaultAppearance = "light"
 autoSwitchAppearance = true
 
 enableSearch = true
 enableCodeCopy = true
-keywords = ["blog", "developer", "personal"]
+keywords = ["博客", "技术", "AI", "NAS", "开发者", "个人成长", "blog", "developer", "AI", "NAS"]
+robots = "index, follow, max-image-preview:large, max-snippet:-1"
+enableStructuredBreadcrumbs = true
+defaultSocialImage = "img/social-card.png"
+# defaultFeaturedImage：文章卡片默认封面已移除（不使用）
+mainSections = ["posts"]
+highlightCurrentMenuArea = true
+
+# ---------------------------------------------------------------
+# 可选主题参数（必须写在顶层，不能放进下面任何 [xxx] 段，否则不生效）
+# ---------------------------------------------------------------
+# 站头图片/SVG 标（资源放在 assets/img/ 下）；启用后与文字字标并存
+# Logo = "img/logo.svg"
+# true = 隐藏「星图与尘埃.」文字字标（仅用 Logo 图）
+disableTextInHeader = false
+# 卡片封面比例，可用 "3 / 2" 或 1.5 / 2.4 / 16 / 9；默认 3/2
+thumbnailAspectRatio = "3 / 2"
+# true = 封面图直接用远程 URL，不下载到本地处理（省构建时间）
+hotlinkFeatureImage = false
+# 封面图 object-position 默认值（文章页 hero）
+imagePosition = "center"
+# 列表卡片封面的 object-position（可用文章 frontmatter 单篇覆盖）
+imagePositionFeature = "center"
 
 [header]
-  layout = "fixed"
-  # basic、fixed、fixed-fill、and fixed-fill-blur
+  layout = "fixed-fill-blur"
+  # basic / fixed / fixed-fill / fixed-fill-blur (毛玻璃效果最精致)
 
 [homepage]
-  layout = "page"
-  # profile
-  # page
-  # hero
-  # background
-  # card
+  # 可选：custom（本站自定义报头） / hero / profile / page / background / card / landing
+  # 想实时预览各版式可临时设 layoutSwitcher = true（主题的切换浮层，仅调试用）
+  layout = "custom"
+  # 使用 hero / background 时必须配图，否则白底淡字看不清
+  # homepageImage = "img/home-hero.jpg"
+  # 主题自带的版式切换浮层，仅本地调试用，线上保持 false
+  layoutSwitcher = false
+
+  # 自定义报头（layout = custom）的文案，改站名/口号不用改模板
+  title = "星图与尘埃"
+  kicker = "Starmap & Dust"
+  subtitle = '编程 · AI · 自媒体 · 个人成长'
 
   showRecent = true
   showRecentItems = 9
@@ -42,6 +57,14 @@ keywords = ["blog", "developer", "personal"]
 [article]
   showDate = true
   showAuthor = true
+  # 作者卡是否显示社交图标：本站图标统一放在首页报头，作者卡默认不显示
+  showAuthorLinks = false
+  # 草稿文章是否显示「Draft」标记
+  showDraftLabel = true
+  # 系列提示条：false = 只在文末显示一次（默认），true = 文首也显示
+  showSeriesAtTop = false
+  # 系列提示条是否默认展开（文末那个），单篇可用 frontmatter seriesOpened 覆盖
+  seriesOpened = true
   showReadingTime = true
   showWordCount = true
   showHeadingAnchors = true
@@ -49,21 +72,34 @@ keywords = ["blog", "developer", "personal"]
   showTableOfContents = true
   showBreadcrumbs = true
   showComments = true
-  showViews = true
-  showLikes = true
+  showViews = false
+  showLikes = false
   showPagination = false
   showZenMode = true
-  # seriesOpened = false
+  showReadingProgress = true
   showHero = true
-  heroStyle = "big"
-  # basic、big、background、thumbAndBackground
-  # showEdit = true
+  heroStyle = "basic"
+  # basic(小横幅) / big(全宽) / background / thumbAndBackground
 [list]
   groupByYear = false
-  cardView = true
+  cardView = false
   showSummary = true
-  showViews = true
-  showLikes = true
+  showViews = false
+  showLikes = false
+  # 列表行宽限制到 65ch 并居中（阅读更舒适）
+  constrainItemsWidth = false
+  # 卡片封面悬停缓放（需要封面图；可用 frontmatter 单篇覆盖）
+  featureImageHover = false
+
+[taxonomy]
+  showTermCount = true
+  cardView = false
+
+[term]
+  showHero = true
+  heroStyle = "basic"
+  groupByYear = false
+  cardView = false
 
 # Firebase configuration for views and likes
 # Get your config from: https://console.firebase.google.com/
@@ -77,7 +113,13 @@ keywords = ["blog", "developer", "personal"]
   appId = "YOUR_APP_ID"
   # measurementId = "YOUR_MEASUREMENT_ID"  # Optional
 
-[umamiAnalytics]
-  websiteid = "YOUR_websiteid"
-  domain = "YOUR_domain"
-  enableTrackEvent = true
+# [umamiAnalytics]
+#   websiteid = "YOUR_websiteid"
+#   domain = "YOUR_domain"
+#   enableTrackEvent = true
+
+# Site verification (Search Console)
+# 注册后填入 token：https://search.google.com/search-console
+[verification]
+  google = ""
+  bing = ""

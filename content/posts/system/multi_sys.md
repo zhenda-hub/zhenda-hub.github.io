@@ -120,3 +120,9 @@ convert d:/fs:ntfs
 ### 虚拟机扩容
 
 设置磁盘大小
+
+
+## upan 兼容
+
+u盘 设置 NTFS（有完整日志， 可修复） 或 ExFAT（兼容性好）
+不要 FAT32

@@ -12,3 +12,7 @@ resources/
 
 # Firebase configuration (sensitive data)
 config/production/
+# Agent 工具目录
+.agents/
+.tools/
+.workbuddy/

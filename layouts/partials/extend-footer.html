@@ -1,0 +1,18 @@
+{{- /* 修复：Blowfish 的 medium-zoom 库以 defer 加载，但主题 footer 的内联初始化早于它执行，
+       会抛 "mediumZoom is not defined"，导致点击图片无法放大。此处等页面加载完再兜底初始化。 */ -}}
+{{- if not site.Params.disableImageZoom -}}
+<script>
+  (function () {
+    function initZoom() {
+      if (typeof window.mediumZoom !== 'function') return;
+      window.mediumZoom(document.querySelectorAll('img:not(.nozoom)'), {
+        margin: 24,
+        background: 'rgba(0,0,0,0.5)',
+        scrollOffset: 0,
+      });
+    }
+    if (document.readyState === 'complete') initZoom();
+    else window.addEventListener('load', initZoom);
+  })();
+</script>
+{{- end -}}

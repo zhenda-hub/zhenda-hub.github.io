@@ -494,6 +494,24 @@ Host github.com
 ssh -T git@github.com
 ```
 
+#### 配置成功, 还是不能clone
+
+```bash
+# 检查全局配置
+git config --global --get-regexp url
+# 可能有一下内容:
+# url.https://github.com/.insteadof ssh://git@github.com/
+# url.https://github.com/.insteadof git@github.com:
+
+# 清除
+git config --global --unset-all url.https://github.com/.insteadof
+# 再次检查
+git config --global --get-regexp url
+```
+
+
+
+
 ### Git Large File Storage
 
 <https://git-lfs.com/>

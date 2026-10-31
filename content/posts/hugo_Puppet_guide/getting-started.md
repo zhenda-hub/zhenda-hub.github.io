@@ -5,7 +5,7 @@ header_img = ""
 toc = true
 tags = ["guide"]
 categories = []
-series = ["Themes Guide"]
+series = ["themes-guide"]
 +++
 
 Puppet is a responsive, simple and clean [Hugo](https://gohugo.io/) theme based on the [Huxblog Jekyll theme](https://github.com/Huxpro/huxpro.github.io). 

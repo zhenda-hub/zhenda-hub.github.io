@@ -5,7 +5,7 @@ date = 2025-04-07T00:00:00+08:00
 draft = false
 toc = true
 tags = ['Hugo', 'Blowfish', 'Chart.js']
-series = ['Hugo Blowfish 指南']
+series = ['hugo-blowfish']
 
 # 图表数据 - 柱状图
 barChartLabels = ["一月", "二月", "三月", "四月", "五月", "六月"]

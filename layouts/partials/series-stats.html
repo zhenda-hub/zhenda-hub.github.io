@@ -1,0 +1,79 @@
+{{- /* 系列页顶部饼图 + HTML 自绘图例
+
+   为什么不用 Chart.js 自带图例：v4 的 legend 不会自动换行，
+   position: right 时 canvas 宽度固定，长名字（如「Hugo Blowfish 主题指南」）会被裁掉。
+   所以图例改由模板输出为 HTML（可换行、可带篇数），Chart.js 只负责画饼。
+
+   数据动态来自 site.Taxonomies.series，无需手写数字。
+*/ -}}
+{{- $items := slice -}}
+{{- range $term, $pages := site.Taxonomies.series -}}
+  {{- $title := $term -}}
+  {{- with site.GetPage (printf "/series/%s" $term) -}}{{- $title = .Title -}}{{- end -}}
+  {{- $items = $items | append (dict "label" $title "count" $pages.Count) -}}
+{{- end -}}
+{{- $items = sort $items "count" "desc" -}}
+
+{{- $labels := slice -}}
+{{- $data := slice -}}
+{{- $colors := slice -}}
+{{- $palette := slice "#f38ba0" "#5aa9e6" "#f9d56e" "#69c9c0" "#a78bfa" "#f6a35c" "#c9c9c9" "#7b8cff" "#f38af3" "#6ee7a8" "#ffa07a" "#8fb4cc" "#d4a373" "#b5c7a3" -}}
+{{- range $i, $it := $items -}}
+  {{- $labels = $labels | append $it.label -}}
+  {{- $data = $data | append $it.count -}}
+  {{- $colors = $colors | append (index $palette (mod $i (len $palette))) -}}
+{{- end -}}
+
+{{- $id := printf "series-chart-%s" (substr (md5 .Page.RelPermalink) 0 8) -}}
+{{- if not (.Page.HasShortcode "chart") -}}
+  {{- $chartLib := resources.Get "lib/chart/chart.min.js" -}}
+  {{- $chartConfig := resources.Get "js/chart.js" | resources.Minify -}}
+  {{- $chartJS := slice $chartLib $chartConfig | resources.Concat "js/chart.bundle.js" | resources.Fingerprint (site.Params.fingerprintAlgorithm | default "sha512") -}}
+  <script
+    defer
+    type="text/javascript"
+    src="{{ $chartJS.RelPermalink }}"
+    integrity="{{ $chartJS.Data.Integrity }}"></script>
+{{- end -}}
+
+<div class="series-stats">
+  <div class="series-stats__chart">
+    <canvas id="{{ $id }}"></canvas>
+  </div>
+  <ul class="series-stats__legend">
+    {{- range $i, $it := $items }}
+      <li>
+        <span class="series-stats__dot" style="background: {{ index $palette (mod $i (len $palette)) }}"></span>
+        <span class="series-stats__name">{{ $it.label }}</span>
+        <span class="series-stats__count">{{ $it.count }}</span>
+      </li>
+    {{- end }}
+  </ul>
+</div>
+
+<script type="text/javascript">
+  window.addEventListener("DOMContentLoaded", function () {
+    var el = document.getElementById("{{ $id }}");
+    if (!el || typeof Chart === "undefined") return;
+    new Chart(el, {
+      type: "doughnut",
+      data: {
+        labels: {{ $labels | jsonify | safeJS }},
+        datasets: [{
+          data: {{ $data | jsonify | safeJS }},
+          backgroundColor: {{ $colors | jsonify | safeJS }},
+          borderWidth: 0,
+          hoverOffset: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function (c) { return c.label + "：" + c.parsed + " 篇"; } } }
+        }
+      }
+    });
+  });
+</script>

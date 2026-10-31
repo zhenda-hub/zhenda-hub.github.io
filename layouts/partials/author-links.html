@@ -1,0 +1,32 @@
+{{- /*
+  覆盖 blowfish 的 author-links.html
+
+  本站把社交媒体图标统一放在首页报头（layouts/index.html 的 .masthead__social），
+  作者卡里不再重复，避免拥挤。
+
+  但仍保留主题原有的渲染能力：把 params.toml 里的
+      [article] showAuthorLinks = true
+  打开，作者卡就会恢复显示 Author.links 里的图标（数据源见
+  config/_default/languages.zh-CN.toml 的 params.author.links）。
+*/ -}}
+{{ if site.Params.article.showAuthorLinks | default false }}
+  {{ with .Site.Params.Author.links }}
+    <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500 space-x-2">
+      {{ range $links := . }}
+        {{ range $name, $url := $links }}
+          {{ $isEmail := eq $name "email" }}
+          <a
+            class="{{ cond $isEmail "email-link" "" }} hover:text-primary-700 dark:hover:text-primary-400"
+            href="{{ cond $isEmail "#" ($url | safeURL) }}"
+            {{ if $isEmail }}data-email="{{ $url | base64Encode }}"{{ end }}
+            target="_blank"
+            aria-label="{{ $name | title }}"
+            title="{{ $name | title }}"
+            rel="me noopener noreferrer"
+            ><span class="inline-block align-text-bottom">{{ partial "icon.html" $name }}</span></a
+          >
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}

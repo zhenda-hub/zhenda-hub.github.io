@@ -10,7 +10,7 @@ categories = [
     "themes",
     "syntax",
 ]
-series = ["Themes Guide"]
+series = ["themes-guide"]
 aliases = ["migrate-from-jekyll"]
 toc = true
 +++

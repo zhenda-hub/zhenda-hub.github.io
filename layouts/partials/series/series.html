@@ -1,0 +1,19 @@
+{{- /* 覆盖 blowfish 的 series/series.html（单页「头部」那个系列提示条）
+
+   主题在 single.html 里调用了两次：
+     L55  series/series.html         → 头部（本文件）
+     L82  series/series-closed.html  → 文末
+
+   本站在文末显示一次就够了，头部重复显示观感冗余，因此默认关闭头部这处。
+   需要恢复：config/_default/params.toml →
+     [article] showSeriesAtTop = true
+*/ -}}
+{{ if site.Params.article.showSeriesAtTop | default false }}
+  {{ if .Params.series }}
+    <details
+      class="mt-2 mb-5 overflow-hidden rounded-lg ms-0 ps-5"
+      {{ if .Params.seriesOpened | default (.Site.Params.article.seriesOpened | default false) }}open{{ end }}>
+      {{ partial "series/series_base.html" . }}
+    </details>
+  {{ end }}
+{{ end }}

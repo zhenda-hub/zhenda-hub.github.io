@@ -97,8 +97,10 @@ Press Ctrl+C to stop
 
 ## 访客统计
 
-umami
-Firebase (Google Analytics 4)
+- 百度统计（国内流量，2026-08 起）
+- Cloudflare Web Analytics（全球流量，2026-08 起）
+- Firebase（文章浏览数/点赞，前端展示）
+- ~~umami~~（已停用：Railway 免费试用到期，2026-08）
 
 TODO:
 

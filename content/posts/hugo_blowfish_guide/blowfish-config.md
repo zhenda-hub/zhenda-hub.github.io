@@ -1,11 +1,12 @@
 +++
 title = 'Blowfish 配置指南'
 subtitle = '主题配置选项详解'
+description = "Blowfish 主题配置指南：本站全部配置项、当前值与可选值对照表。 | Blowfish theme config guide: every option with current and possible values."
 date = 2025-04-06T00:00:00+08:00
 draft = false
 toc = true
 tags = ['Hugo', 'Blowfish']
-series = ['Hugo Blowfish 指南']
+series = ['hugo-blowfish']
 +++
 
 # Blowfish 配置选项

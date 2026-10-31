@@ -1,5 +1,6 @@
 +++
 title = 'Sleep'
+description = "睡眠结构科普与改善指南：NREM/REM 分期、睡眠周期与实操建议。 | Sleep science: stages, cycles and practical tips for better rest."
 subtitle = ""
 date = 2025-10-09T17:23:23+08:00
 draft = false

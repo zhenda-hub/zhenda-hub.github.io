@@ -1,7 +1,4 @@
 +++
-author = "Zhenda"
+author = "Starmap & Dust"
+description = "星图与尘埃 · Starmap & Dust：记录编程、AI、NAS 与个人成长的思考与实践。中文为主，附双语元信息。"
 +++
-
-## 欢迎来到我的博客
-
-这里是 **Zhenda** 的个人博客，记录我在编程、技术和生活中的思考与探索。

@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - migrate/blowfish
+      - premium-design
   pull_request:
 
 jobs:
@@ -37,21 +38,23 @@ jobs:
             messagingSenderId = "${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}"
             appId = "${{ secrets.FIREBASE_APP_ID }}"
             measurementId = "${{ secrets.FIREBASE_MEASUREMENT_ID }}"
-
-          [umamiAnalytics]
-            websiteid = "${{ secrets.UMAMI_WEBSITE_ID }}"
-            domain = "${{ secrets.UMAMI_DOMAIN }}"
-            enableTrackEvent = true
+          # [umamiAnalytics]
+          #   websiteid = "${{ secrets.UMAMI_WEBSITE_ID }}"
+          #   domain = "${{ secrets.UMAMI_DOMAIN }}"
+          #   enableTrackEvent = true
           EOF
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.149.1"
+          hugo-version: "0.165.0"
           extended: true
 
       - name: Build
         run: hugo --minify --environment production
+
+      - name: SEO/GEO check
+        run: python3 scripts/seo-check.py --summary
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4

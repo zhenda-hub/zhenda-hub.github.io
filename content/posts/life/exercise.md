@@ -1,5 +1,6 @@
 +++
 title = 'Exercise'
+description = "上班族运动指南：健身房选择、时间安排与家庭健身起步方案。 | Exercise guide for office workers: gym choice, scheduling and home workouts."
 subtitle = ""
 date = 2025-10-10T15:00:31+08:00
 draft = false

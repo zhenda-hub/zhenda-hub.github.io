@@ -1,5 +1,6 @@
 +++
 title = 'Python Small Tools'
+description = "Python 实用小工具合集：格式化、JSON 处理等日常开发效率脚本。 | Practical Python mini-tools for everyday development tasks."
 subtitle = ""
 date = 2024-06-03T13:06:57+08:00
 draft = false

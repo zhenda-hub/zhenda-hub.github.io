@@ -1,0 +1,49 @@
+{{/* Starmap & Dust Premium: 系列总览 — 品牌卡网格 (仅 /series/, 不影响 tags/categories) */}}
+{{ define "main" }}
+  {{ $terms := sort .Data.Terms "Count" "desc" }}
+  {{ $roman := slice "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" "XI" "XII" "XIII" "XIV" "XV" "XVI" "XVII" "XVIII" "XIX" "XX" }}
+
+  {{/* 页头 */}}
+  <header class="list-hero mb-10 border-b border-neutral-200/90 pb-8 dark:border-neutral-700/90">
+    <span class="kicker">Starmap &amp; Dust &mdash; Series</span>
+    <h1 class="mt-2 mb-3 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      写作系列
+    </h1>
+    <p class="mt-0 mb-2 max-w-2xl text-sm leading-7 text-neutral-500 dark:text-neutral-400">
+      按主题长期更新的系列文章 —— 从技术实践、建站经验到生活思考，选择感兴趣的方向开始阅读。
+    </p>
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs tracking-widest text-neutral-400">
+      <span>共 {{ len $terms }} 个系列</span>
+      <span class="text-primary-400">&middot;</span>
+      <span>持续更新中</span>
+    </div>
+    <hr class="gold-rule mt-6 w-16" />
+  </header>
+
+  {{/* 顶部：文章分类饼图（数据同 /posts/blog-stats/） */}}
+  {{ partial "series-stats.html" . }}
+
+  {{/* 杂志目录大列表 */}}
+  <section class="series-list">
+    {{ range $i, $term := $terms }}
+      {{ with $term.Page }}
+        <a href="{{ .RelPermalink }}" class="series-row group">
+          <span class="series-row__num">{{ index $roman $i }}</span>
+          <span class="series-row__body">
+            <span class="series-row__title">{{ .Title }}</span>
+            <span class="series-row__desc">{{ .Description | default "持续更新的写作系列" }}</span>
+          </span>
+          <span class="series-row__meta">
+            <span class="series-row__count">{{ $term.Count }} 篇</span>
+            {{ with $term.Pages }}
+              {{ with index . 0 }}
+                <span class="series-row__latest">最新 &middot; {{ .Title | truncate 18 }}</span>
+              {{ end }}
+            {{ end }}
+          </span>
+          <span class="series-row__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      {{ end }}
+    {{ end }}
+  </section>
+{{ end }}

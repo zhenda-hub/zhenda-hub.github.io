@@ -1,6 +1,5 @@
 ---
-title: Archive
-description: archive archive archive
-header_img: /img/archive-bg.jpg
+title: "归档 · Archive"
+description: "按时间归档全部文章"
 short: true
 ---

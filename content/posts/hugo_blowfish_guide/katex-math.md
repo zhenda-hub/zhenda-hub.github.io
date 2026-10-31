@@ -5,7 +5,7 @@ date = 2025-04-07T00:00:00+08:00
 draft = false
 toc = true
 tags = ['Hugo', 'Blowfish', 'KaTeX']
-series = ['Hugo Blowfish 指南']
+series = ['hugo-blowfish']
 +++
 
 {{< katex >}}

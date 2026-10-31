@@ -1,0 +1,32 @@
+{{/* Zhenda Premium — 最近文章区域
+   覆盖 Blowfish 默认 main.html, 添加滚动动画和高端标题样式
+*/}}
+{{ $recentArticles := 5 }}
+{{ $showMoreLinkDest := "/posts/" }}
+{{ if .Site.Params.homepage.showRecent | default false }}
+  {{ if index .Site.Params.homepage "showRecentItems" }}
+    {{ $recentArticles = .Site.Params.homepage.showRecentItems }}
+  {{ end }}
+  <h2 class="z-section-title z-reveal">{{ i18n "shortcode.recent_articles" | emojify }}</h2>
+
+  <div class="z-reveal">
+  {{ if and .Site.Params.homepage.cardView (not .Site.Params.homepage.cardViewScreenWidth) | default false }}
+    {{ partial "recent-articles/cardview.html" . }}
+  {{ else if and .Site.Params.homepage.cardView .Site.Params.homepage.cardViewScreenWidth | default false }}
+    {{ partial "recent-articles/cardview-fullwidth.html" . }}
+  {{ else }}
+    {{ partial "recent-articles/list.html" . }}
+  {{ end }}
+  </div>
+
+  {{ if .Site.Params.homepage.showMoreLink | default false }}
+    {{ if index .Site.Params.homepage "showRecentItems" }}
+      {{ $showMoreLinkDest = .Site.Params.homepage.showMoreLinkDest }}
+    {{ end }}
+    <div class="mt-10 flex justify-center z-reveal">
+      <a href="{{ $showMoreLinkDest | relLangURL }}" class="z-more-link">
+        {{ i18n "recent.show_more" | markdownify }} &rarr;
+      </a>
+    </div>
+  {{ end }}
+{{ end }}
