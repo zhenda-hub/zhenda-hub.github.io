@@ -11,6 +11,7 @@
 ## 站点地图 Site Map
 
 ## 文章 · Posts
+- [搜「海边」搜出一堆无关照片：immich 调优记录](https://zhenda-hub.github.io/posts/life/immich-tuning-2026-11-01/)
 - [本来只想让风扇安静点：一台家用 NAS 的一夜整改](https://zhenda-hub.github.io/posts/life/nas-rebuild-2026-11-01/)
 - [Blowfish 自定义规范与本博客的轻量做法](https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-customization-rules/)
 - [拯救者 Y700 四代玩英雄联盟手游一卡一卡：完整排查复盘](https://zhenda-hub.github.io/posts/life/y700-lolm-fix/)
