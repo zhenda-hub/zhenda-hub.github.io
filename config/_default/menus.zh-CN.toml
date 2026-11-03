@@ -14,6 +14,11 @@
   weight = 20
 
 [[main]]
+  name = "标签"
+  pageRef = "/tags/"
+  weight = 25
+
+[[main]]
   name = "关于"
   pageRef = "/about/"
   weight = 50
