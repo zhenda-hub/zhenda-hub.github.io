@@ -1,12 +1,39 @@
-{{/* Zhenda Premium 覆盖: 编辑感纯文字列表项（少图原则，不渲染封面图）
-   因此 list.featureImageHover / imagePositionFeature / hotlinkFeatureImage
-   这类“图片相关”参数在本版式中无意义；但下面两项仍与主题保持一致：
+{{/* Zhenda Premium 覆盖: 编辑感列表项（含封面缩略图）
+   封面来源优先级：frontmatter 的 featureimage，其次 bundle 内名称含
+   feature / cover / thumbnail 的图片。
+   仍与主题保持一致的两项：
      list.constrainItemsWidth   行宽限制
      article.showDraftLabel     草稿标记
 */}}
 {{ $page := .Page }}
 {{ $constrainItemsWidth := site.Params.list.constrainItemsWidth | default false }}
-<article class="zd-item group{{ if $constrainItemsWidth }} zd-item--constrained{{ end }}">
+{{ $disableImageOptimization := site.Store.Get "disableImageOptimization" }}
+
+{{/* ---------- 解析封面 ---------- */}}
+{{ $featured := "" }}
+{{ $featuredURL := "" }}
+{{ with partial "functions/feature-image.html" $page }}
+  {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+    {{ $featuredURL = . }}
+  {{ else }}
+    {{ $featured = $page.Resources.Get . }}
+    {{ if not $featured }}{{ $featured = resources.Get . }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ if not (or $featured $featuredURL) }}
+  {{ $images := $page.Resources.ByType "image" }}
+  {{ range slice "*feature*" "*cover*" "*thumbnail*" }}
+    {{ if not $featured }}{{ $featured = $images.GetMatch . }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ if and $featured (not $disableImageOptimization) }}
+  {{ with try ($featured.Resize "480x") }}
+    {{ with .Value }}{{ $featuredURL = .RelPermalink }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ if and $featured (not $featuredURL) }}{{ $featuredURL = $featured.RelPermalink }}{{ end }}
+
+<article class="zd-item group{{ if $constrainItemsWidth }} zd-item--constrained{{ end }}{{ if $featuredURL }} zd-item--withcover{{ end }}">
   <a
     {{ with $page.Params.externalUrl }}
       href="{{ . }}" target="_blank" rel="external"
@@ -14,32 +41,40 @@
       href="{{ $page.RelPermalink }}"
     {{ end }}
     class="zd-item__link">
-    <div class="zd-item__meta">
-      <span class="zd-item__date">{{ $page.Date.Format "2006-01-02" }}</span>
-      {{ with $page.Params.categories }}
-        <span class="zd-item__kicker">{{ index . 0 }}</span>
-      {{ else }}
-        {{ with $page.Params.series }}
-          <span class="zd-item__kicker">{{ index . 0 }}</span>
-        {{ end }}
-      {{ end }}
-      {{ if and .Draft (site.Params.article.showDraftLabel | default false) }}
-        <span class="zd-item__kicker">{{ i18n "article.draft" | emojify }}</span>
-      {{ end }}
-    </div>
-    <h3 class="zd-item__title">
-      {{ .Title | emojify }}
-      {{ if .Params.externalUrl }}
-        <span class="zd-item__external">&#8599;</span>
-      {{ end }}
-    </h3>
-    {{ if .Params.showSummary | default (site.Params.list.showSummary | default false) }}
-      <p class="zd-item__excerpt">{{ .Summary | plainify | truncate 120 }}</p>
+    {{ with $featuredURL }}
+      <div class="zd-item__thumb">
+        <img src="{{ . }}" alt="{{ $page.Title }}" loading="lazy" decoding="async"
+             width="480" height="270" />
+      </div>
     {{ end }}
-    <div class="zd-item__foot">
-      <span>{{ $page.WordCount }} 字</span>
-      <span class="zd-item__foot-dot">&middot;</span>
-      <span>{{ $page.ReadingTime }} 分钟</span>
+    <div class="zd-item__body">
+      <div class="zd-item__meta">
+        <span class="zd-item__date">{{ $page.Date.Format "2006-01-02" }}</span>
+        {{ with $page.Params.categories }}
+          <span class="zd-item__kicker">{{ index . 0 }}</span>
+        {{ else }}
+          {{ with $page.Params.series }}
+            <span class="zd-item__kicker">{{ index . 0 }}</span>
+          {{ end }}
+        {{ end }}
+        {{ if and .Draft (site.Params.article.showDraftLabel | default false) }}
+          <span class="zd-item__kicker">{{ i18n "article.draft" | emojify }}</span>
+        {{ end }}
+      </div>
+      <h3 class="zd-item__title">
+        {{ .Title | emojify }}
+        {{ if .Params.externalUrl }}
+          <span class="zd-item__external">&#8599;</span>
+        {{ end }}
+      </h3>
+      {{ if .Params.showSummary | default (site.Params.list.showSummary | default false) }}
+        <p class="zd-item__excerpt">{{ .Summary | plainify | truncate 120 }}</p>
+      {{ end }}
+      <div class="zd-item__foot">
+        <span>{{ $page.WordCount }} 字</span>
+        <span class="zd-item__foot-dot">&middot;</span>
+        <span>{{ $page.ReadingTime }} 分钟</span>
+      </div>
     </div>
   </a>
 </article>

@@ -758,6 +758,47 @@ html.dark .zd-item__title {
   color: var(--gold-soft);
 }
 
+/* 列表项封面缩略图（zd-item--withcover）：左侧 200×112，窄屏堆叠 */
+.zd-item--withcover .zd-item__link {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+.zd-item__thumb {
+  flex: 0 0 200px;
+  width: 200px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgba(var(--color-neutral-300), .55);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .22);
+  background: rgb(var(--color-neutral-800));
+}
+.zd-item__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s cubic-bezier(.22, 1, .36, 1);
+}
+.zd-item:hover .zd-item__thumb img {
+  transform: scale(1.04);
+}
+.zd-item__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .zd-item--withcover .zd-item__link {
+    flex-direction: column;
+    gap: .8rem;
+  }
+  .zd-item__thumb {
+    flex: none;
+    width: 100%;
+  }
+}
+
 /* ---------- 9c. 系列目录行 (series-row 杂志大列表) ---------- */
 .series-list {
   margin-bottom: 3rem;

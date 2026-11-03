@@ -9,6 +9,8 @@
   以前这里直接写死报头，导致 homepage.layout 完全失效。
 */ -}}
 {{ define "main" }}
+  {{- /* 封面强制校验：缺封面的文章会让构建直接失败（只在这里调一次） */ -}}
+  {{ partial "check-covers.html" . }}
   {{- $layout := site.Params.homepage.layout | default "custom" -}}
 
   {{- if eq $layout "custom" -}}

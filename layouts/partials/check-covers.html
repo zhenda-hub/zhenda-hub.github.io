@@ -1,0 +1,18 @@
+{{/* 封面强制校验：posts 下每篇文章都必须有封面，缺了直接让构建失败。
+     判定：frontmatter 的 featureimage 有值，或 page bundle 内有名称含
+     feature / cover / thumbnail 的图片。
+     栏目页（_index.md）不在 RegularPages 里，天然豁免。
+     调用点：layouts/index.html（首页每次构建必渲染，一处即可覆盖全站）。 */}}
+{{ range where site.RegularPages "Section" "posts" }}
+  {{ $cover := .Params.featureimage }}
+  {{ if not $cover }}
+    {{ range .Resources.ByType "image" }}
+      {{ if and (not $cover) (findRE "(?i)(feature|cover|thumbnail)" .Name 1) }}
+        {{ $cover = .Name }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if not $cover }}
+    {{ errorf "文章缺少封面：%s —— 请设置 featureimage，或在 page bundle 里放 feature/cover/thumbnail 图片" .File.Path }}
+  {{ end }}
+{{ end }}
