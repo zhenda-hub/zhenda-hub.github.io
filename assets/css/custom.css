@@ -267,11 +267,18 @@ html.dark .menuhide a:hover {
 .masthead__avatar{display:block;width:88px;height:88px;margin:0 auto .85rem;border-radius:50%;object-fit:cover;
   box-shadow:0 0 0 1px rgb(var(--color-neutral-200)),0 0 0 5px var(--gold-soft),0 10px 28px rgba(0,0,0,.12)}
 
-/* ---------- 5b. 首页报头社交图标行 ---------- */
-.masthead__social{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem;margin:1.1rem 0 0}
-.masthead__social a{color:rgb(var(--color-neutral-400));line-height:0}
+/* ---------- 5b. 首页报头社交链接行（文字版）---------- */
+/* 用文字而非图标：各平台标识比例差异太大（小红书是 2.8:1 的横字标），
+   统一成文字后不存在尺寸对齐问题，悬停效果与顶部导航一致。
+   不加间隔符，只用左右内边距分开（padding .15em .75em）。 */
+.masthead__social{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.1rem;margin:1.1rem 0 0;
+  font-size:.92rem;letter-spacing:.06em}
+.masthead__social a{position:relative;color:rgb(var(--color-neutral-400));text-decoration:none;padding:.15em .75em;
+  transition:color .2s ease}
 .masthead__social a:hover{color:var(--gold-strong)}
-.masthead__social .icon svg{width:20px;height:20px}
+.masthead__social a::after{content:"";position:absolute;left:.75em;bottom:.02em;height:1.5px;width:0;
+  background:var(--gold-gradient);transition:width .28s cubic-bezier(.22,1,.36,1)}
+.masthead__social a:hover::after{width:calc(100% - 1.5em)}
 
 /* 版权行：窄屏与「强力驱动」自动堆叠 */
 #site-footer>.flex.items-center.justify-between{flex-wrap:wrap;gap:.5rem 1.25rem}

@@ -38,20 +38,35 @@
       <p class="masthead__sub">
         {{ site.Params.homepage.subtitle | default site.Title | markdownify }}
       </p>
-      {{/* 自媒体平台图标：与 author.links 共用同一份数据 */}}
+      {{/* 自媒体链接：文字版（图标比例差异大，统一改文字）
+           显示名在这里集中维护；新增平台只需在 languages.zh-CN.toml 的
+           params.author.links 里加一项，未列入的键会回退为 Title Case */}}
+      {{ $labels := dict
+        "github" "GitHub"
+        "bilibili" "B站"
+        "xiaohongshu" "小红书"
+        "douyin" "抖音"
+        "wechat" "公众号"
+        "shipinghao" "视频号"
+        "netease" "网易号"
+        "rss" "RSS"
+        "email" "邮箱" }}
       {{ with .Site.Params.Author.links }}
+        {{ $items := slice }}
+        {{ range . }}
+          {{ range $name, $url := . }}
+            {{ $items = $items | append (dict "name" $name "url" $url) }}
+          {{ end }}
+        {{ end }}
         <div class="masthead__social">
-          {{ range $links := . }}
-            {{ range $name, $url := $links }}
-              <a
-                href="{{ $url | safeURL }}"
-                target="_blank"
-                rel="me noopener noreferrer"
-                aria-label="{{ $name | title }}"
-                title="{{ $name | title }}">
-                {{ partial "icon.html" $name }}
-              </a>
-            {{ end }}
+          {{ range $items }}
+            {{ $label := default (title .name) (index $labels .name) }}
+            <a
+              href="{{ .url | safeURL }}"
+              target="_blank"
+              rel="me noopener noreferrer"
+              aria-label="{{ $label }}"
+              title="{{ $label }}">{{ $label }}</a>
           {{ end }}
         </div>
       {{ end }}
