@@ -7,9 +7,6 @@ toc = true
 series = ['life']
 featureimage = "featured.webp"
 +++
-[toc]
-
-
 ## 生态系统构建
 
 所有生态系统都遵循：

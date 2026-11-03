@@ -7,9 +7,6 @@ toc = true
 series = ["system"]
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ## install tool
 
 apt

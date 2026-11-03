@@ -7,9 +7,6 @@ toc = true
 series = ['ai']
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 https://zhenda-hub.github.io/ai-note/
 
 <!--[https://zhenda-hub.github.io/ai-note/](https://zhenda-hub.github.io/ai-note/)-->

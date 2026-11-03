@@ -7,9 +7,6 @@ toc = true
 series = ["web"]
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 link: <https://flask.palletsprojects.com/en/stable/>
 
 

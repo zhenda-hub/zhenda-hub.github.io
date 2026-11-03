@@ -8,9 +8,6 @@ series = ['life']
 tags = ['网络', 'Wi-Fi', 'Windows', '排障', '文件传输']
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ## 起因
 
 两台 Windows 电脑在同一个局域网，要传一批 4K 视频，单个文件 12 GB 起。

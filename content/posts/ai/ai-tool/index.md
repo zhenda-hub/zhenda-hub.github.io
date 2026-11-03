@@ -7,9 +7,6 @@ toc = true
 series = ['ai']
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ## cuda
 
 ```cmd

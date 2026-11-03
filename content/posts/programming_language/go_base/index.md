@@ -8,9 +8,6 @@ tags = ["go"]
 series = ["go"]
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ## 应用场景
 
 Web 后端（高并发） → Go（必选）

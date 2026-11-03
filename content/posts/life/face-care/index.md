@@ -7,9 +7,6 @@ toc = true
 series = ['life']
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ## 肤质类型和测试方法
 
 方法 1：洁面观察法（最简单）

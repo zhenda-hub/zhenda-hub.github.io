@@ -8,9 +8,6 @@ toc = true
 series = ["web"]
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 link <https://fastapi.tiangolo.com/zh/tutorial/first-steps/>
 
 ## 快速开始

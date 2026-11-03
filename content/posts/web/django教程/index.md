@@ -7,9 +7,6 @@ toc = true
 series = ["web"]
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ## 网站开发逻辑
 
 - 数据

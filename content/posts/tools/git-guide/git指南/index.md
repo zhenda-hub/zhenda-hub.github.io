@@ -7,9 +7,6 @@ toc = true
 tags = ["git", "tools"]
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ## 官方文档
 
 <https://git-scm.com/book/zh/v2>

@@ -6,11 +6,8 @@ draft = false
 toc = true
 series = ['tech']
 featureimage = "featured.webp"
-+++
++++# 数据结构和算法
 
-# 数据结构和算法
-
-[toc]
 
 ## 重要性
 

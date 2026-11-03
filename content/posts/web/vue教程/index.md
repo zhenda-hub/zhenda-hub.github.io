@@ -7,9 +7,6 @@ toc = true
 series = ["web"]
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ## document
 
 -   https://cn.vuejs.org/

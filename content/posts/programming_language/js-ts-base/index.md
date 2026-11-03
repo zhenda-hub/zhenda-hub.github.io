@@ -7,9 +7,6 @@ toc = true
 series = ["js"]
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ### 应用场景
 
 - 网页应用： 像 Notion、Trello 这种漂亮的 Web 工具。

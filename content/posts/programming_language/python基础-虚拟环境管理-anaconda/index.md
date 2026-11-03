@@ -6,9 +6,6 @@ toc = true
 series = ["python"]
 featureimage = "featured.webp"
 +++
-
-[toc]
-
 ## python虚拟环境的必要性
 
 背景：在我们实际开发的python项目，因为常常依赖第三方库，并且第三方库之间的版本也需要相互兼容，程序才可以正常执行。

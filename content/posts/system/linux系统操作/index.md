@@ -8,9 +8,6 @@ series = ["system"]
 featureimage = "featured.webp"
 aliases = ["/posts/system/linux系统操作/linux系统操作/"]
 +++
-
-[toc]
-
 ## 文章目的
 
 希望 linux 初学者可以通过本章内容，快速入门 linux。文章引用了菜鸟教程的优秀文章，以及网络上的一些图片
