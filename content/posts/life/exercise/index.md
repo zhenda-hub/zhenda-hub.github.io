@@ -1,0 +1,19 @@
++++
+title = 'Exercise'
+description = "上班族运动指南：健身房选择、时间安排与家庭健身起步方案。 | Exercise guide for office workers: gym choice, scheduling and home workouts."
+subtitle = ""
+date = 2025-10-10T15:00:31+08:00
+draft = false
+toc = true
+series = ['life']
+featureimage = "featured.webp"
++++
+
+
+### 上班族运动
+
+选择离家或公司近的健身房： 减少通勤时间就是增加运动的可能性。或者，从家庭健身开始，买一对哑铃、一根弹力带、一张瑜伽垫就足够了。
+
+运动时间： 早上 6:00 - 7:00
+
+运动时间： 晚上 7:30 - 8:30

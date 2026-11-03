@@ -1,0 +1,488 @@
++++
+title = 'Go_base'
+subtitle = ""
+date = 2024-09-25T17:17:57+08:00
+draft = false
+toc = true
+tags = ["go"]
+series = ["go"]
+featureimage = "featured.webp"
++++
+
+[toc]
+
+## 应用场景
+
+Web 后端（高并发） → Go（必选）
+命令行工具（发布） → Go（体验好）
+
+## 资料
+
+- <https://go.dev/doc/#references>
+- <https://tour.go-zh.org/basics/1>
+- <https://pkg.go.dev/std>
+
+一个Go项目中只能有**一个 main 包和一个 main() 函数**
+在Go语言中，**所有可执行代码**必须在函数内部（通常是`main`函数）。
+
+你会直接编辑 go.mod（虽然通常通过 Go 命令来做），但永远不应该手动编辑 go.sum
+用于管理项目的依赖关系。它们共同保证了项目的构建过程的可靠性和可重复性
+
+go 版本切换
+
+- gvm
+- asdf
+
+## go env
+
+```bash
+zhenda@yoga-13s-2021:~$ go env
+GOPATH='/home/zhenda/go'
+GOROOT='/usr/local/go'
+GOPROXY='https://proxy.golang.org,direct'
+GOTOOLCHAIN='auto'
+
+GO111MODULE=''
+GOARCH='amd64'
+GOBIN=''
+GOCACHE='/home/zhenda/.cache/go-build'
+GOENV='/home/zhenda/.config/go/env'
+GOEXE=''
+GOEXPERIMENT=''
+GOFLAGS=''
+GOHOSTARCH='amd64'
+GOHOSTOS='linux'
+GOINSECURE=''
+GOMODCACHE='/home/zhenda/go/pkg/mod'
+GONOPROXY=''
+GONOSUMDB=''
+GOOS='linux'
+GOPRIVATE=''
+GOSUMDB='sum.golang.org'
+GOTMPDIR=''
+GOTOOLDIR='/usr/local/go/pkg/tool/linux_amd64'
+GOVCS=''
+GOVERSION='go1.23.1'
+GODEBUG=''
+GOTELEMETRY='local'
+GOTELEMETRYDIR='/home/zhenda/.config/go/telemetry'
+GCCGO='gccgo'
+GOAMD64='v1'
+AR='ar'
+CC='gcc'
+CXX='g++'
+CGO_ENABLED='1'
+GOMOD='/dev/null'
+GOWORK=''
+CGO_CFLAGS='-O2 -g'
+CGO_CPPFLAGS=''
+CGO_CXXFLAGS='-O2 -g'
+CGO_FFLAGS='-O2 -g'
+CGO_LDFLAGS='-O2 -g'
+PKG_CONFIG='pkg-config'
+GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build2891050929=/tmp/go-build -gno-record-gcc-switches'
+```
+
+```bash
+echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 网络配置, 国内被墙
+
+```cmd
+setx GOPROXY "https://goproxy.cn,direct"
+
+```
+
+```bash
+go env -w GOPROXY=https://goproxy.cn,direct
+go env -w GOSUMDB=off
+```
+
+## 交互式环境（REPL）
+
+- The Go Playground: https://go.dev/play/
+- gore
+
+```bash
+go install github.com/x-motemen/gore/cmd/gore@latest
+
+go: github.com/x-motemen/gore@v0.6.1 requires go >= 1.24; switching to go1.24.11
+go: downloading go1.24.11 (linux/amd64)
+go: download go1.24.11: golang.org/toolchain@v0.0.1-go1.24.11.linux-amd64: verifying module: checksum database disabled by GOSUMDB=off
+```
+
+```bash
+gore> :help
+    :import <package>     import a package
+    :type <expr>          print the type of expression
+    :print                print current source
+    :write [<file>]       write out current source
+    :clear                clear the codes
+    :doc <expr or pkg>    show documentation
+    :help                 show this help
+    :quit                 quit the session
+```
+
+## go版本升级, 多版本
+
+### windows环境
+
+```powershell
+# 安装Scoop后
+scoop install go
+
+# 安装多版本
+scoop install go@1.20
+
+# 切换版本
+scoop reset go@1.20
+```
+
+### Linux环境
+
+#### 手动安装多版本
+
+```bash
+# 下载不同版本
+wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.20.0.linux-amd64.tar.gz
+# 解压到不同目录
+sudo mv /usr/local/go /usr/local/go1.21.0
+sudo tar -C /usr/local -xzf go1.21.0.linux-amd64.tar.gz
+```
+
+#### 切换版本：修改PATH环境变量
+
+1. 使用命令直接切换
+
+```bash
+export PATH="/usr/local/go1.21.0/bin:$PATH"
+```
+
+2. 使用脚本切换版本
+
+创建简单的切换脚本 switch-go.sh：
+
+```bash
+#!/bin/bash
+export GOROOT="/usr/local/go$1"
+export PATH="$GOROOT/bin:$PATH"
+go version
+```
+
+使用：
+
+```bash
+source switch-go.sh 1.21.0
+```
+
+## 常用命令
+
+```bash
+# 初始化项目
+go mod init mypj
+# 更新依赖
+go get -u
+go get -u xxx
+go get .
+# 更新go.mod文件
+go mod tidy
+# 查看依赖
+go list -m all
+
+go run .
+# 打包main包
+go build
+go test xxx
+# 使用 air 进行热重载
+air
+```
+
+## 基本调试
+
+```go
+
+func main() {
+    const name, age = "Kim", 22
+    fmt.Println(name, "is", age, "years old.")
+
+    // 查看数据的类型
+    fmt.Printf("%T, %T\n", ptrs, ptrs2)
+}
+
+
+
+
+```
+
+## 数据结构
+
+变量
+
+```go
+/*
+这是一个多行注释
+可以用于注释多行内容
+*/
+
+// 单行注释
+
+/*
+- rune 用于表示 字符（尤其是 Unicode 字符），是 32 位 的带符号整数。
+- byte 是 uint8 的别名，表示无符号的 8 位整数，范围从 0 到 255。用于表示 字节，它是 8 位 无符号整数，通常用于处理 ASCII 字符和原始二进制数据。
+*/
+
+var i byte
+var i int
+var f float64 = 3.14
+// 短赋值语句 := 可在隐式确定类型的 var 声明中使用, 不能在函数外使用
+name := "Alice" // 简短变量声明
+```
+
+数组, 固定长度, 几乎不怎么用
+
+```go
+var arr [5]int = [5]int{1, 2, 3, 4, 5}
+arr[2] = 10
+```
+
+slice, 可以动态改变大小，每个子切片的长度可以不同，适合处理大小不定或动态的数据
+
+```go
+a := make([]int, 3)
+// 二维切片
+b := make([][]int, 3)
+// 二维any切片
+data := [][]any{
+	{1, 2, 3},
+	{"a", "b", "c"},
+}
+
+```
+
+```go
+// 数字固定, 不常用
+var s []int = []int{1, 2, 3, 4}
+s = append(s, 5)
+
+a := [][]int{{1,2,3,4}, {5,6,7,8}, {9,10,11,12}}
+
+```
+
+map
+
+```go
+m := make(map[string]int)
+m["age"] = 30
+delete(m, "age")
+
+```
+
+make
+`make([]T, length, capacity)` 用于创建切片、映射和通道
+
+指针 pointer
+
+```go
+var x int = 10
+var p *int = &x
+fmt.Println(*p) // 输出 10
+
+
+func addOne(x *int) {
+    *x++
+}
+
+a := 10
+addOne(&a)
+// a == 11
+
+```
+
+结构体
+
+```go
+type Person struct {
+    Name string
+    Age  int
+}
+```
+
+channel（通道）是 Go 中用于在 goroutine 之间传递值的类型，常用于同步和通信
+
+```go
+ch := make(chan int)
+go func() {
+    ch <- 1
+    ch <- 2
+    close(ch)
+}()
+for v := range ch {
+    fmt.Println(v)
+}
+```
+
+**nil** 表示空值，专门用于指针、接口、切片、通道、映射和函数类型的零值（默认值）。
+简单来说：nil 就是“什么都没有”的意思，相当于其他语言里的 null 或 None（Python）。
+
+类型转换
+
+```go
+var a int = 10
+var b float64 = float64(a)
+```
+
+检查类型
+
+```go
+// 检查类型是否是 int
+if v, ok := data[0][0].(int); ok {
+    fmt.Println(v + 1)
+}
+```
+
+## 函数
+
+控制逻辑
+
+for
+
+```go
+// 相当于 python 的 enumerate
+for index, value := range arr {
+    fmt.Println(index, value)
+}
+
+for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}
+
+```
+
+if
+
+```go
+if x > 10 {
+    fmt.Println("x is greater than 10")
+} else {
+    fmt.Println("x is less than or equal to 10")
+}
+
+// 错误示范
+if x > 0 {
+    doA()
+}
+else {   // <- 语法错误：else 必须和前面的 } 在同一行
+    doB()
+}
+```
+
+函数
+
+```go
+func greet(name string) {
+    m, n := len(name), len(name[0])
+    fmt.Printf("Hello, %s!\n", name)
+}
+```
+
+```go
+/*
+因为 Go 不允许在函数体内直接声明“具名函数”，
+但允许变量引用函数值（闭包）。
+*/
+
+var dfs func(int) bool
+dfs = func(x int) bool {
+    ...
+    dfs(y)
+}
+
+```
+
+interface
+
+```go
+type Animal interface {
+    move()
+    eat()
+}
+```
+
+## 包
+
+package xxx
+
+xxx 就是包名, 基本等于文件夹名
+
+文件夹内的函数不能重名
+
+## 常用工具包
+
+| 包名           | 功能                | 常用函数                            |
+| :------------- | :------------------ | :---------------------------------- |
+| fmt            | 格式化输入输出      | Println, Printf, Sprintf            |
+| strings        | 字符串处理          | Split, Contains, Replace, ToLower   |
+| strconv        | 字符串转换          | Atoi, ParseInt, Itoa, FormatInt     |
+| math           | 数学函数            | Max, Min, Sqrt, Pow, Abs            |
+| os             | 操作系统接口        | Open, Create, ReadFile, WriteFile   |
+| io             | 输入输出接口        | Reader, Writer, Copy                |
+| log            | 日志记录            | Println, Fatal, Panic               |
+| time           | 时间处理            | Now, Sleep, Parse, Format           |
+| sort           | 排序                | Ints, Strings, Sort, Reverse        |
+| errors         | 错误处理            | New, Is, As                         |
+| bufio          | 缓冲 I/O            | Scanner, Reader, Writer             |
+| json           | JSON 处理           | Marshal, Unmarshal                  |
+| encoding/json  | JSON 编码和解码     | Marshal, Unmarshal                  |
+| encoding/xml   | XML 编码和解码      | Marshal, Unmarshal                  |
+| encoding/csv   | CSV 编码和解码      | NewReader, NewWriter                |
+| container/list | 链表                | New, PushBack, Remove               |
+| container/heap | 堆                  | Push, Pop, Init                     |
+| net/http       | HTTP 客户端和服务器 | Get, Post, ListenAndServe           |
+| net/url        | URL 解析和构建      | Parse, URL, QueryEscape             |
+| context        | 上下文管理          | Background, WithCancel, WithTimeout |
+| database/sql   | 数据库操作          | Open, Query, Exec                   |
+
+```go
+import (
+    "fmt"
+    "strings"
+    "strconv"
+    "math"
+    "os"
+    "io"
+    "log"
+    "time"
+    "sort"
+    "errors"
+    "bufio"
+    "encoding/json"
+    "net/http"
+    "context"
+    "database/sql"
+)
+
+func main() {
+    // 示例代码
+    fmt.Print("Hello, Go!") // 不会换行
+    fmt.Println("Hello, Go!") // 自动换行
+}
+
+```
+
+## 并发
+
+并发模型基于 goroutine 和 channel
+
+goroutine 超轻量（几 KB）
+channel 天然适合事件驱动系统
+
+## 部署
+
+部署极其容易, 生成一个二进制文件, 直接运行
+
+## 内存管理
+
+Go 的 GC 模型 来并发回收

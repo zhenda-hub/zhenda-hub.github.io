@@ -5,6 +5,7 @@ date = 2026-03-16T23:01:23+08:00
 draft = false
 toc = true
 series = ['bible']
+featureimage = "featured.jpg"
 +++
 
 ![信经](featured.jpg)

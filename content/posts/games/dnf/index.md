@@ -6,6 +6,7 @@ draft = false
 toc = true
 tags = ['DNF', '游戏剧情', '世界观']
 series = []
+featureimage = "featured.webp"
 +++
 
 ## 写在前面

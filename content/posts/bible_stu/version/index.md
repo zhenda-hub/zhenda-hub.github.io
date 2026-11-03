@@ -5,6 +5,7 @@ date = 2026-03-21T15:59:01+08:00
 draft = false
 toc = true
 series = []
+featureimage = "featured.jpg"
 +++
 
 ## 中文译本准确度排行

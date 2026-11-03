@@ -5,6 +5,7 @@ date = 2025-10-14T11:07:00+08:00
 draft = false
 toc = true
 series = ['life']
+featureimage = "featured.jpg"
 +++
 
 

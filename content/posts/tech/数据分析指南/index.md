@@ -1,0 +1,42 @@
++++
+title = '数据分析资源'
+subtitle = ""
+date = 2024-01-08T23:38:45+08:00
+draft = false
+toc = true
+tags = ["python", "data"]
+series = ["tech"]
+featureimage = "featured.webp"
++++
+
+## numpy
+
+官方文档: <https://numpy.org/doc/stable/user/absolute_beginners.html>
+
+## pandas
+
+官方文档: <https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html>
+
+```python
+import pandas as pd
+
+In [45]: d = {"one": [1.0, 2.0, 3.0, 4.0], "two": [4.0, 3.0, 2.0, 1.0]}
+
+In [46]: pd.DataFrame(d)
+Out[46]:
+   one  two
+0  1.0  4.0
+1  2.0  3.0
+2  3.0  2.0
+3  4.0  1.0
+
+
+
+In [49]: data = [(1, 2.0, "Hello"), (2, 3.0, "World")]
+In [52]: pd.DataFrame(data, columns=["C", "A", "B"])
+Out[52]:
+          C  A    B
+0  b'Hello'  1  2.0
+1  b'World'  2  3.0
+
+```

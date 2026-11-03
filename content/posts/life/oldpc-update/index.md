@@ -6,6 +6,7 @@ draft = false
 toc = true
 series = ['life']
 tags = ['硬件', '旧电脑', 'Windows', '复古游戏', '装机']
+featureimage = "featured.jpg"
 +++
 
 [toc]

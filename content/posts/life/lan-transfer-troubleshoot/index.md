@@ -6,6 +6,7 @@ draft = false
 toc = true
 series = ['life']
 tags = ['网络', 'Wi-Fi', 'Windows', '排障', '文件传输']
+featureimage = "featured.webp"
 +++
 
 [toc]
