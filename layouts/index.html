@@ -84,7 +84,7 @@
         <span class="sec-head__line"></span>
         <a class="sec-head__more" href="{{ "/posts/" | relLangURL }}">查看全部 →</a>
       </div>
-      <div class="w-full">
+      <div class="w-full space-y-10">
         {{ range first (site.Params.homepage.showRecentItems | default 10) $posts }}
           {{ partial "article-link/simple.html" . }}
         {{ end }}
