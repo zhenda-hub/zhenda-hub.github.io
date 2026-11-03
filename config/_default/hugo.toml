@@ -4,7 +4,8 @@ defaultContentLanguage = "zh-CN"
 theme = "blowfish"
 enableRobotsTXT = true
 pagination.pagerSize = 12
-summaryLength = 0
+# 列表页简介长度：中文（hasCJKLanguage=true）按字计，70 ≈ 一两句
+summaryLength = 70
 hasCJKLanguage = true
 
 [outputs]
