@@ -27,10 +27,10 @@ title = "星图与尘埃 · Starmap & Dust"
 
     # ---- 自媒体平台（链接为占位：先看图标样式，拿到真实主页后只改 url）----
     [[params.author.links]]
-      bilibili = "https://space.bilibili.com/361115341"
+      xiaohongshu = "https://www.xiaohongshu.com/user/profile/5db9813b000000000100940c"
 
     [[params.author.links]]
-      xiaohongshu = "https://www.xiaohongshu.com/user/profile/5db9813b000000000100940c"
+      bilibili = "https://space.bilibili.com/361115341"
 
     [[params.author.links]]
       douyin = "https://www.douyin.com/user/MS4wLjABAAAAK3CbW0vnXiBZpvt2iddASRKlX13nYJXmDfaQUaiELf4INL-AMGmQlAY1j6O_2z9-"
