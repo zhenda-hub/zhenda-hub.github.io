@@ -91,7 +91,7 @@ h6 {
 
 /* ---------- 2b. 中英混排断行基线 ---------- */
 body{line-break:strict;word-break:normal;overflow-wrap:break-word;text-wrap:pretty}
-h1,h2,h3,.masthead__title,.list-hero h1,.zd-card__title,.zd-item__title,.series-row__title{text-wrap:balance}
+h1,h2,h3,.masthead__title,.list-hero h1,.zd-card__title,.series-row__title{text-wrap:balance}
 
 /* ---------- 3. 选中 / 滚动条 / 焦点 ---------- */
 ::selection {
@@ -669,137 +669,7 @@ html.dark .zd-card__title {
   color: var(--gold-soft);
 }
 
-/* ---------- 9b. 文章列表 (zd-item 编辑感列表) ---------- */
-.zd-item {
-  position: relative;
-}
-.zd-item + .zd-item {
-  border-top: 1px solid rgba(var(--color-neutral-200), 0.9);
-}
-.zd-item__link {
-  display: block;
-  position: relative;
-  padding: 1.5rem 0.4rem;
-  transition: padding-left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.zd-item__link::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 1.6rem;
-  bottom: 1.6rem;
-  width: 2px;
-  background: var(--gold-gradient);
-  opacity: 0;
-  transform: scaleY(0.4);
-  transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.zd-item:hover .zd-item__link {
-  padding-left: 1.1rem;
-}
-.zd-item:hover .zd-item__link::before {
-  opacity: 1;
-  transform: scaleY(1);
-}
-.zd-item__meta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-bottom: 0.35rem;
-}
-.zd-item__date {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  color: rgb(var(--color-neutral-400));
-}
-.zd-item__kicker {
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold-strong);
-}
-.zd-item__title {
-  font-family: var(--font-serif);
-  font-size: 1.32rem;
-  font-weight: 700;
-  line-height: 1.5;
-  color: var(--ink);
-  transition: color 0.25s;
-}
-.zd-item:hover .zd-item__title {
-  color: var(--gold-strong);
-}
-html.dark .zd-item__title {
-  color: rgb(var(--color-neutral-50));
-}
-.zd-item__external {
-  font-size: 0.85rem;
-  color: rgb(var(--color-neutral-400));
-}
-.zd-item__excerpt {
-  margin-top: 0.45rem;
-  font-size: 0.92rem;
-  line-height: 1.85;
-  color: rgb(var(--color-neutral-500));
-}
-.zd-item__foot {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.55rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  color: rgb(var(--color-neutral-400));
-}
-.zd-item__foot-dot {
-  color: var(--gold-soft);
-}
-
-/* 列表项封面缩略图（zd-item--withcover）：左侧 200×112，窄屏堆叠 */
-.zd-item--withcover .zd-item__link {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.15rem;
-}
-.zd-item__thumb {
-  flex: 0 0 200px;
-  width: 200px;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: 6px;
-  border: 1px solid rgba(var(--color-neutral-300), .55);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .22);
-  background: rgb(var(--color-neutral-800));
-}
-.zd-item__thumb img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .7s cubic-bezier(.22, 1, .36, 1);
-}
-.zd-item:hover .zd-item__thumb img {
-  transform: scale(1.04);
-}
-.zd-item__body {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .zd-item--withcover .zd-item__link {
-    flex-direction: column;
-    gap: .8rem;
-  }
-  .zd-item__thumb {
-    flex: none;
-    width: 100%;
-  }
-}
-
-/* ---------- 9c. 系列目录行 (series-row 杂志大列表) ---------- */
+/* ---------- 9b. 系列目录行 (series-row 杂志大列表) ---------- */
 .series-list {
   margin-bottom: 3rem;
 }
@@ -1298,13 +1168,7 @@ html.dark #scroll-to-top a {
 .tracking-widest { letter-spacing: 0.1em; }
 .right-2 { right: 0.5rem; }
 
-/* ---------- 23. 列表行宽限制（对应 list.constrainItemsWidth） ---------- */
-.zd-item--constrained {
-  max-width: 65ch;
-  margin-inline: auto;
-}
-
-/* ---------- 25. 系列页顶部饼图 ---------- */
+/* ---------- 23. 系列页顶部饼图 ---------- */
 .series-stats {
   display: flex;
   align-items: center;
