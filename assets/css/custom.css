@@ -270,15 +270,25 @@ html.dark .menuhide a:hover {
 /* ---------- 5b. 首页报头社交链接行（文字版）---------- */
 /* 用文字而非图标：各平台标识比例差异太大（小红书是 2.8:1 的横字标），
    统一成文字后不存在尺寸对齐问题，悬停效果与顶部导航一致。
-   不加间隔符，只用左右内边距分开（padding .15em .75em）。 */
-.masthead__social{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.1rem;margin:1.1rem 0 0;
+   间隔符是 CSS 画的竖线（不是字符），粗细/高度/颜色由下面 4 个变量控制。 */
+.masthead__social{
+  --sep-width:1px;                                  /* 竖线粗细 */
+  --sep-height:.9em;                                /* 竖线高度 */
+  --sep-color:rgb(var(--color-neutral-500));        /* 竖线颜色 */
+  --sep-opacity:.35;
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0;margin:1.1rem 0 0;
   font-size:.92rem;letter-spacing:.06em}
-.masthead__social a{position:relative;color:rgb(var(--color-neutral-400));text-decoration:none;padding:.15em .75em;
+.masthead__social a{position:relative;color:rgb(var(--color-neutral-400));text-decoration:none;padding:.15em .85em;
   transition:color .2s ease}
 .masthead__social a:hover{color:var(--gold-strong)}
-.masthead__social a::after{content:"";position:absolute;left:.75em;bottom:.02em;height:1.5px;width:0;
+/* 悬停下划线 */
+.masthead__social a::after{content:"";position:absolute;left:.85em;bottom:.02em;height:1.5px;width:0;
   background:var(--gold-gradient);transition:width .28s cubic-bezier(.22,1,.36,1)}
-.masthead__social a:hover::after{width:calc(100% - 1.5em)}
+.masthead__social a:hover::after{width:calc(100% - 1.7em)}
+/* 竖线间隔符：画在相邻链接的左边缘（= 两个链接之间的空隙正中） */
+.masthead__social a + a::before{content:"";position:absolute;left:0;top:50%;
+  width:var(--sep-width);height:var(--sep-height);transform:translateY(-50%);
+  background:var(--sep-color);opacity:var(--sep-opacity)}
 
 /* 版权行：窄屏与「强力驱动」自动堆叠 */
 #site-footer>.flex.items-center.justify-between{flex-wrap:wrap;gap:.5rem 1.25rem}
