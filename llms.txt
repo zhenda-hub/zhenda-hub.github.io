@@ -11,6 +11,7 @@
 ## 站点地图 Site Map
 
 ## 文章 · Posts
+- [中国 IT 外包公司版图](https://zhenda-hub.github.io/posts/social/it-outsourcing/)
 - [搜「海边」搜出一堆无关照片：immich 调优记录](https://zhenda-hub.github.io/posts/life/immich-tuning-2026-11-01/)
 - [本来只想让风扇安静点：一台家用 NAS 的一夜整改](https://zhenda-hub.github.io/posts/life/nas-rebuild-2026-11-01/)
 - [Blowfish 自定义规范与本博客的轻量做法](https://zhenda-hub.github.io/posts/hugo_blowfish_guide/blowfish-customization-rules/)
