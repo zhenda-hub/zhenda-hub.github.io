@@ -9,8 +9,6 @@ series = ['life']
 tags = ['NAS', 'Linux', 'Docker', '备份', '网络', '排障']
 +++
 
-[toc]
-
 ## 起因
 
 晚上十点，书房里那台 GMKtec NucBox G3 Plus 的风扇一直在高速转。
