@@ -50,7 +50,7 @@ imagePositionFeature = "center"
   subtitle = '编程 · AI · 自媒体 · 个人成长'
 
   showRecent = true
-  showRecentItems = 9
+  showRecentItems = 6
   cardView = true
   showMoreLink = true
 
