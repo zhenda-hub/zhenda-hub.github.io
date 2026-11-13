@@ -2,13 +2,19 @@
 title = '网吧游戏'
 subtitle = ""
 date = 2026-10-12T00:25:12+08:00
-draft = true
+draft = false
 toc = true
 series = []
 featureimage = "featured.webp"
 +++
 
-## dx分类
+## DX 是什么
+
+**DX = DirectX**，微软的一套图形与多媒体 API 集合。游戏不直接操作显卡，而是通过 DirectX 发出绘制指令——所以「这个游戏是 DX9 还是 DX12」实际上是在问：它用的是哪一代图形接口。
+
+版本越新，能用的特性越多（着色器、曲面细分、光追），但对显卡和系统的要求也越高。网吧机器的显卡能力，基本就决定了它能跑哪个 DX 档位的游戏。
+
+## DirectX 版本分类
 
 | 版本 | 年份 | 关键变化 |
 | --- | --- | --- |
