@@ -1,4 +1,4 @@
 +++
-title = "社交"
-description = "社交与关系思考"
+title = "社会"
+description = "社会与关系思考"
 +++
