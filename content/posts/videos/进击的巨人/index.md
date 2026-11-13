@@ -45,23 +45,17 @@ featureimage = "featured.webp"
 
 ## 关键人物
 
-{{< figure src="imgs-chars/eren.jpg" alt="艾伦·耶格尔" caption="**艾伦·耶格尔** —— 主角。母亲被吞食后立志驱逐巨人，后来成为进击的巨人的继承者" >}}
-
-{{< figure src="imgs-chars/mikasa.jpg" alt="三笠·阿克曼" caption="**三笠·阿克曼** —— 战斗力顶尖，从小被艾伦一家收养，始终护着艾伦" >}}
-
-{{< figure src="imgs-chars/armin.jpg" alt="阿尔敏·阿诺德" caption="**阿尔敏·阿诺德** —— 战术大脑。武力不行，但靠推理和谈判多次改变局面" >}}
-
-{{< figure src="imgs-chars/levi.jpg" alt="利威尔·阿克曼" caption="**利威尔·阿克曼** —— 调查兵团兵长，公认的人类最强士兵" >}}
-
-{{< figure src="imgs-chars/erwin.jpg" alt="埃尔文·史密斯" caption="**埃尔文·史密斯** —— 调查兵团团长。为了拿到真相，敢把整支部队当赌注" >}}
-
-{{< figure src="imgs-chars/hange.jpg" alt="韩吉·佐耶" caption="**韩吉·佐耶** —— 巨人研究负责人，埃尔文之后接任团长" >}}
-
-{{< figure src="imgs-chars/reiner.jpg" alt="莱纳·布朗" caption="**莱纳·布朗** —— 铠之巨人的继承者，来自墙外，在墙内潜伏多年" >}}
-
-{{< figure src="imgs-chars/zeke.jpg" alt="吉克·耶格尔" caption="**吉克·耶格尔** —— 兽之巨人，艾伦同父异母的哥哥，来自墙外" >}}
-
-{{< figure src="imgs-chars/ymir.jpg" alt="尤弥尔" caption="**尤弥尔** —— 104 期训练兵，颚之巨人的继承者" >}}
+{{< charcards >}}
+eren|艾伦·耶格尔|主角。母亲被吞食后立志驱逐巨人，后来成为进击的巨人的继承者
+mikasa|三笠·阿克曼|战斗力顶尖，从小被艾伦一家收养，始终护着艾伦
+armin|阿尔敏·阿诺德|战术大脑。武力不行，但靠推理和谈判多次改变局面
+levi|利威尔·阿克曼|调查兵团兵长，公认的人类最强士兵
+erwin|埃尔文·史密斯|调查兵团团长。为了拿到真相，敢把整支部队当赌注
+hange|韩吉·佐耶|巨人研究负责人，埃尔文之后接任团长
+reiner|莱纳·布朗|铠之巨人的继承者，来自墙外，在墙内潜伏多年
+zeke|吉克·耶格尔|兽之巨人，艾伦同父异母的哥哥，来自墙外
+ymir|尤弥尔|104 期训练兵，颚之巨人的继承者
+{{< /charcards >}}
 
 ## 势力与地名
 
