@@ -1,5 +1,5 @@
 +++
-title = '一个索引器啃 21 万张照片 7 小时，根因是目录规划'
+title = '索引器满核跑 7 小时，根因是服务数据放在了 ~/Documents'
 subtitle = "风扇高速转、四核 76℃ 的背后：GNOME 索引器在反复重试大量提取失败的图片"
 date = 2026-11-01T03:00:00+08:00
 draft = false
@@ -38,9 +38,9 @@ Could not get any metadata for uri:'file:///home/zhenda/Documents/ds_ws/
 immich-app/library/upload/.../e010306c-....JPG' and mime:'image/jpeg'
 ```
 
-一共 **一千五百余条**。
+这条记录反复刷屏，从头到尾没有停过。
 
-原因很清楚：`~/Documents/ds_ws/immich-app/library` 里是二十余万张照片。索引器在提取图片元数据，大量文件提取失败，它就会反复重试，永远出不来。
+原因很清楚：`~/Documents/ds_ws/immich-app/library` 是一个体积庞大的照片库。索引器在提取图片元数据，大量文件提取失败，它就会反复重试，永远出不来。
 
 ## 根因：服务数据放在 ~/Documents 下
 
