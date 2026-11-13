@@ -1,9 +1,9 @@
 +++
 title = '本来只想让风扇安静点：一台家用 NAS 的一夜整改'
-description = "从风扇噪音开始的完整排障：一个满核跑 7 小时的索引器、413 GB 备份迁移、Duplicati 与 smartd 告警配置、光猫下发的公网 IPv6 暴露、Samba 家庭共享，以及两个我判断错了的地方。"
+description = "【已拆分为三篇，见「家用 NAS」系列：nas-backup / nas-alert / nas-tracker】风扇噪音、备份迁移、告警配置、IPv6 暴露、Samba 共享等"
 subtitle = ""
 date = 2026-11-01T02:40:00+08:00
-draft = false
+draft = true
 toc = true
 series = ['life']
 tags = ['NAS', 'Linux', 'Docker', '备份', '网络', '排障']
