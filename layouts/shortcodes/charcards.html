@@ -1,0 +1,24 @@
+{{/* 人物网格：自适应列数，一张图紧跟自己的名字与定位
+   用法：
+   {{< charcards >}}
+   naruto|漩涡鸣人|主角。九尾人柱力
+   sasuke|宇智波佐助|同班对手
+   {{< /charcards >}}
+   图片按 slug 在 imgs-chars/ 下匹配，Hugo 自动发布 + 裁剪。 */}}
+<div class="charcards">
+{{- range split (strings.TrimSpace .Inner) "\n" -}}
+  {{- $line := strings.TrimSpace . -}}
+  {{- if $line -}}
+    {{- $p := split $line "|" -}}
+    {{- $slug := index $p 0 -}}
+    {{- $name := index $p 1 -}}
+    {{- $desc := index $p 2 -}}
+    {{- with $.Page.Resources.GetMatch (printf "imgs-chars/%s.*" $slug) -}}
+      <figure class="charcard">
+        <img src="{{ (.Resize "240x320 jpg q80").RelPermalink }}" alt="{{ $name }}" width="240" height="320" loading="lazy">
+        <figcaption><b>{{ $name }}</b><span>{{ $desc }}</span></figcaption>
+      </figure>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+</div>

@@ -1206,3 +1206,31 @@ html.dark .series-stats__name { color: rgb(var(--color-neutral-300)); }
   .series-stats__chart { flex: none; height: 260px; }
   .series-stats__legend { flex: none; }
 }
+
+/* 人物网格（layouts/shortcodes/charcards.html） */
+.charcards{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));margin:1.6rem 0;}
+.charcard{margin:0;padding:0;border-radius:10px;overflow:hidden;border:1px solid rgba(201,169,97,.18);background:rgba(255,255,255,.03);}
+.charcard img{width:100%;height:auto;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top center;margin:0;border-radius:0;}
+.charcard figcaption{padding:8px 10px 9px;}
+.charcard b{display:block;font-size:13px;line-height:1.3;color:#c9a961;font-weight:700;}
+.charcard span{display:block;font-size:11.5px;line-height:1.45;opacity:.72;margin-top:3px;}
+@media (max-width:640px){.charcards{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;}
+.charcard b{font-size:12px;}.charcard span{font-size:11px;}}
+
+/* ---------- PC 端放宽正文显示区域 ---------- */
+/* 默认：外层容器 max-w-7xl(1280px) + 两侧 lg:px-32(128px)，正文 max-w-prose(65ch) */
+@media (min-width: 1280px) {
+  .m-auto.max-w-7xl {
+    max-width: 100rem;      /* 1280px -> 1600px */
+    padding-left: 2.5rem;   /* 8rem -> 2.5rem */
+    padding-right: 2.5rem;
+  }
+  /* 文章正文：保持可读宽度 */
+  .article-content.max-w-prose {
+    max-width: 62rem;
+  }
+  /* 其余列表类（标签云、标签文章列表、系列页）：铺满容器，避免窄且靠左 */
+  .max-w-prose:not(.article-content) {
+    max-width: none;
+  }
+}
