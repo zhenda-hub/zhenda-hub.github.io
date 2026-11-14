@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-01-09T00:04:35+08:00
 draft = false
 toc = true
-tags = ["docker", "tools"]
+tags = ['docker']
 series = ["tech"]
 featureimage = "featured.webp"
 +++

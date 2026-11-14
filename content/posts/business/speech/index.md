@@ -4,7 +4,7 @@ subtitle = ""
 date = 2026-08-18T20:10:46+08:00
 draft = false
 toc = true
-tags = ['演讲', '表达']
+tags = ['演讲']
 series = ['business']
 featureimage = "featured.webp"
 +++

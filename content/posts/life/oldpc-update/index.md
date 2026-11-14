@@ -5,7 +5,7 @@ date = 2026-10-14T16:30:00+08:00
 draft = false
 toc = true
 series = ['life']
-tags = ['硬件', '旧电脑', 'Windows', '经典单机游戏', '装机']
+tags = ['旧设备升级', '旧电脑', 'Windows', '经典单机游戏']
 featureimage = "featured.jpg"
 +++
 ## 起因

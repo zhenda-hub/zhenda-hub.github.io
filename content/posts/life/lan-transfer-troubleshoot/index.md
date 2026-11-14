@@ -5,7 +5,7 @@ date = 2026-10-20T21:30:00+08:00
 draft = false
 toc = true
 series = ['life']
-tags = ['网络', 'Wi-Fi', 'Windows', '排障', '文件传输']
+tags = ['Wi-Fi', 'Windows', '文件传输']
 featureimage = "featured.webp"
 +++
 ## 起因

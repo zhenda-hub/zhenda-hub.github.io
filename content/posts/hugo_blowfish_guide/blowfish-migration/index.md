@@ -4,7 +4,7 @@ subtitle = '从其他主题迁移到 Blowfish'
 date = 2025-04-06T00:00:00+08:00
 draft = false
 toc = true
-tags = ['Hugo', 'Blowfish', '迁移']
+tags = ['Hugo', 'Blowfish', 'hugo主题迁移']
 series = ['hugo-blowfish']
 featureimage = "featured.webp"
 +++

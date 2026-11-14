@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-01-08T23:38:45+08:00
 draft = false
 toc = true
-tags = ["python", "data"]
+tags = ['数据分析']
 series = ["tech"]
 featureimage = "featured.webp"
 +++

@@ -6,7 +6,7 @@ date = 2026-11-01T23:10:00+08:00
 draft = false
 toc = true
 series = ['life']
-tags = ['immich', 'CLIP', '中文搜索', '调优']
+tags = ['immich', 'CLIP', '中文搜索']
 featureimage = "featured.webp"
 +++
 

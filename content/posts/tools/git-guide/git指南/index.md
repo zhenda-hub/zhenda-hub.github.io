@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-01-08T23:37:30+08:00
 draft = false
 toc = true
-tags = ["git", "tools"]
+tags = ['git']
 featureimage = "featured.webp"
 +++
 ## 官方文档

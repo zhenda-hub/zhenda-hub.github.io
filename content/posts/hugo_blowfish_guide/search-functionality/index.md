@@ -4,7 +4,7 @@ subtitle = '搜索原理与常见问题'
 date = 2025-04-06T00:00:00+08:00
 draft = false
 toc = true
-tags = ['Hugo', 'Blowfish', '搜索']
+tags = ['Hugo', 'Blowfish']
 series = ['hugo-blowfish']
 featureimage = "featured.webp"
 +++

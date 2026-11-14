@@ -5,7 +5,7 @@ description = "Hugo 主题对比分析：多主题版本兼容性与功能对比
 date = 2025-04-06T00:00:00+08:00
 draft = false
 toc = true
-tags = ['Hugo', '主题', '对比']
+tags = ['Hugo']
 series = ['hugo-blowfish']
 featureimage = "featured.webp"
 +++

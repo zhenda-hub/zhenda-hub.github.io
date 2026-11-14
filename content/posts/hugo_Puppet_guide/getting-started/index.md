@@ -2,7 +2,7 @@
 title = "Puppet - Getting Started"
 date = 2022-08-09T15:38:30+08:00
 toc = true
-tags = ["guide"]
+tags = []
 categories = []
 series = ["themes-guide"]
 featureimage = "featured.webp"

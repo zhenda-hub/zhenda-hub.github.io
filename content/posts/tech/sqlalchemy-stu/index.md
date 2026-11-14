@@ -6,7 +6,7 @@ date = 2025-02-07T12:19:54+08:00
 draft = false
 toc = true
 series = ["tech"]
-tags = ["python", "sql"]
+tags = ['sql']
 featureimage = "featured.webp"
 +++
 

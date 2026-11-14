@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-06-03T09:21:49+08:00
 draft = true
 toc = true
-tags = ['tech']
+tags = []
 featureimage = "featured.webp"
 +++
 

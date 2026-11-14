@@ -4,7 +4,7 @@ subtitle = ""
 date = 2024-09-25T17:17:57+08:00
 draft = false
 toc = true
-tags = ["go"]
+tags = []
 series = ["go"]
 featureimage = "featured.webp"
 +++
