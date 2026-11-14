@@ -11,6 +11,7 @@
 ## 站点地图 Site Map
 
 ## 文章 · Posts
+- [模型常见拒答清单](https://zhenda-hub.github.io/posts/ai/model-refusal-list/)
 - [侠盗猎车手全系列盘点：每部的优点与缺点](https://zhenda-hub.github.io/posts/games/gta-version-guide/)
 - [中国 IT 外包公司版图](https://zhenda-hub.github.io/posts/social/it-outsourcing/)
 - [immich 中文搜不到照片：默认 CLIP 模型只支持英文](https://zhenda-hub.github.io/posts/life/immich-tuning-2026-11-01/)
