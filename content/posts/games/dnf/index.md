@@ -4,8 +4,8 @@ subtitle = "从创世到千海天：一张图看懂阿拉德、魔界、使徒�
 date = 2026-10-13T02:36:56+08:00
 draft = false
 toc = true
-tags = ['DNF', '游戏剧情', '世界观']
-series = []
+tags = []
+series = ['games']
 featureimage = "featured.webp"
 +++
 

@@ -4,8 +4,8 @@ subtitle = '从 1997 年的俯视角到即将发售的 GTA VI，一张表看清�
 date = 2026-11-13T19:03:00+08:00
 draft = false
 toc = true
-tags = ['单机游戏', '游戏盘点']
-series = []
+tags = []
+series = ['games']
 featureimage = "featured.webp"
 +++
 

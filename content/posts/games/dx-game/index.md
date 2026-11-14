@@ -4,7 +4,8 @@ subtitle = ""
 date = 2026-10-12T00:25:12+08:00
 draft = false
 toc = true
-series = []
+tags = []
+series = ['games']
 featureimage = "featured.webp"
 +++
 
