@@ -4,6 +4,9 @@ resources/
 # Hugo
 .hugo_build.lock
 
+# 日志
+*.log
+
 # Playwright MCP
 .playwright-mcp/
 
