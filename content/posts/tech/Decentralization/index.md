@@ -5,6 +5,7 @@ date = 2024-11-07T02:07:14+08:00
 draft = false
 toc = true
 series = ["tech"]
+tags = ['P2P网络', '区块链']
 featureimage = "featured.webp"
 +++
 

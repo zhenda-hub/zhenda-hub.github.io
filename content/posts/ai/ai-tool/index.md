@@ -5,6 +5,7 @@ date = 2024-11-13T21:08:52+08:00
 draft = false
 toc = true
 series = ['ai']
+tags = ['本地模型部署']
 featureimage = "featured.webp"
 +++
 ## cuda

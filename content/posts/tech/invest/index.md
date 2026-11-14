@@ -5,6 +5,7 @@ date = 2025-08-28T00:12:11+08:00
 draft = false
 toc = true
 series = ['tech']
+tags = ['投资理财']
 featureimage = "featured.webp"
 +++
 

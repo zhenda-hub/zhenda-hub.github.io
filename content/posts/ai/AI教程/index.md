@@ -5,6 +5,7 @@ date = 2024-05-24T10:16:53+08:00
 draft = false
 toc = true
 series = ['ai']
+tags = ['大模型技术']
 featureimage = "featured.webp"
 +++
 https://zhenda-hub.github.io/ai-note/
