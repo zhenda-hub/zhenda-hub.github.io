@@ -5,6 +5,7 @@ date = 2025-09-26T15:28:58+08:00
 draft = false
 toc = true
 series = ['life']
+tags = ['护肤']
 featureimage = "featured.webp"
 +++
 ## 肤质类型和测试方法

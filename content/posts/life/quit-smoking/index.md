@@ -5,6 +5,7 @@ date = 2025-10-09T14:41:13+08:00
 draft = false
 toc = true
 series = ['life']
+tags = ['戒烟']
 featureimage = "featured.webp"
 +++
 

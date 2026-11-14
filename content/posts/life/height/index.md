@@ -5,6 +5,7 @@ date = 2025-10-16T08:54:27+08:00
 draft = false
 toc = true
 series = ['life']
+tags = ['长高']
 featureimage = "featured.webp"
 +++
 

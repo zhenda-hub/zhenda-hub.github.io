@@ -5,6 +5,7 @@ date = 2025-09-26T10:42:09+08:00
 draft = false
 toc = true
 series = ['life']
+tags = ['头发护理']
 featureimage = "featured.webp"
 +++
 
