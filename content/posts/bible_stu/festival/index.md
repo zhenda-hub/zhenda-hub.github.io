@@ -5,6 +5,7 @@ date = 2026-04-08T15:27:52+08:00
 draft = false
 toc = true
 series = ['bible']
+tags = ['基督教节日']
 featureimage = "featured.jpg"
 +++
 

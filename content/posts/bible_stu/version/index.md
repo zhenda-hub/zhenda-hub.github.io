@@ -5,6 +5,7 @@ date = 2026-03-21T15:59:01+08:00
 draft = false
 toc = true
 series = []
+tags = ['圣经译本']
 featureimage = "featured.jpg"
 +++
 

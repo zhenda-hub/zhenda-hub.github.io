@@ -5,6 +5,7 @@ date = 2025-01-11T19:50:33+08:00
 draft = false
 toc = true
 series = ['bible']
+tags = ['圣经词汇']
 featureimage = "featured.jpg"
 +++
 

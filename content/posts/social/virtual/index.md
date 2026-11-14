@@ -5,6 +5,7 @@ date = 2025-09-18T00:53:19+08:00
 draft = false
 toc = true
 series = ['social']
+tags = ['虚拟化']
 featureimage = "featured.webp"
 +++
 

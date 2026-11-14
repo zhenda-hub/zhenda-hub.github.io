@@ -5,6 +5,7 @@ date = 2024-11-27T00:15:56+08:00
 draft = false
 toc = true
 series = ['social']
+tags = ['跨境电商']
 featureimage = "featured.webp"
 +++# 开网店, 接单
 

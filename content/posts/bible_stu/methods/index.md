@@ -5,6 +5,7 @@ date = 2026-03-16T21:45:01+08:00
 draft = false
 toc = true
 series = ['bible']
+tags = ['神学分支']
 featureimage = "featured.jpg"
 +++
 

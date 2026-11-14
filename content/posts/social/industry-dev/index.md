@@ -5,6 +5,7 @@ date = 2024-12-03T16:13:01+08:00
 draft = false
 toc = true
 series = ['social']
+tags = ['程序员职业发展']
 featureimage = "featured.webp"
 +++
 

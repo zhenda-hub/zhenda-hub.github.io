@@ -5,6 +5,7 @@ date = 2024-06-23T18:17:06+08:00
 draft = false
 toc = true
 series = ['bible']
+tags = ['圣经主题']
 featureimage = "featured.webp"
 +++
 

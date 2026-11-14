@@ -5,6 +5,7 @@ date = 2025-04-09T10:13:09+08:00
 draft = false
 toc = true
 series = ['social']
+tags = ['经济模式']
 featureimage = "featured.webp"
 +++
 
