@@ -5,6 +5,7 @@ date = 2024-11-12T20:32:30+08:00
 draft = false
 toc = true
 series = ['system']
+tags = ['PowerShell', '命令行']
 featureimage = "featured.webp"
 +++
 

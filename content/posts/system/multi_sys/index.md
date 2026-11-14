@@ -5,6 +5,7 @@ date = 2025-02-06T23:26:55+08:00
 draft = false
 toc = true
 series = ["system"]
+tags = ['系统引导', '虚拟机']
 featureimage = "featured.webp"
 +++
 
