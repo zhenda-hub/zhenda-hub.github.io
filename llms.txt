@@ -72,6 +72,7 @@
 - [Hugo 主题对比](https://zhenda-hub.github.io/posts/hugo_blowfish_guide/theme-comparison/)
 - [Mermaid 图表支持](https://zhenda-hub.github.io/posts/hugo_blowfish_guide/mermaid-diagrams/)
 - [如何自定义文章标题](https://zhenda-hub.github.io/posts/hugo_blowfish_guide/how-to-customize-article-title/)
+- [家庭影院配置：HDR 屏幕与音效选型](https://zhenda-hub.github.io/posts/videos/home-theater/)
 - [Pc Cmd](https://zhenda-hub.github.io/posts/system/pc-cmd/)
 - [Sqlalchemy Stu](https://zhenda-hub.github.io/posts/tech/sqlalchemy-stu/)
 - [操作系统大全](https://zhenda-hub.github.io/posts/system/multi_sys/)
