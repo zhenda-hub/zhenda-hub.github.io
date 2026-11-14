@@ -1,10 +1,11 @@
 +++
-title = '我的生态系统(鱼缸)'
+title = '鱼缸生态系统'
 subtitle = ""
 date = 2025-12-28T22:33:38+08:00
 draft = false
 toc = true
 series = ['life']
+tags = ['鱼缸生态']
 featureimage = "featured.webp"
 +++
 ## 生态系统构建

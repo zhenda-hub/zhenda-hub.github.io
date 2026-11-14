@@ -1,10 +1,11 @@
 +++
-title = 'R Jung'
+title = '荣格的分析心理学'
 subtitle = ""
 date = 2025-10-16T15:30:10+08:00
 draft = false
 toc = true
 series = ['life']
+tags = ['荣格心理学']
 featureimage = "featured.webp"
 +++
 
