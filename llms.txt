@@ -11,6 +11,7 @@
 ## 站点地图 Site Map
 
 ## 文章 · Posts
+- [假 Snipaste 记了 22 万次击键，在杀软白名单里躺了七个半月](https://zhenda-hub.github.io/posts/system/fake-snipaste-keylogger/)
 - [中俄边界：一百五十万平方公里是怎么被条约锁定的](https://zhenda-hub.github.io/posts/social/sino-russian-border/)
 - [模型常见拒答清单](https://zhenda-hub.github.io/posts/ai/model-refusal-list/)
 - [侠盗猎车手全系列盘点：每部的优点与缺点](https://zhenda-hub.github.io/posts/games/gta-version-guide/)
