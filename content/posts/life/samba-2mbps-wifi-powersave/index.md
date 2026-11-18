@@ -1,5 +1,5 @@
 +++
-title = 'Samba 只有 2 MB/s：真凶是 Ubuntu 出厂默认开着的 WiFi 省电'
+title = 'Samba 传输速度只有 2 MB/s：真凶是 Ubuntu 出厂默认开着的 WiFi 省电'
 description = "客户端 ping 网关 1 ms、ping 服务器 90 ms。从这一个 RTT 反推带宽，挖到 /etc/NetworkManager/conf.d 里一个没人改过的默认值。"
 subtitle = "从 2 MB/s 到 30 MB/s"
 date = 2026-11-18T15:40:00+08:00
