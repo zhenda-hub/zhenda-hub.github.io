@@ -1,276 +1,77 @@
-# CLAUDE.md
+# 星图与尘埃 · 站点维护与写作规范
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Hugo + blowfish，部署 GitHub Pages。定制全在项目根的 `layouts/` / `assets/` / `config/`，**不改 `themes/blowfish/`**。
 
-## Project Overview
+## 命令
 
-This is a Hugo static blog site deployed to GitHub Pages. The blog supports multiple Hugo themes as submodules, with **`blowfish`** as the active theme (`config/_default/hugo.toml`). Site-specific overrides live in the project's own `layouts/`, `assets/` and `config/` — the theme submodule is not edited.
-
-## Common Commands
-
-### Development Server
 ```bash
-# Start development server (includes draft posts)
-hugo server -D
-
-# Start with full rebuild on file changes
-hugo server -D --disableFastRender
-
-# Server runs at http://localhost:1313/
+hugo server -D                          # 本地预览（含草稿），localhost:1313
+hugo --minify                           # 生产构建 → public/
+bash hugo-config-check.sh               # 配置自检
+git submodule update --init --recursive # 新克隆后必须
 ```
 
-### Building
-```bash
-# Production build (minified output)
-hugo --minify
-
-# Build output goes to `public/` directory
-```
-
-### Git Submodules
-```bash
-# Initialize and update all theme submodules (required after fresh clone)
-git submodule update --init --recursive
-
-# Add a new theme as submodule
-git submodule add <repo-url> themes/<theme-name>
-```
-
-### Testing Changes
-```bash
-# Run Hugo config check
-bash hugo-config-check.sh
-
-# Check build without deploying
-hugo --minify
-ls -la public/posts  # Verify build output
-```
-
-## Architecture
-
-### Multi-Theme Setup
-The project uses git submodules for multiple Hugo themes. The active theme is set in `config/_default/hugo.toml`:
-```toml
-theme = "blowfish"  # Current active theme
-```
-
-Available themes (in `themes/`):
-- `blowfish` - Active theme
-- `puppet_zd`, `PaperMod`, `hextra`, `beautifulhugo`, `hugo-coder`, `LoveIt`
-
-To switch themes, change the `theme` value and restart the server.
-
-### Content Structure
-```
-content/
-├── _index.md          # Homepage (branch bundle)
-├── about/             # About page
-├── archive/           # Archive page
-├── link/              # Link page
-├── posts/             # Blog posts — 每篇都是 page bundle（见下）
-└── series/            # Series/collection pages
-```
-
-### 文章目录结构：page bundle（强制）
-
-`content/posts/` 下**每篇文章都是 page bundle**，正文、封面、正文图全部跟着文章走：
+## 结构
 
 ```
-content/posts/tech/pyqt5指南/
-├── index.md              # 正文
-├── featured.webp         # 封面（必须）
-└── imgs/                 # 正文图
-    ├── css-expression.jpg
-    └── VeryCapture_20231125121414.jpg
+content/posts/<分类>/<slug>/
+├── index.md        正文（page bundle，文件名固定）
+├── featured.webp   封面，必须有
+└── imgs/           正文图
 ```
 
-规则：
-- 文件名固定为 `index.md`（叶子 bundle），**不再使用** `xxx.md` 这种单文件写法
-- 封面文件名以 `feature*` 开头（`featured.webp` / `featured.jpg` 等），blowfish 会自动识别，**不需要**写 `featureimage`；显式写也可以
-- 正文图放 `imgs/` 或直接放 bundle 根目录，正文里用**相对 bundle 的路径**引用：`![说明](imgs/xxx.jpg)`
-- **禁止** `../imgs/`（bundle 化后目录层级已变）、**禁止**把文章图放进 `assets/` 或 `static/`
-- 多图排版优先用主题短代码：`figure`（单图带图注）、`gallery`（网格）、`carousel`（轮播）
+- 正文图走相对路径，单图 `{{< figure src="imgs/x.jpg" caption="图注" >}}`，多图 `gallery` / `carousel`；不用裸 `![]()`
+- 文章图放 bundle 内，**不**放 `assets/` 或 `static/`；全站图放 `assets/img/`
+- 表格用普通 markdown（自动圆角 + 金色表头 + 斑马纹），强调用 `>`，正文标题从 `##` 起手
 
-迁移工具：`scripts/migrate-to-bundles.py`（叶子 md → bundle，含引用重写与 URL 保留）。
-封面生成：`scripts/gen-covers.py`（按标题生成 1600×900 字标封面，输出到各 bundle 的 `featured.webp`）。
+## frontmatter
 
-### Theme Customization
-站点对主题的所有定制都在**项目根目录**，不改 `themes/blowfish/`：
-- `layouts/` - 模板覆盖（`index.html` 首页、`partials/article-link/simple.html` 列表项、`partials/check-covers.html` 封面校验）
-- `assets/css/custom.css` - 全站样式（报头、列表项、文章排版）
-- `assets/img/` - 头像、社交分享卡等全站图片
-- `config/_default/` - params / languages / menus
-
-主题自带的图片查找顺序（`figure` 短代码、封面、hero 都一样）：
-**page resource（bundle 内） → `assets/` → `static/`**。所以文章图放 bundle，全站图放 `assets/`。
-
-### Article Frontmatter
-Posts use TOML frontmatter. Common fields:
 ```toml
 +++
-title = "Post Title"
-subtitle = "Optional subtitle"
-date = 2024-01-01T00:00:00+08:00
+title = '...'
+description = "一句话说结论，别复述标题"
+date = 2026-11-18T23:40:00+08:00
 draft = false
 toc = true
-tags = ['tag1', 'tag2']
-series = []
-featureimage = "featured.webp"  # 可省略：bundle 内有 featured.* 会自动识别
+series = ['system']
+tags = ['SMB', '文件共享']
 +++
 ```
 
-### 篇幅与文风（硬约束，2026-11-18）
+## 封面（缺失 = 构建失败）
 
-用户原话：**「博客要避免啰嗦，避免无用废话。记录重点即可。默认不要超过 2 千字。」**
+- 判定：`featureimage` 有值，或 bundle 内有名字含 `feature` / `cover` / `thumbnail` 的图
+- `layouts/partials/check-covers.html` 首页渲染时遍历全部文章，缺封面直接 `errorf`，CI 不部署
+- 生成：`python scripts/gen-covers.py --only <分类>/<slug> [--force]`
+- 同一张图兼作列表缩略图、文章顶部横幅、分享卡；封面左上角分类取 `tags` 的第一个
 
-1. **默认上限 2000 字**（正文中文字符数，不含 frontmatter、代码块、表格）。超了就砍到重点，或拆成多篇。
-2. **单一结论 / 单一故障 / 单一操作**的短记录控制在 **500 字**以内：现象、根因、修法、结果，四段就够。
-3. **记录重点即可。** 排查流水账、被证伪的假设、概念科普、重复的代码块——除非本身就是结论，否则删。
-4. 判断标准：读者拿走「结论 + 复现要点」就够；过程属于作者，不属于文章。
-5. 不为凑篇幅加：背景铺垫、教学式科普段、与正文重复的总结、可省略的表格。
+## 写作
 
-### 文章结构（硬约束，2026-11-18）
+篇幅：默认 ≤2000 字（正文中文字符）；单一故障 / 操作 ≤500 字（现象、根因、修法、结果）。不为凑篇幅加背景铺垫、教学式科普、与正文重复的总结。
 
-用户原话：**「文章结构要清晰」「标题应该一句话，总结它最重要的功能」**
+- **标题**：一句话说清功能，或「对象 + 问题」。禁 `记录` / `复盘` / `踩坑记` / `折腾记`；禁罗列系统、禁讲定义区别
+- **钩子**：症状（可验证的一句）→ 反常识根因（加粗）→ 数字结果；先排除 2–3 个常见误判；禁「起因 / 背景 / 缘起」小节
+- **抓核心**：一篇一个论点，前两段出现；每节第一句是结论，不是过渡句；删「换句话说 / 值得注意的是 / 其实 / 教训 / 小结」；判断标准是「删掉这句，读者损失什么」
+- **定结构**：按读者要解决的问题排，不按「我查了什么」排；结论、清单在前；排查过程降级附录
+- **名词**：混用概念（SMB / Samba）单独一节对齐关系；顺序是 是什么 → 什么关系 → 怎么用
 
-#### 1. 标题：一句话，说清最重要的一件事
+## 标签
 
-写功能或结论，不写对象清单。
+每篇 2–3 个，按「解决什么问题」命名，不按产品名。三条硬规则：
 
-| | 示例 |
-| --- | --- |
-| ✅ | `把一块硬盘变成所有设备都能当本地盘用的网络盘` |
-| ✅ | `immich 中文搜不到照片：默认 CLIP 模型只支持英文` |
-| ❌ | `SMB 服务端是什么：Windows、macOS、Linux 上分别是谁`（罗列系统，不说功能） |
-| ❌ | `SMB 是协议，Samba 是实现它的软件`（在讲定义区别，没讲功能） |
+1. 与 series / 目录重名 → 不建
+2. 模糊泛化 → 删（单独拎出来答不上「具体指什么」）
+3. 已有更准的标签 → 删掉这个
 
-#### 2. 名词先定义再使用
+准确性优先于数量，接受孤标签。不自动打标（试过两次，产出全是垃圾）。
 
-概念类文章必须在最前面把每个名词定义清，混用的词（如 SMB / Samba）单独一节对齐关系，后面才允许拿它们当主语。
+## 坑
 
-#### 3. 顺序：是什么 → 什么关系 → 怎么用
+1. **`date` 写未来时间**：Hugo 默认跳过，构建成功但页面不出现，无任何报错
+2. **改标题或 tags 后不重生成封面**：封面是图片，不会跟着 frontmatter 变
+3. **dev server 缓存不自动重建**：新增文章、新建 series、加 tag 后列表页可能显示旧数据，日志干净无警告。先 `hugo --minify -d $TEMP/hugo-check` 静态构建对比；静态正常就是缓存，重启 server，别在内容上找问题
+4. 中文标签在 HTML 里是 URL 编码，grep 中文会误判「没显示」；`hugo --minify` 输出属性不带引号
 
-不给读者跳层。讲协议时不夹装软件的步骤；讲软件安装时标题就点名是那个软件，不冒充协议。
+## 部署
 
-
-### Deployment
-- GitHub Actions workflow: `.github/workflows/hugo.yml`
-- Triggered on push to `main` / `premium-design` branch
-- Builds with Hugo 0.165.0, minifies output
-- Deploys to GitHub Pages
-- CI/CD requires: `git submodule update --init` before `hugo` command
-
-### 图文文章排版规范 (premium-design)
-文章页样式（图片/表格/引用/标题）已全局美化，写作时遵循以下约定即可获得最佳效果：
-
-**图片**
-- 图片一律放**文章 bundle 内**，正文用相对路径引用
-- 单图：用 `figure` 短代码 + 中文图注（自动居中、圆角边框阴影、点击放大）
-  ```md
-  {{< figure src="imgs/image1.jpg" alt="多肉植物养护" caption="多肉植物养护实拍" >}}
-  ```
-- 多图网格：用 `gallery` 短代码；多图轮播：用 `carousel` 短代码
-- 正文不要用裸 `![](img.jpg)`（无图注、无法利用 Hugo 图片优化）
-- 封面：bundle 内的 `featured.*`（必须，缺失时构建直接失败，见 `layouts/partials/check-covers.html`）
-
-**表格**：普通 markdown 表格即可，自动获得圆角 + 金色表头 + 斑马纹
-
-**引用/强调**：口诀、名言用 `> 引用`，自动金色衬线样式
-
-**标题层级**：正文用 `##` 起手（h2 带金色左边线），章节内用 `###`
-
-### Key Configuration
-- `config/_default/` - params / languages / menus（不再使用 `config.toml`）
-- 封面字段统一为 `featureimage` 或 bundle 内的 `featured.*`；旧的 `header_img` **已失效**（puppet 时代遗留）
-- 列表缩略图：由项目自定义的 `layouts/partials/article-link/simple.html` 渲染封面
-- Supports Giscus comments, search, math rendering (Mermaid), syntax highlighting
-- Taxonomies: categories, tags, series
-
-## Important Notes
-
-### 封面（必须）
-
-- 判定：frontmatter 的 `featureimage` 有值，**或** bundle 内存在名称含 `feature` / `cover` / `thumbnail` 的图片
-- 执行：`layouts/partials/check-covers.html` 在首页渲染时遍历所有 posts，缺封面直接 `errorf`，**构建失败、CI 不部署**
-- 栏目页 `_index.md` 豁免
-- 封面同时用于：列表缩略图、文章页顶部横幅（`article.showHero`）、社交分享卡
-
-### Article Cover Images
-文章页顶部横幅与列表缩略图**都**来自同一张封面，不再有 `header_img` 那套“横幅/缩略图”区分。
-
-### 标签体系（设计原则，务必遵守）
-
-现状（2026-11-14 清理后）：**53 个标签**，多数只用在 1 篇文章上；大量文章没有标签。
-**新增/整理标签时按下面的原则，尤其是 3.1 的硬规则。**
-
-**1. 分类 vs 标签分工**
-- `categories` / `series`：回答「这是哪类内容」，少而稳（≤10 个大类，可两级）
-- `tags`：连接**跨分类反复出现**的具体主题，比分类更细、可多个
-
-**2. 数量**
-- 每篇 **2–3 个**，最多不超过 5 个（超过 15 个，搜索引擎会视为 spam）
-- 允许文章没有标签（宁缺毋滥，比硬凑好）
-
-**2.1 准确 > 数量（用户决定，2026-11-06）**
-- **标签以「准确描述这篇文章」为唯一标准**，宁可留孤标签，也不为了凑数量改标签或删标签。
-- **不为「避孤标签」妥协**：某篇文章确实只该有 1 个准确标签，就只写 1 个；某个准确标签全站只有 1 篇，也照用。
-- 不为凑篇数把两个不同主题硬塞同一个宽泛标签（那是把标签做成垃圾桶）。
-- 「凑不满 3 篇不建标签」这类规则**仅作参考，不作硬约束**；与准确性冲突时，准确性优先。
-- 判断顺序：① 这个标签是否准确描述本文 → ② 命名是否规范 → ③ 数量（最后才考虑）。
-
-**3.1 禁止模糊标签与重名标签（硬规则，2026-11-14）**
-
-用户原话：**「标签需要精准，模糊或泛化的标签、和 series 重名的标签，一律删掉。」**
-
-三条硬规则：
-
-1. **与 series / 目录重名 → 不建标签。** `tech`、`web`、`python`、`go`、`tools` 这类既是目录/series 名又当标签的，全部删。分类信息由 series 承担，标签不重复。
-2. **模糊泛化 → 直接删，不要凑。** 判据：把标签单独拎出来问「具体指什么？」——答不上来就是泛标签。
-3. **一个标签 = 一个可检索的具体主题。** 宁可这篇文章没有标签，也不要挂一个「大致相关」的。
-
-反例对照（2026-11-14 真实清理记录，69 → 53）：
-
-| 原标签 | 问题 | 处理 |
-| --- | --- | --- |
-| 迁移 | 迁移什么？ | 改 `hugo主题迁移` |
-| 调优 | 调什么优？ | 删（该文已有 `CLIP` `中文搜索` `immich`） |
-| 对比 | 对比什么？ | 删 |
-| 主题 | 太泛，series 已覆盖 | 删 |
-| 硬件 | 太泛 | 改 `旧设备升级` |
-| 装机 | 与 `旧设备升级` 重复 | 删 |
-| 网络 / 排障 | 太泛 | 删（保留 `Wi-Fi` `文件传输`） |
-| 搜索 / 缓存 / 表达 / guide / subjects | 泛词 | 删 |
-| tools / tech / web / python / go / gui / data | 目录名或泛词 | 删 |
-
-**打标前自查三问**：
-
-1. 这个标签和某个 series 重名吗？重名就不建。
-2. 把它单独拿出来，能说清具体指什么吗？说不清就删。
-3. 同主题是不是已经有更准的标签？有就删掉这个。
-
-**3. 命名**
-- 按「**这篇在解决什么问题**」命名，不按「用了什么产品」
-  - ✅ 性能排查、建站、存储、系统运维、阅读笔记
-  - ❌ Hugo、Python、Docker、MySQL（产品名归 `series`/目录）
-- 同一个概念只能有一种写法（不要 `python` / `Python` / `PYTHON` 并存）
-- 不把代码标识符当标签（`Fn`、`Md`、`Handler`、`Logger` 这类一律不要）
-
-**4. 不要自动打标签**
-关键词提取 / TF-IDF 打标在这站上试过两次，都失败：
-- 按字数比例生成 → 326 个标签，253 个只出现一次
-- jieba 关键词 → 产出 `Ai`/`AI` 两种写法、`Fn`/`Md`/`Gz` 这类代码标识符、`设置`/`基础` 这类泛词
-- 结论：**标签要逐篇手工决定**，一次想清楚，别靠脚本
-
-**5. 呈现**
-- 标签少时用胶囊/列表即可，按文章数降序
-- 标签云（字号随数量）适合 20–40 个的侧边栏场景
-- 单次标签**保留**（本站不按「死页面」思路清理标签，见 2.1）
-
-**参考案例（同类网站的实际教训，仅供参考，本站不照搬）**
-- HiSEN（300+ 篇）：124 个标签 → 27 个，单次标签 82 → 1，接受 49 篇文章无标签
-- wonizz（230 篇）：规则改为「不确定有 3 篇以上，就不建这个标签」
-- DrinkBird：「一个标签只有一篇文章 = 死页面」；不到 3 篇不引入新标签
-- **本站取舍**：上面几家为的是「标签页更好看/更 SEO 友好」，代价是标签失真。本站选择**准确性优先**，接受孤标签与标签总量增长。
-
-### Submodule Handling
-Always ensure submodules are initialized before building or deploying. The GitHub workflow handles this automatically with `submodules: recursive`.
+push 到 `main` / `premium-design` 触发 `.github/workflows/hugo.yml`，Hugo 0.165.0 构建后发布 GitHub Pages；CI 里先 `git submodule update --init`。taxonomy：categories / tags / series；另有 Giscus 评论、搜索、Mermaid。
