@@ -11,7 +11,7 @@
 ## 站点地图 Site Map
 
 ## 文章 · Posts
-- [Samba 只有 2 MB/s：真凶是 Ubuntu 出厂默认开着的 WiFi 省电](https://zhenda-hub.github.io/posts/life/samba-2mbps-wifi-powersave/)
+- [Samba 传输速度只有 2 MB/s：真凶是 Ubuntu 出厂默认开着的 WiFi 省电](https://zhenda-hub.github.io/posts/life/samba-2mbps-wifi-powersave/)
 - [假 Snipaste 记了 22 万次击键，在杀软白名单里躺了七个半月](https://zhenda-hub.github.io/posts/system/fake-snipaste-keylogger/)
 - [中俄边界：一百五十万平方公里是怎么被条约锁定的](https://zhenda-hub.github.io/posts/social/sino-russian-border/)
 - [模型常见拒答清单](https://zhenda-hub.github.io/posts/ai/model-refusal-list/)
