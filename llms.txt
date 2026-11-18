@@ -11,6 +11,7 @@
 ## 站点地图 Site Map
 
 ## 文章 · Posts
+- [SMB：把一台机器上的文件夹，变成所有设备都能直接打开的本地盘](https://zhenda-hub.github.io/posts/system/smb-intro/)
 - [Samba 传输速度只有 2 MB/s：真凶是 Ubuntu 出厂默认开着的 WiFi 省电](https://zhenda-hub.github.io/posts/life/samba-2mbps-wifi-powersave/)
 - [假 Snipaste 记了 22 万次击键，在杀软白名单里躺了七个半月](https://zhenda-hub.github.io/posts/system/fake-snipaste-keylogger/)
 - [中俄边界：一百五十万平方公里是怎么被条约锁定的](https://zhenda-hub.github.io/posts/social/sino-russian-border/)
