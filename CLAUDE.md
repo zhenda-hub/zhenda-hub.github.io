@@ -119,6 +119,19 @@ featureimage = "featured.webp"  # 可省略：bundle 内有 featured.* 会自动
 +++
 ```
 
+### 篇幅与文风（硬约束，2026-11-18）
+
+用户原话：**「博客要避免啰嗦，避免无用废话。记录重点即可。默认不要超过 2 千字。」**
+
+1. **默认上限 2000 字**（正文中文字符数，不含 frontmatter、代码块、表格）。超了就砍到重点，或拆成多篇。
+2. **单一结论 / 单一故障 / 单一操作**的短记录控制在 **500 字**以内：现象、根因、修法、结果，四段就够。
+3. **记录重点即可。** 排查流水账、被证伪的假设、概念科普、重复的代码块——除非本身就是结论，否则删。
+4. 判断标准：读者拿走「结论 + 复现要点」就够；过程属于作者，不属于文章。
+5. 不为凑篇幅加：背景铺垫、教学式科普段、与正文重复的总结、可省略的表格。
+6. 写完自查一次字数（`grep -o '[\u4e00-\u9fff]' 文件 | wc -l`），超 2000 就动刀。
+
+正例：`content/posts/life/samba-2mbps-wifi-powersave/`（正文 364 字，一件事、一个根因、三条命令、一张对比表）。
+
 ### Deployment
 - GitHub Actions workflow: `.github/workflows/hugo.yml`
 - Triggered on push to `main` / `premium-design` branch
