@@ -159,14 +159,6 @@ html.dark #menu-blur {
   letter-spacing: 0.04em;
   color: rgb(var(--color-neutral-900));
 }
-.zd-brand__dot {
-  color: var(--gold-strong);
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.zd-brand:hover .zd-brand__dot {
-  transform: scale(1.45);
-}
 html.dark .zd-brand__cn {
   color: rgb(var(--color-neutral-50));
 }
