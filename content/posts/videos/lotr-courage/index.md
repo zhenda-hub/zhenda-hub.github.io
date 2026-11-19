@@ -4,7 +4,7 @@ subtitle = "希优顿先把死讲透，甘道夫把死讲成一片海岸，迪�
 date = 2026-11-19T22:17:00+08:00
 draft = false
 toc = true
-series = ["life"]
+series = ['videos']
 tags = ["指环王", "勇敢"]
 featureimage = "featured.webp"
 +++
