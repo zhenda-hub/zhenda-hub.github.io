@@ -1,18 +1,61 @@
-{{- /* 修复：Blowfish 的 medium-zoom 库以 defer 加载，但主题 footer 的内联初始化早于它执行，
-       会抛 "mediumZoom is not defined"，导致点击图片无法放大。此处等页面加载完再兜底初始化。 */ -}}
-{{- if not site.Params.disableImageZoom -}}
+{{- /* 图片放大预取：medium-zoom 的 data-zoom-src 是原图（2560 宽，150-350KB）。
+      手机上万一点才开始下载，动画要等下载完，体感很慢。
+      这里在图片接近视口时就提前请求，点击时直接命中缓存。
+      同时兼容两种图：figure 的 data-zoom-src 和 gallery 里的 <img src>。 */ -}}
 <script>
   (function () {
-    function initZoom() {
-      if (typeof window.mediumZoom !== 'function') return;
-      window.mediumZoom(document.querySelectorAll('img:not(.nozoom)'), {
-        margin: 24,
-        background: 'rgba(0,0,0,0.5)',
-        scrollOffset: 0,
+    var seen = new Set();
+
+    function prefetch(src) {
+      if (!src || seen.has(src)) return;
+      seen.add(src);
+      var img = new Image();
+      img.decoding = "async";
+      img.src = src;
+    }
+
+    function targetOf(el) {
+      return el.dataset.zoomSrc || el.currentSrc || el.src;
+    }
+
+    function collect() {
+      var els = document.querySelectorAll(
+        ".article-content figure img, .gallery img, .article-content img"
+      );
+      if (!("IntersectionObserver" in window)) {
+        els.forEach(function (el) { prefetch(targetOf(el)); });
+        return;
+      }
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            prefetch(targetOf(e.target));
+            io.unobserve(e.target);
+          });
+        },
+        { rootMargin: "400px 0px" }
+      );
+      els.forEach(function (el) {
+        if (el.classList.contains("nozoom")) return;
+        io.observe(el);
       });
     }
-    if (document.readyState === 'complete') initZoom();
-    else window.addEventListener('load', initZoom);
+
+    // 手指按下时再补一次，防止滚动太快没来得及预取
+    document.addEventListener(
+      "pointerdown",
+      function (e) {
+        var el = e.target.closest && e.target.closest("img");
+        if (el) prefetch(targetOf(el));
+      },
+      { passive: true }
+    );
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", collect);
+    } else {
+      collect();
+    }
   })();
 </script>
-{{- end -}}
