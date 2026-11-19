@@ -74,4 +74,4 @@ tags = ['SMB', '文件共享']
 
 ## 部署
 
-push 到 `main` / `premium-design` 触发 `.github/workflows/hugo.yml`，Hugo 0.165.0 构建后发布 GitHub Pages；CI 里先 `git submodule update --init`。taxonomy：categories / tags / series；另有 Giscus 评论、搜索、Mermaid。
+push 到 `main` / `premium-design` 触发 `.github/workflows/gh-pages.yml`，Hugo 0.165.0 构建后发布 GitHub Pages；CI 里先 `git submodule update --init`。taxonomy：categories / tags / series；另有 Giscus 评论、搜索、Mermaid。
