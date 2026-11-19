@@ -59,3 +59,16 @@
     }
   })();
 </script>
+<script>
+  // 移动端目录默认折叠（主题模板里没有 open），这里直接展开。
+  // 脚本在 footer 解析时执行，TOC 已在 DOM 里，不会出现展开动画的闪动。
+  (function () {
+    function expand() {
+      document.querySelectorAll("details.toc-inside").forEach(function (d) {
+        d.open = true;
+      });
+    }
+    expand();
+    document.addEventListener("DOMContentLoaded", expand);
+  })();
+</script>
