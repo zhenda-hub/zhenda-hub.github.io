@@ -12,7 +12,7 @@
 
 ## 文章 · Posts
 - [4K 片源看着糊：问题在码率和位深，不在分辨率](https://zhenda-hub.github.io/posts/videos/source-spec/)
-- [指环王三的两场戏：一场教你怎么冲锋，一场教你怎么面对死亡](https://zhenda-hub.github.io/posts/life/lotr-courage/)
+- [指环王三的两场戏：一场教你怎么冲锋，一场教你怎么面对死亡](https://zhenda-hub.github.io/posts/videos/lotr-courage/)
 - [被迫第一次装机，三次返工：买的整机太吵，最后连散热和机箱都换了](https://zhenda-hub.github.io/posts/life/pc-rebuild/)
 - [SMB：把一台机器上的文件夹，变成所有设备都能直接打开的本地盘](https://zhenda-hub.github.io/posts/system/smb-intro/)
 - [Samba 传输速度只有 2 MB/s：真凶是 Ubuntu 出厂默认开着的 WiFi 省电](https://zhenda-hub.github.io/posts/life/samba-2mbps-wifi-powersave/)
