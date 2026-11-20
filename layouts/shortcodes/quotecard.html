@@ -1,0 +1,27 @@
+{{/* 台词卡：左图右文
+   用法：
+   {{< quotecard "ekko" "艾克" "01 · 艾克 Ekko · 时间刺客" >}}
+   > 中文台词
+   >
+   > *English line*
+
+   一句判词
+   {{< /quotecard >}}
+
+   图片在 imgs-chars/ 下匹配，优先 loading-<slug>.* （竖版立绘），退回 <slug>.*（方头像）。
+   全部样式 inline，不依赖 custom.css。 */}}
+{{- $slug := .Get 0 -}}
+{{- $alt := .Get 1 | default $slug -}}
+{{- $title := .Get 2 | default $alt -}}
+<div style="display:flex;gap:1.4rem;align-items:flex-start;flex-wrap:wrap;margin:1.6rem 0 2rem">
+  <div style="flex:0 0 auto">
+    {{- with or (.Page.Resources.GetMatch (printf "imgs-chars/loading-%s.*" $slug)) (.Page.Resources.GetMatch (printf "imgs-chars/%s.*" $slug)) -}}
+      {{- $img := .Fill "240x320 Top" -}}
+      <img src="{{ $img.RelPermalink }}" width="150" height="200" alt="{{ $alt }}" loading="lazy" style="display:block;border-radius:10px;margin:0">
+    {{- end -}}
+  </div>
+  <div style="flex:1 1 18rem;min-width:0">
+    <p style="margin:0 0 0.7rem;font-size:0.95rem;letter-spacing:0.01em"><strong>{{ $title }}</strong></p>
+    {{ .Inner | .Page.RenderString }}
+  </div>
+</div>
