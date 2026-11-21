@@ -26,7 +26,7 @@ title = "星图与尘埃 · Starmap & Dust"
 
     # ---- 1. 文章 / 技术（长文平台）----
     [[params.author.links]]
-      wechat = "https://mp.weixin.qq.com/"   # TODO: 换成你的公众号文章链接或二维码页
+      wechat = "https://mp.weixin.qq.com/s/RTucT-4_szsm5uzNX7sXMw"   # 代表作（公众号无公开主页地址，指向这篇）
 
     [[params.author.links]]
       zhihu = "https://www.zhihu.com/people/zzdnb-58"
