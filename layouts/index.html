@@ -45,6 +45,8 @@
            params.author.links 里加一项，未列入的键会回退为 Title Case */}}
       {{ $labels := dict
         "github" "GitHub"
+        "zhihu" "知乎"
+        "wechat" "公众号"
         "bilibili" "B站"
         "xiaohongshu" "小红书"
         "douyin" "抖音"
@@ -54,22 +56,34 @@
         "rss" "RSS"
         "email" "邮箱" }}
       {{ with .Site.Params.Author.links }}
+        {{/* 拍平成一项列表，sep 作为分组标记；渲染时在 sep 处闭合/重开一个 span，
+             这样每组是 nowrap 的整体，窄屏换行不会把分隔线带到行首。 */}}
         {{ $items := slice }}
         {{ range . }}
           {{ range $name, $url := . }}
-            {{ $items = $items | append (dict "name" $name "url" $url) }}
+            {{ if eq $name "sep" }}
+              {{ $items = $items | append (dict "sep" true) }}
+            {{ else }}
+              {{ $items = $items | append (dict "name" $name "url" $url "sep" false) }}
+            {{ end }}
           {{ end }}
         {{ end }}
         <div class="masthead__social">
+          <span class="masthead__social__grp">
           {{ range $items }}
-            {{ $label := default (title .name) (index $labels .name) }}
-            <a
-              href="{{ .url | safeURL }}"
-              target="_blank"
-              rel="me noopener noreferrer"
-              aria-label="{{ $label }}"
-              title="{{ $label }}">{{ $label }}</a>
+            {{ if .sep }}
+              </span><span class="masthead__social__grp">
+            {{ else }}
+              {{ $label := default (title .name) (index $labels .name) }}
+              <a
+                href="{{ .url | safeURL }}"
+                target="_blank"
+                rel="me noopener noreferrer"
+                aria-label="{{ $label }}"
+                title="{{ $label }}">{{ $label }}</a>
+            {{ end }}
           {{ end }}
+          </span>
         </div>
       {{ end }}
     </section>

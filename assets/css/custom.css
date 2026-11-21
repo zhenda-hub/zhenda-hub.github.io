@@ -300,6 +300,16 @@ html.dark .menuhide a:hover {
 .masthead__social a + a::before{content:"";position:absolute;left:0;top:50%;
   width:var(--sep-width);height:var(--sep-height);transform:translateY(-50%);
   background:var(--sep-color);opacity:var(--sep-opacity)}
+/* 分组：每个分组作为一个整体，组内画竖线，组间只留间距且不换行断开 */
+.masthead__social__grp{display:inline-flex;align-items:center;white-space:nowrap}
+.masthead__social__grp + .masthead__social__grp{margin-left:1.05em}
+@media (max-width: 560px){
+  .masthead__social{font-size:.86rem}
+  .masthead__social a{padding:.15em .55em}
+  .masthead__social__grp + .masthead__social__grp{margin-left:.6em}
+  .masthead__social a::after{left:.55em}
+  .masthead__social a:hover::after{width:calc(100% - 1.1em)}
+}
 
 /* 版权行：窄屏与「强力驱动」自动堆叠 */
 #site-footer>.flex.items-center.justify-between{flex-wrap:wrap;gap:.5rem 1.25rem}
