@@ -860,22 +860,16 @@ html.dark .article-content strong {
   margin: 1.8em 0;
   padding: 0.9em 1.4em 0.9em 1.6em;
   border-left: 3px solid var(--gold);
-  background: linear-gradient(
-    90deg,
-    rgba(var(--color-primary-100), 0.55),
-    rgba(255, 255, 255, 0)
-  );
+  /* 纯色而非渐变：Chrome 复制网页时会把渐变内联进剪贴板，
+     粘到公众号会报「文字背景尽量不要使用渐变」 */
+  background: rgba(var(--color-primary-100), 0.45);
   border-radius: 0 0.6rem 0.6rem 0;
   font-family: var(--font-serif);
   font-size: 1.02em;
   color: rgb(var(--color-neutral-600));
 }
 html.dark .article-content blockquote {
-  background: linear-gradient(
-    90deg,
-    rgba(var(--color-primary-800), 0.35),
-    rgba(255, 255, 255, 0)
-  );
+  background: rgba(var(--color-primary-800), 0.3);
   color: rgb(var(--color-neutral-300));
 }
 .article-content blockquote p {
@@ -928,11 +922,8 @@ html.dark .article-content pre {
   width: 100%;
 }
 .article-content th {
-  background: linear-gradient(
-    180deg,
-    rgba(var(--color-primary-300), 0.55),
-    rgba(var(--color-primary-200), 0.4)
-  );
+  /* 纯色而非渐变，理由同 blockquote */
+  background: rgba(var(--color-primary-300), 0.45);
   font-weight: 600;
   color: rgb(var(--color-neutral-800));
   border-bottom: 1px solid rgba(var(--color-primary-400), 0.7);
@@ -966,24 +957,15 @@ html.dark .article-content tr:nth-child(even) td {
   border-radius: 0 0 0.8rem 0;
 }
 html.dark .article-content th {
-  background: linear-gradient(
-    180deg,
-    rgba(var(--color-primary-800), 0.5),
-    rgba(var(--color-primary-900), 0.35)
-  );
+  background: rgba(var(--color-primary-800), 0.42);
   color: rgb(var(--color-neutral-100));
 }
 
-/* 水平分隔线 */
+/* 水平分隔线（纯色：渐变会被 Chrome 内联进剪贴板，粘公众号易被判为渐变背景） */
 .article-content hr {
   border: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(var(--color-primary-500), 0.6),
-    transparent
-  );
+  background: rgba(var(--color-primary-500), 0.45);
   margin: 2.6em auto;
   width: 60%;
 }

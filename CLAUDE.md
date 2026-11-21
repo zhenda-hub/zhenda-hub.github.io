@@ -72,6 +72,18 @@ tags = ['SMB', '文件共享']
 3. **dev server 缓存不自动重建**：新增文章、新建 series、加 tag 后列表页可能显示旧数据，日志干净无警告。先 `hugo --minify -d $TEMP/hugo-check` 静态构建对比；静态正常就是缓存，重启 server，别在内容上找问题
 4. 中文标签在 HTML 里是 URL 编码，grep 中文会误判「没显示」；`hugo --minify` 输出属性不带引号
 
+## 公众号转载
+
+正文复制 → 微信公众号编辑器是可以直接用的，但有两条硬约束：
+
+1. **正文元素禁用渐变背景**。Chrome 复制网页时会把**计算后的样式内联**进剪贴板，微信对渐变背景报「文字背景尽量不要使用渐变」，粘贴直接中断。
+   - `blockquote` / `th` / `hr` 已从 `linear-gradient` 改成纯色 rgba（`assets/css/custom.css`），要层次就调透明度，不要用渐变。
+   - 新增自定义组件、卡片、强调块时同样遵守。
+   - 自检：`grep -o "\.[a-z-]*{[^}]*linear-gradient[^}]*}" public/css/main.bundle.min.*.css`，正文相关选择器应为空。
+2. **正文别依赖 flex 布局**。微信会吃掉 `display:flex`，卡片塌成上下堆叠；需要左右结构用 `<table>` + `width` 属性。
+
+另外：正文图片不用先上传——绝对 URL 的图粘进公众号编辑器时微信会自动抓取转存（图源需可公开访问、无防盗链、单张别太大）。
+
 ## 部署
 
 push 到 `main` / `premium-design` 触发 `.github/workflows/gh-pages.yml`，Hugo 0.165.0 构建后发布 GitHub Pages；CI 里先 `git submodule update --init`。taxonomy：categories / tags / series；另有 Giscus 评论、搜索、Mermaid。
