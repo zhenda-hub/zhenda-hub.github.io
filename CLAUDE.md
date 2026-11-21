@@ -102,6 +102,15 @@ tags = ['SMB', '文件共享']
 
 1. **底色一律半透明**，不写 `#fff` / `#f7f5f0` 实色。实色底在深色模式下就是一块刺眼白板，文字色怎么调都救不回来。
 2. **站内深色模式不跟着变淡**：A 的深色表现本来就弱，`html.dark` 下用 `neutral-50/300` 覆盖成高对比（`h2`/`td` 容易漏，改色时必须补）。
+3. **纸色不能画在 `body` 上**（已改）：Chrome 复制网页时会把可见底色「传播」给每个复制出来的块级元素，微信深色模式再把这块实色底渲染成浅灰方块（`#cdcdcd`），整篇文章变成一块块灰片。现在纸色放在 `body::before` 固定层：
+   ```css
+   body { background-color: transparent !important }
+   body::before { content:""; position:fixed; inset:0; z-index:-1;
+                  background-color: rgb(var(--color-neutral-50)) }
+   html.dark body::before { background-color: rgb(var(--color-neutral-800)) }
+   ```
+   `::before` 不是任何被复制元素的祖先，传播不过去。**以后给页面加底/改主题色，不要再写回 `body` 或 `html`。**
+   自检（Chrome 开发者工具控制台）：`html / body / main / article` 的 `background-color` 应全部为 `rgba(0,0,0,0)`。
 
 ## 部署
 

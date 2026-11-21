@@ -4,6 +4,25 @@
    ============================================================ */
 
 /* ---------- 1. 字体栈与设计令牌 ---------- */
+/* 纸色由 body 上的独立背景层绘制，而不是 body 自己的 background-color。
+   原因：Chrome 复制网页时会把可见底色「传播」给每个复制出来的块级元素，
+   粘贴到公众号后微信深色模式会把这些实色底渲染成浅灰方块。
+   把底色放到 body::before（不是任何被复制元素的祖先）就传播不过去。 */
+body {
+  background-color: transparent !important;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: rgb(var(--color-neutral-50));
+}
+html.dark body::before {
+  background-color: rgb(var(--color-neutral-800));
+}
+
 :root {
   --font-sans: "Noto Sans SC Variable", "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
