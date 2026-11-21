@@ -131,6 +131,22 @@ body { background:#dcdcdc; font-family:"Noto Serif SC","Source Han Serif SC","So
 .note__text b { color:#b07d18; font-weight:600; }
 .corner { position:absolute; right:90px; bottom:84px; font-family:Georgia,serif;
           font-size:24px; letter-spacing:.16em; color:#c0b49f; }
+
+/* ---------- 散文模式：小标题 / 要点 / 图卡 ---------- */
+.pbody { flex:1; display:flex; flex-direction:column; justify-content:center; }
+.sec__title { font-size:62px; line-height:1.42; font-weight:700; letter-spacing:.01em; }
+.sec__rule { width:110px; height:3px; background:#b07d18; margin:38px 0 46px; }
+.sec__body { font-size:44px; line-height:1.78; color:#5b5248; }
+.sec__body b { color:#b07d18; font-weight:600; }
+.items { display:flex; flex-direction:column; gap:34px; }
+.items .it { display:flex; gap:26px; align-items:baseline; }
+.items .it__no { font-family:Georgia,serif; font-size:38px; color:#b07d18; min-width:46px; }
+.items .it__tx { font-size:39px; line-height:1.66; color:#5b5248; }
+.items .it__tx b { color:#2f2a24; font-weight:700; }
+.fig { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:44px; }
+.fig img { width:900px; max-height:760px; object-fit:contain; border-radius:14px;
+           box-shadow:0 26px 70px -40px rgba(63,56,48,.55); }
+.fig__cap { font-size:36px; line-height:1.66; color:#6b6257; text-align:center; max-width:880px; }
 """
 
 
@@ -266,11 +282,166 @@ def shot(out_dir: Path, cdp_port: int, http_port: int) -> list[Path]:
         proc.terminate()
 
 
+# ---------------- 散文模式 ----------------
+
+FIG_RE = re.compile(r'\{\{<\s*figure\s+src="([^"]+)"\s+caption="([^"]*)"\s*>\}\}')
+H2_RE = re.compile(r"^##\s+(.+)$")
+BULLET_RE = re.compile(r"^(?:\d+\.|[-*])\s+(.+)$")
+
+
+def strip_md(s: str) -> str:
+    s = re.sub(r"\*\*(.+?)\*\*", r"\1", s)
+    s = re.sub(r"`(.+?)`", r"\1", s)
+    s = re.sub(r"\[(.+?)\]\(.+?\)", r"\1", s)
+    return s.strip()
+
+
+def trim_sentences(text: str, limit: int = 150) -> str:
+    """取完整句子组成不超过 limit 字的段落。"""
+    parts = re.split(r"(?<=[。！？；])", text)
+    out = ""
+    for p in parts:
+        if not p.strip():
+            continue
+        if out and len(out) + len(p) > limit:
+            break
+        out += p
+    return out.strip() or text[:limit]
+
+
+def parse_prose(md_path: Path) -> tuple[dict, list[dict]]:
+    text = md_path.read_text(encoding="utf-8")
+    fm = {}
+    m = re.match(r"\+\+\+(.*?)\+\+\+", text, re.S)
+    if m:
+        for line in m.group(1).splitlines():
+            kv = re.match(r"\s*(\w+)\s*=\s*(.+)", line)
+            if kv:
+                fm[kv.group(1)] = kv.group(2).strip().strip("'\"")
+        text = text[m.end():]
+
+    # 先剔除短代码区块（gallery 等）之外的噪声
+    text = re.sub(r"\{\{<\s*/?\s*(?!figure)[a-z-]+.*?\}\}", "", text)
+
+    cards: list[dict] = []
+    section = {"title": "", "bullets": [], "paras": []}
+
+    def flush():
+        nonlocal section
+        if not section["title"]:
+            section = {"title": "", "bullets": [], "paras": []}
+            return
+        if section["bullets"]:
+            items = [strip_md(b) for b in section["bullets"]]
+            for start in range(0, len(items), 4):   # 每张卡最多 4 条
+                chunk = items[start:start + 4]
+                cards.append({
+                    "type": "list",
+                    "title": section["title"] if start == 0 else section["title"] + "（续）",
+                    "items": chunk,
+                    "offset": start,
+                })
+        elif section["paras"]:
+            body = " ".join(section["paras"])
+            cards.append({
+                "type": "text",
+                "title": section["title"],
+                "body": trim_sentences(strip_md(body), 170),
+            })
+        section = {"title": "", "bullets": [], "paras": []}
+
+    for raw in text.splitlines():
+        line = raw.rstrip()
+        if not line.strip():
+            continue
+        h2 = H2_RE.match(line.strip())
+        if h2:
+            flush()
+            section["title"] = strip_md(h2.group(1))
+            continue
+        fig = FIG_RE.search(line)
+        if fig:
+            cards.append({"type": "image", "src": fig.group(1), "cap": strip_md(fig.group(2))})
+            continue
+        b = BULLET_RE.match(line.strip())
+        if b and section["title"]:
+            section["bullets"].append(b.group(1))
+            continue
+        if line.startswith("#"):
+            continue
+        if section["title"] and not section["bullets"]:
+            section["paras"].append(line.strip())
+    flush()
+
+    # 图片文件名拍平，供页面引用
+    for i, c in enumerate(cards):
+        if c["type"] == "image":
+            c["flat"] = f"fig{i:02d}" + Path(c["src"]).suffix
+    return fm, cards
+
+
+def build_prose_html(fm: dict, cards: list[dict], title: str, kicker: str, total: int) -> str:
+    out = [
+        '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>cards</title>',
+        f"<style>{CSS}</style></head><body>",
+    ]
+    lead = trim_sentences(strip_md(fm.get("subtitle") or ""), 60)
+    out.append(
+        f"""<section class="card cover">
+  <div class="top"><span>Starmap &amp; Dust</span><span>{esc(kicker)}</span></div>
+  <div class="cover__mid">
+    <div class="cover__kicker">{esc(kicker)}</div>
+    <div class="cover__title">{title}</div>
+    <div class="cover__rule"></div>
+    <div class="cover__sub">{esc(lead)}</div>
+  </div>
+  <div class="cover__foot"><span>{esc(fm.get('date','')[:10])}</span><span>01 / {total:02d}</span></div>
+</section>"""
+    )
+    idx = 1
+    for c in cards:
+        idx += 1
+        top = f'<div class="top"><span>{esc(kicker)}</span><span></span></div>'
+        if c["type"] == "image":
+            body = f"""<div class="fig">
+    <img src="/cards-src/{c['flat']}" alt="">
+    <div class="fig__cap">{esc(c['cap'])}</div>
+  </div>"""
+        elif c["type"] == "list":
+            off = c.get("offset", 0)
+            items = "".join(
+                f'<div class="it"><div class="it__no">{off + i:02d}</div>'
+                f'<div class="it__tx">{bold_gold(x)}</div></div>'
+                for i, x in enumerate(c["items"], 1)
+            )
+            body = f"""<div class="pbody">
+    <div class="sec__title">{esc(c['title'])}</div>
+    <div class="sec__rule"></div>
+    <div class="items">{items}</div>
+  </div>"""
+        else:
+            body = f"""<div class="pbody">
+    <div class="sec__title">{esc(c['title'])}</div>
+    <div class="sec__rule"></div>
+    <div class="sec__body">{bold_gold(c['body'])}</div>
+  </div>"""
+        out.append(
+            f"""<section class="card">
+  {top}
+  {body}
+  <div class="corner">{idx:02d} / {total:02d}</div>
+</section>"""
+        )
+    out.append("</body></html>")
+    return "\n".join(out)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--post", default="games/lol-cn-lines")
-    ap.add_argument("--kicker", default="英雄联盟 · 经典台词")
-    ap.add_argument("--cover-title", default="11 句被记住<br><em>十年</em>的话")
+    ap.add_argument("--mode", choices=["quote", "prose"], default="quote")
+    ap.add_argument("--kicker", default="")
+    ap.add_argument("--cover-title", default="")
     args = ap.parse_args()
 
     bundle = REPO / "content" / "posts" / args.post
@@ -278,21 +449,35 @@ def main() -> None:
     if not md.exists():
         sys.exit(f"找不到 {md}")
 
-    fm, cards = parse_post(md)
-    if not cards:
-        sys.exit("没解析到 quotecard 块")
-
-    # 图片先拷到 public/cards-src/，页面用相对路径引用
     src_dir = REPO / "public" / "cards-src"
     src_dir.mkdir(parents=True, exist_ok=True)
-    for c in cards:
-        found = next((bundle / "imgs-chars").glob(f"loading-{c['slug']}.*"), None) \
-            or next((bundle / "imgs-chars").glob(f"{c['slug']}.*"), None)
-        if found:
-            shutil.copy(found, src_dir / f"{c['slug']}.jpg")
 
-    total = len(cards) + 1
-    html = build_html(fm, cards, args.cover_title, args.kicker, total)
+    if args.mode == "quote":
+        kicker = args.kicker or "英雄联盟 · 经典台词"
+        title = args.cover_title or "11 句被记住<br><em>十年</em>的话"
+        fm, cards = parse_post(md)
+        if not cards:
+            sys.exit("没解析到 quotecard 块，散文类文章请用 --mode prose")
+        for c in cards:
+            found = next((bundle / "imgs-chars").glob(f"loading-{c['slug']}.*"), None)                 or next((bundle / "imgs-chars").glob(f"{c['slug']}.*"), None)
+            if found:
+                shutil.copy(found, src_dir / f"{c['slug']}.jpg")
+        total = len(cards) + 1
+        html = build_html(fm, cards, title, kicker, total)
+    else:
+        fm, cards = parse_prose(md)
+        if not cards:
+            sys.exit("没解析到卡片内容")
+        kicker = args.kicker or "星图与尘埃 · 记录"
+        raw_title = args.cover_title or fm.get("title", "")
+        title = raw_title if "<br>" in raw_title else esc(raw_title)
+        for c in cards:
+            if c["type"] == "image":
+                src = bundle / c["src"]
+                if src.exists():
+                    shutil.copy(src, src_dir / c["flat"])
+        total = len(cards) + 1
+        html = build_prose_html(fm, cards, title, kicker, total)
     (REPO / "public").mkdir(exist_ok=True)
     (REPO / "public" / "cards.html").write_text(html, encoding="utf-8")
 
