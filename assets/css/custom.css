@@ -800,7 +800,8 @@ html.dark .series-row__title {
 }
 .article-content p {
   margin: 1.25em 0;
-  color: rgb(var(--color-neutral-700));
+  /* 中间值 #5f5f5f（方案 A）：白底 6.4:1，公众号深色下 2.75:1 也还能读 */
+  color: #5f5f5f;
 }
 html.dark .article-content p {
   color: rgb(var(--color-neutral-300));
@@ -818,14 +819,18 @@ html.dark .article-content p {
   padding-left: 0.85rem;
   border-left: 3px solid var(--gold-strong);
   line-height: 1.4;
+  color: #4a4a4a;
 }
 .article-content h3 {
   font-size: 1.32em;
   font-weight: 700;
   margin: 1.9em 0 0.7em;
-  color: rgb(var(--color-neutral-900));
+  color: #4a4a4a;
 }
 html.dark .article-content h3 {
+  color: rgb(var(--color-neutral-50));
+}
+html.dark .article-content h2 {
   color: rgb(var(--color-neutral-50));
 }
 .article-content h4 {
@@ -834,9 +839,9 @@ html.dark .article-content h3 {
   margin: 1.6em 0 0.6em;
 }
 .article-content a {
-  color: var(--gold-strong);
+  color: #b07d18;
   text-decoration: underline;
-  text-decoration-color: rgba(var(--color-primary-500), 0.4);
+  text-decoration-color: rgba(176, 125, 24, 0.4);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.2s;
 }
@@ -848,7 +853,7 @@ html.dark .article-content a {
 }
 .article-content strong {
   font-weight: 600;
-  color: rgb(var(--color-neutral-900));
+  color: #4a4a4a;
 }
 html.dark .article-content strong {
   color: rgb(var(--color-neutral-50));
@@ -859,14 +864,15 @@ html.dark .article-content strong {
   position: relative;
   margin: 1.8em 0;
   padding: 0.9em 1.4em 0.9em 1.6em;
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid rgba(176, 125, 24, 0.55);
   /* 纯色而非渐变：Chrome 复制网页时会把渐变内联进剪贴板，
-     粘到公众号会报「文字背景尽量不要使用渐变」 */
-  background: rgba(var(--color-primary-100), 0.45);
+     粘到公众号会报「文字背景尽量不要使用渐变」。
+     半透明底：白底淡暖色、深底淡暖褐，两种底色都不翻车。 */
+  background: rgba(176, 125, 24, 0.1);
   border-radius: 0 0.6rem 0.6rem 0;
   font-family: var(--font-serif);
   font-size: 1.02em;
-  color: rgb(var(--color-neutral-600));
+  color: #5f5f5f;
 }
 html.dark .article-content blockquote {
   background: rgba(var(--color-primary-800), 0.3);
@@ -890,9 +896,9 @@ html.dark .article-content blockquote {
 .article-content :not(pre) > code {
   padding: 0.18em 0.42em;
   border-radius: 0.35rem;
-  background: rgba(var(--color-primary-100), 0.65);
-  color: rgb(var(--color-primary-700));
-  border: 1px solid rgba(var(--color-primary-200), 0.9);
+  background: rgba(128, 128, 128, 0.1);
+  color: #5f5f5f;
+  border: 1px solid rgba(128, 128, 128, 0.22);
   font-size: 0.88em;
 }
 html.dark .article-content :not(pre) > code {
@@ -923,13 +929,13 @@ html.dark .article-content pre {
 }
 .article-content th {
   /* 纯色而非渐变，理由同 blockquote */
-  background: rgba(var(--color-primary-300), 0.45);
+  background: rgba(176, 125, 24, 0.13);
   font-weight: 600;
-  color: rgb(var(--color-neutral-800));
-  border-bottom: 1px solid rgba(var(--color-primary-400), 0.7);
+  color: #4a4a4a;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.28);
 }
 .article-content tr:nth-child(even) td {
-  background: rgba(var(--color-neutral-200), 0.6);
+  background: rgba(128, 128, 128, 0.07);
 }
 html.dark .article-content tr:nth-child(even) td {
   background: rgba(var(--color-neutral-700), 0.35);
@@ -937,8 +943,15 @@ html.dark .article-content tr:nth-child(even) td {
 .article-content td,
 .article-content th {
   border: 0;
-  border-bottom: 1px solid rgba(var(--color-neutral-300), 0.7);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.28);
   padding: 0.62em 0.95em;
+  color: #5f5f5f;
+}
+.article-content th {
+  color: #4a4a4a;
+}
+html.dark .article-content td {
+  color: rgb(var(--color-neutral-300));
 }
 .article-content tr:last-child td {
   border-bottom: 0;
@@ -965,7 +978,7 @@ html.dark .article-content th {
 .article-content hr {
   border: 0;
   height: 1px;
-  background: rgba(var(--color-primary-500), 0.45);
+  background: rgba(128, 128, 128, 0.35);
   margin: 2.6em auto;
   width: 60%;
 }
