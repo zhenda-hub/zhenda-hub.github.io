@@ -71,6 +71,7 @@ tags = ['SMB', '文件共享']
 2. **改标题或 tags 后不重生成封面**：封面是图片，不会跟着 frontmatter 变
 3. **dev server 缓存不自动重建**：新增文章、新建 series、加 tag 后列表页可能显示旧数据，日志干净无警告。先 `hugo --minify -d $TEMP/hugo-check` 静态构建对比；静态正常就是缓存，重启 server，别在内容上找问题
 4. 中文标签在 HTML 里是 URL 编码，grep 中文会误判「没显示」；`hugo --minify` 输出属性不带引号
+5. **英文撐号后面看着多一个空格**：Hugo 的 typographer 会把 `'` 转成彎撐号 `’`（U+2019），而中文字体（Noto Serif SC）把它按**全角标点**排版，多出约一个字宽（实测 40px 字号下 `isn’t` 113px vs `isn't` 81px）。已在 `config/_default/markup.toml` 里设 `[goldmark.extensions.typographer] apostrophe = "'"` 保持直引号。注意 `…`（U+2026）也是全角，但行尾无害
 
 ## 公众号转载
 
@@ -83,6 +84,22 @@ tags = ['SMB', '文件共享']
 2. **正文别依赖 flex 布局**。微信会吃掉 `display:flex`，卡片塌成上下堆叠；需要左右结构用 `<table>` + `width` 属性。
 
 另外：正文图片不用先上传——绝对 URL 的图粘进公众号编辑器时微信会自动抓取转存（图源需可公开访问、无防盗链、单张别太大）。
+
+### 代码与表格：微信没有横向滚动
+
+公众号正文里 `overflow-x:auto` 是无效的，长行会被直接截掉。所以正文一律**折行**，不靠滚动：
+
+```css
+.article-content pre, .article-content pre * {
+  white-space: pre-wrap !important;   /* Chroma 的行 span 设了 pre，只改 pre 不够 */
+  overflow-wrap: anywhere;
+  min-width: 0 !important;            /* prose 给 code 的 min-width:max-content 必须归零 */
+}
+.article-content table { table-layout: fixed; }  /* 均分列宽，否则文字列被压成 1~2 字 */
+.article-content td :not(pre) > code { overflow-wrap: anywhere; font-size: .76em; }
+```
+
+两个坑：`min-width:max-content` 不归零，`pre-wrap` 也永远不会折行；`table-layout:auto` + `anywhere` 会把普通文字列压成竖排。
 
 ### 正文配色（方案 A，已落地）
 

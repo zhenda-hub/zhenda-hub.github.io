@@ -18,3 +18,8 @@
 [tableOfContents]
   startLevel = 2
   endLevel = 4
+
+# 撇号保持直引号：中文字体把弯撇号 U+2019 按全角排版，
+# "isn’t" 会多出约一个字宽的间隙，看起来像 "isn’ t"
+[goldmark.extensions.typographer]
+  apostrophe = "'"

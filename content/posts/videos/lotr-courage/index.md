@@ -21,7 +21,6 @@ featureimage = "featured.webp"
 <img src="imgs/war1/00/enemy.webp" alt="投石与攻城塔压到城下">
 <img src="imgs/war1/00/foreign-aid.webp" alt="阿拉贡与亡灵军团">
 {{< /gallery >}}
-
 ### 11 · 城里的两种人
 
 城被围的第三天，白城里有两个人在处理同一件事——接下来可能会死——走的路完全相反。
@@ -34,11 +33,20 @@ featureimage = "featured.webp"
 > 眼前一片银白
 > and all turns to silver glass.
 >
-> 然后你会看见白沙湾
-> And then you see it. White shores...
+> 然后你会看见
+> And then you see it.
 >
-> 在黎明的晨曦中，一片辽阔的绿荫
-> A far green country under a swift sunrise.
+> 白沙湾
+> White shores...
+>
+> 死后的世界
+> and beyond.
+>
+> 在黎明的晨曦中
+> A far green country...
+>
+> 一片辽阔的绿荫
+> under a swift sunrise.
 >
 > 死亡也没那么可怕
 > that isn't so bad.
@@ -82,6 +90,10 @@ featureimage = "featured.webp"
 >
 > 向前
 > Ride now!
+>
+> 向前
+> Ride now!
+>
 > 向前，向着毁灭
 > Ride! Ride for ruin...
 >

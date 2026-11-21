@@ -899,6 +899,9 @@ html.dark .article-content blockquote {
 }
 .article-content blockquote p {
   margin: 0.4em 0;
+  /* 保留源码换行：中文一行、英文一行，不会被合并成一句
+     （Markdown 相邻行会变成同一个段落，浏览器默认把换行当空格） */
+  white-space: pre-line;
 }
 .article-content blockquote p:first-child {
   margin-top: 0;
@@ -913,12 +916,15 @@ html.dark .article-content blockquote {
   font-family: var(--font-mono);
 }
 .article-content :not(pre) > code {
-  padding: 0.18em 0.42em;
+  padding: 0.14em 0.36em;
   border-radius: 0.35rem;
   background: rgba(128, 128, 128, 0.1);
   color: #5f5f5f;
   border: 1px solid rgba(128, 128, 128, 0.22);
-  font-size: 0.88em;
+  font-size: 0.84em;
+  /* 微信公众号里没有横向滚动，长命令只能折行 */
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 html.dark .article-content :not(pre) > code {
   background: rgba(var(--color-primary-900), 0.45);
@@ -929,6 +935,20 @@ html.dark .article-content :not(pre) > code {
   border: 1px solid rgba(var(--color-neutral-200), 0.95);
   border-radius: 0.8rem;
   box-shadow: 0 10px 30px -18px rgba(var(--color-neutral-800), 0.4);
+  /* 公众号不支持横向滚动：把长行折行，而不是让它溢出被截 */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+/* Chroma 把每一行包在 .line/.cl 里并设了 white-space:pre，只改 pre 不够；
+   另外 prose 给 code 加了 min-width:max-content，不归零就永远不会折行 */
+.article-content pre * {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  min-width: 0 !important;
 }
 html.dark .article-content pre {
   border-color: rgba(var(--color-neutral-700), 0.8);
@@ -937,14 +957,18 @@ html.dark .article-content pre {
   line-height: 1.75;
 }
 
-/* 表格: 无外框杂志风 — 金色表头 + 行分隔 + 斑马纹 */
+/* 表格: 无外框杂志风 — 金色表头 + 行分隔 + 斑马纹
+   微信里表格没有横向滚动，fixed 布局 + 强制折行才不会溢出 */
 .article-content table {
   margin: 1.8em auto;
   border-collapse: separate;
   border-spacing: 0;
   border: 0;
-  font-size: 0.92em;
+  font-size: 0.9em;
   width: 100%;
+  max-width: 100%;
+  /* 均分列宽：auto 布局在 anywhere 断词下会把文字列压成 1~2 字宽 */
+  table-layout: fixed;
 }
 .article-content th {
   /* 纯色而非渐变，理由同 blockquote */
@@ -963,8 +987,17 @@ html.dark .article-content tr:nth-child(even) td {
 .article-content th {
   border: 0;
   border-bottom: 1px solid rgba(128, 128, 128, 0.28);
-  padding: 0.62em 0.95em;
+  padding: 0.62em 0.7em;
   color: #5f5f5f;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+/* 只让单元格里的行内代码允许在任意位置断（长命令不至于撑破列） */
+.article-content td :not(pre) > code,
+.article-content th :not(pre) > code {
+  overflow-wrap: anywhere;
+  font-size: 0.76em;
+  padding: 0.1em 0.28em;
 }
 .article-content th {
   color: #4a4a4a;
