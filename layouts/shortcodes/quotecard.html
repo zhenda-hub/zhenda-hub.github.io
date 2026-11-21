@@ -16,8 +16,8 @@
 <div style="display:flex;gap:1.4rem;align-items:flex-start;flex-wrap:wrap;margin:1.6rem 0 2rem">
   <div style="flex:0 0 auto">
     {{- with or (.Page.Resources.GetMatch (printf "imgs-chars/loading-%s.*" $slug)) (.Page.Resources.GetMatch (printf "imgs-chars/%s.*" $slug)) -}}
-      {{- $img := .Fill "240x320 Top" -}}
-      <img src="{{ $img.RelPermalink }}" width="150" height="200" alt="{{ $alt }}" loading="lazy" style="display:block;border-radius:10px;margin:0">
+      {{- $img := .Fill "300x300 Top" -}}
+      <img src="{{ $img.RelPermalink }}" width="150" height="150" alt="{{ $alt }}" loading="lazy" style="display:block;border-radius:10px;margin:0">
     {{- end -}}
   </div>
   <div style="flex:1 1 18rem;min-width:0">
