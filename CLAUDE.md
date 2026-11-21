@@ -72,7 +72,7 @@ tags = ['SMB', '文件共享']
 2. **改标题或 tags 后不重生成封面**：封面是图片，不会跟着 frontmatter 变
 3. **dev server 缓存不自动重建**：新增文章、新建 series、加 tag 后列表页可能显示旧数据，日志干净无警告。先 `hugo --minify -d $TEMP/hugo-check` 静态构建对比；静态正常就是缓存，重启 server，别在内容上找问题
 4. 中文标签在 HTML 里是 URL 编码，grep 中文会误判「没显示」；`hugo --minify` 输出属性不带引号
-5. **英文撐号后面看着多一个空格**：Hugo 的 typographer 会把 `'` 转成彎撐号 `’`（U+2019），而中文字体（Noto Serif SC）把它按**全角标点**排版，多出约一个字宽（实测 40px 字号下 `isn’t` 113px vs `isn't` 81px）。已在 `config/_default/markup.toml` 里设 `[goldmark.extensions.typographer] apostrophe = "'"` 保持直引号。注意 `…`（U+2026）也是全角，但行尾无害
+5. **英文撇号后面看着多一个空格**：Hugo 的 typographer 会把 `'` 转成弯撇号 `’`（U+2019），而中文字体（Noto Serif SC）把它按**全角标点**排版，多出约一个字宽（实测 40px 字号下 `isn’t` 113px vs `isn't` 81px）。已在 `config/_default/markup.toml` 里设 `[goldmark.extensions.typographer] apostrophe = "'"` 保持直引号。注意 `…`（U+2026）也是全角，但行尾无害
 
 ## 公众号转载
 
@@ -131,6 +131,17 @@ tags = ['SMB', '文件共享']
    ```
    `::before` 不是任何被复制元素的祖先，传播不过去。**以后给页面加底/改主题色，不要再写回 `body` 或 `html`。**
    自检（Chrome 开发者工具控制台）：`html / body / main / article` 的 `background-color` 应全部为 `rgba(0,0,0,0)`。
+
+## 小红书卡片图
+
+`cards/<分类-slug>/` 存各文的 3:4 卡片图（1080×1440）+ `caption.txt` 文案，由
+`python scripts/export-cards.py --post <分类/slug>` 生成，参数与依赖见 `cards/README.md`。
+
+- 数据源分两种模式：`--mode quote`（默认）读正文的 `{{< quotecard >}}` 块；`--mode prose` 按 `##` 分节出要点卡/观点卡，每个 `{{< figure >}}` 单独出图卡
+- 输出**不要**写进 `public/`（被 .gitignore 忽略），直接落 `cards/`；卡片是产物，不手改
+- 改版式就改 `scripts/export-cards.py` 里的 `CSS` 常量，然后重跑一遍
+- 文案要卡小红书限制：标题 ≤20 字、正文 ≤1000 字符、图 3:4 竖版、**不支持表格**
+- 英文撇号必须用直引号 `'`：弯撇号在衬线体里按全角排，会显示成 `It’ s`
 
 ## 部署
 
