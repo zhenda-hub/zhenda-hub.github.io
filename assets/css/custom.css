@@ -429,7 +429,7 @@ html.dark .zd-btn--ghost:hover {
 .sec-head__en {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -438,7 +438,7 @@ html.dark .zd-btn--ghost:hover {
 .sec-head__cn {
   font-family: var(--font-serif);
   font-weight: 800;
-  font-size: 1.65rem;
+  font-size: 1.3rem;
   color: var(--ink);
 }
 html.dark .sec-head__cn {
@@ -459,6 +459,15 @@ html.dark .sec-head__cn {
   letter-spacing: 0.12em;
   color: rgb(var(--color-neutral-400));
   transition: color 0.2s;
+}
+/* 窄屏：RECENT + 最近更新 + 查看全部 挤不下一根装饰线，直接去掉线，其余不换行 */
+@media (max-width: 560px) {
+  .sec-head { flex-wrap: nowrap; gap: 0.55rem; }
+  .sec-head__left { flex: 0 1 auto; min-width: 0; gap: 0.5rem; }
+  .sec-head__en { font-size: 0.8rem; letter-spacing: 0.2em; white-space: nowrap; }
+  .sec-head__cn { font-size: 1.22rem; white-space: nowrap; }
+  .sec-head__line { display: none; }
+  .sec-head__more { flex: 0 0 auto; white-space: nowrap; font-size: 0.78rem; }
 }
 .sec-head__more:hover {
   color: var(--gold-strong);
