@@ -5,11 +5,19 @@ Hugo + blowfish，部署 GitHub Pages。定制全在项目根的 `layouts/` / `a
 ## 命令
 
 ```bash
-hugo server -D                          # 本地预览（含草稿），localhost:1313
+hugo server -D --port 8080              # 本地预览（含草稿）→ http://localhost:8080
 hugo --minify                           # 生产构建 → public/
 bash hugo-config-check.sh               # 配置自检
 git submodule update --init --recursive # 新克隆后必须
 ```
+
+**预览一律用 `hugo server`。**禁止用 `python -m http.server` / `npx serve` 之类静态目录服务预览：
+
+- 它只读 `public/`，改了 CSS/模板/正文不会重建，看到的可能是旧页面
+- 它不认草稿与未来日期，调试时容易误判
+- 多开一个服务还会和 hugo server 互抢端口、造成“改了没生效”的错觉
+
+**端口别用 1313。**Windows 的 `winnat`（Hyper-V / WSL / Docker）会把 1064–1563 整段列入端口排除范围，`bind` 直接报 `errno 13`。固定用 **8080**；如果哪天也占用失败，用 `netsh interface ipv4 show excludedportrange protocol=tcp` 查一下当前排除段再换。
 
 ## 结构
 
