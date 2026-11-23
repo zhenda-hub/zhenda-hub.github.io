@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>lan cards</title>
+<style>
+@import url("https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-serif-sc@5.2.6/index.css");
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#dcdcdc; }
+.card { width:1080px; height:1440px; background:#e7e3d7; border:3px solid #cfcab8; position:relative; overflow:hidden;
+        display:flex; flex-direction:column; padding:64px 84px 56px;
+        font-family:"Noto Serif SC Variable","Songti SC","SimSun",serif; color:#20241c; }
+.card + .card { margin-top:40px; }
+.top { display:flex; justify-content:space-between; align-items:baseline;
+       font-size:26px; color:#8b917a; letter-spacing:.16em; }
+.top .pg { font-family:Georgia,serif; }
+.kicker { margin-top:6px; font-size:34px; color:#6f7d55; letter-spacing:.18em; }
+
+h2 { margin-top:64px; font-size:96px; line-height:1.28; font-weight:700; }
+h2 small { display:block; margin-top:18px; font-size:38px; font-weight:400; color:#5a6049; }
+
+.rule { width:120px; height:3px; background:#6f7d55; margin:38px 0 46px; }
+
+/* 双数对照 */
+.two { display:flex; align-items:flex-end; gap:0; margin-top:20px; }
+.two > div { flex:1; }
+.two .sep { flex:0 0 1px; background:#e2d9c8; height:150px; margin:0 40px; align-self:center; }
+/* 数字只有两档：单数字 190px，并排对比 132px */
+/* 数字用等高数字（lining figures）：Georgia 默认是 old-style，0/6 高度不同 */
+.num { font-family:"Noto Serif SC Variable","Songti SC",Georgia,serif; font-size:190px;
+       line-height:1; letter-spacing:-.02em; font-variant-numeric:lining-nums;
+       font-feature-settings:"lnum" 1; }
+.two .num { font-size:132px; }
+.unit { font-size:36px; color:#5a6049; margin-top:14px; }
+.cap  { font-size:32px; color:#7d8471; margin-top:10px; letter-spacing:.06em; }
+.good { color:#415c34; }
+.bad  { color:#96442f; }
+.gray { color:#7d8471; }
+
+/* 单个大数字 */
+.big { display:flex; align-items:baseline; gap:18px; }
+
+/* 要点列表 */
+.list { display:flex; flex-direction:column; gap:34px; }
+.item { display:flex; gap:24px; align-items:baseline; }
+.item .no { font-family:Georgia,serif; font-size:34px; color:#6f7d55; min-width:44px; }
+.item .tx { font-size:40px; line-height:1.6; color:#414a3a; }
+.item .tx b { color:#20241c; }
+
+.body { flex:1; display:flex; flex-direction:column; justify-content:center; }
+.note { margin-top:56px; font-size:36px; line-height:1.7; color:#4c5344; }
+.note b { color:#20241c; }
+.foot { margin-top:28px; padding-top:22px; border-top:1px solid #cfcab8;
+        display:flex; justify-content:space-between; font-family:Georgia,serif;
+        font-size:24px; letter-spacing:.14em; color:#8b917a; }
+
+/* 封面 */
+.cover { padding:0; }
+.cover .hero { padding:10px 0 0; display:flex; justify-content:center; }
+.cover .title { padding:0 84px; font-size:132px; line-height:1.24; font-weight:700; color:#20241c; }
+.cover .title .xl { font-size:200px; }
+.cover .sub { display:flex; gap:22px; padding:40px 84px 0; }
+.cover .sub__bar { width:4px; background:#6f7d55; flex:0 0 4px; }
+.cover .sub__tx { font-size:36px; line-height:1.66; color:#4c5344; }
+.cover .sub__tx b { color:#20241c; }
+.cover .foot { margin:auto 84px 0; border:0; padding:0 0 52px; }
+</style></head>
+<body>
+
+<!-- 01 封面 -->
+<section class="card cover">
+  <div class="hero">
+    <svg width="980" height="660" viewBox="0 0 980 700" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="490" cy="430" rx="430" ry="215" fill="#ddd7c1"/>
+      <g stroke="#4a5344" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+        <rect x="150" y="250" width="300" height="196" rx="12" fill="#c3c8b4"/>
+        <rect x="176" y="276" width="248" height="144" rx="6" fill="#ffffff"/>
+        <path d="M120 446 h360 l26 46 h-412 z" fill="#c3c8b4"/>
+        <rect x="200" y="330" width="200" height="18" rx="9" fill="#d5d2c0"/>
+        <rect x="200" y="330" width="34" height="18" rx="9" fill="#c98a4b"/>
+        <text x="200" y="392" font-family="Georgia,serif" font-size="30" fill="#5a6049" stroke="none">600 KB/s</text>
+      </g>
+      <g stroke="#4a5344" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M700 330 l-34 -96"/><path d="M770 322 v-104"/><path d="M840 330 l34 -96"/>
+        <rect x="676" y="330" width="188" height="86" rx="14" fill="#c3c8b4"/>
+        <circle cx="712" cy="374" r="7" fill="#46586b"/><circle cx="742" cy="374" r="7" fill="#46586b"/>
+        <circle cx="772" cy="374" r="7" fill="#f5a65b" stroke="none"/>
+        <circle cx="690" cy="270" r="9" fill="#f5a65b" stroke="none"/>
+        <circle cx="770" cy="252" r="9" fill="#f5a65b" stroke="none"/>
+        <circle cx="852" cy="270" r="9" fill="#f5a65b" stroke="none"/>
+      </g>
+      <g stroke="#8b917a" stroke-width="6" fill="none" stroke-linecap="round">
+        <path d="M726 246 q44 -34 88 0"/><path d="M744 214 q26 -20 52 0"/>
+      </g>
+      <g stroke="#a8a892" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="14 12">
+        <path d="M470 400 h150"/>
+      </g>
+      <g stroke="#e07a4f" stroke-width="7" stroke-linecap="round"><path d="M500 372 v58"/></g>
+      <circle cx="862" cy="452" r="54" fill="#415c34"/>
+      <text x="862" y="466" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#ffffff">3.7</text>
+    </svg>
+  </div>
+  <div class="title">局域网提速<br><span class="xl">6 倍</span></div>
+  <div class="sub"><div class="sub__bar"></div><div class="sub__tx">同一个 Wi-Fi，电脑 0.6 MB/s、手机 8 MB/s。<br>卡在 <b>网卡插口、信道、摆放位置</b>。</div></div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>01 / 12</span></div>
+</section>
+
+<!-- 02 症状 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 症状</span><span class="pg">02</span></div>
+<div class="body">
+  <h2>同一个 Wi-Fi<br>两台设备差 13 倍</h2>
+  <div class="rule"></div>
+  <div class="two">
+    <div><div class="num bad">0.6</div><div class="unit">MB/s · 电脑</div><div class="cap">12 GB 要 5.7 小时</div></div>
+    <div class="sep"></div>
+    <div><div class="num good">8</div><div class="unit">MB/s · 同一部手机</div><div class="cap">同一个文件</div></div>
+  </div>
+  <div class="note">不是宽带不够，是<b>某个环节在拖后腿</b>。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>02 / 12</span></div>
+
+</section>
+
+<!-- 03 排除软件 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 排除</span><span class="pg">03</span></div>
+<div class="body">
+  <h2>三套实现<br>卡在同一个数</h2>
+  <div class="rule"></div>
+  <div class="list">
+    <div class="item"><div class="no">01</div><div class="tx">Python 标准库 <b>http.server</b></div></div>
+    <div class="item"><div class="no">02</div><div class="tx"><b>rangehttpserver</b> · pip 补丁包</div></div>
+    <div class="item"><div class="no">03</div><div class="tx"><b>npx http-server</b> · Node</div></div>
+  </div>
+  <div class="note">不同语言、不同 I/O 模型，<b>全都卡在 600 KB/s</b>。<br>上限在软件之外。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>03 / 12</span></div>
+
+</section>
+
+<!-- 04 摘掉应用层 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 排除</span><span class="pg">04</span></div>
+<div class="body">
+  <h2>把应用层<br>整个摘掉</h2>
+  <div class="rule"></div>
+  <div class="big"><div class="num bad">1</div><div class="unit">MB/s</div></div>
+  <div class="note">40 行裸 TCP，不解析 HTTP、不发响应头、不读文件。<br><b>还是这个数。</b></div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>04 / 12</span></div>
+
+</section>
+
+<!-- 05 本机 vs 跨机 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 定位</span><span class="pg">05</span></div>
+<div class="body">
+  <h2>同一份代码<br>差一千倍</h2>
+  <div class="rule"></div>
+  <div class="two">
+    <div><div class="num good">1255</div><div class="unit">MB/s · 本机回环</div></div>
+    <div class="sep"></div>
+    <div><div class="num bad">0.93</div><div class="unit">MB/s · 跨机</div></div>
+  </div>
+  <div class="note">差异只可能来自<b>中间那段路</b>——网络，或客户端。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>05 / 12</span></div>
+
+</section>
+
+<!-- 06 修法1 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 修法 ①</span><span class="pg">06</span></div>
+<div class="body">
+  <h2>网卡换口<br>2.0 → 3.0</h2>
+  <div class="rule"></div>
+  <div class="big"><div class="num">1.74</div><div class="unit">MB/s</div></div>
+  <div class="note">USB 无线网卡原来插在黑色口（USB 2.0，480 Mbps 总线），<br>换到蓝色口（USB 3.0）后从 <b>1.09 涨到 1.74</b>。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>06 / 12</span></div>
+
+</section>
+
+<!-- 07 修法2 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 修法 ②</span><span class="pg">07</span></div>
+<div class="body">
+  <h2>信道 40<br>改手动 149</h2>
+  <div class="rule"></div>
+  <div class="two">
+    <div><div class="num gray">288</div><div class="unit">Mbps · 改前</div></div>
+    <div class="sep"></div>
+    <div><div class="num good">432</div><div class="unit">Mbps · 改后</div></div>
+  </div>
+  <div class="note">邻居 AP 压在信道 44、信号 51%。<br>同频共存只能<b>抢时隙、每帧重传</b>。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>07 / 12</span></div>
+
+</section>
+
+<!-- 08 修法3 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 修法 ③</span><span class="pg">08</span></div>
+<div class="body">
+  <h2>笔记本挪近<br>位置最有效</h2>
+  <div class="rule"></div>
+  <div class="two">
+    <div><div class="num gray">216</div><div class="unit">Mbps · 挪前</div></div>
+    <div class="sep"></div>
+    <div><div class="num good">1201</div><div class="unit">Mbps · 挪后</div></div>
+  </div>
+  <div class="note">信号 60% → <b>89%</b>。信号一好，AP 才肯给 80MHz 宽频宽。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>08 / 12</span></div>
+
+</section>
+
+<!-- 09 失败尝试 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 无效</span><span class="pg">09</span></div>
+<div class="body">
+  <h2>关省电、关漫游<br>一点用没有</h2>
+  <div class="rule"></div>
+  <div class="big"><div class="num gray">0</div><div class="unit">变化</div></div>
+  <div class="note">速度是周期性一顿一顿，看着像省电休眠。<br><b>方向错了</b>，免得下次再走一遍。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>09 / 12</span></div>
+
+</section>
+
+<!-- 10 结果 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 结果</span><span class="pg">10</span></div>
+<div class="body">
+  <h2>12 GB<br>5.7 小时 → 55 分钟</h2>
+  <div class="rule"></div>
+  <div class="two">
+    <div><div class="num">0.6</div><div class="cap">MB/s · 起点</div></div>
+    <div class="sep"></div>
+    <div><div class="num good">3.7</div><div class="cap">MB/s · 终点</div></div>
+  </div>
+  <div class="note">上行也一起改善：1.32 → <b>4.58 MB/s</b>。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>10 / 12</span></div>
+
+</section>
+
+<!-- 11 经验1 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 经验 ①</span><span class="pg">11</span></div>
+<div class="body">
+  <h2>先证明<br>是谁的锅</h2>
+  <div class="rule"></div>
+  <div class="note" style="margin-top:20px">本机 1255 MB/s、跨机 0.93 MB/s，<br><b>一个对照就把软件排除了</b>，<br>比分析一百个参数都快。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>11 / 12</span></div>
+
+</section>
+
+<!-- 12 经验2 -->
+<section class="card">
+  <div class="top"><span>局域网提速 · 经验 ②</span><span class="pg">12</span></div>
+<div class="body">
+  <h2>Wi-Fi 只有<br>三个变量值钱</h2>
+  <div class="rule"></div>
+  <div class="list">
+    <div class="item"><div class="no">01</div><div class="tx"><b>信道</b> —— 挑一个干净的</div></div>
+    <div class="item"><div class="no">02</div><div class="tx"><b>频宽</b> —— 信号好才给 80MHz</div></div>
+    <div class="item"><div class="no">03</div><div class="tx"><b>位置</b> —— 离 AP 近一点</div></div>
+  </div>
+  <div class="note">搬大文件别用 HTTP，用 <b>SMB + robocopy</b>；<br>真要快，直接插网线。</div>
+</div>
+  <div class="foot"><span>STARMAP &amp; DUST</span><span>12 / 12</span></div>
+
+</section>
+
+</body></html>
