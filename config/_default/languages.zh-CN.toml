@@ -45,6 +45,9 @@ title = "星图与尘埃 · Starmap & Dust"
       bilibili = "https://space.bilibili.com/361115341"
 
     [[params.author.links]]
+      weibo = "https://weibo.com/u/5579052651"
+
+    [[params.author.links]]
       sep = "2"
 
     # ---- 3. 代码 / 订阅 ----
